@@ -1,0 +1,141 @@
+"DOTAAbilities"
+{
+	"npc_dota_hero_skywrath_mage_str6"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/hpr"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}	
+	"npc_dota_hero_skywrath_mage_str7"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/hp"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_str8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/armor"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_str9"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_str10"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_str11"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/spell_lifesteal"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi6"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi7"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/dmg"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi8"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi9"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/split"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi10"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/shot_chance"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi11"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/bonus_dmg"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+//==	
+	"npc_dota_hero_skywrath_mage_int6"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int7"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int8"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int9"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int10"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/cooldown"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int11"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+
+	//last
+	"npc_dota_hero_skywrath_mage_str_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_agi_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_skywrath_mage_int_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+}

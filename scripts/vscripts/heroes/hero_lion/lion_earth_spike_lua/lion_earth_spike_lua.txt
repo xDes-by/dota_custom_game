@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	"lion_earth_spike_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_lion/lion_earth_spike_lua/lion_earth_spike_lua"
+		"AbilityTextureName"			"lion_impale"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityCooldown"				"10.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"width"				"125"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"length_buffer"		"725"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1600"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"80 120 160 200 240 280 320 360 400 440 480 520 560 600 640"
+			}
+		}
+	}
+}

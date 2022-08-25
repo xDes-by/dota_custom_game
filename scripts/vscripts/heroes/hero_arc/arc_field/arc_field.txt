@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{	
+	"arc_warden_magnetic_field_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_arc/arc_field/arc_field"
+		"AbilityTextureName"			"arc_warden_magnetic_field"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityCooldown"				"20"
+
+		"AbilityCastRange"				"900"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus"		"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"evasion_chance"			"100"
+			}
+		}
+	}
+}

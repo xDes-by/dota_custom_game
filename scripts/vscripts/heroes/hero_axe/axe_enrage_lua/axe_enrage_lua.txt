@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+	"axe_enrage_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_axe/axe_enrage_lua/axe_enrage_lua"
+		"AbilityTextureName"			"axe"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCooldown"				"76 72 68 64 60 56 52 48 44 40"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduction"			"30 35 40 45 50 55 60 65 70 75"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_str"					"5 10 15 20 25 30 35 40 45 50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"5"
+				"LinkedSpecialBonus"		"npc_dota_hero_axe_str8"
+			}	
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_str_tool"			"10 20 30 40 50 60 70 80 90 100"
+			}
+		}
+	}
+}

@@ -1,0 +1,2732 @@
+"quests"
+{
+	"main"
+	{
+		"1"
+		{
+			"UnitName"	"npc_1"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"2100"
+					"max"		"2650"
+				}
+				"gold"
+				{
+					"min"		"1700"
+					"max"		"2300"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_4"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-3456"
+							"y"		"-7936"
+						}
+						"2"
+						{
+							"x"		"422"
+							"y"		"-7150"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"10"
+								"max"	"15"
+								"TextName"		"quest_forest_woolfs"
+								"Desc"			"quest_forest_woolfs_desc"
+								"1"				"forest_creep_mini_2"
+								"2"				"forest_creep_big_2"
+							}
+							"2"
+							{
+								"min"			"10"
+								"max"			"15"
+								"TextName"		"quest_forest_beers"
+								"Desc"			"quest_forest_beers_desc"
+								"1" 			"forest_creep_big_1"
+								"2" 			"forest_creep_mini_1"
+							}
+							"3"
+							{
+								"min"			"10"
+								"max"			"15"
+								"TextName"		"quest_forest_trolls"
+								"Desc"			"quest_forest_trolls_desc"
+								"1" 			"forest_creep_big_3"
+								"2"				"forest_creep_mini_3"
+							}
+							"4"
+							{
+								"min"			"15"
+								"max"   		"30"
+								"TextName"		"quest_forest_any_creeps"
+								"Desc"			"quest_forest_any_creeps_desc"
+								"1" 			"forest_creep_big_1"
+								"2" 			"forest_creep_mini_1"
+								"3" 			"forest_creep_mini_2"
+								"4" 			"forest_creep_big_2"
+								"5" 			"forest_creep_big_3"
+								"6" 			"forest_creep_mini_3"
+							}
+						}
+					}
+					"giveItem"
+					{
+						"quantity"		"2"
+						"DotaName"		"item_tango"
+						"TextName"		"item_tango"
+					}
+				}
+			}
+		}
+		"2"
+		{
+			"UnitName"	"npc_4"
+			"unlock"
+			{
+				"1"
+				{
+					"type"						"bonus"
+					"number"					"3"
+				}
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"3300"
+					"max"		"4050"
+				}
+				"gold"
+				{
+					"min"		"3100"
+					"max"		"3900"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-3456"
+							"y"		"-7936"
+						}
+						"2"
+						{
+							"x"		"422"
+							"y"		"-7150"
+						}
+					}
+					"UnitName"	"npc_5"
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"TextName"	"quest_blue_stone"
+								"DotaName"	"item_quest_blue_stone"
+								"Desc"		"quest_blue_stone_desc"
+								"min"		"5"
+								"max"		"5"
+							}
+						}
+					}
+				}
+			}
+		}
+		"3"
+		{
+			"UnitName"	"npc_5"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"5000"
+					"max"		"5000"
+				}
+				"gold"
+				{
+					"min"		"5000"
+					"max"		"5000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"4"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_3"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"3195"
+							"y"		"-10944"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"1"
+								"max"   		"1"
+								"TextName"		"quest_furion"
+								"Desc"			"quest_furion_desc"
+								"1" 			"npc_forest_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 2 локация
+		"4"
+		{
+			"UnitName"	"npc_3"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"4750"
+					"max"		"6050"
+				}
+				"gold"
+				{
+					"min"		"4750"
+					"max"		"6050"
+				}
+			}
+			"unlock"
+			{
+				"1"
+				{
+					"type"						"bonus"
+					"number"					"4"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_9"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"8854"
+							"y"		"-10816"
+						}
+						"2"
+						{
+							"x"		"10630"
+							"y"		"-9401"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"25"
+								"max"   "35"
+								"TextName"		"quest_village_creep_1"
+								"Desc"			"quest_village_creep_1_des"
+								"1" 			"village_creep_1"
+							}
+							"2"
+							{
+								"min"	"25"
+								"max"   "35"
+								"TextName"		"quest_village_creep_2"
+								"Desc"			"quest_village_creep_2_des"
+								"1" 			"village_creep_2"
+							}
+							"3"
+							{
+								"min"	"25"
+								"max"   "35"
+								"TextName"		"quest_village_creep_3"
+								"Desc"			"quest_village_creep_3_des"
+								"1" 			"village_creep_3"
+							}
+							"4"
+							{
+								"min"	"50"
+								"max"   "60"
+								"TextName"		"quest_village_creep_4"
+								"Desc"			"quest_village_creep_4_des"
+								"1" 			"village_creep_1"
+								"2" 			"village_creep_2"
+								"3" 			"village_creep_3"
+							}
+						}
+					}
+				}
+			}
+		}
+		"5"
+		{
+			"UnitName"	"npc_9"
+			// "unlock"
+			// {
+			// 	"1"
+			// 	{
+			// 		"type"	"bonus"
+			// 		"number"	"5"
+			// 	}
+			// }
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"5250"
+					"max"		"6750"
+				}
+				"gold"
+				{
+					"min"		"5250"
+					"max"		"6750"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"8"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_10"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"10730"
+							"y"		"-8288"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"1"
+								"max"   		"1"
+								"TextName"		"quest_pudge"
+								"Desc"			"quest_pudge_desc"
+								"1" 			"npc_village_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 3 локация
+		"6"
+		{
+			"UnitName"	"npc_10"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"6666"
+					"max"		"9333"
+				}
+				"gold"
+				{
+					"min"		"6666"
+					"max"		"9333"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_13"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"6528"
+							"y"		"-4480"
+						}
+						"2"
+						{
+							"x"		"9190"
+							"y"		"-5116"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"				"25"
+								"max" 				"40"
+								"TextName"			"quest_mines_creep_1"
+								"Desc"				"quest_mines_creep_1_desc"
+								"1" 				"mines_creep_1"
+							}
+							"2"
+							{
+								"min"	"25"
+								"max"   "40"
+								"TextName"			"quest_mines_creep_2"
+								"Desc"				"quest_mines_creep_2_desc"
+								"1" 	"mines_creep_2"
+							}
+							"3"
+							{
+								"min"	"15"
+								"max"   "30"
+								"TextName"			"quest_mines_creep_3"
+								"Desc"				"quest_mines_creep_3_desc"
+								"1" 	"mines_creep_3"
+							}
+							"4"
+							{
+								"min"	"30"
+								"max"   "60"
+								"TextName"			"quest_mines_creep_4"
+								"Desc"				"quest_mines_creep_4_desc"
+								"1" 	"mines_creep_1"
+								"2" 	"mines_creep_2"
+								"3" 	"mines_creep_3"
+							}
+						}
+					}
+				}
+			}
+		}
+		"7"
+		{
+			"UnitName"	"npc_13"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"7000"
+					"max"		"10000"
+				}
+				"gold"
+				{
+					"min"		"7000"
+					"max"		"10000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"				"npc_13"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"4736"
+							"y"		"-5483"
+						}
+						"2"
+						{
+							"x"		"5824"
+							"y"		"-6720"
+						}
+						"3"
+						{
+							"x"		"6528"
+							"y"		"-4480"
+						}
+						"4"
+						{
+							"x"		"7549"
+							"y"		"-4544"
+						}
+						"5"
+						{
+							"x"		"8383"
+							"y"		"-3332"
+						}
+						"6"
+						{
+							"x"		"9443"
+							"y"		"-3724"
+						}
+						"7"
+						{
+							"x"		"11200"
+							"y"		"-5120"
+						}
+					}
+					"custom"
+					{
+						"min"				"1"
+						"max" 				"1"
+						"TextName"			"quest_mines_lina"
+						"Desc"				"quest_mines_lina_desc"
+					}
+				}
+			}
+		}
+		"8"
+		{
+			"UnitName"	"npc_13"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"9000"
+					"max"		"15000"
+				}
+				"gold"
+				{
+					"min"		"9000"
+					"max"		"15000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"12"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"				"npc_14"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"6412"
+							"y"		"-1058"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"TextName"	""
+						"units"
+						{
+							"1"
+							{
+								"min"				"1"
+								"max" 				"1"
+								"TextName"			"quest_mines_boss"
+								"Desc"				"quest_mines_boss_desc"
+								"1" 				"npc_mines_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 4 локация
+		"9"
+		{
+			"UnitName"	"npc_14"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"15000"
+					"max"		"20000"
+				}
+				"gold"
+				{
+					"min"		"15000"
+					"max"		"20000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_15"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-9556"
+							"y"		"-9559"
+						}
+						"2"
+						{
+							"x"		"-7617"
+							"y"		"-10727"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"15"
+								"max"   "30"
+								"TextName"			"quest_dust_creep_1"
+								"Desc"				"quest_dust_creep_1_desc"
+								"1" 	"dust_creep_1"
+								"2" 	"dust_creep_2"
+							}
+							"2"
+							{
+								"min"	"45"
+								"max"   "65"
+								"TextName"			"quest_dust_creep_2"
+								"Desc"				"quest_dust_creep_2_desc"
+								"1" 	"dust_creep_3"
+								"2" 	"dust_creep_4"
+							}
+							"3"
+							{
+								"min"	"35"
+								"max"   "55"
+								"TextName"			"quest_dust_creep_3"
+								"Desc"				"quest_dust_creep_3_desc"
+								"1" 	"dust_creep_5"
+								"2" 	"dust_creep_6"
+							}
+							"4"
+							{
+								"min"	"60"
+								"max"   "100"
+								"TextName"			"quest_dust_creep_any"
+								"Desc"				"quest_dust_creep_any_desc"
+								"1" 	"dust_creep_1"
+								"2" 	"dust_creep_2"
+								"3" 	"dust_creep_3"
+								"4" 	"dust_creep_4"
+								"5" 	"dust_creep_5"
+								"6" 	"dust_creep_6"
+							}
+						}
+					}
+				}
+			}
+		}
+		"10"
+		{
+			"UnitName"	"npc_15"
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"21"
+				}
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"20000"
+					"max"	"30000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"16"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_16"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-5682"
+							"y"		"-10970"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"				"1"
+								"max" 				"1"
+								"TextName"			"quest_dust_boss"
+								"Desc"				"quest_dust_boss_desc"
+								"1" 				"npc_dust_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 5 локация
+		"11"
+		{
+			"UnitName"	"npc_16"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"20000"
+					"max"	"26500"
+				}
+				"gold"
+				{
+					"min"	"20000"
+					"max"	"26500"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"20"
+					}
+				}
+			}
+			"tasks"
+			{
+				
+				"1"
+				{
+					"UnitName"	"npc_19"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"2230"
+							"y"	"-3346"
+						}
+						"2"
+						{
+							"x"	"2111"
+							"y"	"-1004"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"50"
+								"max"	"70"
+								"TextName"	"quest_cemetery_1"
+								"Desc"	"quest_cemetery_1_desc"
+								"1"	"cemetery_creep_1"
+								"2"	"cemetery_creep_2"
+							}
+							"2"
+							{
+								"min"	"50"
+								"max"	"70"
+								"TextName"	"quest_cemetery_2"
+								"Desc"	"quest_cemetery_2_desc"
+								"1"	"cemetery_creep_3"
+								"2"	"cemetery_creep_4"
+							}
+							"3"
+							{
+								"min"	"80"
+								"max"	"100"
+								"TextName"	"quest_cemetery_any"
+								"Desc"	"quest_cemetery_any_desc"
+								"1"	"cemetery_creep_1"
+								"2"	"cemetery_creep_2"
+								"3"	"cemetery_creep_3"
+								"4"	"cemetery_creep_4"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 6 локация
+		"12"
+		{
+			"UnitName"	"npc_19"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"25000"
+					"max"	"30000"
+				}
+				"gold"
+				{
+					"min"	"25000"
+					"max"	"30000"
+				}
+			}
+			"tasks"
+			{
+				
+				"1"
+				{
+					"UnitName"	"npc_25"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"-5269"
+							"y"	"1169"
+						}
+						"2"
+						{
+							"x"	"-4464"
+							"y"	"-4771"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"50"
+								"max"	"85"
+								"TextName"	"quest_swamp_creep_1"
+								"Desc"	"quest_swamp_creep_1_desc"
+								"1"	"swamp_creep_1"
+								"2"	"swamp_creep_2"
+							}
+							"2"
+							{
+								"min"	"50"
+								"max"	"85"
+								"TextName"	"quest_swamp_creep_3"
+								"Desc"	"quest_swamp_creep_3_desc"
+								"1"	"swamp_creep_3"
+								"2"	"swamp_creep_4"
+							}
+						}
+					}
+				}
+			}
+		}
+		"13"
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"22"
+				}
+			}
+			"UnitName"	"npc_25"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"gold"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"24"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_27"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"-10644"
+							"y"	"-6247"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1"
+								"max"	"1"
+								"TextName"	"quest_swamp_boss"
+								"Desc"	"quest_swamp_boss_desc"
+								"1"		"npc_swamp_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 7 локация
+		"14"
+		{
+			"UnitName"	"npc_27"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"25000"
+					"max"	"30000"
+				}
+				"gold"
+				{
+					"min"	"35000"
+					"max"	"40000"
+				}
+			}
+			"tasks"
+			{
+				
+				"1"
+				{
+					"UnitName"	"npc_29"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"10025"
+							"y"	"-2076"
+						}
+						"2"
+						{
+							"x"	"8707"
+							"y"	"850"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"100"
+								"max"	"120"
+								"TextName"	"quest_snow_creep_1"
+								"Desc"	"quest_snow_creep_desc"
+								"1"	"snow_creep_1"
+								"2"	"snow_creep_2"
+								"3"	"snow_creep_3"
+								"4"	"snow_creep_4"
+							}
+						}
+					}
+				}
+			}
+		}
+		"15"
+		{
+			"UnitName"	"npc_29"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"gold"
+				{
+					"min"	"40000"
+					"max"	"45000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"28"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_30"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"11212"
+							"y"	"3078"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1"
+								"max"	"1"
+								"TextName"	"npc_snow_boss"
+								"Desc"	"quest_snow_boss_desc"
+								"1"		"npc_snow_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 8 локация
+		"16"
+		{
+			"UnitName"	"npc_30"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"25000"
+					"max"	"30000"
+				}
+				"gold"
+				{
+					"min"	"35000"
+					"max"	"40000"
+				}
+			}
+			"tasks"
+			{
+				
+				"1"
+				{
+					"UnitName"	"npc_31"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"10594"
+							"y"	"6902"
+						}
+						"2"
+						{
+							"x"	"6721"
+							"y"	"5673"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"100"
+								"max"	"120"
+								"TextName"	"quest_last_creep_1"
+								"Desc"	"quest_last_creep_desc"
+								"1"	"last_creep_1"
+								"2"	"last_creep_2"
+								"3"	"last_creep_3"
+								"4"	"last_creep_4"
+							}
+						}
+					}
+				}
+			}
+		}
+		"17"
+		{
+			"UnitName"	"npc_31"
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"6"
+				}
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"gold"
+				{
+					"min"	"40000"
+					"max"	"45000"
+				}
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"item_gold_brus"
+						"DotaName"	"item_gold_brus"
+						"quantity"	"32"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_32"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"2466"
+							"y"	"5416"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1"
+								"max"	"1"
+								"TextName"	"npc_boss_location8"
+								"Desc"	"quest_location8_boss_desc"
+								"1"		"npc_boss_location8"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+// BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
+// BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS
+// BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
+// BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
+
+	"bonus"
+	{
+		// подбор рун
+		"1"
+		{
+			"options"
+			{
+				"available"				"1"
+			}
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"2"
+				}
+				"2"
+				{
+					"type"	"main"
+					"number"	"9"
+				}
+			}
+			"UnitName"	"npc_4"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+				"gold"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_4"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-3456"
+							"y"		"-7938"
+						}
+					}
+					"custom"
+					{
+						"min"				"1"
+						"max" 				"2"
+						"TextName"			"quest_get_rune"
+						"Desc"				"quest_get_rune_desc"
+					}
+				}
+			}
+		}
+		// 2000 любых крипов
+		"2"
+		{
+			"UnitName"	"npc_4"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"20000"
+					"max"		"20000"
+				}
+				"gold"
+				{
+					"min"		"40000"
+					"max"		"40000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_4"
+					
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"2000"
+								"max"	"2000"
+								"TextName"	"quest_tank_any_creep"
+								"Desc"	"quest_tank_any_creep_desc"
+								"1"		"any_creep"
+							}
+						}
+					}
+					
+				}
+			}
+		}
+		// убить белку
+		"3"
+		{
+			"UnitName"	"npc_5"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+				"gold"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_5"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-3456"
+							"y"		"-7936"
+						}
+						"2"
+						{
+							"x"		"422"
+							"y"		"-7150"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"1"
+								"max"   		"1"
+								"TextName"		"quest_village_belka"
+								"Desc"			"quest_village_belka_desc"
+								"1" 			"belka"
+							}
+						}
+					}
+				}
+			}
+		}
+		// овца
+		"4"
+		{
+			"UnitName"	"npc_9"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"3000"
+					"max"	"5000"
+				}
+				"gold"
+				{
+					"min"	"3000"
+					"max"	"5000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_9"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"6300"
+							"y"		"-8000"
+						}
+						"2"
+						{
+							"x"		"8800"
+							"y"		"-8800"
+						}
+						"2"
+						{
+							"x"		"7400"
+							"y"		"-10000"
+						}
+					}
+					"custom"
+					{
+						"TextName"	"quest_village_sheep_1"
+						"Desc"		"quest_village_sheep_1_desc"
+						"min"		"1"
+						"max"		"1"
+					}
+				}
+			}
+		}
+		"5"
+		{
+			"UnitName"	"npc_3"
+			"options"
+			{
+				"renewable" "0"
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"3000"
+					"max"		"5000"
+				}
+				"gold"
+				{
+					"min"		"3000"
+					"max"		"5000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_3"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"900"
+							"y"		"-5200"
+						}
+					}
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"TextName"	"quest_furion_item"
+								"DotaName"	"item_quest_furion_item"
+								"Desc"		"quest_furion_item_desc"
+								"min"		"1"
+								"max"		"1"
+							}	
+						}
+					}
+				}
+			}
+		}
+		// ласт лока 1000 драконов
+		"6"
+		{
+			"UnitName"	"npc_32"
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"7"
+				}
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"99999"
+					"max"	"99999"
+				}
+				"gold"
+				{
+					"min"	"99999"
+					"max"	"99999"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_33"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"-5269"
+							"y"	"-1169"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1000"
+								"max"	"1000"
+								"TextName"	"quest_npc_boss_location8"
+								"Desc"	"quest_location8_boss_desc"
+								"1"		"npc_boss_location8"
+							}
+						}
+					}
+				}
+			}
+		}
+		// ласт лока 1000 драконов обновляемый
+		"7"
+		{
+			"UnitName"	"npc_33"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"99999"
+					"max"	"99999"
+				}
+				"gold"
+				{
+					"min"	"99999"
+					"max"	"99999"
+				}
+			}
+			"options"
+			{
+				"renewable"	"1"
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_33"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"-5269"
+							"y"	"-1169"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1000"
+								"max"	"1000"
+								"TextName"	"quest_npc_boss_location8"
+								"Desc"	"quest_location8_boss_desc"
+								"1"		"npc_boss_location8"
+							}
+						}
+					}
+				}
+			}
+		}
+		// ключ
+		"8"
+		{
+
+			"options"
+			{
+				"available"				"1"
+				"close_all_after_end"	"1"
+			}
+
+
+			"UnitName"	"npc_24"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"30000"
+					"max"		"20000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"10000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_24"
+					"abs"
+					{
+						"1"
+						{
+							"x"	"2800"
+							"y"	"-957"
+						}
+						"2"
+						{
+							"x"	"3300"
+							"y"	"2000"
+						}
+						"3"
+						{
+							"x"	"4100"
+							"y"	"4100"
+						}
+					}
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"TextName"	"quest_item_key"
+								"DotaName"	"item_key"
+								"Desc"		"quest_item_key_desc"
+								"min"		"1"
+								"max"		"1"
+							}
+							
+						}
+					}
+				}
+			}
+		}
+		//  ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         
+		//ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         
+		// ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         ТАНК      ТАНК         
+		"9" // танк основной 1
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"10"
+				}
+				"2"
+				{
+					"type"	"bonus"
+					"number"	"11"
+				}
+			}
+			"options"
+			{
+				"available"	"1"
+				"only_for_one"	"1"
+			}
+
+
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+				"gold"
+				{
+					"min"		"2000"
+					"max"		"3000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"50"
+								"max"   		"120"
+								"TextName"		"quest_any_creep_tank"
+								"Desc"			"quest_any_creep_tank_desc"
+								"1" 			"any_creep"
+							}
+						}
+					}
+				}
+			}
+		}
+		"10" // танк дополнительный 1
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"20"
+				}
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"2000"
+					"max"	"4000"
+				}
+				"gold"
+				{
+					"min"	"2000"
+					"max"	"3000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"20"
+								"max"   		"50"
+								"TextName"		"quest_box_1"
+								"Desc"			"quest_box_1_desc"
+								"1" 			"creep_box_1"
+							}
+						}
+					}
+					"giveItem"
+					{
+						"quantity"		"1"
+						"DotaName"		"item_box_1"
+						"TextName"		"quest_box_1"
+					}
+				}
+			}
+		}
+		"11" // танк основной 2 + душа 1 / 8
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"12"
+				}
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"3500"
+					"max"	"4500"
+				}
+				"gold"
+				{
+					"min"	"5000"
+					"max"	"5000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"TextName"	"quest_item_quest_line_helm"
+								"DotaName"	"item_quest_line_helm"
+								"Desc"		"quest_item_quest_line_helm_desc"
+								"min"		"5"
+								"max"		"10"
+							}
+							
+							"2"
+							{
+								"TextName"	"quest_item_quest_line_koren"
+								"DotaName"	"item_quest_line_koren"
+								"Desc"		"quest_item_quest_line_koren_desc"
+								"min"		"5"
+								"max"		"10"
+							}
+							"3"
+							{
+								"TextName"	"quest_item_quest_line_ring"
+								"DotaName"	"item_quest_line_ring"
+								"Desc"		"quest_item_quest_line_ring_desc"
+								"min"		"5"
+								"max"		"10"
+							}
+							"4"
+							{
+								"TextName"	"quest_item_quest_line_skull"
+								"DotaName"	"item_quest_line_skull"
+								"Desc"		"quest_item_quest_line_skull_desc"
+								"min"		"5"
+								"max"		"10"
+							}
+							"5"
+							{
+								"TextName"	"quest_item_quest_line_sword"
+								"DotaName"	"item_quest_line_sword"
+								"Desc"		"quest_item_quest_line_sword_desc"
+								"min"		"5"
+								"max"		"10"
+							}
+						}
+					}
+				}
+			}
+		}
+		"12" // танк основной 3 + душа 2 / 8    убить любых крипов
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"13"
+				}
+			}
+			"options"
+			{
+				"lock_item_select"	"0"
+				"available"			"0"
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"12000"
+					"max"	"20000"
+				}
+				"gold"
+				{
+					"min"	"10000"
+					"max"	"15000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"100"
+								"max"	"200"
+								"TextName"	"quest_tank_any_creep"
+								"Desc"	"quest_tank_any_creep_desc"
+								"1"		"any_creep"
+							}
+						}
+					}
+				}
+			}
+		}
+		"13" // танк основной 4 + душа 3 / 8    убить босса
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"14"
+				}
+			}
+			"options"
+			{
+				"lock_item_select"	"0"
+				"available"			"0"
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"15000"
+					"max"	"25000"
+				}
+				"gold"
+				{
+					"min"	"15000"
+					"max"	"25000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"	"2"
+								"max"	"2"
+								"TextName"	"quest_tank_any_boss"
+								"Desc"	"quest_tank_any_boss_desc"
+								"1"		"boss_1"
+								"2"		"boss_2"
+								"3"		"boss_3"
+								"4"		"boss_4"
+								"5"		"boss_5"
+								"6"		"boss_6"
+								"7"		"boss_7"
+								"8"		"boss_8"
+								"9"		"boss_9"
+								"10"	"npc_forest_boss"
+								"11"	"npc_village_boss"
+								"12"	"npc_mines_boss"
+								"13"	"npc_dust_boss"
+								"14"	"npc_swamp_boss"
+								"15"	"npc_snow_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		"14" // танк основной 5 + душа 4 / 8 убить крипов на линии
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"15"
+				}
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"20000"
+					"max"	"25000"
+				}
+				"gold"
+				{
+					"min"	"25000"
+					"max"	"35000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"		"60"
+								"max"		"120"
+								"TextName"	"quest_tank_any_mid_creep"
+								"Desc"		"quest_tank_any_mid_creep_desc"
+								"1"			"creep_1"
+								"2"			"creep_2"
+								"3"			"creep_3"
+								"4"			"creep_4"
+								"5"			"creep_5"
+								"6"			"creep_6"
+								"7"			"creep_7"
+								"8"			"creep_8"
+								"9"			"creep_9"
+								"10"		"creep_10"
+								"11"		"comandir_creep_1"
+								"12"		"comandir_creep_2"
+								"13"		"comandir_creep_3"
+								"14"		"comandir_creep_4"
+								"15"		"comandir_creep_5"
+								"16"		"comandir_creep_6"
+								"17"		"comandir_creep_7"
+								"18"		"comandir_creep_8"
+								"19"		"comandir_creep_9"
+								"20"		"comandir_creep_10"
+								"21"		"boss_1"
+								"22"		"boss_2"
+								"23"		"boss_3"
+								"24"		"boss_4"
+								"25"		"boss_5"
+								"26"		"boss_6"
+								"27"		"boss_7"
+								"28"		"boss_8"
+								"29"		"boss_9"
+							}
+						}
+					}
+				}
+			}
+		}
+		"15" // танк основной 6 + душа 5 / 8
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"						"bonus"
+					"number"					"16"
+				}
+			}
+			"options"
+			{
+				"lock_item_select"	"0"
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"gold"
+				{
+					"min"	"25000"
+					"max"	"40000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"custom"
+					{
+						"min"				"2"
+						"max" 				"4"
+						"TextName"			"quest_def_wave_tank"
+						"Desc"				"quest_def_wave_tank_desc"
+					}
+				}
+			}
+		}
+		"16" // танк основной 7 + душа 6/8 убить мидовых крипов
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"17"
+				}
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"40000"
+					"max"	"20000"
+				}
+				"gold"
+				{
+					"min"	"35000"
+					"max"	"45000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"		"50"
+								"max"		"100"
+								"TextName"	"quest_tank_1_creep"
+								"Desc"		"quest_tank_1_creep_desc"
+								"1"			"creep_1"
+								"2"			"creep_2"
+								"3"			"creep_3"
+								"4"			"creep_4"
+								"5"			"creep_5"
+								"6"			"creep_6"
+								"7"			"creep_7"
+								"8"			"creep_8"
+								"9"			"creep_9"
+								"10"		"creep_10"
+							}
+							"2"
+							{
+								"min"		"10"
+								"max"		"20"
+								"TextName"	"quest_tank_2_creep"
+								"Desc"		"quest_tank_2_creep_desc"
+								"1"			"comandir_creep_1"
+								"2"			"comandir_creep_2"
+								"3"			"comandir_creep_3"
+								"4"			"comandir_creep_4"
+								"5"			"comandir_creep_5"
+								"6"			"comandir_creep_6"
+								"7"			"comandir_creep_7"
+								"8"			"comandir_creep_8"
+								"9"			"comandir_creep_9"
+								"10"		"comandir_creep_10"
+							}
+						}
+					}
+				}
+			}
+		}
+		"17" // танк основной 8 душа 7/8 
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"		"bonus"
+					"number"	"18"
+				}
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"60000"
+					"max"	"30000"
+				}
+				"gold"
+				{
+					"min"	"40000"
+					"max"	"50000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"custom"
+					{
+						"min"				"3"
+						"max" 				"5"
+						"TextName"			"quest_def_wave_tank"
+						"Desc"				"quest_def_wave_tank_desc"
+					}
+				}
+			}
+		}
+		"18" // танк основной 9 + душа 8/8
+		{
+			"unlock"
+			{
+				"1"
+				{
+					"type"		"bonus"
+					"number"	"19"
+				}
+			}
+			"options"
+			{
+				"lock_item_select"	"0"
+			}
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"70000"
+					"max"	"45000"
+				}
+				"gold"
+				{
+					"min"	"45000"
+					"max"	"60000"
+				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"		"60"
+								"max"		"120"
+								"TextName"	"quest_tank_any_mid_creep"
+								"Desc"		"quest_tank_any_mid_creep_desc"
+								"1"			"creep_1"
+								"2"			"creep_2"
+								"3"			"creep_3"
+								"4"			"creep_4"
+								"5"			"creep_5"
+								"6"			"creep_6"
+								"7"			"creep_7"
+								"8"			"creep_8"
+								"9"			"creep_9"
+								"10"		"creep_10"
+								"11"		"comandir_creep_1"
+								"12"		"comandir_creep_2"
+								"13"		"comandir_creep_3"
+								"14"		"comandir_creep_4"
+								"15"		"comandir_creep_5"
+								"16"		"comandir_creep_6"
+								"17"		"comandir_creep_7"
+								"18"		"comandir_creep_8"
+								"19"		"comandir_creep_9"
+								"20"		"comandir_creep_10"
+								"21"		"boss_1"
+								"22"		"boss_2"
+								"23"		"boss_3"
+								"24"		"boss_4"
+								"25"		"boss_5"
+								"26"		"boss_6"
+								"27"		"boss_7"
+								"28"		"boss_8"
+								"29"		"boss_9"
+							}
+						}
+					}
+				}
+			}
+		}
+		"19" // танк основной 10
+		{
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"70000"
+					"max"	"70000"
+				}
+				"gold"
+				{
+					"min"	"70000"
+					"max"	"70000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"		"300"
+								"max"		"400"
+								"TextName"	"quest_tank_any_creep"
+								"Desc"		"quest_tank_any_creep_desc"
+								"1"			"any_creep"
+							}
+						}
+					}
+				}
+			}
+		}
+		"20" // мид дополнительный
+		{
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"7000"
+					"max"	"10000"
+				}
+				"gold"
+				{
+					"min"	"10000"
+					"max"	"11000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"NotTakeAway"	"1"
+								"TextName"	"quest_item_quest_necronomicon"
+								"DotaName"	"item_quest_necronomicon"
+								"Desc"		"quest_item_quest_necronomicon_desc"
+								"min"		"1"
+								"max"		"1"
+							}
+						}
+					}
+				}
+			}
+		}
+		"21" // убить дракона в даст локации
+		{
+			"UnitName"	"npc_16"
+			
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_16"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-771"
+							"y"		"-4419"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"1"
+								"max"   		"1"
+								"TextName"		"quest_npc_quest_dragon"
+								"Desc"			"quest_npc_quest_dragon_desc"
+								"1" 			"npc_quest_dragon"
+							}
+						}
+					}
+				}
+			}
+		}
+		"22" // уничтожить варды веномансера
+		{
+			"UnitName"	"npc_27"
+			
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_27"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-771"
+							"y"		"-4419"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"20"
+								"max"   		"40"
+								"TextName"		"quest_medusa_ward"
+								"Desc"			"quest_medusa_ward_desc"
+								"1" 			"medusa_ward"
+							}
+						}
+					}
+				}
+			}
+		}
+		"23" // синий лед
+		{
+			"UnitName"	"npc_29"
+			"unlock"
+			{
+				"1"
+				{
+					"type"	"bonus"
+					"number"	"24"
+				}
+			}
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+			}
+			"options"
+			{
+				"available"				"1"
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_30"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-771"
+							"y"		"-4419"
+						}
+					}
+					"item"
+					{
+						"use_type"	"random"
+						"items"
+						{
+							"1"
+							{
+								"TextName"	"quest_item_quest_blue_ice"
+								"DotaName"	"item_quest_blue_ice"
+								"Desc"		"quest_item_quest_blue_ice_desc"
+								"min"		"10"
+								"max"		"20"
+							}
+						}
+					}
+				}
+			}
+		}
+		"24" // убить сноу босса 3-5 раз
+		{
+			"UnitName"	"npc_30"
+			
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+				"gold"
+				{
+					"min"		"20000"
+					"max"		"30000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_30"
+					"abs"
+					{
+						"1"
+						{
+							"x"		"-771"
+							"y"		"-4419"
+						}
+					}
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"3"
+								"max"   		"5"
+								"TextName"		"quest_npc_snow_boss"
+								"Desc"			"quest_npc_snow_boss_desc"
+								"1" 			"npc_snow_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		"25" // убить некро войнов
+		{
+			
+			"UnitName"	"npc_28"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"25000"
+					"max"		"25000"
+				}
+				"gold"
+				{
+					"min"		"25000"
+					"max"		"25000"
+				}
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_28"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"2"
+								"max"   		"2"
+								"TextName"		"quest_necro_warior_tank"
+								"Desc"			"quest_necro_warior_tank_desc"
+								"1" 			"npc_quest_necronomicon_warrior"
+								"2" 			"npc_quest_necronomicon_archer"
+							}
+						}
+					}
+				}
+			}
+		}
+		"26" // убить дума 3 раза
+		{
+			
+			"UnitName"	"npc_21"
+			"reward"
+			{
+				"experience"
+				{
+					"min"		"50000"
+					"max"		"50000"
+				}
+				"gold"
+				{
+					"min"		"50000"
+					"max"		"50000"
+				}
+			}
+			"options"
+			{
+				"available"	"1"
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_21"
+					"kill"
+					{
+						"use_type"	"random"
+						"units"
+						{
+							"1"
+							{
+								"min"			"3"
+								"max"   		"3"
+								"TextName"		"quest_npc_mega_boss"
+								"Desc"			"quest_npc_mega_boss_desc"
+								"1" 			"npc_mega_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	"exchanger"
+	{
+		
+	}
+}
+					

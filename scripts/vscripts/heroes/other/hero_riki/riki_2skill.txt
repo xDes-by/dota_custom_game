@@ -1,0 +1,53 @@
+
+"DOTAAbilities"
+{
+   "riki_custom_backstab"
+    {
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "riki_blink_strike"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityManaCost"               "0"
+        "MaxLevel"                      "15"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"				"FIELD_FLOAT"
+                "chance"		        "4 6 8 10 12 14 16 18 20 22 24 26 28 30 32"
+				 "LinkedSpecialBonus"	    "special_bonus_unique_riki_custom_backstab"
+            }
+        }
+        "Modifiers"
+        {
+            "riki_custom_backstab_buff"
+            {
+                "Passive"	    "1"
+                "IsHidden"	    "1"
+                "OnAttackLanded"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"	"heroes\hero_riki\riki_custom_backstab.lua"
+                        "Function"		"BlinkStrike"
+                    }
+                }
+            }
+        }
+    }
+	
+		"special_bonus_unique_riki_custom_backstab"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"8"
+			}
+		}
+	}
+}

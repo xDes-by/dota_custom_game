@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+"techies_suicide_lua"
+    {
+        "BaseClass"                     "ability_lua"
+		"ScriptFile"                    "heroes/hero_techies/techies_suicide/spell_suicide.lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "techies_suicide"
+		"MaxLevel"						"15"
+	
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              	"FIELD_INTEGER"
+				"radius"    				"400"
+			}
+			"02"
+			{
+				"var_type"             	 	"FIELD_INTEGER"
+				"damage_per_stack"          "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+			}
+		}
+	}
+}

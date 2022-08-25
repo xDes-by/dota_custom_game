@@ -1,0 +1,171 @@
+"DOTAAbilities"
+{
+	"npc_dota_hero_wisp_str6"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	
+	"npc_dota_hero_wisp_str7"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_str8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_wisp/hp"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_str9"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_str10"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_str11"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+//==	
+	"npc_dota_hero_wisp_agi6"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi7"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_wisp/as_speed"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_wisp/dmg"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi9"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi10"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi11"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+//==	
+	"npc_dota_hero_wisp_int6"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int7"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int8"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int9"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int10"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int11"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	
+	"wisp_split"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"medusa_split_shot"
+		"MaxLevel"						"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_count"			"1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_split"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"IsPurgable"	"0"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_wisp/wisp_split_shot"
+						"Function"			"SplitShot"
+					}
+				}
+			}
+		}
+	}
+
+	//last
+	"npc_dota_hero_wisp_str_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_agi_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_wisp_int_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+}

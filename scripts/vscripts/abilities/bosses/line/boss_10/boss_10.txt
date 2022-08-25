@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+"boss_10_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_10/boss_10_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityValues"
+		{
+			"interval"					"5"
+			"damage"					"100"
+		}
+	}
+	
+"boss_10_flame"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_10/boss_10_flame"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityValues"
+		{
+			"duration"					"3"
+			"damage"					"20"
+		}
+	}
+
+"boss_10_macropyre"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_10/boss_10_macropyre"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"            ""
+		"AbilityCastRange"              "650"
+		"AbilityCooldown"				"20"
+
+		"AbilityValues"
+		{
+			"damage"         	"150"
+			"duration"         	"10"
+		}
+	}
+
+"boss_10_chain"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_10/boss_10_chain"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"            ""
+		"AbilityCastRange"              "650"
+		"AbilityCooldown"				"15"
+
+		"AbilityValues"
+		{
+			"damage"         	"25"
+			"duration"         	"2"
+		}
+	}		
+}	

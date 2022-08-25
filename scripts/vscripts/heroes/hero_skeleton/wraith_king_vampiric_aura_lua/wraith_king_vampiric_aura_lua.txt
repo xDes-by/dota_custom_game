@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+	"wraith_king_vampiric_aura_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skeleton/wraith_king_vampiric_aura_lua/wraith_king_vampiric_aura_lua"
+		"AbilityTextureName"			"skeleton_king_vampiric_aura"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vampiric_aura_radius"	"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vampiric_aura"			"10 11 12 13 14 15 16 17 18 19 20 21 22 23 24"
+			}
+		}
+	}
+}

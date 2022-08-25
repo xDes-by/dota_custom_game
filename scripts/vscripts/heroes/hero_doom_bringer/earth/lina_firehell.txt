@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+	"lina_firehell"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_doom_bringer/earth/lina_firehell"
+		"AbilityTextureName"			"doom_bringer_scorched_earth"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+			"particle"	"particles/units/heroes/hero_doom_bringer/doom_scorched_earth.vpcf"
+			"particle"	"particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_doom_bringer/doom_bringer_scorched_earth_debuff.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage_per_second"		"10 20 30 40 50 60 70 80 90 100 110 120 130 140 150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed_pct"	"5 8 11 14 17 20 23 26 29 32 35 38 41 44 47"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second_for_caster"		"0.5 1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_multiplier_for_soul"		"0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5"
+			}
+		}
+	}
+}

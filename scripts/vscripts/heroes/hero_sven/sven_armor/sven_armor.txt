@@ -1,0 +1,30 @@
+"DOTAAbilities"
+{
+	"sven_armor"
+		{
+			"BaseClass"						"ability_lua"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"MaxLevel"						"15"
+			"ScriptFile"					"heroes/hero_sven/sven_armor/sven_armor.lua"
+			"AbilityTextureName"			"sven_warcry"
+			
+			  "AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"                  "FIELD_INTEGER"
+					"radius"                    "500"
+				}
+				"02"
+				{
+					"var_type"                  "FIELD_FLOAT"
+					"bonus_armor_per_hero"      "2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
+				}
+				"03"
+				{   
+					"var_type"                  "FIELD_FLOAT"
+					"bonus_speed_per_hero"      "3 6 9 12 15 18 21 24 27 30 33 36 39 42 45"
+				}	
+			}
+		}
+}

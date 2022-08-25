@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+	"luna_moon_glaive_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_luna/luna_moon_glaive_lua/luna_moon_glaive_lua"
+		"AbilityTextureName"			"luna_moon_glaive"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"500"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bounces"					"5"
+				"LinkedSpecialBonus"		"npc_dota_hero_luna_agi9"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduction_percent"	"44 42 40 38 36 34 32 30 28 26 24 22 20 18 16"
+				"LinkedSpecialBonus"		"npc_dota_hero_luna_agi8"
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+
+"sand_stun"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_sand/sand_stun/sand_stun"
+		"AbilityTextureName"			"sandking_epicenter"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+
+		"AbilityCastRange"				"315"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"15.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"250 275 300 325 350 375 400 425 450 475 500 525 550 575 600"
+				 "LinkedSpecialBonus"			"npc_dota_hero_sand_king_int7"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"3"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"100 125 150 175 200 225 250 275 300 325 350 375 400 425 450"
+			}
+		}
+	}
+}

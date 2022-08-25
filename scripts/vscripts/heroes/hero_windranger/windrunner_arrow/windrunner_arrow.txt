@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+"windrunner_arrow"
+	{
+		"BaseClass"					"ability_lua"
+		"AbilityTextureName"		"windrunner_focusfire"
+		"ScriptFile"				"heroes/hero_windranger/windrunner_arrow/windrunner_arrow"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"					"10"
+		"AbilityCooldown"			"60"
+		"AbilityCastRange"			"1600"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"4"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"50 100 150 200 250 300 350 400 450 500"
+			}
+		}
+	}
+}

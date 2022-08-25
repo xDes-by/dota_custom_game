@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+	"sven_bringer"
+	{
+		"BaseClass"							"ability_lua"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"				"f1"
+		"ScriptFile"						"heroes/hero_sven/sven_bringer/sven_bringer"
+		"MaxLevel"							"15"
+		
+		"AbilityCooldown"					"19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"	
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"700"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius_start"				"150"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius_end"				"650"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cleave_damage"				"300"
+			}
+		}
+	}
+}

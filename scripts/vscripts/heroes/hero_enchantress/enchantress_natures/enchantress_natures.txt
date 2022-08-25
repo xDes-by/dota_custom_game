@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	"enchantress_natures"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_enchantress/enchantress_natures/enchantress_natures.lua"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"AbilityTextureName"			"natures"
+			"MaxLevel"						"15"
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"mana_cost"				"5 7 9 11 13 15 17 19 21 23 25 27 29 31 33"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"move_speed"			"4 6 8 10 12 14 16 18 20 22 24 26 28 30 32"
+				}
+			}
+		}	
+}

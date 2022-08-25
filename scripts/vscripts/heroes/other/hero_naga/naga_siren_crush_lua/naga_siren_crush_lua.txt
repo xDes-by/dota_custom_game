@@ -1,0 +1,87 @@
+"DOTAAbilities"
+{
+	"naga_siren_crush_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_naga/naga_siren_crush_lua/naga_siren_crush_lua"
+		"AbilityTextureName"			"crush"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+			"particle"	"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		}
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.35"
+		"AbilityDuration"				"2"
+
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"150"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crush_radius"				"350"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"crush_extra_slow"				"10 12 14 16 18 20 22 24 26 28 30 32 34 36 38"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"crush_attack_slow_tooltip"		"10 12 14 16 18 20 22 24 26 28 30 32 34 36 38"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crush_extra_slow_duration"		"2.0"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.5 0.75 1 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 3.25 3.5 3.75 4.0"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"tooltip"						"10 12 14 16 18 20 22 24 26 28 30 32 34 36 38"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"75 100 125 150 175 200 225 250 275 300 325 350 375 400 425"
+				"LinkedSpecialBonus"			"special_bonus_unique_naga_custom"
+			}
+		}
+	}
+	
+"special_bonus_unique_naga_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"175"
+				"ad_linked_ability"			"naga_siren_crush_lua"	
+			}
+		}
+	}
+}

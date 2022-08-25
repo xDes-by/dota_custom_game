@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+	"sandking_custom_trembling_waves"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName" 			"sand_ult"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"%radius"
+		"MaxLevel"						"10"
+		
+		"AbilitySpecial"
+		{
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"interval"				"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"50 100 150 200 250 300 350 400 450 500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chance"				"10"
+                "LinkedSpecialBonus"	"npc_dota_hero_sand_king_int9"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_trembling_waves"
+			{
+				"IsHidden"  		"1"
+				"Passive"			"1"
+	
+				"OnAttacked"
+					{
+					"RunScript"
+						{
+							"ScriptFile"		"heroes/hero_sand/sand_ult/sand_ult"
+							"Function"			"sandking_waves"
+						}
+					}
+				"ThinkInterval" 		"1"	
+				"OnIntervalThink"
+					{	  
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_sand/sand_ult/sand_ult"
+						"Function"			"talent"
+					}
+				}	
+			}
+		}
+	}	
+}	

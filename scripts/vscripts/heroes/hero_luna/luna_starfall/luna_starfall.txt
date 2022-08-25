@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	"luna_starfall"
+		{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"15"
+		"AbilityTextureName"			"luna_lucent_beam"
+
+		"AbilityCooldown"				"18 17 16 15 14 13 12 11 10 9 8 7 6 5 4"
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"700"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_luna_starfall"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				
+				"ThinkInterval"  "1"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_luna/luna_starfall/luna_starfall.lua"
+						"Function"		"check"
+					}
+				}
+			}
+		}
+	}
+}	

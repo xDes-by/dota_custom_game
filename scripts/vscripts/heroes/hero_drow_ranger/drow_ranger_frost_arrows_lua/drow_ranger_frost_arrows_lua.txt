@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+	"drow_ranger_frost_arrows_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_drow_ranger/drow_ranger_frost_arrows_lua/drow_ranger_frost_arrows_lua"
+		"AbilityTextureName"			"drow_ranger_frost_arrows"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+			"particle"	"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"625"
+
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"10"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_arrows_movement_speed"	"-10 -12 -14 -16 -18 -20 -22 -24 -26 -28 -30 -32 -34 -36 -38"
+				"LinkedSpecialBonus"		"special_bonus_unique_drow_custom"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"frost_arrows_duration_tooltip"	"1.5"
+			}
+		}
+	}
+	
+	"special_bonus_unique_drow_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"-10"
+				"ad_linked_ability"			"drow_ranger_frost_arrows_lua"	
+			}
+		}
+	}
+}

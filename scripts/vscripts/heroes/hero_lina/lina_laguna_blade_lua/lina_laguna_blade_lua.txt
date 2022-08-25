@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+	"lina_laguna_blade_lua"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                  	"heroes/hero_lina/lina_laguna_blade_lua/lina_laguna_blade_lua"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"            "lina_laguna_blade"
+		"MaxLevel"						"10"
+
+		"AbilityCastRange"              "750"
+
+		"AbilityCooldown"				"30"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"damage"				"1000 1500 2000 2500 3000 3500 4000 4500 5000 5500"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"                "500"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"jump_count"            "0"
+			}
+			"04"
+			{
+				"var_type"              "FIELD_FLOAT"
+				"jump_delay"            "0.25"
+			}
+			
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"static_chain_mult"		"4"
+			}
+		}
+		"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+	}
+}

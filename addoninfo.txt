@@ -1,0 +1,38 @@
+"AddonInfo"
+{
+	"maps" "normal hard ultra insane turbo"
+	"IsPlayable" "1"
+	PenaltiesEnabled = "0"
+	EnablePickRules = "0"
+	CheckAFKPlayers = "1"
+	"normal"
+ 	{
+ 		"MaxPlayers" "5"
+ 	}
+	"hard"
+ 	{
+ 		"MaxPlayers" "5"
+ 	}
+	"ultra"
+ 	{
+ 		"MaxPlayers" "5"
+ 	}
+	"insane"
+ 	{
+ 		"MaxPlayers" "5"
+ 	}
+	"turbo"
+ 	{
+ 		"MaxPlayers" "5"
+ 	}
+	
+	"Default_Keys"
+	{
+		"01"
+		{
+			"Key" "Ctrl"
+			"Command" "UsePet"
+			"Name" "Use Buffout hotkey"
+		}
+	}
+}

@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+    "ability_npc_boss_barrack1_spell1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack1/ability_npc_boss_barrack1_spell1"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+            //процент возвращаемого урона
+			"damage_multip"				"80"
+		}
+	}
+    //хекс
+    "ability_npc_boss_barrack1_spell2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack1/ability_npc_boss_barrack1_spell2"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"			"ACT_DOTA_LEAP_STUN"
+		"AbilityCastPoint"				"1"
+		"AbilityCooldown"				"10"
+		"AbilityValues"
+		{
+			"blast_radius"				"1000"
+			"blast_speed"				"600"
+			"blast_damage_persent"		"60"
+			"debuff_duration"			"4"
+		}
+	}
+    //баш + аура радика
+    "ability_npc_boss_barrack1_spell3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack1/ability_npc_boss_barrack1_spell3"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        //кд баша
+		"AbilityCooldown"				"2"
+		"AbilityValues"
+		{
+			"stun_duration"				"1"
+            //радика
+			"damage"				    "10"
+			"miss"				        "25"
+		}
+	}
+    "ability_npc_boss_barrack1_spell4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack1/ability_npc_boss_barrack1_spell4"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"			"ACT_DOTA_AREA_DENY"
+		"AbilityCastPoint"				"0.7"
+		"AbilityCooldown"				"14"
+		"AbilityValues"
+		{
+			"radius"				    "1500"
+			"damage_spell_persent"	    "35"
+			"health"				    "30"
+			"bolt_radius"				"400"
+			"nimbus_interval"			"1"
+			"numbus_health_persent"		"5"
+			"stun_duration"		        "0.5"
+		}
+	}
+}

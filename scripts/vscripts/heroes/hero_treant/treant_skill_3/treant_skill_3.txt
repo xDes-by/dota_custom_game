@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	"treant_skill_3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_treant/treant_skill_3/treant_skill_3"
+		"AbilityTextureName"			"treant3skill"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+		"AbilityValues"
+		{
+			"damage"         		   	"25 50 75 100 125 150 175 200 225 250 275 300 325 350 375"
+			"tick_interval"             "0.5"
+			"duration"              	"3"
+			"spread_chance"             "10"
+			"spread_radius"             "300"
+			"spread_duration"           "2"
+		}
+	}	
+}

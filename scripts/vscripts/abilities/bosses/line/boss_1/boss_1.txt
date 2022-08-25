@@ -1,0 +1,175 @@
+"DOTAAbilities"
+{
+"boss_ursa_earthshock_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_1/boss_ursa_earthshock_lua.lua"
+		"AbilityTextureName"			"ursa_earthshock"
+		"FightRecapLevel"				"1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"10"
+
+		"AbilityValues"
+		{
+			"damage"					"5"
+			"distance"					"800"
+			"radius"					"350"
+			"points"					"5"
+			"duration"					"1.0"
+			"interval"					"0.3"
+			"delay"						"0.5"
+		}
+	}
+	
+"boss_ursa_overpower_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_1/boss_ursa_overpower_lua.lua"
+		"AbilityTextureName"			"ursa_overpower_lua"
+		"FightRecapLevel"				"1"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastRange"				"0"
+		"AbilityDuration"				"20.0"
+
+		"AbilityCooldown"				"10.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_attacks"				"3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus"		"400"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration_tooltip"			"20"
+			}
+		}
+	}
+	
+"boss_ursa_skill"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"imba_curseblade"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_pct"	"200"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_skill"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+				"OnCreated"
+				{
+					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
+					"CastAttack"	"1"
+				}
+				"OnAttackLanded"
+				{
+				"RunScript"
+					{
+						"ScriptFile"	"abilities/bosses/line/boss_1/boss_ursa_skill.lua"
+						"Function"		"ToDamage"
+						"Target"		"TARGET"
+					}
+				}	
+			}
+		}
+	}
+
+"boss_ursa_fury_swipes_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_1/boss_ursa_fury_swipes_lua.lua"
+		"AbilityTextureName"			"ursa_fury_swipes"
+		"FightRecapLevel"				"1"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time"				"5"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_stack"				"2"
+			}
+		}
+	}
+	
+"ursa_enrage_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_1/ursa_enrage_lua.lua"
+		"AbilityTextureName"			"ursa_enrage_lua"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"3"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"enrage_multiplier"			"2.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduction"			"80"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0"
+			}
+		}
+	}	
+}

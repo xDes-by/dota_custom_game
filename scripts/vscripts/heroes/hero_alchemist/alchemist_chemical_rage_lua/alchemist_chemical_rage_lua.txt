@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	"alchemist_chemical_rage_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua"
+		"AbilityTextureName"			"alchemist_chemical_rage"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		"AbilityCooldown"				"60"
+		
+		"AbilityValues"
+		{
+			"duration"				"20"
+			"base_attack_time"		"1.0"
+			"bonus_health_regen"	"50 100 150 200 250 300 350 400 450 500"
+			"bonus_mana_regen"		"25 50 75 100 125 150 175 200 225 250"
+			"bonus_movespeed"		"5 10 15 20 25 30 35 40 45 50"
+		}
+	}
+}

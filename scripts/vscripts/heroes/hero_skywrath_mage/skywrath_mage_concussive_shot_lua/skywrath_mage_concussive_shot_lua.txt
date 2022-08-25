@@ -1,0 +1,73 @@
+"DOTAAbilities"
+{
+	"skywrath_mage_concussive_shot_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_lua/skywrath_mage_concussive_shot_lua"
+		"AbilityTextureName"			"skywrath_mage_concussive_shot"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1000"
+
+		"AbilityCooldown"				"10" 
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"launch_radius"		"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_radius"		"250"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"800"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"70 140 210 280 350 420 490 560 630 700 770 840 910 980 1050"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"		"3.0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed_pct"	"30"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shot_vision"		"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_radius"		"700"
+			}
+		}
+	}
+}

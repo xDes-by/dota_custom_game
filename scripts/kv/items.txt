@@ -1,0 +1,14 @@
+"items"
+{
+	"blacksmith" //Имя(из нпс_юнитс_кастом) юнита-магазина вокруг него будет раздаваться аура в 300 ренжи, зайдя в которую будет появляться кнопка магазина. Именно этого магазина.
+	{
+
+		"1"		"item_up_ability_tower"
+		"2"		"item_up_ability_tower2"
+		"3"		"item_up_ability_tower3"
+		"4"		"item_up_hp_tower"
+		"5"		"item_up_dmg_tower"
+		"6"		"item_up_armor_tower"
+		"7"		"item_up_speed_tower"
+	}
+}

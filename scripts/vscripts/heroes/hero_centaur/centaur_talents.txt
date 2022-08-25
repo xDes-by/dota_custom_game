@@ -1,0 +1,146 @@
+"DOTAAbilities"
+{
+"npc_dota_hero_centaur_str6"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_str7"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_str8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/hp"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_str9"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_str10"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_str11"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+//==	
+	"npc_dota_hero_centaur_agi6"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi7"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/dmg"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/as"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi9"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi10"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi11"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/cleave"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+//==	
+	"npc_dota_hero_centaur_int6"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_int7"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"5"
+			}
+		}
+	}
+	"npc_dota_hero_centaur_int8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/cooldown"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_int9"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_int10"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_int11"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}	
+
+	//last
+	"npc_dota_hero_centaur_str_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_agi_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_centaur_int_last"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+}

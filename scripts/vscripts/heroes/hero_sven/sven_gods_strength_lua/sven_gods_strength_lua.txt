@@ -1,0 +1,39 @@
+"DOTAAbilities"
+	{
+	"sven_gods_strength_lua"
+		{
+			"BaseClass"						"ability_lua"
+			"AbilityTextureName"			"sven_gods_strength"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+			"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+			"ScriptFile"					"heroes/hero_sven/sven_gods_strength_lua/sven_gods_strength_lua"
+			"MaxLevel"						"10"
+			
+			"AbilityCastPoint"				"0.3"
+
+			"AbilityCooldown"				"80"
+			"AbilityDuration"				"25"
+				
+			"AbilityManaCost"				"250"
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"					"FIELD_INTEGER"
+					"gods_strength_damage"		"100 125 150 175 200 225 250 275 300 325"	
+					"LinkedSpecialBonus"		"special_bonus_unique_sven_custom"					
+				}
+				"02"
+				{
+					"var_type"					"FIELD_INTEGER"
+					"scepter_aoe"				"700"		
+				}
+				"03"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"gods_strength_duration"	"25"
+				}
+			}
+		}
+}

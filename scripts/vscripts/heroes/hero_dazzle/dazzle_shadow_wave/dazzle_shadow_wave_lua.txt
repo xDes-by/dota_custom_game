@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+	"dazzle_shadow_wave_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_dazzle/dazzle_shadow_wave/dazzle_shadow_wave_lua"
+		"AbilityTextureName"			"dazzle_shadow_wave"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+			"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityCooldown"				"24 23 22 21 20 19 18 17 16 15 14 13 12 11 10"
+		"AbilityManaCost"				"100"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounce_radius"			"500"
+			}
+			"02"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"			"500"
+			}
+			"03"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"max_targets"			"2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_max_targets_inc_dazzle"		"3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"80 100 120 140 160 180 200 220 240 260 280 300 320 340 360"
+				"LinkedSpecialBonus"		"special_bonus_unique_dazzle_custom"
+			}
+		}
+	}
+	
+	"special_bonus_unique_dazzle_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"240"
+			}
+		}
+	}
+}

@@ -1,0 +1,56 @@
+"DOTAAbilities"
+{
+	"slark_dark_pact_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_slark/slark_dark_pact_lua"
+		"AbilityTextureName"			"slark_dark_pact"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"325"
+		"AbilityCastPoint"				"0.001"
+
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_duration"		"1.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"325"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_damage"			"100 125 150 175 200 225 250 275 300 325 350 375 400 425 450"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_pulses"			"10"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_interval"		"0.1"
+			}
+		}
+	}
+}

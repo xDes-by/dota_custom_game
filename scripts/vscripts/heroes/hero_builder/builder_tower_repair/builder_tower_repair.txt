@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+	"builder_tower_repair"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_builder/builder_tower_repair/builder_tower_repair"
+		"AbilityTextureName"			"neutral_4"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"200"
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"30"
+
+		"AbilityCooldown"				"20"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"hp_repair"					"2 2.25 2.5 2.75 3 3.25 3.5 3.75 4 4.25 4.5 4.75 5 5.25 5.5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_loss"					"30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"tick_interval"				"0.1"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_perc"				"4 8 12 16 20 24 28 32 36 40 44 48 52 56 60"
+			}
+		}
+	}
+}

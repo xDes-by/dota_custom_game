@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+	"treant_ult"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_treant/treant_skill_ult/treant_ult"
+		"AbilityTextureName"			"treantult"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"			
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"120"
+		"AbilityCastRange"				"600"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"base_dam"	"300 600 900 1200 1500 1800 2100 2400 2700 3000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"rg"	"1000"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"wh"	"100"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"interval"	"1"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dis"	"600"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"wh2"	"200"
+			}
+		}
+		//"AbilityModifierSupportValue"	"0.0"
+	}
+}

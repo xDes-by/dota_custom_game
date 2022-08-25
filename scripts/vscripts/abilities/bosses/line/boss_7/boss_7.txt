@@ -1,0 +1,167 @@
+"DOTAAbilities"
+{
+"boss_7_flux"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_7/boss_7_flux"
+		"AbilityTextureName"			"arc_warden_flux"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.Flux.Target"
+
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.2"
+		
+		"AbilityCooldown"				"12.0"
+
+		"AbilityValues"
+		{
+			"duration"						"3"
+			"damage_per_second"				"50"
+			"think_interval"				"0.5"
+			"move_speed_slow_pct"			"50"
+		}
+	}
+
+
+"boss_7_magnetic_field"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_7/boss_7_magnetic_field"
+		"AbilityTextureName"			"arc_warden_magnetic_field"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.MagneticField.Cast"
+
+		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityCooldown"				"10"
+		
+		"AbilityValues"
+		{
+			"radius"					"300"
+			"duration"					"5"
+			"evasion_chance"			"100"
+		}
+	}
+		
+
+"boss_7_spark_wraith"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_7/boss_7_spark_wraith"
+		"AbilityTextureName"			"arc_warden_spark_wraith"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.SparkWraith.Activate"
+		"AbilityCastRange"				"1200"	
+		"AbilityCooldown"				"6.0"
+
+		"AbilityValues"
+		{
+			"radius"						"375"
+			"activation_delay"				"1.0"
+			"duration"						"3"
+			"wraith_speed"					"300"
+			"spark_damage"					"100"
+			"tick"							"0.2"
+			"move_speed_slow_pct"			"100"
+			"count"							"5"
+		}
+	}
+	
+"boss_7_hide"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"			"1"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate"		"2"
+		"AbilityCooldown"			"8"
+
+		"AbilityCastRange"			"1000"
+		"AOERadius"					"%radius"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"precache"
+		{
+			"particle"	"particles/heroes/nue/ability_nue_04.vpcf"
+			"particle"	"particles/heroes/nue/ability_nue_04_light_ufo.vpcf"
+			"particle"	"particles/heroes/nue/ability_minoriko_04_ufo_move.vpcf"
+		}
+		
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"				"Nue.AbilityNue04_channel"
+				"Target"					"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/bosses/line/boss_7/boss_7_hide"
+				"Function"		"OnNue04PhaseStart"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/bosses/line/boss_7/boss_7_hide"
+				"Function"		"OnNue04Start"
+				"Radius"		"%radius"
+				"Target"		"POINT"
+				"stun_duration"	"%stun_duration"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_thdots_nue04_states"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_nue04_states"
+			{
+				"Duration"	"2.5"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"350"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1"
+			}
+		}
+	}			
+		
+}	

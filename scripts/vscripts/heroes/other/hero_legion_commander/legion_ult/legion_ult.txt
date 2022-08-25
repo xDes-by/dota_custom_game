@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+	"legion_ult"
+	{
+		"BaseClass"						"ability_lua"	// "ability_datadriven"
+		"ScriptFile"					"heroes/hero_legion_commander/legion_ult/legion_ult.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"legion_commander_duel"
+        "MaxLevel"                      "10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"interval"			    "1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shag"					"11 10 9 8 7 6 5 4 3 2"
+				"LinkedSpecialBonus"		"special_bonus_unique_lega_custom"
+			}
+		}
+	}
+	
+	"special_bonus_unique_lega_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"-1"
+			}
+		}
+	}
+}

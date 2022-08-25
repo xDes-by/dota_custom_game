@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+"boss_6_torrent"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_6/boss_6_torrent"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"              "800"
+		
+		"AbilityCooldown"				"15"
+
+		"AbilityValues"
+		{
+			"damage"            	"150"
+			"radius"                "800"
+			"duration"           	"6"
+			"interval"            	"0.5"
+			"damage_radius"			"250"
+			"delay"					"2"
+		}
+	}
+	
+"boss_6_armor"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_6/boss_6_armor"
+		"AbilityTextureName"			"tidehunter_kraken_shell"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityValues"
+		{
+			"damage_cleanse"		"500"
+			"damage_reset_interval"	"1"
+		}
+	}
+
+"boss_6_ravage"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_6/boss_6_ravage"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"              "1250"
+		
+		"AbilityCooldown"				"14"
+
+		"AbilityValues"
+		{
+			"radius"			"1250"
+			"speed"				"725"
+			"duration"			"3"
+			"damage"			"300"
+		}
+	}
+
+"boss_6_gush"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"abilities/bosses/line/boss_6/boss_6_gush"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"              "1250"
+		
+		"AbilityCooldown"				"12"
+
+		"AbilityValues"
+		{
+			"radius"			"1250"
+			"speed"				"725"
+			"duration"			"3"
+			"damage"			"300"
+		}
+	}		
+}	

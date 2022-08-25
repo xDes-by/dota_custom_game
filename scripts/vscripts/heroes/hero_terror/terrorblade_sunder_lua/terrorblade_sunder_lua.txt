@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+	"terrorblade_sunder_lua"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"heroes/hero_terror/terrorblade_sunder_lua/terrorblade_sunder_lua"
+		"AbilityTextureName"				"terrorblade_sunder"
+		"MaxLevel"							"10"
+
+		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"				"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PURE"
+
+		"AbilityCastRange"					"600"
+		"AbilityCastPoint"					"0.35"
+
+		"AbilityCooldown"					"120 110 100 90 80 70 60 50 40 30"
+		"AbilityManaCost"					"200"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 200 300 400 500 600 700 800 900 1000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"600"
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+    "ability_npc_boss_barrack2_spell1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2_spell1"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"12"
+		"AbilityValues"
+		{
+			"max_pocs"				    "5"
+			"blast_speed"				"1000"
+			"blast_damage_persent"		"60"
+			"debuff_duration"			"4"
+		}
+	}
+    "ability_npc_boss_barrack2_spell2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2_spell2"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"14"
+		"AbilityValues"
+		{
+            //все в процентах от макс
+			"etherial_damage"		    "50"
+			"agi_damage"				"50"
+			"str_damage"		        "30"
+			"str_stun_duration"			"8"
+		}
+	}
+    "ability_npc_boss_barrack2_spell3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2_spell3"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+				"AbilityCooldown"				"14"
+		"AbilityValues"
+		{
+			"range"		                "1000"
+			"armor_persent"				"50"
+		}
+	}
+    "ability_npc_boss_barrack2_spell4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2_spell4"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"range"		                "500"
+            //торента
+			"damage"				    "100"
+            //урон ауры
+			"persent"				    "10"
+		}
+	}
+}

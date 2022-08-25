@@ -1,0 +1,175 @@
+"DOTAAbilities"
+{
+	"spin_web_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"broodmother_spin_web"
+		"AOERadius"						"%radius"
+		"MaxLevel"						"15"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"40"
+		"AbilityManaCost"				"50"
+
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+			"particle"			"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+			"particle"			"particles/units/heroes/hero_broodmother/broodmother_spin_web_cast.vpcf"
+		}
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count"					"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"15 30 45 60 75 90 105 120 135 150 165 180 195 210 225"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"debuff_movespeed"		"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50 -55 -60 -65 -70 -75"
+			}		
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"aura_interval"			"0.3"
+			}
+		}
+
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_broodmother/broodmother_web/spin_web"
+				"Function"				"web_start_charge"
+				"modifier_name"			"modifier_web_stack_counter_datadriven"
+			}
+		}
+
+		"OnSpellStart"
+		{	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Broodmother.SpinWebCast"
+				"Target"		"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_broodmother/broodmother_web/spin_web"
+				"Function"				"spin_web"
+				"Target"				"POINT"			
+				"dummy_modifier"		"modifier_web_dummy_aura_datadriven"
+				"dummy_ability"			"spin_web_destroy_datadriven"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_web_stack_counter_datadriven"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"IsDebuff"				"0"
+			}
+			"modifier_web_dummy_aura_datadriven"
+			{			
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+						"EffectAttachType"	"attach_origin"
+						"Target"		"TARGET"
+
+						"ControlPoints"
+						{
+							"00"	"0 0 0"
+							"01"	"%radius 0 150"
+						}
+					}
+				}
+				
+				"ThinkInterval"		"%aura_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_broodmother/broodmother_web/spin_web"
+						"Function"				"check_units"
+					}		
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_slow"
+			{
+			  "IsHidden"					"1"
+			  "Properties"
+			  {
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%debuff_movespeed"
+			  }
+			}
+			
+			"modifier_fast"
+			{
+			  "IsHidden"					"1"
+			  "Properties"
+			  {
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movespeed"
+			  }
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	"spin_web_destroy_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"broodmother_spin_web_destroy"
+
+		"AbilityCastPoint"				"0"
+
+		"AbilityCooldown"				"0"
+
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_broodmother/broodmother_web/spin_web"
+				"Function"				"spin_web_destroy"
+			}
+		}
+	}	
+	
+}
+	

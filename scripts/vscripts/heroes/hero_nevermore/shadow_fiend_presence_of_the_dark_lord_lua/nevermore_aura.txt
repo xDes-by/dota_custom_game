@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"nevermore_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_nevermore/shadow_fiend_presence_of_the_dark_lord_lua/nevermore_aura"
+		"AbilityTextureName"			"nevermore_dark_lord"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastRange"				"750"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reduction"			"0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range"				"750"
+			}
+		}
+	}
+}

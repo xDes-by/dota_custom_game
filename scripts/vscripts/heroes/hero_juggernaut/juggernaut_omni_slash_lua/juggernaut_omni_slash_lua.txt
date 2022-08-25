@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+	"juggernaut_omni_slash_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_juggernaut/juggernaut_omni_slash_lua/juggernaut_omni_slash_lua.lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityTextureName"			"juggernaut_omni_slash"
+		"MaxLevel"						"10"
+		
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilityCooldown"				"120"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bounce_range"				"425"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"bounce_delay"				"0.4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attack_rate_multiplier"	"1.6"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"50 100 150 200 250 300 350 400 450 500"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_speed"				"10 20 30 40 50 60 70 80 90 100"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"omni_slash_radius"			"425"
+			}
+		}
+	}
+}

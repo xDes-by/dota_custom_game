@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+	"phantom_assassin_knifes"	
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_phantom/phantom_assassin_knifes/phantom_assassin_knifes.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"phantom_assassin_stifling_dagger"
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0"
+		"MaxLevel"						"15"
+		"AbilityCooldown"				"15"
+
+		"precache"
+		{
+			"particle" 					"particles/dzin/ultimate_knife.vpcf"    //"particles/units/heroes/hero_phantom/ultimate_knife.vpcf"
+			"soundfile" 				"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count"					"3"
+				"LinkedSpecialBonus"	"npc_dota_hero_phantom_assassin_int6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast"					"800"
+				"LinkedSpecialBonus"	"npc_dota_hero_phantom_assassin_int6"
+			}
+		}
+	}
+}

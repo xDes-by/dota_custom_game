@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+	"health_life_drain"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"pugna_life_drain"
+		"MaxLevel"						"10"
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aura_radius"				"700"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"aura_damage"				"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0" 
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"aura_damage_interval"		"0.1" 
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_heartstopper_aura_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+
+				"Aura" 			"modifier_heartstopper_debuff_datadriven"
+				"Aura_Radius" 	"%aura_radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+
+			"modifier_heartstopper_debuff_datadriven"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+
+				"ThinkInterval"	"%aura_damage_interval"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_pugna/pugna_life_drain/life_drain.lua"
+						"Function"				"HeartstopperAura"
+					}
+				}
+			
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	"treant_skill_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_treant/treant_skill_2/treant_skill_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"treant2skill"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"15"
+		"AbilityCooldown"				"30"
+		"AbilityCastRange"				"165"
+
+		"AbilityValues"
+		{
+			"damage"					"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+			"hp"						"25 50 75 100 125 150 175 200 225 250 275 300 325 350 375"
+			"arm"						"0.25"
+		}
+	}
+}

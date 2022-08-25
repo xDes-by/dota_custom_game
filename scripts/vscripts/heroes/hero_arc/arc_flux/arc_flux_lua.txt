@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+	"arc_flux_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_arc/arc_flux/arc_flux_lua"
+		"MaxLevel"						"15"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"arc_warden_flux"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"1000"
+
+		"AbilityCooldown"				"20"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"animation_rate"			"0.1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"movespeed"					"10 15 20 25 30 35 40 45 50 55 60 65 70 75 80"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attackspeed"				"10 15 20 25 30 35 40 45 50 55 60 65 70 75 80"
+			}
+		}
+	}
+}

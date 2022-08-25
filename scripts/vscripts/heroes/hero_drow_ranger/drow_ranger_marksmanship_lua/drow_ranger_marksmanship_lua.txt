@@ -1,0 +1,83 @@
+"DOTAAbilities"
+{
+	"drow_ranger_marksmanship_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_drow_ranger/drow_ranger_marksmanship_lua/drow_ranger_marksmanship_lua"
+		"AbilityTextureName"			"drow_ranger_marksmanship"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+			"particle"	"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+			"particle"	"particles/units/heroes/hero_drow/drow_marksmanship_start.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"chance"						"12 14 16 18 20 22 24 26 28 30"
+				
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"					"50 100 150 200 250 300 350 400 450 500"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"agility_multiplier"			"20 22 24 26 28 30 32 34 36 38"
+				"LinkedSpecialBonus"			"npc_dota_hero_drow_ranger_agi8"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"agility_range"					"700"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"split_count_scepter"			"2"
+				"RequiresScepter"				"1"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"scepter_range"					"275"
+				"RequiresScepter"				"1"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction_scepter"		"50"
+				"RequiresScepter"				"1"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"disable_range"					"400"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"tool_disarm"					"50"
+			}
+		}
+	}
+}

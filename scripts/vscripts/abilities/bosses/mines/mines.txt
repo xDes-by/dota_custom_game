@@ -1,0 +1,578 @@
+"DOTAAbilities"
+{
+
+"split_earth_datadriven"
+{
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"leshrac_split_earth"
+
+	"precache"
+	{
+		"soundfile"       		  	"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
+		"particle"					"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		"particle"					"particles/generic_gameplay/generic_stunned.vpcf"
+	}
+
+	"AbilityCastRange"				"1000"
+	"AbilityCastPoint"				"0.7"
+	"AOERadius"						"%radius"
+	
+	"AbilityCooldown"				"15"
+
+	"AbilityManaCost"				"300"
+	
+	"AbilityDamage"					"2300"
+	"AbilityDuration"				"1"
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"delay"				"0.35"
+		}
+		
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"2350"
+		}
+		
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"duration"			"1"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"DelayedAction"
+		{
+			"Delay"     "%delay"
+			"Action"    
+			{
+				"FireEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+					"EffectAttachType"  "start_at_customorigin"
+					"TargetPoint"       "POINT"
+
+					"ControlPoints"
+					{
+						"01"    "%radius %radius %radius"
+					}
+				}
+				"FireSound"
+				{
+					"EffectName"	"Hero_Leshrac.Split_Earth"
+					"Target" 		"CASTER"
+				}
+				"DestroyTrees"
+				{
+					"Target" 		"POINT"
+					"Radius"		"%radius"
+				}
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"  	"POINT"
+						"Radius" 	"%radius"
+						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					}				
+					"Action"
+					{
+						"Damage"
+						{
+							"Target"		"TARGET"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Damage"		"%AbilityDamage"
+						}
+						"Stun"
+						{
+							"Target" 	 "TARGET"
+							"Duration"   "%duration"
+						}
+					}
+				}
+			}
+		}		
+	}
+}
+  
+"wisp_spirits_datadriven"
+{
+	"BaseClass"       			"ability_datadriven"
+	"AbilityBehavior"      		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"     	"DAMAGE_TYPE_MAGICAL" 
+	"SpellImmunityType"       	"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"      	"wisp_spirits"
+	"AbilityCastAnimation"   	 	"ACT_DOTA_TELEPORT"
+
+	"AbilityCastPoint"       	 "1.0"
+	"AbilityCastRange"         "1000"
+
+	"AbilityCooldown"       "15"
+	"AbilityDuration"       "10"
+
+	"AbilityManaCost"       "500"
+
+	"AbilitySpecial"
+	{
+	"02"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "creep_damage"        "300"
+	}
+	"03"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "hero_damage"       "300"
+	}
+	"04"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "revolution_time"     "60"
+	}
+	"05"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "min_range"         "450"
+	}
+	"06"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "max_range"         "650"
+	}
+	"07"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "hero_hit_radius"     "150"
+	}
+	"08"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "explode_radius"      "300"
+	}
+	"09"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "hit_radius"        "150"
+	}
+	"10"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "default_radius"      "125"
+	}
+	"11"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "spirit_movement_rate"    "500"
+	}
+	"12"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "spirit_duration"     "10.0"
+	}
+	// Extra variables
+	"13"
+	{
+	  "var_type"          "FIELD_INTEGER"
+	  "num_spirits"       "9"
+	}
+	"14"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "spirit_summon_interval"  "0.1"
+	}
+	"15"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "spirit_turn_rate"      "150"
+	}
+	"16"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "vision_duration"     "3.0"
+	}
+	"17"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "think_interval"      "0.03"
+	}
+	"18"
+	{
+	  "var_type"          "FIELD_FLOAT"
+	  "creep_damage_interval"   "0.1"    // == 360 / %spirit_turn_rate / %num_spirits
+	}
+	}
+
+	"precache"
+	{
+	"soundfile"         "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+	"soundfile" 		"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+	"particle"          "particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
+	"soundfile"          "soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+	"FireSound"
+	{
+	  "EffectName"      "Hero_Ursa.Earthshock"
+	  "Target"        "CASTER"
+	}
+
+	"RemoveModifier"
+	{
+	  "ModifierName"      "modifier_spirits_caster_datadriven"
+	  "Target"        "CASTER"
+	}
+
+	"ApplyModifier"
+	{
+	  "ModifierName"      "modifier_spirits_caster_datadriven"
+	  "Target"        "CASTER"
+	}
+	}
+
+	"Modifiers"
+	{
+	"modifier_spirits_caster_datadriven"
+	{
+	  "Duration"    "%spirit_duration"
+
+	  "OnCreated"
+	  {
+		"RunScript"
+		{
+		  "ScriptFile"    "abilities/bosses/mines/spirits.lua"
+		  "Function"      "CastSpirits"
+		  
+		  "default_radius"  "%default_radius"
+		}
+			"FireSound"
+		{
+		  "EffectName"    "Hero_EarthSpirit.RollingBoulder.Loop"
+		  "Target"      "CASTER"
+		}     
+	  }
+	  
+	  "ThinkInterval"   "%think_interval"
+	  "OnIntervalThink"
+	  {
+	 
+		"RunScript"
+		{
+		  "ScriptFile"    "abilities/bosses/mines/spirits.lua"
+		  "Function"      "ThinkSpirits"
+		  
+		  "think_interval"      "%think_interval"
+		  
+		  "num_spirits"       "%num_spirits"
+		  "spirit_summon_interval"  "%spirit_summon_interval"
+		  "spirit_turn_rate"      "%spirit_turn_rate"
+		  
+		  "min_range"         "%min_range"
+		  "max_range"         "%max_range"
+		  "spirit_movement_rate"    "%spirit_movement_rate"
+		  
+		  "caster_modifier"     "modifier_spirits_caster_datadriven"
+		  
+		  "spirit_particle_name"    "particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
+		  "spirit_modifier"     "modifier_spirits_spirit_datadriven"
+		}
+	  }
+	  
+	  "OnDestroy"
+	  {
+		"RunScript"
+		{
+		  "ScriptFile"    "abilities/bosses/mines/spirits.lua"
+		  "Function"      "EndSpirits"
+		  
+		  "spirit_modifier" "modifier_spirits_spirit_datadriven"
+		}
+	  }
+	}
+
+	"modifier_spirits_spirit_datadriven"
+	{
+	  "Aura"      "modifier_spirits_creep_damage_datadriven"
+	  "Aura_Radius" "%hit_radius"
+	  "Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	  
+	  "OnCreated"
+	  {
+		"RunScript"
+		{
+		  "ScriptFile"    "abilities/bosses/mines/spirits.lua"
+		  "Function"      "OnCreatedSpirit"
+		  
+		  "additionalModifier"  "modifier_spirits_spirit_collision_with_hero_datadriven"
+		}
+	  }
+
+	  "OnDestroy"
+	  {
+		"RemoveModifier"
+		{
+		  "ModifierName"  "modifier_spirits_spirit_collision_with_hero_datadriven"
+		  "Target"    "TARGET"
+		}
+	  
+		"FireEffect"
+		{
+		  "EffectName"    ""
+		  "EffectAttachType"  "attach_origin"
+		  "Target"      "TARGET"
+		}
+		
+		"FireSound"
+		{
+		  "EffectName"    "Hero_Wisp.Spirits.Destroy"
+		  "Target"      "TARGET"
+		}
+		
+		"RunScript"
+		{
+		  "ScriptFile"    "abilities/bosses/mines/spirits.lua"
+		  "Function"      "OnDestroySpirit"
+		  "Target"      "TARGET"
+		  
+		  "vision_radius"   "%explode_radius"
+		  "vision_duration" "%vision_duration"
+		}
+		
+		"Damage"
+		{
+		  "Target"
+		  {
+			"Center"    "TARGET"
+			"Radius"  "%explode_radius"
+			"Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		  }
+		  "Type"      "DAMAGE_TYPE_MAGICAL"
+		  "Damage"    "%hero_damage"
+		}
+	  }
+	  
+	  "States"
+	  {
+		"MODIFIER_STATE_INVULNERABLE"     "MODIFIER_STATE_VALUE_ENABLED"
+		"MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
+		"MODIFIER_STATE_NO_UNIT_COLLISION"    "MODIFIER_STATE_VALUE_ENABLED"
+		"MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+		"MODIFIER_STATE_UNSELECTABLE"     "MODIFIER_STATE_VALUE_ENABLED"
+	  }
+	}
+
+	"modifier_spirits_spirit_collision_with_hero_datadriven"
+	{
+	  "Aura"      "modifier_spirits_trigger_explode_datadriven"
+	  "Aura_Radius" "%hero_hit_radius"
+	  "Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "Aura_Types"  "DOTA_UNIT_TARGET_HERO"
+	}
+
+	"modifier_spirits_creep_damage_datadriven"
+	{
+	  "Duration"  "0.01"
+	  "IsHidden"  "1"
+	  
+	  "OnCreated"
+	  {
+		"FireSound"
+		{
+		  "EffectName"    "Hero_Wisp.Spirits.TargetCreep"
+		  "Target"      "TARGET"
+		}
+		
+		"FireEffect"
+		{
+		  "EffectName"    ""
+		  "EffectAttachType"  "attach_hitloc"
+		  "Target"      "TARGET"
+		}
+		
+		"Damage"
+		{
+		  "Target"    "TARGET"
+		  "Type"      "DAMAGE_TYPE_MAGICAL"
+		  "Damage"    "%creep_damage"
+		}
+	  }
+	  
+	  "ThinkInterval"   "%creep_damage_interval"
+	  "OnIntervalThink"
+	  {
+		"FireSound"
+		{
+		  "EffectName"    "Hero_Wisp.Spirits.TargetCreep"
+		  "Target"      "TARGET"
+		}
+		
+		"FireEffect"
+		{
+		  "EffectName"    ""
+		  "EffectAttachType"  "attach_hitloc"
+		  "Target"      "TARGET"
+		}
+		
+		"Damage"
+		{
+		  "Target"    "TARGET"
+		  "Type"      "DAMAGE_TYPE_MAGICAL"
+		  "Damage"    "%creep_damage"
+		}
+	  }
+	}
+
+	"modifier_spirits_trigger_explode_datadriven"
+	{
+	  "Duration"  "0.01"
+	  "IsHidden"  "1"
+	  
+	  "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
+	  
+	  "OnCreated"
+	  {
+		"RunScript"
+		{
+		  "ScriptFile"  "abilities/bosses/mines/spirits.lua"
+		  "Function"    "ExplodeSpirit"
+		  
+		  "spirit_modifier" "modifier_spirits_spirit_datadriven"
+		  "explosion_sound" "Hero_Wisp.Spirits.Target"
+		}
+	  }
+	}
+	}
+} 
+
+
+"gaven_create_stone"
+	{
+		"BaseClass"          		"ability_lua"
+		"ScriptFile"				"abilities/bosses/mines/gaven_create_stone"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityCastRange"       	"1000"
+		"AbilityCastPoint"       	"0.3"
+		"AbilityCooldown"       	"10"
+	}
+  
+"earthshaker_fissure_datadriven"
+	{
+		"BaseClass"       			"earthshaker_fissure"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+		"SpellImmunityType"      	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"      		"1"
+		"AbilityTextureName"      	"earthshaker_fissure"
+
+		"AbilityCastRange"        	"1000"
+		"AbilityCooldown"      	 	"10"
+		"AbilityDamage"         	"1200"
+		"AbilityManaCost"       	"200"   
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"          "FIELD_INTEGER"
+				"fissure_range"       "1500"
+			}
+			"02"
+			{
+				"var_type"          "FIELD_FLOAT"
+				"fissure_duration"      "10.0"
+			}
+			"03"
+			{
+				"var_type"          "FIELD_INTEGER"
+				"fissure_radius"        "225"
+			}
+			"04"
+			{
+				"var_type"          "FIELD_FLOAT"
+				"stun_duration"       "0"
+			}
+		}
+	}
+
+"earth_spirit_magnetize_datadriven"
+	{
+		"BaseClass"       			"earth_spirit_magnetize"
+		"AbilityBehavior"      	 	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"       	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"       	"2"
+		"AbilityTextureName"      	"earth_spirit_magnetize"
+		"AbilityCastRange"        	"1000"
+		"AbilityCastPoint"        	"0"
+		"AbilityCooldown"       	"10"
+		"AbilityManaCost"       	"100"
+
+		"AbilitySpecial"
+			{
+			"01"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"cast_radius"     "1000"
+			}
+			"02"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"damage_per_second"     "400"
+			}
+			"03"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"damage_duration"     "10.0"
+			}
+			"04"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"rock_search_radius"      "400"
+			}
+			"05"
+			{
+				"var_type"        "FIELD_INTEGER"
+				"rock_explosion_radius"     "600"
+			}     
+			"06"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"damage_interval"     "1.0"
+			}
+			"07"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"rock_explosion_delay"      "8.0"
+			}
+			"08"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"silence_duration"      "5.0"
+			}
+			"09"
+			{
+				"var_type"        "FIELD_FLOAT"
+				"slow_duration"     "2.0"
+			}
+		}
+	}	
+
+}

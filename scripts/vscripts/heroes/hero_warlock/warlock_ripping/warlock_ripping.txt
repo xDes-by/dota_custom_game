@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+	"warlock_ripping"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_warlock/warlock_ripping/warlock_ripping"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityTextureName"			"warlock"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityCooldown"				"170 160 150 140 130 120 110 100 90 80 70 60 50 40 30"
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	
+	
+	"kill_golem"
+		{
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"      	"custom_folder/explosion"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		"OnOwnerDied"
+        {
+			"RunScript"
+				{
+					"ScriptFile"			"heroes/hero_warlock/warlock_ripping/warlock_ripping"
+					"Function"				"die"	
+				}
+			}
+		}
+}

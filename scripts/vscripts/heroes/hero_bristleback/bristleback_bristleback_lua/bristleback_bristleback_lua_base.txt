@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+	"bristleback_bristleback_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_bristleback/bristleback_bristleback_lua/bristleback_bristleback_lua"
+		"AbilityTextureName"			"bristleback_bristleback"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"side_damage_reduction"			"8 10 12 14 16 18 20 22 24 26 28 30 32 34 36"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"back_damage_reduction"			"16 20 24 38 32 36 40 44 48 52 56 60 64 68 72"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"side_angle"					"110"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"back_angle"					"70"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"quill_release_threshold"		"400"
+			}
+		}
+	}
+}

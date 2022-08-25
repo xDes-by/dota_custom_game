@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+    "techies_land_mines_lua"
+	{
+		"BaseClass"							"ability_lua"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"				"techies_land_mines"
+		"ScriptFile"						"heroes/hero_techies/techies_land_mines/techies_land_mines.lua"
+		"AbilityCastRange"					"300"
+		
+		"AbilityCooldown"					"20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
+        "MaxLevel"						    "15"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"small_radius"				"300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activation_time"			"1.0"
+			}
+		}
+	}
+}

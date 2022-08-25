@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+	"skywrath_mage_ancient_seal_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_lua/skywrath_mage_ancient_seal_lua"
+		"AbilityTextureName"			"skywrath_mage_ancient_seal"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"14"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"resist_debuff"			"-16 -17 -18 -19 -20 -21 -22 -23 -24 -25 -26 -27 -28 -29 -30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"seal_duration"			"3.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"500"
+			}
+		}
+	}
+}

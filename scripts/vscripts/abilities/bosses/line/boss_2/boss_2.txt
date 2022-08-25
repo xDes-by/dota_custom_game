@@ -1,0 +1,308 @@
+"DOTAAbilities"
+{
+"boss_2_spray"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_2/boss_2_spray"
+		"AbilityTextureName"			"alchemist_acid_spray"
+		"FightRecapLevel"				"1"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"900"
+
+		"AbilityCooldown"				"15.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"1.0"
+			}
+		}
+	}	
+	
+"boss_2_heart"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_HP_REMOVAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		"ScriptFile"					"abilities/bosses/line/boss_2/boss_2_heart"
+
+		"AbilityCastRange"				"900"
+
+		"AbilityValues"
+		{
+			"radius"					"900"
+			"damage_pct"				"3"
+			"heal_reduce_pct"			"30"
+			"tick_rate"					"0.2"
+		}
+	}	
+	
+"boss_2_spawn"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_2/boss_2_spawn"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"skeletal"	
+		"AbilityCooldown"				"1"
+	}	
+	
+"boss_2_poison" 
+		{	
+		   	"BaseClass"           		"ability_lua"
+			"ScriptFile"				"abilities/bosses/line/boss_2/boss_2_poison"
+		    "AbilityBehavior"        	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		    "AbilityTextureName"     	"gyrocopter_rocket_barrage"
+
+			"AbilityCooldown"			"15"
+		}		
+	
+	
+"explosion"
+	{
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"      	"custom_folder/explosion"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"precache"
+		{
+		    "particle" "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_blood01_lv.vpcf"
+		}	
+		"OnOwnerDied"
+		{
+		    "AttachEffect"
+		    {
+		        "EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_blood01_lv.vpcf"
+		        "EffectAttachType" "follow_origin"
+		        "Target" "CASTER"
+		    }
+
+			"RunScript"
+			{
+				"ScriptFile"			"abilities/bosses/line/boss_2/zombie_minion"
+				"Function"				"PudgeCastAcidSpray"			
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_explosion"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnTakeDamage"
+				{
+						"RunScript"
+					{
+						"ScriptFile"			"abilities/bosses/line/boss_2/zombie_minion"
+						"Function"				"PudgeCastAcidSpray"			
+					}	
+				}
+			}
+		}
+	}	
+	
+"absolute_moving"
+	{
+		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"           "ability_datadriven"
+	  
+		"Modifiers"
+		{
+			"modifier_animated_tower"
+			{
+			"Passive"     "1"
+			"IsHidden"      "1"
+			"Priority"                     "MODIFIER_PRIORITY_ULTRA"
+			"Attributes" "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT" 
+			
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"   			"MODIFIER_STATE_VALUE_DISABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_TURNING" "0"
+					"MODIFIER_PROPERTY_IGNORE_CAST_ANGLE" "0"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "580"
+				}
+			}
+		}
+	}
+	
+"fat_zombie_explosion_stack"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_alchemist/alchemist_acid_spray_c.vpcf"
+		}
+
+		"AbilityCastRange"				"250"
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_base_damage"		"300.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_stack_damage"	"150.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_stack_duration"	"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_damage"			"100000.0"
+			}
+		}
+
+		"OnOwnerDied"
+		{
+			"ApplyModifier"
+			{
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+				}
+				"ModifierName"	"modifier_quill_spray_datadriven_determiner"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray_c.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"EffectRadius"		"%radius"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Bristleback.QuillSpray.Cast"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Bristleback.QuillSpray.Target"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Radius"	"%radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+				}
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_quill_spray_datadriven_user_display"
+			{
+				"IsDebuff"	"1"
+			}
+			"modifier_quill_spray_datadriven_stack_hero"
+			{
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"		"%quill_stack_duration"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/bosses/line/boss_2/zombie_minion"
+						"Function"			"stack_created"
+						"stack_duration"	"%quill_stack_duration"
+						"base_damage"		"%quill_base_damage"
+						"stack_damage"		"%quill_stack_damage"
+						"max_damage"		"%max_damage"
+					}
+				
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/bosses/line/boss_2/zombie_minion"
+						"Function"		"stack_destroyed"
+					}
+				}
+			}
+			"modifier_quill_spray_datadriven_determiner"
+			{
+				"IsHidden"		"1"
+				"Duration"		"0.01"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/bosses/line/boss_2/zombie_minion"
+						"Function"		"determine_debuff"
+					}
+				}
+			}
+		}
+	}	
+}

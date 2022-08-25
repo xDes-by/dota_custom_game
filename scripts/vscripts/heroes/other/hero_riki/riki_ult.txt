@@ -1,0 +1,112 @@
+
+"DOTAAbilities"
+{
+"cloak_and_dagger_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"riki_permanent_invisibility"
+		"MaxLevel"						"10"
+		"precache"
+		 {
+		  "soundfile"   "sounds/weapons/hero/riki/riki_backstab.vsnd"
+		  "soundfile"	"sounds/weapons/hero/riki/riki_attack1.vsnd"
+		  "particle"	"particles/units/heroes/hero_riki/riki_backstab.vpcf"
+		  "particle"	"particles/generic_hero_status/status_invisibility_start.vpcf"
+		 
+		 }
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"6.0 5.5 5.0 4.5 4.0 3.5 3.0 2.5 2.0 1.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"agility_damage"			"125 150 175 200 225 250 275 300 325 350"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"backstab_angle"			"105"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_invisibility_fade_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				
+				"Duration"			"%fade_time"
+				"EffectName"		"particles/generic_hero_status/status_invisibility_start.vpcf"
+				"EffectAttachType"	"follow_origin"
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_riki/cloak_and_dagger.lua"
+						"Function"			"addmod"
+					}
+				}  
+			}
+			"modifier_backstab_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_riki/cloak_and_dagger.lua"
+						"Function"			"CheckBackstab"
+						"particle"			"particles/units/heroes/hero_riki/riki_backstab.vpcf"
+						"sound"				"Hero_Riki.Backstab"
+						"sound2"			"Hero_Riki.Attack"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_permanent_invisibility_datadriven"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_invisible"
+					}
+				}
+			}
+	
+			"modifier_permanent_invisibility_datadriven"	
+			{	
+				"IsHidden"	"1"
+				
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED" 
+				}
+	
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Flags"	"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+						"ModifierName"	"modifier_invisible"
+					}
+				}
+			}
+		}
+	}
+}

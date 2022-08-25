@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+	"centaur_repel_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/centaur_repel_lua/centaur_repel_lua"
+		"AbilityTextureName"			"centaur"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"30"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 3.25 3.5 3.75 4.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor"					"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"700"
+			}
+		}
+	}
+}

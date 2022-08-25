@@ -1,0 +1,31 @@
+"itemscosts"
+{
+	"item_up_ability_tower"
+	{
+		"gold"	"10000"
+	}
+	"item_up_ability_tower2"
+	{
+		"gold"	"20000"
+	}
+	"item_up_ability_tower3"
+	{
+		"gold"	"30000"
+	}
+	"item_up_hp_tower"
+	{
+		"gold"	"5000"
+	}
+	"item_up_dmg_tower"
+	{
+		"gold"	"5000"
+	}
+	"item_up_armor_tower"
+	{
+		"gold"	"5000"
+	}
+	"item_up_speed_tower"
+	{
+		"gold"	"10000"
+	}
+}

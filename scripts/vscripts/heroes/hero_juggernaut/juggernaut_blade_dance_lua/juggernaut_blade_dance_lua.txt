@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"juggernaut_blade_dance_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_juggernaut/juggernaut_blade_dance_lua/juggernaut_blade_dance_lua"
+		"AbilityTextureName"			"juggernaut_blade_dance"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blade_dance_crit_chance"	"15 17 19 21 23 25 27 29 31 33 35 37 39 41 43"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blade_dance_crit_mult"		"100 110 120 130 140 150 160 170 180 190 200 210 220 230 240"
+			}
+		}
+	}
+}

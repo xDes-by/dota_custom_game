@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+	"builder_turrel"
+		{
+			"BaseClass"						"ability_datadriven"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+			"AbilityTextureName"			"turret"
+			"AbilityCastRange"				"200"
+			"MaxLevel"						"15"
+			"AbilityCooldown"				"40"
+			
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"hp"					"50"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"dmg"					"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+				}	
+				"03"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"count"					"3"
+				}						
+				
+			}
+			
+			"OnSpellStart"
+			{
+				"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_builder/builder_turrel/builder_turrel"
+						"Function"		"build"
+					}
+			}
+		}
+		
+	"boom_turret"
+		{
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"      	"custom_folder/explosion"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"	
+		"OnOwnerDied"
+        {
+           "RunScript"
+				{
+					"ScriptFile"			"heroes/hero_builder/builder_turrel/builder_turrel"
+					"Function"				"die"	
+				}
+        }
+		
+		"OnSpellStart"
+			{
+				"RunScript"
+				{
+					"ScriptFile"			"heroes/hero_builder/builder_turrel/builder_turrel"
+					"Function"				"boom"	
+				}
+			}
+		}
+}

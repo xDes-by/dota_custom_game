@@ -1,0 +1,185 @@
+"DOTAAbilities"
+{
+
+	"marci_crystals"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_marci/marci_crystals"
+		"AbilityTextureName"			"marci_1spell_day"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"day_soul_bonus"	    "1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"night_soul_bonus"		"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chance"				"30 35 40 45 50 55 60 65 70 75 80 85 90 95 100"
+			}
+		}
+	}
+"marci_prigok"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_marci/marci_crystals"
+		"AbilityTextureName"			"marci_companion_run"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCooldown"				"20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+            "02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cd"				    "20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
+			}
+		}
+	}
+"marci_sidekick_lua"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_marci/marci_crystals"
+		"AbilityTextureName"			"marci_guardian"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"40 38 36 34 32 30 28 26 24 22 20 18 16 14 12"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"buff_duration"		"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"phis_dmg"			"35 40 45 50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"nearest_ally_search_range"	"700"
+			}
+		}
+	}
+	"marci_unleash_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_marci/marci_crystals"
+		"AbilityTextureName"			"marci_unleash"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"180 170 160 150 140 130 120 110 100 90 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4 5 6 7 8 9 10 11 12 13"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charges_per_flurry"	"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"flurry_bonus_attack_speed"	"500 600 700 800 900 1000 1100 1200 1300 1400 1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"time_between_flurries"	"1.75"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pulse_radius"			"800"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_debuff_duration"	"2.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pulse_damage"			"70 140 210 280 350 420 490 560 640 700"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_move_slow_pct"	"30.0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_attack_slow_pct"	"60.0 80.0 100.0"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"max_time_window_per_hit"	"3 2 1"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"15 30 45 60 75 90 115 120 135 150"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"recovery_fixed_attack_rate"	"2.0"
+			}
+		}
+	}
+}

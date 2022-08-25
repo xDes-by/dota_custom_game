@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"drow_ranger_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_drow_ranger/drow_ranger_aura/drow_ranger_aura"
+		"AbilityTextureName"			"speedaura2"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"speed"				"6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range"				"700"
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	"warlock_shadow_word_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_warlock/warlock_shadow_word_lua/warlock_shadow_word_lua"
+		"AbilityTextureName"			"warlock_shadow_word"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityCooldown"				"30"
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tick_value"			"15 25 35 45 55 65 75 85 95 105 115 125 135 145 155"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_value"			"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tick_interval"			"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

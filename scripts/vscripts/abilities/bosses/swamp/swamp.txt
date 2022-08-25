@@ -1,0 +1,275 @@
+"DOTAAbilities"
+{
+
+"swamp_split_shot"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/swamp/split_shot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}	
+	
+"ward_bash"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/swamp/ward_bash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}		
+	
+"swamp_spawn"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/swamp/swamp_spawn"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"5"
+		"AbilityValues"
+		{
+			"radius"					"800"
+			"max"						"5"
+		}
+	}	
+	
+"swamp_blast"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"		           "abilities/bosses/swamp/swamp_blast"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "antimage_counterspell"
+		"AbilityValues"
+		{
+			"interval"		        "5"
+			"radius"		        "1000"
+		}
+	}		
+	
+"lich_sinister_gaze_custom"
+	{
+		"BaseClass"						"lich_sinister_gaze"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"				"1"
+
+		"AbilityCastRange"				"1300"
+		"AbilityCooldown"				"8"
+
+		"AbilityManaCost"				"80"
+
+		"AbilityValues"
+		{
+			"AbilityChannelTime"
+			{
+				"value" "3"
+				"special_bonus_unique_lich_2" "+0.5"
+			}
+			"destination"		"50"
+			"mana_drain"		"500"
+			"aoe_scepter"
+			{
+				"special_bonus_scepter" "+400"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	
+"ursa_fury_swipes_custom"
+	{
+		"BaseClass"						"ursa_fury_swipes"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time"				"15"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa_4"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time_roshan"		"10"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_stack"				"250"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}	
+
+"ogre_magi_channelled_bloodlust"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/bosses/swamp/ogre_magi_channelled_bloodlust"
+        "AbilityTextureName"            "ogre_magi_bloodlust"
+
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY" 
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+
+        "IsOnCastBar"                   "0"
+
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.1"
+        
+        "AbilityCooldown"               "0.5" // was 4.0
+		
+        "AbilityChannelTime"            "10.0"
+
+        "AbilityManaCost"               "0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "10"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "modelscale"            "5"
+            }   
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "1"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "25"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "interrupted_cooldown"  "4"
+            }
+        }
+    }
+	
+"venomancer_pulse"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AoERadius" 					"200"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"venomancer_toxicity"
+
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+			"soundfile"		"sounds/weapons/hero/enigma/midnight_pulse.vsnd"
+			"soundfile"	  	 "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		}
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"9"
+
+		"AbilityManaCost"				"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_percent"			"200"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"tick_rate"					"0.2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"regen"						"-75"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"modifier_midnight_pulse_datadriven"
+				"Target" 		"POINT"
+			}
+		
+		} 
+
+		"Modifiers"
+		{
+			"modifier_midnight_pulse_datadriven"
+			{
+				"Aura"					"modifier_midnight_pulse_debuff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_CUSTOM | DOTA_UNIT_TARGET_BASIC"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					
+			
+					"FireSound"
+					{
+						"EffectName"	"Hero_Venomancer.Plague_Ward"
+						"Target"		"TARGET"
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"					"particles/venik.vpcf"		
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius %radius %radius"
+						}
+					}
+				}
+			}
+
+			"modifier_midnight_pulse_debuff"
+			{
+				"IsDebuff"		"1"
+				
+				"Properties"
+					{
+						"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%regen"
+					}
+				
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/bosses/swamp/pulse.lua"
+						"Function"		"ApplyDPS"
+					}
+				}
+			}
+		}
+	}	
+}

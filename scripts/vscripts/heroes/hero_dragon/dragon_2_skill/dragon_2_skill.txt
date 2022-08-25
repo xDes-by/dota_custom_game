@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+	"dragon_2_skill"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_dragon/dragon_2_skill/dragon_2_skill"
+		"AbilityTextureName"			"dk_2"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_DEAD"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mag_resist" 			"-6 -7 -8 -9 -10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration" 				"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"15 30 45 60 75 90 105 120 135 150 165 180 195 210 225"
+			}
+		}
+	}
+}

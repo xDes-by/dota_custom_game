@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+	"mars_gods_rebuke_lua"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_mars/mars_gods_rebuke_lua/mars_gods_rebuke_lua"
+		"AbilityTextureName"			"mars_gods_rebuke"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"120 130 140 150 160 170 180 190 200 210 220 230 240 250 260"
+				"LinkedSpecialBonus"		"npc_dota_hero_mars_agi9"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"angle"						"140"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"500"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"knockback_duration"		"0.3"
+			}			
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"knockback_distance"		"150"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activity_duration"			"2"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_vs_heroes"	"25"
+			}
+		}
+	}
+}

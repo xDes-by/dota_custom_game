@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+	"sven_great_cleave_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"sven_great_cleave"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"ScriptFile"					"heroes/hero_sven/sven_great_cleave_lua/sven_great_cleave_lua"
+		"MaxLevel"						"15"
+				
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"great_cleave_radius"	"300 310 320 330 340 350 360 370 380 390 400 410 420 430 440"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"great_cleave_damage"	"34 38 42 46 50 54 58 62 66 70 74 78 82 86 90"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_starting_width"			"150"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_ending_width"			"360"
+			}	
+		}
+	}
+}

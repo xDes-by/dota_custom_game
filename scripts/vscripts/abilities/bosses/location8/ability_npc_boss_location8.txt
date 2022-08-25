@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+	"ability_npc_boss_location8_spell1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/location8/ability_npc_boss_location8_spell1"
+		"AbilityTextureName"			"snapfire_lil_shredder"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"12"
+		"AbilityValues"
+		{
+			"damage"					"100"
+			"buffed_attacks"			"8"
+			//инорирует ограничение атакспида
+			"attack_speed_bonus"		"300"
+			"attack_range_bonus"		"300"
+			"debuff_duration"			"10"
+			"duration"				    "8"
+			"armor"				        "50"
+		}
+	}
+	"ability_npc_boss_location8_spell2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/location8/ability_npc_boss_location8_spell2"
+		"AbilityTextureName"			"snapfire_firesnap_cookie"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"12"
+		"AbilityValues"
+		{
+			"distance"					"500"
+			"stun_radius"				"300"
+			"stun_duration"				"3"
+			"fire_tail_duration"		"5"
+			"fire_tail_damage"			"5"
+			"jump_damage"				"30000"
+		}
+	}
+	"ability_npc_boss_location8_spell3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/location8/ability_npc_boss_location8_spell3"
+		"AbilityTextureName"			"snapfire_scatterblast"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityCooldown"				"12"
+		"AbilityValues"
+		{
+			"distance"					"600"
+			"damage"					"15"
+		}
+	}
+    "ability_npc_boss_location8_spell4"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/location8/ability_npc_boss_location8_spell4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"15"
+     	"AbilityValues"
+		{
+            "damage_hit" "30000"
+            "radius" "300"
+            "slow" "50"
+            "balls_count" "10"
+		}  
+	}
+}

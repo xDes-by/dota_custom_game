@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	"legion_ult"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_legion/legion_ult/legion_ult.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"legion_commander_duel"
+        "MaxLevel"                      "10"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shag"					"11 10 9 8 7 6 5 4 3 2"
+			}
+		}
+	}
+}

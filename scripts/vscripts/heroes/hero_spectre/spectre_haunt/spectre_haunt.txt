@@ -1,0 +1,77 @@
+"DOTAAbilities"
+{
+	"spectre_haunt_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_spectre/spectre_haunt/spectre_haunt"
+		"AbilityTextureName"			"spectre_haunt"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"10"
+		"LinkedAbility"					"spectre_reality_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastPoint"				"0.15"
+
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"											"FIELD_FLOAT"
+				"illusion_duration"									"60.0"
+			}
+			"02"
+			{
+				"var_type"											"FIELD_FLOAT"
+				"illusion_outgoing_damage"							"-60 -50 -40 -30 -20 -10 0 10 20 30"		 
+			}
+			"03"
+			{	
+				"var_type"											"FIELD_FLOAT"
+				"illusion_outgoing_tooltip"							"40 50 60 70 80 90 100 110 120 130"
+			}
+			"04"
+			{	
+				"var_type"											"FIELD_FLOAT"
+				"illusion_incoming_damage"							"150.0"
+			}
+			"05"
+			{
+				"var_type"											"FIELD_FLOAT"
+				"illusion_incoming_damage_total_tooltip"			"250.0"
+			}
+		}
+	}
+	
+	"spectre_reality_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"	
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityTextureName"			"spectre_reality"
+		"LinkedAbility"					"spectre_haunt_lua"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"5"
+		"FightRecapLevel"				"2"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_spectre/spectre_haunt/spectre_haunt"
+				"Function"		"RealityCast"
+			}
+		}
+	}
+
+}

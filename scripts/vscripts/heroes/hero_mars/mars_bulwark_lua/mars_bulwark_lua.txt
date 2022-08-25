@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+	"mars_bulwark_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_mars/mars_bulwark_lua/mars_bulwark_lua"
+		"AbilityTextureName"			"mars_bulwark"
+		"MaxLevel"						"15"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf"
+			"particle"	"particles/units/heroes/hero_mars/mars_shield_of_mars_small.vpcf"
+		}
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"physical_damage_reduction"		"20 25 30 35 40 45 50 55 60 65 70 75 80 85 90"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"forward_angle"					"140"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"physical_damage_reduction_side"	"20 23 26 29 32 35 38 41 44 47 50 53 56 59 62"
+				"LinkedSpecialBonus"				"npc_dota_hero_mars_str9"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"side_angle"					"240"
+			}
+		}
+	}
+}

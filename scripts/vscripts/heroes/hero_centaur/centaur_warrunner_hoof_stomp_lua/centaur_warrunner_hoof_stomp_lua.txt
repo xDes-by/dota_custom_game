@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+	"centaur_warrunner_hoof_stomp_lua"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"heroes/hero_centaur/centaur_warrunner_hoof_stomp_lua/centaur_warrunner_hoof_stomp_lua"
+		"AbilityTextureName"				"centaur_hoof_stomp"
+		"FightRecapLevel"					"1"
+		"MaxLevel"							"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+			"particle"	"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"315"
+		"AbilityCastPoint"				"0.5"
+
+		"AbilityCooldown"				"20.0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"315"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"3" 
+				"LinkedSpecialBonus"			"npc_dota_hero_centaur_int7"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"100 150 200 250 300 350 400 450 500 550 600 650 700 750 800"
+			}
+		}
+	}
+}

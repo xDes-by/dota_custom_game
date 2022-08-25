@@ -1,0 +1,73 @@
+"DOTAAbilities"
+{
+
+"boss_4_hole"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_4/boss_4_hole"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+		"AbilityCooldown"				"3"
+		"AbilityCastRange"				"700"
+
+		"AbilityValues"
+		{
+			"near_damage"			"250"
+			"duration"				"2"
+			"far_damage"			"250"
+		}
+	}
+		
+"boss_4_eva"
+    {
+        "BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_4/boss_4_eva"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+        "AbilityValues"
+        {
+            "persent" 					"25"
+        }
+    }
+	
+"boss_4_midnignt"
+    {
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_4/boss_4_midnignt"
+		"AbilityTextureName"			"enigma_midnight_pulse"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityCooldown"				"25"
+
+		"AbilityValues"
+		{
+			"radius"					"550"
+			"damage_percent"			"5"
+			"duration"					"10"
+		}
+    }	
+	
+"boss_4_eidolon"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_4/boss_4_eidolon"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastRange"				"900"
+		"AbilityCooldown"				"25"
+	}	
+}	

@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	"mars_atrophy_aura_lua"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_mars/mars_atrophy_aura_lua/mars_atrophy_aura_lua"
+		"AbilityTextureName"			"mars"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
+		}
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"	
+
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"700"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_reduction_pct"			"5 8 11 14 17 20 23 26 29 32"
+				"LinkedSpecialBonus"			"npc_dota_hero_mars_str8"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_from_creep"		"2 3 4 5 6 7 8 9 10 11"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_damage_duration"			"60"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"permanent_bonus"		"5"
+			}
+		}
+	}
+}

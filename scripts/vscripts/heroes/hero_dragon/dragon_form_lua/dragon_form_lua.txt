@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+	"dragon_form_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_dragon/dragon_form_lua/dragon_form_lua"
+		"AbilityTextureName"			"dragon_knight_elder_dragon_form"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCooldown"				"180"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"60"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_movement_speed"			"10 15 20 25 30 35 40 45 50 55"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_range"			"350"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_damage"			"25 50 75 100 125 150 175 200 225 250"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"corrosive_breath_damage"		"10 15 20 25 30 35 40 45 50 55"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"corrosive_breath_duration"		"2"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"splash_radius"					"300"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"splash_damage_percent"			"50"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_bonus_movement_speed"	"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"frost_bonus_attack_speed"		"-5 -10 -15 -20 -25 -30 -35 -40 -45 -50"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"frost_duration"				"2.0"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"frost_aoe"						"300"
+			}
+		}
+	}
+}

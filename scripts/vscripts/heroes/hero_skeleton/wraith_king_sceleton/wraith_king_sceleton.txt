@@ -1,0 +1,100 @@
+"DOTAAbilities"
+	{	
+	"wraith_king_sceleton"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_skeleton/wraith_king_sceleton/wraith_king_sceleton"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+			"AbilityTextureName"			"skelets"
+			"AbilityCastRange"				"450"
+			"MaxLevel"						"15"
+			
+			"AbilityCooldown"				"60"		
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"hp"						"50 55 60 65 70 75 80 85 90 95 100 105 110 115 120"
+					"LinkedSpecialBonus"		"npc_dota_hero_skeleton_king_agi9"
+				}
+				"02"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"dmg"						"50 55 60 65 70 75 80 85 90 95 100 105 110 115 120"
+					"LinkedSpecialBonus"		"npc_dota_hero_skeleton_king_agi9"
+				}
+				"03"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"armor"						"50 55 60 65 70 75 80 85 90 95 100 105 110 115 120"
+					"LinkedSpecialBonus"		"npc_dota_hero_skeleton_king_agi9"
+				}
+				"04"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"duration"					"60"
+				}				
+			}
+		}
+		
+	"tomb_teleport"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_skeleton/wraith_king_sceleton/tomb_teleport"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+			"AbilityTextureName"			"blink"
+			"AbilityCooldown"				"240"		
+		}	
+		
+	"booms"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilityCastRange"				"500"
+
+		"OnOwnerDied"
+		{
+			"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_skeleton/wraith_king_sceleton/wraith_king_sceleton"
+					"Function"		"boom2"
+				}
+		}
+	}	
+
+	"kill_skelet"
+			{
+			"BaseClass"                 "ability_datadriven"
+			"AbilityTextureName"      	"custom_folder/explosion"
+			"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"	
+			
+			"OnCreated"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_kill_wolfs"
+					"Target"		"CASTER"
+				}
+			}
+			"Modifiers"
+			{
+				"modifier_kill_wolfs"
+				{
+					"IsHidden"			"1"
+					"Duration"			"60"
+					"ThinkInterval"		"60"
+					"OnIntervalThink"
+					{
+						"RunScript"
+						{
+									"ScriptFile"			"heroes/hero_skeleton/wraith_king_sceleton/wraith_king_sceleton"
+									"Function"				"boom"	
+						}
+					}
+				}
+			}	
+		}	
+	}

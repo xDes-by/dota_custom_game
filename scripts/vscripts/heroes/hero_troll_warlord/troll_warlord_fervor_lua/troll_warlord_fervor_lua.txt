@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"troll_warlord_fervor_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua"
+		"AbilityTextureName"			"troll_warlord_fervor"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"count"							"7 6 5"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg"						"15 25 35 45 55 65 75 85 95 105 115 125 135 145 155"
+			}
+		}
+	}
+}

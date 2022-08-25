@@ -1,0 +1,93 @@
+"DOTAAbilities"
+{
+	"sniper_shrapnel_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_sniper/sniper_shrapnel_lua/sniper_shrapnel_lua"
+		"AbilityTextureName"			"sniper_shrapnel"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"30"
+		
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
+		}
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityManaCost"				"50"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-5 -9 -13 -17 -21 -25 -29 -33 -37 -41 -45 -49 -53 -57 -61"
+				
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"450"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shrapnel_damage"		"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+				"LinkedSpecialBonus"		"special_bonus_unique_sniper_custom"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_delay"			"1.2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"3"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"15"
+			}
+		}
+	}
+	
+	"special_bonus_unique_sniper_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"135"
+			}
+		}
+	}
+}

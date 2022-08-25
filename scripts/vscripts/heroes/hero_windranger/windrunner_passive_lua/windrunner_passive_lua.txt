@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+	"windrunner_passive_lua"
+	{
+		"BaseClass"							"ability_lua"
+			"ScriptFile"					"heroes/hero_windranger/windrunner_passive_lua/windrunner_passive_lua"
+			"AbilityTextureName"			"windrunner_ult"
+			"FightRecapLevel"				"1"
+			"MaxLevel"						"15"
+
+			"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"max_stacks"			"10"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"attack_speed"			"2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
+				}
+				"03"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"mp_loss"				"10 12 14 16 18 20 22 24 26 28 30 32 34 36 38"
+				}
+			}
+	}		
+}

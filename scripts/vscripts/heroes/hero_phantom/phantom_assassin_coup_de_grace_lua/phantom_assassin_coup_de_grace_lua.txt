@@ -1,0 +1,71 @@
+"DOTAAbilities"
+{
+	"phantom_assassin_coup_de_grace_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_phantom/phantom_assassin_coup_de_grace_lua/phantom_assassin_coup_de_grace_lua"
+		"AbilityTextureName"			"phantom_assassin_coup_de_grace"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_mechanical.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"15"
+				"LinkedSpecialBonus"			"special_bonus_unique_phantom_custom4"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_bonus"				"150 200 250 300 350 400 450 500 550 600"
+				"LinkedSpecialBonus"			"special_bonus_unique_phantom_custom5"
+			}
+		}
+	}
+	
+	"special_bonus_unique_phantom_custom4"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"5"
+				"ad_linked_ability"			"phantom_assassin_coup_de_grace_lua"	
+			}
+		}
+	}
+	
+	"special_bonus_unique_phantom_custom5"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"200"
+				"ad_linked_ability"			"phantom_assassin_coup_de_grace_lua"	
+			}
+		}
+	}
+}

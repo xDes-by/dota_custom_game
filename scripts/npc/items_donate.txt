@@ -1,0 +1,1003 @@
+"DOTAAbilities"
+{
+
+//=====================================================================================================================================
+
+"item_points_small"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_points_small.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"points"
+		"Model"             			"models/ui/compendium_points/compendium_points_morokai_ingame.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"5"
+			}
+		}
+	}
+	
+"item_points_big"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_points_big.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"points"
+		"Model"             			"models/ui/compendium_points/compendium_points_morokai_ingame.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+
+"item_points_20"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_points_20.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"points"
+		"Model"             			"models/ui/compendium_points/compendium_points_morokai_ingame.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+
+"item_points_30"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_points_30.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"points"
+		"Model"             			"models/ui/compendium_points/compendium_points_morokai_ingame.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+
+"item_points_40"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_points_40.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"points"
+		"Model"             			"models/ui/compendium_points/compendium_points_morokai_ingame.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+	
+	
+"item_gems_1"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_gem_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"1"
+		"Model"             			"models/gems/gem_1.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+	
+"item_gems_2"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_gem_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"2"
+		"Model"             			"models/gems/gem_2.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"			"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+	
+"item_gems_3"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_gem_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"3"
+		"Model"             			"models/gems/gem_3.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+
+"item_gems_4"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_gem_4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"4"
+		"Model"             			"models/gems/gem_4.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}	
+
+"item_gems_5"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_gem_5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"5"
+		"Model"             			"models/gems/gem_5.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"50"
+			}
+		}
+	}		
+	
+	
+//=====================================================================================================================================
+
+"item_axe_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/axe"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_bb_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/bb"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_centaur_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/centaur"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_dk_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/dk"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wisp_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wisp"
+		"ItemPurchasable" 				"0"
+	}
+"item_mars_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/mars"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sk_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sand"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sven_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sven"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_treant_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/treant"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wk_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wk"
+		"ItemPurchasable" 				"0"
+	}	
+	
+
+//=====================================================================================================================================
+
+"item_arc_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/arc"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_drow_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/drow"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_jug_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/jug"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_luna_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/luna"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_pa_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/pa"
+		"ItemPurchasable" 				"0"
+	}
+"item_sf_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sf"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_slark_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/slark"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sniper_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sniper"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_spectre_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/spectre"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_terror_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/terror"
+		"ItemPurchasable" 				"0"
+	}	
+
+//=====================================================================================================================================
+
+"item_dazzle_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/dazzle"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_encha_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/encha"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_lina_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/lina"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_lion_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/lion"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_pugna_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/pugna"
+		"ItemPurchasable" 				"0"
+	}
+"item_rasta_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/rasta"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_tinker_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/tinker"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_warlock_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/warlock"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wr_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wr"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_zuus_don"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/zuus"
+		"ItemPurchasable" 				"0"
+	}	
+	
+//=====================================================================================================================================
+
+"item_axe_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/axe"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_bb_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/bb"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_centaur_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/centaur"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_dk_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/dk"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wisp_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wisp"
+		"ItemPurchasable" 				"0"
+	}
+"item_mars_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/mars"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sk_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sand"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sven_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sven"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_treant_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/treant"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wk_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wk"
+		"ItemPurchasable" 				"0"
+	}	
+	
+
+//=====================================================================================================================================
+
+"item_arc_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/arc"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_drow_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/drow"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_jug_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/jug"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_luna_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/luna"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_pa_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/pa"
+		"ItemPurchasable" 				"0"
+	}
+"item_sf_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sf"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_slark_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/slark"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_sniper_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/sniper"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_spectre_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/spectre"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_terror_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/terror"
+		"ItemPurchasable" 				"0"
+	}	
+
+//=====================================================================================================================================
+
+"item_dazzle_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/dazzle"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_encha_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/encha"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_lina_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/lina"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_lion_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/lion"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_pugna_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/pugna"
+		"ItemPurchasable" 				"0"
+	}
+"item_rasta_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/rasta"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_tinker_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/tinker"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_warlock_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/warlock"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_wr_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/wr"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_zuus_rat"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"heroes/zuus"
+		"ItemPurchasable" 				"0"
+	}
+//=====================================================================================================================================
+
+"item_boss_summon"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"summon"
+		"ScriptFile"					"items/boss_summon"
+		"AbilityCooldown"				"60"
+		"ItemPurchasable" 				"0"
+	}
+	
+//=====================================================================================================================================
+
+"item_tower_protection"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"protection"
+		"ScriptFile"					"items/other/book_tower_protection"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20"
+			}
+		}
+	}
+	
+//=====================================================================================================================================
+
+"item_armor_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_4"
+		"ScriptFile"					"items/other/book_armor"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor"					"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}
+	
+"item_base_damage_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_6"
+		"ScriptFile"					"items/other/book_base_damage"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dmg"					"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}	
+	
+"item_expiriance_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_2"
+		"ScriptFile"					"items/other/book_exp"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"exp"					"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}
+
+"item_move_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_3"
+		"ScriptFile"					"items/other/book_move"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"move"					"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}
+
+"item_attack_speed_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_1"
+		"ScriptFile"					"items/other/book_attack_speed"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed"			"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}		
+	
+"item_hp_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_5"
+		"ScriptFile"					"items/other/book_hp"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"300.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}		
+
+"item_str"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"tome_str"
+		"ScriptFile"					"items/other/book_str"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"60.0"
+		"ItemDroppable" 				"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"str"				"5"
+			}
+		}
+	}	
+"item_recipe_item_book_atributes"
+    {
+        "AbilityTextureName"                 "recipe"
+        "Model"                               "models/props_gameplay/recipe.vmdl"
+        "BaseClass"                         "item_datadriven"
+
+        "ItemCost"                            "0"
+        "ItemShopTags"                        "artifacts"
+
+        "ItemRecipe"                        "1"
+        "ItemResult"                        "item_book_atributes"
+        "ItemRequirements"
+        {
+            "01"                            "item_str;item_int;item_agi"
+        }
+    }
+"item_book_atributes"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"arm"
+		"ScriptFile"					"items/other/item_book_atributes"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"60.0"
+		"ItemDroppable" 				"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"str"				"5"
+			}
+            "02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"agi"				"5"
+			}
+        	"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int"				"5"
+			}
+		}
+	}
+"item_agi"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"tome_agi"
+		"ScriptFile"					"items/other/book_agi"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"60.0"
+		"ItemDroppable" 				"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"agi"				"5"
+			}
+		}
+	}
+
+"item_int"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"tome_int"
+		"ScriptFile"					"items/other/book_int"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"60.0"
+		"ItemDroppable" 				"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"int"				"5"
+			}
+		}
+	}	
+}
+

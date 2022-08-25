@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+	"dragon_fire_ball_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_dragon/dragon_fire_ball/dragon_fire_ball"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"dragon_knight_fireball"
+		"MaxLevel"						"15"
+
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityCooldown"				"15"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"50 75 100 125 150 175 200 225 250 275 300 325 350 375 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"450"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"4"
+			}	
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"burn_interval"				"0.75"
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+	"centaur_return_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityTextureName"			"centaur_return"
+		"ScriptFile"					"heroes/hero_centaur/centaur_return/centaur_return.lua"
+		"MaxLevel"						"15"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"15 25 35 45 55 65 75 85 95 105 115 125 135 145 155"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"str_pct_as_damage"		"22 24 26 28 30 32 34 36 38 40 42 44 46 48 50" 
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"900"				
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+	"build_wall"
+		{
+			"BaseClass"				"ability_datadriven"
+			"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
+			"AbilityTextureName"	"neutral_7"
+			"AbilityCastRange"		"200"
+			"MaxLevel"				"15"
+			"AbilityChannelTime"			"2.5"
+			"AbilityCooldown"				"30"
+			
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"hp"					"100 110 120 130 140 150 160 170 180 190 200 210 220 230 240"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"armor"					"10 15 20 25 30 35 40 45 50 55 60 65 70 75 80"
+				}				
+			}
+			
+			"OnSpellStart"
+			{
+				"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_builder/builder_wall/builder_wall"
+						"Function"		"build"
+					}
+			}
+			
+			"OnChannelInterrupted"    //    Каст был сбит
+			{
+		
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_builder/builder_wall/builder_wall"
+					"Function"		"sbit"
+				}
+			}
+
+		}
+}

@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+	"axe_blood_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_axe/axe_blood_lua/axe_blood_lua"
+		"AbilityTextureName"			"axepassive"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_health_regen"			"0.5 0.75 1 1.25 1.5 1.75 2 2.25 2.5 2.75 3 3.25 3.5 3.75 4"
+				"LinkedSpecialBonus"			"npc_dota_hero_axe_str7"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"mag_armor"						"5 7 9 11 13 15 17 19 21 23 25 27 29 31 34"
+			}
+		}
+	}
+}

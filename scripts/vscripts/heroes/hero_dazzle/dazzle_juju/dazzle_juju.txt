@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{ 
+ "dazzle_custom_badjuju"
+    {
+        "BaseClass"						"ability_lua"
+        "ScriptFile"					"heroes/hero_dazzle/dazzle_juju/dazzle_juju"
+        "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityTextureName"			"dazzle_bad_juju"
+		"MaxLevel"						"10"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"					"FIELD_INTIGER"
+                "cooldown_reduc"		    "10 14 18 22 26 30 34 38 42 46"
+                "LinkedSpecialBonus"	    "special_bonus_unique_dazzle_custom_badjuju"
+            }
+            "02"
+            {
+                "var_type"					"FIELD_INTIGER"
+                "spell_amplify"		        "10 20 30 40 50 60 70 80 90 100"
+                "LinkedSpecialBonus"	    "special_bonus_unique_dazzle_custom_badjuju"
+            }
+        }
+    }
+		
+}

@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+	"medusa_split_shot_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_medusa/medusa_split_shot_lua/medusa_split_shot_lua"
+		"AbilityTextureName"			"medusa_split_shot"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"10"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_modifier"				"-70 -65 -50 -55 -50 -45 -40 -35 -30 -25"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_modifier_tooltip"		"30 35 40 45 50 55 60 65 70 75"
+			}
+			"03"
+			{	
+				"var_type"						"FIELD_INTEGER"
+				"arrow_count"					"2"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"split_shot_bonus_range"		"100"
+			}
+		}
+	}
+}

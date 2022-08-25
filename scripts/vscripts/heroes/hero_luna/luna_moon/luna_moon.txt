@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{	
+	"luna_moon"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_luna/luna_moon/luna_moon"
+			"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+			"MaxLevel"						"10"
+			"AbilityTextureName"			"luna_eclipse"
+			"AbilityCastRange"				"700"
+			"AbilityCooldown"				"180 170 160 150 140 130 120 110 100 90"
+			
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"duration"				"5"
+				}
+				"02"
+				{
+					"var_type"				"FIELD_INTEGER"
+					"radius"				"700"
+				}				
+			}
+		}	
+		
+	"luna_moon_starfall"
+		{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"15"
+		"AbilityTextureName"			"luna_lucent_beam"
+
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+			"particle"			"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+		}
+
+		"AbilityCooldown"				"1"
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"700"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_luna_starfall"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				
+				"ThinkInterval"  "0.1"
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_luna/luna_moon/luna_moon.lua"
+						"Function"		"check"
+					}
+				}
+			}
+		}
+	}	
+}

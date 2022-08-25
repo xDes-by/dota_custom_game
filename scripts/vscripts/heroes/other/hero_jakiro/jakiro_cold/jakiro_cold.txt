@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+	"jakiro_cold"
+		{
+			"BaseClass"                     "ability_lua"
+			"ScriptFile"                   	"heroes/hero_jakiro/jakiro_cold/jakiro_cold.lua"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+			"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+			"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+			"FightRecapLevel"				"1"
+			"AbilitySound"					"Hero_Winter_Wyvern.ColdEmbrace"
+			"AbilityTextureName"			"ice"
+			"MaxLevel"						"15"
+
+			"AbilityCastRange"				"700"
+			"AbilityCastPoint"				"0.3"
+
+			"AbilityCooldown"				"26 25 24 23 22 21 20 19 18 17 16 15 14 13 12"
+
+			"AbilityManaCost"				"200"
+
+			"precache"
+			{
+				"particle"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_frozen.vpcf"
+				"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			}
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"duration"					"3.0"
+					"LinkedSpecialBonus"		"special_bonus_unique_jakiro_custom"
+				}
+				"02"
+				{
+					"var_type"					"FIELD_INTEGER"
+					"resist"					"-10 -15 -20 -25 -30 -35 -40 -45 -50 -55 -60 -65 -70 -75 -80"
+				}
+				"03"
+				{
+					"var_type"					"FIELD_INTEGER"
+					"resist_tool"				"10 15 20 25 30 35 40 45 50 55 60 65 70 75 80"
+				}
+			}
+		}
+		
+	"special_bonus_unique_jakiro_custom"
+		{
+			"BaseClass"             		"special_bonus_undefined"
+			"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"					"FIELD_FLOAT"
+					"value"						"1"
+					"ad_linked_ability"			"jakiro_cold"	
+				}
+			}
+		}
+	}

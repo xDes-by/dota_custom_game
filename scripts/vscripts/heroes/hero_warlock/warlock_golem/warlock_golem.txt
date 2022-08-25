@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+	"warlock_golem"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_warlock/warlock_golem/warlock_golem"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"warlock_rain_of_chaos"
+		
+		"FightRecapLevel"				"2"
+		"AbilityCastPoint"				"0.5"
+		"MaxLevel"						"10"
+
+		"AbilityCooldown"				"165 160 155 150 145 140 135 130 125 120"
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"60"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 800 1200 1600 2000 2400 2800 3200 3600 4000"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

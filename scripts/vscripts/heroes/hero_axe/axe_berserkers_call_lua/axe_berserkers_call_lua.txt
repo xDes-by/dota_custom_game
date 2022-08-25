@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+	"axe_berserkers_call_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_axe/axe_berserkers_call_lua/axe_berserkers_call_lua"
+		"AbilityTextureName"			"axe_berserkers_call"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"particle"	"particles/status_fx/status_effect_beserkers_call.vpcf"
+			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call.vpcf"
+			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCastPoint"				"0.4"
+
+		"AbilityCooldown"				"24"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+				"LinkedSpecialBonus"	"npc_dota_hero_axe_agi6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"20 25 30 35 40 45 50 55 60 65 70 75 80 85 90"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.4 4.6 4.8"
+			}
+		}
+	}
+}

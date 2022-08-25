@@ -1,0 +1,79 @@
+"DOTAAbilities"
+{
+    //тинкер + e,bqcndj dctuj ;bdjuj
+    "npc_byorrocktar_spell1"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/byrocktar/npc_byorrocktar_spell1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+     	"AbilityValues"
+		{
+            //наносят урон равный аттаке боса
+			"radius" "750"
+			"proj_speed" "1000"
+            //цифра или интервал аттаки
+			"interval" "0.5"
+		}  
+	}
+    //клокверка
+    "npc_byorrocktar_spell2"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/byrocktar/npc_byorrocktar_spell2"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+				"AbilityCooldown"				"5"
+     	"AbilityValues"
+		{
+			"damage" "7500"
+			"radius" "750"
+		}  
+	}
+    //флэк
+    "npc_byorrocktar_spell3"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/byrocktar/npc_byorrocktar_spell3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+				"AbilityCooldown"				"8"
+     	"AbilityValues"
+		{
+			"rokets_sec" "20"
+			"rokets_count" "40"
+			"damage" "7500"
+			"radius" "750"
+		}  
+	}
+    //коллдаун
+    "npc_byorrocktar_spell4"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/byrocktar/npc_byorrocktar_spell4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCooldown"				"6"
+     	"AbilityValues"
+		{
+			"radius" "750"
+			"delay" "2"
+			"damage" "20000"
+		}  
+	}
+    //минки
+    "npc_byorrocktar_spell5"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/bosses/byrocktar/npc_byorrocktar_spell5"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"10"
+     	"AbilityValues"
+		{
+			"radius" "750"
+			"delay" "4"
+			"damage" "20000"
+		}  
+	}
+}

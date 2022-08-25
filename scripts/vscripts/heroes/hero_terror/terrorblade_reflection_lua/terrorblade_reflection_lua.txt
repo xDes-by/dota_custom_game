@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	"terrorblade_reflection_lua"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"heroes/hero_terror/terrorblade_reflection_lua/terrorblade_reflection_lua"
+		"AbilityTextureName"				"terrorblade_reflection"
+		"MaxLevel"							"15"
+		
+		"AbilityType"						"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"				"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"					"700"
+		"AbilityCastPoint"					"0.3"
+
+		"AbilityCooldown"					"24"
+		"AbilityManaCost"					"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"2 2 2 3 3 3 4 4 4 5 5 5 6 6 6"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"illusion_outgoing_damage"	"-70 -65 -60 -55 -50 -45 -40 -35 -30 -25 -20 -15 -10 -5 0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_outgoing_tooltip"	"30 35 40 45 50 55 60 65 70 75 80 85 90 95 100"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"25"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"475"
+			}
+		}
+	}
+}

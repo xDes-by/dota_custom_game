@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+	"borrowed_time_datadriven"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/centaur_ult/centaur_ult.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"abaddon_ult"
+		
+		"MaxLevel"						"10"
+		
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityCooldown"				"80"
+
+		"AbilityValues"
+		{
+			"hp_threshold"				"4"
+			"duration"					"2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0"
+		}
+	}
+}

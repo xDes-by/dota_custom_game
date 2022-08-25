@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+	"sniper_granade"
+    {
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_sniper/sniper_granade/sniper_granade"
+        "AbilityTextureName"        	"granade"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+        "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES" 
+		"SpellImmunityType" 			"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK_STATUE"
+		
+		"MaxLevel"						"15"
+		
+		"AbilityCooldown"				"26"
+		"AbilityManaCost"				"150"
+
+        "precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+			"particle"			"particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"movespeed_slow"				"-5 -9 -13 -17 -21 -25 -29 -33 -37 -41 -45 -49 -53 -57 -61"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"duration"						"2"
+				"LinkedSpecialBonus"			"npc_dota_hero_sniper_str7"
+			}
+		}
+    }
+}

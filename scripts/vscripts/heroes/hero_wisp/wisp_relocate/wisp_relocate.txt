@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+	"wisp_relocate_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_wisp/wisp_relocate/wisp_relocate"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Wisp.Relocate"
+		"AbilityTextureName"			"wisp_relocate"
+		"MaxLevel"						"15"
+		"AbilityCooldown"				"120"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cast_delay"				"2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"destroy_tree_radius"		"350"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"300 600 900 1200 1500 1800 2100 2400 2700 3000"
+			}
+		}
+	}
+}

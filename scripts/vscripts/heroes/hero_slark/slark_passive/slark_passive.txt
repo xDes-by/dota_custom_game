@@ -1,0 +1,30 @@
+"DOTAAbilities"
+{
+	"slark_passive"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_slark/slark_passive/slark_passive"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"AbilityTextureName"			"slark_essence_shift"
+			"MaxLevel"						"15"
+
+			"AbilitySpecial"
+			{
+				"01"
+				{
+					"var_type"							"FIELD_FLOAT"
+					"bonus_agi"							"0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5"
+				}
+				"02"
+				{
+					"var_type"							"FIELD_FLOAT"
+					"chance"							"10"
+				}
+				"03"
+				{
+					"var_type"							"FIELD_FLOAT"
+					"lose"								"0.75"
+				}
+			}
+		}		
+}

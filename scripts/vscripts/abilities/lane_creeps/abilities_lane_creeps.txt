@@ -1,0 +1,204 @@
+"DOTAAbilities"
+{
+    "ogreseal_flop_by"
+    {
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogreseal_flop"
+        "ScriptFile"                    "abilities/ogreseal_flop"
+		"AbilityTextureName"			""
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "FightRecapLevel"               "1"
+        "IsOnCastBar"                   "0"
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.3"
+        "AbilityCooldown"               "7"
+        "AbilityValues"
+        {
+            "radius"                    "275"
+            "damage"                    "50"
+            "stun_duration"             "0.8"
+        }
+    }
+	"polar_furbolg_ursa_warrior_thunder_clap_lane_creep"
+	{									
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/polar_furbolg_ursa_warrior_thunder_clap_lane_creep"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"polar_furbolg_ursa_warrior_thunder_clap"
+		
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"7"
+		"AbilityDamage"					"50"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_1"
+		
+		"AbilityValues"
+		{
+            "radius"				"300"
+            "movespeed_slow"		"25"
+            //в процентах
+            "attackspeed_slow"		"25"
+            "duration"				"3.0"
+		}
+	}
+	"centaur_hoof_stomp_lane_creep"
+	{					
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/centaur_hoof_stomp_lane_creep"								
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Centaur.HoofStomp"
+		"AbilityTextureName"			"centaur_hoof_stomp"
+
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"7"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_1"
+		
+		"AbilityValues"
+        {
+            "radius"						"315"
+            "stun_duration"					"1.5"
+            "stomp_damage"					"50"
+		}
+	}
+	"crystal_maiden_crystal_nova_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/crystal_maiden_crystal_nova_lane_creep"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+        "AbilityTextureName"			"crystal_maiden_crystal_nova"
+
+		"AbilitySound"					"Hero_Crystal.CrystalNova"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"10"
+		"AbilityValues"
+		{
+            "radius"			"425"
+            "movespeed_slow"	"20"
+            //в процентах
+            "attackspeed_slow"	"50"
+            "duration"			"2"
+            "nova_damage"		"50"
+        }
+	}
+	"venomancer_venomous_gale_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/venomancer_venomous_gale_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+        "AbilityTextureName"			"venomancer_venomous_gale"
+
+		"AbilitySound"					"Hero_Venomancer.VenomousGale"
+		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"8"
+		"AbilityValues"
+		{
+            "distanse"				"600"
+            "duration"				"3"
+            "strike_damage"			"50"
+            "tick_damage"			"25"
+            "tick_interval"			"1"
+            "movement_slow"			"50"
+            "radius"				"125"
+            "speed"					"1200"
+		}
+	}
+	"bristleback_quill_spray_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/bristleback_quill_spray_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Bristleback.QuillSpray"
+		"AbilityTextureName"			"bristleback_quill_spray"
+
+		"AbilityCastRange"				"550"
+		"AbilityCooldown"				"3.0"
+		"AbilityValues"
+		{
+            "radius"				"500"
+            "quill_base_damage"		"10"
+            "quill_stack_damage"	"30"
+            "quill_stack_duration"	"10.0"
+		}
+	}
+	"mars_bulwark_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/mars_bulwark_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"mars_bulwark"
+
+		"FightRecapLevel"				"1"
+		"AbilityValues"
+		{
+            "physical_damage_reduction"				"70"
+            "physical_damage_reduction_side"		"35"
+		}
+	}
+	"skeleton_king_reincarnation_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/skeleton_king_reincarnation_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"skeleton_king_reincarnation"
+		"AbilityCooldown"				"9999"	
+	}
+	"elder_titan_natural_order_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/elder_titan_natural_order_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"elder_titan_natural_order"
+
+		"FightRecapLevel"				"1"
+		"AbilityValues"
+		{
+            "reduce"				"50"
+            "radius"				"300"
+		}
+	}
+	"lycan_summon_wolves_critical_strike_lane_creep"
+	{
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/lane_creeps/lycan_summon_wolves_critical_strike_lane_creep"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lycan_summon_wolves_critical_strike"
+
+		"FightRecapLevel"				"1"
+		"AbilityValues"
+		{
+            "chance"				"10"
+            "duration"				"3"
+            //в процентах
+            "attackspeed_slow"		"30"
+            "movespeed_slow"		"30"
+		}
+	}
+} 

@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+"techies_stasis_trap_lua"
+	{
+		"BaseClass"							"ability_lua"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"				"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"				"techies_stasis_trap"
+		"ScriptFile"						"heroes/hero_techies/techies_stasis_trap/stasis_trap.lua"
+        "MaxLevel"						    "15"
+
+		"AbilityCastRange"					"600"
+		"AbilityCastPoint"					"0.0"
+		
+		"AbilityCooldown"					"15"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"activation_delay"			"1"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"explosion_delay"			"1"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"root_duration"				"3"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff"					"2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
+			}
+		}
+	}
+}

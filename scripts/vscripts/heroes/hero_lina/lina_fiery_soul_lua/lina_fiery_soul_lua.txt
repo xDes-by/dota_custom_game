@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+	"lina_fiery_soul_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_lina/lina_fiery_soul_lua/lina_fiery_soul_lua"
+		"AbilityTextureName"			"lina_fiery_soul"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiery_soul_attack_speed_bonus"	"30 35 40 45 50 55 60 65 70 75 80 85 90 95 100"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiery_soul_move_speed_bonus"	"5 10 15 20 25 30 35 40 45 50 55 60 65 70 75"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiery_soul_max_stacks"			"4"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"fiery_soul_stack_duration"		"10"
+			}
+		}
+	}
+}

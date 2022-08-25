@@ -1,0 +1,94 @@
+"DOTAAbilities"
+{
+	"mars_lil"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_mars/mars_lil/mars_lil"
+		"AbilityTextureName"			"mars_spear"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_shells_projectile.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_shells_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_slow_debuff.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"			"0"
+		"AbilityDuration"				"4"
+
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"100"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"50 75 100 125 150 175 200 225 250 275 300 325 350 375 400"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"buffed_attacks"			"6"
+				"LinkedSpecialBonus"		"npc_dota_hero_mars_agi11"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus"		"300 315 330 345 360 375 390 405 420 435 450 465 480 495 510"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_range_bonus"		"100"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"buff_duration_tooltip"		"8"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"base_attack_time"			"1.0"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"loss_armor"					"3"
+				"LinkedSpecialBonus"			"npc_dota_hero_mars_agi7"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"loss_duration"					"2.0"
+			}
+		}
+	}
+	
+	"special_bonus_unique_mars_custom"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"5"
+			}
+		}
+	}
+}

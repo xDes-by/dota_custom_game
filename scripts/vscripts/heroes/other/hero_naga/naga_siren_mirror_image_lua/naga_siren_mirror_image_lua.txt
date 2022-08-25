@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+	"naga_siren_mirror_image_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_naga/naga_siren_mirror_image_lua/naga_siren_mirror_image_lua"
+		"AbilityTextureName"			"naga_siren_mirror_image"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+			"particle"	"particles/units/heroes/hero_siren/naga_siren_mirror_image.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"AbilityCastPoint"				"0.65"
+
+		"AbilityCooldown"				"44 43 42 41 40 39 38 37 36 35 34 33 32 31 30"
+		"AbilityManaCost"				"150"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"-50"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage_tooltip"	"50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"150"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tooltip_incoming_damage_total_pct"			"250"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"images_count"				"3"
+				"LinkedSpecialBonus"			"special_bonus_unique_naga_custom3"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"invuln_duration"			"0.3"
+			}
+		}
+	}
+	
+	
+	"special_bonus_unique_naga_custom3"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"1"
+				"ad_linked_ability"			"naga_siren_mirror_image_lua"	
+			}
+		}
+	}
+}

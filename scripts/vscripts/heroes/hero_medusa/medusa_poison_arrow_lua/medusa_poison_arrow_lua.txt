@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+	"medusa_poison_arrow_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_medusa/medusa_poison_arrow_lua/medusa_poison_arrow_lua"
+		"AbilityTextureName"			"arrow"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"600"
+
+		"AbilityValues"
+		{
+			"damage"						"40 80 120 160 200 240 280 320 360 400 440 480 520 560 600"
+			"duration"						"3"
+		}
+	}
+	
+}

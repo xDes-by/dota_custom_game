@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+	"naga_siren_rip_tide_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_naga/naga_siren_rip_tide_lua/naga_siren_rip_tide_lua"
+		"AbilityTextureName"			"naga_siren_rip_tide"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+			"particle"	"particles/units/heroes/hero_siren/naga_siren_riptide.vpcf"
+			"particle"	"particles/units/heroes/hero_siren/naga_siren_riptide_debuff.vpcf"
+		}
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastPoint"				"0 0 0 0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"chance"					"7 8 9 10 11 12 13 14 15 16 17 18 19 20 21"
+				
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_reduction"			"-2 -3 -4 -5 -6 -7 -8 -9 -10 -11 -12 -13 -14 -16 -17"
+				
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"300"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_naga_custom2"
+			}
+		}
+	}
+
+"special_bonus_unique_naga_custom2"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"						"2"
+				"ad_linked_ability"			"naga_siren_rip_tide_lua"	
+			}
+		}
+	}
+}
