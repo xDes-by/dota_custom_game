@@ -676,16 +676,26 @@
         "boss_9" "Abaddon"
         "boss_10" "Ember Spirit"
 		
-		"wave_boss_1" "Ursa"
+        "wave_boss_1" "Ursa"
+        "description_boss_1"        "Могучий медведь лесов Даларана"
         "wave_boss_2" "Undying"
+        "description_boss_2"        "Неупокоенный мертвец жаждущий отомщения."
         "wave_boss_3" "Lich"
+        "description_boss_3"        "Холод и стужа."
         "wave_boss_4" "Enigma"
+        "description_boss_4"        "Дитя пустоты, иногда материальное, иногда — бесплотное."
         "wave_boss_5" "Zeus"
+        "description_boss_5"        "Повелитель небес и отец богов."
         "wave_boss_6" "Tidehunter"
+        "description_boss_6"        "Могучий морской монстр."
         "wave_boss_7" "Arc Warden"
+        "description_boss_7"        "Зет – это Самость, а Самость – это Зет."
         "wave_boss_8" "Faceless Void"
+        "description_boss_8"        "Безликий ужас Faceless Void по имени Дарктеррор"
         "wave_boss_9" "Abaddon"
+        "description_boss_9"        "Что должно ранить — лечит, а что должно убить — даёт свежие силы."
         "wave_boss_10" "Ember Spirit"
+        "description_boss_9"        "Из раскалённых углей появился образ охваченного пламенем Сина."
 		
         //Creeps//
 

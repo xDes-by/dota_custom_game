@@ -671,16 +671,26 @@
         "boss_9" "Abaddon"
         "boss_10" "Ember Spirit"
 
-		"wave_boss_1" "Ursa"
+        "wave_boss_1" "Ursa"
+        "description_boss_1"        "The Mighty Björn of Dalaran Forests."
         "wave_boss_2" "Undying"
+        "description_boss_2"        "An undead who longs for revenge."
         "wave_boss_3" "Lich"
+        "description_boss_3"        "Cold and freezing."
         "wave_boss_4" "Enigma"
+        "description_boss_4"        "A child of emptiness, sometimes material, sometimes incorporeal."
         "wave_boss_5" "Zeus"
+        "description_boss_5"        "Lord of Heaven and Father of the Gods."
         "wave_boss_6" "Tidehunter"
+        "description_boss_6"        "The Mighty Sea Monster."
         "wave_boss_7" "Arc Warden"
+        "description_boss_7"        "Zet is Sameness, and Sameness is Zet."
         "wave_boss_8" "Faceless Void"
+        "description_boss_8"        "Faceless Void Terror named Darkterror."
         "wave_boss_9" "Abaddon"
+        "description_boss_9"        "What should wound, heals, and what should kill, gives fresh strength."
         "wave_boss_10" "Ember Spirit"
+        "description_boss_9"        "Out of the glowing embers appeared the image of Sina in flames."
 
         //Creeps//
 
