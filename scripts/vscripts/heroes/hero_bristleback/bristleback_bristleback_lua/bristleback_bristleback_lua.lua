@@ -22,10 +22,7 @@ function bristleback_bristleback_lua:GetIntrinsicModifierName()
 end
 
 function modifier_bristleback_bristleback_lua:OnCreated()
-	
 	self.caster		= self:GetCaster()
-	
-	
 	self.front_damage_reduction		= 0
 	self.side_damage_reduction		= self:GetAbility():GetSpecialValueFor("side_damage_reduction")
 	self.back_damage_reduction		= self:GetAbility():GetSpecialValueFor("back_damage_reduction")
@@ -35,21 +32,13 @@ function modifier_bristleback_bristleback_lua:OnCreated()
 end
 
 function modifier_bristleback_bristleback_lua:OnRefresh()
-	
 	self.caster		= self:GetCaster()
-	
-	
 	self.front_damage_reduction		= 0
 	self.side_damage_reduction		= self:GetAbility():GetSpecialValueFor("side_damage_reduction")
 	self.back_damage_reduction		= self:GetAbility():GetSpecialValueFor("back_damage_reduction")
 	self.side_angle					= self:GetAbility():GetSpecialValueFor("side_angle")
 	self.back_angle					= self:GetAbility():GetSpecialValueFor("back_angle")
 	self.quill_release_threshold	= self:GetAbility():GetSpecialValueFor("quill_release_threshold")
-
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_bristleback_str10")
-	if abil ~= nil then 
-		self.side_damage_reduction = self.side_damage_reduction
-	end
 end
 
 function modifier_bristleback_bristleback_lua:OnIntervalThink()
@@ -79,6 +68,11 @@ function modifier_bristleback_bristleback_lua:GetModifierIncomingDamage_Percenta
 		self.side_damage_reduction		= self:GetAbility():GetSpecialValueFor("side_damage_reduction")
 		self.back_damage_reduction		= self:GetAbility():GetSpecialValueFor("back_damage_reduction")
 		self.quill_release_threshold	= self:GetAbility():GetSpecialValueFor("quill_release_threshold")
+
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_bristleback_str10")
+		if abil ~= nil then 
+			self.side_damage_reduction = self.side_damage_reduction
+		end
 	
 	if (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

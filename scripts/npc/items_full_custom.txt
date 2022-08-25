@@ -7,7 +7,7 @@
 	{
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_quest_necronomicon.lua"
-		"AbilityTextureName" 			"imba_necronomicon"
+		"AbilityTextureName" 			"item_necronomicon"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"60"
 		"AbilitySharedCooldown"			"item_quest_necronomicon"

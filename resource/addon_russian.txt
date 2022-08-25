@@ -6,6 +6,9 @@
         "language" "russian"
         "addon_game_name" "Random Defense Adventure"
 
+        "start_chat" "<font color='#00ff00'>Ребята, добро пожаловать в Squirrel World RPG</font> <font color='#ff0000'>Для улучшения качества отклика сервера, напишите в консоль:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
+        "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Модете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
+
         /////////////
         //Undefined//
         /////////////
@@ -593,7 +596,28 @@
 
         //Wawes//
 		
-        "wave"  "Волна №"
+		"npc_boss_plague_squirrel" "Чумная Белка"
+		"npc_plague_squirrel" "Белка"
+		"npc_boss_plague_squirrel_totem" "Тотем"
+		"npc_boss_plague_squirrel_shoter" "Белка"
+		
+		"npc_boss_location8" "Бабка"
+		"last_creep_1" "Огр"
+		"last_creep_2" "Тоже Огр"
+		"last_creep_3" "Дракончик"
+		"last_creep_4" "Сатир"
+		
+		"farm_zone_dragon" "Черный дракон"
+		"medusa_ward" "Чумной вард"
+		"npc_byrocktar" "Байрактар"
+		"npc_boss_barrack2" "Водень"
+		"npc_boss_barrack1" "Годень"
+		
+		"npc_quest_dragon" "Дракон"
+		"npc_quest_necronomicon_warrior" "Некрономекон"
+		"npc_quest_necronomicon_archer" "Некрономекон"
+		
+        "wave" "Волна №"
 		"wave_creep_1" "Урсы"
 		"description_creep_1" "Урсы яростно хлопают в ладоши"
 		"wave_creep_2" "Морж с приспешниками"
@@ -624,21 +648,17 @@
         "creep_4" "Волк"
         "comandir_creep_4" "Волк Вожак"
         "creep_5" "Скелет"
-        "comandir_creep_5" "Скелет Командир"\
-        "creep_6"   "Zombie"
-        "comandir_creep_6"  "Zombie Commander"
-        "creep_7" "Ледяной Краб"
+        "comandir_creep_5" "Скелет Командир"
+        "creep_6" "Ледяной Краб"
         "comandir_creep_6" "Белый Ходок"
-        "creep_8" "Грявол"
-        "comandir_creep_8" "Ядовитый Ящер"
-        "creep_9" "Мини Шишка"
-        "comandir_creep_9" "Шишка Командир"
-        "creep_10"  "Troll"
-        "comandir_creep_10" "Troll Healer"
-		"creep_11" "Мелкий Чудик"
-        "comandir_creep_11" "Чудик Командир"
-        "creep_12" "Лучница"
-        "comandir_creep_12" "Железный Титан"
+        "creep_7" "Грявол"
+        "comandir_creep_7" "Ядовитый Ящер"
+        "creep_8" "Мини Шишка"
+        "comandir_creep_8" "Шишка Командир"
+		"creep_9" "Мелкий Чудик"
+        "comandir_creep_9" "Чудик Командир"
+        "creep_10" "Лучница"
+        "comandir_creep_10" "Железный Титан"
 		
         //Wawe Bosses//
 
@@ -1041,6 +1061,8 @@
 
         "quest_item_quest_moon" "Принеси мне Ожерелье Луны"
         "quest_box_1" "Убей монстров из коробки"
+        "quest_box_1_desc" "Убей монстров из коробки"
+        "dota_tooltip_ability_quest_box_1" "Маленькая коробка с нечестью"
         "quest_item_tango" "Танго"
         "quest_blue_stone" "Найди голубой кристалл"
         "quest_blue_stone_desc" "Я просрал свой драгоценный Голубой кристалл! Не мог бы ты его найти для меня?"

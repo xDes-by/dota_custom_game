@@ -154,6 +154,7 @@ function modifier_ability_npc_boss_plague_squirrel_spell1:Activate()
 
     local npc = CreateUnitByName("npc_boss_plague_squirrel_shoter", self:GetParent():GetOrigin() + RandomVector(600), true, nil, nil, DOTA_TEAM_BADGUYS )
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_invulnerable", {duration = 5})
+    npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_kill", {duration = 5})
     AddFOWViewer(DOTA_TEAM_GOODGUYS, npc:GetOrigin(), 500, 6, true)
     Timers:CreateTimer(0.1,function()
         ExecuteOrderFromTable({

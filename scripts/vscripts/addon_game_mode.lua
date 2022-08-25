@@ -15,7 +15,7 @@ require("libraries/filters/filters")
 require("damage")
 require("use_pets")
 
-_G.key = GetDedicatedServerKeyV2("MCF")
+_G.key = "CD7F291115CC0A92981393A1EDF4616E1DB085E1" --GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
 
 if CAddonAdvExGameMode == nil then
@@ -416,6 +416,9 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	end	 
 
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		
+		GameRules:SendCustomMessage("#start_chat",0,0)
+
 		local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 		hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 		EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	
@@ -795,6 +798,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
+
+		GameRules:SendCustomMessage("#invok_chat",0,0)
+
 		local vok =  {"invoker_invo_death_02","invoker_invo_death_08","invoker_invo_death_10","invoker_invo_death_13","invoker_invo_death_01"}
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )

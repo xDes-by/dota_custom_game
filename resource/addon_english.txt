@@ -6,6 +6,9 @@
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
 
+        "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
+        "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
+
         /////////////
         //Undefined//
         /////////////
@@ -588,6 +591,27 @@
         "raid_boss4" "Ice"
 
         //Wawes//
+		
+		"npc_boss_plague_squirrel" "Plague Squirrel"
+		"npc_plague_squirrel" "Squirrel"
+		"npc_boss_plague_squirrel_totem" "Totem"
+		"npc_boss_plague_squirrel_shoter" "Squirrel"
+
+		"npc_boss_location8" "Grandma"
+		"last_creep_1" "Ogre"
+		"last_creep_2" "Also Ogre"
+		"last_creep_3" "Little Dragon"
+		"last_creep_4" "Satyr"
+
+		"farm_zone_dragon" "Black Dragon"
+		"medusa_ward" "Plague Ward"
+		"npc_byrocktar" "Byraktar"
+		"npc_boss_barrack2" "Voden"
+		"npc_boss_barrack1" "Yearday"
+
+		"npc_quest_dragon" "Dragon"
+		"npc_quest_necronomicon_warrior" "Necronomicon"
+		"npc_quest_necronomicon_archer" "Necronomicon"
 
         "wave" "Wave №"
 		"description_creep_1" "The ursas clap their hands furiously"
@@ -1031,6 +1055,8 @@
 
         "quest_item_quest_moon" "Bring the Moon Necklace"
         "quest_box_1" "Kill the box monsters"
+        "quest_box_1_desc" "Kill the box monsters"
+        "dota_tooltip_ability_quest_box_1" "Small box with evil spirits"
         "quest_item_tango" "Tango"
         "quest_blue_stone" "Find the blue crystal"
         "quest_blue_stone_desc" "I have lost my precious Blue Crystal! Would you find him for me?"

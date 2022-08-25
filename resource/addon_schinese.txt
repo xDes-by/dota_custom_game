@@ -6,6 +6,9 @@
         "language" "Chinese"
         "addon_game_name" "随机防御冒险"
 
+        "start_chat" "<font color='#00ff00'>欢迎大家来到 Squirrel World RPG</font> <font color='#ff0000'>为了提高服务器响应质量，写信到控制台：</font> <font color= '#ffff00'>dota_hud_healthbars 1</font>"
+        "invok_chat" "<font color='#00ff00'>恭喜！您完成了游戏！您可以安全离开游戏或尝试杀死瘟疫松鼠！</font>"
+
         /////////////
         //Undefined//
         /////////////
@@ -588,6 +591,27 @@
         "raid_boss4" "冰" 
 
         //Wawes//
+		
+		"npc_boss_plague_squirrel" "瘟疫松鼠"
+		"npc_plague_squirrel" "松鼠"
+		"npc_boss_plague_squirrel_totem" "图腾"
+		"npc_boss_plague_squirrel_shoter" "松鼠"
+
+		"npc_boss_location8" "奶奶"
+		"last_creep_1" "食人魔"
+		"last_creep_2" "也是食人魔"
+		"last_creep_3" "小龙"
+		"last_creep_4" "萨特"
+
+		"farm_zone_dragon" "黑龙"
+		"medusa_ward" "瘟疫病房"
+		"npc_byrocktar" "拜拉克塔"
+		"npc_boss_barrack2" "沃登"
+		"npc_boss_barrack1" "元旦"
+
+		"npc_quest_dragon" "龙"
+		"npc_quest_necronomicon_warrior" "死灵之书"
+		"npc_quest_necronomicon_archer" "死灵之书"
 
         "wave" "波號" 
 		"description_creep_1" "大熊們瘋狂地拍手" 
@@ -1031,6 +1055,8 @@
 
         "quest_item_quest_moon" "帶上月亮項鍊" 
         "quest_box_1" "殺死盒子怪物" 
+        "quest_box_1_desc" "殺死盒子怪物" 
+        "dota_tooltip_ability_quest_box_1" "带煞气的小盒子"
         "quest_item_tango" "探戈" 
         "quest_blue_stone" "找到藍色水晶" 
         "quest_blue_stone_desc" "我失去了我珍貴的藍水晶！你會幫我找到他嗎？" 
