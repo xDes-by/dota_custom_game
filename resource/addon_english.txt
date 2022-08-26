@@ -690,7 +690,7 @@
         "wave_boss_9" "Abaddon"
         "description_boss_9"        "What should wound, heals, and what should kill, gives fresh strength."
         "wave_boss_10" "Ember Spirit"
-        "description_boss_9"        "Out of the glowing embers appeared the image of Sina in flames."
+        "description_boss_10"        "Out of the glowing embers appeared the image of Sina in flames."
 
         //Creeps//
 
