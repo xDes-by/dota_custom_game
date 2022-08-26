@@ -520,25 +520,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 
 function id_check(steamID)
-	if steamID == 393187346 or 
-		steamID == 351759722 or 
-		steamID == 111684601 or 
-		steamID == 1202113311 or 
-		steamID == 123658940 or 
-		steamID == 98338509 or 
-		steamID == 163151076 or 
-		steamID == 172796509 or 
-		steamID == 1171518326 or 
-		steamID == 120578788 or 
-		steamID == 381445026 or 
-		steamID == 232510100 or 
-		steamID == 185939053 or 
-		steamID == 455872541 or 
-		steamID == 81459554 or 
-		steamID < 1000 then return
-	else
-		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-	end
+
 end
 
 --------------------------------------------------------------------------------------------------------------
