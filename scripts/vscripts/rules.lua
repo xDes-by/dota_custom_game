@@ -80,7 +80,7 @@ function invulnerable()
 	unit:AddNewModifier( unit, nil, "modifier_invulnerable", {} )
 	unit:AddNewModifier( unit, nil, "modifier_medusa_stone_gaze_stone", {} )
 	unit:AddNewModifier( unit, nil, "modifier_magic_immune", {} )
-	Rules:Dummy()
+	-- Rules:Dummy()
 end
 
 function invulnerable_off()

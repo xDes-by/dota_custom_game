@@ -164,8 +164,8 @@
 				}
 				"gold"
 				{
-					"min"		"5000"
-					"max"		"5000"
+					"min"		"2500"
+					"max"		"2500"
 				}
 				"items"
 				{
@@ -173,7 +173,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"4"
+						"quantity"	"2"
 					}
 				}
 			}
@@ -315,8 +315,8 @@
 				}
 				"gold"
 				{
-					"min"		"5250"
-					"max"		"6750"
+					"min"		"3000"
+					"max"		"4000"
 				}
 				"items"
 				{
@@ -324,7 +324,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"8"
+						"quantity"	"4"
 					}
 				}
 			}
@@ -372,8 +372,8 @@
 				}
 				"gold"
 				{
-					"min"		"6666"
-					"max"		"9333"
+					"min"		"3333"
+					"max"		"5555"
 				}
 			}
 			"tasks"
@@ -450,8 +450,8 @@
 				}
 				"gold"
 				{
-					"min"		"7000"
-					"max"		"10000"
+					"min"		"3500"
+					"max"		"5000"
 				}
 			}
 			"tasks"
@@ -519,8 +519,8 @@
 				}
 				"gold"
 				{
-					"min"		"9000"
-					"max"		"15000"
+					"min"		"4500"
+					"max"		"7500"
 				}
 				"items"
 				{
@@ -528,7 +528,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"12"
+						"quantity"	"6"
 					}
 				}
 			}
@@ -577,8 +577,8 @@
 				}
 				"gold"
 				{
-					"min"		"15000"
-					"max"		"20000"
+					"min"		"7500"
+					"max"		"1000"
 				}
 			}
 			"tasks"
@@ -606,8 +606,8 @@
 						{
 							"1"
 							{
-								"min"	"15"
-								"max"   "30"
+								"min"	"25"
+								"max"   "45"
 								"TextName"			"quest_dust_creep_1"
 								"Desc"				"quest_dust_creep_1_desc"
 								"1" 	"dust_creep_1"
@@ -615,8 +615,8 @@
 							}
 							"2"
 							{
-								"min"	"45"
-								"max"   "65"
+								"min"	"25"
+								"max"   "45"
 								"TextName"			"quest_dust_creep_2"
 								"Desc"				"quest_dust_creep_2_desc"
 								"1" 	"dust_creep_3"
@@ -624,8 +624,8 @@
 							}
 							"3"
 							{
-								"min"	"35"
-								"max"   "55"
+								"min"	"25"
+								"max"   "45"
 								"TextName"			"quest_dust_creep_3"
 								"Desc"				"quest_dust_creep_3_desc"
 								"1" 	"dust_creep_5"
@@ -633,8 +633,8 @@
 							}
 							"4"
 							{
-								"min"	"60"
-								"max"   "100"
+								"min"	"35"
+								"max"   "55"
 								"TextName"			"quest_dust_creep_any"
 								"Desc"				"quest_dust_creep_any_desc"
 								"1" 	"dust_creep_1"
@@ -669,8 +669,8 @@
 				}
 				"gold"
 				{
-					"min"		"20000"
-					"max"		"30000"
+					"min"		"10000"
+					"max"		"15000"
 				}
 				"items"
 				{
@@ -678,7 +678,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"16"
+						"quantity"	"8"
 					}
 				}
 			}
@@ -727,8 +727,8 @@
 				}
 				"gold"
 				{
-					"min"	"20000"
-					"max"	"26500"
+					"min"	"10000"
+					"max"	"13250"
 				}
 				"items"
 				{
@@ -736,7 +736,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"20"
+						"quantity"	"10"
 					}
 				}
 			}
@@ -812,8 +812,8 @@
 				}
 				"gold"
 				{
-					"min"	"25000"
-					"max"	"30000"
+					"min"	"12500"
+					"max"	"15000"
 				}
 			}
 			"tasks"
@@ -826,13 +826,13 @@
 					{
 						"1"
 						{
-							"x"	"-5269"
-							"y"	"1169"
+							"x"	"-4465"
+							"y"	"-4771"
 						}
 						"2"
 						{
-							"x"	"-4464"
-							"y"	"-4771"
+							"x"	"-7863"
+							"y"	"-5518"
 						}
 					}
 					"kill"
@@ -884,8 +884,8 @@
 				}
 				"gold"
 				{
-					"min"	"30000"
-					"max"	"35000"
+					"min"	"15000"
+					"max"	"17500"
 				}
 				"items"
 				{
@@ -893,7 +893,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"24"
+						"quantity"	"12"
 					}
 				}
 			}
@@ -942,8 +942,8 @@
 				}
 				"gold"
 				{
-					"min"	"35000"
-					"max"	"40000"
+					"min"	"17500"
+					"max"	"20000"
 				}
 			}
 			"tasks"
@@ -999,8 +999,8 @@
 				}
 				"gold"
 				{
-					"min"	"40000"
-					"max"	"45000"
+					"min"	"20000"
+					"max"	"25000"
 				}
 				"items"
 				{
@@ -1008,7 +1008,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"28"
+						"quantity"	"14"
 					}
 				}
 			}
@@ -1057,8 +1057,8 @@
 				}
 				"gold"
 				{
-					"min"	"35000"
-					"max"	"40000"
+					"min"	"17500"
+					"max"	"20000"
 				}
 			}
 			"tasks"
@@ -1122,8 +1122,8 @@
 				}
 				"gold"
 				{
-					"min"	"40000"
-					"max"	"45000"
+					"min"	"20000"
+					"max"	"22500"
 				}
 				"items"
 				{
@@ -1131,7 +1131,7 @@
 					{
 						"TextName"	"item_gold_brus"
 						"DotaName"	"item_gold_brus"
-						"quantity"	"32"
+						"quantity"	"16"
 					}
 				}
 			}
@@ -1189,11 +1189,6 @@
 				{
 					"type"	"bonus"
 					"number"	"2"
-				}
-				"2"
-				{
-					"type"	"main"
-					"number"	"9"
 				}
 			}
 			"UnitName"	"npc_4"
@@ -1477,9 +1472,9 @@
 							{
 								"min"	"1000"
 								"max"	"1000"
-								"TextName"	"quest_npc_boss_location8"
-								"Desc"	"quest_location8_boss_desc"
-								"1"		"npc_boss_location8"
+								"TextName"	"quest_farm_zone_dragon"
+								"Desc"	"quest_farm_zone_dragon_desc"
+								"1"		"farm_zone_dragon"
 							}
 						}
 					}
@@ -1530,9 +1525,9 @@
 							{
 								"min"	"1000"
 								"max"	"1000"
-								"TextName"	"quest_npc_boss_location8"
-								"Desc"	"quest_location8_boss_desc"
-								"1"		"npc_boss_location8"
+								"TextName"	"quest_farm_zone_dragon"
+								"Desc"	"quest_farm_zone_dragon_desc"
+								"1"		"farm_zone_dragon"
 							}
 						}
 					}
@@ -2397,6 +2392,14 @@
 		"20" // мид дополнительный
 		{
 			"UnitName"	"npc_28"
+			"unlock"
+			{
+				"1"
+				{
+					"type"		"bonus"
+					"number"	"25"
+				}
+			}
 			"reward"
 			{
 				"experience"
@@ -2508,8 +2511,8 @@
 					{
 						"1"
 						{
-							"x"		"-771"
-							"y"		"-4419"
+							"x"	"-10644"
+							"y"	"-6247"
 						}
 					}
 					"kill"
@@ -2567,8 +2570,13 @@
 					{
 						"1"
 						{
-							"x"		"-771"
-							"y"		"-4419"
+							"x"		"10025"
+							"y"		"-2076"
+						}
+						"2"
+						{
+							"x"		"8421"
+							"y"		"1244"
 						}
 					}
 					"item"
@@ -2615,8 +2623,8 @@
 					{
 						"1"
 						{
-							"x"		"-771"
-							"y"		"-4419"
+							"x"		"11212"
+							"y"		"3078"
 						}
 					}
 					"kill"
