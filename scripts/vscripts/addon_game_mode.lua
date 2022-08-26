@@ -13,9 +13,12 @@ require('items/item_duel_ticket')
 require('tp')
 require("libraries/filters/filters")
 require("damage")
+require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV2("MCF")
+
+
 _G.host = "https://random-defence-adventure.ru"
 
 if CAddonAdvExGameMode == nil then
@@ -366,32 +369,32 @@ XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE[0] = 0
 XP_PER_LEVEL_TABLE[1] = 250
 for i=2,25 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300  
-end
-
-for i=26,50 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
-end
-
-for i=51,75 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
-end
-
-for i=76,100 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
-end
-
-for i=101,150 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
-end
-
-for i=151,200 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 850 
-end
-
-for i=201,299 do
-  XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 1000 
-end
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250  
+  end
+  
+  for i=26,50 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+  end
+  
+  for i=51,75 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
+  end
+  
+  for i=76,100 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
+  end
+  
+  for i=101,150 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
+  end
+  
+  for i=151,200 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
+  end
+  
+  for i=201,299 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 800 
+  end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -407,10 +410,13 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 			
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
-		if PlayerResource:IsValidPlayer(i) then
+		-- if PlayerResource:IsValidPlayer(i) then
+		if true then
 			if PlayerResource:HasSelectedHero(i) == false then
 				local player = PlayerResource:GetPlayer(i)
-				player:MakeRandomHeroSelection()
+				if player  then
+					player:MakeRandomHeroSelection()
+				end
 			end
 		end
 	end	 
@@ -439,6 +445,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	Rules:spawn_creeps_donate()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
+	Dummy:init()
 	Rules:global_event()
 	leave_game()
 	item_destroy()
@@ -447,21 +454,21 @@ end
 
 
 function loadscript()	
-	--if false then
+	if false then
 		print("local load")
 		require("www/loader")
-	-- else
-		-- print("server load")
-		-- local url = "https://cdn.random-defence-adventure.ru/backend/api/lua?key=" .. _G.key
-		-- local req = CreateHTTPRequestScriptVM( "GET", url )
-		-- req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-		-- req:Send(function(res)
-			-- if res.StatusCode == 200 then
-				-- load = loadstring(res.Body)
-				-- load()
-			-- end
-		-- end)
---	end
+	else
+		print("server load")
+		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-lts?key=" .. _G.key
+		local req = CreateHTTPRequestScriptVM( "GET", url )
+		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+		req:Send(function(res)
+			if res.StatusCode == 200 then
+				load = loadstring(res.Body)
+				load()
+			end
+		end)
+	end
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------

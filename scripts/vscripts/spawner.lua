@@ -48,7 +48,7 @@ count_creeps = 25
 
 line_time = 120
 
-damage_creeps = 10
+damage_creeps = 5
 health = 100
 armor = 0.1
 magermor = 10
@@ -111,6 +111,7 @@ end
 function Spawner:settings()
 	creeps_name = t_creeps[RandomInt(1,#t_creeps)]	
 	health = health * 1.15
+	damage_creeps = damage_creeps * 1.15
 
 	set_health = math.floor(health + health*(wave/2))
 	
