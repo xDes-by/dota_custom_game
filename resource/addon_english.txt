@@ -13303,8 +13303,8 @@
 
         "npc_dota_hero_axe_agi6" "Roar"
         "npc_dota_hero_axe_agi6_description" "+1700 Berserker's Call radius"
-        "npc_dota_hero_axe_agi7" "Hidden Power"
-        "npc_dota_hero_axe_agi7_description" "+300 Counter Helix Damage"
+        "npc_dota_hero_axe_agi7" "The piercing blade"
+        "npc_dota_hero_axe_agi7_description" "-0.1 sec to Counter Helix reload"
         "npc_dota_hero_axe_agi8" "Fanaticism"
         "npc_dota_hero_axe_agi8_description" "Now Deals bonus damage equal to your AGI."
         "npc_dota_hero_axe_agi9" "Unstoppable"
@@ -13313,8 +13313,8 @@
         "npc_dota_hero_axe_agi10_description" "Berserk's call: Grants 250 attack speed During Berserk Call to you"
         "npc_dota_hero_axe_agi11" "Bully"
         "npc_dota_hero_axe_agi11_description" "Counter Helix: Now also triggered by your Attacks"
-        "npc_dota_hero_axe_agi_last" "Infinite Pronazing Blade"
-        "npc_dota_hero_axe_agi_last_description" "Counter Helix without cd"
+        "npc_dota_hero_axe_agi_last" "Hidden Power"
+        "npc_dota_hero_axe_agi_last_description" "Counter Helix receives bonus damage equal to agility"
 
         "npc_dota_hero_axe_int6" "Anger"
         "npc_dota_hero_axe_int6_description" "Immune to magic while ult is active"
