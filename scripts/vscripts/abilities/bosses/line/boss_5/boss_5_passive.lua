@@ -35,6 +35,7 @@ function modifier_boss_5_passive:OnIntervalThink()
 end
 
 function modifier_boss_5_passive:OnTakeDamage(keys)
+	local bResult = xpcall(function()
 	if keys.unit == self:GetParent() and keys.attacker ~= self:GetParent() and self.prock == true and keys.damage >= 5 and RandomInt(0,100) == self.static_chance then
 		self:GetParent():EmitSound("Item.Maelstrom.Chain_Lightning.Jump")
 		if (keys.attacker:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() <= self.static_radius and not keys.attacker:IsBuilding() and not keys.attacker:IsOther() and keys.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
@@ -82,4 +83,17 @@ function modifier_boss_5_passive:OnTakeDamage(keys)
 		self.bStaticCooldown = true
 		self:StartIntervalThink(self.static_cooldown)
 	end
+		function(e)
+		print("-------------Error-------------")
+		print(e)
+		print("-------------Error-------------")
+	end)  
+	--дебаг
+	
+	--вызов вункции в которой может быть ошибка
+	if bResult then
+	--print("all ok")
+	else
+	print("error")
+	end		
 end

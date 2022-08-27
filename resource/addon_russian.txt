@@ -7,7 +7,7 @@
         "addon_game_name" "Random Defense Adventure"
 
         "start_chat" "<font color='#00ff00'>Ребята, добро пожаловать в Squirrel World RPG</font> <font color='#ff0000'>Для улучшения качества отклика сервера, напишите в консоль:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
-        "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Модете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
+        "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Можете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
         //////////////////Ебут детей вокруг
         /////////////
         //Undefined//
@@ -39,7 +39,7 @@
         "pet_buy"         "купить"
         "pet_for"         " за "
         "pet_pieces"         "шт"
-        "feed"         "комр"
+        "feed"         "корм"
         "talent_count"         "Подробнее"
         "talents_loading"         "Загрузка..."
         "win"       "Победа"
@@ -85,6 +85,7 @@
         "quest_npc_mega_boss_desc"      "Убей дума 3 раза"
         "quest_farm_zone_dragon"        "Спустить с небес на землю Черных драконов"
         "quest_farm_zone_dragon_desc"   "Убей черных драконов на локации для фарма"
+        "quest_npc_snow_boss"           "Убей босса снежной локации"
         
         "Name"			"Герой"
 		"death"			"Смертей"
@@ -13209,7 +13210,7 @@
         "dota_tooltip_ability_legion_ult_shag" "ИНТЕРВАЛ В СЕК:"
 
         "npc_dota_hero_legion_commander_str6" "Прихоть богов"
-        "npc_dota_hero_legion_commander_str6_description" "Получает 50 здоровья за убийство крипа"
+        "npc_dota_hero_legion_commander_str6_description" "+50 здоровья за уровень"
         "npc_dota_hero_legion_commander_str7" "Быстрая Реакция"
         "npc_dota_hero_legion_commander_str7_description" "Press the attack действует в 2 раза эффективнее"
         "npc_dota_hero_legion_commander_str8" "Стальные наручи"
@@ -13965,7 +13966,7 @@
         "dota_tooltip_ability_slark_shadow_dance_lua_bonus_regen_pct" "%ЗДОРОВЬЯ В СЕКУНДУ:"
 
         "npc_dota_hero_slark_str6" "Рыба в воде"
-        "npc_dota_hero_slark_str6_description" "Каждый убитый крип увеличивает здоровье на 50"
+        "npc_dota_hero_slark_str6_description" "+50 здоровья за уровень героя"
         "npc_dota_hero_slark_str7" "Как нахлынул"
         "npc_dota_hero_slark_str7_description" "+2 секунды оглушения от Pounce"
         "npc_dota_hero_slark_str8" "Хладнокровный"
@@ -14926,7 +14927,7 @@
         "npc_dota_hero_lina_str6" "Пылающий огонь"
         "npc_dota_hero_lina_str6_description" "Fiery Soul дает треть брони от скорости передвижения"
         "npc_dota_hero_lina_str7" "Прах"
-        "npc_dota_hero_lina_str7_description" "+50 здоровья за каждого крипа"
+        "npc_dota_hero_lina_str7_description" "+50 здоровья уровень"
         "npc_dota_hero_lina_str8" "Владычица огня"
         "npc_dota_hero_lina_str8_description" "+3 секунды длительности оглушения от Light Strike Array"
         "npc_dota_hero_lina_str9" "Огненный щит"

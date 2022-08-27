@@ -56,13 +56,11 @@ function modifier_boss_ursa_fury_swipes_lua:GetModifierProcAttack_BonusDamage_Ph
 
 		if modifier == nil then
 			if not self:GetParent():PassivesDisabled() then
-				local _duration = self.bonus_reset_time
-	
 				target:AddNewModifier(
 					self:GetAbility():GetCaster(),
 					self:GetAbility(),
 					"modifier_ursa_fury_swipes_debuff_lua",
-					{ duration = _duration }
+					{ duration = self:GetAbility():GetSpecialValueFor("bonus_reset_time") }
 				)
 
 				stack = 1

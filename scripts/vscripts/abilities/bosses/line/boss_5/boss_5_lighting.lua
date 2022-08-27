@@ -30,6 +30,7 @@ function modifier_zuus_arc_lightning_lua_attack:DeclareFunctions()
 end
 
 function modifier_zuus_arc_lightning_lua_attack:OnAttackLanded( params )
+	local bResult = xpcall(function()
 	if IsServer() then
 		pass = false
 		if params.attacker==self:GetParent() then
@@ -53,6 +54,20 @@ function modifier_zuus_arc_lightning_lua_attack:OnAttackLanded( params )
 			end
 		end
 	end
+		end,
+			function(e)
+				print("-------------Error-------------")
+				print(e)
+				print("-------------Error-------------")
+			end)  
+			--дебаг
+			
+			--вызов вункции в которой может быть ошибка
+			if bResult then
+			--print("all ok")
+			else
+			print("error")
+			end		
 end
 
 --------------------------------------
@@ -144,7 +159,7 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 	if (self.unit_counter >= self.jump_count and self.jump_count > 0) or not self.zapped then
 
 		for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.current_unit:GetAbsOrigin(), nil, self.radius * self.static_chain_mult, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)) do
-			if not self.units_affected[enemy] and enemy ~= self.current_unit and enemy ~= self.previous_unit and enemy:HasModifier("modifier_imba_zuus_static_charge") then
+			if not self.units_affected[enemy] and enemy ~= self.current_unit and enemy ~= self.previous_unit then
 				enemy:EmitSound("Hero_Zuus.ArcLightning.Target")
 				
 				self.lightning_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.current_unit)
@@ -166,9 +181,7 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 				self.zapped								= true
 				
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
-
-				
-								
+	
 				ApplyDamage({
 					victim 			= enemy,
 					damage 			= self.arc_damage,

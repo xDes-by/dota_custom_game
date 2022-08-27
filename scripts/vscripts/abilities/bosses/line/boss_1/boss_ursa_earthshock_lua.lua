@@ -40,7 +40,7 @@ function boss_ursa_earthshock_lua:OnSpellStart()
 					self:GetCaster(),
 					self,
 					"modifier_boss_ursa_earthshock_lua",
-					{ duration = slow_duration }
+					{ duration = 4 }
 				)
 			end
 		points = points - 1

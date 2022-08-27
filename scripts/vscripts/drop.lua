@@ -58,8 +58,7 @@ item_drop = {
 		
 		{items = {"item_cheese_lua"}, chance = 100,  duration = 30, units = {"roshan_npc"}},
 		
-		{items = {"item_flask","item_clarity"}, chance = 20,  duration = 30, units = {"forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","forest_creep_mini_1","forest_creep_big_1"}},
-		{items = {"item_belt_of_strength","item_boots_of_elves","item_robe","item_ring_of_health","item_void_stone"}, chance = 10,  duration = 30, units = {"forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","forest_creep_mini_1","forest_creep_big_1"}},
+		{items = {"item_flask","item_enchanted_mango"}, chance = 20,  duration = 30, units = {"forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","forest_creep_mini_1","forest_creep_big_1"}},
 		
 		{items = {"item_quest_blue_stone"}, chance = 5,  duration = 30, units = {"forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","forest_creep_mini_1","forest_creep_big_1"}},
 		

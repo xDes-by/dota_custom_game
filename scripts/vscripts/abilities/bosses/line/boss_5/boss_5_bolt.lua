@@ -31,6 +31,7 @@ if not IsServer() then return end
 end
 
 function modifier_boss_5_bolt:OnIntervalThink()
+local bResult = xpcall(function()
 if not IsServer() then return end
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
 	local count = self:GetAbility():GetSpecialValueFor("count")
@@ -42,6 +43,20 @@ if not IsServer() then return end
 		line_pos = RotatePosition(caster_pos, QAngle(0, rotation_rate, 0), line_pos)
 		self:createbolt(line_pos)
 	end	
+	end,
+	function(e)
+		print("-------------Error-------------")
+		print(e)
+		print("-------------Error-------------")
+	end)  
+	--дебаг
+	
+	--вызов вункции в которой может быть ошибка
+	if bResult then
+	--print("all ok")
+	else
+	print("error")
+	end			
 end
 
 function modifier_boss_5_bolt:createbolt(target_point)

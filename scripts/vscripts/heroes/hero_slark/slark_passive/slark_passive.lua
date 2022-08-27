@@ -35,25 +35,12 @@ function modifier_slark_passive:OnCreated( kv )
 	if IsServer() then
 		self:SetStackCount(0)
 	end
-	self:StartIntervalThink(1)
 end
 
 function modifier_slark_passive:OnRefresh( kv )
 	self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
 	self.chance = self:GetAbility():GetSpecialValueFor("chance")
 	self.lose = self:GetAbility():GetSpecialValueFor("lose")
-	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_agi6") ~= nil then 
-		self.chance = 25
-	end
-	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_agi_last") ~= nil then
-		self.chance = self.chance + 30
-	end
-end
-
-function modifier_slark_passive:OnIntervalThink()
-	self:OnRefresh()
 end
 
 --------------------------------------------------------------------------------
@@ -95,26 +82,29 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_slark_passive:OnAttackLanded( params )
+	if params.attacker~=self:GetParent() then return end
+	if self:GetParent():PassivesDisabled() then return end
+	if params.target:IsBuilding() or params.target:GetUnitName() == "npc_dota_hero_target_dummy" then return end
 	
+	self.chance = self:GetAbility():GetSpecialValueFor("chance")
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_agi6") ~= nil then 
+		self.chance = 25
+	end
+	
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_agi_last") ~= nil then
+		self.chance = self.chance + 30
+	end
+
 	if self:GetCaster() == params.attacker and self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int_last") ~= nil and RandomInt(1, 100) <= 10 and self:GetCaster():FindAbilityByName("slark_dark_pact_lua"):IsTrained() then
 		_G.slarkdelay = 0
 		self:GetCaster():FindAbilityByName("slark_dark_pact_lua"):OnSpellStart()
 	end
-			if RandomInt(1,100) < self.chance then
 
-				local target = params.unit
-				if not params.target:IsBuilding() and not params.target:GetName() == "npc_dota_hero_target_dummy" then
-					if params.attacker~=self:GetParent() then return end
-
-					local attacker = params.attacker
-					local pass = false
-					if attacker==self:GetParent() and target~=self:GetParent() and attacker:IsAlive() then
-						pass = true
-					end
-
-				if pass and (not self:GetParent():PassivesDisabled()) then
-				self:AddStack(1)
-			end
+	if RandomInt(1,100) < self.chance then
+		local pass = false
+			if params.attacker == self:GetParent() and params.target ~= self:GetParent() and params.attacker:IsAlive() then		
+			self:AddStack(1)
 		end
 	end
 end

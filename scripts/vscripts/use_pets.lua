@@ -14,13 +14,15 @@ end
 function use_pets:UsePet(t)
 	local player = PlayerResource:GetPlayer(t.PlayerID)
 	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-	local tab = CustomNetTables:GetTableValue("player_pets", tostring(t.PlayerID))
-	print("i try use pet")
-	if tab then
-		if tab.pet ~= nil then
-			print(tab.pet)
-			local ability = hero:FindAbilityByName(tab.pet)
-			ability:OnSpellStart()
+	if hero:IsAlive() then
+		local tab = CustomNetTables:GetTableValue("player_pets", tostring(t.PlayerID))
+		print("i try use pet")
+		if tab then
+			if tab.pet ~= nil then
+				print(tab.pet)
+				local ability = hero:FindAbilityByName(tab.pet)
+				ability:OnSpellStart()
+			end
 		end
 	end
 end

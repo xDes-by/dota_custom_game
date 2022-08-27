@@ -84,6 +84,9 @@
         "quest_necro_warior_tank" "杀死死灵"
         "quest_npc_mega_boss" "杀死厄运"
         "quest_npc_mega_boss_desc" "杀死厄运 3 次"
+        "quest_farm_zone_dragon" "将黑龙带入地球"
+        "quest_farm_zone_dragon_desc" "杀掉养殖区的黑龙"
+        "quest_npc_snow_boss" "杀死雪老板"
 
         "Name" "英雄" 
         "death" "死亡人數" 
@@ -13211,7 +13214,7 @@
         "dota_tooltip_ability_legion_ult_shag" "间隔秒："
 
         "npc_dota_hero_legion_commander_str6" "眾神的幻想" 
-        "npc_dota_hero_legion_commander_str6_description" "殺死一個小兵獲得 20 HP" 
+        "npc_dota_hero_legion_commander_str6_description" "每级 +50 马力" 
         "npc_dota_hero_legion_commander_str7" "聰明的反應" 
         "npc_dota_hero_legion_commander_str7_description" "按攻擊2倍更有效" 
         "npc_dota_hero_legion_commander_str8" "鋼護腕" 
@@ -13967,7 +13970,7 @@
         "dota_tooltip_ability_slark_shadow_dance_lua_bonus_regen_pct" "%HP 每秒恢復：" 
 
         "npc_dota_hero_slark_str6" "魚在水中" 
-        "npc_dota_hero_slark_str6_description" "每殺死一個小兵會增加 10 點生命值" 
+        "npc_dota_hero_slark_str6_description" "每级 +50 马力" 
         "npc_dota_hero_slark_str7" "它是如何被淹的" 
         "npc_dota_hero_slark_str7_description" "+2 秒突襲眩暈" 
         "npc_dota_hero_slark_str8" "冷血" 
@@ -14925,7 +14928,7 @@
         "npc_dota_hero_lina_str6" "燃燒的火" 
         "npc_dota_hero_lina_str6_description" "熾熱的靈魂給予護甲等於 1/3 的移動速度加成" 
         "npc_dota_hero_lina_str7" "骨灰" 
-        "npc_dota_hero_lina_str7_description" "每殺死一個小兵獲得 10 點生命值" 
+        "npc_dota_hero_lina_str7_description" "每级 +50 马力" 
         "npc_dota_hero_lina_str8" "火之夫人" 
         "npc_dota_hero_lina_str8_description" "光擊陣列眩暈持續時間增加 3 秒" 
         "npc_dota_hero_lina_str9" "火盾" 
