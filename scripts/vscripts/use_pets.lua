@@ -14,7 +14,7 @@ end
 function use_pets:UsePet(t)
 	local player = PlayerResource:GetPlayer(t.PlayerID)
 	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-	if hero:IsAlive() then
+	if hero:IsAlive() and not hero:HasModifier("modifier_silent") then
 		local tab = CustomNetTables:GetTableValue("player_pets", tostring(t.PlayerID))
 		print("i try use pet")
 		if tab then

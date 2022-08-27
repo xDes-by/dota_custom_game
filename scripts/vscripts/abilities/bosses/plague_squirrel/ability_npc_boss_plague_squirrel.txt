@@ -62,7 +62,7 @@
 		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
-			"radius"					"600"
+			"radius"					"1000"
 			"reflect"					"10"
 		}
 	}

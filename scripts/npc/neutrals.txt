@@ -1251,7 +1251,7 @@
             "10"
             {
                 "var_type"                  "FIELD_FLOAT"
-                "nuke_str_dmg"      "10"
+                "nuke_str_dmg"      "1"
             }
         }
     }
@@ -1435,7 +1435,7 @@
             "bonus_agility"         "125"
             "passive_movement_bonus"        "125"
             "visibility_radius"     "725"
-            "duration"              "12.0"
+            "duration"              "0.0"
             "bonus_movement_speed"      "60"
         }
     }

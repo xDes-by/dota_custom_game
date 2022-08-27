@@ -510,8 +510,8 @@
 		"MagicalResistance"			"99"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"1000000"
-		"AttackDamageMax"			"1000000"
+		"AttackDamageMin"			"5000000"
+		"AttackDamageMax"			"5000000"
 		"AttackRate"				"0.1"
 		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"1200"
@@ -539,6 +539,8 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"Creature"
 		{	
+		
+		"DisableResistance"			"95.0"
 			"AttachWearables"
 			{
 				"Wearable1" {"ItemDef" "22222"}
@@ -3685,7 +3687,7 @@
 		"IsAncient"					"1"
 		
 		"Ability1"					"boss_5_lighting"
-		"Ability2"					"boss_5_passive"
+		//"Ability2"					"boss_5_passive"
 		"Ability3"					"boss_5_bolt"
 		"Ability4"					"boss_5_passive2"
 		"Ability5"					"manacost_spell"
