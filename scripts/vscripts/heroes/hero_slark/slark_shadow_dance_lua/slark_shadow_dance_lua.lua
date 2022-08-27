@@ -11,9 +11,9 @@ end
 function slark_shadow_dance_lua:GetManaCost(iLevel)
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6")
 	if abil ~= nil	then 
-	return self:GetCaster():GetIntellect()*1.5
+	return math.min(65000, self:GetCaster():GetIntellect()*1.5)
 	end
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 

@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_agil_lua", "heroes/hero_medusa/medusa_mystic_snake_lu
 medusa_mystic_snake_lua = class({})
 
 function medusa_mystic_snake_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()	
+	return math.min(65000, self:GetCaster():GetIntellect()	)
 end
 
 function medusa_mystic_snake_lua:OnSpellStart()

@@ -14,7 +14,7 @@ function drow_cross_lua:GetManaCost(iLevel)
             self.mana = self.mana * 0.9
         end
     end
-    return self.mana
+    return math.min(65000, self.mana)
 end
 
 function drow_cross_lua:GetCooldown(level)

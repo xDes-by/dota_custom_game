@@ -12,7 +12,7 @@ local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8"
 				mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
 				 return self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss)
 			end	
-		return self:GetCaster():GetIntellect()/2
+		return math.min(65000, self:GetCaster():GetIntellect()/2)
 	end
 ---------------------------------------------------------------------------------------------------------------------------------
 		local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
@@ -20,7 +20,7 @@ local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8"
 				mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
 				 return self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)
 			end	
-				return self:GetCaster():GetIntellect()
+				return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

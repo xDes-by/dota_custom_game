@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_sand_caustic_debuff", "heroes/hero_sand/sand_caustic/
 function sand_stun:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

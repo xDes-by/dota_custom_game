@@ -17,7 +17,7 @@ function lion_finger_of_death_lua:GetCooldown( level )
 end
 
 function lion_finger_of_death_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 function lion_finger_of_death_lua:OnSpellStart()

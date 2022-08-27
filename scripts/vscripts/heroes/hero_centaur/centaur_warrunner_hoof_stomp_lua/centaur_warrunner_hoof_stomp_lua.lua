@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generi
 function centaur_warrunner_hoof_stomp_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

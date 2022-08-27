@@ -43,6 +43,7 @@ local bResult = xpcall(function()
 			self:GetCaster():EmitSound("Hero_Zuus.ArcLightning.Cast")
 		end	
 	end
+	end,
 		function(e)
 		print("-------------Error-------------")
 		print(e)

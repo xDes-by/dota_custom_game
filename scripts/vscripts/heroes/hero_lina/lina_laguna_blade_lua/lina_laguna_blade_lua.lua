@@ -3,9 +3,9 @@ lina_laguna_blade_lua = lina_laguna_blade_lua or class({})
 function lina_laguna_blade_lua:GetManaCost(iLevel)
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int7")	
 	if abil ~= nil then 
-        return self:GetCaster():GetIntellect()*1.5
+        math.min(65000, return self:GetCaster():GetIntellect()*1.5)
 		end
-        return self:GetCaster():GetIntellect()*3
+        math.min(65000, return self:GetCaster():GetIntellect()*3)
 end
 
 

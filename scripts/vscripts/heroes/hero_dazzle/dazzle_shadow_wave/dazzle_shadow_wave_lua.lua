@@ -7,9 +7,9 @@ function dazzle_shadow_wave_lua:GetManaCost(iLevel)
     if caster then
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7")
 		if abil ~= nil	then 
-		  return caster:GetIntellect()/2
+		  return math.min(65000, caster:GetIntellect()/2)
 		end
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

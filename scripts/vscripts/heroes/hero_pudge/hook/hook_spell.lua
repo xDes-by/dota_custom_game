@@ -13,7 +13,7 @@ function pudge_meat_hook_lua:OnAbilityPhaseInterrupted()
 end
 
 function pudge_meat_hook_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()	
+	return math.min(65000, self:GetCaster():GetIntellect()	)
 end
 
 

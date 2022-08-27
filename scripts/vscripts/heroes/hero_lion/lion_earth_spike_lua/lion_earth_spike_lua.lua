@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_lion_soul_collector", "heroes/hero_lion/lion_soul_col
 
 
 function lion_earth_spike_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 function lion_earth_spike_lua:OnSpellStart()

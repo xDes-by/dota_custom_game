@@ -8,7 +8,7 @@ LinkLuaModifier( "modifier_armor", "heroes/hero_bristleback/modifier_armor", LUA
 function bristleback_quill_spray_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

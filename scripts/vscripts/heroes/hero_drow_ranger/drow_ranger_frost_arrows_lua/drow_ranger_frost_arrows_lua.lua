@@ -10,7 +10,7 @@ end
 function drow_ranger_frost_arrows_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()/2
+        return math.min(65000, caster:GetIntellect()/2)
     end
 end
 

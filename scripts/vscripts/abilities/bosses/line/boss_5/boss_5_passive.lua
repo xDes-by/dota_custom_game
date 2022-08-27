@@ -83,6 +83,7 @@ function modifier_boss_5_passive:OnTakeDamage(keys)
 		self.bStaticCooldown = true
 		self:StartIntervalThink(self.static_cooldown)
 	end
+	end,
 		function(e)
 		print("-------------Error-------------")
 		print(e)

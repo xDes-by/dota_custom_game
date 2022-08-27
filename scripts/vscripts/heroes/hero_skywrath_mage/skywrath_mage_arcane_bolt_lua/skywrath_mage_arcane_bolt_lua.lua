@@ -45,9 +45,9 @@ end
 function skywrath_mage_arcane_bolt_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10")	
 	if abil ~= nil then 
-		return self:GetCaster():GetIntellect()/2
+		return math.min(65000, self:GetCaster():GetIntellect()/2)
 	end
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 function skywrath_mage_arcane_bolt_lua:OnSpellStart()

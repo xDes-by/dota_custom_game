@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_mars_boost", "heroes/hero_mars/modifier_mars_boost", 
 function mars_lil:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

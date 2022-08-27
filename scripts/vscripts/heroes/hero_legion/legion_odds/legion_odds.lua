@@ -11,7 +11,7 @@ end
 
 
 function legion_odds:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

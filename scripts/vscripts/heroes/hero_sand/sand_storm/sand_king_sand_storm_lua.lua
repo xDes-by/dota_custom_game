@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_sand_king_sand_storm_lua", "heroes/hero_sand/sand_sto
 function sand_king_sand_storm_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

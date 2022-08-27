@@ -7,9 +7,9 @@ end
 function shaman_wards_custom:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")             
 	if abil ~= nil then 
-        return self:GetCaster():GetIntellect() * 1.5
+        return math.min(65000, self:GetCaster():GetIntellect() * 1.5)
     end
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 

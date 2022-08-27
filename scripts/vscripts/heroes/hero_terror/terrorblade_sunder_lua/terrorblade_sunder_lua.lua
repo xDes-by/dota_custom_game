@@ -2,7 +2,7 @@ terrorblade_sunder_lua = class({})
 LinkLuaModifier( "modifier_terrorblade_sunder_lua", "heroes/hero_terror/terrorblade_sunder_lua/terrorblade_sunder_lua", LUA_MODIFIER_MOTION_NONE )
 
 function terrorblade_sunder_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 function terrorblade_sunder_lua:OnSpellStart()

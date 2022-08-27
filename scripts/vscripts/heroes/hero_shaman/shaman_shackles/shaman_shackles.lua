@@ -15,9 +15,9 @@ modifier_shaman_shackles_chariot			= class({})
 function shaman_shackles:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")             
 	if abil ~= nil then 
-        return self:GetCaster():GetIntellect()/2
+        return math.min(65000, self:GetCaster():GetIntellect()/2)
     end
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

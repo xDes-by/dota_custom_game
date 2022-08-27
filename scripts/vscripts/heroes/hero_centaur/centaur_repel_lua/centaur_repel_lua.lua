@@ -6,7 +6,7 @@ LinkLuaModifier( "modifier_centaur_repel_lua_disarmor", "heroes/hero_centaur/cen
 function centaur_repel_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

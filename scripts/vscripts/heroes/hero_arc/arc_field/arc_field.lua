@@ -13,9 +13,9 @@ modifier_arc_warden_magnetic_field_lua_evasion					= modifier_arc_warden_magneti
 function arc_warden_magnetic_field_lua:GetManaCost(iLevel)
  	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int8")
 		if abil ~= nil then
-		return self:GetCaster():GetIntellect()/2
+		return math.min(65000, self:GetCaster():GetIntellect()/2)
 		else
-        return self:GetCaster():GetIntellect()	
+        return math.min(65000, self:GetCaster():GetIntellect())
 	end
 end
 

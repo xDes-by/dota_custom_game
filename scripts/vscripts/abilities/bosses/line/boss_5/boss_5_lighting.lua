@@ -80,6 +80,7 @@ function modifier_zuus_arc_lightning_lua:RemoveOnDeath()	return false end
 function modifier_zuus_arc_lightning_lua:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
 
 function modifier_zuus_arc_lightning_lua:OnCreated(keys)
+local bResult = xpcall(function()
 	if not IsServer() or not self:GetAbility() then return end
 
 	self.arc_damage			= self:GetAbility():GetSpecialValueFor("arc_damage")
@@ -114,9 +115,24 @@ function modifier_zuus_arc_lightning_lua:OnCreated(keys)
 	self.unit_counter			= 0
 	
 	self:StartIntervalThink(self.jump_delay)
+	end,
+			function(e)
+				print("-------------Error-------------")
+				print(e)
+				print("-------------Error-------------")
+			end)  
+			--дебаг
+			
+			--вызов вункции в которой может быть ошибка
+			if bResult then
+			--print("all ok")
+			else
+			print("error")
+			end		
 end
 
 function modifier_zuus_arc_lightning_lua:OnIntervalThink()
+local bResult = xpcall(function()
 	self.zapped = false
 	
 	for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.current_unit:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)) do
@@ -200,4 +216,18 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 			self:Destroy()
 		end
 	end
+			end,
+			function(e)
+				print("-------------Error-------------")
+				print(e)
+				print("-------------Error-------------")
+			end)  
+			--дебаг
+			
+			--вызов вункции в которой может быть ошибка
+			if bResult then
+			--print("all ok")
+			else
+			print("error")
+			end		
 end

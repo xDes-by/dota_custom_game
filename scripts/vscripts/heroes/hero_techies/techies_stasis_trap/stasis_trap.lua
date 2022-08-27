@@ -9,7 +9,7 @@ function techies_stasis_trap_lua:GetAOERadius() return self:GetSpecialValueFor("
 
 function techies_stasis_trap_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
 end
 
 function techies_stasis_trap_lua:OnSpellStart()

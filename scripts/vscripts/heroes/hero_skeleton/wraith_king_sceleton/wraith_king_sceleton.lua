@@ -7,7 +7,7 @@ LinkLuaModifier( "modifier_skelet_resist", "heroes/hero_skeleton/other/modifier_
 function wraith_king_sceleton:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

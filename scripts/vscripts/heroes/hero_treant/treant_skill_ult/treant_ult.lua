@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_treant_ult_pw", "heroes/hero_treant/treant_skill_ult/t
 LinkLuaModifier("modifier_treant_poison", "heroes/hero_treant/treant_skill_ult/treant_ult", LUA_MODIFIER_MOTION_NONE)
 
 function treant_ult:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 function treant_ult:GetCooldown(level)

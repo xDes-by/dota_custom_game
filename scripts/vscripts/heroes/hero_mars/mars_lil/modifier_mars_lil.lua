@@ -18,14 +18,6 @@ function modifier_mars_lil:IsPurgable()
 	return true
 end
 
-
-function modifier_mars_lil:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return caster:GetIntellect()*2
-    end
-end
-
 function modifier_mars_lil:OnCreated( kv )
 	self.caster = self:GetCaster()
 	self.attacks = self:GetAbility():GetSpecialValueFor( "buffed_attacks" )

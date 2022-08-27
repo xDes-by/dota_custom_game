@@ -62,16 +62,16 @@ local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")
 		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
 			if ability:GetLevel() > 0 then
 				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss)
+				 return math.min(65000, self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss))
 			end	
-			return self:GetCaster():GetIntellect()/2
+			return math.min(65000, self:GetCaster():GetIntellect()/2)
 	end
 		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
 			if ability:GetLevel() > 0 then
 				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)
+				 return math.min(65000, self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss))
 			end	
-			return self:GetCaster():GetIntellect()
+			return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

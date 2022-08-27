@@ -7,7 +7,7 @@ function alchemist_greevils_greed_lua:GetIntrinsicModifierName()
 end
 
 function alchemist_greevils_greed_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()/2
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 function alchemist_greevils_greed_lua:OnSpellStart()

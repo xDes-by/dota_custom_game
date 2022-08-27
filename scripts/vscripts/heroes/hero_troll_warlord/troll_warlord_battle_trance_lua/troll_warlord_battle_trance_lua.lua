@@ -23,7 +23,7 @@ function troll_warlord_battle_trance_lua:GetManaCost(iLevel)
 	if abil == nil	then 
 		return 0
 	end
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 function troll_warlord_battle_trance_lua:OnSpellStart()

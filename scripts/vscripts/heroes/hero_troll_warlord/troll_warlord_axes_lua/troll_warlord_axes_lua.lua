@@ -21,7 +21,7 @@ function troll_warlord_whirling_axes_ranged_lua:GetManaCost(iLevel)
 		return 0
 	end
     if self:GetCaster() then
-        return self:GetCaster():GetIntellect()
+        return math.min(65000, self:GetCaster():GetIntellect())
     end
 end
 

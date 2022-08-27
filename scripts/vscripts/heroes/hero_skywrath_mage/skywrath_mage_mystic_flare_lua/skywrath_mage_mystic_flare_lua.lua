@@ -4,9 +4,9 @@ LinkLuaModifier( "modifier_skywrath_mage_mystic_flare_lua_thinker", "heroes/hero
 function skywrath_mage_mystic_flare_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10")	
 	if abil ~= nil then 
-		return self:GetCaster():GetIntellect() * 1.5
+		return math.min(65000, self:GetCaster():GetIntellect() * 1.5)
 	end
-	return self:GetCaster():GetIntellect() * 3
+	return math.min(65000, self:GetCaster():GetIntellect() * 3)
 end
 
 function skywrath_mage_mystic_flare_lua:GetAOERadius()

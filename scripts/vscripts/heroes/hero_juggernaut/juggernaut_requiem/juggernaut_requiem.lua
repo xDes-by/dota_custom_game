@@ -57,7 +57,7 @@ end
 	function juggernaut_requiem:GetManaCost(iLevel)
 		local caster = self:GetCaster()
 		if caster then
-			return caster:GetIntellect()
+			return math.min(65000, caster:GetIntellect())
 		end
 	end
 	

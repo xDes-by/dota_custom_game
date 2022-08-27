@@ -24,9 +24,9 @@ end
 function juggernaut_omni_slash_lua:GetCooldown(level)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_juggernaut_int8") 
 		if abil ~= nil then
-		return self.BaseClass.GetCooldown(self, level) - 60
+		return math.min(65000, self.BaseClass.GetCooldown(self, level) - 60)
 	 else
-		return self.BaseClass.GetCooldown(self, level)
+		return math.min(65000, self.BaseClass.GetCooldown(self, level))
 	 end
 end
 

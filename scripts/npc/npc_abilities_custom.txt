@@ -1993,7 +1993,7 @@
             "04"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "20000"
+                "damage"                    "50000"
                 "LinkedSpecialBonus"    "special_bonus_unique_viper_1"
             }
             "05"

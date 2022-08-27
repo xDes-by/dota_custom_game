@@ -17,9 +17,9 @@ end
 function shadow_fiend_requiem_of_souls_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
 	if abil ~= nil then 
-        return self:GetCaster():GetIntellect()*1.5
+        return math.min(65000, self:GetCaster():GetIntellect()*1.5)
     end
-	return self:GetCaster():GetIntellect()*3
+	return math.min(65000, self:GetCaster():GetIntellect()*3)
 end
 
 function shadow_fiend_requiem_of_souls_lua:GetCooldown(level)

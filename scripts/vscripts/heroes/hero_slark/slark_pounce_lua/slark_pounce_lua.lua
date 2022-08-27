@@ -5,9 +5,9 @@ LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generi
 function slark_pounce_lua:GetManaCost(iLevel)
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6")
 	if abil ~= nil	then 
-	return self:GetCaster():GetIntellect()/2
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 	end
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

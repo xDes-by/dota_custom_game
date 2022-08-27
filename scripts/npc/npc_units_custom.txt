@@ -2237,9 +2237,7 @@
 		"Level"						"99"
 		"ModelScale" 				"0.2"
 		
-		"Ability1"					""
-		"Ability2"					""
-		"Ability3"					"boom_turret"
+		"Ability1"					"boom_turret"
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"

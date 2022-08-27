@@ -11,7 +11,7 @@ LinkLuaModifier("modifier_treant_skill_1_auto", "heroes/hero_treant/treant_skill
 treant_skill_1 = class({})
 
 function treant_skill_1:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 function treant_skill_1:GetIntrinsicModifierName()

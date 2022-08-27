@@ -8,7 +8,7 @@ function terrorblade_reflection_lua:Precache( context )
 end
 
 function terrorblade_reflection_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
 

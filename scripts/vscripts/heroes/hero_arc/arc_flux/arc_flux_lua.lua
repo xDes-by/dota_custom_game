@@ -8,9 +8,9 @@ LinkLuaModifier( "modifier_arc_flux_lua_hp_buff", "heroes/hero_arc/arc_flux//mod
 function arc_flux_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int8")
 		if abil ~= nil then
-		return self:GetCaster():GetIntellect()/2
+		return math.min(65000, self:GetCaster():GetIntellect()/2)
 		else
-        return self:GetCaster():GetIntellect()	
+        return math.min(65000, self:GetCaster():GetIntellect())
 	end
 end
 

@@ -15,7 +15,6 @@
 		"AbilityCastPoint"				"1.0"
 		"FightRecapLevel"				"0"
 		"AbilityCooldown"				"10.0 10.0 10.0"
-		"AbilityManaCost"				"200 240 300"
 		"MaxLevel"						    "10"
 
 

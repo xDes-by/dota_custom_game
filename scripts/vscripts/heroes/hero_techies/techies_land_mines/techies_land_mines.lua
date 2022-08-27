@@ -14,7 +14,7 @@ function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("s
 
 function techies_land_mines_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
 end
 
 function techies_land_mines_lua:OnSpellStart()

@@ -42,7 +42,7 @@ function terrorblade_conjure_image_lua:Precache( context )
 end
 
 function terrorblade_conjure_image_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()	
+	return math.min(65000, self:GetCaster():GetIntellect()	)
 end
 
 -- Ability Start

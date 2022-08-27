@@ -8,7 +8,7 @@ function freezing_field_lua:OnSpellStart()
 end
 
 function freezing_field_lua:GetManaCost(iLevel)
-    return self:GetCaster():GetIntellect()/2
+    return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 function freezing_field_lua:GetIntrinsicModifierName()
