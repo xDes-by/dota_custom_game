@@ -30,6 +30,7 @@
             "item_pogo_stick"                 "0"                       
             "item_royal_jelly"                "0"
 			"item_seeds_of_serenity"		"1"
+			"item_occult_bracelet"		"1"
         }
     }
     "2"
