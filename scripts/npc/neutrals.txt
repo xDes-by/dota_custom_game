@@ -1,5 +1,152 @@
 "DOTAAbilities"
 {
+
+"item_occult_bracelet"
+	{
+
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"947"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+	
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"			"15"
+			"mana_regen"				"2"
+			"stack_limit"				"10"
+			"stack_duration"			"10"
+		}
+	}
+
+"item_seeds_of_serenity"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"945"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+			
+		"AbilityCooldown"				"40.0"
+		"AbilityCastRange"				"350"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"				"1000"
+			"aura_health_regen"			"50"
+			"radius"					"350"
+			"duration"					"14"
+		}
+	}
+	
+"item_specialists_array"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1076"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"all_stats"						"30"
+			"bonus_damage"					"100"
+			"count"							"2"
+		}
+	}	
+	
+"item_dagger_of_ristul"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1077"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"aspd"							"50"
+			"bonus_damage"					"100"
+			"duration"						"8"
+			"health_sacrifice"				"300"
+
+		}
+	}	
+	
+	"item_eye_of_the_vizier"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"990"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"cast_range_bonus"					"125"
+			"mana_reduction_pct"						"2"
+		}
+	}	
+	
         //=================================================================================================================
     // Keen Optic
     //=================================================================================================================
@@ -1147,7 +1294,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
         {
-            "intelligence_pct"      "15"
+            "intelligence_pct"      "5"
             "cast_range"            "200"
             "push_length"           "100"
             "push_duration"         "0.1"

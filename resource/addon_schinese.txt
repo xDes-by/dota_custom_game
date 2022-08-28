@@ -21,72 +21,43 @@
         //Misc//
         ////////
 		
-		“分钟” “分钟”
-        “history_hero” “英雄”
+		"min" "分钟"
+        "history_hero" "英雄"
         "history_result" "结果"
         "history_status" "游戏中"
         "history_time" "时间"
         "history_level" "级别"
-        “是的，你”
-        “伊格罗科夫”“球员”
+        "yest' u" "你"
+        "igrokov""球员"
         "pet_level" "级别"
-        “pet_tier” “层级”
+        "pet_tier" "层级"
         "pet_title" "宠物：射击场"
         "feed_x250" "饲料 250 个"
         "feed_x600" "饲料 600 个"
-        “是的是的”
-        “不，不”
+        "yes"   "是"
+        "no"    "不"
         "pet_buy" "买"
-        “pet_for” “为”
+        "pet_for" "为"
         "pet_pieces" "一块"
-        “饲料” “通讯”
+        "feed" "一块"
         "talent_count" "更多"
         "talents_loading" "加载中..."
-        “胜利” “胜利”
-        “输” “输”
-        “在” “是”
-        “出去” “没有”
+        "win" "胜利"
+        "lose" "输"
+        "in" "是"
+        "out" "没有"
         "history_mode" "模式"
-        “简单”“涡轮”
-        “正常” “正常”
-        “硬” “硬”
-        “超” “超”
+        "easy""涡轮"
+        "正常" "正常"
+        "normal" "硬"
+        "hard" "超"
+        "ultra" "超"
         "profile_first_game" "第一场比赛"
         "pick_rating" "评分："
         "pick_game" "游戏："
-        "quest_snow_creep_1" "该位置的任何小兵"
-        "quest_snow_creep_desc" "杀死该区域的所有小兵"
-        "quest_last_creep_1" "该位置的任何小兵"
-        "quest_last_creep_desc" "杀死该区域内的所有小兵"
-        "quest_snow_boss" "大鹅卵石"
-        "quest_snow_boss_desc" "杀死大石头"
-        "quest_location8_boss_desc" "杀死奶奶"
-        "quest_tank_any_boss" "杀死首领"
-        "quest_tank_any_boss_desc" "杀死任何首领"
-        "quest_tank_any_mid_creep" "中级小兵"
-        "quest_tank_any_mid_creep_desc" "杀死任何中间小兵"
-        "quest_item_quest_necronomicon" "寻找死灵之书"
-        "quest_item_quest_necronomicon_desc" "死灵书从线上 Boss 掉落，找到它"
-        "quest_npc_quest_dragon" "去他妈的龙"
-        "quest_npc_quest_dragon_desc" "如果你在这个位置杀死了一个大怪物，有可能会生成一条龙"
-        "quest_medusa_ward" "摧毁守卫"
-        "quest_medusa_ward_desc" "打破剧毒术士结界"
-        "souls_stash" "灵魂"
-        "dota_tooltip_ability_item_quest_blue_ice" "蓝冰"
-        "quest_item_quest_blue_ice" "蓝冰"
-        "quest_item_quest_blue_ice_desc" "伙计，给我一些蓝冰，我不会欠债的"
-        "quest_get_rune" "捡起一个符文"
-        "quest_get_rune_desc" "这里有一个符文，找到并拿走"
-        "item_gold_brus" "金锭"
-        "quest_npc_boss_location8" "杀死黑龙"
-        "quest_location8_boss_desc" "前往最后的耕种地点"
-        "quest_necro_warior_tank_desc" "杀死两名死灵战士"
-        "quest_necro_warior_tank" "杀死死灵"
-        "quest_npc_mega_boss" "杀死厄运"
-        "quest_npc_mega_boss_desc" "杀死厄运 3 次"
-        "quest_farm_zone_dragon" "将黑龙带入地球"
-        "quest_farm_zone_dragon_desc" "杀掉养殖区的黑龙"
-        "quest_npc_snow_boss" "杀死雪老板"
+        "MagicResistance"               "魔法抵抗力"
+        "Arrmor"                        "盔甲"
+        
 
         "Name" "英雄" 
         "death" "死亡人數" 
@@ -215,12 +186,15 @@
         "dota_tooltip_ability_item_quest_line_rock" "符文" 
         "dota_tooltip_ability_item_quest_line_sun" "太陽星座" 
         "dota_tooltip_ability_item_quest_line_book" "黑暗持有" 
-        "dota_tooltip_ability_item_quest_line_boots" "機器人" 
+        "dota_tooltip_ability_item_quest_line_boots" "機器人"
+        "dota_tooltip_ability_item_quest_necronomicon"  "咄咄逼人的Necronomicon"
+        "dota_tooltip_ability_item_quest_necronomicon_description"  "<h1>活跃: 行动呼吁</h1></h1>召唤两个Necronomicon，它们对你有攻击性，杀死它们你会得到奖励。."
 
         "dota_tooltip_ability_item_key_description" "老鑰匙！" 
 
         "dota_tooltip_ability_item_raid_ticket" "老闆突襲" 
-        "dota_tooltip_ability_item_raid_ticket_description" "使用此物品，您可以找到突襲首領，請記住，您擁有的盟友越多，對您來說就越容易！" 
+        "dota_tooltip_ability_item_raid_ticket_description" "使用此物品，您可以找到突襲首領，請記住，您擁有的盟友越多，對您來說就越容易！"
+        "dota_tooltip_ability_item_raid_ticket2"    "老闆突襲"
         "dota_tooltip_ability_item_raid_ticket2_description" "使用此物品，您可以找到突襲首領，請記住，您擁有的盟友越多，對您來說就越容易！" 
         "dota_tooltip_ability_item_raid_ticket3" "老闆突襲" 
         "dota_tooltip_ability_item_raid_ticket3_description" "使用此物品，您可以找到突襲首領，請記住，您擁有的盟友越多，對您來說就越容易！" 
@@ -319,7 +293,8 @@
 
         // "june" "六月" 
         // "jule" "七月" 
-		// "AUGUST"	"AUGUST"	
+		// "AUGUST"	"AUGUST"
+        // "SEPTEMBER"	"СЕНТЯБРЬ"	
 
         "season_name_1" "七月" 
         "season_name_2" "七月" 
@@ -398,6 +373,7 @@
         "profil_first_game" "第一場比賽" 
         "pick_rating" "評分：" 
         "pick_game" "遊戲：" 
+        "modifier_custompet_delay"  "重新加载一个宠物的能力."
 
         //Cards//
 
@@ -617,6 +593,7 @@
 		"npc_quest_necronomicon_archer" "死灵之书"
 
         "wave" "波號" 
+        "wave_creep_1"  "乌尔塞斯"
 		"description_creep_1" "大熊們瘋狂地拍手" 
 		"wave_creep_2" "海象和奴才" 
 		"description_creep_2" "害怕跳躍的海象" 
@@ -1337,6 +1314,40 @@
         "quest_item_dragon_soul_2" "青龍魂" 
         "quest_item_dragon_soul_3" "金龍魂" 
 
+        "quest_snow_creep_1" "该位置的任何小兵"
+        "quest_snow_creep_desc" "杀死该区域的所有小兵"
+        "quest_last_creep_1" "该位置的任何小兵"
+        "quest_last_creep_desc" "杀死该区域内的所有小兵"
+        "quest_snow_boss" "大鹅卵石"
+        "quest_snow_boss_desc" "杀死大石头"
+        "quest_location8_boss_desc" "杀死奶奶"
+        "quest_tank_any_boss" "杀死首领"
+        "quest_tank_any_boss_desc" "杀死任何首领"
+        "quest_tank_any_mid_creep" "中级小兵"
+        "quest_tank_any_mid_creep_desc" "杀死任何中间小兵"
+        "quest_item_quest_necronomicon" "寻找死灵之书"
+        "quest_item_quest_necronomicon_desc" "死灵书从线上 Boss 掉落，找到它"
+        "quest_npc_quest_dragon" "去他妈的龙"
+        "quest_npc_quest_dragon_desc" "如果你在这个位置杀死了一个大怪物，有可能会生成一条龙"
+        "quest_medusa_ward" "摧毁守卫"
+        "quest_medusa_ward_desc" "打破剧毒术士结界"
+        "souls_stash" "灵魂"
+        "dota_tooltip_ability_item_quest_blue_ice" "蓝冰"
+        "quest_item_quest_blue_ice" "蓝冰"
+        "quest_item_quest_blue_ice_desc" "伙计，给我一些蓝冰，我不会欠债的"
+        "quest_get_rune" "捡起一个符文"
+        "quest_get_rune_desc" "这里有一个符文，找到并拿走"
+        "item_gold_brus" "金锭"
+        "quest_npc_boss_location8" "杀死黑龙"
+        "quest_location8_boss_desc" "前往最后的耕种地点"
+        "quest_necro_warior_tank_desc" "杀死两名死灵战士"
+        "quest_necro_warior_tank" "杀死死灵"
+        "quest_npc_mega_boss" "杀死厄运"
+        "quest_npc_mega_boss_desc" "杀死厄运 3 次"
+        "quest_farm_zone_dragon" "将黑龙带入地球"
+        "quest_farm_zone_dragon_desc" "杀掉养殖区的黑龙"
+        "quest_npc_snow_boss" "杀死雪老板"
+
 
         ///////////
         //C Items//
@@ -1371,22 +1382,22 @@
         "dota_tooltip_ability_item_book_of_intelligence_2_description" "消耗永久獲得 30 點智力。" 
 
 		"dota_tooltip_ability_item_greed_str" "力量贪婪之书"
-        "dota_tooltip_ability_item_greed_str_description" "<h1>主动：阅读</h1></h1>使用增加 %bonus_stat% 力量。<br><br><h1>被动：贪婪</h1>每 %cost% 金币，物品就会获得一次充能。”
+        "dota_tooltip_ability_item_greed_str_description" "<h1>主动：阅读</h1></h1>使用增加 %bonus_stat% 力量。<br><br><h1>被动：贪婪</h1>每 %cost% 金币，物品就会获得一次充能。"
         "dota_tooltip_ability_item_greed_str_note0" "使用一次充电会永久浪费该物品。"
         "dota_tooltip_ability_item_greed_str_note1" "要使被动技能生效，物品必须在物品栏中"
         
         "dota_tooltip_ability_item_greed_agi" "敏捷贪婪之书"
-        "dota_tooltip_ability_item_greed_agi_description" "<h1>主动：阅读</h1></h1>使用会增加 %bonus_stat% 敏捷度。<br><br><h1>被动：贪婪</h1>物品每 %cost% 金币就会获得一次充能。”
+        "dota_tooltip_ability_item_greed_agi_description" "<h1>主动：阅读</h1></h1>使用会增加 %bonus_stat% 敏捷度。<br><br><h1>被动：贪婪</h1>物品每 %cost% 金币就会获得一次充能。"
         "dota_tooltip_ability_item_greed_agi_note0" "使用一次充电会永久浪费该物品。"
         "dota_tooltip_ability_item_greed_agi_note1" "要使被动技能生效，物品必须在物品栏中"
         
         "dota_tooltip_ability_item_greed_int" "智力贪婪之书"
-        "dota_tooltip_ability_item_greed_int_description" "<h1>主动：阅读</h1></h1>使用会增加 %bonus_stat% 智力。<br><br><h1>被动：贪婪</h1>物品每 %cost% 金币就会获得一次充能。”
+        "dota_tooltip_ability_item_greed_int_description" "<h1>主动：阅读</h1></h1>使用会增加 %bonus_stat% 智力。<br><br><h1>被动：贪婪</h1>物品每 %cost% 金币就会获得一次充能。"
         "dota_tooltip_ability_item_greed_int_note0" "使用一次充电会永久浪费该物品。"
         "dota_tooltip_ability_item_greed_int_note1" "要使被动技能生效，物品必须在物品栏中"
 
         "dota_tooltip_ability_item_weird_potion" "奇怪的药水"
-        "dota_tooltip_ability_item_weird_potion_description" "<h1>主动：阅读</h1></h1>使用会为所有属性增加 %bonus_stat%。<br><br><h1>被动：贪婪</h1>该物品每 <字体颜色='#ffff00'> 72000 金</font>。”
+        "dota_tooltip_ability_item_weird_potion_description" "<h1>主动：阅读</h1></h1>使用会为所有属性增加 %bonus_stat%。<br><br><h1>被动：贪婪</h1>该物品每 <字体颜色='#ffff00'> 72000 金</font>。"
         "dota_tooltip_ability_item_weird_potion_note0" "使用一次充电会永久浪费该物品。"
         "dota_tooltip_ability_item_weird_potion_lore" "一种由炼金术士酿造的奇怪药水，喝下后可以杀死佩戴者，或者给予强大的力量。"
         "dota_tooltip_ability_item_weird_potion_note1" "要使被动技能生效，物品必须在物品栏中"
@@ -2022,7 +2033,7 @@
         //METEOR HAMMER//
 
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua1" "流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1_lore" "这把附魔锤是用在一个被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1_bonus_health_regen" "额外的健康恢复："
@@ -2032,49 +2043,49 @@
         "DOTA_Tooltip_modifier_item_meteor_hammer_lua_burn_Description" "每 %burn_interval% 秒受到 %burn_dps_units% 伤害。"
 
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua2" "森林流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua2_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua2_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua2_lore" "这把附魔的锤子是用在被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua2_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua2_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua2_bonus_mana_regen" "额外法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua3" "村庄流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua3_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua3_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua3_lore" "这把附魔的锤子是用在被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua3_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua3_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua3_bonus_mana_regen" "额外的法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua4" "地雷流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua4_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua4_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua4_lore" "这把附魔的锤子是用在一个被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua4_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua4_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua4_bonus_mana_regen" "额外法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua5" "尘埃陨石锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua5_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua5_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。这次打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua5_lore" "这把附魔锤是用在一个被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua5_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua5_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua5_bonus_mana_regen" "额外法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua6" "沼泽流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua6_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua6_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua6_lore" "这把附魔锤是用在一个被大星陨摧毁的村庄废墟中发现的金属锻造而成的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua6_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua6_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua6_bonus_mana_regen" "额外法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua7" "雪流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua7_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua7_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua7_lore" "这把附魔的锤子是用在被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua7_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua7_bonus_health_regen" "额外的健康恢复："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua7_bonus_mana_regen" "额外法力回复："
 		
 		"DOTA_Tooltip_ability_item_meteor_hammer_lua8" "神圣流星锤"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua8_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。”
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua8_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE - 召唤一颗陨石，在短暂的延迟后撞击半径为 %impact_radius% 的区域。打击对敌方生物和建筑物造成伤害，使其昏迷%stun_duration% 秒并将它们点燃，造成持续 %burn_duration% 秒的周期性伤害。<BR><BR>对建筑物造成的伤害：%impact_damage_buildings% <BR>对建筑物的周期性伤害：%burn_dps_buildings% <BR><BR >单位撞击造成的伤害：%impact_damage_units% <BR>对单位的周期性伤害：%burn_dps_units% <BR><BR>施法时间：%max_duration% 秒。<BR>施法后延迟：%land_time% 秒。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua8_lore" "这把附魔的锤子是用在被大星陨摧毁的村庄废墟中发现的金属锻造的。"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua8_bonus_all_stats" "所有属性奖励："
         "DOTA_Tooltip_ability_item_meteor_hammer_lua8_bonus_health_regen" "额外的健康恢复："
@@ -12884,7 +12895,7 @@
         //Troll Warlord//
 
 		"DOTA_Tooltip_ability_troll_warlord_rage_lua" "愤怒"
-		"DOTA_Tooltip_ability_troll_warlord_rage_lua_description" "当这个能力被激活时，英雄在近战中使用他的投掷斧头。这会减少攻击的基础间隔，增加英雄的移动速度、生命值和护甲。狂暴之怒还会修改旋风斧的属性 。”
+		"DOTA_Tooltip_ability_troll_warlord_rage_lua_description" "当这个能力被激活时，英雄在近战中使用他的投掷斧头。这会减少攻击的基础间隔，增加英雄的移动速度、生命值和护甲。狂暴之怒还会修改旋风斧的属性 。"
 		"DOTA_Tooltip_ability_troll_warlord_rage_lua_bonus_hp" "额外生命值："
 		"DOTA_Tooltip_ability_troll_warlord_rage_lua_bonus_move_speed" "奖励移动速度："
 		"DOTA_Tooltip_ability_troll_warlord_rage_lua_bonus_armor" "额外护甲："
@@ -13589,7 +13600,7 @@
 
         "dota_tooltip_ability_bristleback_warpath_lua" "戰爭之路" 
         "dota_tooltip_ability_bristleback_warpath_lua_description" "鋼背獸每次施法時都會讓自己變得狂怒，從而提高他的移動速度和傷害。" 
-        "dota_tooltip_ability_bristleback_warpath_lua_lore" "“脾氣，脾氣，”他的母親總是責備他。但在戰鬥中，溫度可以派上用場。" 
+        "dota_tooltip_ability_bristleback_warpath_lua_lore" ""脾氣，脾氣，"他的母親總是責備他。但在戰鬥中，溫度可以派上用場。" 
         "dota_tooltip_ability_bristleback_warpath_lua_note0" "鋼背獸的幻象將獲得獎勵。" 
         "dota_tooltip_ability_bristleback_warpath_lua_note1" "物品不會觸發 Warpath。" 
         "dota_tooltip_ability_bristleback_warpath_lua_damage_per_stack" "每層傷害：" 

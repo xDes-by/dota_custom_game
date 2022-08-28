@@ -2858,7 +2858,7 @@
 
 		"AbilityValues"
 		{
-            "armor_reduction"		"20"
+            "armor_reduction"		"2s"
             "duration"				"5"
 		}
 	}

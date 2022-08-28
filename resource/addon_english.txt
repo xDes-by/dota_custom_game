@@ -27,8 +27,8 @@
         "history_status" "In game"
         "history_time" "Time"
         "history_level" "Level"
-        "yest' u"
-        "igrokov" "players"
+        "yest' u"   "have "
+        "igrokov" " players"
         "pet_level" "level"
         "pet_tier" "tier"
         "pet_title" "pets: shooting range "
@@ -39,7 +39,7 @@
         "pet_buy" "buy"
         "pet_for" "for"
         "pet_pieces" "piece"
-        "feed" "comr"
+        "feed" "corm"
         "talent_count" "More"
         "talents_loading" "Loading..."
         "win" "Victory"
@@ -54,6 +54,8 @@
         "profile_first_game" "First game"
         "pick_rating" "Rating: "
         "pick_game" "Games: "
+        "MagicResistance"               "Magic Resistance"
+        "Arrmor"                        "Armor"
         
 
         "Name"			"Hero"
@@ -191,6 +193,7 @@
 
         "dota_tooltip_ability_item_raid_ticket" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
+        "dota_tooltip_ability_item_raid_ticket2" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket2_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
         "dota_tooltip_ability_item_raid_ticket3" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket3_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
@@ -289,7 +292,8 @@
 
         // "june" "JUNE"
         // "jule" "JULE"
-		// "AUGUST"	"AUGUST"		
+		// "AUGUST"	"AUGUST"
+        // "SEPTEMBER"	"СЕНТЯБРЬ"		
 
         "season_name_1"         "JULE"
         "season_name_2"         "JULY"
@@ -370,6 +374,7 @@
         "profil_first_game"     "First Game"
         "pick_rating"       "Rating: "
         "pick_game"         "Games: "
+        "modifier_custompet_delay"  "Reloading a pet's ability."
 
         //Cards//
 
@@ -589,6 +594,7 @@
 		"npc_quest_necronomicon_archer" "Necronomicon"
 
         "wave" "Wave №"
+        "wave_creep_1"  "Urses"
 		"description_creep_1" "The ursas clap their hands furiously"
 		"wave_creep_2" "Walrus and minions"
 		"description_creep_2" "Fear the jumping walrus"
@@ -10905,7 +10911,6 @@
         "dota_tooltip_ability_item_mage_heart_lua7_gem5_bonus_int" "+$int"
         "dota_tooltip_ability_item_mage_heart_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Assasin Heart//
 
         "dota_tooltip_ability_item_agility_heart_lua1" "Assassin Heart"
@@ -11160,7 +11165,6 @@
         "dota_tooltip_ability_item_agility_heart_lua7_gem5_bonus_dmg" "+BASE DMG"
         "dota_tooltip_ability_item_agility_heart_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Moon Eyea//
 
         "dota_tooltip_ability_item_moon_shard_lua1" "Moon Eyea"
@@ -11414,7 +11418,6 @@
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_bonus_as" "+to attack speed yourself"
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_aura_as_ally" "+to attack speed in aura"
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
-
 
         //Hood Sword//
 
@@ -11885,7 +11888,6 @@
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_amp_hp" "%+Self HP Regen and Lifesteal Amp"
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Satanic//
 
         "dota_tooltip_ability_item_satanic_lua1" "Satanic"
@@ -12252,7 +12254,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_description" "<h1>Active: Hex</h1> Transforms the target into a harmless animal for %sheep_duration% sec. The victim cannot attack, use abilities, or use items, and her base speed drops to 140. Cannot be cast on the same creature more than once every 10 seconds. \n <h1>Passive: Witch Blade</h1>The next attack will poison the victim for% duration% seconds. and every second will damage it equal to the owner's intelligence multiplied by %intellect_dmg%. Effect not refreshing."
 
-
         //Scythe of Vyse Gems//
 
         "dota_tooltip_ability_item_sheepstick_lua1_gem1" "Scythe of Vyse"
@@ -12542,7 +12543,6 @@
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_description" "<h1>Active: Hex</h1> Transforms the target into a harmless animal for %sheep_duration% sec. The victim cannot attack, use abilities, or use items, and her base speed drops to 140. Cannot be cast on the same creature more than once every 10 seconds. \n <h1>Passive: Witch Blade</h1>The next attack will poison the victim for% duration% seconds. and every second will damage it equal to the owner's intelligence multiplied by %intellect_dmg%. Not updated."
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
-
 
         //Spectral Scythe//
 

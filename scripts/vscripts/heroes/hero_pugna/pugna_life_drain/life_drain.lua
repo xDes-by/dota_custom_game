@@ -34,8 +34,8 @@ function HeartstopperAura( keys )
 	local abil = caster:FindAbilityByName("npc_dota_hero_pugna_str11")	
 	if abil ~= nil then 
 	local nearby_allied_units = FindUnitsInRadius(keys.caster:GetTeam(), keys.caster:GetAbsOrigin(), nil, 700,	DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)	
-	for i, nearby_ally in ipairs(nearby_allied_units) do
-		nearby_ally:Heal(aura_damage * aura_damage_interval, keys.caster)	
+		for i, nearby_ally in ipairs(nearby_allied_units) do
+			nearby_ally:Heal(aura_damage * aura_damage_interval, keys.caster)	
 		end
-end
+	end
 end

@@ -590,6 +590,36 @@ function rating_win()
 	end
 end
 
+creeps_zones_all = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
+
+function kill_all_creeps()
+local bResult = xpcall(function()
+	local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+	if #creeps ~= 0 then
+		for _,creep in pairs(creeps) do
+				for _,t in ipairs(creeps_zones_all) do
+					if t and t == creep:GetUnitName() then 
+						creep:ForceKill(false)
+					end
+				end
+			end
+		end
+	end,
+	function(e)
+		print("-------------Error-------------")
+		print(e)
+		print("-------------Error-------------")
+	end)  
+	--дебаг
+	
+	--вызов вункции в которой может быть ошибка
+	if bResult then
+	--print("all ok")
+	else
+	print("error")
+	end		
+end
+
 function full_win()
 	for nPlayerID = 0, DOTA_MAX_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayer(nPlayerID) then
@@ -787,7 +817,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
-
+		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 
 		local vok =  {"invoker_invo_death_02","invoker_invo_death_08","invoker_invo_death_10","invoker_invo_death_13","invoker_invo_death_01"}
@@ -831,10 +861,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local mg_resist = invoker:GetBaseMagicalResistanceValue()
 			if mg_resist >= 99 then invoker:SetBaseMagicalResistanceValue(99)
 			end
-			
-			-- local armor = invoker:GetPhysicalArmorBaseValue()
-			-- if armor >= 500 then invoker:SetPhysicalArmorBaseValue(500)
-			-- end
 			
 			local staki = math.floor(wave)
 			

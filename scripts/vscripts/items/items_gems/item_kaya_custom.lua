@@ -93,7 +93,6 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
 	
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
@@ -102,7 +101,7 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				self:Destroy()
+			--	self:Destroy()
 			end
 		end
 	end
@@ -203,7 +202,7 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
+	
 	
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
@@ -212,7 +211,7 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				self:Destroy()
+			--	self:Destroy()
 			end
 		end
 	end
@@ -313,8 +312,6 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
-	
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -322,7 +319,7 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				self:Destroy()
+				--self:Destroy()
 			end
 		end
 	end
@@ -423,7 +420,7 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
+	
 	
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
@@ -432,7 +429,7 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				self:Destroy()
+				--self:Destroy()
 			end
 		end
 	end
@@ -536,7 +533,7 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
+	
 	
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
@@ -545,7 +542,7 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				self:Destroy()
+			--	self:Destroy()
 			end
 		end
 	end

@@ -93,7 +93,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"250"
+				"damage_per_stack"				"1500"
 				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 			}
 		}

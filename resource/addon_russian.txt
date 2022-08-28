@@ -8,7 +8,7 @@
 
         "start_chat" "<font color='#00ff00'>Ребята, добро пожаловать в Squirrel World RPG</font> <font color='#ff0000'>Для улучшения качества отклика сервера, напишите в консоль:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Можете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
-        //////////////////Ебут детей вокруг
+
         /////////////
         //Undefined//
         /////////////
@@ -359,7 +359,7 @@
         "pet_buy"         "купить"
         "pet_for"         " за "
         "pet_pieces"         "шт"
-        "feed"         "комр"
+        "feed"         "Корм"
         "talent_count"         "Подробнее"
         "talents_loading"         "Загрузка..."
         "win"       "Победа"
@@ -745,7 +745,6 @@
         "npc_dota_custom_tower2" "Башня"
         "npc_dota_custom_tower3" "Башня"
   
-
 
         ///////////////////
         //Enemy Abylities//
@@ -1357,7 +1356,6 @@
 
         //Cheese//
 
-        
         "dota_tooltip_ability_item_cheese_lua" "Сыр"
         "dota_tooltip_ability_item_cheese_lua_description" "Вкусный и питательный, съешь его и получишь +%all% ко всем атрибутам."
         
@@ -12247,8 +12245,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_description" "<h1>Активная: Hex</h1> Превращает цель в безобидную зверушку на %sheep_duration% сек. Жертва не может атаковать, применять способности или использовать предметы, а её базовая скорость падает до 140. Нельзя применить на одно и то же существо чаще чем раз в 10 секунд. \n <h1>Пассивное: Witch Blade</h1>Следующая атака отравит жертву на %duration% сек. и каждую секунду будет наносить ей урон, равный интеллекту владельца, помноженному на %intellect_dmg%. Не обновляется."
-
-        
 
         //Scythe of Vyse Gems//
 

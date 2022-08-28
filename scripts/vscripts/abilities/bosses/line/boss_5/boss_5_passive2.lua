@@ -25,7 +25,6 @@ if IsServer() then
 end
 
 function modifier_boss_5_passive2:OnIntervalThink()
-local bResult = xpcall(function()
 	local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
 	if hEnemies ~= nil then
 		for _,unit in pairs(hEnemies) do
@@ -43,18 +42,4 @@ local bResult = xpcall(function()
 			self:GetCaster():EmitSound("Hero_Zuus.ArcLightning.Cast")
 		end	
 	end
-	end,
-		function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
-	
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("all ok")
-	else
-	print("error")
-	end		
 end
