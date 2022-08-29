@@ -231,6 +231,7 @@
 	    "Ability2"					"ability_npc_boss_barrack1_spell2"     
 	    "Ability3"					"ability_npc_boss_barrack1_spell3"     
 	    "Ability4"					"ability_npc_boss_barrack1_spell4"   
+	    "Ability5"					"necronomicon_warrior_sight"   
 		
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -278,6 +279,7 @@
 	    "Ability2"					"ability_npc_boss_barrack2_spell2"     
 	    "Ability3"					"ability_npc_boss_barrack2_spell3"     
 	    "Ability4"					"ability_npc_boss_barrack2_spell4"   
+	    "Ability"					"necronomicon_warrior_sight"   
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -347,7 +349,7 @@
 	    "Ability3"					"npc_byorrocktar_spell3"     
 	    "Ability4"					"npc_byorrocktar_spell4"   
 	    "Ability5"					"npc_byorrocktar_spell5"  
-	    "Ability6"					""    
+	    "Ability6"					"necronomicon_warrior_sight"    
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -505,6 +507,7 @@
 	    "Ability5"					"ability_npc_boss_plague_squirrel_spell5"  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
+		"Ability8"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"999"
 		"MagicalResistance"			"99"
@@ -6111,7 +6114,7 @@
 		"Ability6"					"wisp_spirits_datadriven"
 		"Ability7"					"nyx_borrow"
 		"Ability8"					"custom_earth_splitter"
-		"Ability9"					""
+		"Ability9"					"necronomicon_warrior_sight"
 		"Ability10"					""
 		"Ability11"					""
 		"Ability12"					"status_resist"

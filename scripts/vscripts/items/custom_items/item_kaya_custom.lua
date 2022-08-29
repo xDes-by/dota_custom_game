@@ -40,11 +40,12 @@ end
 
 function modifier_item_kaya_custom:OnCreated( kv )
 	self.bonus_dmg = self:GetAbility():GetSpecialValueFor( "bonus_dmg" )
+	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 if not IsServer() then return end				
 	
 		self.bonus_life = self:GetAbility():GetSpecialValueFor( "bonus_life" )
 		self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
-		self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
+		
 		
 		self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
 		

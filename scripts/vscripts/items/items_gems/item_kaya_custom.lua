@@ -93,7 +93,7 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
-	
+	if IsServer() then
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -106,7 +106,7 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 		end
 	end
 
-	if IsServer() then
+	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
 		local gem = string.sub(self:GetAbility():GetName(), -4)
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
@@ -203,7 +203,7 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
 	
-	
+	if IsServer() then
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -216,7 +216,7 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 		end
 	end
 
-	if IsServer() then
+	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
 		local gem = string.sub(self:GetAbility():GetName(), -4)
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
@@ -312,6 +312,7 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
+	if IsServer() then
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -324,7 +325,7 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 		end
 	end
 
-	if IsServer() then
+	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
 		local gem = string.sub(self:GetAbility():GetName(), -4)
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
@@ -421,7 +422,7 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
 	
-	
+	if IsServer() then
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -434,7 +435,7 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 		end
 	end
 
-	if IsServer() then
+	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
 		local gem = string.sub(self:GetAbility():GetName(), -4)
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
@@ -534,7 +535,7 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	
 	
-	
+	if IsServer() then
 	for i = 0, 5 do 
 	local item = self:GetCaster():GetItemInSlot(i)
 		if item ~= nil then
@@ -547,7 +548,7 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 		end
 	end
 
-	if IsServer() then
+	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
 		local gem = string.sub(self:GetAbility():GetName(), -4)
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then

@@ -1681,7 +1681,7 @@
             "03"
             {
                 "var_type"              "FIELD_FLOAT"
-                "duration"          "12"
+                "duration"          "0"
             }           
         }
     }
