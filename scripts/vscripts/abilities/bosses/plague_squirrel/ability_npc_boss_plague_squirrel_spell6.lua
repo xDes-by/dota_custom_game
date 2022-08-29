@@ -6,8 +6,10 @@ function ability_npc_boss_plague_squirrel_spell6:OnSpellStart()
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell6", {duration = self:GetSpecialValueFor("duration")})
 end
 
+---------------------------------------------------------------------------
+
 modifier_ability_npc_boss_plague_squirrel_spell6 = class({})
---Classifications template
+
 function modifier_ability_npc_boss_plague_squirrel_spell6:IsHidden()
     return false
 end
@@ -35,9 +37,6 @@ function modifier_ability_npc_boss_plague_squirrel_spell6:OnCreated()
     ParticleManager:SetParticleControl(pfx, 1, self:GetCaster():GetAbsOrigin())
     ParticleManager:SetParticleControl(pfx, 5, self:GetCaster():GetAbsOrigin())
 	self:AddParticle(pfx,false,false,-1,false,false)
-    if IsClient() then
-        return
-    end
     self:SetStackCount(self:GetAbility():GetSpecialValueFor("stacks_count"))
     self.damage = self:GetAbility():GetSpecialValueFor("bonus_damage_pct") * 0.01 * self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster())
 end
@@ -54,14 +53,12 @@ function modifier_ability_npc_boss_plague_squirrel_spell6:GetModifierPreAttack_B
 end
 
 function modifier_ability_npc_boss_plague_squirrel_spell6:GetModifierIncomingDamage_Percentage(data)
-    if data.damage > self.min_damage_to_stack then
-        local pfx = ParticleManager:CreateParticle("particles/econ/items/lanaya/ta_ti9_immortal_shoulders/ta_ti9_refract_hit.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
-        ParticleManager:ReleaseParticleIndex(pfx)
-        EmitSoundOn("Hero_TemplarAssassin.Refraction.Absorb", self:GetCaster())
-        self:DecrementStackCount()
-        if self:GetStackCount() == 0 then
-            self:Destroy()
-        end
-	    return -100
-    end
+	local pfx = ParticleManager:CreateParticle("particles/econ/items/lanaya/ta_ti9_immortal_shoulders/ta_ti9_refract_hit.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	ParticleManager:ReleaseParticleIndex(pfx)
+	EmitSoundOn("Hero_TemplarAssassin.Refraction.Absorb", self:GetCaster())
+	self:DecrementStackCount()
+	if self:GetStackCount() == 0 then
+		self:Destroy()
+	end
+	return -100
 end

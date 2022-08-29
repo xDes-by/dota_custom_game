@@ -143,7 +143,7 @@ function modifier_medusa_split_shot_lua:GetModifierDamageOutgoing_Percentage()
 end
 
 function modifier_medusa_split_shot_lua:OnAttackLanded(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi_last") ~= nil and RandomInt(1, 50) == 1 and params.attacker:FindAbilityByName("medusa_mystic_snake_lua") ~= nil then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi_last") ~= nil and RandomInt(1, 100) <= 10 and params.attacker:FindAbilityByName("medusa_mystic_snake_lua") ~= nil then
 		if params.attacker:FindAbilityByName("medusa_mystic_snake_lua"):IsTrained() then
 			_G.snaketarget = params.target
 			params.attacker:FindAbilityByName("medusa_mystic_snake_lua"):OnSpellStart()
@@ -170,7 +170,7 @@ function modifier_medusa_split_shot_lua:SplitShotModifier( target )
 
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi9")                   
 	if abil ~= nil then 
-	self.count = 4
+		self.count = 4
 	end
 
 	local count = 0
