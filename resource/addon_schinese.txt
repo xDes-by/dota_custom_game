@@ -13890,7 +13890,7 @@
         "dota_tooltip_ability_treant_skill_1_duration" "期間：" 
 
         "dota_tooltip_ability_treant_skill_2" "樹" 
-        "dota_tooltip_ability_treant_skill_2_description" "吃下充滿滋養汁液的樹。" 
+        "dota_tooltip_ability_treant_skill_2_description" "吃掉他周围 400 范围内的所有树木，并给特伦特灌满滋养的果汁。" 
         "dota_tooltip_ability_treant_skill_2_damage" "每棵樹的傷害獎勵：" 
         "dota_tooltip_ability_treant_skill_2_hp" "每棵樹的健康獎勵：" 
         "dota_tooltip_ability_treant_skill_2_arm" "每棵樹的護甲獎勵：" 
@@ -15166,10 +15166,10 @@
         "npc_dota_hero_pugna_str8_description" "虛空衝擊還會使所有擊中的敵人昏迷 2 秒" 
         "npc_dota_hero_pugna_str9" "力場" 
         "npc_dota_hero_pugna_str9_description" "虛空衝擊傷害現在等於普格納的 STR" 
-        "npc_dota_hero_pugna_str10" "生命體" 
-        "npc_dota_hero_pugna_str10_description" "生命吸取造成雙倍傷害。" 
-        "npc_dota_hero_pugna_str11" "深淵鏈接" 
-        "npc_dota_hero_pugna_str11_description" "生命吸取為盟友恢復生命值" 
+		"npc_dota_hero_pugna_str10" "深淵鏈接" 
+        "npc_dota_hero_pugna_str10_description" "-0.7 秒生命吸取目标查找器" 
+        "npc_dota_hero_pugna_str11" "生命體" 
+        "npc_dota_hero_pugna_str11_description" "受到生命吸取影响的敌人被减速 50% 并受到 25% 更多魔法伤害" 
         "npc_dota_hero_pugna_str_last" "深淵回答了我。" 
         "npc_dota_hero_pugna_str_last_description" "+50% Intel 對下界守衛的傷害。" 
 

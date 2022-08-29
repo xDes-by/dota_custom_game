@@ -13878,7 +13878,7 @@
         "dota_tooltip_ability_treant_skill_1_duration" "ДЛИТЕЛЬНОСТЬ:"
 		
         "dota_tooltip_ability_treant_skill_2" "Tree"
-        "dota_tooltip_ability_treant_skill_2_description" "Съедает дерево наполняя Трента питательными соками."
+        "dota_tooltip_ability_treant_skill_2_description" "Съедает все деревья в радиусе 400 вокруг себя и наполняет Трента питательными соками."
         "dota_tooltip_ability_treant_skill_2_damage" "БОНУС К УРОНУ ЗА ДЕРЕВО:"
         "dota_tooltip_ability_treant_skill_2_hp" "БОНУС К ЗДОРОВЬЮ ЗА ДЕРЕВО:"
         "dota_tooltip_ability_treant_skill_2_arm" "БОНУС К БРОНЕ ЗА ДЕРЕВО:"
@@ -15157,10 +15157,10 @@
         "npc_dota_hero_pugna_str8_description" "Nether Blast станит на 2 секунды"
         "npc_dota_hero_pugna_str9" "Силовое поле"
         "npc_dota_hero_pugna_str9_description" "Nether Blast наносит урон равный силе героя"
-        "npc_dota_hero_pugna_str10" "Жизнесос"
-        "npc_dota_hero_pugna_str10_description" "Life Drain наносит в 2 раза больше урона"
-        "npc_dota_hero_pugna_str11" "Связь с бездной"
-        "npc_dota_hero_pugna_str11_description" "Life Drain восстанавливает здоровье союзникам"
+        "npc_dota_hero_pugna_str10" "Связь с бездной"
+        "npc_dota_hero_pugna_str10_description" "-0.7 сек к поиску цели Life Drain"
+		"npc_dota_hero_pugna_str11" "Жизнесос"
+        "npc_dota_hero_pugna_str11_description" "Враги под эффектом Life Drain замедляются на 50% и получают на 25% больше магического урона"
         "npc_dota_hero_pugna_str_last" "Бездна ответила мне"
         "npc_dota_hero_pugna_str_last_description" "+50% урона от интелека в Nether Ward"
 

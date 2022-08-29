@@ -18,7 +18,7 @@
 
 		"AbilityValues"
 		{
-			"damage"					"5"
+			"damage"					"10"
 			"distance"					"800"
 			"radius"					"350"
 			"points"					"5"
@@ -44,23 +44,11 @@
 
 		"AbilityCooldown"				"10.0"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_attacks"				"3"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_speed_bonus"		"400"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration_tooltip"			"20"
-			}
+			"max_attacks"				"3"
+			"attack_speed_bonus"		"400"
+			"duration_tooltip"			"20"
 		}
 	}
 	
@@ -79,7 +67,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_pct"	"200"
+				"damage_pct"			"200"
 			}
 		}
 

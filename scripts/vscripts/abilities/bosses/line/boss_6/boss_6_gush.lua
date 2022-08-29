@@ -81,7 +81,7 @@ function boss_6_gush:OnProjectileHit_ExtraData(target, location, data)
 			if not (data.bScepter == 1 and data.bTargeted == 1) then
 				local damageTable = {
 					victim 			= target,
-					damage 			= 200,
+					damage 			= 10000,
 					damage_type		= self:GetAbilityDamageType(),
 					damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 					attacker 		= self:GetCaster(),

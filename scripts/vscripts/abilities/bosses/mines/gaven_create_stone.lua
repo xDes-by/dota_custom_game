@@ -4,9 +4,9 @@ gaven_create_stone = class({})
 
 function gaven_create_stone:OnSpellStart()
 	if IsServer() then
-		count = 0
+		self.count = 0
 		Timers:CreateTimer(1, function()
-		count = count + 1
+		self.count = self.count + 1
 		local caster_pos = self:GetCaster():GetAbsOrigin()
 		local angle = RandomInt(0, 360)
 		local variance = RandomInt(-700, 700)
@@ -17,7 +17,7 @@ function gaven_create_stone:OnSpellStart()
 		local unit = CreateUnitByName("npc_dota_gaven_stone", target_point, true, nil, nil, self:GetCaster():GetTeamNumber())
 			unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 10})
 			unit:AddNewModifier(unit, nil, "modifier_pulse", {duration = 10})
-			if count == 3 then
+			if self.count == 3 then
 				return nil
 			else
 				return 1	
@@ -41,7 +41,6 @@ end
 function modifier_pulse:OnCreated( kv )
 		self.damageTable = {
 			attacker = self:GetCaster(),
-			damage = 500,
 			damage_type = DAMAGE_TYPE_MAGICAL,
 		}
 	self:StartIntervalThink(2)
@@ -54,6 +53,7 @@ function modifier_pulse:OnIntervalThink()
 			for _,enemy in pairs(enemies) do
 				enemy:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_stunned", { duration = 0.5} )
 				self.damageTable.victim = enemy
+				self.damageTable.damage = enemy:GetMaxHealth() * 0.05,
 				ApplyDamage(self.damageTable)
 			end
 			self:PlayEffects()

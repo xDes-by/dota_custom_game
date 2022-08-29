@@ -110,7 +110,7 @@ function boss_3_chain_frost:OnProjectileHit_ExtraData( target, location, kv )
 			attacker = self:GetCaster(),
 			damage = target:GetMaxHealth()/100*self:GetSpecialValueFor("damage"),
 			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self, --Optional.
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
 		}
 		ApplyDamage(damageTable)
 

@@ -28,12 +28,13 @@ function boss_3_frost_blast:OnSpellStart()
 	local damageTable = {
 		attacker = caster,
 		damage_type = DAMAGE_TYPE_MAGICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
 	}
 
 	for _,enemy in pairs(enemies) do
 		-- damage
 		damageTable.victim = enemy
-		damageTable.damage = enemy:GetMaxHealth()*0.2
+		damageTable.damage = enemy:GetMaxHealth()*damage_aoe/100
 		ApplyDamage( damageTable )
 		
 		self:PlayEffects( enemy, radius )

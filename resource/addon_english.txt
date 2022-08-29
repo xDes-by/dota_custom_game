@@ -13885,7 +13885,7 @@
         "dota_tooltip_ability_treant_skill_1_duration" "DURATION:"
 
         "dota_tooltip_ability_treant_skill_2" "Tree"
-        "dota_tooltip_ability_treant_skill_2_description" "Eats the tree filling yourself with nourishing juices."
+        "dota_tooltip_ability_treant_skill_2_description" "Eats all trees within a 400 radius around him and fills Trent with nourishing juices."
         "dota_tooltip_ability_treant_skill_2_damage" "DAMAGE BONUS PER TREE:"
         "dota_tooltip_ability_treant_skill_2_hp" "HEALTH BONUS PER TREE:"
         "dota_tooltip_ability_treant_skill_2_arm" "ARMOUR BONUS PER TREE:"
@@ -15161,10 +15161,10 @@
         "npc_dota_hero_pugna_str8_description" "Nether Blast also stuns for 2 seconds all enemies hit"
         "npc_dota_hero_pugna_str9" "Force Field"
         "npc_dota_hero_pugna_str9_description" "Nether Blast damage is now equal to Pugna's STR"
-        "npc_dota_hero_pugna_str10" "Lifeos"
-        "npc_dota_hero_pugna_str10_description" "Life Drain deals double damage."
-        "npc_dota_hero_pugna_str11" "Abyssal Link"
-        "npc_dota_hero_pugna_str11_description" "Life drain restores health to allies"
+		"npc_dota_hero_pugna_str10" "Abyssal Link"
+        "npc_dota_hero_pugna_str10_description" "-0.7s to Life Drain Target Finder"
+        "npc_dota_hero_pugna_str11" "Lifeos"
+        "npc_dota_hero_pugna_str11_description" "Enemies affected by Life Drain are slowed by 50% and take 25% more magic damage"
         "npc_dota_hero_pugna_str_last" "The Abyss answered me."
         "npc_dota_hero_pugna_str_last_description" "+50% Intel damage to Nether Ward."
 

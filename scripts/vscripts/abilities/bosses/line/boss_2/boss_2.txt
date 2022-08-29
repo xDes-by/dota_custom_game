@@ -32,12 +32,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2"
+				"damage"				"4"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"5"
+				"armor_reduction"		"10"
 			}
 			"05"
 			{
@@ -64,7 +64,7 @@
 		"AbilityValues"
 		{
 			"radius"					"900"
-			"damage_pct"				"3"
+			"damage_pct"				"5"
 			"heal_reduce_pct"			"30"
 			"tick_rate"					"0.2"
 		}
@@ -197,7 +197,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_stack_duration"	"3"
+				"quill_stack_duration"	"10"
 			}
 			"05"
 			{

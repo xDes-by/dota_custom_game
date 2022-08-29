@@ -42,6 +42,7 @@ function modifier_boss_4_midnignt_thinker:OnCreated( kv )
 			attacker = self:GetCaster(),
 			damage_type = self:GetAbility():GetAbilityDamageType(),
 			ability = self:GetAbility(), --Optional.
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 		}
 
 		self:StartIntervalThink( interval )

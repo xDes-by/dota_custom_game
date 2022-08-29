@@ -53,10 +53,10 @@ function modifier_boss_4_hole_thinker:OnCreated( kv )
 		self.damageTable = {
 			-- victim = target,
 			attacker = self:GetCaster(),
-			damage = damage,
+			--damage = damage,
 			damage_type = DAMAGE_TYPE_PURE,
 			ability = self:GetAbility(),
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
 		}
 		self:StartIntervalThink( self.interval )
 		self:PlayEffects()
@@ -84,6 +84,7 @@ function modifier_boss_4_hole_thinker:OnIntervalThink()
 
 	for _,enemy in pairs(enemies) do
 		self.damageTable.victim = enemy
+		self.damageTable.damage = enemy:GetMaxHealth()/100*self:GetAbility():GetSpecialValueFor("near_damage")
 		ApplyDamage( self.damageTable )
 	end
 

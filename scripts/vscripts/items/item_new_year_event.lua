@@ -1,4 +1,4 @@
-fitem_new_year_event_summon = class({})
+item_new_year_event_summon = class({})
 
 function item_new_year_event_summon:OnSpellStart()
 	if GameRules:IsCheatMode() then 

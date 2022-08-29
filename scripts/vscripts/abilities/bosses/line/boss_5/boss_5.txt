@@ -21,8 +21,8 @@
 
 		"AbilityValues"
 		{
-			"damage_min"				"100"
-			"damage_max"				"500"
+			"damage_min"				"5000"
+			"damage_max"				"15000"
 			"radius"					"700"
 			"speed"						"636"
 			"slow_min"					"25"

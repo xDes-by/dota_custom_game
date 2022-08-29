@@ -60,8 +60,9 @@ function boss_3_shards:OnProjectileHit(hTarget, vLocation)
             victim = hTarget,
             attacker = self:GetCaster(),
             ability = self,
-            damage = self:GetSpecialValueFor("shard_damage"),
+            damage = hTarget:GetMaxHealth()/100*self:GetSpecialValueFor("shard_damages"),
             damage_type = self:GetAbilityDamageType(),
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
         }
         ApplyDamage(damage_table  )
     else
