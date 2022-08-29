@@ -17,9 +17,8 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV2("MCF")
-
-
 _G.host = "https://random-defence-adventure.ru"
+_G.cheatmode = true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -454,7 +453,7 @@ end
 
 
 function loadscript()	
-	if false then
+	if true then
 		print("local load")
 		require("www/loader")
 	else
@@ -492,8 +491,6 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end	
 		
 		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)	
-		SendToConsole("dota_hud_healthbars 1")
-	
 		npc.bFirstSpawned = true
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
@@ -794,7 +791,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
 		hRelay:Trigger(nil,nil)
-		if not GameRules:IsCheatMode() then
+		if not DataBase:isCheatOn() then
 			_G.kill_invoker = true
 			rating_win()
 		end

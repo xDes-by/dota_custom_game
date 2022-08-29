@@ -2237,6 +2237,24 @@
 					"min"	"40000"
 					"max"	"50000"
 				}
+				"ChoosItems"
+				{
+					"1"
+					{
+						"TextName"	"quest_item_dragon_soul"
+						"DotaName"	"item_dragon_soul"
+					}
+					"2"
+					{
+						"TextName"	"quest_item_dragon_soul_2"
+						"DotaName"	"item_dragon_soul_2"
+					}
+					"3"
+					{
+						"TextName"	"quest_item_dragon_soul_3"
+						"DotaName"	"item_dragon_soul_3"
+					}
+				}
 			}
 			"tasks"
 			{
@@ -2730,6 +2748,7 @@
 				}
 			}
 		}
+		
 	}
 	
 	"exchanger"
