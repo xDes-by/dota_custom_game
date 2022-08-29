@@ -453,7 +453,7 @@ end
 
 
 function loadscript()	
-	if true then
+	if false then
 		print("local load")
 		require("www/loader")
 	else
