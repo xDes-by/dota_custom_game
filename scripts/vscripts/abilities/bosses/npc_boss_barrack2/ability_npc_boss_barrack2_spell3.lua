@@ -53,8 +53,10 @@ function modifier_ability_npc_boss_barrack1_spell3:OnDestroy()
     UTIL_Remove(self:GetParent())
 end
 
+--------------------------------------------------------------------------------------
+
 modifier_ability_npc_boss_barrack1_spell3_effect = class({})
---Classifications template
+
 function modifier_ability_npc_boss_barrack1_spell3_effect:IsHidden()
     return false
 end

@@ -113,7 +113,7 @@ function Spawner:settings()
 	health = health * 1.15
 	damage_creeps = damage_creeps * 1.15
 
-	set_health = math.floor(health + health*(wave/2))
+	set_health = math.floor(health + health*(wave/2)) * 2
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -130,7 +130,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave/2))
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave/2)) * 2
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -147,11 +147,11 @@ function Spawner:settings()
 		set_damage_boss = 2000000000
 	end		
 		
-	set_armor = math.floor(armor+wave^1.02)
+	set_armor = math.floor(armor+wave^1.02) * 2
 	set_armor_commandir = set_armor * 1.5
 	set_armor_boss = set_armor * 2
 	
-	set_mag_resist = math.floor(magermor + wave)
+	set_mag_resist = math.floor(magermor + wave) * 2
 	set_mag_resist_creep = math.min(set_mag_resist / 3, 90)
 	set_mag_resist_commandir =  math.min(set_mag_resist / 2.5, 90)
 	set_mag_resist_boss =  math.min(set_mag_resist / 2, 90)
@@ -201,8 +201,8 @@ function Spawner:SpawnCommandirs(name)
 			creep:SetHealth(set_health_commandir)		
 			creep:SetDeathXP(xp*2)
 
-			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave)
-			creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave)
+			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave * 2)
+			creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave * 2)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_commandir", nil)
 			add_modifier(creep)
 		end

@@ -11,7 +11,7 @@
 		"AbilityValues"
 		{
 			"interval"					"5"
-			"damage"					"100"
+			"damage"					"15000"
 		}
 	}
 	
@@ -26,7 +26,7 @@
 		"AbilityValues"
 		{
 			"duration"					"3"
-			"damage"					"20"
+			"damage"					"10000"
 		}
 	}
 
@@ -46,7 +46,7 @@
 
 		"AbilityValues"
 		{
-			"damage"         	"150"
+			"damage"         	"10000"
 			"duration"         	"10"
 		}
 	}
@@ -67,7 +67,7 @@
 
 		"AbilityValues"
 		{
-			"damage"         	"25"
+			"damage"         	"15000"
 			"duration"         	"2"
 		}
 	}		

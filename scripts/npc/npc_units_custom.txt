@@ -231,6 +231,7 @@
 	    "Ability2"					"ability_npc_boss_barrack1_spell2"     
 	    "Ability3"					"ability_npc_boss_barrack1_spell3"     
 	    "Ability4"					"ability_npc_boss_barrack1_spell4"   
+	    "Ability5"					"necronomicon_warrior_sight"   
 		
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -278,6 +279,7 @@
 	    "Ability2"					"ability_npc_boss_barrack2_spell2"     
 	    "Ability3"					"ability_npc_boss_barrack2_spell3"     
 	    "Ability4"					"ability_npc_boss_barrack2_spell4"   
+	    "Ability"					"necronomicon_warrior_sight"   
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -347,7 +349,7 @@
 	    "Ability3"					"npc_byorrocktar_spell3"     
 	    "Ability4"					"npc_byorrocktar_spell4"   
 	    "Ability5"					"npc_byorrocktar_spell5"  
-	    "Ability6"					""    
+	    "Ability6"					"necronomicon_warrior_sight"    
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -407,8 +409,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"750000"
 		"AttackDamageMax"			"750000"
-		"AttackRate"				"0.2"
-		"AttackAnimationPoint"		"0.2"
+		"AttackRate"				"0.1"
+		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"500"
 		"AttackRange"				"450"
 		"ProjectileModel"			"particles/neutral_fx/black_drake_attack.vpcf"
@@ -425,7 +427,7 @@
 		"MovementSpeed"				"450"
 		"MovementTurnRate"			"0.6"
 
-		"StatusHealth"				"300000"
+		"StatusHealth"				"600000"
 		"StatusHealthRegen"			"0"
 
 		"VisionDaytimeRange"		"1400"
@@ -505,13 +507,14 @@
 	    "Ability5"					"ability_npc_boss_plague_squirrel_spell5"  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
+		"Ability8"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"999"
 		"MagicalResistance"			"99"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"1000000"
-		"AttackDamageMax"			"1000000"
+		"AttackDamageMin"			"5000000"
+		"AttackDamageMax"			"5000000"
 		"AttackRate"				"0.1"
 		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"1200"
@@ -539,6 +542,8 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"Creature"
 		{	
+		
+		"DisableResistance"			"95.0"
 			"AttachWearables"
 			{
 				"Wearable1" {"ItemDef" "22222"}
@@ -1801,7 +1806,7 @@
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
-		"ArmorPhysical"				"300"
+		"ArmorPhysical"				"400"
 		"MagicalResistance"			"0"		// Magical protection.
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -1851,7 +1856,7 @@
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
-		"ArmorPhysical"				"400"
+		"ArmorPhysical"				"500"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -1901,7 +1906,7 @@
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -1952,7 +1957,7 @@
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 		"Ability4"					"anti_armor"			// Ability 2.
 
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"700"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -2000,7 +2005,7 @@
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
 
-		"ArmorPhysical"				"400"
+		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -2057,7 +2062,7 @@
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
 
-		"ArmorPhysical"				"400"
+		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -2114,7 +2119,7 @@
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
 
-		"ArmorPhysical"				"400"
+		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -3684,8 +3689,8 @@
 		"HasInventory"				"1" 
 		"IsAncient"					"1"
 		
-		"Ability1"					"boss_5_lighting"
-		"Ability2"					"boss_5_passive"
+		"Ability1"					"zuus_boss_circle_lua"
+		"Ability2"					"zuus_boss_nimbus"
 		"Ability3"					"boss_5_bolt"
 		"Ability4"					"boss_5_passive2"
 		"Ability5"					"manacost_spell"
@@ -3702,7 +3707,7 @@
 		"AttackAnimationPoint"		"0"	
 		"AttackAcquisitionRange"	"700"		
 		"AttackRange"				"500"
-		"ProjectileModel"			""
+		"ProjectileModel"			"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
 		"ProjectileSpeed"			"1100"
 		
 		"StatusMana"				"10000"	
@@ -6109,7 +6114,7 @@
 		"Ability6"					"wisp_spirits_datadriven"
 		"Ability7"					"nyx_borrow"
 		"Ability8"					"custom_earth_splitter"
-		"Ability9"					""
+		"Ability9"					"necronomicon_warrior_sight"
 		"Ability10"					""
 		"Ability11"					""
 		"Ability12"					"status_resist"

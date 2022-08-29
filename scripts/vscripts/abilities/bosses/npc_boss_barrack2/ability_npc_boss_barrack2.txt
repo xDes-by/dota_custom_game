@@ -7,12 +7,12 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"14"
 		"AbilityValues"
 		{
-			"max_pocs"				    "5"
+			"max_pocs"				    "4"
 			"blast_speed"				"1000"
-			"blast_damage_persent"		"60"
+			"damage"					"25"
 			"debuff_duration"			"4"
 		}
 	}
@@ -40,7 +40,7 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-				"AbilityCooldown"				"14"
+		"AbilityCooldown"				"14"
 		"AbilityValues"
 		{
 			"range"		                "1000"
@@ -60,7 +60,7 @@
             //торента
 			"damage"				    "100"
             //урон ауры
-			"persent"				    "10"
+			"persent"				    "15"
 		}
 	}
 }

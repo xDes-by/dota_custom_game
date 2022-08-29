@@ -92,9 +92,6 @@ function modifier_item_greater_crit_lua1:RemoveOnDeath()
 end
 
 function modifier_item_greater_crit_lua1:OnCreated()
-	
-	
-
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	self.crit_multiplier = self:GetAbility():GetSpecialValueFor("crit_multiplier")
 	self.crit_chance = self:GetAbility():GetSpecialValueFor("crit_chance")

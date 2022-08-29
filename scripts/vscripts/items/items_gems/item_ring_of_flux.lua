@@ -100,7 +100,7 @@ caster = self:GetCaster()
 end
 
 function modifier_item_ring_of_flux_lua1:OnDestroy()
-caster:ForceKill(false)
+-- caster:ForceKill(false)
 	if self.gem_bonus_modifier then
 		self.gem_bonus_modifier:Destroy()
 	end

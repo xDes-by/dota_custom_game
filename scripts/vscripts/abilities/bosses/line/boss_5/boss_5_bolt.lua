@@ -71,7 +71,7 @@ function modifier_boss_5_bolt:createbolt(target_point)
 			local damage = {
 				victim = enemy,
 				attacker = self:GetCaster(),
-				damage = self:GetAbility():GetSpecialValueFor("damage"),
+				damage = enemy:GetMaxHealth() * 0.15,
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = self
 			}

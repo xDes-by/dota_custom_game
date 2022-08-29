@@ -29,7 +29,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"100"
+				"damage"						"10000"
 			}
 			"02"
 			{
@@ -126,7 +126,7 @@
 		"AbilityValues"
 		{
 			"radius"					"450"
-			"armor_reduction_pct"	    "-100"
+			"armor_reduction_pct"	    "-200"
 			"magic_resistance_pct"		"-50"
 		}
 	}	

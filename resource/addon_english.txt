@@ -27,19 +27,19 @@
         "history_status" "In game"
         "history_time" "Time"
         "history_level" "Level"
-        "yest' u"
-        "igrokov" "players"
+        "yest' u"   "have "
+        "igrokov" " players"
         "pet_level" "level"
         "pet_tier" "tier"
         "pet_title" "pets: shooting range "
-        "feed_x250" "feed 230 pcs"
+        "feed_x230" "feed 230 pcs"
         "feed_x600" "feed 600 pcs"
         "yes" "yes"
         "no" "No"
         "pet_buy" "buy"
         "pet_for" "for"
         "pet_pieces" "piece"
-        "feed" "comr"
+        "feed" "corm"
         "talent_count" "More"
         "talents_loading" "Loading..."
         "win" "Victory"
@@ -54,39 +54,9 @@
         "profile_first_game" "First game"
         "pick_rating" "Rating: "
         "pick_game" "Games: "
-        "quest_snow_creep_1" "Any creeps in the location"
-        "quest_snow_creep_desc" "Kill any creeps in the area"
-        "quest_last_creep_1" "Any creeps in the location"
-        "quest_last_creep_desc" "Kill any creeps in the area"
-        "quest_snow_boss" "Big Pebble"
-        "quest_snow_boss_desc" "Kill the Big Rock"
-        "quest_location8_boss_desc" "Kill Granny"
-        "quest_tank_any_boss" "Kill the bosses"
-        "quest_tank_any_boss_desc" "Kill any bosses"
-        "quest_tank_any_mid_creep" "Mid creeps"
-        "quest_tank_any_mid_creep_desc" "Kill any mid creeps"
-        "quest_item_quest_necronomicon" "Find the Necronomicon"
-        "quest_item_quest_necronomicon_desc" "Necronomicon drops from lane bosses, find it"
-        "quest_npc_quest_dragon" "Fuck the Dragon"
-        "quest_npc_quest_dragon_desc" "If you kill a large creep in this location, there is a chance that a dragon will spawn"
-        "quest_medusa_ward" "Destroy the wards"
-        "quest_medusa_ward_desc" "Break Venomancer Wards"
-        "souls_stash" "Souls"
-        "dota_tooltip_ability_item_quest_blue_ice" "Blue Ice"
-        "quest_item_quest_blue_ice" "Blue Ice"
-        "quest_item_quest_blue_ice_desc" "Psst Guy, get me some blue ice, I won't be in debt"
-        "quest_get_rune" "Pick up a rune"
-        "quest_get_rune_desc" "There's a rune in here somewhere, find it and take it"
-        "item_gold_brus" "Ingot of Gold"
-        "quest_npc_boss_location8" "Kill the black dragons"
-        "quest_location8_boss_desc" "Go to the final farming location"
-        "quest_necro_warior_tank_desc" "Kill two necro warriors"
-        "quest_necro_warior_tank" "Kill the Necrons"
-        "quest_npc_mega_boss" "Kill Doom"
-        "quest_npc_mega_boss_desc" "Kill doom 3 times"
-        "quest_farm_zone_dragon" "Bring the Black Dragons down to earth"
-        "quest_farm_zone_dragon_desc" "Kill the black dragons in the farming area"
-        "quest_npc_snow_boss" "Kill the snow boss"
+        "MagicResistance"               "Magic Resistance"
+        "Arrmor"                        "Armor"
+        
 
         "Name"			"Hero"
         "death"			"Deaths"
@@ -216,11 +186,14 @@
         "dota_tooltip_ability_item_quest_line_sun" "Sun sign"
         "dota_tooltip_ability_item_quest_line_book" "Darkhold"
         "dota_tooltip_ability_item_quest_line_boots" "Bots"
+        "dota_tooltip_ability_item_quest_necronomicon"  "Aggressive Necronomicon"
+        "dota_tooltip_ability_item_quest_necronomicon_description"  "<h1>Active: Call to Action</h1></h1>Summon two Necronomicon, which are aggressive towards you and for killing them you will be rewarded."
 
         "dota_tooltip_ability_item_key_description" "Old key!"
 
         "dota_tooltip_ability_item_raid_ticket" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
+        "dota_tooltip_ability_item_raid_ticket2" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket2_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
         "dota_tooltip_ability_item_raid_ticket3" "Boss Raid"
         "dota_tooltip_ability_item_raid_ticket3_description" "Using this item, you can get to the raid boss, keep in mind that the more allies you have, the easier it will be for you!"
@@ -319,7 +292,8 @@
 
         // "june" "JUNE"
         // "jule" "JULE"
-		// "AUGUST"	"AUGUST"		
+		// "AUGUST"	"AUGUST"
+        // "SEPTEMBER"	"СЕНТЯБРЬ"		
 
         "season_name_1"         "JULE"
         "season_name_2"         "JULY"
@@ -376,7 +350,7 @@
         "history_status"    "In game"
         "history_time"  "Time"
         "history_level"     "Level"
-        "feed_x250"      "230 pet food"
+        "feed_x230"      "230 pet food"
         "feed_x600"      "600 pet food"
         "feed_x230_tooltip"      "230 pet food"
         "feed_x600_tooltip"      "600 pet food"
@@ -400,6 +374,7 @@
         "profil_first_game"     "First Game"
         "pick_rating"       "Rating: "
         "pick_game"         "Games: "
+        "modifier_custompet_delay"  "Reloading a pet's ability."
 
         //Cards//
 
@@ -619,6 +594,7 @@
 		"npc_quest_necronomicon_archer" "Necronomicon"
 
         "wave" "Wave №"
+        "wave_creep_1"  "Urses"
 		"description_creep_1" "The ursas clap their hands furiously"
 		"wave_creep_2" "Walrus and minions"
 		"description_creep_2" "Fear the jumping walrus"
@@ -1338,6 +1314,40 @@
         "quest_item_dragon_soul" "Red Dragon Soul"
         "quest_item_dragon_soul_2" "Green Dragon Soul"
         "quest_item_dragon_soul_3" "Gold Dragon Soul"
+
+        "quest_snow_creep_1" "Any creeps in the location"
+        "quest_snow_creep_desc" "Kill any creeps in the area"
+        "quest_last_creep_1" "Any creeps in the location"
+        "quest_last_creep_desc" "Kill any creeps in the area"
+        "quest_snow_boss" "Big Pebble"
+        "quest_snow_boss_desc" "Kill the Big Rock"
+        "quest_location8_boss_desc" "Kill Granny"
+        "quest_tank_any_boss" "Kill the bosses"
+        "quest_tank_any_boss_desc" "Kill any bosses"
+        "quest_tank_any_mid_creep" "Mid creeps"
+        "quest_tank_any_mid_creep_desc" "Kill any mid creeps"
+        "quest_item_quest_necronomicon" "Find the Necronomicon"
+        "quest_item_quest_necronomicon_desc" "Necronomicon drops from lane bosses, find it"
+        "quest_npc_quest_dragon" "Fuck the Dragon"
+        "quest_npc_quest_dragon_desc" "If you kill a large creep in this location, there is a chance that a dragon will spawn"
+        "quest_medusa_ward" "Destroy the wards"
+        "quest_medusa_ward_desc" "Break Venomancer Wards"
+        "souls_stash" "Souls"
+        "dota_tooltip_ability_item_quest_blue_ice" "Blue Ice"
+        "quest_item_quest_blue_ice" "Blue Ice"
+        "quest_item_quest_blue_ice_desc" "Psst Guy, get me some blue ice, I won't be in debt"
+        "quest_get_rune" "Pick up a rune"
+        "quest_get_rune_desc" "There's a rune in here somewhere, find it and take it"
+        "item_gold_brus" "Ingot of Gold"
+        "quest_npc_boss_location8" "Kill the black dragons"
+        "quest_location8_boss_desc" "Go to the final farming location"
+        "quest_necro_warior_tank_desc" "Kill two necro warriors"
+        "quest_necro_warior_tank" "Kill the Necrons"
+        "quest_npc_mega_boss" "Kill Doom"
+        "quest_npc_mega_boss_desc" "Kill doom 3 times"
+        "quest_farm_zone_dragon" "Bring the Black Dragons down to earth"
+        "quest_farm_zone_dragon_desc" "Kill the black dragons in the farming area"
+        "quest_npc_snow_boss" "Kill the snow boss"
 
 
         ///////////
@@ -10901,7 +10911,6 @@
         "dota_tooltip_ability_item_mage_heart_lua7_gem5_bonus_int" "+$int"
         "dota_tooltip_ability_item_mage_heart_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Assasin Heart//
 
         "dota_tooltip_ability_item_agility_heart_lua1" "Assassin Heart"
@@ -11156,7 +11165,6 @@
         "dota_tooltip_ability_item_agility_heart_lua7_gem5_bonus_dmg" "+BASE DMG"
         "dota_tooltip_ability_item_agility_heart_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Moon Eyea//
 
         "dota_tooltip_ability_item_moon_shard_lua1" "Moon Eyea"
@@ -11410,7 +11418,6 @@
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_bonus_as" "+to attack speed yourself"
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_aura_as_ally" "+to attack speed in aura"
         "dota_tooltip_ability_item_moon_shard_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
-
 
         //Hood Sword//
 
@@ -11881,7 +11888,6 @@
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_amp_hp" "%+Self HP Regen and Lifesteal Amp"
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
         //Satanic//
 
         "dota_tooltip_ability_item_satanic_lua1" "Satanic"
@@ -12248,7 +12254,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_description" "<h1>Active: Hex</h1> Transforms the target into a harmless animal for %sheep_duration% sec. The victim cannot attack, use abilities, or use items, and her base speed drops to 140. Cannot be cast on the same creature more than once every 10 seconds. \n <h1>Passive: Witch Blade</h1>The next attack will poison the victim for% duration% seconds. and every second will damage it equal to the owner's intelligence multiplied by %intellect_dmg%. Effect not refreshing."
 
-
         //Scythe of Vyse Gems//
 
         "dota_tooltip_ability_item_sheepstick_lua1_gem1" "Scythe of Vyse"
@@ -12538,7 +12543,6 @@
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_description" "<h1>Active: Hex</h1> Transforms the target into a harmless animal for %sheep_duration% sec. The victim cannot attack, use abilities, or use items, and her base speed drops to 140. Cannot be cast on the same creature more than once every 10 seconds. \n <h1>Passive: Witch Blade</h1>The next attack will poison the victim for% duration% seconds. and every second will damage it equal to the owner's intelligence multiplied by %intellect_dmg%. Not updated."
         "dota_tooltip_ability_item_sheepstick_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
-
 
         //Spectral Scythe//
 
@@ -12854,7 +12858,7 @@
         "npc_dota_hero_techies_str_last_description" "Sets 2 Land Mines at once"
 
         "npc_dota_hero_techies_agi6" "A surge of explosive rage"
-        "npc_dota_hero_techies_agi6_description" "+5 damage per creep"
+        "npc_dota_hero_techies_agi6_description" "+5 damage per level"
         "npc_dota_hero_techies_agi7" "Distant undermining"
         "npc_dota_hero_techies_agi7_description" "Land Mines damage + base hero damage"
         "npc_dota_hero_techies_agi8" "Static Boom"
@@ -13151,7 +13155,7 @@
         "npc_dota_hero_sand_king_str6" "Peck to grain of sand"
         "npc_dota_hero_sand_king_str6_description" "Gain 5 health regeneration per level while in sand storm"
         "npc_dota_hero_sand_king_str7" "Layer by Layer"
-        "npc_dota_hero_sand_king_str7_description" "Each creep killed increases your health points by 10"
+        "npc_dota_hero_sand_king_str7_description" "+50 hp per level"
         "npc_dota_hero_sand_king_str8" "Step by step"
         "npc_dota_hero_sand_king_str8_description" "Ultimate fires every second now"
         "npc_dota_hero_sand_king_str9" "Amplified shocks"
@@ -13233,7 +13237,7 @@
         "npc_dota_hero_legion_commander_agi6" "The rush of power"
         "npc_dota_hero_legion_commander_agi6_description" "Ultimate give 1 more damage"
         "npc_dota_hero_legion_commander_agi7" "Bloodlust"
-        "npc_dota_hero_legion_commander_agi7_description" "+2 damage per killed creep"
+        "npc_dota_hero_legion_commander_agi7_description" "+2 damage per level"
         "npc_dota_hero_legion_commander_agi8" "The Sharp Hatchet"
         "npc_dota_hero_legion_commander_agi8_description" "Press the attack gives a 100% cleave"
         "npc_dota_hero_legion_commander_agi9" "Commander's Sense"
@@ -13369,7 +13373,7 @@
         "npc_dota_hero_centaur_str7" "Nebulized Toxin"
         "npc_dota_hero_centaur_str7_description" "Centaur shield base armor reduction is now 50% instead"
         "npc_dota_hero_centaur_str8" "Forces of the Fallen"
-        "npc_dota_hero_centaur_str8_description" "Gain 10 health points per enemy killed"
+        "npc_dota_hero_centaur_str8_description" "+50 hp per level"
         "npc_dota_hero_centaur_str9" "Slow Death"
         "npc_dota_hero_centaur_str9_description" "Adds +3 seconds duration on Borrowed time"
         "npc_dota_hero_centaur_str10" "Bone Armor"
@@ -13446,7 +13450,7 @@
         "dota_tooltip_ability_mars_bulwark_lua_physical_damage_reduction_side" "%SIDE REDUCTION:"
 
         "npc_dota_hero_mars_str6" "Divine whim"
-        "npc_dota_hero_mars_str6_description" "Each creep killed increases your health by 10 points"
+        "npc_dota_hero_mars_str6_description" "+50 hp per level"
         "npc_dota_hero_mars_str7" "Power of the Gods"
         "npc_dota_hero_mars_str7_description" "After using any ability mars gains a bonus of 50 movement speed and 10% STR for 3 seconds"
         "npc_dota_hero_mars_str8" "Suppression"
@@ -13528,7 +13532,7 @@
         "npc_dota_hero_sven_str7" "My strength is your grave"
         "npc_dota_hero_sven_str7_description" "Ultimate gives 40% STR"
         "npc_dota_hero_sven_str8" "Title of Knight"
-        "npc_dota_hero_sven_str8_description" "Each creep killed increases your health by 10 points"
+        "npc_dota_hero_sven_str8_description" "+50 hp per level"
         "npc_dota_hero_sven_str9" "Miracle Armor"
         "npc_dota_hero_sven_str9_description" "Warcry also gives magic resistance equal to armor bonus"
         "npc_dota_hero_sven_str10" "Prayer"
@@ -13679,7 +13683,7 @@
         "npc_dota_hero_wisp_str7" "Spiritual Support"
         "npc_dota_hero_wisp_str7_description" "Overcharge is now global"
         "npc_dota_hero_wisp_str8" "Fallen souls"
-        "npc_dota_hero_wisp_str8_description" "Each creep you killed increases your health by 10 points"
+        "npc_dota_hero_wisp_str8_description" "+50 hp per level"
         "npc_dota_hero_wisp_str9" "Spiritual Link"
         "npc_dota_hero_wisp_str9_description" "Gain the ability to regenerate life under the effect of tether"
         "npc_dota_hero_wisp_str10" "Essence of the universe"
@@ -13752,7 +13756,7 @@
         "dota_tooltip_ability_dragon_form_lua_frost_duration" "DURATION OF NEGATIVE EFFECTS:"
 
         "npc_dota_hero_dragon_knight_str6" "Dragon Soul"
-        "npc_dota_hero_dragon_knight_str6_description" "Increases health points by 10 for each creep killed"
+        "npc_dota_hero_dragon_knight_str6_description" "+50 hp per level"
         "npc_dota_hero_dragon_knight_str7" "Lava Force"
         "npc_dota_hero_dragon_knight_str7_description" "Invulnerable to magic if standing in the Fire Ball, but the physical damage received is 50% more"
         "npc_dota_hero_dragon_knight_str8" "Dragon Strength"
@@ -13828,7 +13832,7 @@
         "dota_tooltip_ability_wraith_king_reincarnation_lua_slow_duration" "SLOW DURATION:"
 
         "npc_dota_hero_skeleton_king_str6" "Of bones"
-        "npc_dota_hero_skeleton_king_str6_description" "Each creep killed increases health by 10 points"
+        "npc_dota_hero_skeleton_king_str6_description" "+50 hp per level"
         "npc_dota_hero_skeleton_king_str7" "True King"
         "npc_dota_hero_skeleton_king_str7_description" "Invulnerability for 5 seconds after reincarnation"
         "npc_dota_hero_skeleton_king_str8" "Royal Power"
@@ -13881,7 +13885,7 @@
         "dota_tooltip_ability_treant_skill_1_duration" "DURATION:"
 
         "dota_tooltip_ability_treant_skill_2" "Tree"
-        "dota_tooltip_ability_treant_skill_2_description" "Eats the tree filling yourself with nourishing juices."
+        "dota_tooltip_ability_treant_skill_2_description" "Eats all trees within a 400 radius around him and fills Trent with nourishing juices."
         "dota_tooltip_ability_treant_skill_2_damage" "DAMAGE BONUS PER TREE:"
         "dota_tooltip_ability_treant_skill_2_hp" "HEALTH BONUS PER TREE:"
         "dota_tooltip_ability_treant_skill_2_arm" "ARMOUR BONUS PER TREE:"
@@ -13900,7 +13904,7 @@
         "dota_tooltip_ability_treant_ult_base_dam" "DAMAGE:"
 
 		"npc_dota_hero_treant_str6" "Fertilizer"
-        "npc_dota_hero_treant_str6_description" "Each killed creep increases health by 50"
+        "npc_dota_hero_treant_str6_description" "+50 hp per level"
         "npc_dota_hero_treant_str7" "Bark"
         "npc_dota_hero_treant_str7_description" "Reduces the base armor of infected enemies with the Contagion ability by 10%."
         "npc_dota_hero_treant_str8" "New Branches"
@@ -14054,7 +14058,7 @@
         "dota_tooltip_ability_shadow_fiend_requiem_of_souls_lua_damage" "DAMAGE PER SOUL:"
 
         "npc_dota_hero_nevermore_str6" "Abyssal Power"
-        "npc_dota_hero_nevermore_str6_description" "Each creep killed grants 10 health points"
+        "npc_dota_hero_nevermore_str6_description" "+50 hp per level"
         "npc_dota_hero_nevermore_str7" "Mental Protection"
         "npc_dota_hero_nevermore_str7_description" "Every 15 souls grants SF 1 armor"
         "npc_dota_hero_nevermore_str8" "At a glance"
@@ -14203,7 +14207,7 @@
         "dota_tooltip_ability_terrorblade_sunder_lua_range" "RADIUS:"
 
         "npc_dota_hero_terrorblade_str6" "Demonic Consume"
-        "npc_dota_hero_terrorblade_str6_description" "Gain 10 health points per creep you kill"
+        "npc_dota_hero_terrorblade_str6_description" "+50 hp per level"
         "npc_dota_hero_terrorblade_str7" "Terrorblade"
         "npc_dota_hero_terrorblade_str7_description" "Casting metamorphosis also applies fear to nearby enemies"
         "npc_dota_hero_terrorblade_str8" "Omniscience"
@@ -14278,7 +14282,7 @@
         "npc_dota_hero_phantom_assassin_str6" "Veil Leap"
         "npc_dota_hero_phantom_assassin_str6_description" "Phantom Strike will stun targets for 3 seconds."
         "npc_dota_hero_phantom_assassin_str7" "Sisters' Power"
-        "npc_dota_hero_phantom_assassin_str7_description" "For every creep you kill gain extra 10 Life"
+        "npc_dota_hero_phantom_assassin_str7_description" "+50 hp per level"
         "npc_dota_hero_phantom_assassin_str8" "Through and through"
         "npc_dota_hero_phantom_assassin_str8_description" "Causes Shifting Daggers to cause Enemies bleed for 2 seconds duration dealing damage equal STR"
         "npc_dota_hero_phantom_assassin_str9" "Bloodthirstiness"
@@ -14428,7 +14432,7 @@
         "npc_dota_hero_juggernaut_str6" "Breaking force"
         "npc_dota_hero_juggernaut_str6_description" "Gains 20% STR for 5 seconds after using Blade requiem ability"
         "npc_dota_hero_juggernaut_str7" "Samurai Honor"
-        "npc_dota_hero_juggernaut_str7_description" "Every creep killed increases health by 10"
+        "npc_dota_hero_juggernaut_str7_description" "+50 hp per level"
         "npc_dota_hero_juggernaut_str8" "Faster than a katana"
         "npc_dota_hero_juggernaut_str8_description" "Gains armor bonus equal to half of attack speed on Sharp Blade."
         "npc_dota_hero_juggernaut_str9" "Just swing"
@@ -14574,7 +14578,7 @@
         "dota_tooltip_ability_spectre_reality_datadriven_description" "Spectre exchanges places with a chosen Haunt.."
 
         "npc_dota_hero_spectre_str6" "Absorption"
-        "npc_dota_hero_spectre_str6_description" "Every creep killed increases health points by 10"
+        "npc_dota_hero_spectre_str6_description" "+50 hp per level"
         "npc_dota_hero_spectre_str7" "Feeling beautiful"
         "npc_dota_hero_spectre_str7_description" "Every creep killed increases health regen by 0, 5"
         "npc_dota_hero_spectre_str8" "Unstable Matter"
@@ -14646,7 +14650,7 @@
         "npc_dota_hero_luna_str6" "Selemina's Power"
         "npc_dota_hero_luna_str6_description" "Starfall damage is equal to STR"
         "npc_dota_hero_luna_str7" "Blessing"
-        "npc_dota_hero_luna_str7_description" "Every creep killed grants 10 health pointss"
+        "npc_dota_hero_luna_str7_description" "+50 hp per level"
         "npc_dota_hero_luna_str8" "Strength of the Silver Forest"
         "npc_dota_hero_luna_str8_description" "+700 aura radius"
         "npc_dota_hero_luna_str9" "Full Moon"
@@ -14788,7 +14792,7 @@
         "npc_dota_hero_medusa_str6" "Second forces"
         "npc_dota_hero_medusa_str6_description" "+0,5 mana regen per creep"
         "npc_dota_hero_medusa_str7" "Fat"
-        "npc_dota_hero_medusa_str7_description" "Each creep killed increases health by 50"
+        "npc_dota_hero_medusa_str7_description" "+50 hp per level"
         "npc_dota_hero_medusa_str8" "Squama"
         "npc_dota_hero_medusa_str8_description" "+1 armor per gives 15 creeps"
         "npc_dota_hero_medusa_str9" "Is fitter"
@@ -14860,7 +14864,7 @@
         "npc_dota_hero_enchantress_str6" "Forest Strength"
         "npc_dota_hero_enchantress_str6_description" "Doubles the number of nature’s attendants fire flies"
         "npc_dota_hero_enchantress_str7" "Force of nature"
-        "npc_dota_hero_enchantress_str7_description" "Each creep killed increases health by 10 points"
+        "npc_dota_hero_enchantress_str7_description" "+50 hp per level"
         "npc_dota_hero_enchantress_str8" "Bane"
         "npc_dota_hero_enchantress_str8_description" "Multishot trigger also restore health equal to its damage done."
         "npc_dota_hero_enchantress_str9" "The forest is coming"
@@ -15073,7 +15077,7 @@
         "dota_tooltip_ability_dazzle_custom_badjuju_spell_amplify" "%MAGIC DAMAGE BONUS:"
 
         "npc_dota_hero_dazzle_str6" "Circle of Shadows"
-        "npc_dota_hero_dazzle_str6_description" "Each enemy kills increase health by 10 points"
+        "npc_dota_hero_dazzle_str6_description" "+50 hp per level"
         "npc_dota_hero_dazzle_str7" "Cultist Blessing"
         "npc_dota_hero_dazzle_str7_description" "After shallow grave gain 50% magic resistance buff for 4 seconds."
         "npc_dota_hero_dazzle_str8" "Journey to Nottle"
@@ -15152,15 +15156,15 @@
         "npc_dota_hero_pugna_str6" "Power Ward"
         "npc_dota_hero_pugna_str6_description" "Nether Ward deals Damage equal to STR."
         "npc_dota_hero_pugna_str7" "Absorption"
-        "npc_dota_hero_pugna_str7_description" "Each creep killed increases health by 10 points"
+        "npc_dota_hero_pugna_str7_description" "+50 hp per level"
         "npc_dota_hero_pugna_str8" "Hell power"
         "npc_dota_hero_pugna_str8_description" "Nether Blast also stuns for 2 seconds all enemies hit"
         "npc_dota_hero_pugna_str9" "Force Field"
         "npc_dota_hero_pugna_str9_description" "Nether Blast damage is now equal to Pugna's STR"
-        "npc_dota_hero_pugna_str10" "Lifeos"
-        "npc_dota_hero_pugna_str10_description" "Life Drain deals double damage."
-        "npc_dota_hero_pugna_str11" "Abyssal Link"
-        "npc_dota_hero_pugna_str11_description" "Life drain restores health to allies"
+		"npc_dota_hero_pugna_str10" "Abyssal Link"
+        "npc_dota_hero_pugna_str10_description" "-0.7s to Life Drain Target Finder"
+        "npc_dota_hero_pugna_str11" "Lifeos"
+        "npc_dota_hero_pugna_str11_description" "Enemies affected by Life Drain are slowed by 50% and take 25% more magic damage"
         "npc_dota_hero_pugna_str_last" "The Abyss answered me."
         "npc_dota_hero_pugna_str_last_description" "+50% Intel damage to Nether Ward."
 
@@ -15223,7 +15227,7 @@
         "npc_dota_hero_skywrath_mage_str6" "Regeneration"
         "npc_dota_hero_skywrath_mage_str6_description" "The hero gets 1hp regen and 0.5mp regen for each creep killed."
         "npc_dota_hero_skywrath_mage_str7" "Absorption"
-        "npc_dota_hero_skywrath_mage_str7_description" "Each creep killed increases health by 20"
+        "npc_dota_hero_skywrath_mage_str7_description" "+50 hp per level"
         "npc_dota_hero_skywrath_mage_str8" "Hell Armor"
         "npc_dota_hero_skywrath_mage_str8_description" "+1 Armor for every 15 creeps killed"
         "npc_dota_hero_skywrath_mage_str9" "Power Strike"
@@ -15369,7 +15373,7 @@
         "npc_dota_hero_warlock_str7" "Streams of fel"
         "npc_dota_hero_warlock_str7_description" "Golems are now immune to magic"
         "npc_dota_hero_warlock_str8" "Absorption"
-        "npc_dota_hero_warlock_str8_description" "Every creep killed increases health by 10 points"
+        "npc_dota_hero_warlock_str8_description" "+50 hp per level"
         "npc_dota_hero_warlock_str9" "Defense Plot"
         "npc_dota_hero_warlock_str9_description" "Shadow Word armor bonus is doubled"
         "npc_dota_hero_warlock_str10" "Golemology"
@@ -15443,7 +15447,7 @@
         "npc_dota_hero_windrunner_str7" "Daze"
         "npc_dota_hero_windrunner_str7_description" "Focus Fire: decrease movement speed of enemies that got hit to 0."
         "npc_dota_hero_windrunner_str8" "Thicket"
-        "npc_dota_hero_windrunner_str8_description" "For every Creep you kill Gain 10 health points"
+        "npc_dota_hero_windrunner_str8_description" "+50 hp per level"
         "npc_dota_hero_windrunner_str9" "Not Tinker Style"
         "npc_dota_hero_windrunner_str9_description" "Immune to magic while moving."
         "npc_dota_hero_windrunner_str10" "Skelet Style"
@@ -15508,7 +15512,7 @@
         "npc_dota_hero_zuus_str7" "Heaven's Defense"
         "npc_dota_hero_zuus_str7_description" "Gains 3 armor and 1% magic resist for each enemy hitted from static field."
         "npc_dota_hero_zuus_str8" "Divine knowledge"
-        "npc_dota_hero_zuus_str8_description" "Each creep killed increases health by 10"
+        "npc_dota_hero_zuus_str8_description" "+50 hp per level"
         "npc_dota_hero_zuus_str9" "Just God"
         "npc_dota_hero_zuus_str9_description" "Static field damage is equal to STR"
         "npc_dota_hero_zuus_str10" "Power of Mortality"

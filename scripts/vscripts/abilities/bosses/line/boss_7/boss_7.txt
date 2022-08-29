@@ -23,7 +23,7 @@
 		"AbilityValues"
 		{
 			"duration"						"3"
-			"damage_per_second"				"50"
+			"damage_per_second"				"10000"
 			"think_interval"				"0.5"
 			"move_speed_slow_pct"			"50"
 		}
@@ -77,7 +77,7 @@
 			"activation_delay"				"1.0"
 			"duration"						"3"
 			"wraith_speed"					"300"
-			"spark_damage"					"100"
+			"spark_damage"					"20000"
 			"tick"							"0.2"
 			"move_speed_slow_pct"			"100"
 			"count"							"5"

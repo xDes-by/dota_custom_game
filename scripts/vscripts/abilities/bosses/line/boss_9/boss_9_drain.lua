@@ -90,7 +90,7 @@ function modifier_boss_9_drain:OnIntervalThink()
 			self:Destroy()
 		end
 		
-		local damage = (self.health_drain * 0.01 * self.parent:GetHealth()) * self.tick_rate
+		local damage = (self.health_drain * 0.05 * self.parent:GetHealth()) * self.tick_rate
 
 		local damageTable = {victim = self.parent,
 			damage = damage,

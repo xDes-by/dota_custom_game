@@ -40,11 +40,12 @@ end
 
 function modifier_item_kaya_custom:OnCreated( kv )
 	self.bonus_dmg = self:GetAbility():GetSpecialValueFor( "bonus_dmg" )
+	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 if not IsServer() then return end				
 	
 		self.bonus_life = self:GetAbility():GetSpecialValueFor( "bonus_life" )
 		self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
-		self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
+		
 		
 		self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
 		
@@ -55,41 +56,41 @@ if not IsServer() then return end
 			local namecheck = string.sub( itemname, 1, 16 )
 				if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 					self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-					self:Destroy()
+					--self:Destroy()
 				end
 			end
 		end
 
 	
-		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
-			local gem = string.sub(self:GetAbility():GetName(), -4)
+		-- local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
+			-- local gem = string.sub(self:GetAbility():GetName(), -4)
 
-		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
-			local modifierName = "modifier_" .. gem
-			if self:GetParent():HasModifier(modifierName) then
-				local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
-				self:GetParent():SetModifierStackCount(modifierName, self:GetCaster(), (stacks + bonus))
-			else
-				self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, nil)
-				self:GetParent():SetModifierStackCount(modifierName, self:GetCaster(), bonus)	
-			end
-		end
+		-- if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
+			-- local modifierName = "modifier_" .. gem
+			-- if self:GetParent():HasModifier(modifierName) then
+				-- local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
+				-- self:GetParent():SetModifierStackCount(modifierName, self:GetCaster(), (stacks + bonus))
+			-- else
+				-- self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, nil)
+				-- self:GetParent():SetModifierStackCount(modifierName, self:GetCaster(), bonus)	
+			-- end
+		-- end
 end
 
 function modifier_item_kaya_custom:OnDestroy()
-if not IsServer() then return end
-	local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	local gem = string.sub(self:GetAbility():GetName(), -4)
-	local modifierName = "modifier_" .. gem
+-- if not IsServer() then return end
+	-- local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	-- local gem = string.sub(self:GetAbility():GetName(), -4)
+	-- local modifierName = "modifier_" .. gem
 
-	local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
-	if stacks> 0 then
-		self:GetCaster():SetModifierStackCount(modifierName, self:GetCaster(), stacks - bonus)
-		local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
-		if stacks == 0 then
-			self:GetCaster():RemoveModifierByNameAndCaster(modifierName, self:GetCaster())
-		end
-	end
+	-- local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
+	-- if stacks> 0 then
+		-- self:GetCaster():SetModifierStackCount(modifierName, self:GetCaster(), stacks - bonus)
+		-- local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
+		-- if stacks == 0 then
+			-- self:GetCaster():RemoveModifierByNameAndCaster(modifierName, self:GetCaster())
+		-- end
+	-- end
 end
 --------------------------------------------------------------------------------
 

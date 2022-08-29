@@ -30,12 +30,15 @@ if IsServer() then
 	end
 		
 	local caster = self:GetCaster()
-	local target_point = self:GetCursorPosition()
+	local target_point = self:GetCaster():GetOrigin()
+	
+	a = GridNav:GetAllTreesAroundPoint(target_point, 400, true)
 
 	local currentStacks_hp = caster:GetModifierStackCount("modifier_treant_skill_2", self)	
-	caster:SetModifierStackCount("modifier_treant_skill_2", caster, currentStacks_hp + 1)
+	caster:SetModifierStackCount("modifier_treant_skill_2", caster, currentStacks_hp + #a)
 	
-	GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	-- GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	GridNav:DestroyTreesAroundPoint( target_point, 400, true )
 
 	caster:EmitSound("Tiny.Grow")
 	end

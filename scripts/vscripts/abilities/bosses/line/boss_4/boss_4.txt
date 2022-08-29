@@ -15,7 +15,7 @@
 
 		"AbilityValues"
 		{
-			"near_damage"			"250"
+			"near_damage"			"5"
 			"duration"				"2"
 			"far_damage"			"250"
 		}

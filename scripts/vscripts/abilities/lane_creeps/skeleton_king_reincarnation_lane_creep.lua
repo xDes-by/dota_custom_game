@@ -50,9 +50,7 @@ function modifier_skeleton_king_reincarnation_lane_creep:OnDeath(keys)
 			local hCaster = self:GetParent()
 			local hAbility = self:GetAbility()
 			local flReincarnateTime = self.reincarnate_time
-			Timers:CreateTimer({ endTime = 3, 
-				callback = function()
-				
+			Timers:CreateTimer({ endTime = 3, callback = function()
 				hCaster:RespawnUnit()
 			end})
 		end

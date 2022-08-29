@@ -30,9 +30,6 @@ function modifier_item_desolator_lua:OnCreated()
 	if IsServer() then
         if not self:GetAbility() then self:Destroy() end
     end
-
-
-	
 	
 	self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
     self.bonus_dmg = self:GetAbility():GetSpecialValueFor("bonus_dmg")

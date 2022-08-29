@@ -91,7 +91,7 @@
 		"AbilityValues"
 		{
 			"bash_chance"				"25"
-			"bash_damage"				"50"
+			"bash_damage"				"15000"
 			"bash_duration"				"0.5"
 		}
 	}		

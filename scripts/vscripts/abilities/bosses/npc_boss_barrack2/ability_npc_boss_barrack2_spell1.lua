@@ -7,8 +7,10 @@ function ability_npc_boss_barrack2_spell1:OnSpellStart()
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_ability_npc_boss_barrack1_spell1", {})
 end
 
+--------------------------------------------------------------------------------
+
 modifier_ability_npc_boss_barrack1_spell1 = class({})
---Classifications template
+
 function modifier_ability_npc_boss_barrack1_spell1:IsHidden()
     return true
 end
@@ -140,7 +142,16 @@ function modifier_simply_motion:UpdateHorizontalMotion( me, dt )
     local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), pos, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 	for _,unit in pairs(enemies) do
         if self.units[unit] == nil then
-            self:GetCaster():PerformAttack(self:GetParent(), true, true, true, false, true, false, false)
+       --     self:GetCaster():PerformAttack(self:GetParent(), true, true, true, false, true, false, false)
+	   
+	        ApplyDamage({
+			victim = unit,
+			damage = unit:GetMaxHealth() * self:GetAbility():GetSpecialValueFor("damage")/100,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			attacker = self:GetCaster(),
+			})
+		
             self.units[unit] = true
             local pfx = ParticleManager:CreateParticle("particles/econ/items/morphling/morphling_crown_of_tears/morphling_crown_waveform_dmg.vpcf", PATTACH_POINT, unit)
             ParticleManager:ReleaseParticleIndex(pfx)

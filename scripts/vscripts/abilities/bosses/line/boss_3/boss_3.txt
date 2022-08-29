@@ -27,12 +27,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-30"
+				"slow_movement_speed"	"-50"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-30"
+				"slow_attack_speed"		"-50"
 			}
 		}
 	}
@@ -68,17 +68,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-30"
+				"slow_movement_speed"	"-50"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-30"
+				"slow_attack_speed"		"-50"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aoe_damage"			"50"
+				"aoe_damage"			"25"
 			}
 		}
 	}
@@ -109,7 +109,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5"
+				"damage"				"10"
 			}
 			"02"
 			{
@@ -173,7 +173,7 @@
 			"02"
 			{
 				"var_type"          "FIELD_INTEGER"
-				"shard_damage"        "300"
+				"shard_damage"        "5"
 			}
 			"03"
 			{

@@ -18,21 +18,24 @@ function item_boss_summon:OnSpellStart()
 			boss_spawn = "npc_forest_boss_fake"
 		end
 		if _G.donate_spawn_level == 1 then 
-			boss_spawn = "npc_village_boss_fake"
+			boss_spawn = "npc_forest_boss_fake"
 		end
 		if _G.donate_spawn_level == 2 then 
-			boss_spawn = "npc_mines_boss_fake"
+			boss_spawn = "npc_village_boss_fake"
 		end
 		if _G.donate_spawn_level == 3 then 
-			boss_spawn = "npc_dust_boss_fake"	
+			boss_spawn = "npc_mines_boss_fake"	
 		end
 		if _G.donate_spawn_level == 4 then 
-			boss_spawn = "npc_swamp_boss_fake"
+			boss_spawn = "npc_dust_boss_fake"
 		end
 		if _G.donate_spawn_level == 5 then  
+			boss_spawn = "npc_swamp_boss_fake"
+		end
+		if _G.donate_spawn_level == 6 then  
 			boss_spawn = "npc_snow_boss_fake"
 		end
-		if _G.donate_spawn_level >= 6 then  
+		if _G.donate_spawn_level >= 7 then  
 			boss_spawn = "npc_boss_location8_fake"
 		end
 

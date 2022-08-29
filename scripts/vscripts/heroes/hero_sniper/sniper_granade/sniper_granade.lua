@@ -8,9 +8,9 @@ function sniper_granade:GetCooldown(level)
 	local caster = self:GetCaster()
 	local abil = caster:FindAbilityByName("npc_dota_hero_sniper_int7")
 		if abil ~= nil	then 
-		 return math.min(65000, self.BaseClass.GetCooldown( self, level ) /2)
+		 return self.BaseClass.GetCooldown( self, level ) /2
 		else
-		return math.min(65000, self.BaseClass.GetCooldown( self, level ))
+		return self.BaseClass.GetCooldown( self, level )
 	end		
 end
 
@@ -21,7 +21,7 @@ end
 function sniper_granade:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()
+        return math.min(65000, caster:GetIntellect())
     end
 end
 

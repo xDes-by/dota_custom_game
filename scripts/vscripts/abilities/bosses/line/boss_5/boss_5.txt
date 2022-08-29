@@ -1,42 +1,66 @@
 "DOTAAbilities"
 {
-"boss_5_lighting"
+"zuus_boss_circle_lua"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"                   	"abilities/bosses/line/boss_5/boss_5_lighting"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"            "zuus_arc_lightning"
-		"AbilityCastRange"              "650"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_5/zuus_boss_circle_lua"
+		"AbilityTextureName"			"razor_plasma_field"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0"
+
+		"AbilityCooldown"				"13 12 11 10"
 
 		"AbilityValues"
 		{
-			"arc_damage"            "50"
-			"radius"                "650"
-			"jump_count"            "3"
-			"jump_delay"            "0.25"
-			"static_chain_mult"		"4"
+			"damage_min"				"5000"
+			"damage_max"				"15000"
+			"radius"					"700"
+			"speed"						"636"
+			"slow_min"					"25"
+			"slow_max"					"25"
+			"slow_duration"				"1.5"
 		}
 	}
 	
-"boss_5_passive"
+"zuus_boss_nimbus"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"                   	"abilities/bosses/line/boss_5/boss_5_passive"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"            "zuus_arc_lightning"
-		"AbilityCastRange"              "650"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/line/boss_5/zuus_boss_nimbus"
+		"AbilityTextureName"			"razor_plasma_field"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0"
+
+		"AbilityCooldown"				"13"
 
 		"AbilityValues"
 		{
-			"static_damage"         "50"
-			"static_radius"         "650"
-			"static_cooldown"       "0.5"
-			"static_strikes"        "3"
-			"static_chance"			"25"
+			"radius"				    "1500"
+			"damage_spell_persent"	    "35"
+			"health"				    "30"
+			"bolt_radius"				"400"
+			"nimbus_interval"			"1"
+			"numbus_health_persent"		"5"
+			"stun_duration"		        "0.5"
 		}
-	}	
+	}
 	
 "boss_5_passive2"
 	{
