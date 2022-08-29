@@ -14275,7 +14275,7 @@
         "npc_dota_hero_phantom_assassin_str6" "Прыжок вуали"
         "npc_dota_hero_phantom_assassin_str6_description" "Phantom Strike станит цель на 3 секунды"
         "npc_dota_hero_phantom_assassin_str7" "Сила сестер"
-        "npc_dota_hero_phantom_assassin_str7_description" "Каждый убитый крип увеличивает здоровье на 50"
+        "npc_dota_hero_phantom_assassin_str7_description" "Каждый уровень героя увеличивает здоровье на 50"
         "npc_dota_hero_phantom_assassin_str8" "Насквозь"
         "npc_dota_hero_phantom_assassin_str8_description" "Dagger вызывает кровотечение, которое наносит урон от силы в течении 2 секунд"
         "npc_dota_hero_phantom_assassin_str9" "Кровожадность"

@@ -14282,7 +14282,7 @@
         "npc_dota_hero_phantom_assassin_str6" "Veil Leap"
         "npc_dota_hero_phantom_assassin_str6_description" "Phantom Strike will stun targets for 3 seconds."
         "npc_dota_hero_phantom_assassin_str7" "Sisters' Power"
-        "npc_dota_hero_phantom_assassin_str7_description" "For every creep you kill gain extra 10 Life"
+        "npc_dota_hero_phantom_assassin_str7_description" "For every hero level gain extra 50 Life"
         "npc_dota_hero_phantom_assassin_str8" "Through and through"
         "npc_dota_hero_phantom_assassin_str8_description" "Causes Shifting Daggers to cause Enemies bleed for 2 seconds duration dealing damage equal STR"
         "npc_dota_hero_phantom_assassin_str9" "Bloodthirstiness"

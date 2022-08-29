@@ -14287,7 +14287,7 @@
         "npc_dota_hero_phantom_assassin_str6" "面紗飛躍" 
         "npc_dota_hero_phantom_assassin_str6_description" "幻影打擊會使目標昏迷 3 秒。" 
         "npc_dota_hero_phantom_assassin_str7" "姐妹的力量" 
-        "npc_dota_hero_phantom_assassin_str7_description" "你殺死的每一個小兵都會獲得額外的 10 生命" 
+        "npc_dota_hero_phantom_assassin_str7_description" "每个英雄等级获得额外的50生命值" 
         "npc_dota_hero_phantom_assassin_str8" "徹頭徹尾" 
         "npc_dota_hero_phantom_assassin_str8_description" "使用 Shifting Daggers 使敵人流血 2 秒持續時間造成等於 STR 的傷害" 
         "npc_dota_hero_phantom_assassin_str9" "嗜血" 
