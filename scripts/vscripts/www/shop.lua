@@ -253,16 +253,32 @@ function Shop:OnGameRulesStateChange(keys)
 					-- print("OnGameRulesStateChange GetPlayerCount i=",i)
 					local sid = PlayerResource:GetSteamAccountID(i)
 					-- print("OnGameRulesStateChange GetPlayerCount sid=",sid)
-					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "initShop", Shop.pShop[i] )
+					
 					if Shop.pShop[i].totaldonate >= 2000 or RATING["rating"][i+1]["patron"] == 1 or DataBase:isCheatOn() then
 						Shop.marci.available[i] = true
 						Shop.pango.available[i] = true
 					end
+					local effects = {}
+					for n,f in pairs(Shop.pShop[i][3]) do
+						if n ~= name and f.now == 1 then
+							table.insert(effects, n)
+						end
+					end
+					if #effects > 0 then
+						local hero = PlayerResource:GetSelectedHeroEntity( i )
+						local random_effect = RandomInt(1, #effects)
+						Shop.pShop[i][3][effects[random_effect]].now = 0
+						LinkLuaModifier( "modifier_" .. Shop.pShop[i][3][effects[random_effect]].name, "effects/" .. Shop.pShop[i][3][effects[random_effect]].name, LUA_MODIFIER_MOTION_NONE )
+						
+						hero:AddNewModifier( hero, nil, "modifier_" .. Shop.pShop[i][3][effects[random_effect]].name, {} )
+						Shop.pShop[i][3][effects[random_effect]]['status'] = 'takeoff'
+					end
 					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "UpdateChangeHeresInfo", {Shop.marci, Shop.pango} )
+					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "initShop", Shop.pShop[i] )
 				end
 			end
 		end)
-		Timers:CreateTimer(2, function() 
+		Timers:CreateTimer(3, function() 
 			for i = 0 , PlayerResource:GetPlayerCount()-1 do --
 				if PlayerResource:IsValidPlayer(i) then
 					if Shop.Auto_Pet[i] then 

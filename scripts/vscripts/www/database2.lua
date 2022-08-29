@@ -31,7 +31,7 @@ function DataBase:init()
 	DataBase.addFeed = _G.host .. "/backend/api/add-feed?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.addRaitPoint = _G.host .. "/backend/api/add-rait-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.addCoins = _G.host .. "/backend/api/add-coins?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-
+	DataBase.squirrel = _G.host .. "/backend/api/squirrel?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
@@ -63,6 +63,9 @@ function DataBase:OnEntityKilled(keys)
 	end	
 	if killedUnit:GetUnitName() == "raid_new_year" then
 		DataBase:Event2021OnKill(killerEntity_playerID)
+	end
+	if killedUnit:GetUnitName() == "npc_forest_boss" then
+		DataBase:Squirrel(killerEntity_playerID)
 	end
 end
 
@@ -288,7 +291,16 @@ function DataBase:PromoCode(text, PlayerID)
 	end)
 end
 
-
+function DataBase:Squirrel(sid)
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.squirrel )
+	req:SetHTTPRequestGetOrPostParameter('sid',tostring(PlayerResource:GetSteamAccountID(sid)))
+	req:SetHTTPRequestGetOrPostParameter('time',tostring(GameRules:GetGameTime() / 60))
+	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+	req:Send(function(res)
+		if res.StatusCode == 200 and res.Body ~= nil then
+		end
+	end)
+end
 
 function DataBase:Event2021(PlayerID)
 	local req = CreateHTTPRequestScriptVM( "GET", DataBase.event2021 )

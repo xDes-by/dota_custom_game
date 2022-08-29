@@ -375,8 +375,10 @@ function Quests:updateParticle(n)
 						Quests:deliteParticle(key, nPlayerID, "bonus")
 					end
 					Quests:addParticle(Quests.has_quest_bonus, v1["UnitName"], key, nPlayerID)
-				elseif v1["available"] == 0 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+				elseif v1["available"] == 0 and v1["active"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
 					Quests:deliteParticle(key, nPlayerID, "bonus")
+				elseif tonumber(v1["available"]) == 0 and tonumber(v1["active"]) == 0 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+					-- Quests:deliteParticle(key, nPlayerID, "bonus")
 				end
 				for k2,v2 in pairs(v1['tasks']) do
 					key = Quests:searchNpc(v2["UnitName"])
