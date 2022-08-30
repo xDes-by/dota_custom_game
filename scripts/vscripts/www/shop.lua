@@ -49,6 +49,7 @@ _G.basicshop = {
 		[11] = {name = "other_3", price = {don = 5}, itemname = "item_int", rarity = "blue"},
 		[12] = {name = "other_4", price = {don = 15}, itemname = "item_tree_gold", rarity = "gold"},
 		[13] = {name = "other_8", price = {don = 30}, itemname = "item_tower_protection", rarity = "gold"},
+		[14] = {name = "other_49", price = {don = 25}, itemname = "item_forever_ward", rarity = "gold"},
 	},
 	[3] = {
 		name = "effects",
@@ -521,7 +522,6 @@ function Shop:giveItem(t)
 end
 
 function Shop:takeOffEffect(t)
-	print("takeOffEffect")
 	local pid = t.PlayerID
 	Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'] = tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now']) + 1
 
