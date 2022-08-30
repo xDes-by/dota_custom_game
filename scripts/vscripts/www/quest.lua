@@ -388,7 +388,7 @@ function Quests:updateParticle(n)
 					if v2['HowMuch'] == v2['have'] and v2['complete'] == 0 then
 						if Quests.npcArray[key]['particle'][nPlayerID] == false and v2['complete'] == 0 then
 							if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-								-- Quests:deliteParticle(key, nPlayerID)
+								Quests:deliteParticle(key, nPlayerID, "bonus")
 							end
 							if v1['tasks'][tostring(k2+1)] == nil then
 								Quests:addParticle(Quests.complite_quest_bonus, v2["UnitName"], key, nPlayerID)
@@ -397,7 +397,7 @@ function Quests:updateParticle(n)
 							end
 						end
 					elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						-- Quests:deliteParticle(key, nPlayerID)
+						Quests:deliteParticle(key, nPlayerID, "bonus")
 					end
 				end
 				k1 = k1 + 1
@@ -418,7 +418,7 @@ function Quests:updateParticle(n)
 				--print("updateParticle_2")
 				if v1["available"] == 1 and v1["active"] == 0 then
 					if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						-- Quests:deliteParticle(key, nPlayerID)
+						Quests:deliteParticle(key, nPlayerID, "main")
 					end
 					--print("updateParticle_4")
 					Quests:addParticle(Quests.has_quest_main, v1["UnitName"], key, nPlayerID)
@@ -444,7 +444,7 @@ function Quests:updateParticle(n)
 							end
 						end
 					elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						-- Quests:deliteParticle(key, nPlayerID)
+						Quests:deliteParticle(key, nPlayerID, "main")
 					end
 				end
 				k1 = k1 + 1
@@ -1024,10 +1024,12 @@ function Quests:OnEntityKilled( keys )
     local killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	local name = killedUnit:GetUnitName()
 	if (name == "dust_creep_2" or name == "dust_creep_4" or name == "dust_creep_6") and killerEntity:IsRealHero() then
-		if Quests:isActive("bonus", 21, 1, killerEntity:GetPlayerID()) then
-			if RandomInt(1, 100) <= 5 then
+		-- if Quests:isActive("bonus", 21, 1, killerEntity:GetPlayerID()) then
+		if true then
+			if RandomInt(1, 100) <= 100 then
 				local unit = CreateUnitByName("npc_quest_dragon", killedUnit:GetOrigin(), false, nil, nil, DOTA_TEAM_BADGUYS)
-				while b1 < 5 do
+				b1 = 0
+				while b1 < 6 do
 					add_item = items_level_5[RandomInt(1,#items_level_5)]
 					while not unit:HasItemInInventory(add_item) do
 						b1 = b1 + 1

@@ -1228,7 +1228,7 @@
 				}
 			}
 		}
-		// 2000 любых крипов
+		// 800 любых крипов
 		"2"
 		{
 			"UnitName"	"npc_4"
@@ -1258,8 +1258,8 @@
 						{
 							"1"
 							{
-								"min"	"2000"
-								"max"	"2000"
+								"min"	"800"
+								"max"	"800"
 								"TextName"	"quest_tank_any_creep"
 								"Desc"	"quest_tank_any_creep_desc"
 								"1"		"any_creep"
@@ -2652,8 +2652,8 @@
 						{
 							"1"
 							{
-								"min"			"3"
-								"max"   		"5"
+								"min"			"2"
+								"max"   		"4"
 								"TextName"		"quest_npc_snow_boss"
 								"Desc"			"quest_npc_snow_boss_desc"
 								"1" 			"npc_snow_boss"
