@@ -16,9 +16,10 @@ require("damage")
 require("dummy")
 require("use_pets")
 
--- _G.key = GetDedicatedServerKeyV2("MCF")
+_G.key = GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false
+_G.server_load = false
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -453,7 +454,7 @@ end
 
 
 function loadscript()	
-	if true then
+	if _G.server_load == false then
 		print("local load")
 		require("www/loader")
 	else

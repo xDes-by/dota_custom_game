@@ -521,6 +521,7 @@ function Shop:giveItem(t)
 end
 
 function Shop:takeOffEffect(t)
+	print("takeOffEffect")
 	local pid = t.PlayerID
 	Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'] = tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now']) + 1
 
