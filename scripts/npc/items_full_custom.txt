@@ -11,7 +11,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"60"
 		"AbilitySharedCooldown"			"item_quest_necronomicon"
-		"ItemPurchable"					"0"
+		"ItemPurchasable"               "0"
 	}
 	
 //===============================================================================================	
@@ -418,9 +418,9 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"		
 		"AbilityChannelTime"			"2.5"
-		"ItemBaseLevel"                	"8"
+		"ItemBaseLevel"                	"7"
 
 		"AbilityCastRange"				"600"
 		"AbilityCooldown"				"24"
@@ -11403,6 +11403,17 @@
 		"AbilityManaCost"				"100"
 		"ItemPurchasable" 				"0"
 	}
+	
+"item_forever_ward"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest/forever_ward"
+		"ScriptFile"					"items/item_forever_ward"
+		"AbilityCastRange"				"500"
+		"ItemPurchasable" 				"0"
+	}	
 
 "item_kirka_gold"
 	{

@@ -174,6 +174,14 @@ function modifier_boots_of_bearing_lua:OnCreated()
 		end
 	end
 end
+
+function modifier_boots_of_bearing_lua:OnDestroy()
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+	end
+end
+
+
 function modifier_boots_of_bearing_lua:OnRefresh()
     local charges = self:GetAbility():GetCurrentCharges()
     self:GetAbility():SetCurrentCharges(charges)
@@ -257,6 +265,13 @@ function modifier_boots_of_bearing_lua2:OnCreated()
 		end
 	end 
 end
+
+function modifier_boots_of_bearing_lua2:OnDestroy()
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+	end
+end
+
 function modifier_boots_of_bearing_lua2:OnRefresh()
     local charges = self:GetAbility():GetCurrentCharges()
     self:GetAbility():SetCurrentCharges(charges)
@@ -340,6 +355,13 @@ function modifier_boots_of_bearing_lua3:OnCreated()
 		end
 	end 
 end
+
+function modifier_boots_of_bearing_lua3:OnDestroy()
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+	end
+end
+
 function modifier_boots_of_bearing_lua3:OnRefresh()
     local charges = self:GetAbility():GetCurrentCharges()
     self:GetAbility():SetCurrentCharges(charges)
@@ -423,6 +445,13 @@ function modifier_boots_of_bearing_lua4:OnCreated()
 		end
 	end 
 end
+
+function modifier_boots_of_bearing_lua4:OnDestroy()
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+	end
+end
+
 function modifier_boots_of_bearing_lua4:OnRefresh()
     local charges = self:GetAbility():GetCurrentCharges()
     self:GetAbility():SetCurrentCharges(charges)
@@ -506,6 +535,13 @@ function modifier_boots_of_bearing_lua5:OnCreated()
 		end
 	end 
 end
+
+function modifier_boots_of_bearing_lua5:OnDestroy()
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+	end
+end
+
 function modifier_boots_of_bearing_lua5:OnRefresh()
     local charges = self:GetAbility():GetCurrentCharges()
     self:GetAbility():SetCurrentCharges(charges)

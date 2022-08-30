@@ -1508,6 +1508,20 @@
 		"IsAncient"						"1"
     }
 	
+	"forever_ward"
+    {
+        "BaseClass"						"npc_dota_creature"
+        "Model"							"models/items/wards/jimoward_omij/jimoward_omij.vmdl"
+        "ModelScale"					"1"
+		"Ability1"						""
+        "Level"							"5"
+		"VisionDaytimeRange"    		"0"
+        "VisionNighttimeRange"  		"0"
+		"IsAncient"						"1"
+		"VisionDaytimeRange" 			"1600" 
+		"VisionNighttimeRange"			"1600" 
+    }	
+	
 	"npc_dummy_unit"
 	{
 		"BaseClass" "npc_dota_base_additive"
