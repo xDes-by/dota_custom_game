@@ -7114,7 +7114,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"1"
 
@@ -7159,7 +7159,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"2"
 
@@ -7204,7 +7204,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"3"
 
@@ -7249,7 +7249,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"4"
 
@@ -7294,7 +7294,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"5"
 
@@ -7339,7 +7339,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"6"
 
@@ -7384,7 +7384,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"7"
 
@@ -7428,7 +7428,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
-		"MaxLevel"                      "7"		
+		"MaxLevel"                      "8"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"8"
 

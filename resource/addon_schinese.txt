@@ -162,6 +162,10 @@
 
         "quest_item_kletka_on" "籠" 
         "quest_item_kirka_gold" "挑選" 
+		
+		"other_49" "永远的守卫"
+		"dota_tooltip_ability_item_forever_ward" "永远的守卫"
+		"dota_tooltip_ability_item_forever_ward_description" "提供 1600 视野的永久守卫"
 
         "dota_tooltip_ability_item_quest_blue_stone" "藍水晶" 
         "dota_tooltip_ability_item_quest_blue_stone_all" "+$全部" 

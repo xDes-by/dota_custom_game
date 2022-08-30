@@ -161,6 +161,10 @@
 
         "quest_item_kletka_on" "Cage"
         "quest_item_kirka_gold" "Pick"
+		
+		"other_49" "Forever Ward"
+		"dota_tooltip_ability_item_forever_ward" "Forever Ward"
+		"dota_tooltip_ability_item_forever_ward_description" "Forever ward that provides 1600 vision around it"
 
         "dota_tooltip_ability_item_quest_blue_stone" "Blue crystal"
         "dota_tooltip_ability_item_quest_blue_stone_all" "+$all"

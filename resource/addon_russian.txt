@@ -161,6 +161,10 @@
 
         "quest_item_kletka_on" "Клетка"
         "quest_item_kirka_gold" "Кирка"
+		
+		"other_49" "Вечный вард"
+		"dota_tooltip_ability_item_forever_ward" "Вечный вард"
+		"dota_tooltip_ability_item_forever_ward_description" "Вечный вард который дает обзор в радиусе 1600 вокруг себя"
 
         "dota_tooltip_ability_item_quest_blue_stone" "Голубой кристалл"
         "dota_tooltip_ability_item_quest_blue_stone_all" "+$all"

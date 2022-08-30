@@ -32,8 +32,8 @@ if not IsServer() then return end
     end
     self:GetCaster():RemoveNoDraw()
 	FindClearSpaceForUnit(self:GetCaster(), location + RandomVector(400), false)
-		CreateCustomIllusion( self:GetCaster(), location + RandomVector(400), 30, 100, 100 )
-		CreateCustomIllusion( self:GetCaster(), location + RandomVector(400), 30, 100, 100 )
+		CreateCustomIllusion( self:GetCaster(), location + RandomVector(400), 10, 100, 100 )
+		CreateCustomIllusion( self:GetCaster(), location + RandomVector(400), 10, 100, 100 )
 	EmitSoundOn("DOTA_Item.Manta.End", self:GetCaster())
 end
 
@@ -102,6 +102,8 @@ function CreateCustomIllusion( caster, location, duration, outgoing_damage, inco
 		caster:GetTeamNumber(), -- iTeamNumber
 		modifyIllusion
 	)
+	
+	illusion:AddNewModifier(illusion, nil, "modifier_kill", {duration = 9})
 
 	return illusions
 end
