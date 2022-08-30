@@ -7358,7 +7358,7 @@
         "BaseClass"                     "item_lua"
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"gem1/gem1/boots_of_bearing_lua8_gem1"
+        "AbilityTextureName"			"gem1/boots_of_bearing_lua8_gem1"
         "ScriptFile"					"items/items_gems/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
