@@ -14816,7 +14816,7 @@
         "npc_dota_hero_medusa_agi10_description" "Always 100% Split Shot Damage"
         "npc_dota_hero_medusa_agi11" "Righteousness"
         "npc_dota_hero_medusa_agi11_description" "Split Shot target is affected by modifiers"
-        "npc_dota_hero_medusa_agi_last" "snake support"
+        "npc_dota_hero_medusa_agi_last" "Snake support"
         "npc_dota_hero_medusa_agi_last_description" "10% chance to cast a Mystic Snake when attacking"
         
         "npc_dota_hero_medusa_int6" "Magic power"
