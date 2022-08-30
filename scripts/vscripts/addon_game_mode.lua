@@ -16,7 +16,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 
-_G.key = "CD7F291115CC0A92981393A1EDF4616E1DB085E1"--GetDedicatedServerKeyV2("MCF")
+_G.key = GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false
 
