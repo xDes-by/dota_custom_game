@@ -16,7 +16,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 
-_G.key = GetDedicatedServerKeyV2("MCF")
+-- _G.key = GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false
 
@@ -453,7 +453,7 @@ end
 
 
 function loadscript()	
-	if false then
+	if true then
 		print("local load")
 		require("www/loader")
 	else
