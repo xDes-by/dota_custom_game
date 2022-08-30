@@ -1626,7 +1626,7 @@
 			}
 
 
-			"UnitName"	"npc_2"
+			"UnitName"	"npc_28"
 			"reward"
 			{
 				"experience"
@@ -1644,7 +1644,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_2"
+					"UnitName"	"npc_28"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1673,7 +1673,7 @@
 					"number"	"20"
 				}
 			}
-			"UnitName"	"npc_2"
+			"UnitName"	"npc_28"
 			"reward"
 			{
 				"experience"

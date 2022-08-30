@@ -476,7 +476,7 @@ end
 function Quests:deliteParticle(key, nPlayerID, t)
 	local unit = Quests.npcArray[key]["unit"]
 	if t == "main" and (unit.ParticleInfo[nPlayerID] == Quests.has_quest_bonus or unit.ParticleInfo[nPlayerID] == Quests.complite_quest_bonus) then return end
-	ParticleManager:DestroyParticle( Quests.npcArray[key]['particle'][nPlayerID], true )
+	ParticleManager:DestroyParticle( Quests.npcArray[key]['particle'][nPlayerID], false )
 	ParticleManager:ReleaseParticleIndex( Quests.npcArray[key]['particle'][nPlayerID] )
 	Quests.npcArray[key]['particle'][nPlayerID] = false
 	
