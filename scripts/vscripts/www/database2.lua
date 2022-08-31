@@ -58,14 +58,15 @@ end
 function DataBase:OnEntityKilled(keys)
 	
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
+	local killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
 	if killedUnit:GetUnitName() == "raid_new_year" then
 		DataBase:Event2021OnKill(killerEntity_playerID)
 	end
-	if killedUnit:GetUnitName() == "npc_forest_boss" then
-		DataBase:Squirrel(killerEntity_playerID)
+	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" then
+		DataBase:Squirrel(killerEntity:GetPlayerID())
 	end
 end
 
@@ -291,13 +292,17 @@ function DataBase:PromoCode(text, PlayerID)
 	end)
 end
 
-function DataBase:Squirrel(sid)
+function DataBase:Squirrel(pid)
+	local steamID = PlayerResource:GetSteamAccountID(pid)
+	local time = GameRules:GetGameTime() / 60
 	local req = CreateHTTPRequestScriptVM( "GET", DataBase.squirrel )
-	req:SetHTTPRequestGetOrPostParameter('sid',tostring(PlayerResource:GetSteamAccountID(sid)))
-	req:SetHTTPRequestGetOrPostParameter('time',tostring(GameRules:GetGameTime() / 60))
+	req:SetHTTPRequestGetOrPostParameter('sid',tostring(steamID))
+	req:SetHTTPRequestGetOrPostParameter('time',tostring(time))
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
 		if res.StatusCode == 200 and res.Body ~= nil then
+			print(res.StatusCode)
+			print(res.Body)
 		end
 	end)
 end
