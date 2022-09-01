@@ -93,6 +93,8 @@ function modifier_unit_on_death:OnDeath(event)
 	if creep:GetUnitName() == "farm_zone_dragon" then
 		amountTime = 0.1
 	end
+	
+	UTIL_Remove( creep )
 
 	Timers:CreateTimer(amountTime, function()
 		if _G.kill_invoker == false or self.unitName == "farm_zone_dragon" then

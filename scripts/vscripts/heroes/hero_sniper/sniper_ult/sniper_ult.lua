@@ -22,9 +22,6 @@ function DoCleaveDamage(keys)
 	
 	local enemies = FindUnitsInRadius(DOTA_UNIT_TARGET_TEAM_ENEMY, target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 	for _,enemy in pairs(enemies) do
-		if enemy == target then
-			boom_damage = boom_damage - caster_damage
-		end
 		ApplyDamage({victim = enemy, attacker = caster, damage = boom_damage, damage_type = damage_type, damage_flags = flags})
 	end
 end

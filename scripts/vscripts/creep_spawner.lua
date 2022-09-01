@@ -11,6 +11,7 @@ LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOT
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
 
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
@@ -499,7 +500,13 @@ function spawn_creeps(triggerName, mini_creep, big_creep)
 	for i = 1, 3 do	  
 		local minispawn = CreateUnitByName( mini_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )
 		difficality_modifier(minispawn)
+		add_modifier_death2(minispawn)	
 	end
 	local minispawn = CreateUnitByName( big_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )	 
-	difficality_modifier(minispawn)		  
+	difficality_modifier(minispawn)	
+	add_modifier_death2(minispawn)	
+end
+
+function add_modifier_death2(unit)
+	unit:AddNewModifier(unit, nil, "modifier_unit_on_death2", {})
 end
