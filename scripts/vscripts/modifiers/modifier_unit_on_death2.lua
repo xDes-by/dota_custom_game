@@ -25,5 +25,7 @@ function modifier_unit_on_death2:OnDeath(event)
     local creep = event.unit
     if creep ~= self:GetParent() then return end
 
-	UTIL_Remove( creep )
+	Timers:CreateTimer(0.1, function()
+		UTIL_Remove( creep )
+	end)
 end

@@ -94,7 +94,9 @@ function modifier_unit_on_death:OnDeath(event)
 		amountTime = 0.1
 	end
 	
-	UTIL_Remove( creep )
+	Timers:CreateTimer(0.1, function()
+		UTIL_Remove( creep )
+	end)
 
 	Timers:CreateTimer(amountTime, function()
 		if _G.kill_invoker == false or self.unitName == "farm_zone_dragon" then

@@ -666,17 +666,19 @@ creeps_zones_all = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_min
 
 function kill_all_creeps()
 -- local bResult = xpcall(function()
-	local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		for _,creep in pairs(creeps) do
-			for _,t in ipairs(creeps_zones_all) do
-				if t == creep:GetUnitName() then 
-					if creep:IsAlive() then
-					creep:ForceKill(false)
-					--UTIL_Remove( creep )
-					end
-				end
-			end
-		end
+	-- local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		-- for _,creep in pairs(creeps) do
+			-- for _,t in ipairs(creeps_zones_all) do
+				-- if t and creep then
+					-- if t == creep:GetUnitName() then 
+						-- if creep:IsAlive() then
+						-- creep:ForceKill(false)
+						-- UTIL_Remove( creep )
+						-- end
+					-- end
+				-- end
+			-- end
+		-- end
 	-- end,
 	-- function(e)
 		-- print("-------------Error-------------")
@@ -721,7 +723,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 
-	
 	if _G.donate_bosses_count and #_G.donate_bosses_count > 0 then
 		for i, hCreep in ipairs( _G.donate_bosses_count ) do
 			if killedUnit == hCreep then
