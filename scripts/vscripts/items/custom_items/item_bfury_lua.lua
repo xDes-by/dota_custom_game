@@ -98,7 +98,9 @@ function modifier_item_bfury_lua:OnAttackLanded(keys)
 	for _,enemy in pairs(enemies) do
 		if enemy ~= keys.target then
 			if reduse ~= nil then 
-				enemy:AddNewModifier(self:GetParent(), item, "modifier_item_bfury_lua_debuff", {duration = 5})
+				if not enemy:HasModifier("modifier_item_bfury_lua_debuff") then
+					enemy:AddNewModifier(self:GetParent(), item, "modifier_item_bfury_lua_debuff", {duration = 5})
+				end
 			end
 			ApplyDamage({victim = enemy, attacker = self:GetParent(), damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 		end

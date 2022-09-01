@@ -1012,7 +1012,7 @@
 
 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus" "<font color='#df1022'>Physizizi</font>"
-        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Physizizi вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: FYZ</h1> Вы не наносите магический урон, но весь физический становится больше на 150%"
+        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Physizizi вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: FYZ</h1> Вы не наносите магический урон, но весь физический становится больше"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_phys_percent" "%БОНУСНЫЙ ФИЗИЧЕСКИЙ УРОН:"
@@ -13014,7 +13014,7 @@
         "npc_dota_hero_crystal_maiden_agi11" "Из-за гор"
         "npc_dota_hero_crystal_maiden_agi11_description" "200 к дальности атаки"
         "npc_dota_hero_crystal_maiden_agi_last" "Ледяный вспышки"
-        "npc_dota_hero_crystal_maiden_agi_last_description" "Crystal Nova прокает с автоатаки шанс 10 проц"
+        "npc_dota_hero_crystal_maiden_agi_last_description" "Crystal Nova прокает с автоатаки шанс 10%"
 
         "npc_dota_hero_crystal_maiden_int6" "Касание мороза"
         "npc_dota_hero_crystal_maiden_int6_description" "Freezing field наносит урон от половины интеллекта"
@@ -13894,7 +13894,7 @@
         "dota_tooltip_ability_treant_skill_3_spread_chance" "%ШАНС ЗАРАЗИТЬ ОКРУЖАЮЩИХ:"
         "dota_tooltip_ability_treant_skill_3_spread_radius" "РАДИУС ЗАРАЖЕНИЯ:"
         "dota_tooltip_ability_treant_skill_3_spread_duration" "ДЛИТЕЛЬНОСТЬ ЗАРАЖЕНИЯ ОКРУЖАЮЩИХ:"
-		ы
+		
         "dota_tooltip_ability_treant_ult" "Nature's Wall"
         "dota_tooltip_ability_treant_ult_description" "Герой создает непроходимый барьер атакующий врагов."
         "dota_tooltip_ability_treant_ult_duration" "ДЛИТЕЛЬНОСТЬ:"
@@ -14349,8 +14349,8 @@
         "dota_tooltip_ability_sniper_headshot_lua_bonus_attack_range" "ДОП. ДАЛЬНОСТЬ АТАКИ:"
 
         "dota_tooltip_ability_sniper_ult" "Explosive Bullet"
-        "dota_tooltip_ability_sniper_ult_description" "Герой начинает стрелять разрывными патронами, при попадании они взрываются нанося процент от базового урона героя всем врагам в небольшом радиусе."
-        "dota_tooltip_ability_sniper_ult_cleave_damage" "%БАЗОВОГО УРОНА:"
+        "dota_tooltip_ability_sniper_ult_description" "Герой начинает стрелять разрывными патронами, при попадании они взрываются нанося процент от базового урона героя всем врагам в радиусе %radius%."
+        "dota_tooltip_ability_sniper_ult_damage" "%БАЗОВОГО УРОНА:"
 
         
 
@@ -14746,7 +14746,7 @@
         "npc_dota_hero_drow_ranger_agi11" "Возмездие"
         "npc_dota_hero_drow_ranger_agi11_description" "Герой получает эффект аганима"
         "npc_dota_hero_drow_ranger_agi_last" "Вместе сильнее"
-        "npc_dota_hero_drow_ranger_agi_last_description" "Аупа Marksmanship становится глобальной"
+        "npc_dota_hero_drow_ranger_agi_last_description" "Аура Marksmanship становится глобальной"
 
         "npc_dota_hero_drow_ranger_int6" "Полу-умный"
         "npc_dota_hero_drow_ranger_int6_description" "Получает дополнительный урон равеный интеллекту"
@@ -15436,12 +15436,7 @@
         "dota_tooltip_ability_windrunner_arrow_description" "Герой в течении нескольких секунд выпускает в указаном направлении десятки стрел, каждая стрела наносит урон!"
         "dota_tooltip_ability_windrunner_arrow_duration" "ДЛИТЕЛЬНОСТЬ:"
         "dota_tooltip_ability_windrunner_arrow_damage" "УРОН СТРЕЛЫ:"
-        "dota_tooltip_ability_zuus_arc_lightning_lua" "Arc Lightning"
-        "dota_tooltip_ability_zuus_arc_lightning_lua_description" "Выпускает молнию, которая перескакивает с одного врага на другого."
-        "dota_tooltip_ability_zuus_arc_lightning_lua_lore" "Любимый приём бога грома против жалких смертных."
-        "dota_tooltip_ability_zuus_arc_lightning_lua_radius" "РАДИУС СКАЧКОВ:"
-        "dota_tooltip_ability_zuus_arc_lightning_lua_jump_count" "СКАЧКОВ:"
-        "dota_tooltip_ability_zuus_arc_lightning_lua_arc_damage" "УРОН:"
+
 
         "npc_dota_hero_windrunner_str6" "Tinker Style"
         "npc_dota_hero_windrunner_str6_description" "Пока действует Focus Fire получает +5 брони да уровень, но не может двигаться"
@@ -15489,6 +15484,13 @@
         "npc_dota_hero_windrunner_int_last_description" "50% к урону от интеллекта в повершот "
 
         //Zuus//
+		
+		"dota_tooltip_ability_zuus_arc_lightning_lua" "Arc Lightning"
+        "dota_tooltip_ability_zuus_arc_lightning_lua_description" "Выпускает молнию, которая перескакивает с одного врага на другого."
+        "dota_tooltip_ability_zuus_arc_lightning_lua_lore" "Любимый приём бога грома против жалких смертных."
+        "dota_tooltip_ability_zuus_arc_lightning_lua_radius" "РАДИУС СКАЧКОВ:"
+        "dota_tooltip_ability_zuus_arc_lightning_lua_jump_count" "СКАЧКОВ:"
+        "dota_tooltip_ability_zuus_arc_lightning_lua_arc_damage" "УРОН:"
 		
         "dota_tooltip_ability_zuus_nimbus" "Nimbus"
         "dota_tooltip_ability_zuus_nimbus_description" "Создает в любом месте карты грозовое облако, которое автоматически применяет способность Arc Lightning на врагов неподалеку."

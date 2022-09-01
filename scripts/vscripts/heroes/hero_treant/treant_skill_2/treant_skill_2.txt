@@ -8,7 +8,7 @@
 		"AbilityTextureName"			"treant2skill"
 		"MaxLevel"						"15"
 		"AbilityCooldown"				"40"
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"300"
 		
 		"AbilityValues"
 		{

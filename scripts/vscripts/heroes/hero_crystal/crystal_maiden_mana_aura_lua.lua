@@ -22,8 +22,7 @@ end
 function modifier_crystal_maiden_mana_aura_lua:IsPurgable()
 	return false
 end
---------------------------------------------------------------------------------
--- Aura
+
 function modifier_crystal_maiden_mana_aura_lua:IsAura()
 	return (not self:GetCaster():PassivesDisabled())
 end
@@ -47,10 +46,11 @@ end
 function modifier_crystal_maiden_mana_aura_lua:GetAuraSearchType()
 	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
-modifier_crystal_maiden_mana_aura_lua_effect = class({})
 
 --------------------------------------------------------------------------------
--- Classifications
+
+modifier_crystal_maiden_mana_aura_lua_effect = class({})
+
 function modifier_crystal_maiden_mana_aura_lua_effect:IsHidden()
 	return false
 end
@@ -106,7 +106,7 @@ function modifier_crystal_maiden_mana_aura_lua_effect:DeclareFunctions()
 	return funcs
 end
 function modifier_crystal_maiden_mana_aura_lua_effect:OnAttackLanded(params)
-	if  params.attacker:FindAbilityByName("crystal_nova_lua") ~= nil and self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_agi_last") ~= nil and RandomInt(1, 100) <= 2 then
+	if  params.attacker:FindAbilityByName("crystal_nova_lua") ~= nil and self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_agi_last") ~= nil and RandomInt(1, 100) <= 10 then
 		if params.attacker:FindAbilityByName("crystal_nova_lua"):IsTrained() then
 			_G.novatarget = params.target
 			params.attacker:FindAbilityByName("crystal_nova_lua"):OnSpellStart()

@@ -2,6 +2,13 @@ alchemist_chemical_rage_lua = class({})
 LinkLuaModifier( "modifier_alchemist_chemical_rage_lua", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_alchemist_bkb", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
 
+function alchemist_chemical_rage_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect()*3)
+    end
+end
+
 
 function alchemist_chemical_rage_lua:OnSpellStart()
 	local caster = self:GetCaster()

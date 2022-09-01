@@ -1,4 +1,5 @@
 LinkLuaModifier( "modifier_rot_boss_lua", "abilities/bosses/village/rot_boss_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_rot_boss_lua_effect", "abilities/bosses/village/rot_boss_lua", LUA_MODIFIER_MOTION_NONE )
 
 rot_boss_lua = class({})
 
@@ -10,19 +11,20 @@ end
 
 modifier_rot_boss_lua = class({})
 
-function modifier_rot_boss_lua:IsDebuff()
+function modifier_rot_boss_lua:IsHidden()
 	return true
 end
 
-function modifier_rot_boss_lua:IsAura()
-	if self:GetCaster() == self:GetParent() then
-		return true
-	end
+function modifier_rot_boss_lua:IsPurgable()
 	return false
 end
 
+function modifier_rot_boss_lua:IsAura()
+	return true
+end
+
 function modifier_rot_boss_lua:GetModifierAura()
-	return "modifier_rot_boss_lua"
+	return "modifier_rot_boss_lua_effect"
 end
 
 function modifier_rot_boss_lua:GetAuraSearchTeam()
@@ -34,10 +36,25 @@ function modifier_rot_boss_lua:GetAuraSearchType()
 end
 
 function modifier_rot_boss_lua:GetAuraRadius()
-	return self.rot_radius
+	return self:GetAbility():GetSpecialValueFor( "radius" )
 end
 
-function modifier_rot_boss_lua:OnCreated( kv )
+----------------------------------------------------------------------------
+modifier_rot_boss_lua_effect = class({})
+
+function modifier_rot_boss_lua_effect:IsHidden()
+	return false
+end
+
+function modifier_rot_boss_lua_effect:IsDebuff()
+	return true
+end
+
+function modifier_rot_boss_lua_effect:IsPurgable()
+	return false
+end
+
+function modifier_rot_boss_lua_effect:OnCreated( kv )
 	self.rot_radius = self:GetAbility():GetSpecialValueFor( "radius" )
 	self.rot_damage = self:GetAbility():GetSpecialValueFor( "damage" )
 	self.rot_tick = 0.5
@@ -50,13 +67,15 @@ function modifier_rot_boss_lua:OnCreated( kv )
 	self:OnIntervalThink()
 end
 
-function modifier_rot_boss_lua:OnDestroy()
+function modifier_rot_boss_lua_effect:OnDestroy()
 	if IsServer() then
+		ParticleManager:DestroyParticle(self.pfx , true)
+		ParticleManager:ReleaseParticleIndex(self.pfx )
 		StopSoundOn( "Hero_Pudge.Rot", self:GetCaster() )
 	end
 end
 
-function modifier_rot_boss_lua:OnIntervalThink()
+function modifier_rot_boss_lua_effect:OnIntervalThink()
 	if IsServer() then
 		if self:GetCaster():IsAlive() and self:GetParent() ~= self:GetCaster() then
 			local damage = {

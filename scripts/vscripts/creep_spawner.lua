@@ -10,6 +10,8 @@ LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTIO
 LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
+
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
 creeps_zone3 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
@@ -40,6 +42,15 @@ function difficality_modifier(unit)
 	end		
 end	
 
+function add_modifier_death(unit, unitname)
+	unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
+		posX = unit:GetAbsOrigin().x,
+		posY = unit:GetAbsOrigin().y,
+		posZ = unit:GetAbsOrigin().z,
+		name = unitname
+	})
+end
+
 function creep_spawner:spawn_creeps_forest()
 	local count = 0
 	Timers:CreateTimer(0, function()
@@ -51,11 +62,11 @@ function creep_spawner:spawn_creeps_forest()
 					if i == 4 then
 						local unit = CreateUnitByName("forest_creep_big_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_big_1")
 					else	
 						local unit = CreateUnitByName("forest_creep_mini_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_mini_1")
 					end	
 				end
 			else if count == 2 or count == 4 or count == 5 or count == 11 then
@@ -63,11 +74,11 @@ function creep_spawner:spawn_creeps_forest()
 					if i == 4 then
 						local unit = CreateUnitByName("forest_creep_big_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_big_2")
 					else	
 						local unit = CreateUnitByName("forest_creep_mini_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_mini_2")
 					end	
 				end
 			else 
@@ -75,11 +86,11 @@ function creep_spawner:spawn_creeps_forest()
 					if i == 4 then
 						local unit = CreateUnitByName("forest_creep_big_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_big_3")
 					else	
 						local unit = CreateUnitByName("forest_creep_mini_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 						difficality_modifier(unit)
-						unit:AddAbility("respawn_creeps"):SetLevel(1)
+						add_modifier_death(unit, "forest_creep_mini_3")
 					end	
 				end
 			end	
@@ -184,7 +195,7 @@ function spawn_creeps_village()
 		local vPoint1 = Entities:FindByName( nil, "village_spawn_"..i):GetAbsOrigin()
 		for i = 1, 3 do
 			local unit = CreateUnitByName("village_creep_"..i, vPoint1 + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit:AddAbility("respawn_creeps_village"):SetLevel(1)
+			add_modifier_death(unit, "village_creep_"..i)
 			difficality_modifier(unit)
 		end	
 	end
@@ -193,9 +204,9 @@ end
 function spawn_creeps_mines()
 	for i = 1, 8 do 
 	local vPoint1 = Entities:FindByName( nil, "mines_spawn_"..i):GetAbsOrigin()
-		for i = 1, RandomInt(3,4) do
-			local unit = CreateUnitByName("mines_creep_"..RandomInt(1,3), vPoint1 + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit:AddAbility("respawn_creeps_mines"):SetLevel(1)
+		for i = 1, 3 do
+			local unit = CreateUnitByName("mines_creep_"..i, vPoint1 + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+			add_modifier_death(unit, "mines_creep_"..i)
 			difficality_modifier(unit)	
 		end
 	end
@@ -209,11 +220,11 @@ function spawn_creeps_dust()
 				if i == 4 then
 					local unit = CreateUnitByName("dust_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_2")
 				else
 					local unit = CreateUnitByName("dust_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_1")
 				end	
 			end	
 		end	
@@ -222,11 +233,11 @@ function spawn_creeps_dust()
 				if i == 4 then
 					local unit = CreateUnitByName("dust_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_4")
 				else
 					local unit = CreateUnitByName("dust_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_3")
 				end	
 			end	
 		end	
@@ -235,11 +246,11 @@ function spawn_creeps_dust()
 				if i == 4 then
 					local unit = CreateUnitByName("dust_creep_6", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_6")
 				else
 					local unit = CreateUnitByName("dust_creep_5", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "dust_creep_5")
 				end
 			end
 		end	
@@ -254,11 +265,11 @@ function spawn_creeps_cemetery()
 				if i == 4 or i == 5 then
 					local unit = CreateUnitByName("cemetery_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_2")
 				else
 					local unit = CreateUnitByName("cemetery_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_1")
 				end	
 			end	
 		end	
@@ -267,11 +278,11 @@ function spawn_creeps_cemetery()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("cemetery_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_2")
 				else
 					local unit = CreateUnitByName("cemetery_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_3")
 				end	
 			end	
 		end	
@@ -280,11 +291,11 @@ function spawn_creeps_cemetery()
 				if i == 4 or i == 5 then
 					local unit = CreateUnitByName("cemetery_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_4")
 				else
 					local unit = CreateUnitByName("cemetery_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "cemetery_creep_3")
 				end
 			end
 		end	
@@ -299,11 +310,11 @@ function spawn_creeps_swamp()
 				if i == 4 or i == 5 then
 					local unit = CreateUnitByName("swamp_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_2")
 				else
 					local unit = CreateUnitByName("swamp_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_1")
 				end	
 			end	
 		end	
@@ -312,11 +323,11 @@ function spawn_creeps_swamp()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("swamp_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_4")
 				else
 					local unit = CreateUnitByName("swamp_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_1")
 				end	
 			end	
 		end	
@@ -325,11 +336,11 @@ function spawn_creeps_swamp()
 				if i == 4 or i == 5 then
 					local unit = CreateUnitByName("swamp_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_4")
 				else
 					local unit = CreateUnitByName("swamp_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "swamp_creep_3")
 				end
 			end
 		end	
@@ -344,11 +355,11 @@ function spawn_creeps_snow()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("snow_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_2")
 				else
 					local unit = CreateUnitByName("snow_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_1")
 				end	
 			end	
 		end	
@@ -357,11 +368,11 @@ function spawn_creeps_snow()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("snow_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_4")
 				else
 					local unit = CreateUnitByName("snow_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_3")
 				end	
 			end	
 		end	
@@ -370,11 +381,11 @@ function spawn_creeps_snow()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("snow_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_4")
 				else
 					local unit = CreateUnitByName("snow_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_1")
 				end
 			end
 		end	
@@ -383,11 +394,11 @@ function spawn_creeps_snow()
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("snow_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_2")
 				else
 					local unit = CreateUnitByName("snow_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "snow_creep_3")
 				end
 			end
 		end	
@@ -402,11 +413,11 @@ function spawn_creeps_last()
 				if i == 4 then
 					local unit = CreateUnitByName("last_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "last_creep_2")
 				else
 					local unit = CreateUnitByName("last_creep_1", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "last_creep_1")
 				end	
 			end	
 		else
@@ -414,18 +425,16 @@ function spawn_creeps_last()
 				if i == 4 then
 					local unit = CreateUnitByName("last_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "last_creep_4")
 				else
 					local unit = CreateUnitByName("last_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
 					difficality_modifier(unit)
-					unit:AddAbility("respawn_creeps"):SetLevel(1)
+					add_modifier_death(unit, "last_creep_3")
 				end	
 			end	
 		end	
 	end
 end		
-
-
 		
 function creep_spawner:spawn_farm_zones()
 	for i = 1, 5 do 
@@ -433,7 +442,7 @@ function creep_spawner:spawn_farm_zones()
 		for i = 1, 4 do
 			local unit = CreateUnitByName("farm_zone_dragon", point  + RandomVector( RandomInt(50, 100)), true, nil, nil, DOTA_TEAM_BADGUYS)
 			difficality_modifier(unit)
-			unit:AddAbility("respawn_farm_zone"):SetLevel(1)
+			add_modifier_death(unit, "farm_zone_dragon")
 		end	
 	end	
 end		

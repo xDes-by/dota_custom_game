@@ -95,7 +95,7 @@ end
 
 function modifier_boss_2_spray:OnIntervalThink()
 	local enemies = FindUnitsInRadius(
-		DOTA_TEAM_GOODGUYS,	-- int, your team number
+		self:GetParent():GetTeamNumber(),	-- int, your team number
 		self:GetParent():GetOrigin(),	-- point, center point
 		nil,	-- handle, cacheUnit. (not known)
 		self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE

@@ -17,19 +17,10 @@
 				"particle"			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
 			}
 
-			"AbilitySpecial"
+			"AbilityValues"
 			{
-				"01"
-				{
-					"var_type"				"FIELD_FLOAT"
-					"cleave_damage"			"30 45 60 75 90 105 120 135 150 165"
-					"CalculateSpellDamageTooltip"	"0"
-				}
-				"02"
-				{
-					"var_type"				"FIELD_FLOAT"
-					"cleave_radius"			"200"
-				}
+				"damage"				"30 45 60 75 90 105 120 135 150 165"
+				"radius"				"200"
 			}
 			"Modifiers"
 			{

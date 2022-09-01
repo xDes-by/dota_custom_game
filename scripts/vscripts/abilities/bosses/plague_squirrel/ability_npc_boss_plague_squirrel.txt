@@ -27,7 +27,7 @@
 		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
-			"health"					"50"
+			"health"					"10"
             // х2 каждый урус
 			"squirrel_attack_persent_from_current_target_healt"	"1"
 			"squirrel_health"	"3"
@@ -144,6 +144,29 @@
 			"chance_evation" "15"
 			"chance_attack" "3"
 
+		}
+	}
+	
+	"ability_npc_boss_plague_squirrel_spell8"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/plague_squirrel/ability_npc_boss_plague_squirrel_spell8"
+		"AbilityTextureName"			""
+		"FightRecapLevel"				"1"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		
+		"AbilityCooldown"				"14"
+		
+		"AbilityValues"
+		{
+				"carges"								"7"
+				"stun_duration"							"2.0"
+				"damage"								"30"
+				"speed"									"900"
+				"radius"								"600"
 		}
 	}
 }
