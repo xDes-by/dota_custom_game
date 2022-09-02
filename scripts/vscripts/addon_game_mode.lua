@@ -225,12 +225,26 @@ function CAddonAdvExGameMode:InitGameMode()
 	damage:Init()
 	_G.Activate_belka = false
 	use_pets:InitGameMode()
+	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 end
 
 function CAddonAdvExGameMode:OnInventoryUpdate(keys)
 end
 
 ------------------------------------------------------------------------------
+
+function CAddonAdvExGameMode:OnChat( event )
+    local text = event.text 
+	local pid = event.playerid
+	if text == "reset_time" then
+		if PlayerResource:HasSelectedHero( pid ) then
+			local hero = PlayerResource:GetSelectedHeroEntity( pid )
+			if hero:GetTimeUntilRespawn() > 11 then
+				hero:SetTimeUntilRespawn(10)
+			end
+		end    
+	end 			
+end
 
 function CAddonAdvExGameMode:On_dota_item_picked_up(keys)
 	if keys.itemname == "item_key" then
@@ -709,6 +723,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			killedUnit:SetTimeUntilRespawn( 1.2 )
 		else
 			killedUnit:SetTimeUntilRespawn( 10 )
+		end
+		-----------------------------------------------
+		if killedUnit:GetTimeUntilRespawn() > 11 then
+			killedUnit:SetTimeUntilRespawn(10)
 		end
 		-----------------------------------------------
 		if diff_wave.wavedef == "Insane" then
