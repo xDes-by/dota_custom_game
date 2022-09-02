@@ -788,7 +788,8 @@ function talants:coutExp(expnow)
 end
 
 function talants:HeroesAmountInfo(t)
-    t.hero_name = progress[t.PlayerID]["hero_name"]
+    DeepPrintTable(t)
+    t.hero_name = progress[t.portID]["hero_name"]
     local count = DataBase:GetHeroesTalantCount(t)
     
 end
