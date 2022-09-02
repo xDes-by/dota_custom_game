@@ -665,32 +665,34 @@ end
 creeps_zones_all = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
 
 function kill_all_creeps()
-local bResult = xpcall(function()
-	local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-	if #creeps ~= 0 then
-		for _,creep in pairs(creeps) do
-				for _,t in ipairs(creeps_zones_all) do
-					if t and t == creep:GetUnitName() then 
-						creep:ForceKill(false)
-						UTIL_Remove( creep )
-					end
-				end
-			end
-		end
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
+-- local bResult = xpcall(function()
+	-- local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		-- for _,creep in pairs(creeps) do
+			-- for _,t in ipairs(creeps_zones_all) do
+				-- if t and creep then
+					-- if t == creep:GetUnitName() then 
+						-- if creep:IsAlive() then
+						-- creep:ForceKill(false)
+						-- UTIL_Remove( creep )
+						-- end
+					-- end
+				-- end
+			-- end
+		-- end
+	-- end,
+	-- function(e)
+		-- print("-------------Error-------------")
+		-- print(e)
+		-- print("-------------Error-------------")
+	-- end)  
+	-- дебаг
 
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("all ok")
-	else
-	print("error")
-	end		
+	-- вызов вункции в которой может быть ошибка
+	-- if bResult then
+	-- print("all ok")
+	-- else
+	-- print("error")
+	-- end		
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -721,7 +723,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 
-	
 	if _G.donate_bosses_count and #_G.donate_bosses_count > 0 then
 		for i, hCreep in ipairs( _G.donate_bosses_count ) do
 			if killedUnit == hCreep then

@@ -4,6 +4,14 @@ LinkLuaModifier( "modifier_alchemist_acid_spray_lua", "heroes/hero_alchemist/alc
 
 alchemist_unstable_concoction_lua = class({})
 
+function alchemist_unstable_concoction_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
+end
+
+
 function alchemist_unstable_concoction_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()

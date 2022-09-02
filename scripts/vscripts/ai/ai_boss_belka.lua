@@ -24,8 +24,13 @@ function NeutralThink()
 		return 1
 	end
 	
+	if not thisEntity.bInitialized then
+		thisEntity.vInitialSpawnPos = Vector(-1242,6291,401)
+		thisEntity.bInitialized = true
+	end
+	
 	if thisEntity:IsChanneling() then  
-        return 1 
+        return RandomFloat(0.4, 1.2)
     end
 	
 	local search_radius = thisEntity:GetAcquisitionRange()
@@ -33,6 +38,14 @@ function NeutralThink()
 	local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )
 	if #enemies > 0 then
 	enemy = enemies[1]
+	
+		counter = #boss_belka
+		while counter > 1 do
+			local index = math.random(counter)
+			swap(boss_belka, index, counter)		
+			counter = counter - 1
+		end
+				
 		for _, T in ipairs(boss_belka) do
 			local Spell = thisEntity:FindAbilityByName(T)
 			if Spell then
@@ -64,7 +77,30 @@ function NeutralThink()
 			return UseItem()
 		end	
 	end	
-	return 1
+	
+	local flDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+	if flDist > 2000 then
+		RetreatHome()
+	end
+	if flDist > 2400 then
+		FindClearSpaceForUnit(thisEntity, thisEntity.vInitialSpawnPos, false)
+	end
+	
+	return RandomFloat(0.4, 1.2)
+end
+
+
+function RetreatHome()
+	ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+		Position = thisEntity.vInitialSpawnPos,
+	})
+	return 0.5
+end
+
+function swap(array, index1, index2)
+	array[index1], array[index2] = array[index2], array[index1]
 end
 
 function SearchForItems()

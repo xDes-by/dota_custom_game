@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_item_pet_donate_gold", "items/pets/pet_donate_gold", 
 
 spell_item_pet_donate_gold = class({})
 
-function spell_tem_pet_donate_gold:OnSpellStart()
+function spell_item_pet_donate_gold:OnSpellStart()
 	if IsServer() then
 		self.caster = self:GetCaster()
 		
@@ -20,6 +20,8 @@ function spell_item_pet_donate_gold:GetIntrinsicModifierName()
 	return "modifier_item_pet_donate_gold"
 end
 
+-------------------------------------------------------------
+
 modifier_item_pet_donate_gold = class({})
 
 function modifier_item_pet_donate_gold:IsHidden()
@@ -31,27 +33,28 @@ function modifier_item_pet_donate_gold:IsPurgable()
 end
 
 function modifier_item_pet_donate_gold:OnCreated( kv )
-		if IsServer() then
-		local point = self:GetCaster():GetAbsOrigin()
-		if not self:GetCaster():IsIllusion() then
-	self.pet = CreateUnitByName("pet_donate_gold", point, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
-	self.pet:SetOwner(self:GetCaster())
-	self:StartIntervalThink(1)
+	if IsServer() then
+	local point = self:GetCaster():GetAbsOrigin()
+	if not self:GetCaster():IsIllusion() then
+		self.pet = CreateUnitByName("pet_donate_gold", point, true, nil, nil, DOTA_TEAM_GOODGUYS)
+		self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
+		self.pet:SetOwner(self:GetCaster())
+		self:StartIntervalThink(1)
 		end
 	end
 end
+
 function modifier_item_pet_donate_gold:OnDestroy()
 	UTIL_Remove(self.pet)
 end
-function modifier_item_pet_donate_gold:OnIntervalThink()
-if IsServer() then
-	local parent = self:GetParent()
-	local ability = self:GetAbility()
-	local gold = ability:GetSpecialValueFor("gold")
 
-	parent:ModifyGold(gold, true, 0)
-end
+function modifier_item_pet_donate_gold:OnIntervalThink()
+	if IsServer() then
+		local parent = self:GetParent()
+		local ability = self:GetAbility()
+		local gold = ability:GetSpecialValueFor("gold")
+		parent:ModifyGold(gold, true, 0)
+	end
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,7 +95,7 @@ end
 
 function modifier_donate_pet_gold:DeclareFunctions()
 	local funcs = {
-	MODIFIER_PROPERTY_MODEL_CHANGE,
+		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK,

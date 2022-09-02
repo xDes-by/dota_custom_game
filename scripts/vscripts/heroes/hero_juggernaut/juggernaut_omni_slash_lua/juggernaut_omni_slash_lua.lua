@@ -24,9 +24,9 @@ end
 function juggernaut_omni_slash_lua:GetCooldown(level)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_juggernaut_int8") 
 		if abil ~= nil then
-		return math.min(65000, self.BaseClass.GetCooldown(self, level) - 60)
+		return self.BaseClass.GetCooldown(self, level) - 60
 	 else
-		return math.min(65000, self.BaseClass.GetCooldown(self, level))
+		return self.BaseClass.GetCooldown(self, level)
 	 end
 end
 
@@ -46,12 +46,12 @@ function juggernaut_omni_slash_lua:OnAbilityPhaseStart()
 	return true
 end
 
-	function juggernaut_omni_slash_lua:GetManaCost(iLevel)
+function juggernaut_omni_slash_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     if caster then
-        return caster:GetIntellect()*3
+        return math.min(65000, caster:GetIntellect()*3)
     end
-	end
+end
 
 function juggernaut_omni_slash_lua:OnSpellStart()
 	self.caster = self:GetCaster()

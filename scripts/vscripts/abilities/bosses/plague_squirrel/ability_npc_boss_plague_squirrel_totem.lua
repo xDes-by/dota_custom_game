@@ -50,11 +50,39 @@ function modifier_ability_npc_boss_plague_squirrel_totem:OnCreated()
 end
 
 function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
-    local npc = CreateUnitByName("npc_plague_squirrel", self:GetCaster():GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS )
+    local npc = CreateUnitByName("npc_plague_squirrel", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber() )
 	npc:AddNewModifier(npc, nil, "modifier_kill", {duration = 5})
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_ability_npc_boss_plague_squirrel_hit", {})
+	
+	local all_units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+	for _,unit in pairs(all_units) do
+		local damageTable = {
+			victim = unit,
+			attacker = self:GetCaster(),
+			damage = unit:GetMaxHealth()*0.2,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+		}
+		ApplyDamage(damageTable)
+			
+		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", {
+				center_x			= self:GetAbility().point[1] + 1,
+				center_y			= self:GetAbility().point[2] + 1,
+				center_z			= self:GetAbility().point[3],
+				duration			= 0.4 * (1 - unit:GetStatusResistance()),
+				knockback_duration	= 0.4 * (1 - unit:GetStatusResistance()),
+				knockback_distance	= 50,
+				knockback_height	= 0,
+				should_stun			= 0
+			})	
+		end
+		
+	ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(ShieldParticle, 1, Vector(500,0,500))
+	ParticleManager:SetParticleControlEnt(ShieldParticle, 0, nil, PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetCaster():GetAbsOrigin(), true)
+	EmitSoundOn( "Hero_EarthShaker.Arcana.run_alt1", self:GetCaster() )
+	
 	self:StartIntervalThink(-1)
-	self:StartIntervalThink(3)
+	self:StartIntervalThink(2)
 end
 
 function modifier_ability_npc_boss_plague_squirrel_totem:GetModifierIncomingDamage_Percentage(data)
@@ -175,8 +203,8 @@ function modifier_ability_npc_boss_plague_squirrel_silense:OnCreated()
 if not IsServer() then return end
     ApplyDamage({
 	victim = self:GetParent(),
-    damage = self:GetParent():GetHealth()/10,
-    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage = self:GetParent():GetHealth()/20,
+    damage_type = DAMAGE_TYPE_PURE,
     damage_flags = DOTA_DAMAGE_FLAG_NONE,
     attacker = self:GetCaster()
 	})

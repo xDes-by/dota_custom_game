@@ -27,7 +27,7 @@ function modifier_zuus_passive_lua:RemoveOnDeath()
 end
 
 function modifier_zuus_passive_lua:OnCreated()	
-	self:StartIntervalThink(1)
+	self:StartIntervalThink(0.1)
 end
 
 function modifier_zuus_passive_lua:OnIntervalThink()

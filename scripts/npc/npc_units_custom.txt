@@ -401,7 +401,7 @@
 		"ModelScale" 				"1.1"
         "IsAncient" 				"1"
 	
-		"Ability1"					"respawn_farm_zone"
+		"Ability1"					""
         "Ability2" 					"drake_corrosive_skin"
         "Ability4" 					"black_dragon_splash_attack"
 
@@ -478,7 +478,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
-		"AttackRate"				"1.0"
+		"AttackRate"				"0.1"
+		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"1200"
 		"AttackRange"				"50"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -490,6 +491,72 @@
 			}
 		}
 	}
+	
+"npc_boss_plague_squirrel_copy"
+	{	
+		"vscripts"					"ai/ai_boss_belka"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/hoodwink/hoodwink.vmdl"
+		"SoundSet"					"Hero_Hoodwink"
+		"ModelScale"				"2"
+		"Level"						"1"
+		"HasInventory"				"1"
+		"IsAncient"					"1"
+		
+	    "Ability1"					"ability_npc_boss_plague_squirrel_spell1"
+	    "Ability2"					"ability_npc_boss_plague_squirrel_spell2"     
+	    "Ability3"					"ability_npc_boss_plague_squirrel_spell3"     
+	    "Ability4"					"ability_npc_boss_plague_squirrel_spell4"   
+	    "Ability5"					""  
+	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
+		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
+		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
+		"Ability9"                 	"necronomicon_warrior_sight"
+		
+		"ArmorPhysical"				"999"
+		"MagicalResistance"			"99"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"5000000"
+		"AttackDamageMax"			"5000000"
+		"AttackRate"				"0.1"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"2000"
+		"AttackRange"				"575"
+		"ProjectileModel"			"particles/units/heroes/hero_hoodwink/hoodwink_base_attack.vpcf"
+		"ProjectileSpeed"			"1800"
+
+		"RingRadius"				"70"
+		"HealthBarOffset"			"500"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"0.5"
+
+		"StatusHealth"				"2000000000"
+		"StatusMana"				"60000"
+		"StatusManaRegen"			"1000.0"
+		
+		"VisionDaytimeRange"		"2800"
+		"VisionNighttimeRange"		"2800"
+
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"Creature"
+		{	
+		
+		"DisableResistance"			"95.0"
+			"AttachWearables"
+			{
+				"Wearable1" {"ItemDef" "22222"}
+				"Wearable2" {"ItemDef" "23246"}
+				"Wearable3" {"ItemDef" "23247"}
+				"Wearable4" {"ItemDef" "23249"}
+			}
+		}
+	}	
 	
 "npc_boss_plague_squirrel"
 	{	
@@ -509,7 +576,8 @@
 	    "Ability5"					"ability_npc_boss_plague_squirrel_spell5"  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
-		"Ability8"                 	"necronomicon_warrior_sight"
+		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
+		"Ability9"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"999"
 		"MagicalResistance"			"99"
@@ -7306,7 +7374,7 @@
 	
 	"npc_swamp_boss_fake"
 	{
-		"vscripts"					"ai/ai_npc_swamp_boss2.lua"
+		"vscripts"					"ai/ai_npc_swamp_boss.lua"
 		"Model"						"models/heroes/venomancer/venomancer.vmdl"
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"Hero_Venomancer"

@@ -38,7 +38,7 @@ function modifier_ability_npc_boss_plague_squirrel_spell6:OnCreated()
     ParticleManager:SetParticleControl(pfx, 5, self:GetCaster():GetAbsOrigin())
 	self:AddParticle(pfx,false,false,-1,false,false)
     self:SetStackCount(self:GetAbility():GetSpecialValueFor("stacks_count"))
-    self.damage = self:GetAbility():GetSpecialValueFor("bonus_damage_pct") * 0.01 * self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster())
+    self.damage = self:GetAbility():GetSpecialValueFor("bonus_damage_pct") * 0.01 * self:GetCaster():GetAverageTrueAttackDamage(nil)
 end
 
 function modifier_ability_npc_boss_plague_squirrel_spell6:DeclareFunctions()

@@ -1011,7 +1011,7 @@
 
 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus" "<font color='#df1022'>體質</font>" 
-        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Active: Ultra Walk</h1> 通過變身為 Physizizi，您也會變得非常快。作為寵物，你受到的傷害增加 3 倍。\n<h1>被動：FYZ</h1> 你不造成魔法傷害，但所有物理傷害增加 150%" 
+        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Active: Ultra Walk</h1> 通过变身为 Physizizi，您也会变得非常快。 作为宠物，你受到的伤害增加 3 倍。\n<h1>被动：FYZ</h1> 你不造成魔法伤害，但所有物理伤害增加" 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_lore" "寵物可以在更短的時間內旅行更遠的距離。造成傷害或使用法術時，你會變回自己。" 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_speed" "移動速度：" 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_phys_percent" "%獎金物理傷害：" 
@@ -14361,8 +14361,8 @@
         "dota_tooltip_ability_sniper_headshot_lua_bonus_attack_range" "獎金範圍：" 
 
         "dota_tooltip_ability_sniper_ult" "爆炸子彈" 
-        "dota_tooltip_ability_sniper_ult_description" "英雄開始發射爆炸彈，當它們擊中時，它們會爆炸，對小範圍內的所有敵人造成英雄基礎傷害的百分比。" 
-        "dota_tooltip_ability_sniper_ult_cleave_damage" "%基礎傷害：" 
+        "dota_tooltip_ability_sniper_ult_description" "英雄开始发射爆炸弹，击中时爆炸，对 %radius% 范围内的所有敌人造成英雄基础伤害的百分比。" 
+        "dota_tooltip_ability_sniper_ult_damage" "%基礎傷害：" 
 
         "npc_dota_hero_sniper_str6" "釘住陷阱" 
         "npc_dota_hero_sniper_str6_description" "彈片在其效果下大大降低敵人的攻擊速度。" 

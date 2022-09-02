@@ -1012,7 +1012,7 @@
 
 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus" "<font color='#df1022'>Physizizi</font>"
-        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Active: Ultra Walk</h1> By transforming into Physizizi you become extremely fast as well. As a pet you take 3 times more damage.\n<h1>Passive: FYZ</h1> You do not deal magic damage, but all physical damage is 150% more"
+        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_description" "<h1>Active: Ultra Walk</h1> By transforming into Physizizi you become extremely fast as well. As a pet you take 3 times more damage.\n<h1>Passive: FYZ</h1> You do not deal magic damage, but all physical damage more"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_lore" "The pet can travel greater distances in less time. When dealing damage or using a spell, you will turn back into yourself."
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_speed" "MOVEMENT SPEED:"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_phys_percent" "%BONUS PHYSICAL DAMAGE:"
@@ -14356,8 +14356,8 @@
         "dota_tooltip_ability_sniper_headshot_lua_bonus_attack_range" "BONUS RANGE:"
 
         "dota_tooltip_ability_sniper_ult" "Explosive Bullet"
-        "dota_tooltip_ability_sniper_ult_description" "The hero begins to shoot explosive cartridges, when they hit, they explode, dealing a percentage of the hero's base damage to all enemies in a small radius."
-        "dota_tooltip_ability_sniper_ult_cleave_damage" "%BASE DMG:"
+        "dota_tooltip_ability_sniper_ult_description" "The hero starts firing explosive rounds, on hit they explode, dealing a percentage of the hero's base damage to all enemies within a % radius%."
+        "dota_tooltip_ability_sniper_ult_damage" "%BASE DMG:"
 
         "npc_dota_hero_sniper_str6" "Pinning Trap"
         "npc_dota_hero_sniper_str6_description" "Shrapnel greatly reduces enemies attack speed under its effect."
