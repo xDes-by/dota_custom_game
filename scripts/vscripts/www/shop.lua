@@ -661,7 +661,9 @@ function Shop:UpdatePetButton(t)
 			break
 		end
 	end
-	DataBase:UpdatePet(t.pet.name, pid, count)
+	if not DataBase:isCheatOn() then
+		DataBase:UpdatePet(t.pet.name, pid, count)
+	end
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
 	shopinfo['feed'] = Shop.pShop[pid]["feed"]
 	shopinfo['coins'] = Shop.pShop[pid]["coins"]

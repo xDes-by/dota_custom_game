@@ -1105,14 +1105,6 @@
 		"17"
 		{
 			"UnitName"	"npc_31"
-			"unlock"
-			{
-				"1"
-				{
-					"type"	"bonus"
-					"number"	"6"
-				}
-			}
 			"reward"
 			{
 				"experience"
@@ -1182,14 +1174,6 @@
 			"options"
 			{
 				"available"				"1"
-			}
-			"unlock"
-			{
-				"1"
-				{
-					"type"	"bonus"
-					"number"	"2"
-				}
 			}
 			"UnitName"	"npc_4"
 			"reward"
