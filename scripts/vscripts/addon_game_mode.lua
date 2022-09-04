@@ -17,7 +17,6 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV2("MCF")
-_G.key = "AB56048319C5924D58A22984D2BFA5EC12198DD7"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -346,6 +345,7 @@ function leave_game()
 end
 
 _G.kill_invoker = false
+_G.destroyed_barracks = false
 
 function CAddonAdvExGameMode:OnPlayerReconnected(keys)
 local state = GameRules:State_Get()
@@ -920,14 +920,17 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_creeps" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack1")
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_comandirs" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack2")
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_boss" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_byrocktar")
 	end
 	

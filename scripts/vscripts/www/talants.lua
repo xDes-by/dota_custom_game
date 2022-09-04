@@ -186,7 +186,7 @@ function talants:OnGameRulesStateChange()
                         talants:AddExperienceDonate(nPlayerID, gave_exp)
                         talants:AddExperience(nPlayerID, gave_exp)
                         
-                        if wave_count == 0 or _G.kill_invoker == true then
+                        if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
                             return nil
                         end
                         return 1
