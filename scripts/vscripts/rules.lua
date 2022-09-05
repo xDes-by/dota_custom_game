@@ -38,7 +38,7 @@ function Rules:tower_hp()
 	end
 end
 
-timer_spawn_time_donate = 15
+timer_spawn_time_donate = 13
 
 function Rules:spawn_creeps_donate()
 	Timers:CreateTimer(function()

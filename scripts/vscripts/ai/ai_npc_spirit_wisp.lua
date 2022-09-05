@@ -46,8 +46,6 @@ end
 --------------------------------------------------------------------------------
 
 function Approach( hUnit )
-	--print( "Ogre Magi is approaching unit named " .. hUnit:GetUnitName() )
-
 	local vToUnit = hUnit:GetOrigin() - thisEntity:GetOrigin()
 	vToUnit = vToUnit:Normalized()
 
@@ -63,8 +61,6 @@ end
 --------------------------------------------------------------------------------
 
 function Bloodlust( hUnit )
-	--print( "Casting bloodlust on " .. hUnit:GetUnitName() )
-
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,

@@ -13,6 +13,8 @@ LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTIO
 LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
+
 if Spawner == nil then
 	Spawner = class({})
 end
@@ -37,6 +39,7 @@ function add_modifier(unit)
 		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end	
+	unit:AddNewModifier(unit, nil, "modifier_unit_on_death2", {})
 end	
 
 wave = 0
@@ -50,7 +53,7 @@ line_time = 120
 
 damage_creeps = 5
 health = 100
-armor = 0.1
+armor = 0.001
 magermor = 10
 golddrop = 1.5
 xp = 2
@@ -147,8 +150,8 @@ function Spawner:settings()
 		set_damage_boss = 2000000000
 	end		
 		
-	set_armor = math.floor(armor+wave^1.02) * 2
-	set_armor_commandir = set_armor * 1.5
+	set_armor = math.floor(wave*2^(1.02+wave*2*armor) * 1.25 )
+ 	set_armor_commandir = set_armor * 1.5
 	set_armor_boss = set_armor * 2
 	
 	set_mag_resist = math.floor(magermor + wave) * 2
@@ -156,8 +159,8 @@ function Spawner:settings()
 	set_mag_resist_commandir =  math.min(set_mag_resist / 2.5, 90)
 	set_mag_resist_boss =  math.min(set_mag_resist / 2, 90)
 	
-	xp = xp + 4
-	golddrop = golddrop + 2.5
+	xp = xp + 8
+	golddrop = golddrop + 5
 	
 	Spawner:SpawnCreeps(creeps_name)					
 	Spawner:SpawnCommandirs(creeps_name)	

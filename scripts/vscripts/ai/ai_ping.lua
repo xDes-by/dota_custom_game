@@ -76,8 +76,6 @@ end
 --------------------------------------------------------------------------------
 
 function CastArrow( hEnemy )
-	--print( "ai_bandit_archer - CastArrow" )
-
 	local fDist = ( hEnemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 	local vTargetPos = hEnemy:GetOrigin()
 
@@ -100,8 +98,6 @@ end
 --------------------------------------------------------------------------------
 
 function Approach(unit)
-	--print( "ai_bandit_archer - Approach" )
-
 	local vToEnemy = unit:GetOrigin() - thisEntity:GetOrigin()
 	vToEnemy = vToEnemy:Normalized()
 
@@ -117,8 +113,6 @@ end
 --------------------------------------------------------------------------------
 
 function Retreat(unit)
-	--print( "ai_bandit_archer - Retreat" )
-
 	local vAwayFromEnemy = thisEntity:GetOrigin() - unit:GetOrigin()
 	vAwayFromEnemy = vAwayFromEnemy:Normalized()
 	local vMoveToPos = thisEntity:GetOrigin() + vAwayFromEnemy * thisEntity:GetIdealSpeed()

@@ -16,7 +16,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 
-_G.key = GetDedicatedServerKeyV2("MCF")
+_G.key = "CD7F291115CC0A92981393A1EDF4616E1DB085E1"-- GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -621,24 +621,39 @@ function add_soul(boss)
 			local unit = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if boss == "npc_forest_boss" then
 					sInv:AddSoul("item_forest_soul", nPlayerID)
+					unit:ModifyGold( 500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 				end
 				if boss == "npc_village_boss" then
 					sInv:AddSoul("item_village_soul", nPlayerID)
+					sInv:AddSoul("item_forest_soul", nPlayerID)
+					unit:ModifyGold( 1000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1000, nil)
 				end
 				if boss == "npc_mines_boss" then
 					sInv:AddSoul("item_mines_soul", nPlayerID)
+					unit:ModifyGold( 1500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1500, nil)
 				end
 				if boss == "npc_dust_boss" then
 					sInv:AddSoul("item_dust_soul", nPlayerID)
+					unit:ModifyGold( 2000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2000, nil)					
 				end
 				if boss == "npc_swamp_boss" then
 					sInv:AddSoul("item_swamp_soul", nPlayerID)
+					unit:ModifyGold( 2500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2500, nil)					
 				end
 				if boss == "npc_snow_boss" then
 					sInv:AddSoul("item_snow_soul", nPlayerID)
+					unit:ModifyGold( 3000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 3000, nil)			
 				end
 				if boss == "npc_boss_location8" then
 					sInv:AddSoul("item_divine_soul", nPlayerID)
+					unit:ModifyGold( 4000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
 				end
 			end
 		end
@@ -714,9 +729,11 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			killedUnit:SetTimeUntilRespawn( 10 )
 		end
 		-----------------------------------------------
-		if killedUnit:GetTimeUntilRespawn() > 11 then
-			killedUnit:SetTimeUntilRespawn(10)
-		end
+		Timers:CreateTimer(0.1, function()
+			if killedUnit:GetTimeUntilRespawn() > 11 then
+				killedUnit:SetTimeUntilRespawn(10)
+			end
+		end)
 		-----------------------------------------------
 		if diff_wave.wavedef == "Insane" then
 			local mod = killedUnit:FindModifierByName("modifier_insane_lives")

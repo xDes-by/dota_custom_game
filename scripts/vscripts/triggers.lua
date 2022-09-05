@@ -12,7 +12,6 @@ function id_check(trigger)
 	steamID < 1000 then return
 	else
 --	GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-print("a")
 	end
 end
 

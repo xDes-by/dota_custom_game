@@ -48,7 +48,7 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 	
 	
 		
-	--	if  and params.attacker == self:GetCaster() then print("nety") return end
+	--	if  and params.attacker == self:GetCaster() then return end
 		
 	--	if params.target~=self:GetCaster() then return end
 	--	if self:GetCaster():PassivesDisabled() then return end

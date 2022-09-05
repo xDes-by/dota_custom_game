@@ -74,13 +74,11 @@ function modifier_arc_geminate_attack:GetModifierProcAttack_Feedback(keys)
 end
 
 function arc_geminate_attack:OnProjectileHit_ExtraData(target, vLocation, extraData)
-print("a")
 	if IsServer() then
 		self.abi = self:GetCaster():FindAbilityByName("ark_spark_lua")
 		local caster = self:GetCaster()
 		local damage = self.abi:GetSpecialValueFor("damage")	
-		print(damage)
-		
+
 		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi7")
 		if abil ~= nil then 
 			damage = damage + caster:GetAgility()

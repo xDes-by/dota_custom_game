@@ -37,12 +37,12 @@
 							"ScriptFile"	"heroes/hero_sniper/sniper_ult/sniper_ult.lua"
 							"Function"		"DoCleaveDamage"
 						}
-						"FireEffect"
-						{
-							"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-							"EffectAttachType"	"attach_hitloc"
-							"Target"			"TARGET"
-						}
+					//	"FireEffect"
+					//	{
+					//		"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+					//		"EffectAttachType"	"attach_hitloc"
+					//		"Target"			"TARGET"
+					//	}
 						"FireSound"
 						{
 							"EffectName"	"Hero_Jakiro.LiquidFire"

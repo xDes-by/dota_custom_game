@@ -4,8 +4,8 @@ end
 
 function damage:Init()
 	local m = GameRules:GetGameModeEntity()
-	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(damage, 'OnEntityHurt'), self)
-	ListenToGameEvent('entity_hurt', Dynamic_Wrap(self, 'OnEntityHurt'), self)
+	-- GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(damage, 'OnEntityHurt'), self)
+	-- ListenToGameEvent('entity_hurt', Dynamic_Wrap(self, 'OnEntityHurt'), self)
 	damage.dmgtable = {}
 	m:SetThink( "OnThink", self, "dmgTableEssentialTick", 0.1 )
 end
@@ -19,7 +19,7 @@ function damage:OnThink()
 		end
 	end
 	CustomGameEventManager:Send_ServerToTeam(2, "dmgtable", damage.dmgtable)
-	return 0.1
+	-- return 0.1
 end
 
 function damage:OnEntityHurt(t)

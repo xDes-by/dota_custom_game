@@ -1351,6 +1351,7 @@
         "quest_farm_zone_dragon" "将黑龙带入地球"
         "quest_farm_zone_dragon_desc" "杀掉养殖区的黑龙"
         "quest_npc_snow_boss" "杀死雪老板"
+        "quest_npc_snow_boss_desc" "杀死雪老板"
 
 
         ///////////
@@ -12744,7 +12745,7 @@
 		
         //Alchemist//
 
-        "DOTA_Tooltip_ability_alchemist_acid_spray_lua_lua" "酸噴霧" 
+        "DOTA_Tooltip_ability_alchemist_acid_spray_lua" "酸噴霧" 
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_Description" "在指定區域噴灑一團酸液，對敵人造成周期性傷害並降低其護甲。" 
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_radius" "分佈半徑：" 
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_duration" "期間：" 
@@ -13388,9 +13389,9 @@
         "npc_dota_hero_centaur_str10" "骨甲" 
         "npc_dota_hero_centaur_str10_description" "在藉用時間內，每殺死一個小兵可獲得 10 點生命值。" 
         "npc_dota_hero_centaur_str11" "實力實力" 
-        "npc_dota_hero_centaur_str11_description" "回歸時 +25% STR 傷害" 
+        "npc_dota_hero_centaur_str11_description" "回歸時 +50% STR 傷害" 
         "npc_dota_hero_centaur_str_last" "強大的回報力" 
-        "npc_dota_hero_centaur_str_last_description" "回歸時 +25% STR 傷害" 
+        "npc_dota_hero_centaur_str_last_description" "回歸時 +100% STR 傷害" 
 
         "npc_dota_hero_centaur_agi6" "輕甲" 
         "npc_dota_hero_centaur_agi6_description" "Return Now 正在使用 AGI" 
@@ -13798,8 +13799,8 @@
         "npc_dota_hero_dragon_knight_int6_description" "獲得 25% 冷卻縮減" 
         "npc_dota_hero_dragon_knight_int7" "青龍之力" 
         "npc_dota_hero_dragon_knight_int7_description" "龍劍傷害現在等於INT" 
-        "npc_dota_hero_lina_int8" "龍之力" 
-        "npc_dota_hero_lina_int8_description" "龍奴獲得相當於英雄智力 100% 的傷害加成" 
+        "npc_dota_hero_dragon_knight_int8" "龍之力" 
+        "npc_dota_hero_dragon_knight_int8_description" "龍奴獲得相當於英雄智力 100% 的傷害加成" 
         "npc_dota_hero_dragon_knight_int9" "龍毒" 
         "npc_dota_hero_dragon_knight_int9_description" "龍形態的毒傷害現在等於你的智力" 
         "npc_dota_hero_dragon_knight_int10" "紅龍之力" 

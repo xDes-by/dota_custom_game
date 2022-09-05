@@ -53,7 +53,6 @@ function lina_stun:OnSpellStart()
 	local dummies = {}
 	-- destroyunits = false
 	Timers:CreateTimer(function()
-	print("Sa")
 			range = range + spacing
 			point_loc = caster_pos + direction * range
 			local dummy = CreateUnitByName("npc_dummy_unit", point_loc, false, caster, caster, caster:GetTeamNumber())
@@ -88,7 +87,6 @@ function lina_stun:OnSpellStart()
 				-- destroyunits = true
 				-- return 3
 			else
-			print("s")
 				for _,unit in ipairs(dummies) do
 					UTIL_Remove(unit)
 				end

@@ -44,7 +44,7 @@ function OgreMagiThink()
 				if ( friendly:GetUnitName() == "npc_swamp_boss" ) or ( friendly:GetUnitName() == "npc_swamp_boss" ) then
 					local fDist = ( friendly:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 					local fCastRange = BloodlustAbility:GetCastRange( thisEntity:GetOrigin(), nil )
-					--print( string.format( "fDist == %d, fCastRange == %d", fDist, fCastRange ) )
+					
 					if ( fDist <= fCastRange ) and ( ( #enemies > 0 ) or ( friendly:GetAggroTarget() ) ) then
 						return Bloodlust( friendly )
 					elseif ( fDist > 400 ) and ( fDist < 900 ) then
@@ -66,8 +66,6 @@ end
 --------------------------------------------------------------------------------
 
 function Approach( hUnit )
-	--print( "Ogre Magi is approaching unit named " .. hUnit:GetUnitName() )
-
 	local vToUnit = hUnit:GetOrigin() - thisEntity:GetOrigin()
 	vToUnit = vToUnit:Normalized()
 
@@ -83,8 +81,6 @@ end
 --------------------------------------------------------------------------------
 
 function Bloodlust( hUnit )
-	--print( "Casting bloodlust on " .. hUnit:GetUnitName() )
-
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -99,8 +95,6 @@ end
 --------------------------------------------------------------------------------
 
 function IgniteArea( hEnemy )
-	--print( "Casting ignite on " .. hEnemy:GetUnitName() )
-
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,

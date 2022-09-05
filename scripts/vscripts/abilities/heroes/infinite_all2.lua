@@ -62,7 +62,6 @@ function stackone()
     local fleshHeapStackModifier = "modifier_modifier_infinite_all2_collector"
 	local hero = Entities:FindByName( nil, "npc_dota_hero_treant")
 	local currentStacks = hero:GetModifierStackCount(fleshHeapStackModifier, ability)
-	--print(currentStacks)
 	local modifier = hero:AddNewModifier(hero, ability, fleshHeapStackModifier, nil)
     hero:SetModifierStackCount(fleshHeapStackModifier, hero, (currentStacks + 1))
 end

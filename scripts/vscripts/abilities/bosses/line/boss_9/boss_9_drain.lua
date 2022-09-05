@@ -127,9 +127,6 @@ end
 
 function modifier_boss_9_drain:OnDestroy()
 	if not IsServer() then return end
-
-	-- Remove particles
-	print(self.particle_drain_fx)
 	
 	ParticleManager:DestroyParticle(self.particle_drain_fx, false)
 	ParticleManager:ReleaseParticleIndex(self.particle_drain_fx)

@@ -1351,6 +1351,7 @@
         "quest_farm_zone_dragon"        "Спустить с небес на землю Черных драконов"
         "quest_farm_zone_dragon_desc"   "Убей черных драконов на локации для фарма"
         "quest_npc_snow_boss"           "Убей босса снежной локации"
+        "quest_npc_snow_boss_desc"           "Убей босса снежной локации"
 
 
         
@@ -12731,7 +12732,7 @@
         
         //Alchemist//
 
-        "DOTA_Tooltip_ability_alchemist_acid_spray_lua_lua"								"Acid Spray"
+        "DOTA_Tooltip_ability_alchemist_acid_spray_lua"									"Acid Spray"
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_Description"						"Распыляет в указанной области облако кислоты, которое наносит врагам периодический урон и снижает их броню."
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_radius"							"РАДИУС ОБЛАКА:"
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_duration"						"ДЛИТЕЛЬНОСТЬ:"
@@ -13376,9 +13377,9 @@
         "npc_dota_hero_centaur_str10" "Броня из костей"
         "npc_dota_hero_centaur_str10_description" "Во время действия Borrowed Time получает +50 здоровья за убитого крипа"
         "npc_dota_hero_centaur_str11" "Сила силы"
-        "npc_dota_hero_centaur_str11_description" "+25% урона от силы у Return"
+        "npc_dota_hero_centaur_str11_description" "+50% урона от силы у Return"
         "npc_dota_hero_centaur_str_last" "Великая сила возврата"
-        "npc_dota_hero_centaur_str_last_description" "+25% урона от силы у Return"
+        "npc_dota_hero_centaur_str_last_description" "+100% урона от силы у Return"
 
         "npc_dota_hero_centaur_agi6" "Легкий доспех"
         "npc_dota_hero_centaur_agi6_description" "Return работает от ловкости"
@@ -13786,8 +13787,8 @@
         "npc_dota_hero_dragon_knight_int6_description" "-25% кулдауна"
         "npc_dota_hero_dragon_knight_int7" "Сила синих драконов"
         "npc_dota_hero_dragon_knight_int7_description" "Урон от Dragon Sword равен интеллекту"
-        "npc_dota_hero_lina_int8" "Драконья сила"
-        "npc_dota_hero_lina_int8_description" "Dragon Slave получает бонус к урону равный 100% интеллекта героя"
+        "npc_dota_hero_dragon_knight_int8" "Драконья сила"
+        "npc_dota_hero_dragon_knight_int8_description" "Dragon Slave получает бонус к урону равный 100% интеллекта героя"
         "npc_dota_hero_dragon_knight_int9" "Драконий токсин"
         "npc_dota_hero_dragon_knight_int9_description" "Урон от яда равен интеллекту"
         "npc_dota_hero_dragon_knight_int10" "Сила красных драконов"

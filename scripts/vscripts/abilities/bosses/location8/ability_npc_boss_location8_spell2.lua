@@ -26,8 +26,6 @@ function ability_npc_boss_location8_spell2:OnSpellStart()
 		local angle = self:GetCaster():GetAngles()
 		local new_angle = RotateOrientation(angle, QAngle(0,72*count,0))
 		self:GetCaster():SetAngles(new_angle[1], new_angle[2], new_angle[3])
-		
-		print(new_angle)
 	
 		local forvard = self:GetCaster():GetForwardVector()
 		local stun_duration = self:GetSpecialValueFor("stun_duration")

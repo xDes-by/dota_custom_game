@@ -17,11 +17,11 @@ function modifier_terrorblade_reflection_lua:OnCreated( kv )
 		if ability~=nil and ability:GetLevel()>=1 then
 		
 	self.slow = -ability:GetSpecialValueFor( "move_slow" )
-	self.outgoing = ability:GetSpecialValueFor( "illusion_outgoing_tooltip" ) -100
+	self.outgoing = ability:GetSpecialValueFor( "illusion_outgoing_tooltip" ) - 100
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_agi6")
 	if abil ~= nil then
-	self.outgoing = self.outgoing + 100
+		self.outgoing = ability:GetSpecialValueFor( "illusion_outgoing_tooltip" ) * 2 - 100
 	end
 
 	if not IsServer() then return end
@@ -50,9 +50,10 @@ function modifier_terrorblade_reflection_lua:OnCreated( kv )
 		"modifier_terrorblade_reflection_lua_illusion", -- modifier name
 		{ duration = self:GetDuration() } -- kv
 	)
-
+	
+	if self:GetParent() ~= nil then
+	
 	ability:SetContextThink( ability:GetAbilityName(), function()
-		-- command to attack target
 		local order = {
 			UnitIndex = illusion:entindex(),
 			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
@@ -61,12 +62,11 @@ function modifier_terrorblade_reflection_lua:OnCreated( kv )
 		ExecuteOrderFromTable( order )
 	end, FrameTime())
 
-	-- add to illusion table
 	self.illusions = self.illusions or {}
 	self.illusions[ illusion ] = true
 
-	-- start interval
 	self:StartIntervalThink( 0.1 )
+	end
 end
 end
 
@@ -79,8 +79,6 @@ end
 
 function modifier_terrorblade_reflection_lua:OnDestroy()
 	if not IsServer() then return end
-
-	-- destroy all illusions
 	for illusion,_ in pairs( self.illusions ) do
 		if not illusion:IsNull() then
 			illusion:ForceKill( false )
@@ -88,13 +86,10 @@ function modifier_terrorblade_reflection_lua:OnDestroy()
 	end
 end
 
---------------------------------------------------------------------------------
--- Modifier Effects
 function modifier_terrorblade_reflection_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 	}
-
 	return funcs
 end
 
@@ -102,8 +97,6 @@ function modifier_terrorblade_reflection_lua:GetModifierMoveSpeedBonus_Percentag
 	return self.slow
 end
 
---------------------------------------------------------------------------------
--- Interval Effects
 function modifier_terrorblade_reflection_lua:OnIntervalThink()
 	local parent = self:GetParent()
 	local origin = parent:GetOrigin()

@@ -88,7 +88,6 @@ function modifier_shopkeeper2_aura:OnCreated(t) --вызов активации 
   if IsServer() then
    		self.pid = self:GetParent():GetPlayerOwnerID()
 	--	self:GetParent().res['activeshops'][self:GetCaster():GetUnitName()] = true
-	--	print("modifier_shopkeeper2_aura")
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self.pid),"ActivateShop2",{name = self:GetCaster():GetUnitName()})
 		--print(self:GetCaster():GetUnitName())
   end

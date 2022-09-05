@@ -50,7 +50,7 @@ end
 	local abil = caster:FindAbilityByName("npc_dota_hero_lina_str11")	
 		if abil ~= nil then 
 		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-		damage = caster:GetHealth()
+			damage = caster:GetHealth()
 		end
 
 	 local damage_table 		= {}
