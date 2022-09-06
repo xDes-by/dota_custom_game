@@ -1,7 +1,7 @@
 modifier_hp_regen_commandir = class({})
 
 function modifier_hp_regen_commandir:IsHidden()
-	return false
+	return true
 end
 
 function modifier_hp_regen_commandir:IsPurgable()

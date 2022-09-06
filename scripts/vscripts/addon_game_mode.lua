@@ -392,23 +392,23 @@ for i=2,25 do
   end
   
   for i=51,75 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
   end
   
   for i=76,100 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
   end
   
   for i=101,150 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
   end
   
   for i=151,200 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
   end
   
   for i=201,299 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 800 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
   end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -437,9 +437,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	end	 
 
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		
-		GameRules:SendCustomMessage("#start_chat",0,0)
-
+	
 		local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 		hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 		EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	

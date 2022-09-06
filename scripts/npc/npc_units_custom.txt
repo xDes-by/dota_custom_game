@@ -515,7 +515,7 @@
 		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
 		
-		"ArmorPhysical"				"999"
+		"ArmorPhysical"				"500"
 		"MagicalResistance"			"99"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -581,7 +581,7 @@
 		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
 		
-		"ArmorPhysical"				"999"
+		"ArmorPhysical"				"500"
 		"MagicalResistance"			"99"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
