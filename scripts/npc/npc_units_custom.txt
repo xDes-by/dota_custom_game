@@ -1296,22 +1296,21 @@
 	"sniper_tank"
 	{
 		"BaseClass"				"npc_dota_creature"
-		"Model"					"models/npc_minions/draft_siege_good.vmdl"
-		"ModelScale"			"3"
+		"Model"					"models/him.vmdl"//"models/npc_minions/draft_siege_good.vmdl"
+		"ModelScale"			"1"
 		"HasInventory"			"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
-		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackRange"			"3000"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackRange"			"0"
 		"ProjectileModel"		"particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare.vpcf"
 		"ProjectileSpeed"		"800"
 		"MovementSpeed"			"150"
 		"ConsideredHero"		"0"
-		"RingRadius"			"150"
+		"RingRadius"			"70"
 		"AttackRate"			"2"
-		"AttackAnimationPoint"	"attach_hitloc"
+//		"AttackAnimationPoint"	"attach_attack"
 		"StatusMana"			"300"
 		"StatusManaRegen"		"1"
-		"StatusStartingMana"	"300"
 	}
 	
 //==============================================================================================================================	

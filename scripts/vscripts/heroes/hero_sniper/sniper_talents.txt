@@ -30,12 +30,12 @@
 			{
 				"IsHidden"				"1"
 				"Passive"				"1"
-				"ThinkInterval" 		"60"	
+				"ThinkInterval" 		"30"	
 				"OnIntervalThink"
 					{	  
 						"RunScript"
 						{
-							"ScriptFile"			"heroes/hero_sniper/sniper_tank/sniper_tank.lua"
+							"ScriptFile"			"heroes/hero_sniper/sniper_tank/call_tank.lua"
 							"Function"				"call_tank"
 						}
 					}
@@ -60,8 +60,7 @@
 	
 	"npc_dota_hero_sniper_str11"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_sniper/sniper_tank/hp_regen"
+		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

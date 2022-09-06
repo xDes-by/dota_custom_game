@@ -73,28 +73,26 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function Spawn_system()
-	local barack = Entities:FindByName( nil, "badguys_creeps")  
-	if barack == nil then 
-		talants.barakDestroy = true
-		wave_count = 0
-	end
-	
-	local barack = Entities:FindByName( nil, "badguys_comandirs")  
-	if barack == nil then 
-		wave_count = 0
-		talants.barakDestroy = true
-	end
-	
-	local barack = Entities:FindByName( nil, "badguys_boss")  
-	if barack == nil then 
-		wave_count = 0
-		talants.barakDestroy = true
-	end
-	
 	Timers:CreateTimer(function()
+		local barack = Entities:FindByName( nil, "badguys_creeps")  
+		if barack == nil then 
+			talants.barakDestroy = true
+			wave_count = 0
+		end
+		
+		local barack = Entities:FindByName( nil, "badguys_comandirs")  
+		if barack == nil then 
+			wave_count = 0
+			talants.barakDestroy = true
+		end
+		
+		local barack = Entities:FindByName( nil, "badguys_boss")  
+		if barack == nil then 
+			wave_count = 0
+			talants.barakDestroy = true
+		end
 		wave = wave + 1
 		rat = rat + wave_count * 2
-		print(rat)
 		for i = 0, 4 do
 			Quests:compl("bonus", 17, 1, i, 1)
 			Quests:compl("bonus", 15, 1, i, 1)

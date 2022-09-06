@@ -4478,7 +4478,7 @@ talantlist = {
             },
             
             npc_dota_hero_sniper_str11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_sniper/str/str-talant-11.png", name = "npc_dota_hero_sniper_str11", description = "", buff = "npc_dota_hero_sniper_str11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_sniper/str/str-talant-12.png", name = "npc_dota_hero_sniper_str11", description = "", buff = "npc_dota_hero_sniper_str11_Description",
                 place = {"str 11"}
             },
             npc_dota_hero_sniper_str_last = {

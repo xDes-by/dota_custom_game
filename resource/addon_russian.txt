@@ -14353,22 +14353,22 @@
         "dota_tooltip_ability_sniper_ult_description" "Герой начинает стрелять разрывными патронами, при попадании они взрываются нанося процент от базового урона героя всем врагам в радиусе %radius%."
         "dota_tooltip_ability_sniper_ult_damage" "%БАЗОВОГО УРОНА:"
 
-        
+		"sniper_tank"	"HIMARS"
 
         "npc_dota_hero_sniper_str6" "Сковывающая ловушка"
         "npc_dota_hero_sniper_str6_description" "Шрапнель сильно снижает скорость атаки"
         "npc_dota_hero_sniper_str7" "Раны от осколков"
         "npc_dota_hero_sniper_str7_description" "Длительность замедления от гранаты 10 секунд"
-        "npc_dota_hero_sniper_str8" "ПВО"
+        "npc_dota_hero_sniper_str8" "M142 HIMARS"
         "npc_dota_hero_sniper_str8_description" "Призывает раз в 60 секунд ракетницу с уроном равным х5 от силы героя."
         "npc_dota_hero_sniper_str9" "Ближний бой"
         "npc_dota_hero_sniper_str9_description" "Уменьшает дальность атаки до 350 единиц и увеличивает урона на х2 от силы героя"
         "npc_dota_hero_sniper_str10" "Гренадер"
         "npc_dota_hero_sniper_str10_description" "Урон ракеты равен силе снайпера"
-        "npc_dota_hero_sniper_str11" "Память падших"
-        "npc_dota_hero_sniper_str11_description" "+1 хп регена за крипа"
+        "npc_dota_hero_sniper_str11" "РСЗО"
+        "npc_dota_hero_sniper_str11_description" "HIMARS атакует в 2 раза быстрее"
         "npc_dota_hero_sniper_str_last" "И у предметов есть предел до порока ярости"
-        "npc_dota_hero_sniper_str_last_description" "Ракетница урон х3"
+        "npc_dota_hero_sniper_str_last_description" "M142 HIMARS урон х3"
 
         "npc_dota_hero_sniper_agi6" "Твердая рука"
         "npc_dota_hero_sniper_agi6_description" "+350 к дальности атаки"

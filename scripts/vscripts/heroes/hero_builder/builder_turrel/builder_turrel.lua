@@ -28,7 +28,7 @@ function build(data)
 	
 		local abil = caster:FindAbilityByName("npc_dota_hero_tinker_str7")
 		if abil ~= nil then
-		hero_health = hero_health * 3
+			hero_health = hero_health * 3
 		end
 	
 	local max_hp = dummy_unit_turret:GetMaxHealth()
@@ -86,7 +86,7 @@ function boom(data)
 	local particle_explosion_fx = ParticleManager:CreateParticle(particle_explosion, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle_explosion_fx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle_explosion_fx, 1, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(particle_explosion_fx, 2, Vector(damage_radius, 1, 1))
+	ParticleManager:SetParticleControl(particle_explosion_fx, 2, Vector(100, 1, 1))
 	ParticleManager:ReleaseParticleIndex(particle_explosion_fx)
 
 	data.caster:EmitSound("Hero_Tinker.Heat-Seeking_Missile_Dud")
