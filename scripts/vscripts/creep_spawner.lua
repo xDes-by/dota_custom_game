@@ -192,7 +192,7 @@ function creep_spawner:add_items(unit)
 end
 
 function spawn_creeps_village()
-	for i = 1, 6 do 
+	for i = 1, 5 do 
 		local vPoint1 = Entities:FindByName( nil, "village_spawn_"..i):GetAbsOrigin()
 		for i = 1, 3 do
 			local unit = CreateUnitByName("village_creep_"..i, vPoint1 + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -203,7 +203,7 @@ function spawn_creeps_village()
 end	
 
 function spawn_creeps_mines()
-	for i = 1, 8 do 
+	for i = 1, 7 do 
 	local vPoint1 = Entities:FindByName( nil, "mines_spawn_"..i):GetAbsOrigin()
 		for i = 1, 3 do
 			local unit = CreateUnitByName("mines_creep_"..i, vPoint1 + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -349,7 +349,7 @@ function spawn_creeps_swamp()
 end
 
 function spawn_creeps_snow()
-	for i = 1, 7 do 
+	for i = 1, 6 do 
 		local vPoint1 = Entities:FindByName( nil, "snow_spawn_"..i):GetAbsOrigin()
 		if i == 1 or i == 5 then
 			for i = 1, 4 do
@@ -377,7 +377,7 @@ function spawn_creeps_snow()
 				end	
 			end	
 		end	
-		if i == 3 or i == 7 then
+		if i == 3 or i == 4 then
 			for i = 1, 4 do
 				if i == 3 or i == 4 then
 					local unit = CreateUnitByName("snow_creep_4", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -390,24 +390,11 @@ function spawn_creeps_snow()
 				end
 			end
 		end	
-		if i == 4 then
-			for i = 1, 4 do
-				if i == 3 or i == 4 then
-					local unit = CreateUnitByName("snow_creep_2", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-					difficality_modifier(unit)
-					add_modifier_death(unit, "snow_creep_2")
-				else
-					local unit = CreateUnitByName("snow_creep_3", vPoint1  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-					difficality_modifier(unit)
-					add_modifier_death(unit, "snow_creep_3")
-				end
-			end
-		end	
 	end
 end
 		
 function spawn_creeps_last()
-	for i = 1, 7 do 
+	for i = 1, 6 do 
 		local vPoint1 = Entities:FindByName( nil, "last_spawn_"..i):GetAbsOrigin()
 		if i % 2 == 0 then
 			for i = 1, 4 do

@@ -28,9 +28,21 @@ function NeutralThink()
         return 1 
     end
 	
+	if not thisEntity.bInitialized then
+	thisEntity.vInitialSpawnPos  = thisEntity:GetOrigin()
+        thisEntity.fMaxDist = thisEntity:GetAcquisitionRange()
+        thisEntity.bInitialized = true
+    end
+	
+	
 	local search_radius = thisEntity:GetAcquisitionRange()
 	local hp = thisEntity:GetHealthPercent()
 	local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )
+	if #enemies == 0 then
+		RetreatHome() 
+		return 1
+	end 
+	
 	if #enemies > 0 then
 	enemy = enemies[1]
 		for _, T in ipairs(boss_8_ability) do
@@ -66,6 +78,15 @@ function NeutralThink()
 	end	
 	return 1
 end
+
+function RetreatHome()
+    ExecuteOrderFromTable({
+        UnitIndex = thisEntity:entindex(),
+        OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+        Position = thisEntity.vInitialSpawnPos     
+    })
+end
+
 
 function SearchForItems()
 		for i = 0, 5 do

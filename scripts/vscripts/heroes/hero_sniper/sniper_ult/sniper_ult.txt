@@ -37,12 +37,12 @@
 							"ScriptFile"	"heroes/hero_sniper/sniper_ult/sniper_ult.lua"
 							"Function"		"DoCleaveDamage"
 						}
-						"FireEffect"
-						{
-							"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
-							"EffectAttachType"	"attach_hitloc"
-							"Target"			"TARGET"
-						}
+					//	"FireEffect"
+					//	{
+					//		"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_explosion.vpcf"
+					//		"EffectAttachType"	"attach_hitloc"
+					//		"Target"			"TARGET"
+					//	}
 						"FireSound"
 						{
 							"EffectName"	"Hero_Jakiro.LiquidFire"
@@ -52,4 +52,38 @@
 				}
 			}
 		}
-	}	
+		
+	"boom_himars"
+		{
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"      	"custom_folder/explosion"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"	
+		"OnOwnerDied"
+        {
+           "RunScript"
+				{
+					"ScriptFile"			"heroes/hero_sniper/sniper_tank/call_tank"
+					"Function"				"die"	
+				}
+        }
+		
+		"OnSpellStart"
+			{
+				"RunScript"
+				{
+					"ScriptFile"			"heroes/hero_sniper/sniper_tank/call_tank"
+					"Function"				"boom"	
+				}
+			}
+		}
+		
+		"himars_attack"
+		{
+			"BaseClass"						"ability_lua"
+			"ScriptFile"					"heroes/hero_sniper/sniper_tank/call_tank"
+			"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		}
+}	
+	
+	

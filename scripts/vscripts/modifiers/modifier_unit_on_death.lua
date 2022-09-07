@@ -56,28 +56,29 @@ creep_respawn_20 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_min
 creep_respawn_8 = {"village_creep_1","village_creep_2","village_creep_3"}
 creep_respawn_5 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
 
-point_village = {"village_spawn_1","village_spawn_2","village_spawn_3","village_spawn_4","village_spawn_5","village_spawn_6","village_spawn_7","village_spawn_8"}
-point_mines = {"mines_spawn_1","mines_spawn_2","mines_spawn_3","mines_spawn_4","mines_spawn_5","mines_spawn_6","mines_spawn_7","mines_spawn_8"}
-
+point_village = {"village_spawn_1","village_spawn_2","village_spawn_3","village_spawn_4","village_spawn_5"}
+point_mines = {"mines_spawn_1","mines_spawn_2","mines_spawn_3","mines_spawn_4","mines_spawn_5","mines_spawn_6","mines_spawn_7"}
 
 function modifier_unit_on_death:OnDeath(event)
     if not IsServer() then return end
 
     local creep = event.unit
     if creep ~= self:GetParent() then return end
-
-	for _,t in ipairs(creep_respawn_20) do
-		if t and t == creep:GetUnitName() then 
-			amountTime = 20
-		end
-    end
-
+	
+	if creep:GetUnitName() == "farm_zone_dragon" then
+		amountTime = 0.05
+		respawn(amountTime, self.spawnPos, self.unitName)
+		return
+	end
+	
 	for _,t in ipairs(creep_respawn_8) do
 		if t and t == creep:GetUnitName() then 			
 			local point = point_village[RandomInt(1,#point_village)]
 			local caster_respoint = Entities:FindByName(nil,point):GetAbsOrigin()    
 			self.spawnPos = caster_respoint
-			amountTime = 8
+			amountTime = 6
+			respawn(amountTime, self.spawnPos, self.unitName)
+			return
 		end
     end
 
@@ -86,27 +87,35 @@ function modifier_unit_on_death:OnDeath(event)
 			local point = point_mines[RandomInt(1,#point_mines)]
 			local caster_respoint = Entities:FindByName(nil,point):GetAbsOrigin()    
 			self.spawnPos = caster_respoint
-			amountTime = 5
+			amountTime = 2
+			respawn(amountTime, self.spawnPos, self.unitName)
+			return
 		end
     end
 
-	if creep:GetUnitName() == "farm_zone_dragon" then
-		amountTime = 0.1
-	end
-	
-	Timers:CreateTimer(0.1, function()
+	for _,t in ipairs(creep_respawn_20) do
+		if t and t == creep:GetUnitName() then 
+			amountTime = 18
+			respawn(amountTime, self.spawnPos, self.unitName)
+			return
+		end
+    end
+
+	Timers:CreateTimer(0.05, function()
 		UTIL_Remove( creep )
 	end)
+end
 
+function respawn(amountTime, position, unit_name)
 	Timers:CreateTimer(amountTime, function()
 		if _G.kill_invoker == false or self.unitName == "farm_zone_dragon" then
-			CreateUnitByNameAsync(self.unitName, self.spawnPos, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
+			CreateUnitByNameAsync(unit_name, position, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
 				difficality_modifier(unit)
 				unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
-					posX = self.spawnPos.x,
-					posY = self.spawnPos.y,
-					posZ = self.spawnPos.z,
-					name = self.unitName
+					posX = position.x,
+					posY = position.y,
+					posZ = position.z,
+					name = unit_name
 				})
 			end)
 		end

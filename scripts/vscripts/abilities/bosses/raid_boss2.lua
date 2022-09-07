@@ -244,7 +244,7 @@ if target ~= nil then
 			self:spinn({target = target, tornado_lift_duration = tornado_lift_duration})
 			-- Throw target unit up in the air towards cyclone's initial height.
 			if z_position < cyclone_initial_height and time_in_air <= time_to_reach_initial_height then
---print("+",initial_ascent_height_per_frame,z_position)
+
 z_position = z_position + initial_ascent_height_per_frame
 flying_z_modifier:SetStackCount(z_position)
 return raid_boss_tornado.loop_interval
@@ -260,10 +260,8 @@ if final_descent_height_per_frame == nil then
 	local rounding_coeff = math.floor(time_to_reach_initial_height / raid_boss_tornado.loop_interval)
 	-- Final value which we subtracts from unit z-position untill it reaches ground.
 	final_descent_height_per_frame = descent_initial_height_above_ground / rounding_coeff
-	--print("descent_initial_height_above_ground: " .. descent_initial_height_above_ground .. " times leftt: " .. rounding_coeff)
 end
 
---print("-",final_descent_height_per_frame,z_position, time_in_air)
 z_position = z_position - final_descent_height_per_frame
 flying_z_modifier:SetStackCount(z_position)
 return raid_boss_tornado.loop_interval
@@ -271,20 +269,17 @@ return raid_boss_tornado.loop_interval
 			elseif time_in_air <= tornado_lift_duration then
 -- Up
 if z_position < cyclone_max_height and going_up then 
-	--print("going up")
 	z_position = z_position + up_down_cycle_height_per_frame
 	flying_z_modifier:SetStackCount(z_position)
 	return raid_boss_tornado.loop_interval
 -- Down
 elseif z_position >= cyclone_min_height then
 	going_up = false
-	--print("going down")
 	z_position = z_position - up_down_cycle_height_per_frame
 	flying_z_modifier:SetStackCount(z_position)
 	return raid_boss_tornado.loop_interval
 -- Go up
 else
-	--print("going up again")
 	going_up = true
 	return raid_boss_tornado.loop_interval
 end

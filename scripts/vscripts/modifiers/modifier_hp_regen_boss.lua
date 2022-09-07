@@ -1,7 +1,7 @@
 modifier_hp_regen_boss = class({})
 
 function modifier_hp_regen_boss:IsHidden()
-	return false
+	return true
 end
 
 function modifier_hp_regen_boss:IsPurgable()

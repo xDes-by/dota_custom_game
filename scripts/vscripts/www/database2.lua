@@ -577,11 +577,11 @@ function DataBase:GetHeroesTalantCount(t)
 	req:Send(function(res)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			print("res.Body",res.Body)
-			local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
+			local tab = CustomNetTables:GetTableValue("talants", tostring(t.portID))
 			local count = res.Body
 			tab[t.i..t.j.."count"] = count
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "ThrowHeroInfo", { count = count } )
-			CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), tab)
+			CustomNetTables:SetTableValue("talants", tostring(t.portID), tab)
 		end
 	end)
 end

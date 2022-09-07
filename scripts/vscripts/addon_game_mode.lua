@@ -18,8 +18,8 @@ require("use_pets")
 
 _G.key = GetDedicatedServerKeyV2("MCF")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false
-_G.server_load = true
+_G.cheatmode = false -- false
+_G.server_load = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -225,12 +225,26 @@ function CAddonAdvExGameMode:InitGameMode()
 	damage:Init()
 	_G.Activate_belka = false
 	use_pets:InitGameMode()
+	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 end
 
 function CAddonAdvExGameMode:OnInventoryUpdate(keys)
 end
 
 ------------------------------------------------------------------------------
+
+function CAddonAdvExGameMode:OnChat( event )
+    local text = event.text 
+	local pid = event.playerid
+	if text == "reset_time" then
+		if PlayerResource:HasSelectedHero( pid ) then
+			local hero = PlayerResource:GetSelectedHeroEntity( pid )
+			if hero:GetTimeUntilRespawn() > 11 then
+				hero:SetTimeUntilRespawn(10)
+			end
+		end    
+	end 			
+end
 
 function CAddonAdvExGameMode:On_dota_item_picked_up(keys)
 	if keys.itemname == "item_key" then
@@ -331,6 +345,7 @@ function leave_game()
 end
 
 _G.kill_invoker = false
+_G.destroyed_barracks = false
 
 function CAddonAdvExGameMode:OnPlayerReconnected(keys)
 local state = GameRules:State_Get()
@@ -377,23 +392,23 @@ for i=2,25 do
   end
   
   for i=51,75 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
   end
   
   for i=76,100 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
   end
   
   for i=101,150 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
   end
   
   for i=151,200 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
   end
   
   for i=201,299 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 800 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
   end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -422,9 +437,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	end	 
 
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		
-		GameRules:SendCustomMessage("#start_chat",0,0)
-
+	
 		local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 		hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 		EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	
@@ -606,24 +619,39 @@ function add_soul(boss)
 			local unit = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if boss == "npc_forest_boss" then
 					sInv:AddSoul("item_forest_soul", nPlayerID)
+					unit:ModifyGold( 500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 				end
 				if boss == "npc_village_boss" then
 					sInv:AddSoul("item_village_soul", nPlayerID)
+					sInv:AddSoul("item_forest_soul", nPlayerID)
+					unit:ModifyGold( 1000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1000, nil)
 				end
 				if boss == "npc_mines_boss" then
 					sInv:AddSoul("item_mines_soul", nPlayerID)
+					unit:ModifyGold( 1500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1500, nil)
 				end
 				if boss == "npc_dust_boss" then
 					sInv:AddSoul("item_dust_soul", nPlayerID)
+					unit:ModifyGold( 2000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2000, nil)					
 				end
 				if boss == "npc_swamp_boss" then
 					sInv:AddSoul("item_swamp_soul", nPlayerID)
+					unit:ModifyGold( 2500, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2500, nil)					
 				end
 				if boss == "npc_snow_boss" then
 					sInv:AddSoul("item_snow_soul", nPlayerID)
+					unit:ModifyGold( 3000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 3000, nil)			
 				end
 				if boss == "npc_boss_location8" then
 					sInv:AddSoul("item_divine_soul", nPlayerID)
+					unit:ModifyGold( 4000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
 				end
 			end
 		end
@@ -662,37 +690,25 @@ function check_insane_lives()
 	end
 end
 
-creeps_zones_all = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
-
 function kill_all_creeps()
--- local bResult = xpcall(function()
-	-- local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		-- for _,creep in pairs(creeps) do
-			-- for _,t in ipairs(creeps_zones_all) do
-				-- if t and creep then
-					-- if t == creep:GetUnitName() then 
-						-- if creep:IsAlive() then
-						-- creep:ForceKill(false)
-						-- UTIL_Remove( creep )
-						-- end
-					-- end
-				-- end
-			-- end
-		-- end
-	-- end,
-	-- function(e)
-		-- print("-------------Error-------------")
-		-- print(e)
-		-- print("-------------Error-------------")
-	-- end)  
-	-- дебаг
-
-	-- вызов вункции в которой может быть ошибка
-	-- if bResult then
-	-- print("all ok")
-	-- else
-	-- print("error")
-	-- end		
+local bResult = xpcall(function()
+	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		for _,unit in ipairs(enemies) do
+			if unit:HasModifier("modifier_unit_on_death") then
+				unit:ForceKill(false)		
+			end	
+		end
+	end,
+	function(e)
+		print("-------------Error-------------")
+		print(e)
+		print("-------------Error-------------")
+	end)  
+	if bResult then
+		print("all ok")
+	else
+		print("error")
+	end		
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -710,6 +726,12 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		else
 			killedUnit:SetTimeUntilRespawn( 10 )
 		end
+		-----------------------------------------------
+		Timers:CreateTimer(0.1, function()
+			if killedUnit:GetTimeUntilRespawn() > 11 then
+				killedUnit:SetTimeUntilRespawn(10)
+			end
+		end)
 		-----------------------------------------------
 		if diff_wave.wavedef == "Insane" then
 			local mod = killedUnit:FindModifierByName("modifier_insane_lives")
@@ -913,14 +935,17 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_creeps" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack1")
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_comandirs" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack2")
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_boss" then
+		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_byrocktar")
 	end
 	

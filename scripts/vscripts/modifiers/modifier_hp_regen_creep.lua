@@ -1,7 +1,7 @@
 modifier_hp_regen_creep = class({})
 
 function modifier_hp_regen_creep:IsHidden()
-	return false
+	return true
 end
 
 function modifier_hp_regen_creep:IsPurgable()

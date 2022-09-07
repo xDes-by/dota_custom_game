@@ -39,10 +39,7 @@ function NeutralThink()
     if ( not thisEntity:IsAlive() ) then
 		return -1
 	end	
-	if not thisEntity.bSearchedForItems then
-		SearchForItems()
-		thisEntity.bSearchedForItems = true
-	end
+
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
@@ -82,42 +79,28 @@ function NeutralThink()
 					Spell.Behavior = "passive"
 				end
 			end
-		end	
-		if thisEntity.ItemAbility and thisEntity.ItemAbility:IsFullyCastable() then
-			return UseItem()
-		end	
+		end		
 	end	
-	return 1
-end
-
-function SearchForItems()
-		for i = 0, 5 do
-			local item = thisEntity:GetItemInSlot( i )
-			if item then
-			for _, T in ipairs(AutoCastItem) do
-				if item:GetAbilityName() == T then
-					thisEntity.ItemAbility = item
-				end
-			end
+	
+	for _,unit in pairs(enemies) do
+		if unit then
+			Approach(unit)
 		end
 	end
-end
-
-
-function UseItem()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.ItemAbility:entindex(),
-		Queue = false,
-	})
-
+			
 	return 1
 end
 
+function Approach(unit)
+	ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+		TargetIndex = unit:entindex()
+	})
+	return 1
+end
 
 function Cast( Spell , enemy )
-	
 	local order_type
 	local vTargetPos = enemy:GetOrigin()
 	

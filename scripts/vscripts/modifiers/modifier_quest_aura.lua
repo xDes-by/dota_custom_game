@@ -9,9 +9,6 @@ end
 function modifier_quest_aura:OnCreated(t)
 	if IsServer() then
 		self.pid = self:GetParent():GetPlayerOwnerID()
-	--	print(self:GetCaster():entindex())
-	--	print(self:GetCaster():GetUnitName())
-	--	print("modifier_quest_aura")
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self.pid),"ActivateShop",{name = self:GetCaster():GetUnitName(), index = self:GetCaster():entindex()})
 	end
 end

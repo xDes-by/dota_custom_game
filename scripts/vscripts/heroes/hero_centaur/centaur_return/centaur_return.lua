@@ -80,8 +80,8 @@ function modifier_return_passive:OnTakeDamage(keys)
 		local target = keys.unit
 		local particle_return = "particles/units/heroes/hero_centaur/centaur_return.vpcf"
 		
-				damage_type = DAMAGE_TYPE_PHYSICAL
-				damage_flags = DOTA_DAMAGE_FLAG_REFLECTION
+		damage_type = DAMAGE_TYPE_PHYSICAL
+		damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				
 		damage = ability:GetSpecialValueFor("damage")
 		str_pct_as_damage = ability:GetSpecialValueFor("str_pct_as_damage")
@@ -97,11 +97,11 @@ function modifier_return_passive:OnTakeDamage(keys)
 
 		local abil = caster:FindAbilityByName("npc_dota_hero_centaur_str11")
 		if abil ~= nil then
-		str_pct_as_damage = str_pct_as_damage + 25 
+			str_pct_as_damage = str_pct_as_damage + 50 
 		end
 
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_centaur_str_last") ~= nil then
-			str_pct_as_damage = str_pct_as_damage + 25 
+			str_pct_as_damage = str_pct_as_damage + 100 
 		end
 
 		if not target:IsRealHero() then
@@ -122,16 +122,16 @@ function modifier_return_passive:OnTakeDamage(keys)
 			
 			local abil = caster:FindAbilityByName("npc_dota_hero_centaur_agi6")
 			if abil ~= nil then
-			damage = damage + (self:GetParent():GetAgility() * str_pct_as_damage * 0.01)
+				damage = damage + (self:GetParent():GetAgility() * str_pct_as_damage * 0.01)
 			else
-			damage = damage + (self:GetParent():GetStrength() * str_pct_as_damage * 0.01)
+				damage = damage + (self:GetParent():GetStrength() * str_pct_as_damage * 0.01)
 			end
 			
 			
 			local abil = caster:FindAbilityByName("npc_dota_hero_centaur_str6")
 			if abil ~= nil then 
 				if caster:HasModifier("modifier_borrowed_time") then
-				damage = damage * 2 
+					damage = damage * 2 
 				end
 			end
 			

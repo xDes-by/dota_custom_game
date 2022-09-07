@@ -186,7 +186,7 @@ function talants:OnGameRulesStateChange()
                         talants:AddExperienceDonate(nPlayerID, gave_exp)
                         talants:AddExperience(nPlayerID, gave_exp)
                         
-                        if wave_count == 0 or _G.kill_invoker == true then
+                        if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
                             return nil
                         end
                         return 1
@@ -202,6 +202,8 @@ function talants:selectTalantButton(t)
     local arg = t.i .. t.j
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
         local tab = CustomNetTables:GetTableValue("talants", tostring(id))
+
+        if tonumber(tab[t.i .. t.j]) == 1 then return end
 
         if t.j == 11 and tonumber(tab[t.i .. 8]) ~= 1 then talants:FastLearning(t) return end
 
@@ -230,7 +232,7 @@ function talants:selectTalantButton(t)
         elseif t.j == 1 and t.i == "don" and RATING["rating"][id+1]["patron"] ~= 1 and DataBase:isCheatOn() == false then
             return
         end
-
+        print(t.i .. t.j)
         if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
             tab["freedonpoints"] = tonumber(tab["freedonpoints"]) - 1
             tab[arg] = 1
@@ -788,7 +790,8 @@ function talants:coutExp(expnow)
 end
 
 function talants:HeroesAmountInfo(t)
-    t.hero_name = progress[t.PlayerID]["hero_name"]
+    DeepPrintTable(t)
+    t.hero_name = progress[t.portID]["hero_name"]
     local count = DataBase:GetHeroesTalantCount(t)
     
 end

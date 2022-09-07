@@ -1352,6 +1352,7 @@
         "quest_farm_zone_dragon" "Bring the Black Dragons down to earth"
         "quest_farm_zone_dragon_desc" "Kill the black dragons in the farming area"
         "quest_npc_snow_boss" "Kill the snow boss"
+        "quest_npc_snow_boss_desc" "Kill the snow boss"
 
 
         ///////////
@@ -12739,7 +12740,7 @@
         
         //Alchemist//
 
-        "DOTA_Tooltip_ability_alchemist_acid_spray_lua_lua"								"Acid Spray"
+        "DOTA_Tooltip_ability_alchemist_acid_spray_lua"								"Acid Spray"
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_Description"						"Sprays a cloud of acid in the specified area, which causes periodic damage to enemies and reduces their armor."
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_radius"							"RADIUS OF DISTRIBUTION:"
 		"DOTA_Tooltip_ability_alchemist_acid_spray_lua_duration"						"DURATION:"
@@ -13383,9 +13384,9 @@
         "npc_dota_hero_centaur_str10" "Bone Armor"
         "npc_dota_hero_centaur_str10_description" "During borrowed time gain 10 Health points per creep killed."
         "npc_dota_hero_centaur_str11" "Strength of strength"
-        "npc_dota_hero_centaur_str11_description" "+25% STR damage at Return"
+        "npc_dota_hero_centaur_str11_description" "+50% STR damage at Return"
         "npc_dota_hero_centaur_str_last" "Great Return Power"
-        "npc_dota_hero_centaur_str_last_description" "+25% STR damage at Return"
+        "npc_dota_hero_centaur_str_last_description" "+100% STR damage at Return"
 
         "npc_dota_hero_centaur_agi6" "Light Armor"
         "npc_dota_hero_centaur_agi6_description" "Return Now is using AGI instead"
@@ -13793,8 +13794,8 @@
         "npc_dota_hero_dragon_knight_int6_description" "Gain 25% cooldown reduction"
         "npc_dota_hero_dragon_knight_int7" "Power of the blue dragons"
         "npc_dota_hero_dragon_knight_int7_description" "Dragon Sword damage is now equal to INT"
-        "npc_dota_hero_lina_int8" "Dragon Power"
-        "npc_dota_hero_lina_int8_description" "Dragon Slave receives a damage bonus equal to 100% of the hero's intelligence"
+        "npc_dota_hero_dragon_knight_int8" "Dragon Power"
+        "npc_dota_hero_dragon_knight_int8_description" "Dragon Slave receives a damage bonus equal to 100% of the hero's intelligence"
         "npc_dota_hero_dragon_knight_int9" "Dragon Toxin"
         "npc_dota_hero_dragon_knight_int9_description" "Poison damage from Dragon Form is now equal to your INT"
         "npc_dota_hero_dragon_knight_int10" "Red Dragon Power"
@@ -14358,21 +14359,23 @@
         "dota_tooltip_ability_sniper_ult" "Explosive Bullet"
         "dota_tooltip_ability_sniper_ult_description" "The hero starts firing explosive rounds, on hit they explode, dealing a percentage of the hero's base damage to all enemies within a % radius%."
         "dota_tooltip_ability_sniper_ult_damage" "%BASE DMG:"
+		
+		"sniper_tank"	"HIMARS"
 
         "npc_dota_hero_sniper_str6" "Pinning Trap"
         "npc_dota_hero_sniper_str6_description" "Shrapnel greatly reduces enemies attack speed under its effect."
         "npc_dota_hero_sniper_str7" "Shrapnel wounds"
         "npc_dota_hero_sniper_str7_description" "Grenade now slows enemies for 10 seconds"
-        "npc_dota_hero_sniper_str8" "Air defense"
+        "npc_dota_hero_sniper_str8" "M142 HIMARS"
         "npc_dota_hero_sniper_str8_description" "Summons a rocket launcher every 60secounds that deals damage equal to your STR*5."
         "npc_dota_hero_sniper_str9" "Melee"
         "npc_dota_hero_sniper_str9_description" "Decreases attack range to 350 but greatly increases dmg by STR*2."
         "npc_dota_hero_sniper_str10" "Grenadier"
         "npc_dota_hero_sniper_str10_description" "Grenades damage now equal to STR"
-        "npc_dota_hero_sniper_str11" "Memory of the Fallen"
-        "npc_dota_hero_sniper_str11_description" "Gain 1 health regen per creep killed"
+		"npc_dota_hero_sniper_str11" "MLRS"
+        "npc_dota_hero_sniper_str11_description" "HIMARS attacks twice as fast"
         "npc_dota_hero_sniper_str_last" "And items have a limit to the vice of rage."
-        "npc_dota_hero_sniper_str_last_description" "Rocket launcher damage x3"
+        "npc_dota_hero_sniper_str_last_description" "M142 HIMARS damage x3"
 
         "npc_dota_hero_sniper_agi6" "Steady Hand"
         "npc_dota_hero_sniper_agi6_description" "Adds 350 attack range as bonus"

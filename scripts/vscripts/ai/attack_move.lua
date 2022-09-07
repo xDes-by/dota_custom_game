@@ -16,33 +16,30 @@ function NeutralThink()
 	local ancient = Entities:FindByName(nil, "npc_main_base")
 	if ancient ~= nil then
 		if thisEntity:IsAlive() then
-		if not thisEntity:IsChanneling() and thisEntity:GetCurrentActiveAbility() == nil and not thisEntity:IsCommandRestricted() and not thisEntity:IsAttacking() then
-				if not thisEntity:IsDisarmed() then
-					local attackOrder = {
-						UnitIndex = thisEntity:entindex(), 
-						OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-						Position = ancient:GetAbsOrigin()
-						}
-				ExecuteOrderFromTable(attackOrder)
-			else 
-				local attackOrder = {
-					UnitIndex = thisEntity:entindex(), 
-					OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-					Position = thisEntity:GetAbsOrigin()
-					}
-				ExecuteOrderFromTable(attackOrder)
+			if not thisEntity:IsChanneling() and thisEntity:GetCurrentActiveAbility() == nil and not thisEntity:IsCommandRestricted() and not thisEntity:IsAttacking() then
+					if not thisEntity:IsDisarmed() then
+						local attackOrder = {
+							UnitIndex = thisEntity:entindex(), 
+							OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+							Position = ancient:GetAbsOrigin()
+							}
+					ExecuteOrderFromTable(attackOrder)
+				-- else 
+					-- local attackOrder = {
+						-- UnitIndex = thisEntity:entindex(), 
+						-- OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+						-- Position = thisEntity:GetAbsOrigin()
+						-- }
+					-- ExecuteOrderFromTable(attackOrder)
+				end
 			end
 		end
-    end
 	end
 	
     if ( not thisEntity:IsAlive() ) then
 		return -1
 	end	
-	if not thisEntity.bSearchedForItems then
-		SearchForItems()
-		thisEntity.bSearchedForItems = true
-	end
+
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
@@ -51,73 +48,45 @@ function NeutralThink()
         return 1 
     end
 	
-	local search_radius = thisEntity:GetAcquisitionRange()
-	local hp = thisEntity:GetHealthPercent()
-	local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )
-	if #enemies > 0 then
-	enemy = enemies[1]
-		for _, T in ipairs(creep_ability) do
-			local Spell = thisEntity:FindAbilityByName(T)
-			if Spell then
-				local Behavior = Spell:GetBehaviorInt()
-				if bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
-					Spell.Behavior = "target"
-					Cast( Spell, enemy )
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET ) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
-					Spell.Behavior = "no_target"
-					if Spell:GetSpecialValueFor("radius") == 0 then
+	if string.find(thisEntity:GetUnitName(), "comandir_") then 
+		local search_radius = thisEntity:GetAcquisitionRange()
+		local hp = thisEntity:GetHealthPercent()
+		local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )
+		if #enemies > 0 then
+		enemy = enemies[1]
+			for _, T in ipairs(creep_ability) do
+				local Spell = thisEntity:FindAbilityByName(T)
+				if Spell then
+					local Behavior = Spell:GetBehaviorInt()
+					if bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+						Spell.Behavior = "target"
 						Cast( Spell, enemy )
-					elseif ( enemy:GetOrigin()- thisEntity:GetOrigin() ):Length2D() < Spell:GetSpecialValueFor("radius") then
+					elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET ) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+						Spell.Behavior = "no_target"
+						if Spell:GetSpecialValueFor("radius") == 0 then
+							Cast( Spell, enemy )
+						elseif ( enemy:GetOrigin()- thisEntity:GetOrigin() ):Length2D() < Spell:GetSpecialValueFor("radius") then
+							Cast( Spell, enemy )
+						end
+					elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_POINT ) == DOTA_ABILITY_BEHAVIOR_POINT then
+						Spell.Behavior = "point"
 						Cast( Spell, enemy )
+					elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE ) == DOTA_ABILITY_BEHAVIOR_POINT then
+						Spell.Behavior = "toggle"
+						if not Spell:GetToggleState() then 
+							Spell:ToggleAbility()
+						end
+					elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE ) == DOTA_ABILITY_BEHAVIOR_PASSIVE then
+						Spell.Behavior = "passive"
 					end
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_POINT ) == DOTA_ABILITY_BEHAVIOR_POINT then
-					Spell.Behavior = "point"
-					Cast( Spell, enemy )
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE ) == DOTA_ABILITY_BEHAVIOR_POINT then
-					Spell.Behavior = "toggle"
-					if not Spell:GetToggleState() then 
-						Spell:ToggleAbility()
-					end
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE ) == DOTA_ABILITY_BEHAVIOR_PASSIVE then
-					Spell.Behavior = "passive"
 				end
-			end
-		end	
-		if thisEntity.ItemAbility and thisEntity.ItemAbility:IsFullyCastable() then
-			return UseItem()
+			end	
 		end	
 	end	
-	return 1
+	return 3
 end
-
-function SearchForItems()
-		for i = 0, 5 do
-			local item = thisEntity:GetItemInSlot( i )
-			if item then
-			for _, T in ipairs(AutoCastItem) do
-				if item:GetAbilityName() == T then
-					thisEntity.ItemAbility = item
-				end
-			end
-		end
-	end
-end
-
-
-function UseItem()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.ItemAbility:entindex(),
-		Queue = false,
-	})
-
-	return 1
-end
-
 
 function Cast( Spell , enemy )
-	
 	local order_type
 	local vTargetPos = enemy:GetOrigin()
 	

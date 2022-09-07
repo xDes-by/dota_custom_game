@@ -9,7 +9,6 @@ function centaur_hoof_stomp_lane_creep:OnSpellStart()
     local damage = self:GetSpecialValueFor("stomp_damage")
     local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
     for _,unit in pairs(enemies) do
-        print("111")
         unit:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
         ApplyDamage({victim = unit,
         damage = damage,

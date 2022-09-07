@@ -52,7 +52,7 @@ function terrorblade_conjure_image_lua:OnSpellStart()
 
 	-- load data
 	local duration = self:GetSpecialValueFor( "illusion_duration" )
-	local outgoing = self:GetSpecialValueFor( "illusion_outgoing_tooltip" ) -100
+	local outgoing = self:GetSpecialValueFor( "illusion_outgoing_tooltip" ) - 100
 	local incoming = self:GetSpecialValueFor( "illusion_incoming_damage" )
 	local distance = 72
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_str8")
@@ -62,7 +62,7 @@ function terrorblade_conjure_image_lua:OnSpellStart()
 
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_agi6")
 	if abil ~= nil then
-	outgoing = (outgoing +100)
+		local outgoing = self:GetSpecialValueFor( "illusion_outgoing_tooltip" ) * 2 - 100
 	end
 
 	count = 1

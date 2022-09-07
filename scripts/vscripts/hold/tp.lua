@@ -12,10 +12,7 @@ local settings = {
     traps = {item = "item_relic", place = "duel_1"},
 }
 
-function tp:tp_check_lua(t)
-    --print("tp_check_lua")
-    --DeepPrintTable(t)
-    
+function tp:tp_check_lua(t)   
     local item = settings[ t[ 'type' ] ][ 'item' ] -- название предмета 
     local place = settings[ t[ 'type' ] ][ 'place' ] -- местность
 
