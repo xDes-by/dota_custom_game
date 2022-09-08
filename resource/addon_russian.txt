@@ -13397,7 +13397,7 @@
         "npc_dota_hero_centaur_agi_last_description" "Centaur получает бонус 300% базового урона на время действия Borrowed Time"
 
         "npc_dota_hero_centaur_int6" "Заколдованный доспех"
-        "npc_dota_hero_centaur_int6_description" "Return наносит магический урон. Не усиливается!"
+        "npc_dota_hero_centaur_int6_description" "Return наносит чистый урон. Не усиливается!"
         "npc_dota_hero_centaur_int7" "Втоптать в землю"
         "npc_dota_hero_centaur_int7_description" "+5 секунд к длительности Hoof Stomp"
         "npc_dota_hero_centaur_int8" "Секрет в кармане"

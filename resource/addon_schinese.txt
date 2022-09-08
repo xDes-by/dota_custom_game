@@ -13409,7 +13409,7 @@
         "npc_dota_hero_centaur_agi_last_description" "半人馬護盾持續時間 x2" 
 
         "npc_dota_hero_centaur_int6" "魔法盔甲" 
-        "npc_dota_hero_centaur_int6_description" "返回會造成魔法傷害，但不能被放大。" 
+        "npc_dota_hero_centaur_int6_description" "回归会造成纯粹的伤害，但不能被放大。" 
         "npc_dota_hero_centaur_int7" "踩在地上" 
         "npc_dota_hero_centaur_int7_description" "+5 秒蹄踐踏眩暈持續時間" 
         "npc_dota_hero_centaur_int8" "口袋裡的秘密" 

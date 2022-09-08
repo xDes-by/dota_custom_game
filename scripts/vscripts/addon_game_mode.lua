@@ -624,7 +624,6 @@ function add_soul(boss)
 				end
 				if boss == "npc_village_boss" then
 					sInv:AddSoul("item_village_soul", nPlayerID)
-					sInv:AddSoul("item_forest_soul", nPlayerID)
 					unit:ModifyGold( 1000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1000, nil)
 				end

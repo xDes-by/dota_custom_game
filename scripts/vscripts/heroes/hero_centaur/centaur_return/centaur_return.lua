@@ -80,14 +80,14 @@ function modifier_return_passive:OnTakeDamage(keys)
 		local target = keys.unit
 		local particle_return = "particles/units/heroes/hero_centaur/centaur_return.vpcf"
 		
-		damage_type = DAMAGE_TYPE_PHYSICAL
+		damage_type = DAMAGE_TYPE_MAGICAL
 		damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				
 		damage = ability:GetSpecialValueFor("damage")
 		str_pct_as_damage = ability:GetSpecialValueFor("str_pct_as_damage")
 		local abil = caster:FindAbilityByName("npc_dota_hero_centaur_int6")
 		if abil ~= nil then
-			damage_type = DAMAGE_TYPE_MAGICAL
+			damage_type = DAMAGE_TYPE_PURE
 			damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 		end		
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_centaur_int_last") ~= nil then
@@ -130,7 +130,7 @@ function modifier_return_passive:OnTakeDamage(keys)
 			
 			local abil = caster:FindAbilityByName("npc_dota_hero_centaur_str6")
 			if abil ~= nil then 
-				if caster:HasModifier("modifier_borrowed_time") then
+				if caster:HasModifier("modifier_imba_borrowed_time_buff_hot_caster") then
 					damage = damage * 2 
 				end
 			end
