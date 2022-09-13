@@ -13668,7 +13668,7 @@
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_attack_speed" "БОНУС К СКОРОСТИ АТАКИ СОЮЗНИКОВ:"
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_move_speed" "БОНУС К СКОРОСТИ ПЕРЕДВИЖЕНИЯ СОЮЗНИКОВ:"
         "dota_tooltip_ability_wisp_overcharge_lua_hp_ampl" "%РЕГЕН ЗДОРОВЬЯ СОЮЗНИКОВ В СЕК:"
-        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "%ПОТЕРЯ ЗДОРОВЬЯ В СЕК:"
+        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "%ПОТЕРЯ ЗДОРОВЬЯ В <font color='#ffffff'>0.2 </font>СЕК:"
         "dota_tooltip_ability_wisp_overcharge_lua_mp_loss" "ПОТЕРЯ МАНЫ В СЕК:"
 
         "dota_tooltip_ability_wisp_relocate_lua" "Relocate"

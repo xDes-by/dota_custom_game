@@ -13680,7 +13680,7 @@
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_attack_speed" "盟友攻擊速度加成：" 
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_move_speed" "盟友移動速度獎勵：" 
         "dota_tooltip_ability_wisp_overcharge_lua_hp_ampl" "每秒盟友生命恢復百分比：" 
-        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "每秒健康損失百分比：" 
+        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "每个人的健康损失 <font color='#ffffff'>0.2 </font> 秒数:" 
         "dota_tooltip_ability_wisp_overcharge_lua_mp_loss" "每秒法力損失：" 
 
         "dota_tooltip_ability_wisp_relocate_lua" "搬遷" 
