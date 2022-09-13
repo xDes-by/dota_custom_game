@@ -67,7 +67,7 @@ function modifier_unit_on_death:OnDeath(event)
 	
 	if creep:GetUnitName() == "farm_zone_dragon" then
 		amountTime = 0.05
-		respawn(amountTime, self.spawnPos, self.unitName)
+		respawn(amountTime, self.spawnPos, self.unitName, creep)
 		return
 	end
 	
@@ -77,7 +77,7 @@ function modifier_unit_on_death:OnDeath(event)
 			local caster_respoint = Entities:FindByName(nil,point):GetAbsOrigin()    
 			self.spawnPos = caster_respoint
 			amountTime = 6
-			respawn(amountTime, self.spawnPos, self.unitName)
+			respawn(amountTime, self.spawnPos, self.unitName, creep)
 			return
 		end
     end
@@ -88,7 +88,7 @@ function modifier_unit_on_death:OnDeath(event)
 			local caster_respoint = Entities:FindByName(nil,point):GetAbsOrigin()    
 			self.spawnPos = caster_respoint
 			amountTime = 2
-			respawn(amountTime, self.spawnPos, self.unitName)
+			respawn(amountTime, self.spawnPos, self.unitName, creep)
 			return
 		end
     end
@@ -96,17 +96,16 @@ function modifier_unit_on_death:OnDeath(event)
 	for _,t in ipairs(creep_respawn_20) do
 		if t and t == creep:GetUnitName() then 
 			amountTime = 18
-			respawn(amountTime, self.spawnPos, self.unitName)
+			respawn(amountTime, self.spawnPos, self.unitName, creep)
 			return
 		end
     end
+end
 
+function respawn(amountTime, position, unit_name, creep)
 	Timers:CreateTimer(0.05, function()
 		UTIL_Remove( creep )
 	end)
-end
-
-function respawn(amountTime, position, unit_name)
 	Timers:CreateTimer(amountTime, function()
 		if _G.kill_invoker == false or self.unitName == "farm_zone_dragon" then
 			CreateUnitByNameAsync(unit_name, position, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)

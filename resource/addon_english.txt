@@ -13404,7 +13404,7 @@
         "npc_dota_hero_centaur_agi_last_description" "Centaur Sheeld duration x2"
 
         "npc_dota_hero_centaur_int6" "Enchanted Armor"
-        "npc_dota_hero_centaur_int6_description" "Return deals magical damage instead but cannot be amplified."
+        "npc_dota_hero_centaur_int6_description" "Return deals pure damage instead but cannot be amplified."
         "npc_dota_hero_centaur_int7" "Trample into the ground"
         "npc_dota_hero_centaur_int7_description" "+5s Hoof Stomp Stun Duration"
         "npc_dota_hero_centaur_int8" "Secret in your pocket"
