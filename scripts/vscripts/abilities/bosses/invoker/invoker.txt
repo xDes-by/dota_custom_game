@@ -69,13 +69,11 @@
 		"AbilityValues"
 		{
 			"duration"					"5"
-			"max_attack"				"25"
-			"aura_radius"				"1000"
-			"damage_per_sec"			"5000"
-			"cast_range"				"1000"
+			"max_attack"				"15"
+			"aura_radius"				"800"
+			"damage_per_sec"			"25000"
+			"cast_range"				"800"
 			"stun_duration"				"3"
-			"extreme_burning_spell_amp"	"50"
-
 		}	
 	}	
 	

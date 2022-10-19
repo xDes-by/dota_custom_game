@@ -2,11 +2,9 @@ LinkLuaModifier("modifier_invoker_sun", "abilities/bosses/invoker/invoker_sun", 
 
 invoker_sun = class({})
 
-function invoker_sun:OnSpellStart()
-	if IsServer() then        
+function invoker_sun:OnSpellStart()       
 	local duration = self:GetSpecialValueFor("duration")
-		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_invoker_sun", {duration = duration})
-	end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_invoker_sun", {duration = duration})
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 modifier_invoker_sun = class({})
@@ -24,6 +22,7 @@ function modifier_invoker_sun:OnCreated( kv )
 end
 
 function modifier_invoker_sun:OnIntervalThink()
+print(self:GetCaster():GetUnitName())
 if not IsServer() then return end
 	local particle_start = "particles/econ/items/invoker/invoker_apex/invoker_sun_strike_team_immortal1.vpcf"
 	local particle_end = "particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf"
@@ -31,6 +30,12 @@ if not IsServer() then return end
 	local delay = self:GetAbility():GetSpecialValueFor("delay")
 	local damage_radius = self:GetAbility():GetSpecialValueFor("damage_radius")
 	local range = self:GetAbility():GetSpecialValueFor("range")
+	local damage_table = {
+						attacker = self:GetCaster(),
+						damage_type = self:GetAbility():GetAbilityDamageType(),
+						damage = damage
+						}
+	
 	local hEnemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
 	if #hEnemies > 0 then
 		for _, target in ipairs(hEnemies) do
@@ -40,23 +45,17 @@ if not IsServer() then return end
 			ParticleManager:SetParticleControl(startFX, 1, Vector(damage_radius, 0, 0))
 			EmitSoundOn("Hero_Invoker.SunStrike.Charge", target)
 			Timers:CreateTimer(delay, function()
-					ParticleManager:DestroyParticle(startFX, false)
-					local endFX = ParticleManager:CreateParticle(particle_end, PATTACH_ABSORIGIN, target)
-					ParticleManager:SetParticleControl(endFX, 0, point)
-					ParticleManager:SetParticleControl(endFX, 1, Vector(damage_radius, 0, 0))
-					EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
-					local units = FindUnitsInRadius(self:GetParent():GetTeamNumber(), point, nil, damage_radius,  DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
-					for _, unit in ipairs(units) do
-						local damage_table = {
-												attacker = self:GetParent(),
-												victim = unit,
-												ability = self:GetAbility(),
-												damage_type = self:GetAbility():GetAbilityDamageType(),
-												damage = damage
-											}
-						ApplyDamage(damage_table)
-					end
-				end)
+				ParticleManager:DestroyParticle(startFX, false)
+				local endFX = ParticleManager:CreateParticle(particle_end, PATTACH_ABSORIGIN, target)
+				ParticleManager:SetParticleControl(endFX, 0, point)
+				ParticleManager:SetParticleControl(endFX, 1, Vector(damage_radius, 0, 0))
+				EmitSoundOn("Hero_Invoker.SunStrike.Ignite", target)
+				local units = FindUnitsInRadius(DOTA_TEAM_BADGUYS, point, nil, damage_radius,  DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+				for _, unit in ipairs(units) do
+					damage_table.victim = unit
+					ApplyDamage(damage_table)
+				end
+			end)
 		end
 	end
 end

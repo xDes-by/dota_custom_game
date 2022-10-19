@@ -14332,7 +14332,7 @@
         //Sniper//
 
         "dota_tooltip_ability_sniper_shrapnel_lua" "Shrapnel"
-        "dota_tooltip_ability_sniper_shrapnel_lua_description" "Consumes a charge to launch a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area. Shrapnel charges restore every %abilitychargerestoretime% seconds."
+        "dota_tooltip_ability_sniper_shrapnel_lua_description" "Consumes a charge to launch a ball of shrapnel that showers the target area in explosive pellets. Enemies are subject to damage and slowed movement. Reveals the targeted area."
         "dota_tooltip_ability_sniper_shrapnel_lua_lore" "Kardel's modular rifle also fires incendiary rounds, useful for assaulting entrenched locations."
         "dota_tooltip_ability_sniper_shrapnel_lua_note0" "Damage is dealt 11 times, immediately at spell effect then every second."
         "dota_tooltip_ability_sniper_shrapnel_lua_note1" "Does not damage buildings."

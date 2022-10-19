@@ -14337,7 +14337,7 @@
         //Sniper//
 
         "dota_tooltip_ability_sniper_shrapnel_lua" "彈片" 
-        "dota_tooltip_ability_sniper_shrapnel_lua_description" "消耗一次電荷以發射一個彈片球，以爆炸性彈丸的形式向目標區域灑落。敵人會受到傷害並減慢移動速度。顯示目標區域。每 %abilitychargerestoretime% 秒恢復一次彈片充能。" 
+        "dota_tooltip_ability_sniper_shrapnel_lua_description" "消耗一次电荷来发射一个弹片球，以爆炸性的颗粒向目标区域喷射。 敌人会受到伤害并减慢移动速度。 显示目标区域。" 
         "dota_tooltip_ability_sniper_shrapnel_lua_lore" "卡德爾的模塊化步槍還可以發射燃燒彈，這對於攻擊根深蒂固的地點很有用。" 
         "dota_tooltip_ability_sniper_shrapnel_lua_note0" "造成 11 次傷害，在法術效果時立即造成傷害，然後每秒造成傷害。" 
         "dota_tooltip_ability_sniper_shrapnel_lua_note1" "不會損壞建築物。" 

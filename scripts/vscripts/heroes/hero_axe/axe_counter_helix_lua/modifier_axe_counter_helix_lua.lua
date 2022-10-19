@@ -42,7 +42,7 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 	if IsServer() then
 	if self:GetAbility():IsFullyCastable() then
 		self.chance = self:GetAbility():GetSpecialValueFor( "trigger_chance" )
-		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
+		self.damage	 = self:GetAbility():GetSpecialValueFor( "damage" )
 		
 	if self:GetAbility() and not self:GetCaster():PassivesDisabled() and ((params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or (params.attacker == self:GetCaster() and HasTalent(self:GetCaster(), "npc_dota_hero_axe_agi11") )) then
 	

@@ -27,7 +27,7 @@ end
 function modifier_invoker_meteor:OnIntervalThink()
 if not IsServer() then return end
 	local caster_pos = self:GetCaster():GetAbsOrigin()
-		for i = 1, 3 do
+		for i = 1, 2 do
 			local angle = RandomInt(0, 360)
 			local variance = RandomInt(-self.radius, self.radius)
 			local dy = math.sin(angle) * variance

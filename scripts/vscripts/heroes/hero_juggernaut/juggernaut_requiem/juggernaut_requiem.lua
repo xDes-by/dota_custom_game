@@ -105,7 +105,7 @@ end
 			local line_count = line
 			local caster_pos = caster:GetAbsOrigin()
 			local line_pos = caster_pos + caster:GetForwardVector() * self.travel_distance
-			local rotation_rate = 360 / line_count  -- spaced around all circle.
+			local rotation_rate = 360 / line_count
 			
 			self:CreateRequiemLine(caster_pos, line_pos)
 			for i = 1, line_count - 1 do

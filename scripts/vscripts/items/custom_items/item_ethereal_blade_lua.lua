@@ -56,26 +56,24 @@ function item_ethereal_blade_lua1:OnSpellStart()
 end
 
 function item_ethereal_blade_lua1:OnProjectileHit(target, location)
-	
-	-- Check if a valid target has been hit
+	if not IsServer() then return end
 	if target and not target:IsMagicImmune() then
-
-		-- Check for Linken's / Lotus Orb
 		if target:TriggerSpellAbsorb(self) then return nil end
-		
-		-- Otherwise, play the sound...
 		target:EmitSound("DOTA_Item.EtherealBlade.Target")
-		
-		-- ...apply the Ethereal modifier...
+
 		if target:GetTeam() == self.caster:GetTeam() then
 			target:AddNewModifier(self.caster, self, "modifier_item_ethereal_blade_ally", {duration = self.duration_ally})
 		else
 			target:AddNewModifier(self.caster, self, "modifier_item_ethereal_blade_enemy", {duration = self.duration * (1 - target:GetStatusResistance())})
-						
-			-- ...apply the damage if it's an enemy...
+			
+			attr = 10000
+			if self.caster:IsRealHero() then 
+				attr = self.caster:GetPrimaryStatValue()
+			end
+			
 			local damageTable = {
 				victim 			= target,
-				damage 			= self.caster:GetPrimaryStatValue() * self.blast_agility_multiplier + self.blast_damage_base,
+				damage 			= attr * self.blast_agility_multiplier + self.blast_damage_base,
 				damage_type		= DAMAGE_TYPE_MAGICAL,
 				damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 				attacker 		= self.caster,
