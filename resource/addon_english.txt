@@ -13675,7 +13675,7 @@
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_attack_speed" "ALLIES ATTACK SPEED BONUS:"
         "dota_tooltip_ability_wisp_overcharge_lua_bonus_move_speed" "ALLIES MOVEMENT SPEED BONUS:"
         "dota_tooltip_ability_wisp_overcharge_lua_hp_ampl" "%ALLIES HEALTH REGEN PER SEC:"
-        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "%HEALTH LOSS PER SEC:"
+        "dota_tooltip_ability_wisp_overcharge_lua_hp_loss" "%HEALTH LOSS PER <font color='#ffffff'>0.2 </font> SEC:"
         "dota_tooltip_ability_wisp_overcharge_lua_mp_loss" "LOSS OF MANA PER SEC:"
 
         "dota_tooltip_ability_wisp_relocate_lua" "Relocate"
@@ -14823,7 +14823,7 @@
         "npc_dota_hero_medusa_agi10_description" "Always 100% Split Shot Damage"
         "npc_dota_hero_medusa_agi11" "Righteousness"
         "npc_dota_hero_medusa_agi11_description" "Split Shot target is affected by modifiers"
-        "npc_dota_hero_medusa_agi_last" "snake support"
+        "npc_dota_hero_medusa_agi_last" "Snake support"
         "npc_dota_hero_medusa_agi_last_description" "10% chance to cast a Mystic Snake when attacking"
         
         "npc_dota_hero_medusa_int6" "Magic power"

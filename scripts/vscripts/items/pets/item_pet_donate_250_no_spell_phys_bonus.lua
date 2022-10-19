@@ -71,6 +71,9 @@ function modifier_pet_donate_250_no_spell_phys_bonus:GetModifierTotalDamageOutgo
 	if self.cast == 1 then
 		return 0
 	end
+	if keys.damage_type == 4 then
+		return 1
+	end
 	if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == 2 then
 		return -100 or self.cast
 	else
