@@ -10,6 +10,7 @@ end
 
 function modifier_silent:OnCreated( kv )
 	if not IsServer() then return end
+	self:GetCaster():Purge(true, true, true, true, true)
 	self:GetCaster():SpendMana(11,nil)
 end
 
@@ -26,6 +27,8 @@ function modifier_silent:DeclareFunctions()
 		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_MOVESPEED_MAX
 	}
 	return funcs
 end
@@ -35,6 +38,14 @@ function modifier_silent:GetModifierModelChange(params)
 end
 
 function modifier_silent:GetModifierMoveSpeed_Absolute()
+	return 250
+end
+
+function modifier_silent:GetModifierMoveSpeed_Limit()
+	return 250
+end
+
+function modifier_silent:GetModifierMoveSpeed_Max()
 	return 250
 end
 

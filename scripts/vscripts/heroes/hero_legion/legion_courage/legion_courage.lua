@@ -42,93 +42,71 @@ function modifier_legion_courage:DeclareFunctions()
 end
 
 function modifier_legion_courage:OnAttackLanded( params )
-	if IsServer() then
-
-		self.chance = self:GetAbility():GetSpecialValueFor( "trigger_chance" )
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi11") ~= nil then 
-			self.chance = 75 
+	if not IsServer() then return end
+	
+	self.chance = self:GetAbility():GetSpecialValueFor( "trigger_chance" )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi11") ~= nil then 
+		self.chance = 75 
+	end
+	
+	damage_type = DAMAGE_TYPE_PHYSICAL
+	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+	
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int9") ~= nil then 
+		damage_type = DAMAGE_TYPE_MAGICAL
+	end	
+	
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int11") ~= nil and params.attacker == self:GetCaster() then 
+		local ability = self:GetCaster():FindAbilityByName( "legion_odds" )
+		if ability~=nil and ability:GetLevel()>= 1 then
+			if RandomInt(1,100) <= 5 then
+				ability:OnSpellStart()
+			end
 		end
-		
-		damage_type = DAMAGE_TYPE_PHYSICAL
-		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int9") ~= nil then 
-			damage_type = DAMAGE_TYPE_MAGICAL
-		end	
-			
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi10")  -- от своих атак
-		if abil == nil then  
-			if self:GetAbility() and not self:GetCaster():PassivesDisabled() and params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber() then
+	end	
+	
+	local Dist = ( params.attacker:GetOrigin() - self:GetCaster():GetOrigin() ):Length2D()
+	if Dist < 250 then	
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi10")  -- талант от своих атак
+		if abil == nil then  			
+			if not self:GetCaster():PassivesDisabled() and params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber() and params.attacker ~= self:GetCaster() then
 				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then 
-					damage = self:GetParent():GetAverageTrueAttackDamage(nil)
-					local heal = damage * self:GetAbility():GetSpecialValueFor("damage")/100
-					self:GetParent():Heal( heal, self:GetAbility() )
-					SendOverheadEventMessage( self:GetParent():GetPlayerOwner(), OVERHEAD_ALERT_HEAL , self:GetParent(), heal, nil )
-					
-					
-					if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil and params.attacker:FindAbilityByName("legion_odds") ~= nil then
-						local ability = self:GetCaster():FindAbilityByName( "legion_odds" )
-						if RandomInt(1,100) <=50 then
-							ability:OnSpellStart()
-						end
-					end
-					
-					self.damageTable = {
-						victim = params.attacker,
-						attacker = self:GetParent(),
-						damage = damage,
-						damage_type = damage_type,
-						ability = self:GetAbility(), --Optional.
-						damage_flags = damage_flags, --Optional.
-					}
-						ApplyDamage( self.damageTable )
-						
-						self:GetAbility():UseResources( false, false, true )
-						self:PlayEffects()
-					end	
+					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)
 				end
 			end	
 		else
-			if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int11") ~= nil and params.attacker == self:GetCaster() then 
-				local ability = self:GetCaster():FindAbilityByName( "legion_odds" )
-				if ability~=nil and ability:GetLevel()>= 1 and params.attacker:FindAbilityByName("legion_odds") ~= nil then
-					if RandomInt(1,100) <= 5 then
-						ability:OnSpellStart()
-					end
-				end
-			end	
-			
-			
-			if self:GetAbility() and not self:GetCaster():PassivesDisabled() and ((params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or params.attacker == self:GetCaster()) then
-				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then 
-					damage = self:GetParent():GetAverageTrueAttackDamage(nil)
-					local heal = damage * self:GetAbility():GetSpecialValueFor("damage")/100
-					self:GetParent():Heal( heal, self:GetAbility() )
-					SendOverheadEventMessage( self:GetParent():GetPlayerOwner(), OVERHEAD_ALERT_HEAL , self:GetParent(), heal, nil )
-					
-					if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil and params.attacker:FindAbilityByName("legion_odds") ~= nil then
-						local ability = self:GetCaster():FindAbilityByName( "legion_odds" )
-						if RandomInt(1,100) <=50 then
-							ability:OnSpellStart()
-						end
-					end
-					
-					self.damageTable = {
-						victim = params.attacker,
-						attacker = self:GetParent(),
-						damage = damage,
-						damage_type = damage_type,
-						ability = self:GetAbility(), --Optional.
-						damage_flags = damage_flags, --Optional.
-					}
-						ApplyDamage( self.damageTable )
-						
-					self:GetAbility():UseResources( false, false, true )
-					self:PlayEffects()
+			if not self:GetCaster():PassivesDisabled() and (params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or params.attacker == self:GetCaster() then
+				if RandomInt(1,100) <= self.chance	and self:GetAbility():IsFullyCastable() then	
+					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)					
 				end
 			end
 		end
+	end		
+end
+
+function deal_damage(mod, abil, parent, target, damage_type)
+	damage = parent:GetAverageTrueAttackDamage(nil)
+	local heal = damage * abil:GetSpecialValueFor("damage")/100
+	parent:Heal( heal, abil )
+	SendOverheadEventMessage( parent:GetPlayerOwner(), OVERHEAD_ALERT_HEAL , parent, heal, nil )
+
+	if parent:FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then
+		local ability = parent:FindAbilityByName( "legion_odds" )
+		if ability~=nil and ability:GetLevel()>= 1 then
+			if RandomInt(1,100) <= 50 then
+				ability:OnSpellStart()
+			end
+		end
+	end
+	ApplyDamage({
+		victim = target,
+		attacker = parent,
+		damage = damage,
+		damage_type = damage_type,
+	})
+
+	abil:UseResources( false, false, true )
+	mod:PlayEffects()
 end
 
 --------------------------------------------------------------------------------

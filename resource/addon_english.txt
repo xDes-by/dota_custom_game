@@ -409,7 +409,7 @@
         "other_34" "Pugna"
         "other_35" "Shadow Shaman"
         "other_36" "Tinker"
-        "other_37" "Warlok"
+        "other_37" "Warlock"
         "other_38" "Windranger"
         "other_39" "Zeus"
         "other_40" "Medusa"
@@ -12926,7 +12926,7 @@
 		"DOTA_Tooltip_ability_troll_warlord_battle_trance_lua_movement_speed"		"BONUS MOVESPEED:"
 
 		"npc_dota_hero_troll_warlord_str6" "Faty"
-        "npc_dota_hero_troll_warlord_str6_description" "+10 health per enemy killed"
+        "npc_dota_hero_troll_warlord_str6_description" "+50 per level"
         "npc_dota_hero_troll_warlord_str7" "Stronger"
         "npc_dota_hero_troll_warlord_str7_description" "Rage x3 Health Bonus"
         "npc_dota_hero_troll_warlord_str8" "Matter of strength"
@@ -12941,7 +12941,7 @@
         "npc_dota_hero_troll_warlord_str_last_description" "25% chance that when receiving a fatal hijack, the hero will not die, but recover 25% of his max health"
 
         "npc_dota_hero_troll_warlord_agi6" "Fanaticism"
-        "npc_dota_hero_troll_warlord_agi6_description" "+2 damage per enemy killed"
+        "npc_dota_hero_troll_warlord_agi6_description" "+5 damage per level"
         "npc_dota_hero_troll_warlord_agi7" "It's a matter of agility"
         "npc_dota_hero_troll_warlord_agi7_description" "Whirling Axes damage equals hero's Agility"
         "npc_dota_hero_troll_warlord_agi8" "Almost a vampire"
@@ -13265,7 +13265,7 @@
         "npc_dota_hero_legion_commander_int10" "Crystal Spears"
         "npc_dota_hero_legion_commander_int10_description" "Overwhelming Odds deal damage from Intelligence"
         "npc_dota_hero_legion_commander_int11" "Supreme commander"
-        "npc_dota_hero_legion_commander_int11_description" "When you trigger Moment of Courage from your attacks, you have a 5% chance to trigger Overwhelming Odds"
+        "npc_dota_hero_legion_commander_int11_description" "When you attack, you have a 5% chance to trigger Overwhelming Odds"
         "npc_dota_hero_legion_commander_int_last" "God's Punishment."
         "npc_dota_hero_legion_commander_int_last_description" "When Moment of Courage is triggered there is a 50% chance to cause Overwhelming Odds + 50% intelligence damage in Overwhelming Odds"
 

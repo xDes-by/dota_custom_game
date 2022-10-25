@@ -84,7 +84,8 @@ function modifier_item_desolator_lua:OnAttackLanded( keys )
 			target:HasModifier("modifier_item_desolator_lua_4_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_5_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_6_debuff") or
-			target:HasModifier("modifier_item_desolator_lua_7_debuff")
+			target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -202,7 +203,8 @@ function modifier_item_desolator_lua_2:OnAttackLanded( keys )
 			target:HasModifier("modifier_item_desolator_lua_4_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_5_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_6_debuff") or
-			target:HasModifier("modifier_item_desolator_lua_7_debuff")
+			target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -320,7 +322,8 @@ function modifier_item_desolator_lua_3:OnAttackLanded( keys )
 		if	target:HasModifier("modifier_item_desolator_lua_4_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_5_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_6_debuff") or
-			target:HasModifier("modifier_item_desolator_lua_7_debuff")
+			target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")			
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -437,7 +440,8 @@ function modifier_item_desolator_lua_4:OnAttackLanded( keys )
 
 		if	target:HasModifier("modifier_item_desolator_lua_5_debuff") or
 			target:HasModifier("modifier_item_desolator_lua_6_debuff") or
-			target:HasModifier("modifier_item_desolator_lua_7_debuff")
+			target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")			
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -555,7 +559,8 @@ function modifier_item_desolator_lua_5:OnAttackLanded( keys )
 			return end
 
 		if	target:HasModifier("modifier_item_desolator_lua_6_debuff") or
-			target:HasModifier("modifier_item_desolator_lua_7_debuff")
+			target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")			
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -673,7 +678,8 @@ function modifier_item_desolator_lua_6:OnAttackLanded( keys )
 		if owner:IsIllusion() then
 			return end
 
-		if	target:HasModifier("modifier_item_desolator_lua_7_debuff")
+		if	target:HasModifier("modifier_item_desolator_lua_7_debuff") or
+			target:HasModifier("modifier_item_desolator_lua_8_debuff")		
 		then return end
 
 		target:RemoveModifierByName("modifier_item_blight_stone_lua_debuff")
@@ -791,6 +797,9 @@ function modifier_item_desolator_lua_7:OnAttackLanded( keys )
 		local target = keys.target
 		if owner:IsIllusion() then
 			return end
+			
+		if	target:HasModifier("modifier_item_desolator_lua_8_debuff")		
+		then return end	
 
 		target:RemoveModifierByName("modifier_item_desolator_lua_debuff")
 		target:RemoveModifierByName("modifier_item_desolator_lua_2_debuff")
@@ -914,6 +923,7 @@ function modifier_item_desolator_lua_8:OnAttackLanded( keys )
 		target:RemoveModifierByName("modifier_item_desolator_lua_4_debuff")
 		target:RemoveModifierByName("modifier_item_desolator_lua_5_debuff")
 		target:RemoveModifierByName("modifier_item_desolator_lua_6_debuff")
+		target:RemoveModifierByName("modifier_item_desolator_lua_7_debuff")
 
 		local ability = self:GetAbility()
 		Desolate(owner, target, ability, "modifier_item_desolator_lua_8_debuff", ability:GetSpecialValueFor("corruption_duration"))

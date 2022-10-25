@@ -72,14 +72,14 @@ function modifier_zuus_arc_lightning_lua:OnCreated(keys)
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
 				local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi11")	
 				if abil ~= nil then 
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-				self.arc_damage = self.arc_damage + self:GetCaster():GetAgility()
+				--	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+					self.arc_damage = self.arc_damage + self:GetCaster():GetAgility()
 				end
 				
 				
 				local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_str6")	
 				if abil ~= nil then 
-				self.arc_damage = self:GetCaster():GetStrength()
+					self.arc_damage = self:GetCaster():GetStrength()
 				end
 		
 		ApplyDamage({
@@ -128,7 +128,7 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
 				local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi11")	
 				if abil ~= nil then 
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+			--	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				self.arc_damage = self.arc_damage + self:GetCaster():GetAgility()
 				end
 				
@@ -177,7 +177,7 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
 				local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi11")	
 				if abil ~= nil then 
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+			--	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				self.arc_damage = self.arc_damage + self:GetCaster():GetAgility()
 				end
 				

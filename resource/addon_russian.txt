@@ -409,7 +409,7 @@
         "other_34" "Pugna"
         "other_35" "Shadow Shaman"
         "other_36" "Tinker"
-        "other_37" "Warlok"
+        "other_37" "Warlock"
         "other_38" "Windranger"
         "other_39" "Zeus"
         "other_40" "Medusa"
@@ -12918,7 +12918,7 @@
 		"DOTA_Tooltip_ability_troll_warlord_battle_trance_lua_movement_speed"														"БОНУС СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 		
 		"npc_dota_hero_troll_warlord_str6" "Жирок"
-        "npc_dota_hero_troll_warlord_str6_description" "+10 к здоровью за каждого убитого врага"
+        "npc_dota_hero_troll_warlord_str6_description" "+50 здоровья за уровень героя"
         "npc_dota_hero_troll_warlord_str7" "Крепче"
         "npc_dota_hero_troll_warlord_str7_description" "Бонус здоровья Rage x3"
         "npc_dota_hero_troll_warlord_str8" "Дело в силе"
@@ -12933,7 +12933,7 @@
         "npc_dota_hero_troll_warlord_str_last_description" "Шанс 25% что при получении смертельного угона герой не умрет а восстановит себе 25% макс. здоровья"
 		
         "npc_dota_hero_troll_warlord_agi6" "Фанатизм"
-        "npc_dota_hero_troll_warlord_agi6_description" "+2 к урону за каждого убитого врага"
+        "npc_dota_hero_troll_warlord_agi6_description" "+5 к урону за уровень героя"
         "npc_dota_hero_troll_warlord_agi7" "Дело в ловкости"
         "npc_dota_hero_troll_warlord_agi7_description" "Урон Whirling Axes равен ловкости героя"
         "npc_dota_hero_troll_warlord_agi8" "Почти вампир"
@@ -13258,7 +13258,7 @@
         "npc_dota_hero_legion_commander_int10" "Заклинающие копья"
         "npc_dota_hero_legion_commander_int10_description" "Overwhelming Odds наносят урон от интеллекта"
         "npc_dota_hero_legion_commander_int11" "Превосходство"
-        "npc_dota_hero_legion_commander_int11_description" "При срабатывании Moment of Courage от своих атак 5% шанс вызвать Overwhelming Odds"
+        "npc_dota_hero_legion_commander_int11_description" "От своих атак 5% шанс вызвать Overwhelming Odds"
         "npc_dota_hero_legion_commander_int_last" "Божья кара"
         "npc_dota_hero_legion_commander_int_last_description" "При срабатывании Moment of Courage 50% шанс вызвать Overwhelming Odds + урон 50% от интеллекта в Overwhelming Odds."
 

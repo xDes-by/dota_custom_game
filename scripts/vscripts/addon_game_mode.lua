@@ -661,7 +661,7 @@ function add_feed(id)
 	if not GameRules:IsCheatMode() then
 		Timers:CreateTimer(0.5, function()
 			if id ~= nil then 
-				if RandomInt(0,100) <= 1 then
+				if RandomInt(0,100) <= 10 then
 					local hero = PlayerResource:GetSelectedHeroEntity(id)
 					EmitSoundOn( "ui.treasure_03", hero )
 					local effect_cast = ParticleManager:CreateParticle( "particles/econ/taunts/wisp/wisp_taunt_explosion_fireworks.vpcf", PATTACH_ABSORIGIN, hero )
@@ -950,30 +950,51 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_forest_boss_fake" then
 		sInv:AddSoul("item_forest_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 500, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 	end
 	
 	if killedUnit:GetUnitName() == "npc_village_boss_fake" then
 		sInv:AddSoul("item_village_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 1000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mines_boss_fake" then
 		sInv:AddSoul("item_mines_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 1500, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_dust_boss_fake" then
 		sInv:AddSoul("item_dust_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 2000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_swamp_boss_fake" then
 		sInv:AddSoul("item_swamp_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 2500, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_snow_boss_fake" then
 		sInv:AddSoul("item_snow_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 3000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_boss_location8_fake" then
 		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGold( 4000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_forest_boss" then
@@ -993,6 +1014,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_village_boss"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local pudge = {"pudge_pud_death_03","pudge_pud_death_04","pudge_pud_death_06","pudge_pud_death_09","pudge_pud_death_10"}
 		killedUnit:EmitSound(pudge[RandomInt(1, #pudge)])
 		local village = killedUnit
@@ -1007,6 +1029,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_mines_boss"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local earth =  {"earth_spirit_earthspi_death_01","earth_spirit_earthspi_death_02","earth_spirit_earthspi_death_07","earth_spirit_earthspi_death_05","earth_spirit_earthspi_death_06"}
 		killedUnit:EmitSound(earth[RandomInt(1, #earth)])
 		local mines = killedUnit
@@ -1021,6 +1044,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_dust_boss"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local nyx =  {"nyx_assassin_nyx_death_02","nyx_assassin_nyx_death_03","nyx_assassin_nyx_rival_24","nyx_assassin_nyx_death_01","nyx_assassin_nyx_death_07"}
 		killedUnit:EmitSound(nyx[RandomInt(1, #nyx)])
 		local dust = killedUnit
@@ -1035,6 +1059,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_swamp_boss"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local venom =  {"venomancer_venm_death_08","venomancer_venm_death_07","venomancer_venm_death_09","venomancer_venm_death_06","venomancer_venm_death_05"}
 		killedUnit:EmitSound(venom[RandomInt(1, #venom)])
 		local swamp = killedUnit
@@ -1049,6 +1074,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_snow_boss"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local tiny =  {"tiny_tiny_death_09","tiny_tiny_death_01","tiny_tiny_death_05","tiny_tiny_death_11","tiny_tiny_death_08"}
 		killedUnit:EmitSound(tiny[RandomInt(1, #tiny)])
 		local snow = killedUnit
@@ -1063,6 +1089,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 	if killedUnit:GetUnitName() == "npc_boss_location8"  then
 		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		 Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "last_boss_point")
@@ -1074,6 +1101,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_mega_boss"  then
+	add_feed(killerEntity_playerID)
 	local doom =  {"doom_bringer_doom_death_04","doom_bringer_doom_death_10","doom_bringer_doom_death_11","doom_bringer_doom_death_02","doom_bringer_doom_death_01"}
 	killedUnit:EmitSound(doom[RandomInt(1, #doom)])	
 	_G.mega_boss_bonus = mega_boss_bonus + 1
@@ -1120,6 +1148,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	
 	if killedUnit:GetUnitName() == "roshan_npc"  then
+	add_feed(killerEntity_playerID)
 	local roshan = killedUnit
 		 Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "roshan_npc_point")
@@ -1140,6 +1169,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end	
 	
 	if killedUnit:GetUnitName() == "raid_boss" or killedUnit:GetUnitName() == "raid_boss3" or killedUnit:GetUnitName() == "raid_boss4" then
+		add_feed(killerEntity_playerID)
 		local point = killedUnit:GetAbsOrigin()
 		if diff_wave.wavedef == "Easy" then
 			return
@@ -1153,12 +1183,15 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if diff_wave.wavedef == "Ultra" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
+		if diff_wave.wavedef == "Insane" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end	
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_raid_earth" or killedUnit:GetUnitName() == "npc_raid_storm" or killedUnit:GetUnitName() == "npc_raid_fire" then
 	_G.raid_boss_2 = raid_boss_2 + 1 
 		if _G.raid_boss_2 == 3 then
-			 Entities:FindByName( nil, "raid_boss2"):ForceKill(false)
+			Entities:FindByName( nil, "raid_boss2"):ForceKill(false)
 		end
 	end
 	
@@ -1175,6 +1208,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local Unit = CreateUnitByName("box_2", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 		if diff_wave.wavedef == "Ultra" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end	
+		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 	end	

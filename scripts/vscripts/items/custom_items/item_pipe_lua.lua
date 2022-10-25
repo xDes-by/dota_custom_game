@@ -113,7 +113,6 @@ function modifier_item_pipe_lua:GetModifierAura()				return "modifier_item_pipe_
 modifier_item_pipe_aura_lua = class({})
 
 function modifier_item_pipe_aura_lua:OnCreated()
-	if not IsServer() then return end
 	self.aura_health_regen = self:GetAbility():GetSpecialValueFor("aura_health_regen")
 	self.magic_resistance_aura = self:GetAbility():GetSpecialValueFor("magic_resistance_aura")
 end
