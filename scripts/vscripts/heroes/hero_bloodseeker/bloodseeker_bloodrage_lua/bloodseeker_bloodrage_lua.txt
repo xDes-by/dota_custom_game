@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+	"bloodseeker_bloodrage_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_bloodseeker/bloodseeker_bloodrage_lua/bloodseeker_bloodrage_lua"
+		"AbilityTextureName"			"bloodseeker_bloodrage"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityCooldown"				"30 29 28 27 26 25 24 23 22 21 20 19 18 17 16"
+
+		"AbilityValues"
+		{
+			"duration"					"8"
+			"bonus_as"					"50 60 70 80 90 100 110 120 130 140 150 160 170 180 190"
+			"bonus_spell_amp"			"15 25 35 45 55 65 75 85 95 105 115 125 135 145 155"
+			"hp_loss"					"2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.4 4.6 4.8"
+		}
+	}
+}

@@ -194,10 +194,14 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetShowcaseTime(2)
 	GameRules:SetStrategyTime(5)
 	GameRules:SetPostGameTime(10)
+	
+	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
+	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
+	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
+	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_1, 0 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_2, 0 )
+	
 	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )  --true
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
@@ -243,13 +247,13 @@ function CAddonAdvExGameMode:OnChat( event )
 				hero:SetTimeUntilRespawn(10)
 			end
 		end    
-	end 			
+	end 
 end
 
 function CAddonAdvExGameMode:On_dota_item_picked_up(keys)
 	if keys.itemname == "item_key" then
-	local hRelay = Entities:FindByName( nil, "donate_cementry" )
-    hRelay:Trigger(nil,nil)
+		local hRelay = Entities:FindByName( nil, "donate_cementry" )
+		hRelay:Trigger(nil,nil)
 	end
 end
 
@@ -459,7 +463,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
 	Dummy:init()
-	Rules:global_event()
 	leave_game()
 	item_destroy()
 	end
@@ -568,6 +571,7 @@ _G.rating_wave = 0
 _G.mega_boss_bonus = 0
 _G.raid_boss_2 = 0
 _G.resp_time = 20
+_G.rsh = 1
 
 
 function bot(nPlayerID)
@@ -661,14 +665,14 @@ function add_feed(id)
 	if not GameRules:IsCheatMode() then
 		Timers:CreateTimer(0.5, function()
 			if id ~= nil then 
-				if RandomInt(0,100) <= 10 then
+				if RandomInt(0,100) <= 8 then
 					local hero = PlayerResource:GetSelectedHeroEntity(id)
 					EmitSoundOn( "ui.treasure_03", hero )
 					local effect_cast = ParticleManager:CreateParticle( "particles/econ/taunts/wisp/wisp_taunt_explosion_fireworks.vpcf", PATTACH_ABSORIGIN, hero )
 					ParticleManager:SetParticleControl( effect_cast, 0, hero:GetOrigin() )
 					ParticleManager:SetParticleControl( effect_cast, 1, Vector( 2, 0, 0 ) )
 					ParticleManager:ReleaseParticleIndex( effect_cast )
-					DataBase:AddFeed(id, RandomInt(50,100))
+					DataBase:AddFeed(id, RandomInt(25,75))
 				end
 			end
 		end)
@@ -858,39 +862,38 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	
 
 	if killedUnit:GetUnitName() == "badguys_fort"  then
-			local vPoint1 = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
-			local invoker = CreateUnitByName( "npc_invoker_boss", vPoint1 + RandomVector( RandomInt( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-			invoker:SetBaseDamageMin(invoker:GetBaseDamageMin() * wave * 3)
-			invoker:SetBaseDamageMax(invoker:GetBaseDamageMax() * wave * 3)
-			invoker:SetPhysicalArmorBaseValue(invoker:GetPhysicalArmorBaseValue() * wave * 3)
-			invoker:SetBaseMagicalResistanceValue(invoker:GetBaseMagicalResistanceValue() * wave * 1.2)
-			invoker:SetMaxHealth(invoker:GetMaxHealth() * wave * 10)
-			invoker:SetBaseMaxHealth(invoker:GetBaseMaxHealth() * wave * 10)
-			invoker:SetHealth(invoker:GetMaxHealth() * wave * 10)		
-			
-			inv_item = 0
-			while inv_item < 2 do
-				add_item = items_level_inv[RandomInt(1,#items_level_inv)]
-					while not invoker:HasItemInInventory(add_item) do
-					inv_item = inv_item + 1
-					invoker:AddItemByName(add_item)
-				end
+		local vPoint1 = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
+		local invoker = CreateUnitByName( "npc_invoker_boss", vPoint1 + RandomVector( RandomInt( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS )
+		invoker:SetBaseDamageMin(invoker:GetBaseDamageMin() * wave * 3)
+		invoker:SetBaseDamageMax(invoker:GetBaseDamageMax() * wave * 3)
+		invoker:SetPhysicalArmorBaseValue(invoker:GetPhysicalArmorBaseValue() * wave * 3)
+		invoker:SetBaseMagicalResistanceValue(invoker:GetBaseMagicalResistanceValue() * wave * 1.2)
+		invoker:SetMaxHealth(invoker:GetMaxHealth() * wave * 10)
+		invoker:SetBaseMaxHealth(invoker:GetBaseMaxHealth() * wave * 10)
+		invoker:SetHealth(invoker:GetMaxHealth() * wave * 10)		
+		
+		inv_item = 0
+		while inv_item < 2 do
+			add_item = items_level_inv[RandomInt(1,#items_level_inv)]
+				while not invoker:HasItemInInventory(add_item) do
+				inv_item = inv_item + 1
+				invoker:AddItemByName(add_item)
 			end
-			
-			local mg_resist = invoker:GetBaseMagicalResistanceValue()
-			if mg_resist >= 99 then invoker:SetBaseMagicalResistanceValue(99)
-			end
-			
-			-- local armor = invoker:GetPhysicalArmorBaseValue()
-			-- if armor >= 500 then invoker:SetPhysicalArmorBaseValue(500)
-			-- end
-			
-			local staki = math.floor(wave)
-			
-			local total_hp = invoker:GetMaxHealth()
-			local porog_hp = 100000000
-			local stack_modifier = math.floor(total_hp/porog_hp)
-			if total_hp < porog_hp then
+		end
+		
+		local mg_resist = invoker:GetBaseMagicalResistanceValue()
+		if mg_resist >= 99 then invoker:SetBaseMagicalResistanceValue(99) end
+		
+		-- local armor = invoker:GetPhysicalArmorBaseValue()
+		-- if armor >= 500 then invoker:SetPhysicalArmorBaseValue(500)
+		-- end
+		
+		local staki = math.floor(wave)
+		
+		local total_hp = invoker:GetMaxHealth()
+		local porog_hp = 100000000
+		local stack_modifier = math.floor(total_hp/porog_hp)
+		if total_hp < porog_hp then
 			invoker:SetBaseMaxHealth(porog_hp)
 			invoker:SetMaxHealth(porog_hp)
 			invoker:SetHealth(porog_hp)
@@ -912,7 +915,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 				new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 				invoker:AddAbility(new_abil_passive):SetLevel(4)
 			end	
-			else
+		else
 			invoker:SetBaseMaxHealth(porog_hp)
 			invoker:SetMaxHealth(porog_hp)
 			invoker:SetHealth(porog_hp)
@@ -930,6 +933,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			if diff_wave.wavedef == "Ultra" then
 				invoker:AddNewModifier(invoker, nil, "modifier_ultra", {})
 			end   
+			if diff_wave.wavedef == "Insane" then
+				invoker:AddNewModifier(invoker, nil, "modifier_insane", {})
+			end  
 		end	
 	end
 	
@@ -1083,7 +1089,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
-		 snow:RespawnUnit()
+			snow:RespawnUnit()
 		 end)
 	end	
 	
@@ -1096,7 +1102,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
-		 snow:RespawnUnit()
+			snow:RespawnUnit()
 		 end)
 	end	
 	
@@ -1106,7 +1112,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	killedUnit:EmitSound(doom[RandomInt(1, #doom)])	
 	_G.mega_boss_bonus = mega_boss_bonus + 1
 	local mega = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		 Timers:CreateTimer(60, function()
 			local ent = Entities:FindByName( nil, "mega_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(mega, point, false)
@@ -1119,38 +1125,15 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			mega:SetMaxHealth(mega:GetMaxHealth() * (mega_boss_bonus+1))
 			mega:SetBaseMaxHealth(mega:GetBaseMaxHealth() * (mega_boss_bonus+1))
 			mega:SetHealth(mega:GetMaxHealth()* (mega_boss_bonus+1))		
-			
-			local mg_resist = mega:GetBaseMagicalResistanceValue()
-			local total_hp = mega:GetMaxHealth()
-			local armor = mega:GetPhysicalArmorBaseValue()
-			local mindmg = mega:GetBaseDamageMin()
-			local maxdmg = mega:GetBaseDamageMax()
-			
-			if armor >= 10000 then mega:SetPhysicalArmorBaseValue(10000)
-			end
-			
-			if mindmg >= 2000000000 then mega:SetBaseDamageMin(2000000000)
-			end
-			
-			if maxdmg >= 2000000000 then mega:SetBaseDamageMax(2000000000)
-			end
-			
-			if mg_resist >= 99 then mega:SetBaseMagicalResistanceValue(99)
-			end
-			
-			if total_hp >= 2000000000 then
-			total_hp = 2000000000
-			mega:SetBaseMaxHealth(total_hp)
-			mega:SetMaxHealth(total_hp)
-			mega:SetHealth(total_hp)
-			end   
+			set_max_stats(mega) 
 		end)
 	end
 	
 	if killedUnit:GetUnitName() == "roshan_npc"  then
+	_G.rsh = rsh + 1
 	add_feed(killerEntity_playerID)
 	local roshan = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		 Timers:CreateTimer(60, function()
 			local ent = Entities:FindByName( nil, "roshan_npc_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(roshan, point, false)
@@ -1163,8 +1146,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			roshan:SetMaxHealth(roshan:GetMaxHealth() *2 )
 			roshan:SetBaseMaxHealth(roshan:GetBaseMaxHealth() * 2)
 			roshan:SetHealth(roshan:GetMaxHealth()* 2)		
-			if roshan:GetBaseMagicalResistanceValue() >= 99 then roshan:SetBaseMagicalResistanceValue(99)
-			end
+			set_max_stats(roshan)
 		end)
 	end	
 	
@@ -1233,6 +1215,19 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	else
 	print("ошибка при убийстве юнита")
 	end
+end
+
+
+function set_max_stats(unit)
+	local max_set = 2000000000
+	if unit:GetBaseMagicalResistanceValue() >= 99 then unit:SetBaseMagicalResistanceValue(99) end
+	if unit:GetBaseDamageMin() >= max_set then unit:SetBaseDamageMin(max_set) end
+	if unit:GetBaseDamageMax() >= max_set then unit:SetBaseDamageMax(max_set) end
+	if unit:GetMaxHealth() >= max_set then
+		unit:SetBaseMaxHealth(max_set)
+		unit:SetMaxHealth(max_set)
+		unit:SetHealth(max_set)
+	end  
 end
 
 function CAddonAdvExGameMode:FilterExecuteOrder(filterTable)

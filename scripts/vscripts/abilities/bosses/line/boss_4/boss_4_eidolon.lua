@@ -9,37 +9,11 @@ function boss_4_eidolon:OnSpellStart()
 	for i = 1, 5 do
 		local eidolon = CreateUnitByName("boss_4_eidolon", target:GetOrigin(), true, caster, caster, caster:GetTeamNumber())
 		eidolon:AddNewModifier(caster, self, "modifier_kill", {duration = 15})
-		difficality_modifier(eidolon)
+		Rules:difficality_modifier(eidolon)
 		setting(caster, eidolon)
 	end
 	target:ForceKill(false)
 end
-
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
-function difficality_modifier(unit)
-	if diff_wave.wavedef == "Easy" then
-		unit:AddNewModifier(unit, nil, "modifier_easy", {})
-	end
-	if diff_wave.wavedef == "Normal" then
-		unit:AddNewModifier(unit, nil, "modifier_normal", {})
-	end
-	if diff_wave.wavedef == "Hard" then
-		unit:AddNewModifier(unit, nil, "modifier_hard", {})
-	end	
-	if diff_wave.wavedef == "Ultra" then
-		unit:AddNewModifier(unit, nil, "modifier_ultra", {})
-	end		
-	if diff_wave.wavedef == "Insane" then
-		unit:AddNewModifier(unit, nil, "modifier_insane", {})
-		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
-		unit:AddAbility(new_abil_passive):SetLevel(4)
-	end	
-end	
 
 function setting(caster, eidolon)
 	eidolon:SetBaseDamageMin(caster:GetBaseDamageMin()/10)

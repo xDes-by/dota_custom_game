@@ -7996,7 +7996,8 @@
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "item_octarine_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -8058,7 +8059,8 @@
 		"BaseClass"						"item_lua"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "all/octarin_2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
@@ -8102,7 +8104,8 @@
 "item_octarine_core_lua3"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "all/octarin_3"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
@@ -8149,7 +8152,8 @@
 "item_octarine_core_lua4"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "all/octarin_4"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
@@ -8195,7 +8199,8 @@
 "item_octarine_core_lua5"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "all/octarin_5"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
@@ -8241,7 +8246,8 @@
 "item_octarine_core_lua6"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "all/octarin_6"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
@@ -8287,7 +8293,8 @@
 "item_octarine_core_lua7"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "all/octarin_7"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
@@ -8330,7 +8337,8 @@
 	"item_octarine_core_lua8"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "all/octarin_8"
 		"ScriptFile"					"items/custom_items/item_octarine_core_lua"

@@ -15,6 +15,43 @@ function item_octarine_core_lua1:GetIntrinsicModifierName()
 	return "modifier_item_octarine_core_lua"
 end
 
+function item_octarine_core_lua1:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function item_octarine_core_lua1:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function refresh(caster)
+if not IsServer() then return end
+
+    local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(particle)
+
+    EmitSoundOnLocationWithCaster(caster:GetOrigin(), "DOTA_Item.Refresher.Activate", caster)
+	
+	for i = 0, 8 do
+		local current_ability = caster:GetAbilityByIndex(i)
+		if current_ability then
+			current_ability:EndCooldown()
+		end
+	end
+	for i = 0, 8 do
+		local current_item = caster:GetItemInSlot(i)
+		local should_refresh = true
+		
+		if current_item and (string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster) then
+			should_refresh = false
+		end
+
+		if current_item and should_refresh then
+			current_item:EndCooldown()
+		end
+	end
+end
+
 function modifier_item_octarine_core_lua:IsHidden()
 	return true
 end
@@ -32,9 +69,6 @@ function modifier_item_octarine_core_lua:RemoveOnDeath()
 end
 
 function modifier_item_octarine_core_lua:OnCreated()
-	
-	
-	
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")

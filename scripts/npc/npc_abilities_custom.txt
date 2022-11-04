@@ -1846,22 +1846,6 @@
 	
 //======================================================================================================================================================================================================================================================	
 
-	"respawn_creeps_village"
-	{
-		"BaseClass" "ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"OnOwnerDied"
-		{
-		"RunScript"
-			{
-			"ScriptFile" 	"abilities/respawn_creeps_village.lua"
-			"Function" 		"respawncreeps"
-			}
-		}
-	}
-	
-//======================================================================================================================================================================================================================================================	
-
 	"respawn_creeps_mines"
 	{
 		"BaseClass" "ability_datadriven"
@@ -2988,6 +2972,14 @@
 #base "../vscripts/heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_unstable_concoction_lua/alchemist_unstable_concoction_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua.txt"
+
+//=====================================================================================================BLOODSEEKER=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_bloodseeker/bloodseeker_talents.txt"
+#base "../vscripts/heroes/hero_bloodseeker/bloodseeker_bloodrage_lua/bloodseeker_bloodrage_lua.txt"
+#base "../vscripts/heroes/hero_bloodseeker/bloodseeker_blood_rite_lua/bloodseeker_blood_rite_lua.txt"
+#base "../vscripts/heroes/hero_bloodseeker/bloodseeker_thirst_lua/bloodseeker_thirst_lua.txt"
+#base "../vscripts/heroes/hero_bloodseeker/bloodseeker_mist_lua/bloodseeker_mist_lua.txt"
 
 //=====================================================================================================MARCI=====================================================================================================================================================
 

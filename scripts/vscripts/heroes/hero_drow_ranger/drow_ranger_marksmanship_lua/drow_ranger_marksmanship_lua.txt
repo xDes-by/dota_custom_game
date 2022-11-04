@@ -8,15 +8,6 @@
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"10"
 
-		"HasScepterUpgrade"				"1"
-
-		"precache"
-		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
-			"particle"	"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
-			"particle"	"particles/units/heroes/hero_drow/drow_marksmanship_start.vpcf"
-		}
-		
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	

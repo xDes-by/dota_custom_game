@@ -1346,7 +1346,7 @@
         "quest_npc_boss_location8"     "Убей сумасшедшую старую бабку"
         "quest_necro_warior_tank_desc"  "Убей адских ублюдков (некров)"
         "quest_necro_warior_tank"       "Убей адских ублюдков (некров)"
-        "quest_npc_mega_boss"           "Убей лавного ебыря ада (дума)"
+        "quest_npc_mega_boss"           "Убей главного ебыря ада (дума)"
         "quest_npc_mega_boss_desc"      "Убей дума 3 раза"
         "quest_farm_zone_dragon"        "Спустить с небес на землю Черных драконов"
         "quest_farm_zone_dragon_desc"   "Убей черных драконов на локации для фарма"
@@ -1362,7 +1362,7 @@
         //Cheese//
 
         "dota_tooltip_ability_item_cheese_lua" "Сыр"
-        "dota_tooltip_ability_item_cheese_lua_description" "Вкусный и питательный, съешь его и получишь +%all% ко всем атрибутам."
+        "dota_tooltip_ability_item_cheese_lua_description" "Вкусный и питательный, съешь его и получишь бонус ко всем атрибутам +%all% * кол-во убитых рошанов."
         
         //Books//
 
@@ -9674,7 +9674,7 @@
         //Octarine Core//
         
         "dota_tooltip_ability_item_octarine_core_lua1" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_health" "+$health"
@@ -9682,7 +9682,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua2" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_health" "+$health"
@@ -9690,7 +9690,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua3" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_health" "+$health"
@@ -9698,7 +9698,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua4" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_health" "+$health"
@@ -9706,7 +9706,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua5" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_health" "+$health"
@@ -9714,7 +9714,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua6" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_health" "+$health"
@@ -9722,7 +9722,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua7" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_health" "+$health"
@@ -9730,7 +9730,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_health" "+$health"
@@ -9740,7 +9740,7 @@
         //Octarine Core Gems//
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_health" "+$health"
@@ -9749,7 +9749,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua2_gem1" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_health" "+$health"
@@ -9758,7 +9758,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua3_gem1" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_health" "+$health"
@@ -9767,7 +9767,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
       
 		"dota_tooltip_ability_item_octarine_core_lua4_gem1" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_health" "+$health"
@@ -9776,7 +9776,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua5_gem1" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_health" "+$health"
@@ -9785,7 +9785,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
       
         "dota_tooltip_ability_item_octarine_core_lua6_gem1" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_health" "+$health"
@@ -9794,7 +9794,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
     
         "dota_tooltip_ability_item_octarine_core_lua7_gem1" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_health" "+$health"
@@ -9803,7 +9803,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_health" "+$health"
@@ -9812,7 +9812,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem2" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_health" "+$health"
@@ -9821,7 +9821,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem2" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_health" "+$health"
@@ -9830,7 +9830,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem2" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_health" "+$health"
@@ -9839,7 +9839,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem2" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_health" "+$health"
@@ -9848,7 +9848,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem2" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_health" "+$health"
@@ -9857,7 +9857,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem2" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_health" "+$health"
@@ -9866,7 +9866,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_health" "+$health"
@@ -9875,7 +9875,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem3" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_health" "+$health"
@@ -9884,7 +9884,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem3" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_health" "+$health"
@@ -9893,7 +9893,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem3" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_health" "+$health"
@@ -9902,7 +9902,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem3" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_health" "+$health"
@@ -9911,7 +9911,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem3" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_health" "+$health"
@@ -9920,7 +9920,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem3" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_health" "+$health"
@@ -9929,7 +9929,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_health" "+$health"
@@ -9938,7 +9938,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem4" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_health" "+$health"
@@ -9947,7 +9947,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem4" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_health" "+$health"
@@ -9956,7 +9956,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem4" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_health" "+$health"
@@ -9965,7 +9965,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem4" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_health" "+$health"
@@ -9974,7 +9974,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem4" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_health" "+$health"
@@ -9983,7 +9983,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem4" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_health" "+$health"
@@ -9992,7 +9992,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_health" "+$health"
@@ -10001,7 +10001,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem5" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_health" "+$health"
@@ -10010,7 +10010,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem5" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_health" "+$health"
@@ -10019,7 +10019,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem5" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_health" "+$health"
@@ -10028,7 +10028,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem5" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_health" "+$health"
@@ -10037,7 +10037,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem5" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_health" "+$health"
@@ -10046,7 +10046,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem5" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_health" "+$health"
@@ -15556,6 +15556,80 @@
         "npc_dota_hero_zuus_int_last" "Молниеносная кара небес"
         "npc_dota_hero_zuus_int_last_description" "+1 интеллекта у Static Field"
 
+        //Bloodseeker//
+		
+		"dota_tooltip_ability_bloodseeker_bloodrage_lua" "Bloodrage"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_description" "Пробуждает в существе жажду крови, из-за которой оно атакует быстрее и наносит больше урона заклинаниями, но каждую секунду теряет долю от своего здоровья."
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_as" "БОНУС СКОРОСТИ АТАКИ:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_spell_amp" "%БОНУС УСИЛЕНИЯ ЗАКЛИНАНИЙ:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_hp_loss" "%ПОТЕРЯ ХП В СЕК:"
+		
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua" "Blood Rite"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_description" "Герой окропляет выбранную область святой кровью. Через 2,9 сек. ритуал завершается, нанося противникам урон, запрещает восстанавливать здоровье и снижает скорость передвижения на 50%."
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_damage" "УРОН:"
+
+        "dota_tooltip_ability_bloodseeker_thirst_lua" "Thirst"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_description" "Герой жертвует своей кровью нанося урон себе и получая за это бонус к скорости передвижения, урону и вампиризму."
+        "dota_tooltip_ability_bloodseeker_thirst_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_hit_self" "%УРОН СЕБЕ ОТ МАКС ХП:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_damage" "БОНУС УРОНА:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_lifesteal" "%ВАМПИРИЗМ::"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_movespeed" "%БОНУС СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		
+        "dota_tooltip_ability_bloodseeker_mist_lua" "Blood Mist"
+        "dota_tooltip_ability_bloodseeker_mist_lua_description" "Пока способность активна, герой разбрызгивает вокруг свою кровь, теряя здоровье, но нанося задетым врагам урон и замедляя их."
+        "dota_tooltip_ability_bloodseeker_mist_lua_damage" "УРОН В СЕК:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_self_hit" "%ПОТЕРЯ ХП В СЕК:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_slow" "%ЗАМЕДЛЕНИЕ ВРАГОВ:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_radius" "РАДИУС:"
+
+        "npc_dota_hero_bloodseeker_str6" "Вкус крови"
+        "npc_dota_hero_bloodseeker_str6_description" "Под действием Bloodrage +10% к вампиризму"
+        "npc_dota_hero_bloodseeker_str7" "Каждый труп"
+        "npc_dota_hero_bloodseeker_str7_description" "Восстанавливает 2% своего хп за убийство врага"
+        "npc_dota_hero_bloodseeker_str8" "Крепкая кожа"
+        "npc_dota_hero_bloodseeker_str8_description" "Под действием Bloodrage бонус брони равный 50% бонуса скорости атаки"
+        "npc_dota_hero_bloodseeker_str9" "Паралич"
+        "npc_dota_hero_bloodseeker_str9_description" "Blood Rite накладывает стан"
+        "npc_dota_hero_bloodseeker_str10" "Несокрушимый"
+        "npc_dota_hero_bloodseeker_str10_description" "Герой не может умереть от потери крови(от своих скилов)"
+        "npc_dota_hero_bloodseeker_str11" "Магическая стойкость"
+        "npc_dota_hero_bloodseeker_str11_description" "Под действием Bloodrage +25% к магическому сопротивлению"
+        "npc_dota_hero_bloodseeker_str_last" "Вся сила"
+        "npc_dota_hero_bloodseeker_str_last_description" "Blood Mist получает 100% силы к урону"
+
+        "npc_dota_hero_bloodseeker_agi6" "Ловкий удар"
+        "npc_dota_hero_bloodseeker_agi6_description" "Под действием Thirst получает бонус к урону равный ловкости"
+        "npc_dota_hero_bloodseeker_agi7" "Ловкая магия"
+        "npc_dota_hero_bloodseeker_agi7_description" "Blood Rite получает бонус к урону равный ловкости"
+        "npc_dota_hero_bloodseeker_agi8" "И да и нет"
+        "npc_dota_hero_bloodseeker_agi8_description" "Bloodrage все показатели х2"
+        "npc_dota_hero_bloodseeker_agi9" "Как Свен"
+        "npc_dota_hero_bloodseeker_agi9_description" "Под действием Thirst получает 50% прорубающего урона"
+        "npc_dota_hero_bloodseeker_agi10" "Чувство страха"
+        "npc_dota_hero_bloodseeker_agi10_description" "Враги под действием Blood Rite получают на 25% больше урона от героя"
+        "npc_dota_hero_bloodseeker_agi11" "Старческая ловкость"
+        "npc_dota_hero_bloodseeker_agi11_description" "Под действием Bloodrage 10% шанс при атаке игнорирокать базовую броню цели"
+        "npc_dota_hero_bloodseeker_agi_last" "Скрытая сила"
+        "npc_dota_hero_bloodseeker_agi_last_description" "Thirst х2"
+
+        "npc_dota_hero_bloodseeker_int6" "Почти маг"
+        "npc_dota_hero_bloodseeker_int6_description" "-50% кд на все"
+        "npc_dota_hero_bloodseeker_int7" "Больше магии"
+        "npc_dota_hero_bloodseeker_int7_description" "Blood Rite меняет урон на магический и может усиливаться"
+        "npc_dota_hero_bloodseeker_int8" "Буря крови"
+        "npc_dota_hero_bloodseeker_int8_description" "+150 к радиусу Blood Mist"
+        "npc_dota_hero_bloodseeker_int9" "Все в магию"
+        "npc_dota_hero_bloodseeker_int9_description" "Под действием Thirst наносит на 15% больше НЕ физического урона"
+        "npc_dota_hero_bloodseeker_int10" "Кровотечение"
+        "npc_dota_hero_bloodseeker_int10_description" "Blood Rite накладывает кровотечение на 3сек нанося 25% от базового урона в сек"
+        "npc_dota_hero_bloodseeker_int11" "Вся магия"
+        "npc_dota_hero_bloodseeker_int11_description" "Blood Mist получает 25% интеллекта к урону"
+        "npc_dota_hero_bloodseeker_int_last" "Теперь все вместе"
+        "npc_dota_hero_bloodseeker_int_last_description" "Bloodrage можно применить по области"		
+		
         //Marci//
 
         //Marci Change =========================================================================================================================
@@ -16110,7 +16184,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_health" "+$health"
@@ -16343,7 +16417,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem2_bonus_gem" "%<font color='#006dff'>Бонус урона от заклинаний</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_health" "+$health"
@@ -16584,7 +16658,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem3_bonus_gem" "<font color='#ffca00'>Бонус интеллекта, силы и ловкости</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_health" "+$health"
@@ -16825,7 +16899,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem4_bonus_gem" "<font color='#ff004c'>Бонус базового урона</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_health" "+$health"
@@ -17066,7 +17140,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem5_bonus_gem" "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_health" "+$health"

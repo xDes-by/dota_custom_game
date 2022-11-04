@@ -4979,7 +4979,8 @@
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5008,7 +5009,8 @@
 
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
@@ -5036,7 +5038,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua3"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
@@ -5067,7 +5070,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua4"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
@@ -5097,7 +5101,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua5"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
@@ -5127,7 +5132,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua6"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
@@ -5157,7 +5163,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua7"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
@@ -5186,7 +5193,8 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem5/item_octarine_core_lua8"
 		"ScriptFile"					"items/items_gems/item_octarine_core_lua"

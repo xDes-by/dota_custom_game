@@ -8,7 +8,6 @@ end
 
 function use_pets:InitGameMode()
 	self:RegisterHudListener( "UsePet", "UsePet" )	
-	self.player = {}
 end
 
 function use_pets:UsePet(t)
@@ -18,7 +17,6 @@ function use_pets:UsePet(t)
 		local tab = CustomNetTables:GetTableValue("player_pets", tostring(t.PlayerID))
 		if tab then
 			if tab.pet ~= nil then
-				print(tab.pet)
 				local ability = hero:FindAbilityByName(tab.pet)
 				ability:OnSpellStart()
 			end

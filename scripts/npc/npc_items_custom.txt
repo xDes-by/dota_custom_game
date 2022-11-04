@@ -105,6 +105,10 @@
 "item_meteor_hammer" 						"REMOVED"
 "item_boots_of_bearing"						"REMOVED"
 "item_recipe_boots_of_bearing"				"REMOVED"
+"item_refresher"							"REMOVED"
+"item_recipe_refresher"						"REMOVED"
+"item_recipe_nullifier"						"REMOVED"
+"item_nullifier"						"REMOVED"
 
 
 

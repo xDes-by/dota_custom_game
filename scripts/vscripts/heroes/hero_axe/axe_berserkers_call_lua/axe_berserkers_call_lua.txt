@@ -8,14 +8,6 @@
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"15"
 		
-		"precache"
-		{
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
-			"particle"	"particles/status_fx/status_effect_beserkers_call.vpcf"
-			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call.vpcf"
-			"particle"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
-		}
-		
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"

@@ -1361,7 +1361,7 @@
         //Cheese//
 
         "dota_tooltip_ability_item_cheese_lua" "奶酪" 
-        "dota_tooltip_ability_item_cheese_lua_description" "美味又營養，吃掉它並獲得所有統計數據的 +%all%。" 
+        "dota_tooltip_ability_item_cheese_lua_description" "美味又营养，吃完获得全属性加成 +%all% * 肉山击杀数量。" 
 		
         //Books//
 
@@ -9681,7 +9681,7 @@
         //Octarine Core//
 		
         "dota_tooltip_ability_item_octarine_core_lua1" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_health" "+$健康" 
@@ -9689,7 +9689,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_health" "+$健康" 
@@ -9697,7 +9697,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua3" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_health" "+$健康" 
@@ -9705,7 +9705,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua4" "礦山 Octarine Core" 
-        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_health" "+$健康" 
@@ -9713,7 +9713,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_health" "+$健康" 
@@ -9721,7 +9721,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua6" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_health" "+$健康" 
@@ -9729,7 +9729,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua7" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_health" "+$健康" 
@@ -9737,7 +9737,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_lore" "<font color = '#ff0000'> 此項目的多個實例不能一起工作。最後一個採取的作品。 </font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_health" "+$健康" 
@@ -9747,7 +9747,7 @@
         //Octarine Core Gems//
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_health" "+$健康" 
@@ -9756,7 +9756,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2_gem1" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_health" "+$健康" 
@@ -9765,7 +9765,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
         
 		"dota_tooltip_ability_item_octarine_core_lua3_gem1" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_health" "+$健康" 
@@ -9774,7 +9774,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 		
 		"dota_tooltip_ability_item_octarine_core_lua4_gem1" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_health" "+$健康" 
@@ -9783,7 +9783,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5_gem1" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_health" "+$健康" 
@@ -9792,7 +9792,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 		
         "dota_tooltip_ability_item_octarine_core_lua6_gem1" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_health" "+$健康" 
@@ -9801,7 +9801,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 		
         "dota_tooltip_ability_item_octarine_core_lua7_gem1" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_health" "+$健康" 
@@ -9810,7 +9810,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_health" "+$健康" 
@@ -9819,7 +9819,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2_gem2" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_health" "+$健康" 
@@ -9828,7 +9828,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua3_gem2" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_health" "+$健康" 
@@ -9837,7 +9837,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua4_gem2" "礦山 Octarine Core" 
-        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_health" "+$健康" 
@@ -9846,7 +9846,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5_gem2" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_health" "+$健康" 
@@ -9855,7 +9855,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua6_gem2" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_health" "+$健康" 
@@ -9864,7 +9864,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua7_gem2" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_health" "+$健康" 
@@ -9873,7 +9873,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_health" "+$健康" 
@@ -9882,7 +9882,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2_gem3" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_health" "+$健康" 
@@ -9891,7 +9891,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua3_gem3" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_health" "+$健康" 
@@ -9900,7 +9900,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua4_gem3" "礦山 Octarine Core" 
-        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_health" "+$健康" 
@@ -9909,7 +9909,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5_gem3" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_health" "+$健康" 
@@ -9918,7 +9918,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua6_gem3" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_health" "+$健康" 
@@ -9927,7 +9927,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua7_gem3" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_health" "+$健康" 
@@ -9936,7 +9936,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_health" "+$健康" 
@@ -9945,7 +9945,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2_gem4" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_health" "+$健康" 
@@ -9954,7 +9954,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua3_gem4" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_health" "+$健康" 
@@ -9963,7 +9963,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua4_gem4" "礦山 Octarine Core" 
-        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_health" "+$健康" 
@@ -9972,7 +9972,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5_gem4" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_health" "+$健康" 
@@ -9981,7 +9981,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua6_gem4" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_health" "+$健康" 
@@ -9990,7 +9990,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua7_gem4" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_health" "+$健康" 
@@ -9999,7 +9999,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5" "晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_health" "+$健康" 
@@ -10008,7 +10008,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua2_gem5" "森林晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_health" "+$健康" 
@@ -10017,7 +10017,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua3_gem5" "村八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_health" "+$健康" 
@@ -10026,7 +10026,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua4_gem5" "礦山 Octarine Core" 
-        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_health" "+$健康" 
@@ -10035,7 +10035,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua5_gem5" "塵埃八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_health" "+$健康" 
@@ -10044,7 +10044,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua6_gem5" "沼澤八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_health" "+$健康" 
@@ -10053,7 +10053,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua7_gem5" "雪晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_health" "+$健康" 
@@ -15563,6 +15563,81 @@
         "npc_dota_hero_zuus_int11_description" "+0.1 int 靜電場傷害" 
         "npc_dota_hero_zuus_int_last" "天道雷罰。" 
         "npc_dota_hero_zuus_int_last_description" "+1 int 靜電場傷害。" 
+		
+				
+        //Bloodseeker//
+		
+		"dota_tooltip_ability_bloodseeker_bloodrage_lua" "血怒"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_description" "唤醒一个生物对血液的渴望，使其攻击速度更快并造成更多法术伤害，但每秒会损失一小部分生命值。"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_duration" "持续时间："
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_as" "额外攻击速度："
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_spell_amp" "%SPELL BOOST 奖励："
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_hp_loss" "%HP 每秒损失："
+
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua" "血祭"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_description" "向目标区域喷洒圣血。仪式在 2.9 秒后结束，对敌人造成伤害，阻止生命恢复，并降低 50% 移动速度。"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_duration" "持续时间："
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_damage" "伤害："
+
+        "dota_tooltip_ability_bloodseeker_thirst_lua" "口渴"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_description" "英雄牺牲自己的鲜血，伤害自己以获得移动速度、伤害和吸血的加成。"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_duration" "持续时间："
+        "dota_tooltip_ability_bloodseeker_thirst_lua_hit_self" "%MAX 生命值自我伤害："
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_damage" "额外伤害："
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_lifesteal" "%VAMPIRISM::"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_movespeed" "%BONUS 移动速度："
+
+        "dota_tooltip_ability_bloodseeker_mist_lua" "血雾"
+        "dota_tooltip_ability_bloodseeker_mist_lua_description" "激活时，英雄会溅出他的血液，失去生命值，但会伤害并减缓被击中的敌人。"
+        "dota_tooltip_ability_bloodseeker_mist_lua_damage" "每秒伤害："
+        "dota_tooltip_ability_bloodseeker_mist_lua_self_hit" "%HP 每秒损失："
+        "dota_tooltip_ability_bloodseeker_mist_lua_slow" "%ENEMIES 慢："
+        "dota_tooltip_ability_bloodseeker_mist_lua_radius" "半径："
+		
+		"npc_dota_hero_bloodseeker_str6" "血之滋味"
+        "npc_dota_hero_bloodseeker_str6_description" "血怒 +10% 吸血"
+        "npc_dota_hero_bloodseeker_str7" "每具尸体"
+        "npc_dota_hero_bloodseeker_str7_description" "杀死一个敌人恢复 2% 的生命值"
+        "npc_dota_hero_bloodseeker_str8" "强壮的皮肤"
+        "npc_dota_hero_bloodseeker_str8_description" "受到血怒影响时，护甲加成等于 50% 攻击速度加成"
+        "npc_dota_hero_bloodseeker_str9" "瘫痪"
+        "npc_dota_hero_bloodseeker_str9_description" "血祭眩晕"
+        "npc_dota_hero_bloodseeker_str10" "牢不可破"
+        "npc_dota_hero_bloodseeker_str10_description" "英雄不会死于失血（根据他的技能）"
+        "npc_dota_hero_bloodseeker_str11" "魔法坚韧"
+        "npc_dota_hero_bloodseeker_str11_description" "血怒 +25% 魔法抗性"
+        "npc_dota_hero_bloodseeker_str_last" "全能"
+        "npc_dota_hero_bloodseeker_str_last_description" "血雾获得 100% 的伤害力量"
+
+        "npc_dota_hero_bloodseeker_agi6" "灵巧一击"
+        "npc_dota_hero_bloodseeker_agi6_description" "受口渴影响时伤害加成等于敏捷"
+        "npc_dota_hero_bloodseeker_agi7" "灵巧魔法"
+        "npc_dota_hero_bloodseeker_agi7_description" "血祭获得等同于敏捷的伤害加成"
+        "npc_dota_hero_bloodseeker_agi8" "是也不是"
+        "npc_dota_hero_bloodseeker_agi8_description" "血怒所有属性 x2"
+        "npc_dota_hero_bloodseeker_agi9" "像斯文"
+        "npc_dota_hero_bloodseeker_agi9_description" "受饥渴影响时受到 50% 的分裂伤害"
+        "npc_dota_hero_bloodseeker_agi10" "恐惧感"
+        "npc_dota_hero_bloodseeker_agi10_description" "受血祭影响的敌人受到英雄的伤害提高 25%"
+        "npc_dota_hero_bloodseeker_agi11" "老年敏捷"
+        "npc_dota_hero_bloodseeker_agi11_description" "受到血怒影响时，攻击时有 10% 几率无视目标的基础护甲"
+        "npc_dota_hero_bloodseeker_agi_last" "隐藏的力量"
+        "npc_dota_hero_bloodseeker_agi_last_description" "口渴 x2"
+
+        "npc_dota_hero_bloodseeker_int6" "几乎是法师"
+        "npc_dota_hero_bloodseeker_int6_description" "-50% cd 一切"
+        "npc_dota_hero_bloodseeker_int7" "更多魔法"
+        "npc_dota_hero_bloodseeker_int7_description" "血祭改变魔法伤害并且可以被增益"
+        "npc_dota_hero_bloodseeker_int8" "血腥风暴"
+        "npc_dota_hero_bloodseeker_int8_description" "+150 血雾半径"
+        "npc_dota_hero_bloodseeker_int9" "全在魔法中"
+        "npc_dota_hero_bloodseeker_int9_description" "受口渴影响时造成 15% 更多非物理伤害"
+        "npc_dota_hero_bloodseeker_int10" "流血"
+        "npc_dota_hero_bloodseeker_int10_description" "血祭造成流血，持续 3 秒，每秒造成 25% 的基础伤害"
+        "npc_dota_hero_bloodseeker_int11" "全魔法"
+        "npc_dota_hero_bloodseeker_int11_description" "血雾获得 25% 智力伤害"
+        "npc_dota_hero_bloodseeker_int_last" "大家齐聚一堂"
+        "npc_dota_hero_bloodseeker_int_last_description" "血怒可以区域施放"
 
         //Marci//
 
@@ -16116,7 +16191,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_health" "+$健康" 
@@ -16348,7 +16423,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem2_bonus_gem" "%<font color='#006dff'>法術增幅加成​​</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_health" "+$健康" 
@@ -16588,7 +16663,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem3_bonus_gem" "<font color='#ffca00'>智力、力量和敏捷加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_health" "+$健康" 
@@ -16828,7 +16903,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem4_bonus_gem" "<font color='#ff004c'>基礎傷害加成</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_health" "+$健康" 
@@ -17068,7 +17143,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem5_bonus_gem" "%<font color = '#da00ff'> 每秒生命值和法力恢復獎勵</font>" 
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5" "神聖的八晶核" 
-        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
+        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。 \n <h1>被動：冷卻時間減少</h1>將所有法術和物品的冷卻時間減少 %bonus_cooldown%%%。" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_cast_range_bonus" "+$cast_range" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_mana_regen" "+$mana_regen" 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_health" "+$健康" 

@@ -58,30 +58,22 @@ function modifier_pet_donate_250_no_phys_spell_bonus:OnAbilityFullyCast( params 
 		if params.unit ~= self:GetParent() then
 			return 0
 		end
-		local Ability = params.ability
-		if Ability == nil then
+		local ability = params.ability
+		if ability == nil then
 			return 0
 		end
 		if RandomInt(1,100) <= self:GetAbility():GetSpecialValueFor("chance") then
-			if not self:IsItemException( Ability ) then
-					Ability:EndCooldown()
-					local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
-					ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 1, 2, 1 ) )
-					ParticleManager:ReleaseParticleIndex( nFXIndex )
-					EmitSoundOn( "Bogduggs.LuckyFemur", self:GetParent() )
+			if not string.find(ability:GetName(), "octarine_core") then
+				ability:EndCooldown()
+				local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+				ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 1, 2, 1 ) )
+				ParticleManager:ReleaseParticleIndex( nFXIndex )
+				EmitSoundOn( "Bogduggs.LuckyFemur", self:GetParent() )
 			end
 		end
 	end
 	return 0
 end
-
-function modifier_pet_donate_250_no_phys_spell_bonus:IsItemException( item )
-	return self.ItemException[item:GetName()]
-end
-
-modifier_pet_donate_250_no_phys_spell_bonus.ItemException = {
-	["item_refresher"] = true
-}
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

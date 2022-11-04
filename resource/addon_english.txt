@@ -1362,7 +1362,7 @@
         //Cheese//
 
         "dota_tooltip_ability_item_cheese_lua" "Cheese"
-        "dota_tooltip_ability_item_cheese_lua_description" "Delicious and nutritious, eat it and get +%all% to all stats."
+        "dota_tooltip_ability_item_cheese_lua_description" "Delicious and nutritious, eat it and get a bonus to all attributes +%all% * number of roshans killed."
         
         //Books//
 
@@ -9682,7 +9682,7 @@
         //Octarine Core//
         
         "dota_tooltip_ability_item_octarine_core_lua1" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_bonus_health" "+$health"
@@ -9690,7 +9690,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua2" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_bonus_health" "+$health"
@@ -9698,7 +9698,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua3" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_bonus_health" "+$health"
@@ -9706,7 +9706,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua4" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_bonus_health" "+$health"
@@ -9714,7 +9714,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua5" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_bonus_health" "+$health"
@@ -9722,7 +9722,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua6" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_bonus_health" "+$health"
@@ -9730,7 +9730,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua7" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_bonus_health" "+$health"
@@ -9738,7 +9738,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_bonus_health" "+$health"
@@ -9748,7 +9748,7 @@
         //Octarine Core Gems//
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem1" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_health" "+$health"
@@ -9757,7 +9757,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua2_gem1" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_health" "+$health"
@@ -9766,7 +9766,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua3_gem1" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_health" "+$health"
@@ -9775,7 +9775,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
       
 		"dota_tooltip_ability_item_octarine_core_lua4_gem1" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_health" "+$health"
@@ -9784,7 +9784,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
        
         "dota_tooltip_ability_item_octarine_core_lua5_gem1" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_health" "+$health"
@@ -9793,7 +9793,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
       
         "dota_tooltip_ability_item_octarine_core_lua6_gem1" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_health" "+$health"
@@ -9802,7 +9802,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
     
         "dota_tooltip_ability_item_octarine_core_lua7_gem1" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_health" "+$health"
@@ -9811,7 +9811,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem2" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_health" "+$health"
@@ -9820,7 +9820,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem2" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_health" "+$health"
@@ -9829,7 +9829,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem2" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_health" "+$health"
@@ -9838,7 +9838,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem2" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_health" "+$health"
@@ -9847,7 +9847,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem2" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_health" "+$health"
@@ -9856,7 +9856,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem2" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_health" "+$health"
@@ -9865,7 +9865,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem2" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_health" "+$health"
@@ -9874,7 +9874,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem3" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_health" "+$health"
@@ -9883,7 +9883,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem3" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_health" "+$health"
@@ -9892,7 +9892,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem3" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_health" "+$health"
@@ -9901,7 +9901,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem3" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_health" "+$health"
@@ -9910,7 +9910,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem3" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_health" "+$health"
@@ -9919,7 +9919,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem3" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_health" "+$health"
@@ -9928,7 +9928,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem3" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_health" "+$health"
@@ -9937,7 +9937,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem4" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_health" "+$health"
@@ -9946,7 +9946,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem4" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_health" "+$health"
@@ -9955,7 +9955,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem4" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_health" "+$health"
@@ -9964,7 +9964,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem4" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_health" "+$health"
@@ -9973,7 +9973,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem4" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_health" "+$health"
@@ -9982,7 +9982,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem4" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_health" "+$health"
@@ -9991,7 +9991,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem4" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_health" "+$health"
@@ -10000,7 +10000,7 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua1_gem5" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua1_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_health" "+$health"
@@ -10009,7 +10009,7 @@
         "dota_tooltip_ability_item_octarine_core_lua1_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua2_gem5" "Forest Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua2_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_health" "+$health"
@@ -10018,7 +10018,7 @@
         "dota_tooltip_ability_item_octarine_core_lua2_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua3_gem5" "Village Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua3_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_health" "+$health"
@@ -10027,7 +10027,7 @@
         "dota_tooltip_ability_item_octarine_core_lua3_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua4_gem5" "Mines Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua4_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_health" "+$health"
@@ -10036,7 +10036,7 @@
         "dota_tooltip_ability_item_octarine_core_lua4_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua5_gem5" "Dust Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua5_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_health" "+$health"
@@ -10045,7 +10045,7 @@
         "dota_tooltip_ability_item_octarine_core_lua5_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua6_gem5" "Swamp Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua6_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_health" "+$health"
@@ -10054,7 +10054,7 @@
         "dota_tooltip_ability_item_octarine_core_lua6_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_octarine_core_lua7_gem5" "Snow Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua7_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_health" "+$health"
@@ -15558,6 +15558,80 @@
         "npc_dota_hero_zuus_int11_description" "+0,1 int to Static Field damage"
         "npc_dota_hero_zuus_int_last" "The lightning punishment of heaven."
         "npc_dota_hero_zuus_int_last_description" "+1 int to Static Field damage."
+		
+        //Bloodseeker//
+		
+		"dota_tooltip_ability_bloodseeker_bloodrage_lua" "Bloodrage"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_description" "Awakens a creature's thirst for blood, causing it to attack faster and deal more spell damage, but lose a fraction of its health every second."
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_duration" "DURATION:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_as" "BONUS ATTACK SPEED:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_bonus_spell_amp" "%SPELL BOOST BONUS:"
+        "dota_tooltip_ability_bloodseeker_bloodrage_lua_hp_loss" "%HP LOSS PER SEC:"
+
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua" "Blood Rite"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_description" "Sprinkles the target area with holy blood. The ritual ends after 2.9 seconds, dealing damage to enemies, preventing health regeneration, and reducing movement speed by 50%."
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_duration" "DURATION:"
+        "dota_tooltip_ability_bloodseeker_blood_rite_lua_damage" "DAMAGE:"
+
+        "dota_tooltip_ability_bloodseeker_thirst_lua" "Thirst"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_description" "The hero sacrifices his own blood, damaging himself for a bonus to movement speed, damage, and lifesteal."
+        "dota_tooltip_ability_bloodseeker_thirst_lua_duration" "DURATION:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_hit_self" "%MAX HP SELF DAMAGE:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_damage" "BONUS DAMAGE:"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_lifesteal" "%VAMPIRISM::"
+        "dota_tooltip_ability_bloodseeker_thirst_lua_bonus_movespeed" "%BONUS MOVEMENT SPEED:"
+
+        "dota_tooltip_ability_bloodseeker_mist_lua" "Blood Mist"
+        "dota_tooltip_ability_bloodseeker_mist_lua_description" "While active, the hero splatters his blood around, losing health but damaging and slowing enemies hit."
+        "dota_tooltip_ability_bloodseeker_mist_lua_damage" "DAMAGE PER SEC:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_self_hit" "%HP LOSS PER SEC:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_slow" "%ENEMIES SLOW:"
+        "dota_tooltip_ability_bloodseeker_mist_lua_radius" "RADIUS:"
+		
+		"npc_dota_hero_bloodseeker_str6" "Taste of Blood"
+        "npc_dota_hero_bloodseeker_str6_description" "Bloodrage +10% lifesteal"
+        "npc_dota_hero_bloodseeker_str7" "Every corpse"
+        "npc_dota_hero_bloodseeker_str7_description" "Recovers 2% of your HP for killing an enemy"
+        "npc_dota_hero_bloodseeker_str8" "Strong Skin"
+        "npc_dota_hero_bloodseeker_str8_description" "When affected by Bloodrage, armor bonus equals 50% attack speed bonus"
+        "npc_dota_hero_bloodseeker_str9" "Paralysis"
+        "npc_dota_hero_bloodseeker_str9_description" "Blood Rite stuns"
+        "npc_dota_hero_bloodseeker_str10" "Unbreakable"
+        "npc_dota_hero_bloodseeker_str10_description" "A hero cannot die from blood loss (from his skills)"
+        "npc_dota_hero_bloodseeker_str11" "Magic Fortitude"
+        "npc_dota_hero_bloodseeker_str11_description" "Bloodrage +25% Magic Resistance"
+        "npc_dota_hero_bloodseeker_str_last" "All Power"
+        "npc_dota_hero_bloodseeker_str_last_description" "Blood Mist gains 100% power to damage"
+
+        "npc_dota_hero_bloodseeker_agi6" "Nimble Strike"
+        "npc_dota_hero_bloodseeker_agi6_description" "Damage bonus equal to Agility while affected by Thirst"
+        "npc_dota_hero_bloodseeker_agi7" "Nimble Magic"
+        "npc_dota_hero_bloodseeker_agi7_description" "Blood Rite gains a damage bonus equal to Agility"
+        "npc_dota_hero_bloodseeker_agi8" "Yes and no"
+        "npc_dota_hero_bloodseeker_agi8_description" "Bloodrage all stats x2"
+        "npc_dota_hero_bloodseeker_agi9" "Like Sven"
+        "npc_dota_hero_bloodseeker_agi9_description" "Takes 50% cleave damage while affected by Thirst"
+        "npc_dota_hero_bloodseeker_agi10" "Feeling Fear"
+        "npc_dota_hero_bloodseeker_agi10_description" "Enemies affected by Blood Rite take 25% more damage from the hero"
+        "npc_dota_hero_bloodseeker_agi11" "Old Age Agility"
+        "npc_dota_hero_bloodseeker_agi11_description" "When affected by Bloodrage, 10% chance to ignore target's base armor when attacking"
+        "npc_dota_hero_bloodseeker_agi_last" "Hidden Power"
+        "npc_dota_hero_bloodseeker_agi_last_description" "Thirst x2"
+
+        "npc_dota_hero_bloodseeker_int6" "Almost Mage"
+        "npc_dota_hero_bloodseeker_int6_description" "-50% cd for everything"
+        "npc_dota_hero_bloodseeker_int7" "More magic"
+        "npc_dota_hero_bloodseeker_int7_description" "Blood Rite changes damage to magic and can be buffed"
+        "npc_dota_hero_bloodseeker_int8" "Bloodstorm"
+        "npc_dota_hero_bloodseeker_int8_description" "+150 Blood Mist radius"
+        "npc_dota_hero_bloodseeker_int9" "All in magic"
+        "npc_dota_hero_bloodseeker_int9_description" "Deals 15% more NOT physical damage while affected by Thirst"
+        "npc_dota_hero_bloodseeker_int10" "Bleeding"
+        "npc_dota_hero_bloodseeker_int10_description" "Blood Rite inflicts bleeding for 3s dealing 25% of base damage per second"
+        "npc_dota_hero_bloodseeker_int11" "All Magic"
+        "npc_dota_hero_bloodseeker_int11_description" "Blood Mist gains 25% intelligence damage"
+        "npc_dota_hero_bloodseeker_int_last" "All Together Now"
+        "npc_dota_hero_bloodseeker_int_last_description" "Bloodrage can be area cast"
 
         //Marci//
 
@@ -16111,7 +16185,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem1" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem1_bonus_health" "+$health"
@@ -16343,7 +16417,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem2" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem2_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem2_bonus_health" "+$health"
@@ -16583,7 +16657,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem3" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem3_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem3_bonus_health" "+$health"
@@ -16823,7 +16897,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem4" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem4_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem4_bonus_health" "+$health"
@@ -17063,7 +17137,7 @@
         "dota_tooltip_ability_item_skadi_lua8_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         "dota_tooltip_ability_item_octarine_core_lua8_gem5" "Divine Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua8_gem5_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_cast_range_bonus" "+$cast_range"
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua8_gem5_bonus_health" "+$health"

@@ -45,7 +45,7 @@ function item_boss_summon:OnSpellStart()
 				local unit = CreateUnitByName( boss_spawn, point + RandomVector( RandomInt( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS )
 				table.insert(_G.donate_bosses_count, unit)
 				self:add_items(unit)	
-				donate_modifier(unit)
+				Rules:difficality_modifier(unit)
 				self.caster:RemoveItem(self)
 			end
 	end
@@ -118,29 +118,3 @@ function item_boss_summon:add_items(unit)
 		end
 	end	
 end
-
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
-function donate_modifier(unit)
-	if diff_wave.wavedef == "Easy" then
-		unit:AddNewModifier(unit, nil, "modifier_easy", {})
-	end
-	if diff_wave.wavedef == "Normal" then
-		unit:AddNewModifier(unit, nil, "modifier_normal", {})
-	end
-	if diff_wave.wavedef == "Hard" then
-		unit:AddNewModifier(unit, nil, "modifier_hard", {})
-	end	
-	if diff_wave.wavedef == "Ultra" then
-		unit:AddNewModifier(unit, nil, "modifier_ultra", {})
-	end	
-	if diff_wave.wavedef == "Insane" then
-		unit:AddNewModifier(unit, nil, "modifier_insane", {})
-		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
-		unit:AddAbility(new_abil_passive):SetLevel(4)
-	end		
-end	

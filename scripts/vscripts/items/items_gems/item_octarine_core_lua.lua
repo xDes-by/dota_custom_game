@@ -55,6 +55,73 @@ LinkLuaModifier("modifier_item_octarine_core_lua3", 'items/items_gems/item_octar
 LinkLuaModifier("modifier_item_octarine_core_lua4", 'items/items_gems/item_octarine_core_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_octarine_core_lua5", 'items/items_gems/item_octarine_core_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_octarine_core_lua1_gem1:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function item_octarine_core_lua1_gem2:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function item_octarine_core_lua1_gem3:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function item_octarine_core_lua1_gem4:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function item_octarine_core_lua1_gem5:GetManaCost(iLevel)
+	return self:GetCaster():GetMaxMana()/2
+end
+
+function item_octarine_core_lua1_gem1:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function item_octarine_core_lua1_gem2:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function item_octarine_core_lua1_gem3:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function item_octarine_core_lua1_gem4:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function item_octarine_core_lua1_gem5:OnSpellStart()
+	refresh(self:GetCaster())
+end
+
+function refresh(caster)
+if not IsServer() then return end
+    local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(particle)
+
+    EmitSoundOnLocationWithCaster(caster:GetOrigin(), "DOTA_Item.Refresher.Activate", caster)
+	for i = 0, 8 do
+		local current_ability = caster:GetAbilityByIndex(i)
+		if current_ability then
+			current_ability:EndCooldown()
+		end
+	end
+	for i = 0, 8 do
+		local current_item = caster:GetItemInSlot(i)
+		local should_refresh = true
+		
+		if current_item and (string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster) then
+			should_refresh = false
+		end
+
+		if current_item and should_refresh then
+			current_item:EndCooldown()
+		end
+	end
+end
+
 function item_octarine_core_lua1_gem1:GetIntrinsicModifierName()
 	return "modifier_item_octarine_core_lua1"
 end

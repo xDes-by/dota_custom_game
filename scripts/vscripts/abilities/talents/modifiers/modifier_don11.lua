@@ -15,7 +15,6 @@ function modifier_don11:RemoveOnDeath()
 end
 
 function modifier_don11:OnCreated( kv )
-self.caster = self:GetCaster()
 end
 
 function modifier_don11:DeclareFunctions()
@@ -31,13 +30,13 @@ function modifier_don11:OnAbilityFullyCast( params )
 		if params.unit ~= self:GetParent() then
 			return 0
 		end
-		local Ability = params.ability
-		if Ability == nil then
+		local ability = params.ability
+		if ability == nil then
 			return 0
 		end
 
-		if Ability:IsItem() == false and RandomInt(1,100) <= 15 then
-			Ability:EndCooldown()
+		if not ability:IsItem() and RandomInt(1,100) <= 15 then
+			ability:EndCooldown()
 			local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 1, 2, 1 ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )

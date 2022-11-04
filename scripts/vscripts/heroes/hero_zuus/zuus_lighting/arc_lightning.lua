@@ -26,7 +26,6 @@ function zuus_arc_lightning_lua:OnSpellStart()
 			local head_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
 			ParticleManager:SetParticleControlEnt(head_particle, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlEnt(head_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-			-- No reason for this CP besides that I like colours
 			ParticleManager:SetParticleControl(head_particle, 62, Vector(2, 0, 2))
 
 			ParticleManager:ReleaseParticleIndex(head_particle)
@@ -95,7 +94,7 @@ function modifier_zuus_arc_lightning_lua:OnCreated(keys)
 		return
 	end
 	
-	self.unit_counter			= 0
+	self.unit_counter = 0
 	
 	self:StartIntervalThink(self.jump_delay)
 end
@@ -199,7 +198,6 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 			end
 		end
 		
-		-- Check again...
 		if (self.unit_counter >= self.jump_count and self.jump_count > 0) or not self.zapped then
 			self:StartIntervalThink(-1)
 			self:Destroy()
