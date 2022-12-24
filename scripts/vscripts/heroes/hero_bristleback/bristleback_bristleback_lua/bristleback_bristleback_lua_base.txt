@@ -21,7 +21,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"back_damage_reduction"			"16 20 24 38 32 36 40 44 48 52 56 60 64 68 72"
+				"back_damage_reduction"			"16 20 24 28 32 36 40 44 48 52 56 60 64 68 72"
 			}
 			"03"
 			{

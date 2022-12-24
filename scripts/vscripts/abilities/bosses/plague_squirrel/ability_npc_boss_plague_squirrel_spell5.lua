@@ -26,7 +26,7 @@ end
 function modifier_ability_npc_boss_plague_squirrel_spell5:OnDestroy()
 if not IsServer() then return end
 	local location = self:GetCaster():GetAbsOrigin()
-	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_FARTHEST, false )
 	if #enemies > 0 then
 		location = enemies[1]:GetAbsOrigin()
 	end
@@ -35,13 +35,13 @@ if not IsServer() then return end
 	
 	local caster = self:GetCaster()
 		
-	local illusion = CreateUnitByName( "npc_boss_plague_squirrel_copy", caster:GetAbsOrigin() + RandomVector(400), true, nil, nil, caster:GetTeamNumber())
+	local illusion = CreateUnitByName( "npc_boss_plague_squirrel_copy", location + RandomVector(400), true, nil, nil, caster:GetTeamNumber())
 	illusion:AddNewModifier(illusion, nil, "modifier_kill", {duration = 8})
 	illusion:AddNewModifier(illusion, nil, "modifier_ability_npc_boss_plague_squirrel_spell5_illusion", {duration = 8})
 	illusion:RemoveAbility("ability_npc_boss_plague_squirrel_spell5")
 	
 	Timers:CreateTimer(0.5, function()
-		local illusion = CreateUnitByName( "npc_boss_plague_squirrel_copy", caster:GetAbsOrigin() + RandomVector(400), true, nil, nil, caster:GetTeamNumber())
+		local illusion = CreateUnitByName( "npc_boss_plague_squirrel_copy", location + RandomVector(400), true, nil, nil, caster:GetTeamNumber())
 		illusion:AddNewModifier(illusion, nil, "modifier_kill", {duration = 8})
 		illusion:AddNewModifier(illusion, nil, "modifier_ability_npc_boss_plague_squirrel_spell5_illusion", {duration = 8})
 		illusion:RemoveAbility("ability_npc_boss_plague_squirrel_spell5")

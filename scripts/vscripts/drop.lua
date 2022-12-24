@@ -12,6 +12,7 @@ normal_drop = {
 		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},		
 
 		{items = {"item_points_20"}, chance = 50, units = {"raid_new_year"}},
+		{items = {"item_points_20"}, chance = 100, units = {"npc_2023"}},
 }
 
 hard_drop = {
@@ -24,6 +25,7 @@ hard_drop = {
 		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},	
 		
 		{items = {"item_points_30"}, chance = 50, units = {"raid_new_year"}},
+		{items = {"item_points_30"}, chance = 100, units = {"npc_2023"}},
 }
 
 ultra_drop = {
@@ -36,6 +38,7 @@ ultra_drop = {
 		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},	
 		
 		{items = {"item_points_40"}, chance = 50, units = {"raid_new_year"}},
+		{items = {"item_points_40"}, chance = 100, units = {"npc_2023"}},
 }
 
 insane_drop = {
@@ -48,6 +51,7 @@ insane_drop = {
 		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},	
 		
 		{items = {"item_points_40"}, chance = 100, units = {"raid_new_year"}},
+		{items = {"item_points_40"}, chance = 100, units = {"npc_2023"}},
 }
 
 item_drop = {
@@ -80,7 +84,7 @@ neutral_items_drop = {
 
 		{items = {"item_timeless_relic", "item_spell_prism", "item_ascetic_cap", "item_heavy_blade", "item_ninja_gear", "item_the_leveller", "item_trickster_cloak", "item_stormcrafter", "item_penta_edged_sword"}, tier = 4, chance = 5, timer = 2160, limit = 5, units = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3", "village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_3","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}},
 
-		{items = {"item_desolator_2", "item_seer_stone", "item_mirror_shield", "item_apex", "item_demonicon", "item_ex_machina", "item_book_of_shadows", "item_havoc_hammer"}, tier = 5, chance = 5, timer = 2760, limit = 5, units = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3", "village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_3","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}},		
+		{items = {"item_desolator_2", "item_seer_stone", "item_mirror_shield", "item_apex", "item_demonicon", "item_book_of_shadows", "item_havoc_hammer"}, tier = 5, chance = 5, timer = 2760, limit = 5, units = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3", "village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_3","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}},		
 }
 
 quest_drop = {

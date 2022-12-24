@@ -26,6 +26,33 @@ function add_modifier_death(unit, unitname)
 	})
 end
 
+-- ////////////////////////////////////////////////////////////////////////////////////
+
+function creep_spawner:spawn_2023()
+	EmitGlobalSound("greevil_mega_spawn_Stinger")
+	Notifications:TopToAll({text="2023",style={color="green",["font-size"]="60px"}, duration=10})
+	Notifications:TopToAll({text="20231",style={color="blue",["font-size"]="40px"}, duration=10})
+	Notifications:TopToAll({text="20232",style={color="red",["font-size"]="30px"}, duration=10})
+	local unit = CreateUnitByName("npc_2023", Vector(-1285, -37, 384), true, nil, nil, DOTA_TEAM_BADGUYS)
+	Rules:difficality_modifier(unit)
+	b1 = 0
+	while b1 < 6 do
+	add_item = items_level_5[RandomInt(1,#items_level_5)]
+		while not unit:HasItemInInventory(add_item) do
+			b1 = b1 + 1
+			unit:AddItemByName(add_item)
+		end
+	end
+	Timers:CreateTimer(600, function()
+		if unit:IsAlive() then
+			Notifications:TopToAll({text="20233",style={color="red",["font-size"]="30px"}, duration=3})
+			UTIL_Remove(unit)
+		end
+	end)
+end
+
+-- ////////////////////////////////////////////////////////////////////////////////////
+
 function creep_spawner:spawn_creeps_forest()
 	local count = 0
 	Timers:CreateTimer(0, function()
@@ -264,7 +291,7 @@ function spawn_creeps_cemetery()
 			count = count + 1
 			pt = point_cemetery[count]
 			local point = Vector(pt[1],pt[2],pt[3])
-			if i == count or count == 5 then
+			if count == 1 or count == 5 then
 				for i = 1, 5 do
 					if i == 4 or i == 5 then
 						local unit = CreateUnitByName("cemetery_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)

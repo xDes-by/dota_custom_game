@@ -28,7 +28,7 @@ function modifier_spell_ampl_creep:GetModifierProvidesFOWVision()
 end
 
 function modifier_spell_ampl_creep:GetModifierSpellAmplify_Percentage()
-	return self:GetStackCount()*20
+	return self:GetStackCount()*25
 end
 
 function modifier_spell_ampl_creep:DeclareFunctions()

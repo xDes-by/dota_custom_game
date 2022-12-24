@@ -13,6 +13,13 @@
         //Undefined//
         /////////////
 
+        /////////////
+         "2023" "CHRISTMAS BOSS Appears!!!"
+         "20231" "You have 10 minutes to kill him or he will disappear with his gifts!"
+         "20232" "After attacking the boss, he will wake up and go to your base!"
+         "20233" "You didn't have time!"
+         /////////////
+
         "mini_golem" "Mini golem"
         "max_golem" "Maxi golem"
 
@@ -421,6 +428,8 @@
         "other_46" "Troll Warlord"
 		"other_47" "Techies"
 		"other_48" "Alchemist"
+        "other_50" "Bloodseeker"
+        "other_51" "Gyrocopter"
 
         //Scrolls//
         
@@ -14359,6 +14368,7 @@
         "dota_tooltip_ability_sniper_ult" "Explosive Bullet"
         "dota_tooltip_ability_sniper_ult_description" "The hero starts firing explosive rounds, on hit they explode, dealing a percentage of the hero's base damage to all enemies within a % radius%."
         "dota_tooltip_ability_sniper_ult_damage" "%BASE DMG:"
+        "dota_tooltip_ability_sniper_ult_chance" "%CHANCE TO SHOT EXPLOSIVE:"
 		
 		"sniper_tank"	"HIMARS"
 
@@ -15632,6 +15642,78 @@
         "npc_dota_hero_bloodseeker_int11_description" "Blood Mist gains 25% intelligence damage"
         "npc_dota_hero_bloodseeker_int_last" "All Together Now"
         "npc_dota_hero_bloodseeker_int_last_description" "Bloodrage can be area cast"
+
+        //Gyrocopter//
+
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua" "Rocket Barrage"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_description" "Shoots rockets at surrounding enemies. If there are no enemies, fires %radius% + 200 in front of you for 3 seconds."
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rocket_damage" "DAMAGE:"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_radius" "RADIUS:"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rockets_per_second" "ROCKETS PER SEC:"
+
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua" "Homing Missile"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_description" "Launches a homing missile at an enemy. It gradually picks up speed, and upon impact with the target, stuns and deals damage. Enemies have a chance to destroy the missile while it is flying towards the target."
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_stun_duration" "Stun Duration:"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_damage" "DAMAGE:"
+
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua" "Flak Cannon"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_description" "The hero's next few attacks will fire volleys at enemies in an area around him. Unused volleys expire after a second."
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_radius" "RADIUS:"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_attacks" "volleys:"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_targets" "MAX TARGETS:"
+
+        "dota_tooltip_ability_gyrocopter_call_down_lua" "Call Down"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_description" "Calls an air strike on the target area, dropping one projectile after 1 sec and another after 1 sec."
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_first" "ROCKET FIRST DAMAGE:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_second" "SECOND ROCKET DAMAGE:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_first" "%SLOW FIRST ROCKET:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_second" "%SLOW SECOND ROCKET:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_duration" "DURATION:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_radius" "RADIUS:"
+
+        "npc_dota_hero_Gyrocopter_str6" "Punch volley"
+        "npc_dota_hero_Gyrocopter_str6_description" "Rocket Barrage slows enemy movement by 50% for 5 sec"
+        "npc_dota_hero_Gyrocopter_str7" "Space Rocket"
+        "npc_dota_hero_Gyrocopter_str7_description" "Homing Missile stuns and deals 400 area damage"
+        "npc_dota_hero_Gyrocopter_str8" "Vertigo"
+        "npc_dota_hero_Gyrocopter_str8_description" "Call Down stuns for 2 seconds"
+        "npc_dota_hero_Gyrocopter_str9" "Explosive rocket"
+        "npc_dota_hero_Gyrocopter_str9_description" "Call Down and Homing Missile receive 100% damage bonus of strength"
+        "npc_dota_hero_Gyrocopter_str10" "Nano technologies"
+        "npc_dota_hero_Gyrocopter_str10_description" "Homing Missile Triggered on attack, 2% chance"
+        "npc_dota_hero_Gyrocopter_str11" "Chemical weapons"
+        "npc_dota_hero_Gyrocopter_str11_description" "Call Down burns the enemy causing 50% damage to the first missile within 5 seconds"
+        "npc_dota_hero_Gyrocopter_str_last" "Nuclear explosion"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down releases 10 missiles around itself"
+
+        "npc_dota_hero_Gyrocopter_agi6_description" "+200 to Flak Cannon radius"
+        "npc_dota_hero_Gyrocopter_agi7" "Binoculars"
+        "npc_dota_hero_Gyrocopter_agi7_description" "+5 to Rocket Barrage damage for lvl hero"
+        "npc_dota_hero_Gyrocopter_agi8" "Aimed shot"
+        "npc_dota_hero_Gyrocopter_agi8_description" "15% chance to inflict 200% + hero level crit"
+        "npc_dota_hero_Gyrocopter_agi9" "Weak spot"
+        "npc_dota_hero_Gyrocopter_agi9_description" "Flak Cannon removes 3 armor for triggering for 5 seconds"
+        "npc_dota_hero_Gyrocopter_agi10" "Massive Attack"
+        "npc_dota_hero_Gyrocopter_agi10_description" "Rocket Barrage +5 rockets"
+        "npc_dota_hero_Gyrocopter_agi11" "Training paid off"
+        "npc_dota_hero_Gyrocopter_agi11_description" "Call Down and Homing Missile receive 100% Dexterity Damage Bonus"
+        "npc_dota_hero_Gyrocopter_agi_last" "Tuning"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "Adds 2 automatic cannons attacking every second"
+
+        "npc_dota_hero_Gyrocopter_int6" "Weak point 2.0"
+        "npc_dota_hero_Gyrocopter_int6_description" "Flak Cannon removes 5 magic resistas for triggering for 5 seconds"
+        "npc_dota_hero_Gyrocopter_int7" "Geometric Progression"
+        "npc_dota_hero_Gyrocopter_int7_description" "Call Down and Homing Missile receive +100% damage from intelligence"
+        "npc_dota_hero_Gyrocopter_int8" "New Android"
+        "npc_dota_hero_Gyrocopter_int8_description" "-15% cd"
+        "npc_dota_hero_Gyrocopter_int9" "Target Extension"
+        "npc_dota_hero_Gyrocopter_int9_description" "+5 volleys of Flak Cannon"
+        "npc_dota_hero_Gyrocopter_int10" "Epiphany"
+        "npc_dota_hero_Gyrocopter_int10_description" "If the coin is larger than other stats, then doubles the damage of all skills"
+        "npc_dota_hero_Gyrocopter_int11" "Fire to kill"
+        "npc_dota_hero_Gyrocopter_int11_description" "Launches 3 Homing Missile"
+        "npc_dota_hero_Gyrocopter_int_last" "New technologies"
+        "npc_dota_hero_Gyrocopter_int_last_description" "Flak Cannon additionally deals magic damage equal to intelligence"
 
         //Marci//
 

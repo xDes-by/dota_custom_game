@@ -79,3 +79,68 @@ function modifier_centaur_repel_lua:CheckState()
 	}
 	return state
 end
+
+
+function modifier_centaur_repel_lua:IsAura()
+	return true
+end
+
+function modifier_centaur_repel_lua:GetModifierAura()
+	return "modifier_centaur_repel_lua_disarmor"
+end
+
+function modifier_centaur_repel_lua:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_centaur_repel_lua:GetAuraRadius()
+	return 700
+end
+
+function modifier_centaur_repel_lua:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC 
+end
+
+function modifier_centaur_repel_lua:GetAuraSearchFlags()
+	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+end
+
+--------------------------------------------------------------------------------
+
+modifier_centaur_repel_lua_disarmor = class({})
+
+function modifier_centaur_repel_lua_disarmor:IsDebuff()
+	return self:GetParent()~=self:GetAbility():GetCaster()
+end
+
+function modifier_centaur_repel_lua_disarmor:IsHidden()
+	return self:GetParent()==self:GetAbility():GetCaster()
+end
+
+function modifier_centaur_repel_lua_disarmor:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_centaur_repel_lua_disarmor:OnCreated( kv )
+	self.armor_reduction = self:GetAbility():GetSpecialValueFor( "armor" )
+	
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_centaur_str7") ~= nil then
+		self.armor_reduction = 50
+	end
+end
+
+function modifier_centaur_repel_lua_disarmor:OnRefresh( kv )
+	self.armor_reduction = self:GetAbility():GetSpecialValueFor( "armor" )
+end
+
+function modifier_centaur_repel_lua_disarmor:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+	}
+	return funcs
+end
+
+function modifier_centaur_repel_lua_disarmor:GetModifierPhysicalArmorBonus( params )
+	local armor_increase = self:GetParent():GetPhysicalArmorBaseValue() / 100 * self.armor_reduction
+	return armor_increase*(-1)
+end

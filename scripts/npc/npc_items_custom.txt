@@ -910,7 +910,7 @@
 		"ItemStackable"					"0"
 		"ItemKillable"                  "0"
 		"ItemSellable"                  "0"
-		"ItemDroppable"                 "0"
+		"ItemDroppable"                 "1"
 		"ItemPurchasable"				"0"
 		"ItemPermanent"					"1"
 	}
@@ -2330,7 +2330,7 @@
 		"Model"								"models/props_gameplay/recipe.vmdl"
 		"BaseClass"                     	"item_datadriven"
 		
-		"ItemCost"							"50000"	
+		"ItemCost"							"99999"	
 		"ItemShopTags"						"artifacts"
 		
 		"ItemRecipe"						"1"

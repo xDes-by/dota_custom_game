@@ -1,27 +1,54 @@
-function DoCleaveDamage(keys)
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local radius = ability:GetSpecialValueFor("radius")
-	local damage = ability:GetSpecialValueFor("damage")
-	local damage_type = DAMAGE_TYPE_PHYSICAL
-	local caster_damage = caster:GetBaseDamageMin()
-	
-	local abil = caster:FindAbilityByName("npc_dota_hero_sniper_agi11")
-	if abil ~= nil then 
-		caster_damage = caster:GetAverageTrueAttackDamage(nil)
-	end
-	
-	flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION 
-	
-	if caster:FindAbilityByName("npc_dota_hero_sniper_agi_last") ~= nil then
-		flags = DOTA_DAMAGE_FLAG_NONE 
-	end
-	
-	local boom_damage = math.ceil(caster_damage * damage / 100)
-	
-	local enemies = FindUnitsInRadius(DOTA_UNIT_TARGET_TEAM_ENEMY, target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-	for _,enemy in pairs(enemies) do
-		ApplyDamage({victim = enemy, attacker = caster, damage = boom_damage, damage_type = damage_type, damage_flags = flags})
+sniper_ult = class({})
+LinkLuaModifier( "modifier_sniper_ult", "heroes/hero_sniper/sniper_ult/sniper_ult.lua", LUA_MODIFIER_MOTION_NONE )
+
+function sniper_ult:GetIntrinsicModifierName()
+	return "modifier_sniper_ult"
+end
+
+--------------------------------------------------------------------------
+
+modifier_sniper_ult = class({})
+
+function modifier_sniper_ult:IsHidden()
+	return true
+end
+
+function modifier_sniper_ult:IsPurgable()
+	return false
+end
+
+function modifier_sniper_ult:OnCreated( kv )
+end
+
+function modifier_sniper_ult:DeclareFunctions()
+	return {MODIFIER_EVENT_ON_ATTACK_LANDED}
+end
+
+function modifier_sniper_ult:OnAttackLanded(keys)
+if not IsServer() then return end
+	if keys.attacker == self:GetParent() and not self:GetParent():IsIllusion() and not self:GetParent():PassivesDisabled() then
+	local chance = self:GetAbility():GetSpecialValueFor("chance")
+	local radius = self:GetAbility():GetSpecialValueFor("radius")
+	local damage = self:GetAbility():GetSpecialValueFor("damage")
+	local caster_damage = keys.attacker:GetBaseDamageMin()
+		if RandomInt(1,100) <= chance then
+			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi11") ~= nil then 
+				caster_damage = keys.attacker:GetAverageTrueAttackDamage(nil)
+			end
+			flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION 
+			
+			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi_last") ~= nil then
+				flags = DOTA_DAMAGE_FLAG_NONE 
+			end
+			
+			local boom_damage = math.ceil(caster_damage * damage / 100)
+			
+			local enemies = FindUnitsInRadius(DOTA_UNIT_TARGET_TEAM_ENEMY, keys.target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+			for _,enemy in pairs(enemies) do
+				ApplyDamage({victim = enemy, attacker = keys.attacker, damage = boom_damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = flags})
+			end
+			
+			EmitSoundOn("Hero_Jakiro.LiquidFire", keys.attacker)
+		end
 	end
 end

@@ -11,28 +11,16 @@ function centaur_repel_lua:GetManaCost(iLevel)
 end
 
 function centaur_repel_lua:OnSpellStart()
-	-- unit identifier
 	local caster = self:GetCaster()
-	local target = caster
 
-	-- load data
 	local buffDuration = self:GetSpecialValueFor("duration")
 
-	target:AddNewModifier(
+	caster:AddNewModifier(
 		caster, -- player source
 		self, -- ability source
 		"modifier_centaur_repel_lua", -- modifier name
 		{ duration = buffDuration } -- kv
 	)
-	
-		target:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_centaur_repel_lua_disarmor", -- modifier name
-		{ duration = buffDuration } -- kv
-	)
-
-	-- Play Effects
 	self:PlayEffects()
 end
 

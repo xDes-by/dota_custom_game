@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+	"hero_destroyer_first_skill_totem"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/2023/first_skill/first_skill"
+		"AbilityTextureName"			"destr1"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		"AbilityCastRange"				"450"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"12"
+
+		"AbilityValues"
+		{
+			"duration"					"4"
+			"damage"					"25"
+			"back"						"50"	
+			"regen"						"2"
+			"radius"					"450"
+		}
+	}
+}

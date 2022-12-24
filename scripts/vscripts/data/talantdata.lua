@@ -9037,6 +9037,232 @@ npc_dota_hero_techies = {
         },		
 		
 ----------------------------------------------------------------------------------------------------------------------------
+npc_dota_hero_gyrocopter = {
+    ---------------------------------------------------------------------------------------SRT			
+            hp_per_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/str/str-talant-1.png", name = "hp_per_level", description = "", buff = "hp_per_level_Description", 
+                place = {"str 1"}
+            },
+            hp_regen_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/str/str-talant-2.png", name = "hp_regen_level", description = "", buff = "hp_regen_level_Description",
+                place = {"str 2"}
+            },
+            status = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/str/str-talant-3.png", name = "status", description = "", buff = "status_Description",
+                place = {"str 3"}
+            },
+            armor_per_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/str/str-talant-4.png", name = "armor_per_level", description = "", buff = "armor_per_level_Description",
+                place = {"str 4"}
+            },
+            Increase_str = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/str/str-talant-5.png", name = "Increase_str", description = "", buff = "Increase_str_Description",
+                place = {"str 5"}
+            },
+    ---------------------------------------------------------------------------------------AGI		
+            movespeed = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/agi/agi-talant-1.png", name = "movespeed", description = "", buff = "movespeed_Description", 
+                place = {"agi 1"}
+            },
+            dmg_per_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/agi/agi-talant-2.png", name = "dmg_per_level", description = "", buff = "dmg_per_level_Description",
+                place = {"agi 2"}
+            },
+            all_evasion = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/agi/agi-talant-3.png", name = "all_evasion", description = "", buff = "all_evasion_Description",
+                place = {"agi 3"}
+            },
+            base_attack_time = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/agi/agi-talant-4.png", name = "base_attack_time", description = "", buff = "base_attack_time_Description",
+                place = {"agi 4"}
+            },
+            Increase_agi = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/agi/agi-talant-5.png", name = "Increase_agi", description = "", buff = "Increase_agi_Description",
+                place = {"agi 5"}
+            },
+    ---------------------------------------------------------------------------------------INT				
+            mp_per_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/int/int-talant-1.png", name = "mp_per_level", description = "", buff = "mp_per_level_Description", 
+                place = {"int 1"}
+            },
+            mp_regen_level = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/int/int-talant-2.png", name = "mp_regen_level", description = "", buff = "mp_regen_level_Description",
+                place = {"int 2"}
+            },
+            m_resist = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/int/int-talant-3.png", name = "m_resist", description = "", buff = "m_resist_Description",
+                place = {"int 3"}
+            },
+            magic_damage = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/int/int-talant-4.png", name = "magic_damage", description = "", buff = "magic_damage_Description",
+                place = {"int 4"}
+            },
+            Increase_int = {
+                url = "images/custom_game/talants/img/npc_dota_hero_axe/talants/int/int-talant-5.png", name = "Increase_int", description = "", buff = "Increase_int_Description",
+                place = {"int 5"}
+            },
+            --------------------------------------------------------------------------------------------------------------UNIQUE        
+    
+           npc_dota_hero_gyrocopter_str6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-6.png", name = "npc_dota_hero_gyrocopter_str6", description = "", buff = "npc_dota_hero_gyrocopter_str6_Description",
+                place = {"str 6"}
+            },
+        
+            npc_dota_hero_gyrocopter_str7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-7.png", name = "npc_dota_hero_gyrocopter_str7", description = "", buff = "npc_dota_hero_gyrocopter_str7_Description",
+                place = {"str 7"}
+            },
+            
+            npc_dota_hero_gyrocopter_str8 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-8.png", name = "npc_dota_hero_gyrocopter_str8", description = "", buff = "npc_dota_hero_gyrocopter_str8_Description",
+                place = {"str 8"}
+            },
+                
+            npc_dota_hero_gyrocopter_str9 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-9.png", name = "npc_dota_hero_gyrocopter_str9", description = "", buff = "npc_dota_hero_gyrocopter_str9_Description",
+                place = {"str 9"}
+            },
+            
+            npc_dota_hero_gyrocopter_str10 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-10.png", name = "npc_dota_hero_gyrocopter_str10", description = "", buff = "npc_dota_hero_gyrocopter_str10_Description",
+                place = {"str 10"}
+            },
+            
+            npc_dota_hero_gyrocopter_str11 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-11.png", name = "npc_dota_hero_gyrocopter_str11", description = "", buff = "npc_dota_hero_gyrocopter_str11_Description",
+                place = {"str 11"}
+            },
+    
+            npc_dota_hero_gyrocopter_str_last = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-12.png", name = "npc_dota_hero_gyrocopter_str_last", description = "", buff = "npc_dota_hero_gyrocopter_str_last_Description",
+                place = {"str 12"}
+            },
+                
+    ---     
+        
+           npc_dota_hero_gyrocopter_agi6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-6.png", name = "npc_dota_hero_gyrocopter_agi6", description = "", buff = "npc_dota_hero_gyrocopter_agi6_Description",
+                place = {"agi 6"}
+            },
+        
+            npc_dota_hero_gyrocopter_agi7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-7.png", name = "npc_dota_hero_gyrocopter_agi7", description = "", buff = "npc_dota_hero_gyrocopter_agi7_Description",
+                place = {"agi 7"}
+            },
+            
+            npc_dota_hero_gyrocopter_agi8 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-8.png", name = "npc_dota_hero_gyrocopter_agi8", description = "", buff = "npc_dota_hero_gyrocopter_agi8_Description",
+                place = {"agi 8"}
+            },
+                
+            npc_dota_hero_gyrocopter_agi9 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-9.png", name = "npc_dota_hero_gyrocopter_agi9", description = "", buff = "npc_dota_hero_gyrocopter_agi9_Description",
+                place = {"agi 9"}
+            },
+            
+            npc_dota_hero_gyrocopter_agi10 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-10.png", name = "npc_dota_hero_gyrocopter_agi10", description = "", buff = "npc_dota_hero_gyrocopter_agi10_Description",
+                place = {"agi 10"}
+            },
+            
+            npc_dota_hero_gyrocopter_agi11 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-11.png", name = "npc_dota_hero_gyrocopter_agi11", description = "", buff = "npc_dota_hero_gyrocopter_agi11_Description",
+                place = {"agi 11"}
+            },
+    
+            npc_dota_hero_gyrocopter_agi_last = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-12.png", name = "npc_dota_hero_gyrocopter_agi_last", description = "", buff = "npc_dota_hero_gyrocopter_agi_last_Description",
+                place = {"agi 12"}
+            },
+             
+    ---
+            npc_dota_hero_gyrocopter_int6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-6.png", name = "npc_dota_hero_gyrocopter_int6", description = "", buff = "npc_dota_hero_gyrocopter_int6_Description",
+                place = {"int 6"}
+            },
+            
+            npc_dota_hero_gyrocopter_int7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-7.png", name = "npc_dota_hero_gyrocopter_int7", description = "", buff = "npc_dota_hero_gyrocopter_int7_Description",
+                place = {"int 7"}
+            },
+            
+            npc_dota_hero_gyrocopter_int8 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-8.png", name = "npc_dota_hero_gyrocopter_int8", description = "", buff = "npc_dota_hero_gyrocopter_int8_Description",
+                place = {"int 8"}
+            },
+                
+            npc_dota_hero_gyrocopter_int9 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-9.png", name = "npc_dota_hero_gyrocopter_int9", description = "", buff = "npc_dota_hero_gyrocopter_int9_Description",
+                place = {"int 9"}
+            },
+            
+            npc_dota_hero_gyrocopter_int10 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-10.png", name = "npc_dota_hero_gyrocopter_int10", description = "", buff = "npc_dota_hero_gyrocopter_int10_Description",
+                place = {"int 10"}
+            },
+                
+            npc_dota_hero_gyrocopter_int11 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-11.png", name = "npc_dota_hero_gyrocopter_int11", description = "", buff = "npc_dota_hero_gyrocopter_int11_Description",
+                place = {"int 11"}
+            },  
+    
+            npc_dota_hero_gyrocopter_int_last = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-12.png", name = "npc_dota_hero_gyrocopter_int_last", description = "", buff = "npc_dota_hero_gyrocopter_int_last_Description",
+                place = {"int 12"}
+            },
+                
+    
+    -----------------------------------------------------------------------don
+ modifier_don1 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-1.png", name = "modifier_don1", description = "", buff = "modifier_don1_Description", 
+                place = {"don 1"}
+            },
+            modifier_don2 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-2.png", name = "modifier_don2", description = "", buff = "modifier_don2_Description",
+                place = {"don 2"}
+            },
+            modifier_don3 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-3.png", name = "modifier_don3", description = "", buff = "modifier_don3_Description",
+                place = {"don 3"}
+            },
+            modifier_don4 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-4.png", name = "modifier_don4", description = "", buff = "modifier_don4_Description",
+                place = {"don 4"}
+            },
+            modifier_don5 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-5.png", name = "modifier_don5", description = "", buff = "modifier_don5_Description",
+                place = {"don 5"}
+            },
+            modifier_don6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-6.png", name = "modifier_don6", description = "", buff = "modifier_don6_Description",
+                place = {"don 6"}
+            },
+            modifier_don7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-7.png", name = "modifier_don7", description = "", buff = "modifier_don7_Description",
+                place = {"don 7"}
+            },
+            modifier_don8 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-8.png", name = "modifier_don8", description = "", buff = "modifier_don8_Description",
+                place = {"don 8"}
+            },
+            modifier_don9 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-9.png", name = "modifier_don9", description = "", buff = "modifier_don9_Description",
+                place = {"don 9"}
+            },
+            modifier_don10 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-10.png", name = "modifier_don10", description = "", buff = "modifier_don10_Description",
+                place = {"don 10"}
+            },
+            modifier_don11 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/don/don-talant-11.png", name = "modifier_don11", description = "", buff = "modifier_don11_Description",
+                place = {"don 11"}
+            }, 
+            modifier_don_last = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_bristleback/don/don-talant-12.png", name = "modifier_don_last", description = "", buff = "modifier_don_last_Description",
+                place = {"don 12"}
+            },
+        },
+----------------------------------------------------------------------------------------------------------------------------
 npc_dota_hero_bloodseeker = {
     ---------------------------------------------------------------------------------------SRT			
             hp_per_level = {

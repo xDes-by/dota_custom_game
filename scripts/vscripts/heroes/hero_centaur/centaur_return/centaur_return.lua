@@ -150,7 +150,7 @@ end
 
 
 function modifier_return_passive:IsHidden()
-	return false
+	return true
 end
 
 function modifier_return_passive:IsPurgable()

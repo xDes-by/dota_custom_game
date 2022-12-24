@@ -1,4 +1,4 @@
-legion_courage = class({})
+	legion_courage = class({})
 LinkLuaModifier( "modifier_legion_courage", "heroes/hero_legion/legion_courage/legion_courage", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
@@ -72,12 +72,13 @@ function modifier_legion_courage:OnAttackLanded( params )
 			if not self:GetCaster():PassivesDisabled() and params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber() and params.attacker ~= self:GetCaster() then
 				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then 
 					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)
+
 				end
 			end	
 		else
 			if not self:GetCaster():PassivesDisabled() and (params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or params.attacker == self:GetCaster() then
-				if RandomInt(1,100) <= self.chance	and self:GetAbility():IsFullyCastable() then	
-					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)					
+				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then	
+					deal_damage(self, self:GetAbility(), self:GetParent(), params.target, damage_type)					
 				end
 			end
 		end

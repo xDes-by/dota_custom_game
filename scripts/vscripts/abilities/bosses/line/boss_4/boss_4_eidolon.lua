@@ -12,7 +12,11 @@ function boss_4_eidolon:OnSpellStart()
 		Rules:difficality_modifier(eidolon)
 		setting(caster, eidolon)
 	end
-	target:ForceKill(false)
+	if target:IsRealHero() then
+		ApplyDamage({victim = target, attacker = caster, damage = target:GetMaxHealth()*0.5, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION })
+	else
+		target:ForceKill(false)
+	end
 end
 
 function setting(caster, eidolon)

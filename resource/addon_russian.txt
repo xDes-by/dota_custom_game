@@ -13,6 +13,13 @@
         //Undefined//
         /////////////
 
+        /////////////
+        "2023" "Появился РОЖДЕСТВЕНСКИЙ БОСС!!!"
+        "20231" "У вас есть 10 минут чтобы убить его или он исчезнет со своими подарками!"
+        "20232" "После атаки на босса он проснется и пойдет к вам на базу!"
+        "20233" "Вы не успели!"
+        /////////////
+
         "mini_golem" "Маленький голем"
         "max_golem" "Большой голем"
 
@@ -421,6 +428,8 @@
         "other_46" "Troll Warlord"
         "other_47" "Techies"
         "other_48" "Alchemist"
+        "other_50" "Bloodseeker"
+        "other_51" "Gyrocopter"
 
         //Scrolls//
         
@@ -14352,6 +14361,7 @@
         "dota_tooltip_ability_sniper_ult" "Explosive Bullet"
         "dota_tooltip_ability_sniper_ult_description" "Герой начинает стрелять разрывными патронами, при попадании они взрываются нанося процент от базового урона героя всем врагам в радиусе %radius%."
         "dota_tooltip_ability_sniper_ult_damage" "%БАЗОВОГО УРОНА:"
+        "dota_tooltip_ability_sniper_ult_chance" "%ШАНС ВЫСТРЕЛА РАЗРЫВНЫМ:"
 
 		"sniper_tank"	"HIMARS"
 
@@ -15316,7 +15326,7 @@
         "npc_dota_hero_shadow_shaman_agi6" "Ловкость животных"
         "npc_dota_hero_shadow_shaman_agi6_description" "Куры наносят урон от ловкости"
         "npc_dota_hero_shadow_shaman_agi7" "Подавление"
-        "npc_dota_hero_shadow_shaman_agi7_description" "+5 уроназа уровень"
+        "npc_dota_hero_shadow_shaman_agi7_description" "+5 урона за уровень"
         "npc_dota_hero_shadow_shaman_agi8" "Антибронная связь"
         "npc_dota_hero_shadow_shaman_agi8_description" "Shackles снижают броню на показатель равный уровень прокачки способности"
         "npc_dota_hero_shadow_shaman_agi9" "Змеиная сила"
@@ -15630,6 +15640,78 @@
         "npc_dota_hero_bloodseeker_int_last" "Теперь все вместе"
         "npc_dota_hero_bloodseeker_int_last_description" "Bloodrage можно применить по области"		
 		
+        //Gyrocopter//
+
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua" "Rocket Barrage"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_description" "Герой обстреливает окружающих врагов ракетами. Если врагов нет, стреляет перед собой на растояние %radius% + 200. Длительность 3 сек."
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rocket_damage" "УРОН:"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_radius" "РАДИУС:"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rockets_per_second" "РАКЕТ В СЕК:"
+		
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua" "Homing Missile"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_description" "Запускает во врага самонаводящуюся ракету. Она постепенно набирает скорость, а при столкновении с целью оглушает её и наносит урон. Враги могут уничтожить ракету, пока она летит к цели."
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_stun_duration" "ДЛИТЕЛЬНОСТЬ СТАНА:"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_damage" "УРОН:"
+
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua" "Flak Cannon"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_description" "Несколько следующих атак героя сопровождаются залпами по врагам в области вокруг него. Неиспользованные залпы пропадают через сек."
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_radius" "РАДИУС:"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_attacks" "ЗАЛПОВ:"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_targets" "МАКС ЦЕЛЕЙ:"
+		
+        "dota_tooltip_ability_gyrocopter_call_down_lua" "Call Down"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_description" "Вызывает воздушный удар на выбранную область, куда через 1 сек. падает один снаряд и через 1 ещё один."
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_first" "УРОН ПЕРВОЙ РАКЕТЫ:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_second" "УРОН ВТОРОЙ РАКЕТЫ:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_first" "%ЗАМЕДЛЕНИЕ ПЕРВОЙ РАКЕТЫ:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_second" "%ЗАМЕДЛЕНИЕ ВТОРОЙ РАКЕТЫ:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_radius" "РАДИУС:"
+
+        "npc_dota_hero_Gyrocopter_str6" "Пробивной залп"
+        "npc_dota_hero_Gyrocopter_str6_description" "Rocket Barrage замедляет передвижение врага на 50% на 5 сек"
+        "npc_dota_hero_Gyrocopter_str7" "Космическая ракета"
+        "npc_dota_hero_Gyrocopter_str7_description" "Homing Missile оглушает и наносит урон по области 400"
+        "npc_dota_hero_Gyrocopter_str8" "Головокружение"
+        "npc_dota_hero_Gyrocopter_str8_description" "Call Down оглушает на 2 секунды"
+        "npc_dota_hero_Gyrocopter_str9" "Взрывная ракета"
+        "npc_dota_hero_Gyrocopter_str9_description" "Call Down и Homing Missile  получают бонус к урону 100% от силы"
+        "npc_dota_hero_Gyrocopter_str10" "Нано технологии"
+        "npc_dota_hero_Gyrocopter_str10_description" "Homing Missile Срабатывает при атаке, шанс 2%"
+        "npc_dota_hero_Gyrocopter_str11" "Химическое оружие"
+        "npc_dota_hero_Gyrocopter_str11_description" "Call Downп обжигает врага нанося 50% урона первой ракеты в течении 5 сек"
+        "npc_dota_hero_Gyrocopter_str_last" "Ядерный взрыв"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down выпускает 10 ракет вокруг себя"
+        
+        "npc_dota_hero_Gyrocopter_agi6_description" "+200 к радиусу Flak Cannon"
+        "npc_dota_hero_Gyrocopter_agi7" "Бинокль"
+        "npc_dota_hero_Gyrocopter_agi7_description" "+5 к урону Rocket Barrage за лвл героя"
+        "npc_dota_hero_Gyrocopter_agi8" "Прицельный выстрел"
+        "npc_dota_hero_Gyrocopter_agi8_description" "15% шанс нанести 200% + уровень героя крит"
+        "npc_dota_hero_Gyrocopter_agi9" "Слабое место"
+        "npc_dota_hero_Gyrocopter_agi9_description" "Flak Cannon снимает 3 брони за срабатывание на 5 сек"
+        "npc_dota_hero_Gyrocopter_agi10" "Массивная атака"
+        "npc_dota_hero_Gyrocopter_agi10_description" "Rocket Barrage +5 ракет"
+        "npc_dota_hero_Gyrocopter_agi11" "Тренировки окупились"
+        "npc_dota_hero_Gyrocopter_agi11_description" "Call Down и Homing Missile получают бонус к урону 100% от ловкости"
+        "npc_dota_hero_Gyrocopter_agi_last" "Тюнинг"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "Добавляет 2 автоматические пушки атакующие каждую секунду"
+        
+        "npc_dota_hero_Gyrocopter_int6" "Слабое место 2.0"
+        "npc_dota_hero_Gyrocopter_int6_description" "Flak Cannon снимает 5 магического резиста за срабатывание на 5 сек"
+        "npc_dota_hero_Gyrocopter_int7" "Геометрическая прогрессия"
+        "npc_dota_hero_Gyrocopter_int7_description" "Call Down и Homing Missile получают +100% к урону от интелекта"
+        "npc_dota_hero_Gyrocopter_int8" "Новый Android"
+        "npc_dota_hero_Gyrocopter_int8_description" "-15% кд"
+        "npc_dota_hero_Gyrocopter_int9" "Расширение целей"
+        "npc_dota_hero_Gyrocopter_int9_description" "+5 залпов Flak Cannon"
+        "npc_dota_hero_Gyrocopter_int10" "Прозрение"
+        "npc_dota_hero_Gyrocopter_int10_description" "Если интелетка больше других статов, тогда удваивает урон всех скилов"
+        "npc_dota_hero_Gyrocopter_int11" "Огонь на поражение"
+        "npc_dota_hero_Gyrocopter_int11_description" "Запускает 3 ракеты Homing Missile"
+        "npc_dota_hero_Gyrocopter_int_last" "Новые технологии"
+        "npc_dota_hero_Gyrocopter_int_last_description" "Flak Cannon дополнительно наносит магический урон равный интеллекту"
+
         //Marci//
 
         //Marci Change =========================================================================================================================
@@ -15781,7 +15863,7 @@
         "modifier_don3" "Подарок Рошана"
         "modifier_don3_description" "Случайная душа на старте"
         "modifier_don4" "Грамотный инвестор"
-        "modifier_don4_description" "Каждую минуту получает девиденды равные 10% текущего капитала"
+        "modifier_don4_description" "Каждую минуту получает дивиденды равные 10% текущего капитала"
         "modifier_don5" "Акультизм"
         "modifier_don5_description" "Возрождение занимает 1 секунду"
         "modifier_don6" "Сильный"

@@ -13,6 +13,13 @@
         //Undefined//
         /////////////
 
+        /////////////
+        "2023" "圣诞BOSS登场！！!"
+        "20231" "你有 10 分钟的时间杀死他，否则他会带着礼物消失！"
+        "20232" "攻击boss后，他会苏醒，前往你的基地！"
+        "20233" "你没来得及！"
+        /////////////
+
         "mini_golem" "傀儡" 
         "max_golem" "大魔像" 
 
@@ -420,6 +427,8 @@
         "other_46" "巨魔軍閥" 
 		"other_47" "技術人員" 
 		"other_48" "Alchemist"
+        "other_50" "Bloodseeker"
+        "other_51" "Gyrocopter"        
 
         //Scrolls//
 		
@@ -14364,6 +14373,7 @@
         "dota_tooltip_ability_sniper_ult" "爆炸子彈" 
         "dota_tooltip_ability_sniper_ult_description" "英雄开始发射爆炸弹，击中时爆炸，对 %radius% 范围内的所有敌人造成英雄基础伤害的百分比。" 
         "dota_tooltip_ability_sniper_ult_damage" "%基礎傷害：" 
+        "dota_tooltip_ability_sniper_ult_chance" "%CHANCE TO SHOT EXPLOSIVE:"
 		
 		"sniper_tank"	"HIMARS"
 
@@ -15638,6 +15648,78 @@
         "npc_dota_hero_bloodseeker_int11_description" "血雾获得 25% 智力伤害"
         "npc_dota_hero_bloodseeker_int_last" "大家齐聚一堂"
         "npc_dota_hero_bloodseeker_int_last_description" "血怒可以区域施放"
+
+        //Gyrocopter//
+
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua" "火箭弹幕"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_description" "向周围的敌人发射火箭。如果没有敌人，则在你面前发射 %radius% + 200，持续 3 秒。"
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rocket_damage" "伤害："
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_radius" "半径："
+        "dota_tooltip_ability_gyrocopter_rocket_barrage_lua_rockets_per_second" "每秒火箭数："
+
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua" "制导导弹"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_description" "向敌人发射一枚制导导弹。它会逐渐加快速度，并在撞击目标时造成眩晕和伤害。敌人有机会在导弹飞向目标时摧毁它。"
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_stun_duration" "眩晕时间："
+        "dota_tooltip_ability_gyrocopter_homing_missile_lua_damage" "伤害："
+
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua" "高射炮"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_description" "英雄接下来的几次攻击将向他周围区域内的敌人发射齐射。未使用的齐射将在一秒后失效。"
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_radius" "半径："
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_attacks" "截击："
+        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_targets" "最大目标："
+
+        "dota_tooltip_ability_gyrocopter_call_down_lua" "呼叫"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_description" "对目标区域发动空袭，1 秒后投下一枚投射物，1 秒后投下另一枚投射物。"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_first" "火箭第一伤害："
+        "dota_tooltip_ability_gyrocopter_call_down_lua_damage_second" "二次火箭伤害："
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_first" "%SLOW 第一火箭："
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_second" "%SLOW SECOND ROCKET:"
+        "dota_tooltip_ability_gyrocopter_call_down_lua_slow_duration" "持续时间："
+        "dota_tooltip_ability_gyrocopter_call_down_lua_radius" "半径："
+
+        "npc_dota_hero_Gyrocopter_str6" "拳击齐射"
+        "npc_dota_hero_Gyrocopter_str6_description" "火箭弹幕使敌人的移动速度降低 50%，持续 5 秒"
+        "npc_dota_hero_Gyrocopter_str7" "太空火箭"
+        "npc_dota_hero_Gyrocopter_str7_description" "制导导弹眩晕并造成 400 点区域伤害"
+        "npc_dota_hero_Gyrocopter_str8" "眩晕"
+        "npc_dota_hero_Gyrocopter_str8_description" "召唤昏迷 2 秒"
+        "npc_dota_hero_Gyrocopter_str9" "爆炸火箭"
+        "npc_dota_hero_Gyrocopter_str9_description" "呼叫和追踪导弹获得 100% 的强度伤害加成"
+        "npc_dota_hero_Gyrocopter_str10" "纳米技术"
+        "npc_dota_hero_Gyrocopter_str10_description" "追踪导弹在攻击时触发，2% 几率"
+        "npc_dota_hero_Gyrocopter_str11" "化学武器"
+        "npc_dota_hero_Gyrocopter_str11_description" "Call Down 燃烧敌人，在 5 秒内对第一枚导弹造成 50% 的伤害"
+        "npc_dota_hero_Gyrocopter_str_last" "核爆"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down 在自身周围释放 10 枚导弹"
+
+        "npc_dota_hero_Gyrocopter_agi6_description" "+200 高射炮半径"
+        "npc_dota_hero_Gyrocopter_agi7" "双筒望远镜"
+        "npc_dota_hero_Gyrocopter_agi7_description" "lvl 英雄 +5 火箭弹幕伤害"
+        "npc_dota_hero_Gyrocopter_agi8" "瞄准射击"
+        "npc_dota_hero_Gyrocopter_agi8_description" "15% 几率造成 200% + 英雄等级暴击"
+        "npc_dota_hero_Gyrocopter_agi9""弱点"
+        "npc_dota_hero_Gyrocopter_agi9_description" "Flak Cannon 触发后移除 3 层护甲，持续 5 秒"
+        "npc_dota_hero_Gyrocopter_agi10" "大规模攻击"
+        "npc_dota_hero_Gyrocopter_agi10_description" "火箭弹幕 +5 火箭弹"
+        "npc_dota_hero_Gyrocopter_agi11" "训练有回报"
+        "npc_dota_hero_Gyrocopter_agi11_description" "呼叫和追踪导弹获得 100% 敏捷伤害加成"
+        "npc_dota_hero_Gyrocopter_agi_last" "调整"
+        "npc_dota_hero_Gyrocopter_agi_last_description" "每秒增加 2 门自动炮攻击"
+
+        "npc_dota_hero_Gyrocopter_int6" "弱点 2.0"
+        "npc_dota_hero_Gyrocopter_int6_description" "Flak Cannon 触发后移除 5 个魔法抗性，持续 5 秒"
+        "npc_dota_hero_Gyrocopter_int7" "几何级数"
+        "npc_dota_hero_Gyrocopter_int7_description" "呼叫和追踪导弹从智力中获得 +100% 伤害"
+        "npc_dota_hero_Gyrocopter_int8" "新安卓"
+        "npc_dota_hero_Gyrocopter_int8_description" "-15% cd"
+        "npc_dota_hero_Gyrocopter_int9" "目标扩展"
+        "npc_dota_hero_Gyrocopter_int9_description" "+5 Flak Cannon 截击"
+        "npc_dota_hero_Gyrocopter_int10" "顿悟"
+        "npc_dota_hero_Gyrocopter_int10_description" "如果硬币大于其他属性，则所有技能的伤害加倍"
+        "npc_dota_hero_Gyrocopter_int11" "开火杀人"
+        "npc_dota_hero_Gyrocopter_int11_description" "发射 3 枚制导导弹"
+        "npc_dota_hero_Gyrocopter_int_last" "新技术"
+        "npc_dota_hero_Gyrocopter_int_last_description" "高射炮额外造成等同于智力的魔法伤害"
 
         //Marci//
 

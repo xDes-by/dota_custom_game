@@ -429,15 +429,10 @@ end
 function modifier_item_shivas_guard_slow_lua:DeclareFunctions()
 	return{
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
 end
 
 function modifier_item_shivas_guard_slow_lua:GetModifierMoveSpeedBonus_Percentage()
-	return self.blast_movement_speed
-end
-
-function modifier_item_shivas_guard_slow_lua:GetModifierAttackSpeedBonus_Constant()
 	return self.blast_movement_speed
 end
 
@@ -451,7 +446,8 @@ function modifier_item_shivas_guard_aura_lua:IsAuraActiveOnDeath() return false 
 
 function modifier_item_shivas_guard_aura_lua:DeclareFunctions()
 	return{
-		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
+		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
 end
 
@@ -459,6 +455,9 @@ function modifier_item_shivas_guard_aura_lua:GetModifierHPRegenAmplify_Percentag
 	return ( self:GetAbility():GetSpecialValueFor("hp_regen_degen_aura") * (-1) )
 end
 
+function modifier_item_shivas_guard_aura_lua:GetModifierAttackSpeedBonus_Constant()
+	return (self:GetAbility():GetSpecialValueFor("aura_attack_speed"))
+ends
 -------------------------------------------------------------------------------------
 
 modifier_item_shivas_guard_lua1 = class({})

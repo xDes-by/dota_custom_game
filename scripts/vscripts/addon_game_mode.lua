@@ -27,6 +27,7 @@ end
 
 function Precache(context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_diretide2020.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/music/game_sounds_stingers_greevil.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_dungeon.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_dungeon_enemies.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_winter_2018.vsndevts", context )
@@ -429,7 +430,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 			
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
-		-- if PlayerResource:IsValidPlayer(i) then
 		if true then
 			if PlayerResource:HasSelectedHero(i) == false then
 				local player = PlayerResource:GetPlayer(i)
@@ -445,13 +445,18 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 		hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 		EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	
+		
 	Timers:CreateTimer(function()
-		if GameRules:IsDaytime() then
-			GameRules:SetTimeOfDay(0.25)
-		else
-			GameRules:SetTimeOfDay(0.75)
-		end
-			return 300
+			if GameRules:IsDaytime() then
+				GameRules:SetTimeOfDay(0.25)
+			else
+				GameRules:SetTimeOfDay(0.75)
+			end
+		return 300
+	end)
+	
+	Timers:CreateTimer(3000, function()
+		creep_spawner:spawn_2023()
 	end)
 
 	GameRules:SetTimeOfDay(0.25)
@@ -1150,23 +1155,23 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end)
 	end	
 	
-	if killedUnit:GetUnitName() == "raid_boss" or killedUnit:GetUnitName() == "raid_boss3" or killedUnit:GetUnitName() == "raid_boss4" then
+	if killedUnit:GetUnitName() == "raid_boss" or killedUnit:GetUnitName() == "raid_boss3" or killedUnit:GetUnitName() == "raid_boss4" or killedUnit:GetUnitName() == "npc_2023" then
 		add_feed(killerEntity_playerID)
 		local point = killedUnit:GetAbsOrigin()
 		if diff_wave.wavedef == "Easy" then
 			return
 		end
 		if diff_wave.wavedef == "Normal" then
-			local Unit = CreateUnitByName("box_1", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+			local Unit = CreateUnitByName("box_1", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		if diff_wave.wavedef == "Hard" then
-			local Unit = CreateUnitByName("box_2", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+			local Unit = CreateUnitByName("box_2", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 		if diff_wave.wavedef == "Ultra" then
-			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 		if diff_wave.wavedef == "Insane" then
-			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 	end	
 	

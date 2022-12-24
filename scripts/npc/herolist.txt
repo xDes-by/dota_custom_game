@@ -43,6 +43,7 @@
 	"npc_dota_hero_alchemist"               "1"
 	
 	"npc_dota_hero_bloodseeker"				"1"
+	"npc_dota_hero_gyrocopter"				"1"
 	
 
 

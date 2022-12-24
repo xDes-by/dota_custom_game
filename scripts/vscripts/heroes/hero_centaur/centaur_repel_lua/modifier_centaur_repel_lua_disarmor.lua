@@ -1,5 +1,4 @@
 modifier_centaur_repel_lua_disarmor = class({})
---------------------------------------------------------------------------------
 
 function modifier_centaur_repel_lua_disarmor:IsDebuff()
 	return self:GetParent()~=self:GetAbility():GetCaster()
@@ -20,7 +19,6 @@ function modifier_centaur_repel_lua_disarmor:IsAura()
 			return true
 		end
 	end
-	
 	return false
 end
 

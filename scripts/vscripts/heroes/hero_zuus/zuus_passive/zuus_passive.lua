@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_zuus_passive_lua", "heroes/hero_zuus/zuus_passive/zuu
 zuus_passive_lua = class({})
 
 function zuus_passive_lua:GetCooldown(level)
-if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int7") ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int7") ~= nil then 
 		return 2
 	end
 	return self.BaseClass.GetCooldown(self, level)
@@ -26,15 +26,16 @@ function modifier_zuus_passive_lua:RemoveOnDeath()
 end
 
 function modifier_zuus_passive_lua:OnCreated()	
-	self:StartIntervalThink(0.1)
+	self:StartIntervalThink(0.2)
 end
 
 function modifier_zuus_passive_lua:OnIntervalThink()
-	if IsServer() and self:GetAbility():IsCooldownReady() and self:GetCaster():IsRealHero() and self:GetCaster():IsAlive() and not self:GetParent():PassivesDisabled() then
-		local caster = self:GetCaster()	
-		local ability = self:GetAbility()
+	local caster = self:GetCaster()	
+	local ability = self:GetAbility()
+	
+	if IsServer() and ability:IsCooldownReady() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() then
+
 		local damageType = DAMAGE_TYPE_MAGICAL
-		local int = caster:GetIntellect()
 		local damage_per_int = ability:GetSpecialValueFor("dmg_per_int")
 			
 		if caster:FindAbilityByName("npc_dota_hero_zuus_int11") ~= nil then 
@@ -45,8 +46,9 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 			damage_per_int = ability:GetSpecialValueFor("dmg_per_int") + 1
 		end
 			
-		local damage = damage_per_int * int
-		local hEnemies = FindUnitsInRadius( self:GetAbility():GetCaster():GetTeamNumber(), self:GetAbility():GetCaster():GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		local damage = damage_per_int * caster:GetIntellect()
+		
+		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
 			if hEnemies ~= nil then
 				if caster:FindAbilityByName("npc_dota_hero_zuus_str7") ~= nil then 
 					if caster:HasModifier("modifier_zuus_armor") then
@@ -61,9 +63,8 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 					if ability2 ~= nil and ability2:GetLevel() > 0 and hEnemies[1] ~= nil then
 						_G.arctatget = hEnemies[1]
 						caster:FindAbilityByName("zuus_arc_lightning_lua"):OnSpellStart()
-					local level = ability2:GetLevel()
 						Timers:CreateTimer(0.1, function()
-							caster:SetMana(caster:GetMana() + ability2:GetManaCost(level))
+							caster:SetMana(caster:GetMana() + ability2:GetManaCost(ability2:GetLevel()))
 							ability2:EndCooldown()
 						end)
 					end
@@ -71,7 +72,6 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 			
 			
 				for _,unit in pairs(hEnemies) do
-				
 					if caster:FindAbilityByName("npc_dota_hero_zuus_agi6") ~= nil then 
 						unit:AddNewModifier(caster, ability, "modifier_passive_armor", {duration = 1})
 					end
@@ -79,7 +79,6 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 					damage_flags = DOTA_DAMAGE_FLAG_NONE
 					
 					if caster:FindAbilityByName("npc_dota_hero_zuus_agi11") ~= nil then 
-						--damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 						damage = damage + caster:GetAgility()
 					end
 					

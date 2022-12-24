@@ -22,9 +22,6 @@ function modifier_item_vladmir_lua:IsPurgable() return false end
 function modifier_item_vladmir_lua:RemoveOnDeath() return false end
 
 function modifier_item_vladmir_lua:OnCreated()
-	
-	
-
 	self.armor_aura = self:GetAbility():GetSpecialValueFor("armor_aura")
 	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
@@ -36,11 +33,6 @@ function modifier_item_vladmir_lua:GetAuraRadius()
 	if self:GetAbility() then
 		return self:GetAbility():GetSpecialValueFor("aura_radius")
 	end
-end
-
-
-function modifier_item_vladmir_lua:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_NONE
 end
 
 function modifier_item_vladmir_lua:GetAuraSearchTeam()
@@ -67,9 +59,6 @@ function modifier_item_vladmir_aura_lua:RemoveOnDeath() return false end
 function modifier_item_vladmir_aura_lua:IsAuraActiveOnDeath() return false end
 
 function modifier_item_vladmir_aura_lua:OnCreated()
-	
-	
-
 	self.armor_aura = self:GetAbility():GetSpecialValueFor("armor_aura")
 	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
@@ -84,20 +73,13 @@ function modifier_item_vladmir_aura_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 		MODIFIER_EVENT_ON_TAKEDAMAGE
 	}
 end
 
 function modifier_item_vladmir_aura_lua:GetModifierBaseDamageOutgoing_Percentage()
-	if self:GetParent():HasModifier("modifier_item_imba_vladmir_blood_aura") then
-		return 0
-	else
-		if self.damage_aura then
-			return self.damage_aura
-		end
-	end
+	return self.damage_aura
 end
 
 function modifier_item_vladmir_aura_lua:GetModifierPhysicalArmorBonusUnique()
@@ -105,12 +87,11 @@ function modifier_item_vladmir_aura_lua:GetModifierPhysicalArmorBonusUnique()
 end
 
 function modifier_item_vladmir_aura_lua:GetModifierConstantManaRegen()
-			return self.mana_regen_aura
+	return self.mana_regen_aura
 end
 
 function modifier_item_vladmir_aura_lua:GetModifierProcAttack_Feedback( params )
 	if IsServer() then
-		-- filter
 		local pass = false
 		if params.target:GetTeamNumber()~=self:GetParent():GetTeamNumber() then
 			if (not params.target:IsBuilding()) and (not params.target:IsOther()) then
@@ -118,9 +99,7 @@ function modifier_item_vladmir_aura_lua:GetModifierProcAttack_Feedback( params )
 			end
 		end
 
-		-- logic
 		if pass then
-			-- save attack record
 			self.attack_record = params.record
 		end
 	end
@@ -128,16 +107,13 @@ end
 
 function modifier_item_vladmir_aura_lua:OnTakeDamage( params )
 	if IsServer() then
-		-- filter
 		local pass = false
 		if self.attack_record and params.record == self.attack_record then
 			pass = true
 			self.attack_record = nil
 		end
 
-		-- logic
 		if pass then
-			-- get heal value
 			local heal = params.damage * self.lifesteal_aura/100
 			self:GetParent():Heal( heal, self:GetAbility() )
 			self:PlayEffects( self:GetParent() )
@@ -145,13 +121,8 @@ function modifier_item_vladmir_aura_lua:OnTakeDamage( params )
 	end
 end
 
---------------------------------------------------------------------------------
--- Graphics & Animations
 function modifier_item_vladmir_aura_lua:PlayEffects( target )
-	-- get resource
 	local particle_cast = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-
-	-- play effects
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:SetParticleControl( effect_cast, 1, target:GetOrigin() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )

@@ -33,7 +33,7 @@ end
 function ability_npc_boss_plague_squirrel_shoter:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if hTarget then
         ApplyDamage({victim = hTarget,
-        damage = hTarget:GetMaxHealth() * self:GetSpecialValueFor("persent") * 0.01,
+        damage = hTarget:GetMaxHealth() * self:GetSpecialValueFor("persent") /100,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         attacker = self:GetCaster(),

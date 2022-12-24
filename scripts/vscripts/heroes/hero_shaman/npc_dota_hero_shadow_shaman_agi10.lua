@@ -30,12 +30,11 @@ end
 function modifier_npc_dota_hero_shadow_shaman_agi10:GetModifierProcAttack_Feedback(params)
     local ability = self:GetCaster():FindAbilityByName( "shaman_wards_custom" )
     if ability~=nil and ability:GetLevel()>=1 then
-        local ra = RandomInt(1,100)
-        if ra <= 500 then
+        if RandomInt(1,100) <= 5 then
             target = params.target
 
-            local caster            =   self:GetCaster()
-            local position      =  target:GetAbsOrigin()
+            local caster = self:GetCaster()
+            local position = target:GetAbsOrigin()
             local sound_cast = "Hero_ShadowShaman.SerpentWard"
             EmitSoundOn( sound_cast, caster )
 

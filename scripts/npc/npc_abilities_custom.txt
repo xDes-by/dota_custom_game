@@ -2981,6 +2981,15 @@
 #base "../vscripts/heroes/hero_bloodseeker/bloodseeker_thirst_lua/bloodseeker_thirst_lua.txt"
 #base "../vscripts/heroes/hero_bloodseeker/bloodseeker_mist_lua/bloodseeker_mist_lua.txt"
 
+//=====================================================================================================GYROCOPTER=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_gyrocopter/gyrocopter_talents.txt"
+#base "../vscripts/heroes/hero_gyrocopter/gyrocopter_rocket_barrage_lua/gyrocopter_rocket_barrage_lua.txt"
+#base "../vscripts/heroes/hero_gyrocopter/gyrocopter_homing_missile_lua/gyrocopter_homing_missile_lua.txt"
+#base "../vscripts/heroes/hero_gyrocopter/gyrocopter_flak_cannon_lua/gyrocopter_flak_cannon_lua.txt"
+#base "../vscripts/heroes/hero_gyrocopter/gyrocopter_call_down_lua/gyrocopter_call_down_lua.txt"
+
+
 //=====================================================================================================MARCI=====================================================================================================================================================
 
 #base "../vscripts/heroes/hero_marci/marci_talents.txt"
@@ -2991,3 +3000,11 @@
 #base "../vscripts/heroes/hero_crystal/crystal_talents.txt"
 #base "../vscripts/heroes/hero_crystal/crystal_spells.txt"
 
+//==============================================================================================new boss ability===========================
+
+#base "../vscripts/abilities/bosses/2023/first_skill/first_skill.txt"
+#base "../vscripts/abilities/bosses/2023/second_skill/second_skill.txt"
+#base "../vscripts/abilities/bosses/2023/third_skill/third_skill.txt"
+#base "../vscripts/abilities/bosses/2023/fourth_skill/fourth_skill.txt"
+#base "../vscripts/abilities/bosses/2023/fifth_skill/fifth_skill.txt"
+#base "../vscripts/abilities/bosses/2023/ult/ult.txt"

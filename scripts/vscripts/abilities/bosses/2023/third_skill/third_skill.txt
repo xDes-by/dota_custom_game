@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+	"hero_destroyer_third_skill"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/2023/third_skill/third_skill"
+		"AbilityTextureName"			"destr3"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"AbilityValues"
+		{
+			"duration"					"3"
+			"slow_ms"					"25"
+			"slow_as"					"50"
+			"incom_damage"				"15"		
+		}
+	}
+}

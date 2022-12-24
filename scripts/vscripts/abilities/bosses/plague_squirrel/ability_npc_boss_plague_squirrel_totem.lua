@@ -64,16 +64,16 @@ function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
 		}
 		ApplyDamage(damageTable)
 			
-		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", {
-				center_x			= self:GetAbility().point[1] + 1,
-				center_y			= self:GetAbility().point[2] + 1,
-				center_z			= self:GetAbility().point[3],
-				duration			= 0.4 * (1 - unit:GetStatusResistance()),
-				knockback_duration	= 0.4 * (1 - unit:GetStatusResistance()),
-				knockback_distance	= 50,
-				knockback_height	= 0,
-				should_stun			= 0
-			})	
+		-- unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", {
+				-- center_x			= self:GetAbility().point[1] + 1,
+				-- center_y			= self:GetAbility().point[2] + 1,
+				-- center_z			= self:GetAbility().point[3],
+				-- duration			= 0.4 * (1 - unit:GetStatusResistance()),
+				-- knockback_duration	= 0.4 * (1 - unit:GetStatusResistance()),
+				-- knockback_distance	= 50,
+				-- knockback_height	= 0,
+				-- should_stun			= 0
+			-- })	
 		end
 		
 	ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_WORLDORIGIN, nil)

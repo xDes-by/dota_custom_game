@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+	"hero_destroyer_fourth_skill"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/2023/fourth_skill/fourth_skill"
+		"AbilityTextureName"			"destr3"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityCooldown"				"10"
+		"AbilityCastRange"				"300"
+
+		"AbilityValues"
+		{
+			"damage"					"25"		
+			"duration"					"1.4"		
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_ATTACK"
+	}
+}

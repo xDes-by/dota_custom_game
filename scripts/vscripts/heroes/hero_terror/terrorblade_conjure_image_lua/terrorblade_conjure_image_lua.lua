@@ -21,36 +21,33 @@ function modifier_terrorblade_conjure_image_hit_lua:DeclareFunctions()
 end
 
 function modifier_terrorblade_conjure_image_hit_lua:OnAttackLanded(params)
-	if self:GetAbility():GetCaster():HasModifier("modifier_terrorblade_conjure_image_hit_lua") and RandomInt(1, 10) == 1 and self:GetAbility():GetCaster():FindAbilityByName("terrorblade_conjure_image_lua") ~= nil then
-		if self:GetAbility():GetCaster():FindAbilityByName("terrorblade_conjure_image_lua"):IsTrained() and params.attacker:IsRealHero() then
-			self:GetAbility():GetCaster():FindAbilityByName("terrorblade_conjure_image_lua"):OnSpellStart()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_agi_last") ~= nil then
+		if params.attacker:IsRealHero() and params.attacker == self:GetParent() and not params.attacker:IsIllusion() and RandomInt(1, 100) <= 5 then
+		local abil = self:GetCaster():FindAbilityByName("terrorblade_conjure_image_lua") 
+			if abil ~= nil and abil:GetLevel() >= 1 then
+				abil:OnSpellStart()
+			end
 		end
 	end
 end
 
-function terrorblade_conjure_image_lua:OnUpgrade()
-	if not IsServer() then return end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_agi_last") ~= nil then
-	self:GetCaster():AddNewModifier(self:GetCaster(), self,"modifier_terrorblade_conjure_image_hit_lua", {})
-	end
-end
---------------------------------------------------------------------------------
--- Init Abilities
+-------------------------------------------------------------------------------
+
 function terrorblade_conjure_image_lua:Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_terrorblade/terrorblade_mirror_image.vpcf", context )
+end
+
+function terrorblade_conjure_image_lua:GetIntrinsicModifierName()
+	return "modifier_terrorblade_conjure_image_hit_lua"
 end
 
 function terrorblade_conjure_image_lua:GetManaCost(iLevel)
 	return math.min(65000, self:GetCaster():GetIntellect()	)
 end
 
--- Ability Start
 function terrorblade_conjure_image_lua:OnSpellStart()
-	-- unit identifier
 	local caster = self:GetCaster()
-
-	-- load data
 	local duration = self:GetSpecialValueFor( "illusion_duration" )
 	local outgoing = self:GetSpecialValueFor( "illusion_outgoing_tooltip" ) - 100
 	local incoming = self:GetSpecialValueFor( "illusion_incoming_damage" )

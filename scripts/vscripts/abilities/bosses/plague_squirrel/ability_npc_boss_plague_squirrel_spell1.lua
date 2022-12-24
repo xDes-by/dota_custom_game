@@ -23,7 +23,7 @@ function ability_npc_boss_plague_squirrel_spell1:OnSpellStart()
         ExtraData = {type = "main_shot_bounds"}
     }
     local tree_count = 0
-    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
     for _,unit in pairs(enemies) do
         tree_count = tree_count + 1
         local npc = CreateModifierThinker(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1", {}, unit:GetAbsOrigin(), self:GetCaster():GetTeamNumber(), false)
@@ -84,7 +84,7 @@ function ability_npc_boss_plague_squirrel_spell1:OnProjectileHit_ExtraData(hTarg
                     ExtraData = {type = "bounds", bounds_count = table.bounds_count + 1}
                 }
                 ApplyDamage({victim = hTarget,
-                damage = self:GetSpecialValueFor("damage"),
+                damage = hTarget:GetMaxHealth()/100*self:GetSpecialValueFor("damage"),
                 damage_type = DAMAGE_TYPE_PHYSICAL,
                 damage_flags = DOTA_DAMAGE_FLAG_NONE,
                 attacker = self:GetCaster(),
@@ -136,7 +136,7 @@ function modifier_ability_npc_boss_plague_squirrel_spell1:Activate()
     local duration = self:GetAbility():GetSpecialValueFor("duration")
     local tree = CreateTempTreeWithModel(self:GetParent():GetOrigin(), duration, "models/heroes/hoodwink/hoodwink_tree_model.vmdl")
     local tree = GridNav:GetAllTreesAroundPoint( self:GetParent():GetOrigin(), 150, false )[1]
-    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, 265, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
     for _,unit in pairs(enemies) do
         unit:AddNewModifier(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1_effect", {duration = duration, ent = self:GetParent():entindex()})
     end
@@ -194,7 +194,7 @@ end
 
 function modifier_ability_npc_boss_plague_squirrel_spell1_effect:OnCreated( kv )
 	self.parent = self:GetParent()
-	self.distance = 150
+	self.distance = 350
 	self.speed = 50
 	self.interval = 0.1
 	if not IsServer() then return end

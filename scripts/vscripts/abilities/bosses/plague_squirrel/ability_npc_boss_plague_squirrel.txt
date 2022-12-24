@@ -9,11 +9,10 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_6"
-		"AbilityCastPoint"				"3"
-		"AbilityCooldown"				"12"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"6"
 		"AbilityValues"
 		{
-			"duration"					"3"
 			"persent"					"70"
 		}
 	}
@@ -48,7 +47,7 @@
 		{
 			"duration"					"3"
 			"max_bounds"				"6"
-			"damage"				    "100"
+			"damage"				    "20"
 		}
 	}
     //дисперсия
@@ -77,11 +76,15 @@
 		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
-			"damage" "30"
-			"damage_range" "200"
-			"duration" "5"
-			"move_range" "400"
-			"persent_from_target_healt" "5"
+			"damage" 								"20"
+			"damage_range" 							"350"
+			"duration" 								"5"
+			"move_range" 							"400"
+			"persent_from_target_healt" 			"5"
+			"carges"								"7"
+			"stun_duration"							"2.0"
+			"speed"									"900"
+			"radius"								"600"
 		}
 	}
     //спавн тотемов
@@ -144,29 +147,6 @@
 			"chance_evation" "15"
 			"chance_attack" "3"
 
-		}
-	}
-	
-	"ability_npc_boss_plague_squirrel_spell8"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/bosses/plague_squirrel/ability_npc_boss_plague_squirrel_spell8"
-		"AbilityTextureName"			""
-		"FightRecapLevel"				"1"
-
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		
-		"AbilityCooldown"				"14"
-		
-		"AbilityValues"
-		{
-				"carges"								"7"
-				"stun_duration"							"2.0"
-				"damage"								"30"
-				"speed"									"900"
-				"radius"								"600"
 		}
 	}
 }

@@ -18,5 +18,5 @@ function modifier_attack_speed:DeclareFunctions()
 end
 
 function modifier_attack_speed:GetModifierAttackSpeedBonus_Constant()
-	return self:GetStackCount() * 2
+	return self:GetStackCount() * 3
 end

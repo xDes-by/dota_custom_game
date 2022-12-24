@@ -512,7 +512,7 @@
 	    "Ability5"					""  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
-		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
+		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"500"
@@ -578,7 +578,7 @@
 	    "Ability5"					"ability_npc_boss_plague_squirrel_spell5"  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
-		"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
+		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"500"
@@ -7590,6 +7590,65 @@
 	}		
 //=======================================================================================================================================
 
+"npc_2023"
+	{
+		"vscripts"					"ai/ai_2023.lua"	
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/units/destroyer/destroyer.vmdl"
+		"SoundSet"					"Hero_Tiny"
+		"ModelScale"				"3"
+		"Level"						"30"
+		"HasInventory"				"1"
+		"IsAncient"					"1"
+		"CanRespawn"				"1"
+
+		"Ability1"					"hero_destroyer_first_skill_totem"
+		"Ability2"					"hero_destroyer_second_skill"
+		"Ability3"					"hero_destroyer_third_skill"
+		"Ability4"					"hero_destroyer_ult"
+		"Ability5"					"hero_destroyer_fourth_skill"
+		"Ability6"					"hero_destroyer_fifth_skill"
+		"Ability7"                  "manacost_spell"	
+
+		"ArmorPhysical"				"500"
+		"MagicalResistance"			"70"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"100000"
+		"AttackDamageMax"			"100000"
+		"AttackRate"				"0.2"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"200"
+
+		"RingRadius"				"70"
+		"HealthBarOffset"			"500"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+		"MovementTurnRate"			"0.5"
+
+		"StatusHealth"				"5000000"
+		"StatusHealthRegen"			"50000"
+		"StatusMana"				"60000"
+		"StatusManaRegen"			"10000"
+		
+		"VisionDaytimeRange"		"2800"
+		"VisionNighttimeRange"		"2800"
+
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"Creature"
+		{	
+			"DisableResistance"			"95.0"
+		}
+	}
+	
+//=======================================================================================================================================
+
 "GoldenDragon"
 	{
 		"vscripts"       			"ai/ai_golden_dragon.lua"
@@ -7716,7 +7775,7 @@
 			}
 	}
 	
-	"npc_treasure_chest"
+"npc_treasure_chest"
 	{
 		"vscripts"					"ai/ai_mini_rosh"
 		"Model"						"models/creeps/baby_rosh_halloween/baby_rosh_dire/baby_rosh_dire.vmdl"
