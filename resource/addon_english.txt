@@ -13051,14 +13051,9 @@
         //Pudge//
 
         "dota_tooltip_ability_pudge_meat_hook_lua" "Meat Hook"
-        "dota_tooltip_ability_pudge_meat_hook_lua_description" "Throws a bloody hook at the specified target or in the chosen direction. The hook will snag the first creature it hits, dragging it to the hero and dealing damage if the target is an enemy."
-        "dota_tooltip_ability_pudge_meat_hook_lua_lore" "The butcher's hook is the epitome of a nightmare: its curved blade demands blood with all its appearance."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note0" "Interrupts enemy spell-reading."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note1" "Affects invisible creatures."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note2" "Hook passes through trees, hills, buildings, ancient creeps and Roshan."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note3" "Attracts allies, but does no damage."
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_damage" "DAMAGE:"
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_distance" "DISTANCE:"
+         "dota_tooltip_ability_pudge_meat_hook_lua_description" "Summons infernal chains that immobilize the enemy and tear their flesh."
+         "dota_tooltip_ability_pudge_meat_hook_lua_damage" "DAMAGE:"
+         "dota_tooltip_ability_pudge_meat_hook_lua_duration" "Duration:"
         
         "dota_tooltip_ability_pudge_rot_lua" "Rot"
         "dota_tooltip_ability_pudge_rot_lua_description" "A poison cloud that slows enemies and deals significant damage to both them and the owner of the ability."
@@ -13704,8 +13699,8 @@
         "npc_dota_hero_wisp_str10_description" "HP loss from Owercharge is 2 times less"
         "npc_dota_hero_wisp_str11" "Alien from the worlds"
         "npc_dota_hero_wisp_str11_description" "Relocate now deals IO health damage"
-        "npc_dota_hero_wisp_str_last" "Infinite Spirits Cycle."
-        "npc_dota_hero_wisp_str_last_description" "Gives an aganim 50% STR damage to Spirits"
+        "npc_dota_hero_wisp_str_last" "Spiritual savior."
+        "npc_dota_hero_wisp_str_last_description" "Under Owercharge, incoming damage minus 30%."
 
         "npc_dota_hero_wisp_agi6" "Unimaginable Power"
         "npc_dota_hero_wisp_agi6_description" "Spirits deal half of your base damage."
@@ -13734,8 +13729,8 @@
         "npc_dota_hero_wisp_int10_description" "Relocate now has 5 seconds cooldown"
         "npc_dota_hero_wisp_int11" "Spiritual Absorption"
         "npc_dota_hero_wisp_int11_description" "Spirits now deal magic damage"
-        "npc_dota_hero_wisp_int_last" "Spiritual savior."
-        "npc_dota_hero_wisp_int_last_description" "Under Owercharge, incoming damage minus 30%."
+        "npc_dota_hero_wisp_int_last" "Infinite Spirits Cycle."
+        "npc_dota_hero_wisp_int_last_description" "Gives an aganim 50% STR damage to Spirits"
 
         //Dragon Knight//
     
@@ -15684,7 +15679,7 @@
         "npc_dota_hero_Gyrocopter_str11" "Chemical weapons"
         "npc_dota_hero_Gyrocopter_str11_description" "Call Down burns the enemy causing 50% damage to the first missile within 5 seconds"
         "npc_dota_hero_Gyrocopter_str_last" "Nuclear explosion"
-        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down releases 10 missiles around itself"
+        "npc_dota_hero_Gyrocopter_str_last_description" "Call Down releases 10 missiles around itself"
 
         "npc_dota_hero_Gyrocopter_agi6_description" "+200 to Flak Cannon radius"
         "npc_dota_hero_Gyrocopter_agi7" "Binoculars"

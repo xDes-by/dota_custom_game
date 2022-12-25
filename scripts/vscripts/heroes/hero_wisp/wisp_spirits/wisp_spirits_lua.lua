@@ -25,7 +25,7 @@ function wisp_spirits_lua:OnSpellStart()
 		spirit_movement_rate		= self.ability:GetSpecialValueFor("spirit_movement_rate")
 		creep_damage				= self.ability:GetSpecialValueFor("creep_damage")
 		explosion_damage			= self.ability:GetSpecialValueFor("explosion_damage")
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") ~= nil then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") ~= nil then
 			spirit_duration = 3600
 		else
 			spirit_duration = self.ability:GetSpecialValueFor("spirit_duration")
@@ -62,7 +62,7 @@ function wisp_spirits_lua:OnSpellStart()
 		if self.caster:HasModifier("modifier_wisp_spirits_lua") then
 			self.caster:RemoveModifierByName("modifier_wisp_spirits_lua")
 		end
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") ~= nil then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") ~= nil then
 			creep_damage = creep_damage + self:GetCaster():GetStrength() / 2
 		end
 		self.caster:AddNewModifier(

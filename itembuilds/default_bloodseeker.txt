@@ -1,0 +1,49 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_bloodseeker"
+	"Title"			"Recommended items"
+	
+	"Items"
+	{
+		"PHYSICAL CARRY ITEMS"
+		{	
+			"item"		"item_greater_crit_lua1"
+			"item"		"item_assault_lua1"
+			"item"		"item_heart_lua1"
+			"item"		"item_monkey_king_bar_lua1"
+			"item"		"item_satanic_lua1"
+			"item"		"item_vladmir_lua1"
+			"item"		"item_desolator_lua1"
+			"item"		"item_agility_heart_lua1"
+			"item"		"item_hood_sword_lua1"
+		}
+		
+		"MAGICAL CARRY ITEMS"
+		{
+			"item"		"item_bloodstone_lua1"
+			"item"		"item_heart_lua1"
+			"item"		"item_kaya_custom_lua1"
+			"item"		"item_kaya_lua1"
+			"item"		"item_octarine_core_lua1"
+			"item"		"item_sheepstick_lua1"
+			"item"		"item_shivas_guard_lua1"
+			"item"		"item_veil_of_discord_lua1"
+			"item"		"item_mage_heart_lua1"
+			"item"		"item_ring_of_flux_lua1"
+			
+		}
+		"TANK OR MID ITEMS"
+		{
+			"item"		"item_radiance_lua1"
+			"item"		"item_heart_lua1"
+			"item"		"item_tank_crimson"
+			"item"		"item_tank_cuirass"
+			"item"		"item_tank_hell"
+			"item"		"item_assault_lua1"
+			"item"		"item_desolator_lua1"
+			"item"		"item_pudge_heart_lua1"
+			"item"		"item_moon_shard_lua1"
+		}
+	}
+}

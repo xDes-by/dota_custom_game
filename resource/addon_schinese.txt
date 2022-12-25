@@ -13055,15 +13055,10 @@
 
         //Pudge//
 
-		"dota_tooltip_ability_pudge_meat_hook_lua" "肉钩"
-        "dota_tooltip_ability_pudge_meat_hook_lua_description" "向指定目标或选定方向投掷一个血腥的钩子。钩子会钩住它击中的第一个生物，将其拖到英雄身上并在目标是敌人时造成伤害。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_lore" "屠夫的钩子是噩梦的缩影：它弯曲的刀刃从外观上看都需要鲜血。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_note0" "打断敌人的拼写阅读。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_note1" "影响隐形生物。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_note2" "钩子穿过树木、山丘、建筑物、远古生物和肉山。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_note3" "吸引盟友，但不会造成伤害。"
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_damage" "伤害："
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_distance" "距离："
+        "dota_tooltip_ability_pudge_meat_hook_lua" "肉钩"
+        "dota_tooltip_ability_pudge_meat_hook_lua_description" "召唤地狱锁链，使敌人无法动弹并撕裂他们的血肉。"
+        "dota_tooltip_ability_pudge_meat_hook_lua_damage" "伤害："
+        "dota_tooltip_ability_pudge_meat_hook_lua_duration" "持续时间："
         
         "dota_tooltip_ability_pudge_rot_lua" "腐烂"
         "dota_tooltip_ability_pudge_rot_lua_description" "一团毒云，可以减慢敌人的速度并对他们和技能的拥有者造成重大伤害。"
@@ -13709,8 +13704,8 @@
         "npc_dota_hero_wisp_str10_description" "Powercharge 造成的 HP 損失減少 2 倍" 
         "npc_dota_hero_wisp_str11" "來自世界的外星人" 
         "npc_dota_hero_wisp_str11_description" "重新定位現在會造成 IO 生命值傷害" 
-        "npc_dota_hero_wisp_str_last" "無限精神循環。" 
-        "npc_dota_hero_wisp_str_last_description" "給予一個 aganim 50% STR 傷害給 Spirits" 
+        "npc_dota_hero_wisp_str_last" "精神救星。" 
+        "npc_dota_hero_wisp_str_last_description" "在 Power Charge 下，受到的傷害減 30%。" 
 
         "npc_dota_hero_wisp_agi6" "難以想像的力量" 
         "npc_dota_hero_wisp_agi6_description" "精神造成一半的基礎傷害。" 
@@ -13739,8 +13734,8 @@
         "npc_dota_hero_wisp_int10_description" "重新定位現在有 5 秒的冷卻時間" 
         "npc_dota_hero_wisp_int11" "精神吸收" 
         "npc_dota_hero_wisp_int11_description" "靈魂現在造成魔法傷害" 
-        "npc_dota_hero_wisp_int_last" "精神救星。" 
-        "npc_dota_hero_wisp_int_last_description" "在 Power Charge 下，受到的傷害減 30%。" 
+        "npc_dota_hero_wisp_int_last" "無限精神循環。" 
+        "npc_dota_hero_wisp_int_last_description" "給予一個 aganim 50% STR 傷害給 Spirits" 
 
         //Dragon Knight//
 		
@@ -15690,7 +15685,7 @@
         "npc_dota_hero_Gyrocopter_str11" "化学武器"
         "npc_dota_hero_Gyrocopter_str11_description" "Call Down 燃烧敌人，在 5 秒内对第一枚导弹造成 50% 的伤害"
         "npc_dota_hero_Gyrocopter_str_last" "核爆"
-        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down 在自身周围释放 10 枚导弹"
+        "npc_dota_hero_Gyrocopter_str_last_description" "Call Down 在自身周围释放 10 枚导弹"
 
         "npc_dota_hero_Gyrocopter_agi6_description" "+200 高射炮半径"
         "npc_dota_hero_Gyrocopter_agi7" "双筒望远镜"

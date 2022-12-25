@@ -14,6 +14,10 @@ function invoker_telekinesis:OnSpellStart( params )
 
 	self.target = self:GetCursorTarget()
 	self.target_origin = self.target:GetAbsOrigin()
+	
+	if self.target:TriggerSpellAbsorb(self) then
+		return nil
+	end
 
 	local duration = self:GetSpecialValueFor("duration")
 	self.target:AddNewModifier(caster, self, "modifier_invoker_telekinesis_root", { duration = 3})
@@ -228,10 +232,11 @@ end
 function modifier_invoker_telekinesis_root:OnIntervalThink()
 if IsServer() then
 	ApplyDamage( {
-		victim		= self:GetParent(),
-		attacker	= self:GetCaster(),
-		damage		= self:GetAbility():GetSpecialValueFor("damage"),
+		victim = self:GetParent(),
+		attacker = self:GetCaster(),
+		damage = self:GetParent():GetMaxHealth()/100*self:GetAbility():GetSpecialValueFor("damage"),
 		damage_type	= DAMAGE_TYPE_PURE,
+		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 	} )
 	end
 end

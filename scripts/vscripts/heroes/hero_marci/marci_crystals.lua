@@ -103,58 +103,41 @@ end
 function modifier_marci_crystals_day:OnDeath( params )
 	local target = params.unit
 	local attacker = params.attacker
-	pass = false
 	if attacker==self:GetParent() and target~=self:GetParent() and attacker:IsAlive() then
-		if (not target:IsIllusion()) and (not target:IsBuilding()) and (not self:GetParent():PassivesDisabled()) and RandomInt(1,100) <= self:GetAbility():GetSpecialValueFor("chance") then
-			pass = true
+		if not target:IsBuilding() and not self:GetParent():PassivesDisabled() and RandomInt(1,100) <= self:GetAbility():GetSpecialValueFor("chance") then
+			local count = 1 
+			
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_str_last") ~= nil and self:GetParent():GetLevel() >= 50 then 
+				count = 5
+			end
+			
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_agi6") ~= nil then 
+				self:GetParent():ModifyAgility(count)
+			end
+
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_str6") ~= nil then 
+				for i=1,count do
+					self:IncrementStackCount()
+					self:GetParent():FindModifierByName("modifier_marci_crystals_nigth"):IncrementStackCount()
+				end
+			else
+				for i=1,count do
+					if GameRules:IsDaytime() then
+						self:IncrementStackCount()
+					else
+						self:GetParent():FindModifierByName("modifier_marci_crystals_nigth"):IncrementStackCount()
+					end
+				end
+			end
 		end
 	end
-local count = 1 
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_str_last") ~= nil and self:GetParent():GetLevel() >= 50 then 
-        count = 5
-    end
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_agi6") ~= nil then 
-        agipass = true
-    end
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_str6") ~= nil and pass then 
-        if GameRules:IsDaytime() and pass then
-            self.modifier = self
-            for i=1,count do
-                if agipass then
-                    self:GetParent():ModifyAgility(1)
-                end
-            self:GetParent():FindModifierByName("modifier_marci_crystals_nigth"):IncrementStackCount()
-            end
-        else
-            self.modifier = self:GetParent():FindModifierByName("modifier_marci_crystals_nigth")
-            for i=1,count do
-            self:GetParent():ModifyAgility(1)
-            self:IncrementStackCount()
-            end
-        end
-    else
-        if GameRules:IsDaytime() and pass then
-            self.modifier = self
-        else
-            self.modifier = self:GetParent():FindModifierByName("modifier_marci_crystals_nigth")
-        end
-    end
-
-
-	if pass and (not self:GetParent():PassivesDisabled()) then
-        for i=1,count do
-		    self.modifier:IncrementStackCount()
-            if agipass then
-                self:GetParent():ModifyAgility(1)
-            end
-        end
-        self.daystacks = self:GetStackCount()
-        self.nightstacks = self:GetParent():FindModifierByName("modifier_marci_crystals_nigth"):GetStackCount()
+	self.daystacks = self:GetStackCount()
+	self.nightstacks = self:GetParent():FindModifierByName("modifier_marci_crystals_nigth"):GetStackCount()
+	
     local particleName = "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
 	local Particle = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, attacker)
 	ParticleManager:SetParticleControlEnt(Particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(Particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-	end
 end
 
 -----------------------------------------------------------------------------------------------

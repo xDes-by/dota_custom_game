@@ -17,7 +17,7 @@ function invoker_nova:OnSpellStart()
 		local target_point = Vector(caster_pos.x + dx, caster_pos.y + dy, caster_pos.z)
 		local ground_location = GetGroundPosition(target_point, self:GetCaster())
 
-		local egg = CreateUnitByName("npc_dota_phoenix_sun", ground_location, false, self:GetCaster(), self:GetCaster():GetOwner(), self:GetCaster():GetTeamNumber())
+		egg = CreateUnitByName("npc_dota_phoenix_sun", ground_location, false, self:GetCaster(), self:GetCaster():GetOwner(), self:GetCaster():GetTeamNumber())
 		egg:AddNewModifier(egg, self, "modifier_kill", {duration = egg_duration })
 		egg:AddNewModifier(egg, self, "modifier_invoker_nova_egg_thinker", {duration = egg_duration + 0.3 })
 
@@ -123,6 +123,7 @@ function modifier_invoker_nova_egg_thinker:OnAttacked( keys )
 	if attacker:IsRealHero() or attacker:IsClone() or attacker:IsTempestDouble() then
 		egg.current_attack = egg.current_attack + 1
 	end
+	
 	if egg.current_attack >= egg.max_attack then
 		self:GetParent():Kill(self:GetAbility(), attacker)
 	else

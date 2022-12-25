@@ -31,7 +31,7 @@
 	"BountyGoldMax"				"5000"
 	"Ability1"		"troll_warlord_fervor"
 	"Ability2"		"spectre_dispersion"
-	"Ability3"		"ursa_fury_swipes"
+	"Ability3"		"ursa_lapki"
 	"Ability4"		"viper_corrosive_skin"
 }
 
@@ -505,13 +505,13 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		
-	    "Ability1"					"ability_npc_boss_plague_squirrel_spell1"
-	    "Ability2"					"ability_npc_boss_plague_squirrel_spell2"     
-	    "Ability3"					"ability_npc_boss_plague_squirrel_spell3"     
-	    "Ability4"					"ability_npc_boss_plague_squirrel_spell4"   
-	    "Ability5"					""  
+	    //"Ability1"					"ability_npc_boss_plague_squirrel_spell1"
+	    //"Ability2"					"ability_npc_boss_plague_squirrel_spell2"     
+	   //"Ability3"					"ability_npc_boss_plague_squirrel_spell3"     
+	    //"Ability4"					"ability_npc_boss_plague_squirrel_spell4"   
+	   // "Ability5"					""  
 	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
-		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
+		//"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
 		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
 		
@@ -576,7 +576,7 @@
 	    "Ability3"					"ability_npc_boss_plague_squirrel_spell3"     
 	    "Ability4"					"ability_npc_boss_plague_squirrel_spell4"   
 	    "Ability5"					"ability_npc_boss_plague_squirrel_spell5"  
-	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
+	   	//"Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
 		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
@@ -1584,7 +1584,7 @@
         "BaseClass"						"npc_dota_creature"
         "Model"							"models/items/wards/jimoward_omij/jimoward_omij.vmdl"
         "ModelScale"					"1"
-		"Ability1"						""
+		"Ability1"						"necronomicon_warrior_sight"
         "Level"							"5"
 		"VisionDaytimeRange"    		"0"
         "VisionNighttimeRange"  		"0"
@@ -1887,7 +1887,7 @@
 		"Level"						"99"
 		"ModelScale"				"1.5"
 		
-		"Ability1"					"ursa_fury_swipes_custom"			// Ability 1.
+		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
@@ -1937,7 +1937,7 @@
 		"Level"						"99"
 		"ModelScale"				"1.5"
 		
-		"Ability1"					"ursa_fury_swipes_custom"			// Ability 1.
+		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
@@ -1987,7 +1987,7 @@
 		"Level"						"99"
 		"ModelScale"				"1.5"
 		
-		"Ability1"					"ursa_fury_swipes_custom"			// Ability 1.
+		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 
@@ -2037,7 +2037,7 @@
 		"Level"						"99"
 		"ModelScale"				"1.5"
 		
-		"Ability1"					"ursa_fury_swipes_custom"			// Ability 1.
+		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 		"Ability4"					"anti_armor"			// Ability 2.
@@ -6118,7 +6118,7 @@
         "Ability4"					"tiny_craggy_exterior"
         "Ability5"					"spectre_dispersion"
         "Ability6"					"troll_warlord_fervor"
-        "Ability7"					"ursa_fury_swipes"
+        "Ability7"					"ursa_lapki"
 		"Ability8"					"black_dragon_splash_attack"	
 
         "ArmorPhysical"             "50"         // Physical protection.
@@ -6751,7 +6751,7 @@
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
         "Ability3"					"lich_sinister_gaze_custom"         
-        "Ability4"					"ursa_fury_swipes_custom"
+        "Ability4"					"ursa_lapki"
         "Ability5"					"anti_armor"
 		"Ability6"					"manacost_spell"
 
@@ -7379,7 +7379,7 @@
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
         "Ability3"					"lich_sinister_gaze_custom"         
-        "Ability4"					"ursa_fury_swipes_custom"
+        "Ability4"					"ursa_lapki"
         "Ability5"					"anti_armor"
 		"Ability6"					"manacost_spell"
 		

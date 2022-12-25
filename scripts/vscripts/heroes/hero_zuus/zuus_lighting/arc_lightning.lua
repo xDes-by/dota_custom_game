@@ -42,8 +42,6 @@ function zuus_arc_lightning_lua:OnSpellStart()
 end
 
 --------------------------------------
--- MODIFIER_zuus_arc_lightning_lua --
---------------------------------------
 
 function modifier_zuus_arc_lightning_lua:IsHidden()		return true end
 function modifier_zuus_arc_lightning_lua:IsPurgable()		return false end
@@ -101,7 +99,7 @@ end
 
 function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 	self.zapped = false
-	
+	if not self.current_unit then return end
 	for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.current_unit:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)) do
 		if not self.units_affected[enemy] and enemy ~= self.current_unit and enemy ~= self.previous_unit then
 			enemy:EmitSound("Hero_Zuus.ArcLightning.Target")

@@ -13044,14 +13044,9 @@
         //Pudge//
 
         "dota_tooltip_ability_pudge_meat_hook_lua" "Meat Hook"
-        "dota_tooltip_ability_pudge_meat_hook_lua_description" "Бросает окровавленный крюк в указанную цель или в выбранном направлении. Крюк зацепится за первое существо, в которое попадёт, притащит его к герою и нанесёт урон, если целью оказался враг."
-        "dota_tooltip_ability_pudge_meat_hook_lua_lore" "Крюк мясника — это воплощение кошмара: его изогнутое лезвие всем своим видом требует крови."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note0" "Прерывает прочтение заклинаний у врагов."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note1" "Действует на невидимых существ."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note2" "Крюк проходит сквозь деревья, возвышенности, постройки, древних крипов и Рошана."
-        "dota_tooltip_ability_pudge_meat_hook_lua_note3" "Притягивает союзников, но не наносит им урон."
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_damage" "УРОН:"
-        "dota_tooltip_ability_pudge_meat_hook_lua_hook_distance" "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+        "dota_tooltip_ability_pudge_meat_hook_lua_description" "Призывает адские цепи которые обездвиживают врага и разрывают его плоть."
+        "dota_tooltip_ability_pudge_meat_hook_lua_damage" "УРОН:"
+        "dota_tooltip_ability_pudge_meat_hook_lua_duration" "Длительность:"
         
         "dota_tooltip_ability_pudge_rot_lua" "Rot"
         "dota_tooltip_ability_pudge_rot_lua_description" "Ядовитое облако, которое замедляет врагов и наносит значительный урон как им, так и владельцу способности."
@@ -13697,8 +13692,8 @@
         "npc_dota_hero_wisp_str10_description" "Потеря хп от Owercharge в 2 раза меньше"
         "npc_dota_hero_wisp_str11" "Пришелец из миров"
         "npc_dota_hero_wisp_str11_description" "Relocate наносит урон от здоровья героя"
-        "npc_dota_hero_wisp_str_last" "Бесконечный цикл духов"
-        "npc_dota_hero_wisp_str_last_description" "Дарует аганим 50 % урон от силы в Stirits"
+        "npc_dota_hero_wisp_str_last" "Духовный спаситель" 
+        "npc_dota_hero_wisp_str_last_description" "Под действием Owercharge входящий урон минус 30%"
 
         "npc_dota_hero_wisp_agi6" "Невообразимая сила"
         "npc_dota_hero_wisp_agi6_description" "При столкновении Stirits наносят половину от базового урона"
@@ -13727,8 +13722,8 @@
         "npc_dota_hero_wisp_int10_description" "Relocate кд 5 сек"
         "npc_dota_hero_wisp_int11" "Духовное поглощение"
         "npc_dota_hero_wisp_int11_description" "Spirits наносят магический урон"
-        "npc_dota_hero_wisp_int_last" "Духовный спаситель"
-        "npc_dota_hero_wisp_int_last_description" "Под действием Owercharge входящий урон минус 30 %"
+        "npc_dota_hero_wisp_int_last" "Бесконечный цикл духов"
+        "npc_dota_hero_wisp_int_last_description" "Дарует аганим 50 % урон от силы в Stirits"
 
         //Dragon Knight//
     
@@ -15681,7 +15676,7 @@
         "npc_dota_hero_Gyrocopter_str11" "Химическое оружие"
         "npc_dota_hero_Gyrocopter_str11_description" "Call Downп обжигает врага нанося 50% урона первой ракеты в течении 5 сек"
         "npc_dota_hero_Gyrocopter_str_last" "Ядерный взрыв"
-        "npc_dota_hero_Gyrocopter_agi_last_description" "Call Down выпускает 10 ракет вокруг себя"
+        "npc_dota_hero_Gyrocopter_str_last_description" "Call Down выпускает 10 ракет вокруг себя"
         
         "npc_dota_hero_Gyrocopter_agi6_description" "+200 к радиусу Flak Cannon"
         "npc_dota_hero_Gyrocopter_agi7" "Бинокль"
@@ -15775,7 +15770,7 @@
         "npc_dota_hero_marci_str11" "Покаяние"
         "npc_dota_hero_marci_str11_description" "Герой получает дополнительный урон равный троенной сумме атрибутов"
         "npc_dota_hero_marci_str_last" "5x KOMBO"
-        "npc_dota_hero_marci_str_last_description" "После получения 70 уровня герой получает в 5 раз больше душ"
+        "npc_dota_hero_marci_str_last_description" "После получения 50 уровня герой получает в 5 раз больше душ"
 
         "npc_dota_hero_marci_agi6" "Склизкость"
         "npc_dota_hero_marci_agi6_description" "Каждое получение души увеличивает базовую ловкость на 1"

@@ -11,7 +11,19 @@
 
 //======================================================================================================================================================================================================================================================
 
-	
+"ursa_lapki"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ursa_lapki"
+		"AbilityTextureName"			"backdoor_protection"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"base_damage"				"1500"
+			"hp_percent"				"0.2"
+		}
+	}
+
 "move_passive"
     {
         "BaseClass"                     "ability_lua"

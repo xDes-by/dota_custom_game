@@ -94,20 +94,12 @@ function skywrath_mage_ancient_seal_lua:OnSpellStart()
 			end
 		end
 
-		target:AddNewModifier(
-			caster, -- player source
-			self, -- ability source
-			"modifier_skywrath_mage_ancient_seal_lua", -- modifier name
-			{ duration = duration }	)
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_agi6")
-			if abil ~= nil	then 
-				unit:AddNewModifier(
-				caster, -- player source
-				self, -- ability source
-				"modifier_generic_root", -- modifier name
-				{ duration = duration })
-			end
+		target:AddNewModifier( caster, self, "modifier_skywrath_mage_ancient_seal_lua", { duration = duration }	)
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_agi6")
+		if abil ~= nil	then 
+			target:AddNewModifier( caster, self, "modifier_generic_root", { duration = duration })
 		end
+	end
 end
 
 modifier_skywrath_mage_int_per_cast = class({})

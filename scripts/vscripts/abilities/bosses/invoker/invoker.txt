@@ -46,9 +46,9 @@
 			"damage_interval"		"0.5"
 			"vision_distance"		"500"
 			"end_vision_duration"	"3.0"
-			"main_damage"			"50000"
+			"main_damage"			"15"
 			"burn_duration"			"3.0"
-			"burn_dps"				"25000"
+			"burn_dps"				"10"
 			"interval"				"0.5"
 			"radius"				"1000"
 		}	
@@ -93,7 +93,7 @@
 
 		"AbilityValues"
 		{
-			"damage"					"5000"
+			"damage"					"5"
 			"duration"					"3"
 			"range"						"750"
 			"fall_animation"			"0.2"

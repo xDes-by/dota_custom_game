@@ -79,10 +79,10 @@ function NeutralThink()
 	end	
 	
 	local flDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if flDist > 2000 then
+	if flDist > 3000 then
 		RetreatHome()
 	end
-	if flDist > 2400 then
+	if flDist > 3400 then
 		FindClearSpaceForUnit(thisEntity, thisEntity.vInitialSpawnPos, false)
 	end
 	

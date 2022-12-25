@@ -31,7 +31,7 @@ function modifier_npc_dota_hero_shadow_shaman_str9:GetModifierProcAttack_Feedbac
 	local caster = self:GetCaster()
 	local target = params.target
 	local point = params.target:GetAbsOrigin()
-	self.chanse = 500
+	self.chanse = 5
 	local ability = self:GetCaster():FindAbilityByName( "shaman_hex" )
     if ability~=nil and ability:GetLevel() > 0 then
         local rand = RandomInt(1,100)
