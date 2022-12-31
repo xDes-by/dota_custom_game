@@ -141,3 +141,10 @@ function himars_attack:OnProjectileHit(hTarget, vLocation)
 	end
 	AddFOWViewer(self:GetCaster():GetTeamNumber(), vLocation, 300, 2, false)
 end
+
+
+function modifier_himars_attack:CheckState()
+	local state = {
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,}
+	return state
+end

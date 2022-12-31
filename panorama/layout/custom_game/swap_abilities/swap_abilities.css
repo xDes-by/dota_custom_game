@@ -1,0 +1,533 @@
+.SwapAbilities{
+  width: 500px;
+  min-height: 350px;
+  border: 2px solid #000000dd;
+  border-radius: 6px;
+  vertical-align: center;
+  horizontal-align: center;
+  background-color: #4f5179;
+  visibility: collapse;
+  background-image: url("s2r://panorama/images/custom_game/leaderboards/leaderboards_background_1_png.vtex");
+}
+
+ #page_swap_players{
+  width: 100%;
+  flow-children: down;
+  margin-top: 4px;
+ }
+
+ .enfos #page_swap_players{
+  margin-bottom: 40px;
+ }
+
+ .Show{
+  visibility: visible;
+  sound: "ui_custom_lobby_drawer_slide_in";
+ }
+
+ .reload_button{
+  z-index: 10;
+  width: 25px;
+  height: 25px;
+  margin-right: 45px;
+  margin-top: 15px;
+  horizontal-align: right;
+  background-image: url("s2r://panorama/images/custom_game/import_dota/refresh_psd_png.vtex");
+  background-size: 100%;
+  wash-color: #888888;
+  transition-property: brightness, transform;
+  transition-duration: 0.15s, 0.5s;
+  tooltip-position: bottom;
+ }
+
+ .reload_button:hover{
+  brightness: 2;
+ }
+
+ .reload_button.Activated{
+  animation-name: RefreshButtonAnimation;
+  animation-duration: 0.55s;
+  animation-delay: 0.15s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+  sound: "underdraft_reroll";
+ }
+
+ @keyframes 'RefreshButtonAnimation'{
+  0%{
+   transform: rotateZ(0deg);
+  }
+  100%{
+   transform: rotateZ(180deg);
+  }
+ }
+
+ .close_button{
+  z-index: 10;
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  margin-top: 15px;
+  horizontal-align: right;
+  background-image: url("s2r://panorama/images/custom_game/import_dota/x_close_png_png.vtex");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  wash-color: #888888;
+ }
+
+ .close_button:hover{
+  wash-color: orangered;
+  opacity: 1.5;
+  transition-property: wash-color, transform;
+  transition-duration: 0.15s, 0.5s;
+ }
+
+ .player_container{
+  z-index: -1;
+  horizontal-align: center;
+  width: 98%;
+  padding: 10px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#ffffff02), to(#ffffff04));
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  box-shadow: #000000aa 0px 0px 5px 0px;
+  transition-property: saturation, blur, brightness;
+  transition-duration: 0.3s;
+  tooltip-position: right;
+  tooltip-arrow-position: 5% 17%;
+ }
+
+ .hero_image{
+  width: 100px;
+  height: 55px;
+  margin-left: 5px;
+  border: 1px solid black;
+ }
+
+ .enfos .hero_image{
+  width: 65px;
+  height: 35px;
+ }
+
+ .username{
+  margin-left: 110px;
+ }
+
+ .enfos .username{
+  margin-left: 75px;
+  max-width: 150px;
+ }
+
+ .username Label{
+  font-size: 25px;
+  color: white;
+  text-shadow: 1px 1px 2px 2 #000000;
+ }
+
+ .player_abilities{
+  margin-top: 50px;
+  min-height: 90px;
+  flow-children: right;
+ }
+
+ .enfos .player_abilities{
+  margin-top: 40px;
+  min-height: 60px;
+ }
+
+ .ability_image{
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  transition-property: saturation;
+  transition-duration: 0.25s;
+ }
+
+ .enfos .ability_image{
+  width: 40px;
+  height: 40px;
+ }
+
+ .ability_container{
+  transition-property: position, saturation, transform, brightness;
+  transition-duration: 0.25s;
+  border: 3px solid transparent;
+  vertical-align: center;
+  margin: 5px;
+  background-image: url("s2r://panorama/images/custom_game/import_dota/ability_bevel_psd_png.vtex");
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  box-shadow: black 1px 1px 1px 1px;
+  z-index: 20;
+ }
+
+ .passive_ability{
+  box-shadow: inset #000000bb 6px 6px 12px 12px;
+  background-image: none;
+ }
+
+
+
+
+
+
+
+ .ability_container:hover:not(.Locked) > .ability_image{
+  saturation: 1.1;
+ }
+
+ .Selected{
+  border: 3px solid #01df3a;
+  box-shadow: 0px 5px 0px #04b431;
+  transform: translate3d(0, -5px, 0);
+ }
+
+ .Selected > .ability_image{
+  saturation: 1.2;
+ }
+
+ .Activating{
+  animation-name: scalein;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+ }
+
+ .Removing{
+  animation-name: scaleout;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+ }
+
+ @keyframes 'scalein'{
+  from{
+   opacity: 0;
+   transform: scaleX(0.1) scaleY(0.1);
+  }
+
+  to{
+   opacity: 1;
+   transform: scaleX(1) scaleY(1);
+  }
+ }
+
+ @keyframes 'scaleout'{
+  from{
+   opacity: 1;
+   transform: scaleX(1) scaleY(1);
+  }
+
+  to{
+   opacity: 0;
+   transform: scaleX(0.1) scaleY(0.1);
+  }
+ }
+
+ .submit_button{
+  z-index: 10;
+  vertical-align: bottom;
+  horizontal-align: center;
+  border: 2px solid black;
+  width: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: fill #002a6644 0px 0px 4px 4px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#307663), to(#245a4b));
+  background-image: url("s2r://panorama/images/custom_game/import_dota/background_play_button_2x_png_png.vtex");
+  background-size: 100% 100%;
+ }
+
+ .submit_button:hover{
+  opacity: 2;
+ }
+
+ .SwapCooldown{
+  saturation: 0;
+ }
+
+ .submit_text{
+  color: #9baff9;
+  font-size: 22px;
+  horizontal-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+ }
+
+ .swap_dialog{
+  vertical-align: bottom;
+  horizontal-align: right;
+  width: 320px;
+  height: 170px;
+  background-image: url("s2r://panorama/images/custom_game/loading_screen/patchnotes_background_png.vtex");
+  background-size: 100%;
+  background-color: rgb(59, 61, 83);
+  transition-property: position;
+  transition-duration: 0.5s;
+  animation-name: movein;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  box-shadow: black 0px 0px 8px 0px;
+ }
+
+ @keyframes 'movein'{
+  from{
+   opacity: 0;
+   transform: translateX(300px);
+  }
+
+  to{
+   opacity: 1;
+   transform: translateX(-2px);
+  }
+ }
+
+ .proposal_title{
+  horizontal-align: center;
+  color: #9baff9;
+  font-size: 23px;
+  height: 34px;
+  text-shadow: 4px 4px 4px #121212;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  background-image: url("s2r://panorama/images/custom_game/tips_background_2_png.vtex");
+  background-size: 100%;
+  font-weight: lighter;
+ }
+
+ .proposed_abilities{
+  height: 70%;
+  margin-top: 20px;
+  vertical-align: center;
+  horizontal-align: center;
+  flow-children: right;
+ }
+
+ .arrow_image{
+  transform: rotateZ(90deg);
+  vertical-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  wash-color: #c2ccf3;
+ }
+
+ #swap_proposal_container{
+  vertical-align: bottom;
+  horizontal-align: right;
+  flow-children: up;
+  margin-bottom: 15%;
+  margin-right: -2px;
+ }
+
+ .proposal_name{
+  horizontal-align: center;
+  text-shadow: 4px 4px 4px #121212;
+  color: #01df3a;
+  font-size: 18px;
+  margin-top: 34px;
+  width: 100%;
+  padding-top: 4px;
+ }
+ .proposal_name > Label{
+  horizontal-align: center;
+  text-align: center;
+ }
+
+ .proposal_button{
+  height: 30px;
+  width: 55%;
+  vertical-align: bottom;
+  opacity-mask: url("s2r://panorama/images/custom_game/import_dota/topbar_heroslant_right_psd_png.vtex");
+  transition-property: width, saturation, brightness;
+  transition-duration: 0.25s;
+ }
+
+ .proposal_button:hover{
+  font-size: 20px;
+ }
+
+ .proposal_button Label{
+  vertical-align: center;
+  horizontal-align: center;
+  color: white;
+  font-size: 18px;
+  text-shadow: 2px 4px 4px #121212;
+ }
+
+ .approve_swap{
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#5aa15e), to(#87d69533));
+  horizontal-align: left;
+  margin-left: -8%;
+ }
+
+ .approve_swap Label{
+  margin-left: 15px;
+ }
+
+ .decline_swap{
+  background-image: url("s2r://panorama/images/custom_game/import_dota/red_large_off_png_png.vtex");
+  horizontal-align: right;
+  margin-right: -8%;
+ }
+
+ .approve_swap:hover{
+  z-index: 10;
+  width: 70%;
+  brightness: 2;
+ }
+
+ .decline_swap:hover{
+  z-index: 10;
+  width: 70%;
+  saturation: 1.4;
+  brightness: 3;
+ }
+
+ .RemovingSwap{
+  animation-name: moveout;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+ }
+
+ @keyframes 'moveout'{
+  from{
+   opacity: 1;
+   transform: translateX(0px);
+  }
+
+  to{
+   opacity: 0;
+   transform: translateX(300px);
+  }
+ }
+
+ .lock_hero_preview{
+  align: center center;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  z-index: 10;
+ }
+
+ #first_hero:not(.caster_showcase){
+  margin-right: 25px;
+ }
+
+ #second_hero:not(.caster_showcase){
+  margin-left: 25px;
+ }
+
+ .enfos #first_hero:not(.caster_showcase){
+  margin-right: 20px;
+ }
+
+ .enfos #second_hero:not(.caster_showcase){
+  margin-left: 20px;
+ }
+
+ .caster_showcase > #first_hero{
+  align: right top;
+  opacity: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: -10px;
+  margin-top: -10px;
+ }
+
+ .Locked > .ability_image{
+  saturation: 0;
+  blur: gaussian(3);
+ }
+
+ .Locked > .lock_hero_preview{
+  opacity: 1;
+ }
+
+ #swap_timer{
+  width: 28px;
+  height: 28px;
+  align: right top;
+  margin-right: 10px;
+  margin-top: 2px;
+  border-radius: 50px;
+  border: 2px solid #7994f1;
+ }
+
+ #swap_timer #swap_timer_FG{
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: 10;
+  transition-property: clip;
+  transition-duration: 0.1s;
+ }
+
+ #swap_timer #swap_timer_BG{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+ }
+
+ .swap_cooldown_container{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  transition-property: opacity;
+  transition-duration: 1s;
+ }
+
+ .swap_cooldown > .swap_cooldown_container{
+  opacity: 1;
+ }
+
+ .swap_cooldown_text{
+  color: white;
+  font-size: 26px;
+  text-shadow: 0px 0px 6px 6 #000000;
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
+  text-overflow: shrink;
+  z-index: 2;
+ }
+
+ .swap_cooldown_background{
+  transition-property: clip;
+  transition-duration: 0.95s;
+  background-color: #000000dc;
+  width: 100%;
+  height: 100%;
+  brightness: 1.2;
+ }
+
+ .SameAbilityLocked,.SwapDisallowed,.SelectingAbility{
+
+
+  saturation: 0;
+  brightness: 0.5;
+  blur: gaussian(2);
+ }
+
+ #disable_incoming_swap_requests{
+  margin-left: 110px;
+  margin-top: 33px;
+
+  height: 20px;
+ }
+
+ .enfos #disable_incoming_swap_requests{
+  margin-left: 250px;
+  margin-top: -5px;
+
+  height: 42px;
+}

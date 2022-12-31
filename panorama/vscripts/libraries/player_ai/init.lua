@@ -1,0 +1,6 @@
+require("libraries/player_ai/declarations")
+require("libraries/player_ai/ai_core")
+require("libraries/player_ai/ai_item_builder")
+require("libraries/player_ai/ai_special_behaviours")
+require("libraries/player_ai/ai_enfos")
+require("libraries/player_ai/ai_responses")

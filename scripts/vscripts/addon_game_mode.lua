@@ -16,7 +16,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 
-_G.key = GetDedicatedServerKeyV2("MCF")
+_G.key = GetDedicatedServerKeyV3("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -502,15 +502,22 @@ LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
-	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone()then
+	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
 		local playerID = npc:GetPlayerID()
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
+		npc:AddItemByName("item_tpscroll")
 		CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
 		CheckCheatMode()
 		
 		if diff_wave.wavedef == "Insane" then
 			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
 		end	
+		
+		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
+			LinkLuaModifier( "modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE )
+			npc:AddNewModifier( npc, nil, "modifier_ban", {} )
+			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
+		end
 		
 		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)	
 		npc.bFirstSpawned = true

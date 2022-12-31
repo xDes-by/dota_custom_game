@@ -25,7 +25,7 @@ end
 
 function modifier_ability_npc_boss_plague_squirrel_spell2:OnCreated()
     self.reflect = self:GetAbility():GetSpecialValueFor("reflect")
-	self.mod.pfx = ParticleManager:CreateParticle("particles/econ/items/spectre/spectre_arcana/spectre_arcana_blademail_v2.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
+	self.pfx = ParticleManager:CreateParticle("particles/econ/items/spectre/spectre_arcana/spectre_arcana_blademail_v2.vpcf", PATTACH_POINT_FOLLOW, self:GetCaster())
     EmitSoundOn("DOTA_Item.BladeMail.Activate", self:GetCaster())
 end
 
