@@ -31,21 +31,16 @@ end
 
 function modifier_npc_dota_hero_dazzle_agi9:OnAttackLanded( params )
 	if not IsServer() then return end
-	if params.target==self:GetParent() then return end
-
-params.target:AddNewModifier(
-		self:GetCaster(), -- player source
-		self, -- ability source
-		"modifier_dazzle_poison", -- modifier name
-		{ duration = 2 } -- kv
-	)
+	if params.target == self:GetParent() then return end
+	if self:GetParent() == params.attacker then
+		params.target:AddNewModifier( self:GetCaster(), self, "modifier_dazzle_poison", { duration = 2 })
+	end	
 end
 
 
 ---------------------------------------------------------------------------------
 
 modifier_dazzle_poison = class({})
-
 
 function modifier_dazzle_poison:IsHidden()
 	return false
@@ -63,47 +58,33 @@ function modifier_dazzle_poison:IsPurgable()
 	return true
 end
 
-
 function modifier_dazzle_poison:OnCreated( kv )
-if IsServer() then
-	self.caster = self:GetCaster()
-	local abil = self:GetCaster():FindAbilityByName("dazzle_poison_touch_lua")
-	if abil ~= nil and abil:GetLevel() > 0 then
-	local damage = abil:GetSpecialValueFor( "damage" )
+	if IsServer() then
+		self.caster = self:GetCaster()
+		local abil = self:GetCaster():FindAbilityByName("dazzle_poison_touch_lua")
+		if abil ~= nil and abil:GetLevel() > 0 then
+			local damage = abil:GetSpecialValueFor( "damage" )
 
-	damage_type = DAMAGE_TYPE_PHYSICAL
-	
-	self.damageTable = {
-		victim = self:GetParent(),
-		attacker = self:GetCaster(),
-		damage = damage,
-		damage_type = damage_type,
-		ability = self, --Optional.
-	}
+			damage_type = DAMAGE_TYPE_PHYSICAL
+			
+			self.damageTable = {
+				victim = self:GetParent(),
+				attacker = self:GetCaster(),
+				damage = damage,
+				damage_type = damage_type,
+				ability = self, --Optional.
+			}
 
-	self:StartIntervalThink( 1 )
-	self:OnIntervalThink()
+			self:StartIntervalThink(1)
+			self:OnIntervalThink()
+		end
+	end
 end
-end
-end
-
-function modifier_dazzle_poison:OnRefresh( kv )
-end
-
-function modifier_dazzle_poison:OnRemoved()
-end
-
-function modifier_dazzle_poison:OnDestroy()
-end
-
 
 function modifier_dazzle_poison:OnIntervalThink()
 	ApplyDamage( self.damageTable )
-
-	local sound_cast = "Hero_Dazzle.Poison_Tick"
-	EmitSoundOn( sound_cast, self:GetParent() )
+	EmitSoundOn( "Hero_Dazzle.Poison_Tick", self:GetParent() )
 end
-
 
 function modifier_dazzle_poison:GetEffectName()
 	return "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"

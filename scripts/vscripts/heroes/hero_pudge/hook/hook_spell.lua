@@ -46,7 +46,7 @@ function modifier_meat_hook_lua:OnCreated( kv )
 	local damage = self:GetAbility():GetSpecialValueFor( "damage" )
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_agi10") ~= nil then
-		damage = self:GetSpecialValueFor( "damage" ) + self:GetCaster():GetBaseDamageMin()
+		damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetBaseDamageMin()
 	end
 	
 	self.damage_type = DAMAGE_TYPE_PURE

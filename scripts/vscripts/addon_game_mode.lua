@@ -455,9 +455,9 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		return 300
 	end)
 	
-	Timers:CreateTimer(3000, function()
-		creep_spawner:spawn_2023()
-	end)
+	-- Timers:CreateTimer(3000, function()
+		-- creep_spawner:spawn_2023()
+	-- end)
 
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )

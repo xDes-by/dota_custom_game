@@ -215,8 +215,7 @@ end
 
 function modifier_invoker_meteor_burn:OnIntervalThink()
 	ApplyDamage( self.damageTable )
-	local sound_tick = "Hero_Invoker.ChaosMeteor.Damage"
-	EmitSoundOn( sound_tick, self:GetParent() )
+	EmitSoundOn( "Hero_Invoker.ChaosMeteor.Damage", self:GetParent() )
 end
 
 function modifier_invoker_meteor_burn:GetEffectName()

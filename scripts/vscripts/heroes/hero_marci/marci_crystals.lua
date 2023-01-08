@@ -372,8 +372,9 @@ end
 marci_unleash_lua = class({})
 
 function marci_unleash_lua:GetManaCost(iLevel)
-	return self:GetCaster():GetIntellect()
+	return math.min(65000, self:GetCaster():GetIntellect() * 3)
 end
+
 
 LinkLuaModifier( "modifier_unleash_weakness", "heroes/hero_marci/marci_crystals", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_marci_unleash_lua", "heroes/hero_marci/marci_crystals", LUA_MODIFIER_MOTION_NONE )

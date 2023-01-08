@@ -119,6 +119,8 @@ _G.basicshop = {
 		[37] = {name = "other_46", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/troll.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_troll_warlord",tooltip="shop_image_heros_tooltip"},
 		[38] = {name = "other_47", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/techies.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_techies",tooltip="shop_image_heros_tooltip"},
 		[39] = {name = "other_48", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/alchemist.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_alchemist",tooltip="shop_image_heros_tooltip"},
+		[40] = {name = "other_50", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/bs.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_bloodseeker",tooltip="shop_image_heros_tooltip"},
+		[41] = {name = "other_51", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/gr.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_gyrocopter",tooltip="shop_image_heros_tooltip"},
 	},
 	[5] = {
 		name = "gems",
@@ -376,6 +378,7 @@ function Shop:createShop()
 						end
 					end
 				end
+			
 				if SHOP[i+1].coins then
 					arr.coins = SHOP[i+1].coins
 				else
@@ -395,6 +398,12 @@ function Shop:createShop()
 					arr.feed = SHOP[i+1].feed
 				else
 					arr.feed = 0
+				end
+				
+				if SHOP[i+1].other_60 then
+					arr.ban = SHOP[i+1].other_60
+				else
+					arr.ban = 0
 				end
 				Shop.pShop[i] = arr
 				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i + 1 ][ 'likes' ], reports = RATING[ 'rating' ][ i + 1 ][ 'reports' ]})
@@ -469,6 +478,20 @@ function Shop:ChangeHeroLua(t)
 	talants:pickinfo(t.PlayerID,true)
 	-- talants:ReplaceTree()
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "UpdateChangeHeresInfo", {Shop.marci, Shop.pango} )
+	Shop.Change_Available[t.PlayerID] = true
+	Shop.pet[t.PlayerID] = nil
+	if Shop.Auto_Pet[t.PlayerID] then 
+		Shop:GetPet({
+			PlayerID = t.PlayerID,
+			pet = {name = Shop.Auto_Pet[t.PlayerID]},
+		})
+	else
+		Shop:GetPet({
+			PlayerID = t.PlayerID,
+			pet = {name = "spell_item_pet"},
+		})
+	end
+	Shop.Change_Available[t.PlayerID] = true
 end
 
 function Shop:giveItem(t)

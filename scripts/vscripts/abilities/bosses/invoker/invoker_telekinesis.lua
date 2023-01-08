@@ -14,12 +14,15 @@ function invoker_telekinesis:OnSpellStart( params )
 
 	self.target = self:GetCursorTarget()
 	self.target_origin = self.target:GetAbsOrigin()
+
+	if self.target:GetName() == 'npc_invoker_boss' then return end
 	
 	if self.target:TriggerSpellAbsorb(self) then
 		return nil
 	end
 
 	local duration = self:GetSpecialValueFor("duration")
+
 	self.target:AddNewModifier(caster, self, "modifier_invoker_telekinesis_root", { duration = 3})
 	self.target_modifier = self.target:AddNewModifier(caster, self, "modifier_invoker_telekinesis", { duration = 3 })
 
