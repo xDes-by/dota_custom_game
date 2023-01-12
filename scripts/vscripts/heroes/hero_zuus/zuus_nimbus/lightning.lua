@@ -13,7 +13,7 @@ function LightningJump(keys)
 				local abil = owner:FindAbilityByName("npc_dota_hero_zuus_agi11")	
 				if abil ~= nil then 
 			--	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-				damage_lighing = damage_lighing + owner:GetAgility()
+				damage_lighing = owner:GetAgility()
 				end
 	
 

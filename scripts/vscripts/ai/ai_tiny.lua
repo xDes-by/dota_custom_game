@@ -48,17 +48,7 @@ function NeutralThink()
         return 3
     end
   
-    local enemies = FindUnitsInRadius(
-                        npc:GetTeamNumber(),  
-                       npc:GetOrigin(),   
-                        nil, 
-                        search_radius + 50,   
-                        DOTA_UNIT_TARGET_TEAM_ENEMY,   
-                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
-                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,  
-                        FIND_CLOSEST, 
-                        false )
-
+    local enemies = FindUnitsInRadius( npc:GetTeamNumber(), npc:GetOrigin(), nil, search_radius + 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     if #enemies == 0 then   
         if npc.agro then
             RetreatHome() 
