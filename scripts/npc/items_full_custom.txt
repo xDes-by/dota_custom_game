@@ -1,6 +1,35 @@
 "DOTAAbilities"
 {
 
+"item_giants_ring_custom"
+	{
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_giants_ring_custom.lua"
+		"AbilityTextureName"        "item_giants_ring"
+
+		"AbilityBehavior"      		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"ItemCost"            		"7500"
+		"ItemPurchasable"       	"1"
+
+		"MaxUpgradeLevel"           "6"
+		"ItemBaseLevel"             "1"
+		"ItemPurchable"				"0"
+
+		"AbilityValues"
+		{
+			"bonus_strength"      "35 70 105 140 175 210"
+			"movement_speed"      "-30"
+			"model_scale"     "60"
+			"pct_str_damage_per_second"     "50 65 80 95 110 125"
+			"damage_radius"     "300"
+			"bonus_strength_pct"     "10 20 30 40 50 60"
+		}
+	}
+
+
 //==========================================================================
 
 "item_quest_necronomicon"

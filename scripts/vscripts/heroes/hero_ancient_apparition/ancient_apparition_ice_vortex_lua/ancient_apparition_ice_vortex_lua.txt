@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{	
+	"ancient_apparition_ice_vortex_lua"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                   	"heroes/hero_ancient_apparition/ancient_apparition_ice_vortex_lua/ancient_apparition_ice_vortex_lua.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"ancient_apparition_ice_vortex"
+		"MaxLevel"						"15"
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"16"
+		
+		"AbilityValues"
+		{
+			"radius"					"700"
+			"slow"						"5 10 15 20 25 30 35 40 45 50 55 60 65 70 75"
+			"duration"					"5"
+			"damage"					"4 8 12 16 20 24 28 32 36 40 44 48 52 56 60"
+		}
+	}
+}

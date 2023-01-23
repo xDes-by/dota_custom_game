@@ -35,13 +35,11 @@ function modifier_dazzle_poison_touch_lua:OnCreated( kv )
 
 	damage_type = DAMAGE_TYPE_PHYSICAL
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int6")
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int6") ~= nil then 
 		damage_type = DAMAGE_TYPE_MAGICAL
 	end
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_str11")
-	if abil ~= nil	then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_str11") ~= nil	then 
 		damage = self:GetCaster():GetMaxHealth()*0.02
 	end
 
