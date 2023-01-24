@@ -16,10 +16,12 @@ function NeutralThink()
     if ( not thisEntity:IsAlive() ) then
 		return -1
 	end	
+	
 	if not thisEntity.bSearchedForItems then
 		SearchForItems()
 		thisEntity.bSearchedForItems = true
 	end
+	
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
@@ -30,7 +32,7 @@ function NeutralThink()
 	end
 	
 	if thisEntity:IsChanneling() then  
-        return RandomFloat(0.4, 1.2)
+        return 1
     end
 	
 	local search_radius = thisEntity:GetAcquisitionRange()
@@ -86,7 +88,7 @@ function NeutralThink()
 		FindClearSpaceForUnit(thisEntity, thisEntity.vInitialSpawnPos, false)
 	end
 	
-	return RandomFloat(0.4, 1.2)
+	return 1
 end
 
 

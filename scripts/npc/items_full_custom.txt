@@ -1,35 +1,327 @@
 "DOTAAbilities"
 {
 
-"item_giants_ring_custom"
+
+"item_recipe_sabre_blade1"
 	{
-		"BaseClass"                 "item_lua"
-		"ScriptFile"                "items/item_giants_ring_custom.lua"
-		"AbilityTextureName"        "item_giants_ring"
-
-		"AbilityBehavior"      		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-
-		"ItemCost"            		"7500"
-		"ItemPurchasable"       	"1"
-
-		"MaxUpgradeLevel"           "6"
-		"ItemBaseLevel"             "1"
-		"ItemPurchable"				"0"
-
-		"AbilityValues"
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"0"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade1"
+		"ItemRequirements"
 		{
-			"bonus_strength"      "35 70 105 140 175 210"
-			"movement_speed"      "-30"
-			"model_scale"     "60"
-			"pct_str_damage_per_second"     "50 65 80 95 110 125"
-			"damage_radius"     "300"
-			"bonus_strength_pct"     "10 20 30 40 50 60"
+			"01"							"item_echo_sabre;item_ultimate_orb"
 		}
 	}
 
+"item_recipe_sabre_blade2"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"5000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade2"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade1;item_forest_soul;"
+		}
+	}
+	
+"item_recipe_sabre_blade3"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"10000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade3"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade2;item_village_soul;"
+		}
+	}	
+	
+"item_recipe_sabre_blade4"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"20000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade4"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade3;item_mines_soul;"
+		}
+	}	
+	
+"item_recipe_sabre_blade5"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"30000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade5"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade4;item_dust_soul;"
+		}
+	}	
+	
+"item_recipe_sabre_blade6"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"40000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade6"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade5;item_swamp_soul;"
+		}
+	}		
+"item_recipe_sabre_blade7"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"50000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade7"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade6;item_snow_soul;"
+		}
+	}	
+"item_recipe_sabre_blade8"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"99999"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade8"
+		"ItemRequirements"
+		{
+			"01"							"item_sabre_blade7;item_divine_soul;"
+		}
+	}
+	
+"item_sabre_blade1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade1"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "1"
 
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+	
+"item_sabre_blade2"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade2"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "2"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade3"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade3"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "3"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade4"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade4"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "4"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade5"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "5"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade6"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade6"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "6"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade7"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade7"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "7"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}
+
+"item_sabre_blade8"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/sabre_blade8"
+		"AbilityCooldown" 									"6.0"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "8"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+		}
+	}	
+	
+	
+  
 //==========================================================================
 
 "item_quest_necronomicon"
@@ -672,10 +964,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -697,10 +989,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -722,10 +1014,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -747,10 +1039,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -772,10 +1064,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -797,10 +1089,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -822,10 +1114,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -847,10 +1139,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			
@@ -3034,7 +3326,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3052,7 +3344,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3070,7 +3362,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3088,7 +3380,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3106,7 +3398,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3124,7 +3416,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3142,7 +3434,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -3160,7 +3452,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			
 		}
@@ -8947,7 +9239,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -8955,7 +9247,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -8991,7 +9283,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -8999,7 +9291,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9035,7 +9327,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9043,7 +9335,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9079,7 +9371,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9087,7 +9379,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9123,7 +9415,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9131,7 +9423,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9167,7 +9459,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9175,7 +9467,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9211,7 +9503,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9219,7 +9511,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -9254,7 +9546,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -9262,7 +9554,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -10604,7 +10896,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10628,7 +10920,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10652,7 +10944,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10676,7 +10968,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10700,7 +10992,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10724,7 +11016,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10748,7 +11040,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}
@@ -10771,7 +11063,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			
 		}

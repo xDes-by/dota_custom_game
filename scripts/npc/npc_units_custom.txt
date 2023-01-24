@@ -4222,14 +4222,14 @@
 			"ArmorPhysical"				"1"			
 			"MagicalResistance"			"5"			
 			
-			"AttackDamageMin"			"24"		
+			"AttackDamageMin"			"20"		
 			"AttackDamageMax"			"24"		
 			"AttackRate"				"1.1"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"600"		
 			"AttackRange"				"200"		
 			
-			"StatusHealth" 				"300" 
+			"StatusHealth" 				"270" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"100" 
 			"StatusManaRegen" 			"1" 
@@ -4272,14 +4272,14 @@
 			"ArmorPhysical"				"3"			
 			"MagicalResistance"			"5"			
 			
-			"AttackDamageMin"			"55"		
-			"AttackDamageMax"			"60"		
+			"AttackDamageMin"			"45"		
+			"AttackDamageMax"			"55"		
 			"AttackRate"				"1.2"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"600"		
 			"AttackRange"				"200"		
 			
-			"StatusHealth" 				"1050" 
+			"StatusHealth" 				"950" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"300" 
 			"StatusManaRegen" 			"5" 
@@ -4321,14 +4321,14 @@
 			"ArmorPhysical"				"1"			
 			"MagicalResistance"			"5"			
 			
-			"AttackDamageMin"			"21"		
+			"AttackDamageMin"			"20"		
 			"AttackDamageMax"			"24"		
 			"AttackRate"				"1.1"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"600"		
 			"AttackRange"				"200"		
 			
-			"StatusHealth" 				"300" 
+			"StatusHealth" 				"270" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"100" 
 			"StatusManaRegen" 			"1" 
@@ -4372,14 +4372,14 @@
 			"ArmorPhysical"				"2"			
 			"MagicalResistance"			"5"			
 			
-			"AttackDamageMin"			"55"		
-			"AttackDamageMax"			"60"		
+			"AttackDamageMin"			"45"		
+			"AttackDamageMax"			"55"		
 			"AttackRate"				"1"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"600"		
 			"AttackRange"				"200"		
 			
-			"StatusHealth" 				"1050" 
+			"StatusHealth" 				"950" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"300" 
 			"StatusManaRegen" 			"1" 
@@ -4422,13 +4422,13 @@
 			"MagicalResistance"			"5"			
 			
 			"AttackDamageMin"			"21"		
-			"AttackDamageMax"			"32"		
+			"AttackDamageMax"			"26"		
 			"AttackRate"				"1.4"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"600"		
 			"AttackRange"				"200"		
 			
-			"StatusHealth" 				"300" 
+			"StatusHealth" 				"280" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"100" 
 			"StatusManaRegen" 			"1" 
@@ -4472,7 +4472,7 @@
 			"MagicalResistance"			"5"			
 			
 			"AttackDamageMin"			"35"		
-			"AttackDamageMax"			"45"		
+			"AttackDamageMax"			"40"		
 			"AttackRate"				"1.3"		
 			"AttackAnimationPoint"		"0.2"		
 			"AttackAcquisitionRange"	"300"		
@@ -4480,7 +4480,7 @@
 			"ProjectileModel"			"particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
 			"ProjectileSpeed"			"900"		
 			
-			"StatusHealth" 				"600" 
+			"StatusHealth" 				"500" 
 			//"StatusHealthRegen" 		"0" 
 			"StatusMana"				"300" 
 			"StatusManaRegen" 			"5" 

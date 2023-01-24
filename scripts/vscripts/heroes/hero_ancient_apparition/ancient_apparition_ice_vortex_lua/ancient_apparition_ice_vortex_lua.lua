@@ -31,6 +31,11 @@ function modifier_ancient_apparition_ice_vortex_lua_aura:OnCreated()
 	ParticleManager:SetParticleControl(vortex_particle, 0, self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(vortex_particle, 5, Vector(700, 0, 0))
 	self:AddParticle(vortex_particle, false, false, -1, false, false)
+	
+	self.effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	-- self.effect_cast = assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_arcana"))(self, particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	ParticleManager:SetParticleControl( self.effect_cast, 1, Vector( 700, 700, 1 ) )
+	self:AddParticle( self.effect_cast, false, false, -1, false, false )
 end
 
 function modifier_ancient_apparition_ice_vortex_lua_aura:IsDebuff()

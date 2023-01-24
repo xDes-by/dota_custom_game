@@ -310,7 +310,7 @@ function item_meteor_hammer_lua1_gem2:OnChannelFinish(bInterrupted)
 					enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 				
 					enemy:AddNewModifier(self.caster, self, "modifier_stunned", {duration = self.stun_duration * (1 - enemy:GetStatusResistance())})
-					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive2_burn", {duration = self.burn_duration})
+					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive1_burn", {duration = self.burn_duration})
 					
 					local impactDamage = self.impact_damage_units
 					
@@ -477,7 +477,7 @@ function item_meteor_hammer_lua1_gem3:OnChannelFinish(bInterrupted)
 					enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 				
 					enemy:AddNewModifier(self.caster, self, "modifier_stunned", {duration = self.stun_duration * (1 - enemy:GetStatusResistance())})
-					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive3_burn", {duration = self.burn_duration})
+					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive1_burn", {duration = self.burn_duration})
 					
 					local impactDamage = self.impact_damage_units
 					
@@ -645,7 +645,7 @@ function item_meteor_hammer_lua1_gem4:OnChannelFinish(bInterrupted)
 					enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 				
 					enemy:AddNewModifier(self.caster, self, "modifier_stunned", {duration = self.stun_duration * (1 - enemy:GetStatusResistance())})
-					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive4_burn", {duration = self.burn_duration})
+					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive1_burn", {duration = self.burn_duration})
 					
 					local impactDamage = self.impact_damage_units
 					
@@ -812,7 +812,7 @@ function item_meteor_hammer_lua1_gem5:OnChannelFinish(bInterrupted)
 					enemy:EmitSound("DOTA_Item.MeteorHammer.Damage")
 				
 					enemy:AddNewModifier(self.caster, self, "modifier_stunned", {duration = self.stun_duration * (1 - enemy:GetStatusResistance())})
-					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive5_burn", {duration = self.burn_duration})
+					enemy:AddNewModifier(self.caster, self, "modifier_item_meteor_hammer_passive1_burn", {duration = self.burn_duration})
 					
 					local impactDamage = self.impact_damage_units
 					
