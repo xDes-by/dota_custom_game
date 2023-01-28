@@ -91,6 +91,7 @@ function modifier_bristleback_bristleback_lua:OnTakeDamage( params )
 			
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "spectre_dispersion" then return end
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "frostivus2018_spectre_active_dispersion"  then return end
+			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "ability_npc_boss_plague_squirrel_spell2"  then return end
 				
 			local forwardVector			= self.caster:GetForwardVector()
 			local forwardAngle			= math.deg(math.atan2(forwardVector.x, forwardVector.y))

@@ -6,6 +6,10 @@ function Increase_int:GetIntrinsicModifierName()
 	return "modifier_Increase_int"
 end
 
+function Increase_int:GetAbilityTextureName()
+	return "modifier_Increase_int"
+end
+
 if modifier_Increase_int == nil then 
     modifier_Increase_int = class({})
 end

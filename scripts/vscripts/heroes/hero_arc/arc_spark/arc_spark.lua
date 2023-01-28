@@ -16,7 +16,7 @@ function ark_spark_lua:OnSpellStart()
 		local damage = self:GetSpecialValueFor("damage")
 		local enemy_speed = self:GetSpecialValueFor("enemy_speed")
 		local caster_loc = caster:GetAbsOrigin()
-		caster:EmitSound("Hero_ArcWarden.SparkWraith.Cast")
+		--caster:EmitSound("Hero_ArcWarden.SparkWraith.Cast")
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 		for _,enemy in pairs(enemies) do
 		
@@ -49,19 +49,16 @@ function ark_spark_lua:OnProjectileHit_ExtraData(target, vLocation, extraData)
 		local caster = self:GetCaster()
 		local damage = self:GetSpecialValueFor("damage")	
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi7")
-		if abil ~= nil then 
-		damage = damage + caster:GetAgility()
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi7") ~= nil then 
+			damage = damage + caster:GetAgility()
 		end
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int10")
-		if abil ~= nil then 
-		damage = damage + caster:GetIntellect()*0.75
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int10") ~= nil then 
+			damage = damage + caster:GetIntellect()*0.75
 		end
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int11")
-		if abil ~= nil then
-		damage = damage * 2
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int11") ~= nil then
+			damage = damage * 2
 		end
 	
 		ApplyDamage({attacker = caster, victim = target, ability = self, damage = damage, damage_type = self:GetAbilityDamageType()})

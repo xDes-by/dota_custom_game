@@ -12,34 +12,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
-		"AbilityCastRange"				"275"
+		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3"
-		"AbilityDuration"				"11"
+		"AbilityDuration"				"12"
 
 		"AbilityCooldown"				"30"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_interval"			"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal"					"10 11 12 13 14 15 16 17 18 19 20 21 22 23 24"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"wisp_count"			"2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"
-			}
+			"heal_interval"			"1.0"
+			"heal"					"0.5 0.75 1.0 1.25 1.5 1.75 2.0 2.25 2.5 2.75 3.0 3.25 3.5 3.75 4.0"
+			"radius"				"500"
 		}
 	}
 }

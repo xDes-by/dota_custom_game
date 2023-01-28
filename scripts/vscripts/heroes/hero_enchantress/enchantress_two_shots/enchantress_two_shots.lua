@@ -40,8 +40,7 @@ function modifier_enchantress_two_shots:OnAttack( keys )
     local target = keys.target
 
 	local range_total = attacker:Script_GetAttackRange()
- 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int6")
-		if abil ~= nil	then 
+ 	if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int6") ~= nil	then 
 			if self:GetAbility():IsCooldownReady() and keys.attacker == self:GetParent() and keys.target and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not keys.no_attack_cooldown and not self:GetParent():PassivesDisabled() then	
 				local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetParent():Script_GetAttackRange() + 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
@@ -102,17 +101,16 @@ end
 function enchantress_two_shots:OnProjectileHit( target, location )
     if not IsServer() then return end
     if target then
-        local damage = self:GetSpecialValueFor( "damage_bonus" )
+		local damage = self:GetSpecialValueFor("damage_bonus") + self:GetCaster():GetIntellect() / 100 *  self:GetSpecialValueFor("int")
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int9")
-		if abil ~= nil	then 
-		damage = damage + self:GetCaster():GetIntellect()
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int9") ~= nil then 
+			damage = damage + self:GetCaster():GetIntellect()
 		end
+		
         ApplyDamage({victim = target, attacker = self:GetCaster(), damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = self})
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_str8")             
-	if abil ~= nil then 
-	self:GetCaster():Heal(damage,nil)
-	end
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_str8") ~= nil then 
+			self:GetCaster():Heal(damage,nil)
+		end
     end
     return true
 end

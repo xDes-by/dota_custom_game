@@ -13,7 +13,7 @@ function modifier_take_drop_gem:RemoveOnDeath()
 end
 
 function modifier_take_drop_gem:OnCreated( kv )
-self:StartIntervalThink(0.1)
+	self:StartIntervalThink(0.1)
 end
 
 function modifier_take_drop_gem:OnIntervalThink()
@@ -26,6 +26,18 @@ if not IsServer() then return end
 				local containedItem = item:GetContainedItem()	
 				local item_name = containedItem:GetAbilityName()		
 				local name = string.sub(item_name, 0, 9)
+				if name == 'item_bag_' then
+					if containedItem ~= nil then
+					self:GetParent():MoveToPosition(item:GetAbsOrigin())
+						if (point - item:GetAbsOrigin()):Length2D() < 10 then
+							if item ~= nil then
+								self:GetParent():GetOwner():ModifyGold( 2500, true, 0 )
+								SendOverheadEventMessage(self:GetParent():GetOwner(), OVERHEAD_ALERT_GOLD, self:GetParent():GetOwner(), 2500, nil)
+								UTIL_RemoveImmediate(item)	
+							end
+						end
+					end	
+				end
 				if name == "item_gems" then
 					local number = tonumber(string.sub(item_name, -1))
 					if containedItem ~= nil then

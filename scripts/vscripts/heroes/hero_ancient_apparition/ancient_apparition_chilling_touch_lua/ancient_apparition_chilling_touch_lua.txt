@@ -14,12 +14,13 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Ancient_Apparition.ChillingTouchCast"
 		"MaxLevel"						"15"
-		"AbilityCooldown"				"11.4 10.6 9.8 9.0 8.2 7.4 6.6 5.8 5.0 4.2 3.4 2.6 1.8 1.0 0.2"
+		"AbilityCooldown"				"7.0 6.5 6.0 5.5 5.0 4.5 4.0 3.5 3.0 2.5 2.0 1.5 1.0 0.5 0"
 
 		"AbilityValues"
 		{
-			"damage"					"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300"
-			"attack_range_bonus"		"150"
+			"damage"					"30 60 90 120 150 180 210 240 270 300 330 360 390 420 450"
+			"int"						"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+			"attack_range_bonus"		"250"
 		}
 	}
 }

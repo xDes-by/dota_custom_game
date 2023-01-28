@@ -45,18 +45,6 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 		self.damage	 = self:GetAbility():GetSpecialValueFor( "damage" )
 		
 	if self:GetAbility() and not self:GetCaster():PassivesDisabled() and ((params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or (params.attacker == self:GetCaster() and HasTalent(self:GetCaster(), "npc_dota_hero_axe_agi11") )) then
-	
-	
-		
-	--	if  and params.attacker == self:GetCaster() then return end
-		
-	--	if params.target~=self:GetCaster() then return end
-	--	if self:GetCaster():PassivesDisabled() then return end
-	--	if params.attacker:GetTeamNumber()==params.target:GetTeamNumber() then return end
-	--	if params.attacker:IsOther() or params.attacker:IsBuilding() then return end
-		
-
-		
 		
 	caster = self:GetCaster()
 	damage_type = DAMAGE_TYPE_PURE
@@ -82,8 +70,7 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 		end
 			
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int8")		-- шанс крутилки
-			if abil ~= nil then 
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
 			self.chance = self.chance + 15
 		end
 		local c = RandomInt(1,100)

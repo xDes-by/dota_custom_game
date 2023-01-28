@@ -1,7 +1,5 @@
 modifier_sand_caustic_debuff = class({})
 
---------------------------------------------------------------------------------
--- Classifications
 function modifier_sand_caustic_debuff:IsHidden()
 	return false
 end
@@ -18,23 +16,17 @@ function modifier_sand_caustic_debuff:DestroyOnExpire()
 	return true
 end
 
---------------------------------------------------------------------------------
--- Initializations
 function modifier_sand_caustic_debuff:OnCreated( kv )
-	-- references
 	self.radius = self:GetAbility():GetSpecialValueFor( "caustic_finale_radius" ) -- special value
 	self.damage = self:GetAbility():GetSpecialValueFor( "caustic_finale_damage" ) -- special value
 	self.slow_duration = self:GetAbility():GetSpecialValueFor( "caustic_finale_slow_duration" ) -- special value
 	
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int11")             --- урон на время кола от силы
-		if abil ~= nil then 
-		self.damage = self:GetCaster():GetIntellect()
-		end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int11") ~= nil then 
+		self.damage = self.damage + self:GetCaster():GetIntellect()
+	end
 		
-
 	if IsServer() then
-		-- Start interval
 		self:StartIntervalThink( kv.duration )
 	end
 end
@@ -47,8 +39,6 @@ function modifier_sand_caustic_debuff:OnDestroy( kv )
 
 end
 
---------------------------------------------------------------------------------
--- Modifier Effects
 function modifier_sand_caustic_debuff:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_DEATH,
@@ -59,20 +49,14 @@ end
 function modifier_sand_caustic_debuff:OnDeath( params )
 	if IsServer() then
 		if params.unit~=self:GetParent() then return end
-
-		-- check if denied
 		if params.unit:GetTeamNumber()==params.attacker:GetTeamNumber() then return end
-
 		self:Explode( true )
 	end
 end
 
---------------------------------------------------------------------------------
--- Interval Effects
 function modifier_sand_caustic_debuff:OnIntervalThink()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int6")
-	if abil ~= nil then 
-	self:Explode( false )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int6") ~= nil then 
+		self:Explode( false )
 	end
 end
 

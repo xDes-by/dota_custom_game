@@ -60,7 +60,7 @@ function modifier_sabre_blade:OnAttack(event)
     local ability = self:GetAbility()
 
     if attacker:IsRealHero() then
-        if self.hits >= 2 then
+        if self.hits >= 3 then
             attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
             self.hits = 0
         else
@@ -115,12 +115,33 @@ function modifier_sabre_blade_doubleattack:IsPurgable()
 	return false
 end
 
+function modifier_sabre_blade_doubleattack:OnCreated()
+end
+
 function modifier_sabre_blade_doubleattack:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE
+        MODIFIER_EVENT_ON_ATTACK
     }
     return funcs
+end
+
+
+function modifier_sabre_blade_doubleattack:OnAttack(keys)
+	if not IsServer() then return end
+	if keys.attacker ~= self:GetParent() then return end
+	local damage = keys.attacker:GetAverageTrueAttackDamage(nil)
+	
+	local multi = self:GetAbility():GetSpecialValueFor("mult")
+    local attack = damage * (multi/100)
+	
+	ApplyDamage({
+		victim = keys.target,
+		attacker = keys.attacker,
+		damage = attack,
+		damage_type = DAMAGE_TYPE_PURE,
+		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+	})
 end
 
 function modifier_sabre_blade_doubleattack:GetModifierAttackSpeed_Limit()
@@ -130,21 +151,6 @@ end
 function modifier_sabre_blade_doubleattack:GetModifierAttackSpeedBonus_Constant()
     return 1450
 end
-
-function modifier_sabre_blade_doubleattack:GetModifierProcAttack_BonusDamage_Pure(params)
-    if IsServer() then
-        local target = params.target if target==nil then target = params.unit end
-        if target:GetTeamNumber()==self:GetParent():GetTeamNumber() then
-            return 0
-        end
-        local parent = self:GetParent()
-        local multi = self:GetAbility():GetSpecialValueFor("mult")
-        local attack = params.damage * (multi/100)
-
-        return attack
-    end
-end
-
 ------------
 
 modifier_sabre_blade_doubleattack_debuff = class({})

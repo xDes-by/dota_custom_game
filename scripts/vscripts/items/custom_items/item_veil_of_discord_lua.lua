@@ -26,7 +26,7 @@ function item_veil_of_discord_lua1:OnSpellStart()
 	ParticleManager:SetParticleControl(particle_fx, 1, Vector(self:GetSpecialValueFor("debuff_radius"), 1, 1))
 	ParticleManager:ReleaseParticleIndex(particle_fx)
 
-	local enemies =   FindUnitsInRadius(self:GetCaster():GetTeamNumber(),
+	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),
 		target_loc,
 		nil,
 		self:GetSpecialValueFor("debuff_radius"),

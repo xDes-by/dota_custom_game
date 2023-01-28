@@ -5,9 +5,9 @@ ancient_apparition_chilling_touch_lua = class({})
 
 function ancient_apparition_chilling_touch_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int11") ~= nil then 
-		return math.min(65000, self:GetCaster():GetIntellect()/4)
+		return math.min(65000, self:GetCaster():GetIntellect()/8)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 function ancient_apparition_chilling_touch_lua:ProcsMagicStick()
@@ -34,7 +34,7 @@ function ancient_apparition_chilling_touch_lua:OnOrbImpact( keys )
 	if keys.target:IsMagicImmune() then return end
 	keys.target:EmitSound("Hero_Ancient_Apparition.ChillingTouch.Target")
 
-	self.damage = self:GetSpecialValueFor("damage")
+	self.damage = self:GetSpecialValueFor("damage") + self:GetCaster():GetIntellect() / 100 *  self:GetSpecialValueFor("int")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_agi_last") ~= nil then 
 		self.damage = self.damage + self:GetCaster():GetAgility()*0.1
 	end

@@ -226,8 +226,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
-	ListenToGameEvent('dota_hero_inventory_item_change', Dynamic_Wrap(CAddonAdvExGameMode, 'OnInventoryUpdate'), self)
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter(CAddonAdvExGameMode.FilterExecuteOrder, self)
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
@@ -240,9 +239,12 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 end
 
-function CAddonAdvExGameMode:OnInventoryUpdate(keys)
+function CAddonAdvExGameMode:OrderFilter(event)
+    if event.order_type == DOTA_UNIT_ORDER_PATROL then
+        return false
+    end
+    return true
 end
-
 ------------------------------------------------------------------------------
 
 function CAddonAdvExGameMode:OnChat( event )
@@ -428,6 +430,7 @@ for i=2,25 do
 
 LinkLuaModifier("modifier_only_phys", "modifiers/modifier_only_phys", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_cheack_afk", "modifiers/modifier_cheack_afk", LUA_MODIFIER_MOTION_NONE)
 
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
@@ -513,6 +516,10 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		local playerID = npc:GetPlayerID()
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
 		npc:AddItemByName("item_tpscroll")
+		
+		
+		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
+		
 		CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
 		CheckCheatMode()
 		
@@ -853,7 +860,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			end
 		end
 		Timers:CreateTimer(3,function() 
-		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		end)		
 		rating_lose()
 	end
@@ -1249,33 +1256,33 @@ function set_max_stats(unit)
 	end  
 end
 
-function CAddonAdvExGameMode:FilterExecuteOrder(filterTable)
-    local order = filterTable["order_type"]
-    local units_table = filterTable["units"]
-    local target = filterTable["entindex_target"]
-    local target2 = EntIndexToHScript(target)
-    local unit
-    if units_table and units_table["0"] then
-        unit = EntIndexToHScript(units_table["0"])
-        if unit then
-            if unit.skip then
-                unit.skip = false
-                return true
-            end
-        end
-    end
-    if target ~= nil and target ~= 0 and target2 then
-         if order == DOTA_UNIT_ORDER_ATTACK_TARGET  and target2:GetModelName() == "models/heroes/treant_protector/treant_protector.vmdl" then 
-            return
-         end
-    end
+-- function CAddonAdvExGameMode:FilterExecuteOrder(filterTable)
+    -- local order = filterTable["order_type"]
+    -- local units_table = filterTable["units"]
+    -- local target = filterTable["entindex_target"]
+    -- local target2 = EntIndexToHScript(target)
+    -- local unit
+    -- if units_table and units_table["0"] then
+        -- unit = EntIndexToHScript(units_table["0"])
+        -- if unit then
+            -- if unit.skip then
+                -- unit.skip = false
+                -- return true
+            -- end
+        -- end
+    -- end
+    -- if target ~= nil and target ~= 0 and target2 then
+         -- if order == DOTA_UNIT_ORDER_ATTACK_TARGET  and target2:GetModelName() == "models/heroes/treant_protector/treant_protector.vmdl" then 
+            -- return
+         -- end
+    -- end
 	
-	if order == DOTA_UNIT_ORDER_SELL_ITEM then
+	-- if order == DOTA_UNIT_ORDER_SELL_ITEM then
 		--print(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
-		local pid = filterTable["issuer_player_id_const"]
-		local price = tonumber(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
-		local gold = price / 2
+		-- local pid = filterTable["issuer_player_id_const"]
+		-- local price = tonumber(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
+		-- local gold = price / 2
 		-- herogold:addGold(pid,gold)
-	end
-    return true
-end
+	-- end
+    -- return true
+-- end

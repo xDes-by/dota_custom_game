@@ -43,7 +43,7 @@ function BanditArcherThink()
 			if flDist > 1000 then
 				return blink(owner)
 			end
-	return 0.1ss
+	return 0.1
 end
 
 

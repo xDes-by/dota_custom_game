@@ -11,37 +11,20 @@ function mars_lil:GetManaCost(iLevel)
 end
 
 function mars_lil:OnSpellStart()
-	-- unit identifier
 	local caster = self:GetCaster()
-
-	-- load data
 	local duration = self:GetDuration()
 
-	-- addd buff
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_mars_lil", -- modifier name
-		{ duration = duration } -- kv
-	)
+	caster:AddNewModifier(caster, self, "modifier_mars_lil", { duration = duration } )
 	
-	local abil =  self:GetCaster():FindAbilityByName("npc_dota_hero_mars_str7")
-		if abil ~= nil then
-		caster:AddNewModifier(
-			caster, -- player source
-			self, -- ability source
-			"modifier_mars_boost", -- modifier name
-			{ duration = 3 } -- kv
-		)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_str7") ~= nil then
+		caster:AddNewModifier(caster, self, "modifier_mars_boost", { duration = 3 })
 	end
 	
-	local abil =  self:GetCaster():FindAbilityByName("npc_dota_hero_mars_int11")
-		if abil ~= nil then
-			local r2 = RandomInt(1,2)
-			if r2 == 1 then
-				local sound_cast = "DOTA_Item.Refresher.Activate"
-				EmitSoundOn( sound_cast, caster )
-				self:EndCooldown()
-			end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_int11") ~= nil then
+		if RandomInt(1,100) <= 50 then
+			local sound_cast = "DOTA_Item.Refresher.Activate"
+			EmitSoundOn( sound_cast, caster )
+			self:EndCooldown()
+		end
 	end	
 end

@@ -1,7 +1,5 @@
 modifier_mars_lil_debuff = class({})
 
---------------------------------------------------------------------------------
--- Classifications
 function modifier_mars_lil_debuff:IsHidden()
 	return false
 end
@@ -18,20 +16,15 @@ function modifier_mars_lil_debuff:IsPurgable()
 	return true
 end
 
---------------------------------------------------------------------------------
--- Initializations
 function modifier_mars_lil_debuff:OnCreated( kv )
-	-- references
 	self.loss = self:GetAbility():GetSpecialValueFor( "loss_armor" ) *(-1)
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi7")
-	if abil ~= nil then 
-	self.loss = self.loss - 1
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi7") ~= nil then 
+		self.loss = self.loss - 1
 	end
 
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi_last")
-	if abil ~= nil then 
-	self.loss = self.loss - 3
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi_last") ~= nil then 
+		self.loss = self.loss - 3
 	end
 
 	if not IsServer() then return end

@@ -31,10 +31,9 @@ function wraith_king_sceleton:OnSpellStart()
 	self.dmg_mnoz = self:GetSpecialValueFor( "dmg" )
 	count = 2
 	
-	local abil = caster:FindAbilityByName("npc_dota_hero_skeleton_king_agi10")
-		if abil ~= nil then 
-			count = 3
-		end
+	if caster:FindAbilityByName("npc_dota_hero_skeleton_king_agi10") ~= nil then 
+		count = 3
+	end
 	
 	local abil = caster:FindAbilityByName("npc_dota_hero_skeleton_king_agi9")
 		if abil ~= nil then 

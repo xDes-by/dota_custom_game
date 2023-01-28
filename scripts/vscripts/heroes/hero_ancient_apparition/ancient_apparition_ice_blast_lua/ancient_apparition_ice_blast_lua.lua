@@ -57,7 +57,7 @@ function modifier_ancient_apparition_ice_blast_lua:OnAttackLanded( params )
 		
 		target:Kill(nil, caster)
 		
-		self:GetParent():EmitSound("Hero_Ancient_Apparition.IceBlast.Target")
+		-- self:GetParent():EmitSound("Hero_Ancient_Apparition.IceBlast.Target")
 		local ice_blast_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:ReleaseParticleIndex(ice_blast_particle)
 	end

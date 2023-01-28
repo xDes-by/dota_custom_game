@@ -26,7 +26,7 @@ function modifier_npc_dota_hero_pudge_str_last:OnDeath(params)
 end
 
 function modifier_npc_dota_hero_pudge_str_last:GetModifierBonusStats_Strength(params)
-    return self:GetStackCount() * 40
+    return self:GetStackCount() * 100
 end
 
 function modifier_npc_dota_hero_pudge_str_last:IsHidden()

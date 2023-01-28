@@ -8,7 +8,7 @@ function sandking_waves(keys)
 	sand_ult_damage = ability:GetSpecialValueFor("damage")
 	
 	if caster:FindAbilityByName("npc_dota_hero_sand_king_str11") ~= nil then 
-		sand_ult_damage = ability:GetSpecialValueFor("damage") + caster:GetStrength() * 0.5
+		sand_ult_damage = ability:GetSpecialValueFor("damage") + caster:GetStrength() * 0.75
 	end
 	
 	if caster:FindAbilityByName("npc_dota_hero_sand_king_str_last") ~= nil then 

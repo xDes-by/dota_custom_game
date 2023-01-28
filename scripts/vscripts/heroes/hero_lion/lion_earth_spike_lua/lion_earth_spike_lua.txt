@@ -19,7 +19,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 
-		"AbilityCooldown"				"10.0"
+		"AbilityCooldown"				"8"
 
 		"AbilitySpecial"
 		{

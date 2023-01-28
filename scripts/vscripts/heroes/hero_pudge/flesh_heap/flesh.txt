@@ -12,28 +12,11 @@
 		"ScriptFile"					"heroes/hero_pudge/flesh_heap/flesh_heap.lua"
         "MaxLevel"						"15"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"base_magic_resist"					"2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"stack_str"							"0.1 0.1 0.2 0.2 0.3 0.3 0.4 0.4 0.5 0.5 0.6 0.7 0.8 0.9 1.0"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"range"								"900"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"stack_scale_up"					"3.0"
-			}
+			"base_magic_resist"					"2 4 6 8 10 12 14 16 18 20 22 24 26 28 30"
+			"stack_str"							"0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5"
+			"range"								"900"
 		}
 	}
 }

@@ -11,35 +11,20 @@ function sand_stun:GetManaCost(iLevel)
 end
 
 function sand_stun:OnSpellStart()
-	-- get references
 	local radius = self:GetSpecialValueFor("radius")
 	local damage = self:GetSpecialValueFor( "stomp_damage" )
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int7")
-	if abil ~= nil then 
-	radius = radius + 750
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int7") ~= nil then 
+		radius = radius + 750
 	end
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_str9")             --- урон на время кола от силы
-	if abil ~= nil then 
-	damage = self:GetCaster():GetStrength()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_str9") ~= nil then 
+		damage = damage + self:GetCaster():GetStrength()
 	end
 
-	-- find affected units
-	local enemies = FindUnitsInRadius(
-		self:GetCaster():GetTeamNumber(),
-		self:GetCaster():GetOrigin(),
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_ANY_ORDER,
-		false
-	)
+	local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
-	-- Prepare damage table
 	local damageTable = {
 		victim = nil,
 		attacker = self:GetCaster(),
@@ -48,28 +33,22 @@ function sand_stun:OnSpellStart()
 		ability = self, --Optional.
 	}
 
-	-- for each caught enemies
 	for _,enemy in pairs(enemies) do
-		-- Apply Damage
 		damageTable.victim = enemy
 		ApplyDamage(damageTable)
 
-		-- Apply stun debuff
 		enemy:AddNewModifier( self:GetCaster(), self, "modifier_generic_stunned_lua", { duration = stun_duration } )
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int_last")             --- урон на время кола от силы
-		if abil ~= nil then 
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int10") ~= nil then 
 			enemy:AddNewModifier( self:GetCaster(), self, "modifier_sand_damage_incoming", { duration = stun_duration } )
 		end
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int10")             --- урон на время кола от силы
-		if abil ~= nil then 
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int_last") ~= nil then 
 		ability2 = self:GetCaster():FindAbilityByName("sand_caustic") 
 			if ability2 ~= nil and ability2:IsTrained() then 
-			enemy:AddNewModifier( self:GetCaster(), self, "modifier_sand_caustic_debuff", { duration = 5 } )
+				enemy:AddNewModifier( self:GetCaster(), self, "modifier_sand_caustic_debuff", { duration = 5 } )
 			end
 		end
 	end
 
-	-- Play effects
 	self:PlayEffects()
 end
 
@@ -132,5 +111,5 @@ function modifier_sand_damage_incoming:DeclareFunctions()
 end
 
 function modifier_sand_damage_incoming:GetModifierIncomingDamage_Percentage()
-	return 30
+	return 50
 end

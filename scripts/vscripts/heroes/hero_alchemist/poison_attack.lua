@@ -68,7 +68,7 @@ function modifier_npc_dota_hero_alchemist_agi8_debuff:OnCreated(params)
 		victim 			= self:GetParent(),
 		damage 			= self.damage,
 		damage_type		= DAMAGE_TYPE_MAGICAL,
-		damage_flags 	= DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
+		damage_flags 	= DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
 		attacker 		= self:GetCaster(),
 		ability 		= self:GetAbility()
 	})
@@ -81,7 +81,7 @@ function modifier_npc_dota_hero_alchemist_agi8_debuff:OnIntervalThink()
 		victim 			= self:GetParent(),
 		damage 			= self.damage,
 		damage_type		= DAMAGE_TYPE_MAGICAL,
-		damage_flags 	= DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
+		damage_flags 	= DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION ,
 		attacker 		= self:GetCaster(),
 		ability 		= self:GetAbility()
 	})
