@@ -142,7 +142,7 @@
 		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade1"
-		"AbilityCooldown" 									"6.0"
+		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "1"
 

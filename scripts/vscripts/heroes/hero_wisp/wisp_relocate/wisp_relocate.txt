@@ -12,7 +12,7 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Wisp.Relocate"
 		"AbilityTextureName"			"wisp_relocate"
-		"MaxLevel"						"15"
+		"MaxLevel"						"10"
 		"AbilityCooldown"				"120"
 
 		"AbilitySpecial"

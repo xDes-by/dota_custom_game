@@ -13260,7 +13260,7 @@
         "npc_dota_hero_sand_king_int9" "Lucky Lucky Lucky"
         "npc_dota_hero_sand_king_int9_description" "Шанс срабатывания ультимэйта +5%"
 		"npc_dota_hero_sand_king_int10" "Проклятье песчаного короля"
-        "npc_dota_hero_sand_king_int10" "Входящий урон под Clap + 30%"
+        "npc_dota_hero_sand_king_int10_description" "Входящий урон под Clap + 30%"
         "npc_dota_hero_sand_king_int11" "Магический яд"
         "npc_dota_hero_sand_king_int11_description" "Урон Caustic + 100% интеллект"
 		"npc_dota_hero_sand_king_int_last" "Жало"

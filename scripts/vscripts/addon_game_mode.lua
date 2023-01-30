@@ -226,7 +226,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
+	--GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
@@ -250,6 +250,28 @@ end
 function CAddonAdvExGameMode:OnChat( event )
     local text = event.text 
 	local pid = event.playerid
+	steamID = PlayerResource:GetSteamAccountID(pid)
+	
+	if text == "-1" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(0):ForceKill(false)
+	end
+	
+	if text == "-2" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(1):ForceKill(false)
+	end
+	
+	if text == "-3" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(2):ForceKill(false)
+	end
+	
+	if text == "-4" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(3):ForceKill(false)
+	end
+	
+	if text == "-5" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(4):ForceKill(false)
+	end
+	
 	if text == "reset_time" then
 		if PlayerResource:HasSelectedHero( pid ) then
 			local hero = PlayerResource:GetSelectedHeroEntity( pid )

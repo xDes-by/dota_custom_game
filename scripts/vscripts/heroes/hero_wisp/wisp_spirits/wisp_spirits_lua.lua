@@ -13,6 +13,14 @@ end
 
 modifier_wisp_spirits_lua = class({})
 
+function modifier_wisp_spirits_lua:IsHidden()
+	return true
+end
+
+function modifier_wisp_spirits_lua:IsPurgable()
+	return false
+end
+
 function modifier_wisp_spirits_lua:OnCreated(params)
 	if IsServer() then
 		self.spirit_summon_interval 	= self:GetAbility():GetSpecialValueFor("spirit_summon_interval")
@@ -129,6 +137,15 @@ end
 ----------------------------------------------------------------------
 
 modifier_imba_wisp_spirit_handler = class({})
+
+function modifier_imba_wisp_spirit_handler:IsHidden()
+	return false
+end
+
+function modifier_imba_wisp_spirit_handler:IsPurgable()
+	return false
+end
+
 function modifier_imba_wisp_spirit_handler:CheckState()
 	local state = {
 		[MODIFIER_STATE_NO_TEAM_MOVE_TO] 	= true,
@@ -160,7 +177,6 @@ function modifier_imba_wisp_spirit_handler:OnCreated(params)
 		if self.caster:FindAbilityByName("npc_dota_hero_wisp_agi6") ~= nil then
 			self.creep_damage = self.creep_damage + self:GetCaster():GetAttackDamage()
 		end
-		
 		self:StartIntervalThink(0.1)
 	end
 end
@@ -179,7 +195,7 @@ function modifier_imba_wisp_spirit_handler:OnIntervalThink()
 			for _,enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_wisp_spirits_lua_creep_hit") then
 					enemy:AddNewModifier(self.caster, nil, "modifier_wisp_spirits_lua_creep_hit", {duration = 0.25})
-					ApplyDamage({ victim = enemy, damage = self.creep_damage, damage_type = damage_type, attacker = self.caster})	
+					ApplyDamage({ victim = enemy, damage = self.creep_damage, damage_type = damage_type, attacker = self:GetCaster()})	
 				end
 			end	
 		end

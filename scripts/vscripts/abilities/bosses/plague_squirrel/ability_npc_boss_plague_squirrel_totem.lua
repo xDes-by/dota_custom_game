@@ -59,21 +59,10 @@ function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
 		local damageTable = {
 			victim = unit,
 			attacker = self:GetCaster(),
-			damage = unit:GetMaxHealth()*0.2,
+			damage = unit:GetMaxHealth()*0.4,
 			damage_type = DAMAGE_TYPE_PHYSICAL,
 		}
 		ApplyDamage(damageTable)
-			
-		-- unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_knockback", {
-				-- center_x			= self:GetAbility().point[1] + 1,
-				-- center_y			= self:GetAbility().point[2] + 1,
-				-- center_z			= self:GetAbility().point[3],
-				-- duration			= 0.4 * (1 - unit:GetStatusResistance()),
-				-- knockback_duration	= 0.4 * (1 - unit:GetStatusResistance()),
-				-- knockback_distance	= 50,
-				-- knockback_height	= 0,
-				-- should_stun			= 0
-			-- })	
 		end
 		
 	ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -166,55 +155,18 @@ end
 function modifier_ability_npc_boss_plague_squirrel_hit:OnAttackLanded(params)
     if not IsServer() then return end
 	if params.attacker == self:GetParent() then
-		params.target:AddNewModifier(params.attacker, nil, "modifier_ability_npc_boss_plague_squirrel_silense", {duration = 2})
 		self:GetParent():ForceKill(false)
+		
+		    ApplyDamage({
+		victim = params.target,
+		damage = params.target:GetHealth()*0.2,
+		damage_type = DAMAGE_TYPE_PURE,
+		damage_flags = DOTA_DAMAGE_FLAG_NONE,
+		attacker = params.attacker
+		})
 	end
 end
 
 function modifier_ability_npc_boss_plague_squirrel_hit:GetModifierMoveSpeed_Absolute()
     return 500
-end
-
---------------------------------------------------------------------------
-
-modifier_ability_npc_boss_plague_squirrel_silense = class({})
-
-function modifier_ability_npc_boss_plague_squirrel_silense:IsHidden()
-    return false
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:IsDebuff()
-    return true
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:IsPurgable()
-    return false
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:RemoveOnDeath()
-    return true
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:GetAttributes()
-    return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:OnCreated()
-if not IsServer() then return end
-    ApplyDamage({
-	victim = self:GetParent(),
-    damage = self:GetParent():GetHealth()/20,
-    damage_type = DAMAGE_TYPE_PURE,
-    damage_flags = DOTA_DAMAGE_FLAG_NONE,
-    attacker = self:GetCaster()
-	})
-end
-
-function modifier_ability_npc_boss_plague_squirrel_silense:CheckState()
-	return {
-		[MODIFIER_STATE_BLIND] = true,
-        [MODIFIER_STATE_SILENCED] = true,
-        [MODIFIER_STATE_MUTED] = true,
-        [MODIFIER_STATE_PASSIVES_DISABLED] = true,
-	}
 end

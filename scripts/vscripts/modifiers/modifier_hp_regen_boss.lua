@@ -18,7 +18,7 @@ end
 
 function modifier_hp_regen_boss:GetModifierHealthRegenPercentage()
 	if self:GetParent():GetUnitName() == "npc_boss_plague_squirrel" then
-		return 0.05
+		return 0.025
 	end
 	return 0.25
 end

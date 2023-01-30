@@ -14,7 +14,7 @@ function spirit_arc_lightning:OnSpellStart()
 		ParticleManager:SetParticleControl(head_particle, 62, Vector(2, 0, 2))
 		
 		if caster:FindAbilityByName("npc_dota_hero_wisp_int_last") ~= nil then
-			sdamage_lighing = damage_lighing + caster:GetIntellect()/2
+			damage_lighing = damage_lighing + caster:GetIntellect()/2
 		end
 	
 		if caster:FindAbilityByName("npc_dota_hero_wisp_agi6") ~= nil then

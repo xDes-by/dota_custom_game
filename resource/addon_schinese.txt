@@ -13272,7 +13272,7 @@
           "npc_dota_hero_sand_king_int9" "幸运幸运幸运"
           "npc_dota_hero_sand_king_int9_description" "最终几率 +5%"
 "npc_dota_hero_sand_king_int10" "沙王的诅咒"
-          "npc_dota_hero_sand_king_int10" "每次拍击造成的伤害 + 30%"
+          "npc_dota_hero_sand_king_int10_description" "每次拍击造成的伤害 + 30%"
           "npc_dota_hero_sand_king_int11" "魔法毒药"
           "npc_dota_hero_sand_king_int11_description" "腐蚀伤害 + 100% 智力"
 “npc_dota_hero_sand_king_int_last” “斯汀”

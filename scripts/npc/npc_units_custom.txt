@@ -505,15 +505,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		
-	    //"Ability1"					"ability_npc_boss_plague_squirrel_spell1"
-	    //"Ability2"					"ability_npc_boss_plague_squirrel_spell2"     
-	   //"Ability3"					"ability_npc_boss_plague_squirrel_spell3"     
-	    //"Ability4"					"ability_npc_boss_plague_squirrel_spell4"   
-	   // "Ability5"					""  
-	    "Ability6"					"ability_npc_boss_plague_squirrel_spell6"    
-		//"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
-		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
-		"Ability9"                 	"necronomicon_warrior_sight"
+		"Ability1"                 	"necronomicon_warrior_sight"
 		
 		"ArmorPhysical"				"500"
 		"MagicalResistance"			"99"
@@ -585,8 +577,8 @@
 		"MagicalResistance"			"99"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"5000000"
-		"AttackDamageMax"			"5000000"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
 		"AttackRate"				"0.1"
 		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"1200"
