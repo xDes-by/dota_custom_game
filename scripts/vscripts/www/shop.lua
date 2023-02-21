@@ -255,7 +255,7 @@ function Shop:OnGameRulesStateChange(keys)
 					local sid = PlayerResource:GetSteamAccountID(i)
 					-- print("OnGameRulesStateChange GetPlayerCount sid=",sid)
 					
-					if Shop.pShop[i].totaldonate >= 2000 or RATING["rating"][i+1]["patron"] == 1 or DataBase:isCheatOn() then
+					if Shop.pShop[i].totaldonate >= 1000 or RATING["rating"][i+1]["patron"] == 1 or DataBase:isCheatOn() then
 						Shop.marci.available[i] = true
 						Shop.pango.available[i] = true
 					end
