@@ -32,13 +32,13 @@ if not IsServer() then return end
 
     EmitSoundOnLocationWithCaster(caster:GetOrigin(), "DOTA_Item.Refresher.Activate", caster)
 	
-	for i = 0, 8 do
+	for i = 0, 23 do 
 		local current_ability = caster:GetAbilityByIndex(i)
 		if current_ability then
 			current_ability:EndCooldown()
 		end
 	end
-	for i = 0, 8 do
+	for i = 0, 23 do 
 		local current_item = caster:GetItemInSlot(i)
 		local should_refresh = true
 		

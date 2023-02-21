@@ -29,7 +29,7 @@ function NeutralThink()
     end
 	
 	if not thisEntity.bInitialized then
-	thisEntity.vInitialSpawnPos  = Vector(4352,5454,167)
+	thisEntity.vInitialSpawnPos  = Vector(5476,2869,0)
         thisEntity.fMaxDist = thisEntity:GetAcquisitionRange()
         thisEntity.bInitialized = true
     end

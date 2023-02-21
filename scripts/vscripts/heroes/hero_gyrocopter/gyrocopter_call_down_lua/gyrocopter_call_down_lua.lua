@@ -118,7 +118,11 @@ function modifier_gyrocopter_call_down_lua_thinker:OnIntervalThink()
 		for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 			enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_gyrocopter_call_down_lua_slow", {duration = self.slow_duration * (1 - enemy:GetStatusResistance()), slow = self.slow_first})
 			enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", {duration = self.slow_duration-2 * (1 - enemy:GetStatusResistance()), slow = self.slow_first})
-			enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_gyrocopter_call_down_lua_flame", {duration = 5 * (1 - enemy:GetStatusResistance())})
+			
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_str11") ~= nil then 
+				enemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_gyrocopter_call_down_lua_flame", {duration = 5 * (1 - enemy:GetStatusResistance())})
+			end	
+			
 			
 			ApplyDamage({
 				victim 			= enemy,

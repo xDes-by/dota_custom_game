@@ -7,10 +7,10 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"14"
+		"AbilityCooldown"				"15"
 		"AbilityValues"
 		{
-			"max_pocs"				    "4"
+			"max_pocs"				    "3"
 			"blast_speed"				"1000"
 			"damage"					"25"
 			"debuff_duration"			"4"

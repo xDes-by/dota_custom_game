@@ -152,15 +152,15 @@ end
 function modifier_gyrocopter_flak_cannon_lua_side_gunner:OnIntervalThink()
 	if not IsServer() then return end
 	count = 0
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_agi_last") ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_agi_last") ~= nil and self:GetCaster():GetModelName() == "models/heroes/gyro/gyro.vmdl" then 
 		if not self:GetParent():IsOutOfGame() and not self:GetParent():IsInvisible() and not self:GetParent():PassivesDisabled() and self:GetParent():IsAlive() then
 			local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_FARTHEST, false)
 			if #enemies == 1 then
-				self:GetParent():PerformAttack(enemies[1], false, false, true, true, true, false, false)
-				self:GetParent():PerformAttack(enemies[1], false, false, true, true, true, false, false)
+				self:GetParent():PerformAttack(enemies[1], true, true, true, false, true, false, false)
+				self:GetParent():PerformAttack(enemies[1], true, true, true, false, true, false, false)
 			else
 				for _,enemy in pairs(enemies) do
-					self:GetParent():PerformAttack(enemy, false, false, true, true, true, false, false)
+					self:GetParent():PerformAttack(enemy, true, true, true, false, true, false, false)
 					count = count + 1
 					if count >=2 then break end
 				end

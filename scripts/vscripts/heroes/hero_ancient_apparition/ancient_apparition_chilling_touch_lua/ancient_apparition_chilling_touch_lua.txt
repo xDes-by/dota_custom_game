@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{	
+	"ancient_apparition_chilling_touch_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_lua/ancient_apparition_chilling_touch_lua.lua"
+		"AbilityTextureName"			"ancient_apparition_chilling_touch"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Ancient_Apparition.ChillingTouchCast"
+		"MaxLevel"						"15"
+		"AbilityCooldown"				"7.0 6.5 6.0 5.5 5.0 4.5 4.0 3.5 3.0 2.5 2.0 1.5 1.0 0.5 0"
+
+		"AbilityValues"
+		{
+			"damage"					"30 60 90 120 150 180 210 240 270 300 330 360 390 420 450"
+			"int"						"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+			"attack_range_bonus"		"250"
+		}
+	}
+}

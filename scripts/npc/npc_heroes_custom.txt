@@ -818,4 +818,21 @@
 	"Ability16"				""
 	"Ability17"				""
 	}
+	
+	"npc_dota_hero_ancient_apparition"
+	{
+	"override_hero"			"npc_dota_hero_ancient_apparition"
+	"Ability1"				"ancient_apparition_cold_feet_lua"
+	"Ability2"				"ancient_apparition_ice_vortex_lua"
+	"Ability3"				"ancient_apparition_chilling_touch_lua"
+	"Ability6"				"ancient_apparition_ice_blast_lua"
+	"Ability10"				""
+	"Ability11"				""
+	"Ability12"				""
+	"Ability13"				""
+	"Ability14"				""
+	"Ability15"				""
+	"Ability16"				""
+	"Ability17"				""
+	}
 }

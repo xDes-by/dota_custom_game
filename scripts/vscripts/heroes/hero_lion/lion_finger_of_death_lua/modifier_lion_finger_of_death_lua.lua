@@ -30,9 +30,8 @@ function modifier_lion_finger_of_death_lua:OnCreated( kv )
 		if ability~=nil and ability:GetLevel()>=1 then
 			stack_damage = ability:GetSpecialValueFor( "stack_bonus_dmg" )
 		
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7")	
-			if abil ~= nil then
-			stack_damage = stack_damage * 2
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7") ~= nil then
+				stack_damage = stack_damage * 2
 			end
 			
 			self.damage = self.damage + (currentStacks * stack_damage)			

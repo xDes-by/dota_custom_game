@@ -16,7 +16,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 
 
-		"AbilityCastRange"				"315"
+		"AbilityCastRange"				"450"
 		"AbilityCastPoint"				"0.1"
 
 		"AbilityCooldown"				"15.0"
@@ -26,7 +26,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"radius"						"250 275 300 325 350 375 400 425 450 475 500 525 550 575 600"
+				"radius"						"450"
 				 "LinkedSpecialBonus"			"npc_dota_hero_sand_king_int7"
 			}
 			"02"

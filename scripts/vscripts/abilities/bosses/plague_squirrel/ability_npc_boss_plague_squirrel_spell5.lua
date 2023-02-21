@@ -57,18 +57,3 @@ function modifier_ability_npc_boss_plague_squirrel_spell5_illusion:IsHidden()
     return true
 end
 
-function modifier_ability_npc_boss_plague_squirrel_spell5_illusion:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_ATTACK_LANDED
-    }
-end
-
-function modifier_ability_npc_boss_plague_squirrel_spell5_illusion:OnAttackLanded(data)
-    if data.target == self:GetParent() then
-        self:GetCaster():FindAbilityByName("ability_npc_boss_plague_squirrel_spell1"):CreateTree_OtherAbilities(data.attacker:GetOrigin())
-        UTIL_Remove(self:GetParent())
-    end
-end
-
-
-

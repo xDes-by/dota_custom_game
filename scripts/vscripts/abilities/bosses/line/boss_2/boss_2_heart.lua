@@ -108,17 +108,11 @@ function modifier_boss_2_heart_aura_damage:OnCreated()
 end
 
 function modifier_boss_2_heart_aura_damage:OnIntervalThink()
-	if IsServer() then
-		local caster = self:GetCaster()
-		
-		if not caster:PassivesDisabled() then
-			local damage = self.parent:GetMaxHealth() * (self.damage_pct * self.tick_rate) / 100
-			
-			ApplyDamage({attacker = caster, victim = self.parent, ability = self:GetAbility(), damage = damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
-		end
+	if IsServer() and self:GetCaster() then
+		local damage = self.parent:GetMaxHealth() * (self.damage_pct * self.tick_rate) / 100
+		ApplyDamage({attacker = self:GetCaster(), victim = self.parent, ability = self:GetAbility(), damage = damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 	end
 end
-
 
 function modifier_boss_2_heart_aura_damage:DeclareFunctions()
 	return {

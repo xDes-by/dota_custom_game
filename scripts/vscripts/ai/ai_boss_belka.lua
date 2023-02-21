@@ -1,5 +1,3 @@
-require("data/data")
-
 function Spawn( entityKeyValues )
     if not IsServer() then
         return
@@ -10,83 +8,88 @@ function Spawn( entityKeyValues )
     end
 	
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
+	
+	NoTargetAbility = thisEntity:FindAbilityByName( "ability_npc_boss_plague_squirrel_spell1" )
+	NoTargetAbility2 = thisEntity:FindAbilityByName( "ability_npc_boss_plague_squirrel_spell2" )
+	NoTargetAbility3 = thisEntity:FindAbilityByName( "ability_npc_boss_plague_squirrel_spell3" )
+	NoTargetAbility4 = thisEntity:FindAbilityByName( "ability_npc_boss_plague_squirrel_spell4" )
+	NoTargetAbility5 = thisEntity:FindAbilityByName( "ability_npc_boss_plague_squirrel_spell5" )
 end
 
 function NeutralThink()	
     if ( not thisEntity:IsAlive() ) then
 		return -1
 	end	
-	if not thisEntity.bSearchedForItems then
-		SearchForItems()
-		thisEntity.bSearchedForItems = true
-	end
+	
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
 	
-	if not thisEntity.bInitialized then
-		thisEntity.vInitialSpawnPos = Vector(-1242,6291,401)
-		thisEntity.bInitialized = true
-	end
-	
 	if thisEntity:IsChanneling() then  
-        return RandomFloat(0.4, 1.2)
+        return 1
     end
 	
-	local search_radius = thisEntity:GetAcquisitionRange()
-	local hp = thisEntity:GetHealthPercent()
-	local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )
-	if #enemies > 0 then
-	enemy = enemies[1]
+	local npc = thisEntity
 	
-		counter = #boss_belka
-		while counter > 1 do
-			local index = math.random(counter)
-			swap(boss_belka, index, counter)		
-			counter = counter - 1
+	if not thisEntity.bSearchedForItems then
+		SearchForItems()
+		thisEntity.bSearchedForItems = true
+	end
+	
+    if not thisEntity.bInitialized then
+		thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
+        thisEntity.fMaxDist = thisEntity:GetAcquisitionRange()
+        thisEntity.bInitialized = true
+        thisEntity.agro = false
+    end
+	
+	local health = thisEntity:GetHealthPercent()
+	search_radius = npc.fMaxDist
+  
+    local fDist = ( npc:GetOrigin() - npc.vInitialSpawnPos ):Length2D()
+    if fDist > search_radius then
+        RetreatHome()
+        return 3
+    end
+  
+    local enemies = FindUnitsInRadius( npc:GetTeamNumber(), npc:GetOrigin(), nil, search_radius + 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    if #enemies == 0 then   
+        if npc.agro then
+            RetreatHome() 
+        end     
+        return 0.5
+    end
+	if #enemies > 0 then	
+		if NoTargetAbility ~= nil and NoTargetAbility:IsFullyCastable() then
+			NoTargetAbilityCast(NoTargetAbility)
+			return 1
 		end
-				
-		for _, T in ipairs(boss_belka) do
-			local Spell = thisEntity:FindAbilityByName(T)
-			if Spell then
-				local Behavior = Spell:GetBehaviorInt()
-				if bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
-					Spell.Behavior = "target"
-					Cast( Spell, enemy )
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET ) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
-					Spell.Behavior = "no_target"
-					if Spell:GetSpecialValueFor("radius") == 0 then
-						Cast( Spell, enemy )
-					elseif ( enemy:GetOrigin()- thisEntity:GetOrigin() ):Length2D() < Spell:GetSpecialValueFor("radius") then
-						Cast( Spell, enemy )
-					end
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_POINT ) == DOTA_ABILITY_BEHAVIOR_POINT then
-					Spell.Behavior = "point"
-					Cast( Spell, enemy )
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE ) == DOTA_ABILITY_BEHAVIOR_POINT then
-					Spell.Behavior = "toggle"
-					if not Spell:GetToggleState() then 
-						Spell:ToggleAbility()
-					end
-				elseif bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE ) == DOTA_ABILITY_BEHAVIOR_PASSIVE then
-					Spell.Behavior = "passive"
-				end
-			end
-		end	
+		
+		if NoTargetAbility2 ~= nil and NoTargetAbility2:IsFullyCastable() then
+			NoTargetAbilityCast(NoTargetAbility2)
+			return 1
+		end
+		
+		if NoTargetAbility3 ~= nil and NoTargetAbility3:IsFullyCastable() then
+			NoTargetAbilityCast(NoTargetAbility3)
+			return 1
+		end
+		
+		if NoTargetAbility4 ~= nil and NoTargetAbility4:IsFullyCastable() then
+			NoTargetAbilityCast(NoTargetAbility4)
+			return 1
+		end
+		
+		if NoTargetAbility5 ~= nil and NoTargetAbility5:IsFullyCastable() then
+			NoTargetAbilityCast(NoTargetAbility5)
+			return 1
+		end
+		
 		if thisEntity.ItemAbility and thisEntity.ItemAbility:IsFullyCastable() then
 			return UseItem()
 		end	
 	end	
-	
-	local flDist = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
-	if flDist > 2000 then
-		RetreatHome()
-	end
-	if flDist > 2400 then
-		FindClearSpaceForUnit(thisEntity, thisEntity.vInitialSpawnPos, false)
-	end
-	
-	return RandomFloat(0.4, 1.2)
+	return 1
 end
 
 
@@ -97,10 +100,6 @@ function RetreatHome()
 		Position = thisEntity.vInitialSpawnPos,
 	})
 	return 0.5
-end
-
-function swap(array, index1, index2)
-	array[index1], array[index2] = array[index2], array[index1]
 end
 
 function SearchForItems()
@@ -127,30 +126,12 @@ function UseItem()
 	return 1
 end
 
-function Cast( Spell , enemy )
-	
-	local order_type
-	local vTargetPos = enemy:GetOrigin()
-	
-    if Spell.Behavior == "target" then
-        order_type = DOTA_UNIT_ORDER_CAST_TARGET
-    elseif Spell.Behavior == "no_target" then
-        order_type = DOTA_UNIT_ORDER_CAST_NO_TARGET
-    elseif Spell.Behavior == "point" then
-        order_type = DOTA_UNIT_ORDER_CAST_POSITION
-    elseif Spell.Behavior == "passive" then
-        return
-    end
-
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = order_type,
-		Position = vTargetPos,
-		TargetIndex = enemy:entindex(),  
-		AbilityIndex = Spell:entindex(),
-		Queue = false,
-	})
+function NoTargetAbilityCast(abil)
+      ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),    --индекс кастера
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,    -- тип приказа
+            AbilityIndex = abil:entindex(), -- индекс способности
+            Queue = false,
+        })
+    return 1
 end
-
-
-

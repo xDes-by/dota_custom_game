@@ -134,9 +134,8 @@ function lion_earth_spike_lua:OnProjectileHit( target, location )
 		if ability~=nil and ability:GetLevel()>=1 then
 			stack_damage = ability:GetSpecialValueFor( "stack_bonus_dmg" )
 			
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7")	
-			if abil ~= nil then
-			stack_damage = stack_damage * 2
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7") ~= nil then
+				stack_damage = stack_damage * 2
 			end
 			
 			damage = damage + (currentStacks * stack_damage)

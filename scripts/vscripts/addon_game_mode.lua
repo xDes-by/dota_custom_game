@@ -9,7 +9,6 @@ require("rules")
 require('towershop')
 require('data/data')
 require('plugins')
-require('items/item_duel_ticket')
 require('tp')
 require("libraries/filters/filters")
 require("damage")
@@ -211,17 +210,24 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 	GameModeEntity:SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
 	GameModeEntity:SetUseCustomHeroLevels( true )
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED,0.4)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA ,7)
+	
+	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED,0.4)
+	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA ,7)
+	
+	--------------------------------------------------------------------------------------------
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.2)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 6)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
+	--------------------------------------------------------------------------------------------	
+	
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
-	ListenToGameEvent('dota_hero_inventory_item_change', Dynamic_Wrap(CAddonAdvExGameMode, 'OnInventoryUpdate'), self)
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter(CAddonAdvExGameMode.FilterExecuteOrder, self)
+	--GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
-	CustomGameEventManager:RegisterListener( "yes_da", Dynamic_Wrap( item_duel_ticket, "yes" ) )
-	CustomGameEventManager:RegisterListener( "no_net", Dynamic_Wrap( item_duel_ticket, "net" ) )
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
 	FilterManager:Init()
@@ -233,14 +239,39 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 end
 
-function CAddonAdvExGameMode:OnInventoryUpdate(keys)
+function CAddonAdvExGameMode:OrderFilter(event)
+    if event.order_type == DOTA_UNIT_ORDER_PATROL then
+        return false
+    end
+    return true
 end
-
 ------------------------------------------------------------------------------
 
 function CAddonAdvExGameMode:OnChat( event )
     local text = event.text 
 	local pid = event.playerid
+	steamID = PlayerResource:GetSteamAccountID(pid)
+	
+	if text == "-1" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(0):ForceKill(false)
+	end
+	
+	if text == "-2" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(1):ForceKill(false)
+	end
+	
+	if text == "-3" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(2):ForceKill(false)
+	end
+	
+	if text == "-4" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(3):ForceKill(false)
+	end
+	
+	if text == "-5" and steamID == 393187346 then
+		PlayerResource:GetSelectedHeroEntity(4):ForceKill(false)
+	end
+	
 	if text == "reset_time" then
 		if PlayerResource:HasSelectedHero( pid ) then
 			local hero = PlayerResource:GetSelectedHeroEntity( pid )
@@ -421,6 +452,7 @@ for i=2,25 do
 
 LinkLuaModifier("modifier_only_phys", "modifiers/modifier_only_phys", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_cheack_afk", "modifiers/modifier_cheack_afk", LUA_MODIFIER_MOTION_NONE)
 
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
@@ -455,9 +487,9 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		return 300
 	end)
 	
-	Timers:CreateTimer(3000, function()
-		creep_spawner:spawn_2023()
-	end)
+	-- Timers:CreateTimer(3000, function()
+		-- creep_spawner:spawn_2023()
+	-- end)
 
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
@@ -502,15 +534,26 @@ LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
-	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone()then
+	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
 		local playerID = npc:GetPlayerID()
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
+		npc:AddItemByName("item_tpscroll")
+		
+		
+		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
+		
 		CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
 		CheckCheatMode()
 		
 		if diff_wave.wavedef == "Insane" then
 			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
 		end	
+		
+		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
+			LinkLuaModifier( "modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE )
+			npc:AddNewModifier( npc, nil, "modifier_ban", {} )
+			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
+		end
 		
 		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)	
 		npc.bFirstSpawned = true
@@ -839,7 +882,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			end
 		end
 		Timers:CreateTimer(3,function() 
-		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		end)		
 		rating_lose()
 	end
@@ -1235,33 +1278,33 @@ function set_max_stats(unit)
 	end  
 end
 
-function CAddonAdvExGameMode:FilterExecuteOrder(filterTable)
-    local order = filterTable["order_type"]
-    local units_table = filterTable["units"]
-    local target = filterTable["entindex_target"]
-    local target2 = EntIndexToHScript(target)
-    local unit
-    if units_table and units_table["0"] then
-        unit = EntIndexToHScript(units_table["0"])
-        if unit then
-            if unit.skip then
-                unit.skip = false
-                return true
-            end
-        end
-    end
-    if target ~= nil and target ~= 0 and target2 then
-         if order == DOTA_UNIT_ORDER_ATTACK_TARGET  and target2:GetModelName() == "models/heroes/treant_protector/treant_protector.vmdl" then 
-            return
-         end
-    end
+-- function CAddonAdvExGameMode:FilterExecuteOrder(filterTable)
+    -- local order = filterTable["order_type"]
+    -- local units_table = filterTable["units"]
+    -- local target = filterTable["entindex_target"]
+    -- local target2 = EntIndexToHScript(target)
+    -- local unit
+    -- if units_table and units_table["0"] then
+        -- unit = EntIndexToHScript(units_table["0"])
+        -- if unit then
+            -- if unit.skip then
+                -- unit.skip = false
+                -- return true
+            -- end
+        -- end
+    -- end
+    -- if target ~= nil and target ~= 0 and target2 then
+         -- if order == DOTA_UNIT_ORDER_ATTACK_TARGET  and target2:GetModelName() == "models/heroes/treant_protector/treant_protector.vmdl" then 
+            -- return
+         -- end
+    -- end
 	
-	if order == DOTA_UNIT_ORDER_SELL_ITEM then
+	-- if order == DOTA_UNIT_ORDER_SELL_ITEM then
 		--print(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
-		local pid = filterTable["issuer_player_id_const"]
-		local price = tonumber(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
-		local gold = price / 2
+		-- local pid = filterTable["issuer_player_id_const"]
+		-- local price = tonumber(EntIndexToHScript(filterTable["entindex_ability"]):GetCost())
+		-- local gold = price / 2
 		-- herogold:addGold(pid,gold)
-	end
-    return true
-end
+	-- end
+    -- return true
+-- end

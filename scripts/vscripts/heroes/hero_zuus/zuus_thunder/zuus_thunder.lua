@@ -63,7 +63,7 @@ function zuus_thundergods_wrath_lua:OnSpellStart()
 				local abil = caster:FindAbilityByName("npc_dota_hero_zuus_agi11")	
 				if abil ~= nil then 
 			--	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-					damage = damage + caster:GetAgility()
+					damage = caster:GetAgility()
 				end
 				
 				damage_flags = DOTA_DAMAGE_FLAG_NONE

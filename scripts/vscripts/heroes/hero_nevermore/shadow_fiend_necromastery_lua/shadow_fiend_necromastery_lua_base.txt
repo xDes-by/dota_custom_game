@@ -22,7 +22,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"soul_damage"			"2"
+				"soul_damage"			"4"
 			}
 			"02"
 			{

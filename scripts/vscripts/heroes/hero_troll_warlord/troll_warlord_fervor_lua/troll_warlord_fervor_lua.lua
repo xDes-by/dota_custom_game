@@ -59,23 +59,20 @@ function modifier_troll_warlord_fervor_lua:AddStack(target, original_damage, att
 			self:SetStackCount(self:GetStackCount() + 1)
 		end
 		if self:GetStackCount() >= self.count then
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_agi_last")
-			if abil ~= nil then 
-				target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_debuff",{duration = 3})
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_agi_last") ~= nil then 
+				target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_debuff",{duration = 5})
 				local mod = target:FindModifierByName("modifier_troll_warlord_fervor_lua_debuff")
 				mod:SetStackCount(mod:GetStackCount()+1)
 			end
 			
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int10")
-			if abil ~= nil then 
-				target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_debuff_2",{duration = 3})
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int10") ~= nil then 
+				target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_debuff_2",{duration = 5})
 				local mod = target:FindModifierByName("modifier_troll_warlord_fervor_lua_debuff_2")
 				mod:SetStackCount(mod:GetStackCount()+1)
 			end
 			
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_agi9")
-			if abil ~= nil then 
-				self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_buff",{duration = 3})
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_agi9") ~= nil then 
+				self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_troll_warlord_fervor_lua_buff",{duration = 5})
 				local mod = self:GetParent():FindModifierByName("modifier_troll_warlord_fervor_lua_buff")
 				mod:SetStackCount(mod:GetStackCount()+1)
 			end
@@ -83,16 +80,7 @@ function modifier_troll_warlord_fervor_lua:AddStack(target, original_damage, att
 			if self:GetParent():GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK then
 				local damage = original_damage * (self.dmg / 100)
 				
-				DoCleaveAttack(
-					self:GetParent(),
-					target,
-					self:GetAbility(),
-					damage,
-					150,
-					360,
-					360,
-					'particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf'
-				)
+				DoCleaveAttack( self:GetParent(), target, self:GetAbility(), damage, 150, 360, 360, 'particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf')
 			else
 				if attacker == self:GetParent() and target and target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not self:GetParent():PassivesDisabled() then	
 					local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetParent():Script_GetAttackRange() + 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)

@@ -21,7 +21,6 @@ end
 function modifier_drow_ranger_marksmanship_lua:OnCreated( kv )
     self.chance = self:GetAbility():GetSpecialValueFor( "chance" )
 	self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
-	self.disable = self:GetAbility():GetSpecialValueFor( "disable_range" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "agility_range" )
 	self.split_range = self:GetAbility():GetSpecialValueFor( "scepter_range" )
 	self.split_count = self:GetAbility():GetSpecialValueFor( "split_count_scepter" )
@@ -46,37 +45,23 @@ function modifier_drow_ranger_marksmanship_lua:OnCreated( kv )
 		ExtraData = {},
 	}
 
-	self:StartIntervalThink( 0.1 )
 	self:PlayEffects1()
 end
 
 function modifier_drow_ranger_marksmanship_lua:OnRefresh( kv )
 		self.chance = self:GetAbility():GetSpecialValueFor( "chance" )
 		self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
-		self.disable = self:GetAbility():GetSpecialValueFor( "disable_range" )
 		self.radius = self:GetAbility():GetSpecialValueFor( "agility_range" )	
 		
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
 		self.chance = self:GetAbility():GetSpecialValueFor( "chance" ) * 2 
 		self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" ) * 2
-		self.disable = self:GetAbility():GetSpecialValueFor( "disable_range" ) * 2
 		self.radius = self:GetAbility():GetSpecialValueFor( "agility_range" ) * 2
 	end
 end
 
-function modifier_drow_ranger_marksmanship_lua:OnRemoved()
-end
-
-function modifier_drow_ranger_marksmanship_lua:OnDestroy()
-end
-
---------------------------------------------------------------------------------
--- Modifier Effects
 function modifier_drow_ranger_marksmanship_lua:DeclareFunctions()
 	local funcs = {
-		MODIFIER_EVENT_ON_ATTACK_START,
-		MODIFIER_EVENT_ON_ATTACK,
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_ATTACK_RECORD_DESTROY,
 		MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
@@ -86,112 +71,102 @@ function modifier_drow_ranger_marksmanship_lua:DeclareFunctions()
 	return funcs
 end
 
-
-
-function modifier_drow_ranger_marksmanship_lua:GetModifierProcAttack_BonusDamage_Physical( params )
-	if IsServer() then
-		if params.target:IsBuilding() or params.target:IsOther() then
-			return 0
+function modifier_drow_ranger_marksmanship_lua:GetModifierProcAttack_BonusDamage_Physical( keys )
+	if not IsServer() then return end
+	self.proc = false
+	if keys.attacker ~= self:GetParent() then return end
+	if self:GetParent():IsIllusion() or self:GetParent():PassivesDisabled() then return end
+	if keys.target:IsBuilding() or keys.target:IsOther() then return end
+	if RandomInt(1,100) < self.chance then
+		self.proc = true
+		self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
+			self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" ) * 2
 		end
-
-		if self:GetParent():IsIllusion() or self:GetParent():PassivesDisabled() then
-			return 0
-		end
-		if RandomInt(1,100) < self.chance then
-			if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str9") ~= nil then 
-					if RandomInt(1,100) < 50 then
-							local ability = self:GetCaster():FindAbilityByName( "drow_cross_lua" )
-							if ability~=nil and ability:GetLevel()>=1 then
-								ability:OnSpellStart()
-							end
-						end
-				end
-				
-			self.record = params.record
-			
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str8")
-				if abil ~= nil then 
-				self.damage = self:GetCaster():GetStrength()
+		
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str9") ~= nil and RandomInt(1,100) < 50 then
+			local ability = self:GetCaster():FindAbilityByName( "drow_cross_lua" )
+			if ability~=nil and ability:GetLevel()>=1 then
+				ability:OnSpellStart()
 			end
-			
-			
-			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi9")
-				if abil ~= nil then 
-				self.damage = self:GetCaster():GetAgility()
-			end
-			
-			return self.damage
 		end
+		
+		self.record = keys.record
+		self:GetModifierProjectileName( keys )
+		
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str8") ~= nil then 
+			self.damage = self.damage + self:GetCaster():GetStrength()
+		end
+		
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi9") ~= nil then 
+			self.damage = self.damage + self:GetCaster():GetAgility()
+		end
+		ApplyDamage({
+			victim = keys.target,
+			attacker = keys.attacker,
+			damage = self.damage,
+			damage_type = DAMAGE_TYPE_PURE,
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+		})
 	end
-end
-
-function modifier_drow_ranger_marksmanship_lua:RollChance( chance )
-	local rand = RandomInt(1,100)
-	if rand<chance/100 then
-		return true
-	end
-	return false
+	return 0
 end
 
 function modifier_drow_ranger_marksmanship_lua:GetModifierProjectileName( params )
-if IsServer() then
-	if params.record==self.record then
-	return "particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
-end
-end
+	if IsServer() then
+		if params then
+			return "particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
+		end
+	end
 end
 
 function modifier_drow_ranger_marksmanship_lua:GetModifierProcAttack_Feedback( params )
-	if not IsServer() then return end
+		if not IsServer() then return end
 
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi11")
-		if abil == nil then return end
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi11") == nil then return end
 
-	-- check if this is split shot
-	if self:GetAbility().split then return end
+		if self:GetAbility().split then return end
 
-	-- find enemies
-	local enemies = FindUnitsInRadius(
-		self:GetParent():GetTeamNumber(),	-- int, your team number
-		params.target:GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.split_range,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-		FIND_CLOSEST,	-- int, order filter
-		false	-- bool, can grow cache
-	)
+		-- find enemies
+		local enemies = FindUnitsInRadius(
+			self:GetParent():GetTeamNumber(),	-- int, your team number
+			params.target:GetOrigin(),	-- point, center point
+			nil,	-- handle, cacheUnit. (not known)
+			self.split_range,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+			DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
+			FIND_CLOSEST,	-- int, order filter
+			false	-- bool, can grow cache
+		)
 
-	local count = 0
-	for _,enemy in pairs(enemies) do
-		if enemy~=params.target and count<self.split_count then
+		local count = 0
+		for _,enemy in pairs(enemies) do
+			if enemy~=params.target and count<self.split_count then
 
-			-- roll pierce armor chance
-			local procs = false
-			local rand = RandomInt( 0, 100 )
-			if self.active and rand<=self.chance then
-				procs = true
+				-- roll pierce armor chance
+				local procs = false
+				if self.active and self.proc then
+					procs = true
+				end
+
+				self.info.Target = enemy
+				self.info.Source = params.target
+				if procs then
+					self.info.EffectName = "particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
+					self.info.ExtraData = {
+						procs = true,
+					}
+				else
+					self.info.EffectName = self:GetParent():GetRangedProjectileName()
+					self.info.ExtraData = {
+						procs = false,
+					}
+				end
+				ProjectileManager:CreateTrackingProjectile( self.info )
+
+				count = count+1
 			end
-
-			-- launch projectile
-			self.info.Target = enemy
-			self.info.Source = params.target
-			if procs then
-				self.info.EffectName = "particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
-				self.info.ExtraData = {
-					procs = true,
-				}
-			else
-				self.info.EffectName = self:GetParent():GetRangedProjectileName()
-				self.info.ExtraData = {
-					procs = false,
-				}
-			end
-			ProjectileManager:CreateTrackingProjectile( self.info )
-
-			count = count+1
-		end
 	end
 end
 
@@ -204,34 +179,6 @@ function modifier_drow_ranger_marksmanship_lua:GetModifierDamageOutgoing_Percent
 	end
 end
 
---------------------------------------------------------------------------------
--- Interval Effects
-function modifier_drow_ranger_marksmanship_lua:OnIntervalThink()
-self:OnRefresh()
-
-	local enemies = FindUnitsInRadius(
-		self:GetParent():GetTeamNumber(),	-- int, your team number
-		self:GetParent():GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.disable,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO,	-- int, type filter
-		DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
-
-	local no_enemies = #enemies==0
-
-	-- check if change state
-	if self.active ~= no_enemies then
-		self:PlayEffects2( no_enemies )
-		self.active = no_enemies
-	end
-end
-
---------------------------------------------------------------------------------
--- Aura Effects
 function modifier_drow_ranger_marksmanship_lua:IsAura()
 	return self.active
 end

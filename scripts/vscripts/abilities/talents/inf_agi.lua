@@ -6,6 +6,10 @@ function Increase_agi:GetIntrinsicModifierName()
 	return "modifier_Increase_agi"
 end
 
+function Increase_agi:GetAbilityTextureName()
+	return "modifier_Increase_agi"
+end
+
 if modifier_Increase_agi == nil then 
     modifier_Increase_agi = class({})
 end

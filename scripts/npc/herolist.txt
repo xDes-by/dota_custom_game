@@ -36,7 +36,6 @@
 	"npc_dota_hero_windrunner"              "1"		//// донат!!!!
 	"npc_dota_hero_slark"                   "1"
 	"npc_dota_hero_crystal_maiden"          "1"
-	
 	"npc_dota_hero_pudge"                   "1"
 	"npc_dota_hero_techies"                 "1"
 	"npc_dota_hero_troll_warlord"           "1"
@@ -44,6 +43,7 @@
 	
 	"npc_dota_hero_bloodseeker"				"1"
 	"npc_dota_hero_gyrocopter"				"1"
+	"npc_dota_hero_ancient_apparition"      "1"
 	
 
 
@@ -66,22 +66,12 @@
 	
 		"npc_dota_hero_doom_bringer"            "0"
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 		"npc_dota_hero_tusk"                    "0"
 			
 		"npc_dota_hero_abaddon"                 "0"				
 		"npc_dota_hero_lich"                    "0"				
 		"npc_dota_hero_vengefulspirit"          "0"
-        "npc_dota_hero_ancient_apparition"      "0"
+        
         "npc_dota_hero_antimage"                "0"
         "npc_dota_hero_abyssal_underlord"       "0"       
         "npc_dota_hero_bane"                    "0"

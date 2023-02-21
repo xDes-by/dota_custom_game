@@ -12,9 +12,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastRange"				"500"
-		"AbilityCooldown"				"80 70 60"
-		"AbilityManaCost"				"200 250 300"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"20"
 
 		"AbilityValues"
 		{

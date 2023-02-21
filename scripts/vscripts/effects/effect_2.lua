@@ -1,7 +1,7 @@
 modifier_effect_2 = class({})
 
 function modifier_effect_2:IsHidden()
-	return false
+	return true
 end
 
 function modifier_effect_2:IsPurgable()

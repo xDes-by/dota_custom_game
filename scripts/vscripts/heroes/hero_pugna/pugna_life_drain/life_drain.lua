@@ -155,7 +155,7 @@ function modifier_health_life_drain_now:OnIntervalThink()
 				damage_type = DAMAGE_TYPE_PURE,
 				attacker = self.caster,
 				ability = self.ability,
-				damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 			}
 
 			local actual_damage = ApplyDamage(damageTable)
@@ -169,7 +169,7 @@ function modifier_health_life_drain_now:OnIntervalThink()
 				damage_type = DAMAGE_TYPE_PURE,
 				attacker = self.caster,
 				ability = self.ability,
-				damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 			}
 
 			local actual_damage = ApplyDamage(damageTable)

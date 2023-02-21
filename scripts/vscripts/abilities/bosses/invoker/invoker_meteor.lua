@@ -66,16 +66,10 @@ function modifier_invoker_meteor_thinker:OnCreated( kv )
 		
 		self.interval = self:GetAbility():GetSpecialValueFor( "damage_interval" )
 		self.duration = self:GetAbility():GetSpecialValueFor( "burn_duration" )
-		local damage = self:GetAbility():GetSpecialValueFor( "main_damage" )
+		
 
 		-- variables
 		self.fallen = false
-		self.damageTable = {
-			attacker = self:GetCaster(),
-			damage = damage,
-			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self:GetAbility(),
-		}
 
 		self:GetParent():SetDayTimeVisionRange( self.vision )
 		self:GetParent():SetNightTimeVisionRange( self.vision )
@@ -114,30 +108,20 @@ function modifier_invoker_meteor_thinker:OnIntervalThink()
 end
 
 function modifier_invoker_meteor_thinker:Burn()
-	local enemies = FindUnitsInRadius(
-		self:GetCaster():GetTeamNumber(),	-- int, your team number
-		self:GetParent():GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		0,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
+	local damage = self:GetAbility():GetSpecialValueFor( "main_damage" )
+	local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
 
 	for _,enemy in pairs(enemies) do
-		-- apply damage
-		self.damageTable.victim = enemy
+		self.damageTable = {
+			victim = enemy,
+			attacker = self:GetCaster(),
+			damage = enemy:GetMaxHealth()/100*damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+		}
 		ApplyDamage( self.damageTable )
 
-		-- add modifier
-		enemy:AddNewModifier(
-			self:GetCaster(), -- player source
-			self:GetAbility(), -- ability source
-			"modifier_invoker_meteor_burn", -- modifier name
-			{ duration = self.duration } -- kv
-		)
+		enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_invoker_meteor_burn", { duration = self.duration } )
 	end
 end
 
@@ -182,14 +166,7 @@ function modifier_invoker_meteor_thinker:PlayEffects2()
 	ParticleManager:SetParticleControlForward( effect_cast, 0, self.direction )
 	ParticleManager:SetParticleControl( effect_cast, 1, self.direction * self.speed )
 
-	self:AddParticle(
-		effect_cast,
-		false,
-		false,
-		-1,
-		false,
-		false
-	)
+	self:AddParticle( effect_cast, false, false, -1, false, false )
 
 	EmitSoundOnLocationWithCaster( self.parent_origin, sound_impact, self:GetCaster() )
 	EmitSoundOn( sound_loop, self:GetParent() )
@@ -227,28 +204,18 @@ function modifier_invoker_meteor_burn:OnCreated( kv )
 		self.damageTable = {
 			victim = self:GetParent(),
 			attacker = self:GetCaster(),
-			damage = damage,
+			damage = self:GetParent():GetMaxHealth()/100*damage,
 			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self:GetAbility(), --Optional.
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 		}
 
 		self:StartIntervalThink( delay )
 	end
 end
 
-function modifier_invoker_meteor_burn:OnRefresh( kv )
-	
-end
-
-function modifier_invoker_meteor_burn:OnDestroy( kv )
-
-end
-
 function modifier_invoker_meteor_burn:OnIntervalThink()
 	ApplyDamage( self.damageTable )
-
-	local sound_tick = "Hero_Invoker.ChaosMeteor.Damage"
-	EmitSoundOn( sound_tick, self:GetParent() )
+	EmitSoundOn( "Hero_Invoker.ChaosMeteor.Damage", self:GetParent() )
 end
 
 function modifier_invoker_meteor_burn:GetEffectName()

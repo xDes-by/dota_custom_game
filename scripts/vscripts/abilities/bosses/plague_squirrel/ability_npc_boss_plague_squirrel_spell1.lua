@@ -24,18 +24,29 @@ function ability_npc_boss_plague_squirrel_spell1:OnSpellStart()
     }
     local tree_count = 0
     local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-    for _,unit in pairs(enemies) do
-        tree_count = tree_count + 1
-        local npc = CreateModifierThinker(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1", {}, unit:GetAbsOrigin(), self:GetCaster():GetTeamNumber(), false)
-        info.Target = npc
-        ProjectileManager:CreateTrackingProjectile(info)
-    end
-    while tree_count < 4 do
-        tree_count = tree_count + 1
-        local npc = CreateModifierThinker(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1", {}, pos + RandomVector(RandomInt(100, 600)), self:GetCaster():GetTeamNumber(), false)
-        info.Target = npc
-        ProjectileManager:CreateTrackingProjectile(info)
-    end
+	if #enemies > 0 then
+		for _,unit in pairs(enemies) do
+			if tree_count < 4 then
+				tree_count = tree_count + 1
+				local npc = CreateModifierThinker(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1", {}, unit:GetAbsOrigin(), self:GetCaster():GetTeamNumber(), false)
+				info.Target = npc
+				ProjectileManager:CreateTrackingProjectile(info)
+			end
+		end
+	else	
+		while tree_count < 4 do
+			tree_count = tree_count + 1
+			local angle = RandomInt(0, 360)
+			local variance = RandomInt(-700, 700)
+			local dy = math.sin(angle) * variance
+			local dx = math.cos(angle) * variance
+			local target_point = Vector(pos.x + dx, pos.y + dy, pos.z)
+		
+			local npc = CreateModifierThinker(self:GetCaster(), self, "modifier_ability_npc_boss_plague_squirrel_spell1", {}, target_point, self:GetCaster():GetTeamNumber(), false)
+			info.Target = npc
+			ProjectileManager:CreateTrackingProjectile(info)
+		end
+	end
 end
 
 function ability_npc_boss_plague_squirrel_spell1:CreateTree_OtherAbilities(position)
@@ -83,12 +94,14 @@ function ability_npc_boss_plague_squirrel_spell1:OnProjectileHit_ExtraData(hTarg
                     iVisionTeamNumber = self:GetCaster():GetTeamNumber(),        -- Optional
                     ExtraData = {type = "bounds", bounds_count = table.bounds_count + 1}
                 }
-                ApplyDamage({victim = hTarget,
-                damage = hTarget:GetMaxHealth()/100*self:GetSpecialValueFor("damage"),
-                damage_type = DAMAGE_TYPE_PHYSICAL,
-                damage_flags = DOTA_DAMAGE_FLAG_NONE,
-                attacker = self:GetCaster(),
-                ability = self})
+				if hTarget then
+					ApplyDamage({victim = hTarget,
+					damage = hTarget:GetMaxHealth()/100*self:GetSpecialValueFor("damage"),
+					damage_type = DAMAGE_TYPE_PHYSICAL,
+					damage_flags = DOTA_DAMAGE_FLAG_NONE,
+					attacker = self:GetCaster(),
+					ability = self})
+				end
                 ProjectileManager:CreateTrackingProjectile(info)
                 break
             end
@@ -152,7 +165,7 @@ function modifier_ability_npc_boss_plague_squirrel_spell1:Activate()
 	self:AddParticle(effect_cast,false,false,-1,false,false)
 	EmitSoundOn( "Hero_Hoodwink.Sharpshooter.Channel", self:GetParent() )
 
-    local npc = CreateUnitByName("npc_boss_plague_squirrel_shoter", self:GetParent():GetOrigin() + RandomVector(600), true, nil, nil, DOTA_TEAM_BADGUYS )
+    local npc = CreateUnitByName("npc_boss_plague_squirrel_shoter", self:GetParent():GetOrigin() + RandomVector(600), true, nil, nil, self:GetParent():GetTeamNumber() )
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_invulnerable", {duration = 5})
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_kill", {duration = 5})
  

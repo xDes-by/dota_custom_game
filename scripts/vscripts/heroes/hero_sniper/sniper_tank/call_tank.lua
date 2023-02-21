@@ -87,6 +87,7 @@ function modifier_himars_attack:OnIntervalThink()
 	local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
 	if #enemies > 0 then
 		enemy = enemies[1]
+		if enemy:GetUnitName() == 'npc_dota_hero_target_dummy' then return end
 		position = enemy:GetAbsOrigin()
 		self:GetCaster():EmitSound("rattletrap_ratt_ability_flare_0"..RandomInt(1, 7))
 		
@@ -140,4 +141,11 @@ function himars_attack:OnProjectileHit(hTarget, vLocation)
 		ApplyDamage(damageTable)
 	end
 	AddFOWViewer(self:GetCaster():GetTeamNumber(), vLocation, 300, 2, false)
+end
+
+
+function modifier_himars_attack:CheckState()
+	local state = {
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,}
+	return state
 end

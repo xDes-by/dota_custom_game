@@ -27,9 +27,9 @@ function OgreMagiThink()
                         thisEntity:GetTeamNumber(),    --команда юнита
                         thisEntity:GetAbsOrigin(),        --местоположение юнита
                         nil,    --айди юнита (необязательно)
-                        600,    --радиус поиска
+                        200,    --радиус поиска
                         DOTA_UNIT_TARGET_TEAM_ENEMY,    -- юнитов чьей команды ищем вражеской/дружественной
-                        DOTA_UNIT_TARGET_CREEP,    --юнитов какого типа ищем
+                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,    --юнитов какого типа ищем
                         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS,    --поиск по флагам
                         FIND_CLOSEST,    --сортировка от ближнего к дальнему или от дальнего к ближнему
                         false )

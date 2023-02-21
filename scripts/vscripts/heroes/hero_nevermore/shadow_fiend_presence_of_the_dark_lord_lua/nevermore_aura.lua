@@ -32,7 +32,7 @@ function modifier_nevermore_aura:GetModifierAura()
 end
 
 function modifier_nevermore_aura:GetAuraRadius()
-return 750
+	return 850
 end
 
 function modifier_nevermore_aura:GetAuraSearchTeam()
@@ -40,7 +40,7 @@ function modifier_nevermore_aura:GetAuraSearchTeam()
 end
 
 function modifier_nevermore_aura:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_ALL
 end
 
 function modifier_nevermore_aura:OnCreated( kv )
@@ -56,17 +56,15 @@ function modifier_nevermore_aura:DeclareFunctions()
 end
 
 function modifier_nevermore_aura:GetModifierPhysicalArmorBonus()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str10")    
-	if abil ~= nil then 
-	return self:GetAbility():GetSpecialValueFor( "reduction" ) * 5 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str10") ~= nil then 
+		return self:GetAbility():GetSpecialValueFor( "reduction" ) * 5 
 	end
 	return 0
 end
 
 function modifier_nevermore_aura:GetModifierMagicalResistanceBonus()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str11")    
-	if abil ~= nil then 
-	return self:GetAbility():GetSpecialValueFor( "reduction" ) * 5 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str11") ~= nil then 
+		return self:GetAbility():GetSpecialValueFor( "reduction" ) * 5 
 	end
 	return 0
 end
@@ -109,24 +107,23 @@ end
 
 function modifier_nevermore_aura_effect:GetModifierPhysicalArmorBonus()
 	tal = 1
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi6")             
-	if abil ~= nil then 
-	tal = 1.5
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi6") ~= nil then 
+		tal = 1.5
 	end
-		local distance = (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-		if distance < 150 then
+	local distance = (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
+	if distance < 250 then
 		return 5 * self.reduction * (-1) * tal
-		end
-		if distance >= 150 and  distance < 300 then
+	end
+	if distance >= 250 and  distance < 400 then
 		return 4 * self.reduction * (-1) * tal
-		end
-		if distance >= 300 and  distance < 450 then
+	end
+	if distance >= 400 and  distance < 550 then
 		return 3 * self.reduction * (-1) * tal
-		end
-		if distance >= 450 and  distance < 600 then
+	end
+	if distance >= 550 and  distance < 700 then
 		return 2 * self.reduction * (-1) * tal
-		end
-		if distance >= 600 and  distance < 750 then
+	end
+	if distance >= 700 and  distance < 850 then
 		return 1 * self.reduction * (-1) * tal
-		end
+	end
 end

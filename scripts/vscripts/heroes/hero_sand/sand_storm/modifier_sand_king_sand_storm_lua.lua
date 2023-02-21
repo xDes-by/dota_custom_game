@@ -26,9 +26,8 @@ function modifier_sand_king_sand_storm_lua:OnCreated( kv )
 	self.radius = self:GetAbility():GetSpecialValueFor( "sand_storm_radius" ) -- special value
 	self.interval = 0.5
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int8")
-	if abil ~= nil then 
-       	self.damage = self:GetCaster():GetIntellect()*0.25
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_int8") ~= nil then 
+       	self.damage = self.damage + self:GetCaster():GetIntellect() * 0.25
     end
 
 	if IsServer() then
@@ -77,8 +76,7 @@ end
 function modifier_sand_king_sand_storm_lua:OnIntervalThink()
 	if self.active==0 then return end
 
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_str6")
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_str6") ~= nil then 
 	
 	local self_sand = FindUnitsInRadius(
 		self:GetParent():GetTeamNumber(),	-- int, your team number
@@ -106,8 +104,7 @@ function modifier_sand_king_sand_storm_lua:OnIntervalThink()
 	end
 	end
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_agi11")
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_agi11") ~= nil then 
 	
 	local self_sand = FindUnitsInRadius(
 		self:GetParent():GetTeamNumber(),	-- int, your team number
@@ -136,8 +133,7 @@ function modifier_sand_king_sand_storm_lua:OnIntervalThink()
 	end
 	
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_agi10")
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_sand_king_agi10") ~= nil then 
 	
 	local self_sand = FindUnitsInRadius(
 		self:GetParent():GetTeamNumber(),	-- int, your team number

@@ -73,32 +73,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	
-"ursa_fury_swipes_custom"
-	{
-		"BaseClass"						"ursa_fury_swipes"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time"				"15"
-				"LinkedSpecialBonus"			"special_bonus_unique_ursa_4"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time_roshan"		"10"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"1500"
-				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}	
 
 "ogre_magi_channelled_bloodlust"
     {

@@ -22,25 +22,25 @@ end
 function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
 	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+        return math.min(65000, self:GetCaster():GetIntellect()/4)
     end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 function shadow_fiend_shadowraze_b_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
 	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+        return math.min(65000, self:GetCaster():GetIntellect()/4)
     end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 function shadow_fiend_shadowraze_c_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
 	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+        return math.min(65000, self:GetCaster():GetIntellect()/4)
     end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return math.min(65000, self:GetCaster():GetIntellect()/2)
 end
 
 --------------------------------------------------------------------------------
@@ -62,26 +62,23 @@ function shadowraze.OnSpellStart( this )
 	local stack_damage = this:GetSpecialValueFor("stack_bonus_damage")
 	local stack_duration = this:GetSpecialValueFor("duration")
 	
-	local abil = caster:FindAbilityByName("npc_dota_hero_nevermore_int6")             
-		if abil ~= nil then 
-		local modifier = caster:FindModifierByNameAndCaster( "modifier_shadow_fiend_necromastery_lua", caster )
-			if modifier ~=nil then
+	local modifier = caster:FindModifierByNameAndCaster( "modifier_shadow_fiend_necromastery_lua", caster )
+	
+	if caster:FindAbilityByName("npc_dota_hero_nevermore_int6") ~= nil then 
+		if modifier ~=nil then
 			base_damage = base_damage + modifier:GetStackCount() * 2
-			end
+		end
 	end
-	local abil = caster:FindAbilityByName("npc_dota_hero_nevermore_int_last")             
-		if abil ~= nil then 
-		local modifier = caster:FindModifierByNameAndCaster( "modifier_shadow_fiend_necromastery_lua", caster )
-			if modifier ~=nil then
+	if caster:FindAbilityByName("npc_dota_hero_nevermore_int_last") ~= nil then 
+		if modifier ~=nil then
 			base_damage = base_damage + modifier:GetStackCount() * 3
-			end
+		end
 	end
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-	local abil = caster:FindAbilityByName("npc_dota_hero_nevermore_int10")             
-	if abil ~= nil then 
+	if caster:FindAbilityByName("npc_dota_hero_nevermore_int10") ~= nil then 
 		if this:GetName() == "shadow_fiend_shadowraze_a_lua" then
 		local distance1 = 450
 		local target_pos1 = this:GetCaster():GetOrigin() + front * distance1
@@ -113,7 +110,7 @@ function shadowraze.OnSpellStart( this )
 			local damageTable = {
 				victim = enemy,
 				attacker = this:GetCaster(),
-				damage = base_damage + stack*stack_damage,
+				damage = base_damage + stack * stack_damage,
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = this,
 			}

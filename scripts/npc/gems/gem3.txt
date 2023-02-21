@@ -16,10 +16,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -42,10 +42,10 @@
         "AbilityValues"
         {
 
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -67,10 +67,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -92,10 +92,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -117,10 +117,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -142,10 +142,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -167,10 +167,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -192,10 +192,10 @@
 
         "AbilityValues"
         {
-			"bonus_attack_speed"    "30 45 60 75 90 115 130 145"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
 			"bonus_armor"            "10 20 40 80 130 175 225 300"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "30 45 60 75 90 115 130 145"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
 			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
 			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
@@ -1629,7 +1629,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1649,7 +1649,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1669,7 +1669,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1689,7 +1689,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1709,7 +1709,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1729,7 +1729,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1749,7 +1749,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -1768,7 +1768,7 @@
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
 			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 45 60 75 90 105 120 140"
+			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
 			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -5505,7 +5505,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5513,7 +5513,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5551,7 +5551,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5559,7 +5559,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5597,7 +5597,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5605,7 +5605,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5643,7 +5643,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5651,7 +5651,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5689,7 +5689,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5697,7 +5697,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5735,7 +5735,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5743,7 +5743,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5781,7 +5781,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5789,7 +5789,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -5826,7 +5826,7 @@
 			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
 			"static_duration"		"15.0"
 			"static_chance"			"20"
-			"static_strikes"		"4"
+			"static_strikes"		"2"
 			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
 			"static_primary_radius"	"600"
 			"static_seconary_radius"	"900"
@@ -5834,7 +5834,7 @@
 			"static_cooldown"		"1.0"
 			"chain_chance"			"30"
 			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"8"
+			"chain_strikes"			"5"
 			"chain_radius"			"650"
 			"chain_delay"			"0.25"
 			"chain_cooldown"		"0.2"
@@ -6657,7 +6657,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6683,7 +6683,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6709,7 +6709,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6735,7 +6735,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6761,7 +6761,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6787,7 +6787,7 @@
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"20 40 60 80 100 120 140 160"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6812,8 +6812,8 @@
 		"ItemBaseLevel"                 "7"
 		"AbilityValues"
 		{
-			"bonus_as"				"140 180 220 260 3000 340 380"
-			"aura_as_ally"			"20 40 60 80 100 120 140"
+			"bonus_as"				"140 180 220 260 300 340 380 420"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -6837,8 +6837,8 @@
 		"ItemBaseLevel"                 "8"
 		"AbilityValues"
 		{
-			"bonus_as"				"140 180 220 260 3000 340 380"
-			"aura_as_ally"			"20 40 60 80 100 120 140"
+			"bonus_as"				"140 180 220 260 300 340 380 420"
+			"aura_as_ally"			"30 60 90 120 150 180 210 240"
 			"radius"				"30000"
 			"bonus_gem"         "25 50 100 200 300 400 500 600"
 		}
@@ -7115,7 +7115,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua1_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua1_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7160,7 +7159,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua2_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua2_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7205,7 +7203,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua3_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua3_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7250,7 +7247,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua4_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua4_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7295,7 +7291,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua5_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua5_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7340,7 +7335,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua6_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua6_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7385,7 +7379,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua7_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua7_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -7429,7 +7422,6 @@
         "AbilityTextureName"            "gem3/item_meteor_hammer_lua8_gem3"
         "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"gem1/item_meteor_hammer_lua8_gem3"
 		"ItemPurchasable"				"0"
 		
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	

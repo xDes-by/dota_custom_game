@@ -25,21 +25,18 @@ function modifier_mars_lil:OnCreated( kv )
 	self.as_bonus = self:GetAbility():GetSpecialValueFor( "attack_speed_bonus" )
 	self.range_bonus = self:GetAbility():GetSpecialValueFor( "attack_range_bonus" )
 	self.bat = self:GetAbility():GetSpecialValueFor( "base_attack_time" )
-
 	self.slow = self:GetAbility():GetSpecialValueFor( "loss_duration" )
 
 	if not IsServer() then return end
 	
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi11")
-		if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi11") ~= nil then 
 		self.attacks = self.attacks + 5
-		end
+	end
 	
 	self:SetStackCount( self.attacks )
 
 	self.records = {}
 
-	-- play Effects & Sound
 	self:PlayEffects()
 	local sound_cast = "Hero_Snapfire.ExplosiveShells.Cast"
 	EmitSoundOn( sound_cast, self:GetParent() )
@@ -52,19 +49,15 @@ function modifier_mars_lil:OnRefresh( kv )
 	self.as_bonus = self:GetAbility():GetSpecialValueFor( "attack_speed_bonus" )
 	self.range_bonus = self:GetAbility():GetSpecialValueFor( "attack_range_bonus" )
 	self.bat = self:GetAbility():GetSpecialValueFor( "base_attack_time" )
-
 	self.slow = self:GetAbility():GetSpecialValueFor( "loss_duration" )
 
 	if not IsServer() then return end
 	
-		local abil = self.caster:FindAbilityByName("special_bonus_unique_mars_custom")
-		if abil ~= nil and abil:IsTrained()	then 
-		self.attacks = self.attacks + 10
-		end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi11") ~= nil then 
+		self.attacks = self.attacks + 5
+	end
 	
 	self:SetStackCount( self.attacks )
-
-	-- play sound
 	local sound_cast = "Hero_Snapfire.ExplosiveShells.Cast"
 	EmitSoundOn( sound_cast, self:GetParent() )
 end
@@ -74,8 +67,6 @@ end
 
 function modifier_mars_lil:OnDestroy()
 	if not IsServer() then return end
-
-	-- stop sound
 	local sound_cast = "Hero_Snapfire.ExplosiveShells.Cast"
 	StopSoundOn( sound_cast, self:GetParent() )
 end
@@ -102,14 +93,11 @@ function modifier_mars_lil:OnAttack( params )
 	if params.attacker~=self:GetParent() then return end
 	if self:GetStackCount()<=0 then return end
 
-	-- record attack
 	self.records[params.record] = true
 
-	-- play sound
 	local sound_cast = "Hero_Snapfire.ExplosiveShellsBuff.Attack"
 	EmitSoundOn( sound_cast, self:GetParent() )
 
-	-- decrement stack
 	if self:GetStackCount()>0 then
 		self:DecrementStackCount()
 	end
@@ -117,7 +105,6 @@ end
 
 function modifier_mars_lil:OnAttackLanded( params )
 	if self.records[params.record] then
-		-- add modifier
 		params.target:AddNewModifier(
 			self:GetParent(), -- player source
 			self:GetAbility(), -- ability source
@@ -126,12 +113,11 @@ function modifier_mars_lil:OnAttackLanded( params )
 		)
 	end
 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_int_last") ~= nil and RandomInt(1, 10) == 1 and params.attacker:FindAbilityByName("mars_gods_rebuke_lua") ~= nil and self:GetCaster():FindModifierByName("modifier_mars_lil") ~= nil then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_int_last") ~= nil and RandomInt(1, 100) <= 10 and params.attacker:FindAbilityByName("mars_gods_rebuke_lua") ~= nil and self:GetCaster():FindModifierByName("modifier_mars_lil") ~= nil then
 		if params.attacker:FindAbilityByName("mars_gods_rebuke_lua"):IsTrained() then
 			params.attacker:FindAbilityByName("mars_gods_rebuke_lua"):OnSpellStart()
 		end
 	end
-	-- play sound
 	local sound_cast = "Hero_Snapfire.ExplosiveShellsBuff.Target"
 	EmitSoundOn( sound_cast, params.target )
 end

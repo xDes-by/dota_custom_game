@@ -37,8 +37,7 @@ function lion_finger_of_death_lua:OnSpellStart()
 
 	-- find targets
 	local targets = {}
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int9")	
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int9") ~= nil then 
 		targets = FindUnitsInRadius(
 			caster:GetTeamNumber(),	-- int, your team number
 			target:GetOrigin(),	-- point, center point

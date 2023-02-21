@@ -30,7 +30,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"duration"					"5"
+				"duration"					"6"
 				"LinkedSpecialBonus"		"npc_dota_hero_axe_str8"
 			}	
 			"04"

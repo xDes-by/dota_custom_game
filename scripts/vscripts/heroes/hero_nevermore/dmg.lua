@@ -12,22 +12,13 @@ end
 
 function modifier_npc_dota_hero_nevermore_agi8:DeclareFunctions()
 	return {
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    }
+		MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE
+	}
 end
 
-function modifier_npc_dota_hero_nevermore_agi8:GetModifierPreAttack_BonusDamage(params)
-    return 5 * self:GetCaster():GetLevel()
-end
-
-function modifier_npc_dota_hero_nevermore_agi8:IsHidden()
-	return true
-end
-
-function modifier_npc_dota_hero_nevermore_agi8:IsPurgable()
-    return false
-end
- 
-function modifier_npc_dota_hero_nevermore_agi8:RemoveOnDeath()
-    return false
+function modifier_npc_dota_hero_nevermore_agi8:GetModifierPreAttack_CriticalStrike(keys)
+	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_shadow_fiend_necromastery_lua", self:GetParent())
+	if modifier and self:GetAbility() and (keys.target and not keys.target:IsOther() and not keys.target:IsBuilding() and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber()) and RandomInt(1,100) <= 15 then
+		return 100 + modifier:GetStackCount()
+	end
 end

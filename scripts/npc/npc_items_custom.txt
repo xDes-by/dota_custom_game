@@ -339,7 +339,8 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"9999"
 		"ItemHideCharges"				"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
 		
 		"AbilitySpecial"
 		{

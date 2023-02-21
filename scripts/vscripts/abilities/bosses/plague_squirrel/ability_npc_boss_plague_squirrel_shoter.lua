@@ -7,7 +7,7 @@ function ability_npc_boss_plague_squirrel_shoter:OnSpellStart()
 		Ability = self,
 		vSpawnOrigin = self:GetCaster():GetAbsOrigin(),
 		
-	    bDeleteOnHit = true,
+	    bDeleteOnHit = false,
 	    
 	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
@@ -23,7 +23,7 @@ function ability_npc_boss_plague_squirrel_shoter:OnSpellStart()
 		bReplaceExisting = false,
 		
 		bProvidesVision = true,
-		iVisionRadius = projectile_vision,
+		iVisionRadius = 200,
 		iVisionTeamNumber = self:GetCaster():GetTeamNumber()
 	}
     ProjectileManager:CreateLinearProjectile( self.info )

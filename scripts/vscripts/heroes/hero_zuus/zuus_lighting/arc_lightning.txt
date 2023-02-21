@@ -17,34 +17,13 @@
 
 		"AbilityCooldown"                "1.6"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"arc_damage"            "40 80 120 160 200 240 280 320 360 400 440 480 520 560 600"
-			}
-			"02"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"radius"                "500"
-			}
-			"03"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"jump_count"            "5"
-			}
-			"04"
-			{
-				"var_type"              "FIELD_FLOAT"
-				"jump_delay"            "0.25"
-			}
-			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"static_chain_mult"		"4"
-			}
+			"arc_damage"            "40 80 120 160 200 240 280 320 360 400 440 480 520 560 600"
+			"radius"                "500"
+			"jump_count"            "5"
+			"jump_delay"            "0.25"
+			"static_chain_mult"		"4"
 		}
 		"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 	}

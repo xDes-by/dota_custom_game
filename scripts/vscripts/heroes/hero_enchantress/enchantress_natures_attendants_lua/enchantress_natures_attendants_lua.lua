@@ -5,24 +5,31 @@ LinkLuaModifier( "modifier_resist", "heroes/hero_enchantress/enchantress_natures
 
 
 function enchantress_natures_attendants_lua:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8")             
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8") ~= nil then 
 		local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-				 return self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss)
+		if ability:GetLevel() > 0 then
+			mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
+				return self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss)
 			end	
 		return math.min(65000, self:GetCaster():GetIntellect()/2)
 	end
 ---------------------------------------------------------------------------------------------------------------------------------
-		local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-				 return self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)
-			end	
-				return math.min(65000, self:GetCaster():GetIntellect())
+	local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
+	if ability:GetLevel() > 0 then
+		mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
+			return self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)
+		end	
+	return math.min(65000, self:GetCaster():GetIntellect())
 end
 
+
+function enchantress_natures_attendants_lua:GetCooldown(level)
+	local cooldown = self.BaseClass.GetCooldown(self, level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_str6")  ~= nil then 
+		return cooldown / 2
+	end
+	return cooldown
+end
 
 
 function enchantress_natures_attendants_lua:OnSpellStart()
@@ -35,8 +42,7 @@ function enchantress_natures_attendants_lua:OnSpellStart()
 		"modifier_enchantress_natures_attendants_lua", -- modifier name
 		{ duration = duration } -- kv
 	)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_str11")             
-	if abil ~= nil then 
+if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_str11") ~= nil then 
 	
 	caster:AddNewModifier(
 		caster, -- player source

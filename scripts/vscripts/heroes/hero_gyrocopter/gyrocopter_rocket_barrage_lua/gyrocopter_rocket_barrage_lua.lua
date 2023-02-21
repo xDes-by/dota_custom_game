@@ -79,7 +79,7 @@ function modifier_gyrocopter_rocket_barrage_lua:OnCreated()
 	self.rocket_damage	= self:GetAbility():GetSpecialValueFor("rocket_damage")	
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_agi7") ~= nil then 
-		self.rocket_damage = self:GetSpecialValueFor("rocket_damage") + self:GetCaster():GetLevel() * 5
+		self.rocket_damage = self:GetAbility():GetSpecialValueFor("rocket_damage") + self:GetCaster():GetLevel() * 5
 	end
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int10") ~= nil then 

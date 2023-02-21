@@ -1,7 +1,5 @@
 drow_cross_lua = class({})
 
-LinkLuaModifier("modifier_drow_cross_lua","heroes/hero_drow_ranger/drow_ranger_powershot_lua/drow_cross_lua",LUA_MODIFIER_MOTION_NONE)
-
 function drow_cross_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
     self.mana = caster:GetIntellect()
@@ -46,28 +44,24 @@ function drow_cross_lua:OnSpellStart()
 	damage_type = DAMAGE_TYPE_PHYSICAL
 	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	
-	local abil = self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int9")
-	if abil ~= nil then 
-	shot_damage = self.caster:GetIntellect()
+	if self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int9") ~= nil then 
+		shot_damage = self.caster:GetIntellect()
 	end
 	
-	local abil = self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int10")
-	if abil ~= nil then 
-	self.count = 3
+	if self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int10") ~= nil then 
+		self.count = 3
 	end
 	
-	local abil = self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int11")
-	if abil ~= nil then 
-	damage_type = DAMAGE_TYPE_MAGICAL
-	damage_flags = DOTA_DAMAGE_FLAG_NONE
+	if self.caster:FindAbilityByName("npc_dota_hero_drow_ranger_int11") ~= nil then 
+		damage_type = DAMAGE_TYPE_MAGICAL
+		damage_flags = DOTA_DAMAGE_FLAG_NONE
 	end
 	
 	self.damage = {
-		attacker = self:GetCaster(),
+		attacker = self.caster,
 		damage = shot_damage,	
 		damage_type = damage_type,
 		damage_flags = damage_flags,
-		ability = self
 	}
 	local center_distance = {0,200,400,600,800}
 
@@ -132,52 +126,12 @@ function drow_cross_lua:OnSpellStart()
 		ProjectileManager:CreateLinearProjectile( info2 )
 	end 
 
-	self:GetCaster():EmitSound("Ability.Powershot")--调用音效
+	self:GetCaster():EmitSound("Ability.Powershot")
 end
 
 function drow_cross_lua:OnProjectileHit( hTarget, vLocation )
-
 	if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
-		self.damage.victim = hTarget,
+		self.damage.victim = hTarget
 		ApplyDamage( self.damage )
-
-		if self:GetAbilityName() == "drow_cross_lua" then
-			if hTarget:HasModifier("modifier_drow_cross_lua") and hTarget:IsAlive() then
-				ApplyDamage( self.damage )
-			end
-		end 
  	end
-end
-
-
-if modifier_drow_cross_lua == nil then
-    modifier_drow_cross_lua = class({})
-end
-
-function modifier_drow_cross_lua:IsDebuff()
-	return false 
-end
-function modifier_drow_cross_lua:IsHidden()
-	return true
-end
-function modifier_drow_cross_lua:IsPurgable()
-	return false
-end
-function modifier_drow_cross_lua:IsPurgeException()
-	return false
-end
-function modifier_drow_cross_lua:DeclareFunctions()
-    local funcs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    }
-    return funcs
-end
-function modifier_drow_cross_lua:OnCreated(kv)
-    if not IsServer() then
-        return
-	end
-	self.reduction = kv.reduction
-end
-function modifier_drow_cross_lua:GetModifierMoveSpeedBonus_Percentage(params)
-	return self.reduction
 end

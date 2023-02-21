@@ -9,7 +9,7 @@
 		"MaxLevel"						"4"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"14"
 		
 		"AbilityValues"
 		{

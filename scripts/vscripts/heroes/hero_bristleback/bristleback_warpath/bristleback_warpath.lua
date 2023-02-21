@@ -24,18 +24,14 @@ function modifier_bristleback_warpath_lua:GetEffectName()
 end
 
 function modifier_bristleback_warpath_lua:OnCreated()
+	self.caster = self:GetCaster()
+	self.damage_per_stack = self:GetAbility():GetSpecialValueFor("damage_per_stack")
+	self.move_speed_per_stack = self:GetAbility():GetSpecialValueFor("move_speed_per_stack")
+	self.stack_duration = self:GetAbility():GetSpecialValueFor("stack_duration")
+	self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
 	
-	self.caster		= self:GetCaster()
-	
-	
-	-- AbilitySpecials
-	self.damage_per_stack		= self:GetAbility():GetSpecialValueFor("damage_per_stack")
-	self.move_speed_per_stack	= self:GetAbility():GetSpecialValueFor("move_speed_per_stack")
-	self.stack_duration			= self:GetAbility():GetSpecialValueFor("stack_duration")
-	self.max_stacks				= self:GetAbility():GetSpecialValueFor("max_stacks")
-	
-	self.counter				= self.counter or 0
-	self.particle_table			= self.particle_table or {}
+	self.counter = self.counter or 0
+	self.particle_table = self.particle_table or {}
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bristleback_agi_last") ~= nil then
 		self.damage_per_stack = self.damage_per_stack * 10

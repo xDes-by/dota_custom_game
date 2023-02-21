@@ -1,11 +1,8 @@
-
 modifier_dummy = class({})
-
 
 function modifier_dummy:IsHidden()
     return true
 end
-
 
 function modifier_dummy:IsPurgable()
     return false

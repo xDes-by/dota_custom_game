@@ -45,6 +45,7 @@ function item_boss_summon:OnSpellStart()
 				local unit = CreateUnitByName( boss_spawn, point + RandomVector( RandomInt( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS )
 				table.insert(_G.donate_bosses_count, unit)
 				self:add_items(unit)	
+				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 				Rules:difficality_modifier(unit)
 				self.caster:RemoveItem(self)
 			end

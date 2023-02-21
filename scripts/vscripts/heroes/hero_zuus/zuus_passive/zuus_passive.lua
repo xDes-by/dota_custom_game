@@ -18,7 +18,7 @@ end
 modifier_zuus_passive_lua = class({})
 
 function modifier_zuus_passive_lua:IsHidden()
-	return false
+	return true
 end
 
 function modifier_zuus_passive_lua:RemoveOnDeath()
@@ -26,16 +26,15 @@ function modifier_zuus_passive_lua:RemoveOnDeath()
 end
 
 function modifier_zuus_passive_lua:OnCreated()	
-	self:StartIntervalThink(0.2)
+	self:StartIntervalThink(self:GetAbility():GetCooldown(level))
 end
 
 function modifier_zuus_passive_lua:OnIntervalThink()
 	local caster = self:GetCaster()	
 	local ability = self:GetAbility()
 	
-	if IsServer() and ability:IsCooldownReady() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() then
+	if IsServer() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() and not caster:HasModifier("modifier_fountain_invulnerability") then
 
-		local damageType = DAMAGE_TYPE_MAGICAL
 		local damage_per_int = ability:GetSpecialValueFor("dmg_per_int")
 			
 		if caster:FindAbilityByName("npc_dota_hero_zuus_int11") ~= nil then 
@@ -48,61 +47,46 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 			
 		local damage = damage_per_int * caster:GetIntellect()
 		
-		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-			if hEnemies ~= nil then
-				if caster:FindAbilityByName("npc_dota_hero_zuus_str7") ~= nil then 
-					if caster:HasModifier("modifier_zuus_armor") then
-						caster:RemoveModifierByName("modifier_zuus_armor")
-					end
-					caster:AddNewModifier(caster, ability, "modifier_zuus_armor", {})
-					caster:SetModifierStackCount("modifier_zuus_armor", caster, #hEnemies)	
+		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		if hEnemies ~= nil then
+			if caster:FindAbilityByName("npc_dota_hero_zuus_str7") ~= nil then 
+				caster:AddNewModifier(caster, ability, "modifier_zuus_armor", {}):SetStackCount(#hEnemies)
+			end		
+			for _,unit in pairs(hEnemies) do
+				if caster:FindAbilityByName("npc_dota_hero_zuus_agi6") ~= nil then 
+					unit:AddNewModifier(caster, ability, "modifier_passive_armor", {duration = 1})
 				end
-			
-				if caster:FindAbilityByName("npc_dota_hero_zuus_int6") ~= nil then 
-					local ability2 = caster:FindAbilityByName("zuus_arc_lightning_lua")
-					if ability2 ~= nil and ability2:GetLevel() > 0 and hEnemies[1] ~= nil then
-						_G.arctatget = hEnemies[1]
-						caster:FindAbilityByName("zuus_arc_lightning_lua"):OnSpellStart()
-						Timers:CreateTimer(0.1, function()
-							caster:SetMana(caster:GetMana() + ability2:GetManaCost(ability2:GetLevel()))
-							ability2:EndCooldown()
-						end)
-					end
+				
+				if caster:FindAbilityByName("npc_dota_hero_zuus_agi11") ~= nil then 
+					damage = caster:GetAgility()
 				end
-			
-			
-				for _,unit in pairs(hEnemies) do
-					if caster:FindAbilityByName("npc_dota_hero_zuus_agi6") ~= nil then 
-						unit:AddNewModifier(caster, ability, "modifier_passive_armor", {duration = 1})
-					end
+				
+				if caster:FindAbilityByName("npc_dota_hero_zuus_str9") ~= nil then 
+					damage = caster:GetStrength()
+				end
+				
+				ApplyDamage({victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_NONE})
 					
-					damage_flags = DOTA_DAMAGE_FLAG_NONE
-					
-					if caster:FindAbilityByName("npc_dota_hero_zuus_agi11") ~= nil then 
-						damage = damage + caster:GetAgility()
-					end
-					
-					if caster:FindAbilityByName("npc_dota_hero_zuus_str9") ~= nil then 
-						damage = caster:GetStrength()
-					end
-					
-						local damage = {
-						victim = unit,
-						attacker = caster,
-						damage = damage,
-						damage_type = DAMAGE_TYPE_MAGICAL,
-						damage_flags = damage_flags,
-						ability = ability
-					}
-					ApplyDamage( damage )
-					local lightningBolt = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_WORLDORIGIN, caster)
-					ParticleManager:SetParticleControl(lightningBolt, 0, Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y , caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))   
-					ParticleManager:SetParticleControl(lightningBolt, 1, Vector(unit:GetAbsOrigin().x, unit:GetAbsOrigin().y, unit:GetAbsOrigin().z))
-					self:GetCaster():EmitSound("Hero_Zuus.ArcLightning.Cast")
-				end	
+				local zuus_static_field = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+				ParticleManager:SetParticleControl(zuus_static_field, 1, unit:GetAbsOrigin() * 100)	
 			end
-			self:GetAbility():UseResources(false, false, true)	
+
+			if caster:FindAbilityByName("npc_dota_hero_zuus_int6") ~= nil then 
+				local ability2 = caster:FindAbilityByName("zuus_arc_lightning_lua")
+				if ability2 ~= nil and ability2:GetLevel() > 0 and hEnemies[1] ~= nil then
+					_G.arctatget = hEnemies[1]
+					ability2:OnSpellStart()
+					Timers:CreateTimer(0.1, function()
+						caster:SetMana(caster:GetMana() + ability2:GetManaCost(ability2:GetLevel()))
+						ability2:EndCooldown()
+					end)
+				end
+			end			
 		end
+		self:GetAbility():UseResources(false, false, true)	
+		self:StartIntervalThink(-1)
+		self:StartIntervalThink(self:GetAbility():GetCooldown(level))
+	end
 end
 
 ------------------------------------------------------------------------------------------------------------------------------
@@ -132,7 +116,7 @@ function modifier_passive_armor:GetModifierPhysicalArmorBonus()
 end
 			
 ------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
+
 LinkLuaModifier("modifier_zuus_armor", "heroes/hero_zuus/zuus_passive/zuus_passive.lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_zuus_armor = class({})
@@ -175,7 +159,6 @@ function modifier_zuus_armor:DeclareFunctions()
 	}
 	return funcs
 end
-
 
 function modifier_zuus_armor:GetModifierPhysicalArmorBonus( params )
 	return self:GetStackCount() * self.armor

@@ -6,6 +6,11 @@ function Increase_str:GetIntrinsicModifierName()
 	return "modifier_Increase_str"
 end
 
+function Increase_str:GetAbilityTextureName()
+	return "modifier_Increase_str"
+end
+
+
 if modifier_Increase_str == nil then 
     modifier_Increase_str = class({})
 end

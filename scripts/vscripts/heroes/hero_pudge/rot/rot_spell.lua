@@ -50,7 +50,7 @@ end
 
 function pudge_rot_active_lua:GetAuraRadius()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str7") ~= nil then
-	return self:GetAbility():GetSpecialValueFor("base_radius") + 100
+		return self:GetAbility():GetSpecialValueFor("base_radius") + 100
 	end
 	return self:GetAbility():GetSpecialValueFor("base_radius") 
 end
@@ -64,7 +64,7 @@ function pudge_rot_active_lua:GetAuraSearchTeam()
 end
 
 function pudge_rot_active_lua:GetAuraSearchType() 
-	return DOTA_UNIT_TARGET_BASIC 
+	return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 end
 
 function pudge_rot_active_lua:OnCreated()
@@ -83,11 +83,11 @@ function pudge_rot_active_lua:OnCreated()
 	self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str8") ~= nil then
-		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage")*2 + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5
+		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") * 2 + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5
 	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str10") ~= nil then
-		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") + self.atribute * (self:GetAbility():GetSpecialValueFor("damage_per_str")+0.2))/5
-	end
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str10") ~= nil then
+			self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") + self.atribute * (self:GetAbility():GetSpecialValueFor("damage_per_str")+0.2))/5
+		end
 	end
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_int9") == nil then
@@ -101,7 +101,7 @@ function pudge_rot_active_lua:OnIntervalThink()
 						attacker = self:GetParent(),
 						damage = self.dmg,
 						damage_type = self:GetAbility():GetAbilityDamageType(),
-						damage_flags = DOTA_DAMAGE_FLAG_HPLOSS, 
+						-- damage_flags = DOTA_DAMAGE_FLAG_HPLOSS, 
 						ability = self:GetAbility(), 
 						}
 	if IsServer() then
@@ -176,8 +176,8 @@ function modifier_rot_slow:DeclareFunctions()
 end
 
 function modifier_rot_slow:GetModifierMagicalResistanceBonus()
-if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_int8") ~= nil then
-	return -15
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_int8") ~= nil then
+		return -15
 	end
 	return 0
 end

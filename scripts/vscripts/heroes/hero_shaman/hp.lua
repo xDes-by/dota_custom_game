@@ -17,7 +17,7 @@ function modifier_npc_dota_hero_shadow_shaman_str6:DeclareFunctions()
 end
 
 function modifier_npc_dota_hero_shadow_shaman_str6:GetModifierExtraHealthBonus(params)
-    return 50 * self:GetCaster():GetLevel()
+    return 150 * self:GetCaster():GetLevel()
 end
 
 function modifier_npc_dota_hero_shadow_shaman_str6:IsHidden()

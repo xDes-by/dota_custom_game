@@ -15,7 +15,7 @@ function modifier_npc_dota_hero_bristleback_str8:DeclareFunctions()
 end
 
 function modifier_npc_dota_hero_bristleback_str8:GetModifierExtraHealthBonus(params)
-    return self:GetCaster():GetLevel() * 50
+    return self:GetCaster():GetLevel() * 150
 end
 
 function modifier_npc_dota_hero_bristleback_str8:IsHidden()

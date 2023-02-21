@@ -60,84 +60,47 @@ function modifier_shadow_fiend_necromastery_lua:OnAttackLanded( params )
 			params.attacker:FindAbilityByName("shadow_fiend_requiem_of_souls_lua"):OnSpellStart()
 		end
 	end
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi9")             
-	if abil ~= nil then 
-    if caster:HasAbility("shadow_fiend_shadowraze_a_lua") and not caster:IsIllusion() then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi9") ~= nil then 
+		if caster:HasAbility("shadow_fiend_shadowraze_a_lua") and not caster:IsIllusion() then
 
-        local trigger_ability1 = caster:FindAbilityByName("shadow_fiend_shadowraze_a_lua")
-        local trigger_ability2 = caster:FindAbilityByName("shadow_fiend_shadowraze_b_lua")
-        local trigger_ability3 = caster:FindAbilityByName("shadow_fiend_shadowraze_c_lua")
-
-      --  if caster:HasAbility("special_bonus_unique_never_custom") and caster:FindAbilityByName("special_bonus_unique_never_custom"):GetLevel() > 0 then
-		
-		local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	 	if distance < 200 then
-			if trigger_ability1:IsOwnersManaEnough() then
-				--	caster:SetCursorTargetingNothing(true)
-				if trigger_ability1:GetLevel() > 0  then
-                    trigger_ability1:OnSpellStart()
-                    trigger_ability1:UseResources(true, false, false)
+			local trigger_ability1 = caster:FindAbilityByName("shadow_fiend_shadowraze_a_lua")
+			local trigger_ability2 = caster:FindAbilityByName("shadow_fiend_shadowraze_b_lua")
+			local trigger_ability3 = caster:FindAbilityByName("shadow_fiend_shadowraze_c_lua")
+			
+			local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+			if distance < 200 then
+				if trigger_ability1:IsOwnersManaEnough() then
+					--	caster:SetCursorTargetingNothing(true)
+					if trigger_ability1:GetLevel() > 0  then
+						trigger_ability1:OnSpellStart()
+						trigger_ability1:UseResources(true, false, false)
+					end
+				end
+			end
+			
+			if distance >= 200 and distance < 450 then
+				if trigger_ability1:IsOwnersManaEnough() then
+					--	caster:SetCursorTargetingNothing(true)
+					if trigger_ability2:GetLevel() > 0  then
+						trigger_ability2:OnSpellStart()
+						trigger_ability2:UseResources(true, false, false)
+					end
+				end
+			end
+			
+			if distance > 450 then
+				if trigger_ability1:IsOwnersManaEnough() then
+					--    caster:SetCursorTargetingNothing(true)
+					if trigger_ability3:GetLevel() > 0  then
+						trigger_ability3:OnSpellStart()
+						trigger_ability3:UseResources(true, false, false)
+					end	
 				end
 			end
 		end
-		
-		if distance >= 200 and distance < 450 then
-			if trigger_ability1:IsOwnersManaEnough() then
-				--	caster:SetCursorTargetingNothing(true)
-				if trigger_ability2:GetLevel() > 0  then
-                    trigger_ability2:OnSpellStart()
-                    trigger_ability2:UseResources(true, false, false)
-				end
-			end
-		end
-		
-		if distance > 450 then
-			if trigger_ability1:IsOwnersManaEnough() then
-                --    caster:SetCursorTargetingNothing(true)
-				if trigger_ability3:GetLevel() > 0  then
-                    trigger_ability3:OnSpellStart()
-                    trigger_ability3:UseResources(true, false, false)
-				end	
-			end
-		end
-		
-    --[[        if trigger_ability1:IsOwnersManaEnough() then
-                caster:SetCursorTargetingNothing(true)
-                trigger_ability1:OnSpellStart()
-                trigger_ability1:UseResources(true, false, false)
-                caster:SetCursorTargetingNothing(true)
-                trigger_ability2:OnSpellStart()
-                trigger_ability2:UseResources(false, false, false)
-                caster:SetCursorTargetingNothing(true)
-                trigger_ability3:OnSpellStart()
-                trigger_ability3:UseResources(false, false, false)
-            end 
-        else
-            if trigger_ability1:IsOwnersManaEnough() then
-                local random = RandomInt(1,3)
-                if random == 1 then
-                    caster:SetCursorTargetingNothing(true)
-                    trigger_ability1:OnSpellStart()
-                    trigger_ability1:UseResources(true, false, false)
-                elseif random == 2 then
-                    caster:SetCursorTargetingNothing(true)
-                    trigger_ability2:OnSpellStart()
-                    trigger_ability2:UseResources(true, false, false)
-                else
-                    caster:SetCursorTargetingNothing(true)
-                    trigger_ability3:OnSpellStart()
-                    trigger_ability3:UseResources(true, false, false)
-                end
-            end]]
-    --    end
-    end
+	end
 end
 
-end
-
-
---------------------------------------------------------------------------------
--- soul release
 function modifier_shadow_fiend_necromastery_lua:OnDeath( params )
 	if IsServer() then
 		self:DeathLogic( params )
@@ -147,9 +110,8 @@ end
 
 function modifier_shadow_fiend_necromastery_lua:GetModifierPreAttack_BonusDamage( params )
 	if not self:GetParent():IsIllusion() then
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi10")             
-		if abil ~= nil then 
-		return self:GetStackCount() * (self.soul_damage * 2)
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi10") ~= nil then 
+			return self:GetStackCount() * (self.soul_damage * 2)
 		end
 		return self:GetStackCount() * self.soul_damage
 	end
@@ -158,8 +120,7 @@ end
 
 function modifier_shadow_fiend_necromastery_lua:GetModifierConstantHealthRegen( params )
 	if not self:GetParent():IsIllusion() then
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str9")             
-		if abil ~= nil then 
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str9") ~= nil then 
 		return self:GetStackCount() / 2
 		end
 		return 0
@@ -167,17 +128,15 @@ function modifier_shadow_fiend_necromastery_lua:GetModifierConstantHealthRegen( 
 end
 
 function modifier_shadow_fiend_necromastery_lua:GetModifierPhysicalArmorBonus(params)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str7")	
-	if abil ~= nil then 
-    return math.floor(self:GetStackCount()/15)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str7") ~= nil then 
+		return math.floor(self:GetStackCount()/15)
 	end
 	return 0
 end
 
 function modifier_shadow_fiend_necromastery_lua:GetModifierHealthBonus(params)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str6")	
-	if abil ~= nil then 
-    return self:GetStackCount()*10
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_str6") ~= nil then 
+		return self:GetStackCount()*10
 	end
 	return 0
 end

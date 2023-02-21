@@ -74,7 +74,6 @@ function item_shivas_guard_lua1_gem5:GetIntrinsicModifierName()
 end
 
 function item_shivas_guard_lua1_gem1:OnSpellStart()
-	-- Parameters
 	local blast_radius = self:GetSpecialValueFor("blast_radius")
 	local blast_speed = self:GetSpecialValueFor("blast_speed")
 	local damage = self:GetSpecialValueFor("blast_damage")
@@ -83,10 +82,9 @@ function item_shivas_guard_lua1_gem1:OnSpellStart()
 	
 	local slow_duration_tooltip	= self:GetSpecialValueFor("slow_duration_tooltip")
 
-	local caster	= self:GetCaster()
-	local ability	= self
+	local caster = self:GetCaster()
+	local ability = self
 
-	-- Play cast sound
 	self:GetCaster():EmitSound("DOTA_Item.ShivasGuard.Activate")
 
 	local blast_pfx = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
@@ -94,22 +92,16 @@ function item_shivas_guard_lua1_gem1:OnSpellStart()
 	ParticleManager:SetParticleControl(blast_pfx, 1, Vector(blast_radius, blast_duration * 1.33, blast_speed))
 	ParticleManager:ReleaseParticleIndex(blast_pfx)
 
-	-- Initialize targets hit table
 	local targets_hit = {}
 
-	-- Main blasting loop
 	local current_radius = 0
 	local tick_interval = 0.1
 	Timers:CreateTimer(tick_interval, function()
-		-- Give vision
 		AddFOWViewer(self:GetCaster():GetTeamNumber(), current_loc, current_radius, 0.1, false)
 
-		-- Update current radius and location
 		current_radius = current_radius + blast_speed * tick_interval
 		current_loc = self:GetCaster():GetAbsOrigin()
-		--vision_dummy:SetAbsOrigin(current_loc)
 
-		-- Iterate through enemies in the radius
 		local nearby_enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), current_loc, nil, current_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 		for _,enemy in pairs(nearby_enemies) do
 			-- Check if this enemy was already hit
@@ -457,7 +449,7 @@ end
 
 function modifier_item_shivas_guard_aura_lua:GetModifierAttackSpeedBonus_Constant()
 	return (self:GetAbility():GetSpecialValueFor("aura_attack_speed"))
-ends
+end
 -------------------------------------------------------------------------------------
 
 modifier_item_shivas_guard_lua1 = class({})

@@ -23,7 +23,7 @@
 			"02"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"caustic_finale_damage"				"50 70 90 110 130 150 170 190 210 230 250 270 290 310 330"
+				"caustic_finale_damage"				"30 60 90 120 150 180 210 240 270 300 330 360 390 420 450"
 			}
 			"03"
 			{

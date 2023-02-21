@@ -11,32 +11,32 @@ end
 function modifier_axe_enrage_lua:IsPurgable()
 	return false
 end
-if IsServer() then
+
 function modifier_axe_enrage_lua:OnCreated( kv )
-	self.caster = self:GetCaster()
-	self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
-	self.base_str = self:GetAbility():GetSpecialValueFor("bonus_str") * (self.caster:GetStrength()/100)
-	self.damage = self:GetCaster():GetAttackDamage()--/2 
-	tru = 0
-	
-	local abil = self.caster:FindAbilityByName("npc_dota_hero_axe_str11")
-		if abil ~= nil then 
-		self.base_str = self:GetAbility():GetSpecialValueFor("bonus_str") * (self.caster:GetStrength()/100) * 2
+	if IsServer() then
+		self.caster = self:GetCaster()
+		self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
+		self.base_str = self:GetAbility():GetSpecialValueFor("bonus_str") * (self.caster:GetStrength()/100)
+		
+		tru = 0
+		
+		if self.caster:FindAbilityByName("npc_dota_hero_axe_str11") ~= nil then 
+			self.base_str = self:GetAbility():GetSpecialValueFor("bonus_str") * (self.caster:GetStrength()/100) * 2
 		end
-	
-	local abil = self.caster:FindAbilityByName("npc_dota_hero_axe_str_last")
-		if abil ~= nil then 
-		self.base_str = self.base_str * 5
+		
+		if self.caster:FindAbilityByName("npc_dota_hero_axe_str_last") ~= nil then 
+			self.base_str = self.base_str * 5
 		end
 	end
 end
 
 function modifier_axe_enrage_lua:OnRefresh( kv )
-tru = 0
+	tru = 0
 end
 
 function modifier_axe_enrage_lua:OnDestroy( kv )
 end
+
 --------------------------------------------------------------------------------
 
 function modifier_axe_enrage_lua:DeclareFunctions()
@@ -51,9 +51,10 @@ end
 
 --------------------------------------------------------------------------------
 function modifier_axe_enrage_lua:GetModifierPreAttack_BonusDamage( params )
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_str10") ~= nil then 
-	tru = 1
-	da = (self.damage * tru)/2
+	self.damage = self:GetCaster():GetAttackDamage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_str8") ~= nil then 
+		tru = 1
+		da = (self.damage * tru)/2
 	end
 	return da
 end
@@ -70,8 +71,7 @@ function modifier_axe_enrage_lua:GetModifierBonusStats_Strength( params )
 
 	return self.base_str
 end
---------------------------------------------------------------------------------
--- Graphics & Animations
+
 function modifier_axe_enrage_lua:GetEffectName()
 	return "particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
 end

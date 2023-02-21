@@ -18,10 +18,10 @@ end
 
 function item_mjollnir_lua1:OnSpellStart()
 	local target = self:GetCursorTarget()
-		if self:GetCaster():GetTeamNumber() == self:GetCursorTarget():GetTeam() and not target:IsBuilding() == true then 
-			target:AddNewModifier(self:GetCaster(), self, "modifier_item_mjollnir_lua_active", {duration = 15})
-			self:GetParent():EmitSound("DOTA_Item.Mjollnir.Activate")
-		end
+	if self:GetCaster():GetTeamNumber() == self:GetCursorTarget():GetTeam() and not target:IsBuilding() == true then 
+		target:AddNewModifier(self:GetCaster(), self, "modifier_item_mjollnir_lua_active", {duration = 15})
+		self:GetParent():EmitSound("DOTA_Item.Mjollnir.Activate")
+	end
 end
 
 -------------------------------------------------------------------------------------
@@ -34,9 +34,9 @@ end
 function modifier_item_mjollnir_lua_active:OnCreated()
 	self.shield_particle = ParticleManager:CreateParticle("particles/items2_fx/mjollnir_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self:AddParticle(self.shield_particle, false, false, -1, false, false)
-	self.static_chance	 	= self:GetAbility():GetSpecialValueFor("static_chance")
-	self.static_radius		= self:GetAbility():GetSpecialValueFor("static_radius")
-	self.static_cooldown	= self:GetAbility():GetSpecialValueFor("static_cooldown")
+	self.static_chance = self:GetAbility():GetSpecialValueFor("static_chance")
+	self.static_radius = self:GetAbility():GetSpecialValueFor("static_radius")
+	self.static_cooldown = self:GetAbility():GetSpecialValueFor("static_cooldown")
 	self.prock = true
 end
 
@@ -106,7 +106,7 @@ function modifier_item_mjollnir_lua_strike:OnCreated(keys)
 		return
 	end
 	
-	self.unit_counter			= 0
+	self.unit_counter = 0
 	
 	self:StartIntervalThink(self.jump_delay)
 end
@@ -146,9 +146,7 @@ function modifier_item_mjollnir_lua_strike:OnIntervalThink()
 					damage_type		= DAMAGE_TYPE_MAGICAL,
 					damage_flags 	= damage_flags,
 					attacker 		= self:GetCaster(),
-					ability 		= self:GetAbility()
 				})
-				
 				break
 			end
 		end
@@ -178,7 +176,6 @@ function modifier_item_mjollnir_lua:RemoveOnDeath()
 end
 
 function modifier_item_mjollnir_lua:OnCreated()
-
 	self.bonus_damage		 = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 	self.chain_chance	 	= self:GetAbility():GetSpecialValueFor("chain_chance")
@@ -217,13 +214,10 @@ function modifier_item_mjollnir_lua:OnAttackLanded(keys)
 		
 		self:GetParent():EmitSound("Item.Maelstrom.Chain_Lightning")
 	
-		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_mjollnir_lua_strike", {
-			starting_unit_entindex	= keys.target:entindex()
-		})
+		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_mjollnir_lua_strike", {starting_unit_entindex	= keys.target:entindex()})
 		
 		self.bChainCooldown = true
 		
 		self:StartIntervalThink(self.chain_cooldown)
 	end
 end
------------------------------------------------------------------------------

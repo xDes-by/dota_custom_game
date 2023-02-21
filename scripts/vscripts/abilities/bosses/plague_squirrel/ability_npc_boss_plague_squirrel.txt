@@ -10,10 +10,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_6"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"8"
 		"AbilityValues"
 		{
-			"persent"					"70"
+			"persent"					"50"
 		}
 	}
 	"ability_npc_boss_plague_squirrel_totem"
@@ -26,7 +26,7 @@
 		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
-			"health"					"10"
+			"health"					"15"
             // х2 каждый урус
 			"squirrel_attack_persent_from_current_target_healt"	"1"
 			"squirrel_health"	"3"
@@ -42,12 +42,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"14"
 		"AbilityValues"
 		{
 			"duration"					"3"
 			"max_bounds"				"6"
-			"damage"				    "20"
+			"damage"				    "25"
 		}
 	}
     //дисперсия
@@ -58,11 +58,12 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"16"
 		"AbilityValues"
 		{
 			"radius"					"1000"
-			"reflect"					"10"
+			"reflect"					"25"
+			"duration"					"5"
 		}
 	}
     //топот
@@ -73,7 +74,7 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"14"
 		"AbilityValues"
 		{
 			"damage" 								"20"
@@ -97,7 +98,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"14"
 	}
     //иллюзии
 	"ability_npc_boss_plague_squirrel_spell5"
@@ -109,11 +110,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastPoint"				"0.4"
-		"AbilityCooldown"				"12"
-		"AbilityValues"
-		{
-
-		}
+		"AbilityCooldown"				"14"
 	}
     //рефракшн
 	"ability_npc_boss_plague_squirrel_spell6"
@@ -123,13 +120,12 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"13"
 		"AbilityValues"
 		{
 			"duration" "15"
 			"bonus_damage_pct" "20"
-			"stacks_count" "100"
-            //минимальный урон для срабатывания решракшена
+			"stacks_count" "20"
 			"min_damage_to_stack" "50"
 		}
 	}
@@ -141,7 +137,7 @@
 		"AbilityTextureName"			""
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"13"
 		"AbilityValues"
 		{
 			"chance_evation" "15"

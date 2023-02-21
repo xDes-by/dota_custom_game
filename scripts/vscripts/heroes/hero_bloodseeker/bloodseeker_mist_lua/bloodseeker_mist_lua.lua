@@ -22,84 +22,57 @@ end
 
 modifier_bloodseeker_mist_aura_lua = class({})
 
-function modifier_bloodseeker_mist_aura_lua:IsAura()
+function modifier_bloodseeker_mist_aura_lua:IsHidden()
 	return true
 end
 
-function modifier_bloodseeker_mist_aura_lua:GetAuraRadius()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int8") ~= nil then
-		return self:GetAbility():GetSpecialValueFor("radius") + 150
-	end
-	return self:GetAbility():GetSpecialValueFor("radius")
+function modifier_bloodseeker_mist_aura_lua:IsPurgable()
+	return false
 end
 
 function modifier_bloodseeker_mist_aura_lua:OnCreated()
-	--self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-	self:StartIntervalThink(0.2)
+	self.caster = self:GetCaster()
+	if self.caster:FindAbilityByName("npc_dota_hero_bloodseeker_int8") ~= nil then
+		self.radius = self:GetAbility():GetSpecialValueFor("radius") + 150
+	end
+	self.radius = self:GetAbility():GetSpecialValueFor("radius")
+	self:StartIntervalThink(0.5)
 end
 
 function modifier_bloodseeker_mist_aura_lua:OnIntervalThink()
 	if IsServer() then
 		df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
+	if self.caster:FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
 		df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NON_LETHAL
 	end
-		ApplyDamage({attacker = self:GetParent(), victim = self:GetCaster(), damage = self:GetCaster():GetMaxHealth()/500*self:GetAbility():GetSpecialValueFor("self_hit"), damage_type = DAMAGE_TYPE_PURE, damage_flags = df})
+		ApplyDamage({attacker = self:GetParent(), victim = self.caster, damage = self.caster:GetMaxHealth()/200*self:GetAbility():GetSpecialValueFor("self_hit"), damage_type = DAMAGE_TYPE_PURE, damage_flags = df})
 	end	
-end
-
-function modifier_bloodseeker_mist_aura_lua:OnDestroy()
-	-- ParticleManager:DestroyParticle(self.particle, false)
-	-- ParticleManager:ReleaseParticleIndex(self.particle)
-end
-
-function modifier_bloodseeker_mist_aura_lua:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_NONE
-end
-
-function modifier_bloodseeker_mist_aura_lua:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_ENEMY
-end
-
-function modifier_bloodseeker_mist_aura_lua:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_bloodseeker_mist_aura_lua:GetModifierAura()
-	return "modifier_bloodseeker_mist_burn_lua"
+	
+	self.damage = self:GetAbility():GetSpecialValueFor("damage")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int11") ~= nil then
+		self.damage = self.damage + self:GetCaster():GetIntellect()*0.5
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str_last") ~= nil then
+		self.damage = self.damage + self:GetCaster():GetStrength()
+	end
+	local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	for _,enemy in pairs(enemies) do
+		enemy:AddNewModifier(self.caster, self, "modifier_bloodseeker_mist_burn_lua", {duration = 0.6})
+		ApplyDamage({attacker = self.caster, victim = enemy, damage = self.damage/2, damage_type = DAMAGE_TYPE_MAGICAL})
+	end	
 end
 
 -----------------------------------------------------------
 
 modifier_bloodseeker_mist_burn_lua = class({})
 
-function modifier_bloodseeker_mist_burn_lua:OnCreated()
-	self.damage = self:GetAbility():GetSpecialValueFor("damage")/5
-	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int11") ~= nil then
-		self.damage = self.damage + self:GetCaster():GetIntellect()/4
-	end
-	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str_last") ~= nil then
-		self.damage = self.damage + self:GetCaster():GetStrength()
-	end
-		
-	-- if self.particle == nil then
-		-- self.particle = ParticleManager:CreateParticle("particles/items2_fx/radiance.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-	-- end
-	self:StartIntervalThink(0.2)
+function modifier_bloodseeker_mist_burn_lua:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+	}
+	return funcs
 end
 
-function modifier_bloodseeker_mist_burn_lua:OnDestroy()
-		if self.particle ~= nil then
-		ParticleManager:DestroyParticle(self.particle, false)
-		ParticleManager:ReleaseParticleIndex(self.particle)
-		self.particle = nil
-	end	
-end
-
-function modifier_bloodseeker_mist_burn_lua:OnIntervalThink()
-	if IsServer() then
-		ApplyDamage({attacker = self:GetCaster(), victim = self:GetParent(), damage = self.damage, damage_type = DAMAGE_TYPE_MAGICAL})
-	end
+function modifier_bloodseeker_mist_burn_lua:GetModifierMoveSpeedBonus_Percentage(keys)
+	return -25
 end

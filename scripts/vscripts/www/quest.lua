@@ -261,7 +261,7 @@ function Quests:OnNPCSpawned(t)
 					
 					
 					
-					if quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"] and quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["use_type"] == "random"then
+					if quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"] and quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["use_type"] == "random" then
 						--local n =  RandomInt(1,)
 						tab = quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"]
 						local i = 1
@@ -272,9 +272,10 @@ function Quests:OnNPCSpawned(t)
 						local n =  RandomInt(1, i)
 						
 
-						
+						player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["item"] = true
 						player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["TextName"] = quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"][tostring(n)]["TextName"]
 						player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["DotaName"] = quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"][tostring(n)]["DotaName"]
+						print('DotaName init ', player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["DotaName"])
 						player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["NotTakeAway"] = quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"][tostring(n)]["NotTakeAway"] or 0
 						--print("player_info1", player_info[tostring(steamID)]["main"][tostring(k1)]["tasks"][tostring(k2)]["DotaName"])
 						player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["HowMuch"] = RandomInt(tonumber(quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"][tostring(n)]["min"]), tonumber(quests[main][tostring(k1)]["tasks"][tostring(k2)]["item"]["items"][tostring(n)]["max"]))
@@ -1201,68 +1202,72 @@ function Quests:OnItemPickUp(t)
 end
 
 function Quests:updateItems(id)
+	
 	if not id then return end
+	-- print('update items post if ')
 	--DeepPrintTable(Quests.dropListArray)
 	local someQuestComplite = false
 	local steamID = PlayerResource:GetSteamAccountID(id)
 	local hero = PlayerResource:GetSelectedHeroEntity( id )
 	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-	
+	-- DeepPrintTable(Quests.questTabel)
 	for k1,v1 in pairs(Quests.questTabel) do
-		if k1 == 'exchanger' then
-			return
-		end
-		for k2,v2 in pairs(v1) do
-			for k3,v3 in pairs(v2['tasks']) do
-				if v3['item'] then
-					local ItemName = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['DotaName']
-					--local have = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have']
-					local have = 0
-					local Key = hero:FindItemInInventory( ItemName )
-					local HowMuch = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch']
-					if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['active'] == 1 then
-						if Key == nil then
-							have = 0
-						else
-							for i = 0, 8 do
-								local item = hero:GetItemInSlot( i ) 
-								if item ~= nil then 
+		if k1 ~= 'exchanger' then
+			for k2,v2 in pairs(v1) do
+				for k3,v3 in pairs(v2['tasks']) do
+					if v3['item'] then
+						local ItemName = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['DotaName']
+						-- print("ItemName ", ItemName)
+						--local have = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have']
+						local have = 0
+						local Key = hero:FindItemInInventory( ItemName )
+						local HowMuch = player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch']
+						if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['active'] == 1 then
+							if Key == nil then
+								have = 0
+							else
+								for i = 0, 8 do
+									local item = hero:GetItemInSlot( i )
+									-- print('check slot ', i, ' item ', item)
+									if item ~= nil then 
 										if item:GetName() == "item_key" then
 											local hRelay = Entities:FindByName( nil, "donate_cementry" )
 											hRelay:Trigger(nil,nil)
 										end
-								   if item:GetName() == ItemName then
-										if item:GetCurrentCharges() <= 1 then
-											have = have + 1
-										else
-											have = have + item:GetCurrentCharges()
+										-- print('item name ', item:GetName(), ' Charges ', item:GetCurrentCharges())
+										if item:GetName() == ItemName then
+											if item:GetCurrentCharges() <= 1 then
+												have = have + 1
+											else
+												have = have + item:GetCurrentCharges()
+											end
 										end
-								   end
+									end
+									--local item = hero:GetItemInSlot(i)
+									
+									--local slot = GetItemSlot(hero, i)
+									--item = GetItemSlot(hero, 0)
+									--print(item:GetAbilityName())
 								end
-								--local item = hero:GetItemInSlot(i)
-								
-								--local slot = GetItemSlot(hero, i)
-								--item = GetItemSlot(hero, 0)
-								--print(item:GetAbilityName())
+							end
+							-- print("have ",have)
+							if have ~= player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] then
+								if have == 0 then	
+									player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = 0
+								elseif have <= HowMuch then
+									player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = have
+								else
+									player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = HowMuch
+								end
+								CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
+								Quests:updateParticle()
+								if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] == player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch'] then
+									Quests:updateMinimap(id, {k1,k2,k3})
+								end
 							end
 						end
 						
-						if have ~= player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] then
-							if have == 0 then	
-								player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = 0
-							elseif have <= HowMuch then
-								player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = have
-							else
-								player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] = HowMuch
-							end
-							CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
-							Quests:updateParticle()
-							if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] == player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch'] then
-								Quests:updateMinimap(id, {k1,k2,k3})
-							end
-						end
 					end
-					
 				end
 			end
 		end

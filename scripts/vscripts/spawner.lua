@@ -171,7 +171,9 @@ function Spawner:SpawnCreeps(name)
 	if barack ~= nil then 		
 		creeps_line_notification() 
 		for i = 1, count_creeps do
-			local creep = CreateUnitByName( name, _G.point_line_spawner + RandomVector(RandomInt(50, 250)), true, nil, nil, DOTA_TEAM_BADGUYS )
+			local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
+			local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
+			FindClearSpaceForUnit(creep, point, false)
 			creep:SetBaseDamageMin(set_damage)
 			creep:SetBaseDamageMax(set_damage)
 			creep:SetPhysicalArmorBaseValue(set_armor)
@@ -192,7 +194,9 @@ function Spawner:SpawnCommandirs(name)
 	local barack = Entities:FindByName( nil, "badguys_comandirs")  
 	if barack ~= nil then
 		for i = 1, count_comandir do
-			local creep = CreateUnitByName( "comandir_"..name, _G.point_line_spawner + RandomVector(RandomInt(50, 250)), true, nil, nil, DOTA_TEAM_BADGUYS )		
+			local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
+			local creep = CreateUnitByName( "comandir_"..name, point, true, nil, nil, DOTA_TEAM_BADGUYS )	
+			FindClearSpaceForUnit(creep, point, false)			
 			creep:SetBaseDamageMin(set_damage_commandir)
 			creep:SetBaseDamageMax(set_damage_commandir)
 			creep:SetPhysicalArmorBaseValue(set_armor_commandir)
@@ -231,7 +235,9 @@ function Spawner:SpawnBosses()
 		end
 
 		bosses_line_notification(name)  
-		local creep = CreateUnitByName( name, _G.point_line_spawner + RandomVector(RandomInt(50, 250)), true, nil, nil, DOTA_TEAM_BADGUYS )
+		local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
+		local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
+		FindClearSpaceForUnit(creep, point, false)
 		creep:SetBaseDamageMin(set_damage_boss)
 		creep:SetBaseDamageMax(set_damage_boss)
 		creep:SetPhysicalArmorBaseValue(set_armor_boss)
@@ -261,7 +267,9 @@ function Spawner:SpawnBosses()
 end
 
 function Spawner:SpawnBaracksBosses(name)
-	local creep = CreateUnitByName( name, _G.point_line_spawner + RandomVector(RandomInt(50, 250)), true, nil, nil, DOTA_TEAM_BADGUYS )
+	local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
+	local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
+	FindClearSpaceForUnit(creep, point, false)
 	creep:SetBaseDamageMin(set_damage_boss)
 	creep:SetBaseDamageMax(set_damage_boss)
 	creep:SetPhysicalArmorBaseValue(set_armor_boss)

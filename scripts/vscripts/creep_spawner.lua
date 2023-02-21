@@ -15,7 +15,8 @@ creeps_zone5 = {"cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemete
 creeps_zone6 = {"swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4"}
 creeps_zone7 = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}
 creeps_zone8 = {"last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
-bosses = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dota_gaven_stone","npc_dust_boss","npc_swamp_boss","medusa_ward","npc_snow_boss","npc_dota_creature_tusk","npc_mega_boss","npc_dota_custom_tower_dire_1","npc_dota_custom_tower_dire_2","npc_dota_custom_tower_dire_3","npc_dota_custom_tower_dire_4","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel"}
+bosses = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dota_gaven_stone","npc_dust_boss","npc_swamp_boss","medusa_ward","npc_snow_boss","npc_dota_creature_tusk",
+"npc_mega_boss","npc_dota_custom_tower_dire_1","npc_dota_custom_tower_dire_2","npc_dota_custom_tower_dire_3","npc_dota_custom_tower_dire_4","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel"}
 
 function add_modifier_death(unit, unitname)
 	unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
@@ -114,6 +115,7 @@ function creep_spawner:bosses()
 			if t and t == unit:GetUnitName() then 
 				Rules:difficality_modifier(unit)
 				creep_spawner:add_items(unit)
+				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 			end
 		end			
 	end	

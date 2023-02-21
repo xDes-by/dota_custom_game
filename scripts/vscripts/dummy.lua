@@ -6,9 +6,12 @@ LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_M
 LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_dummy_damage", "modifiers/modifier_dummy_damage", LUA_MODIFIER_MOTION_NONE )
+
 function Dummy:init()
     local point = Entities:FindByName(nil,"dummy_point"):GetAbsOrigin()
 	self.Entity = CreateUnitByName( "npc_dota_hero_target_dummy", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+	self.Entity:AddNewModifier(self.Entity, nil, "modifier_dummy_damage", {})
 	
 	local angle = self.Entity:GetAngles()
 	local new_angle = RotateOrientation(angle, QAngle(0,180,0))

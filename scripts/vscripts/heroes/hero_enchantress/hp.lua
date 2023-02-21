@@ -17,7 +17,7 @@ function modifier_npc_dota_hero_enchantress_str7:DeclareFunctions()
 end
 
 function modifier_npc_dota_hero_enchantress_str7:GetModifierExtraHealthBonus(params)
-    return 50 * self:GetCaster():GetLevel()
+    return 150 * self:GetCaster():GetLevel()
 end
 
 function modifier_npc_dota_hero_enchantress_str7:IsHidden()

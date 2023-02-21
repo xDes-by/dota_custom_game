@@ -182,9 +182,12 @@ function talants:OnGameRulesStateChange()
                         if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:isCheatOn() then --  
                             return
                         end
-
-                        talants:AddExperienceDonate(nPlayerID, gave_exp)
-                        talants:AddExperience(nPlayerID, gave_exp)
+						
+						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+						if not hero:HasModifier("modifier_fountain_invulnerability") then
+							talants:AddExperienceDonate(nPlayerID, gave_exp)
+							talants:AddExperience(nPlayerID, gave_exp)
+						end
                         
                         if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
                             return nil

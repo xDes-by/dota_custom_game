@@ -11,7 +11,19 @@
 
 //======================================================================================================================================================================================================================================================
 
-	
+"ursa_lapki"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ursa_lapki"
+		"AbilityTextureName"			"backdoor_protection"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"base_damage"				"1500"
+			"hp_percent"				"0.2"
+		}
+	}
+
 "move_passive"
     {
         "BaseClass"                     "ability_lua"
@@ -2988,6 +3000,14 @@
 #base "../vscripts/heroes/hero_gyrocopter/gyrocopter_homing_missile_lua/gyrocopter_homing_missile_lua.txt"
 #base "../vscripts/heroes/hero_gyrocopter/gyrocopter_flak_cannon_lua/gyrocopter_flak_cannon_lua.txt"
 #base "../vscripts/heroes/hero_gyrocopter/gyrocopter_call_down_lua/gyrocopter_call_down_lua.txt"
+
+//=====================================================================================================APPARITION==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_talents.txt"
+#base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_cold_feet_lua/ancient_apparition_cold_feet_lua.txt"
+#base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_ice_vortex_lua/ancient_apparition_ice_vortex_lua.txt"
+#base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_lua/ancient_apparition_chilling_touch_lua.txt"
+#base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_lua/ancient_apparition_ice_blast_lua.txt"
 
 
 //=====================================================================================================MARCI=====================================================================================================================================================

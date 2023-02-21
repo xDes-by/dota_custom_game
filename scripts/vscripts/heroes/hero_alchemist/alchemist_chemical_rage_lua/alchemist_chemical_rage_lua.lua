@@ -176,16 +176,14 @@ end
 
 
 function modifier_alchemist_chemical_rage_lua:GetModifierPreAttack_BonusDamage()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_agi10")	
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_agi10") ~= nil then 
 		return self:GetCaster():GetAgility()
 	end
 	return 0
 end
 
 function modifier_alchemist_chemical_rage_lua:GetModifierTotalPercentageManaRegen()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str10")	
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str10") ~= nil then 
 		return 1.5
 	end
 	return 0
@@ -193,8 +191,7 @@ end
 
 
 function modifier_alchemist_chemical_rage_lua:GetModifierHealthRegenPercentage()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str10")	
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str10") ~= nil then 
 		return 3
 	end
 	return 0
@@ -214,7 +211,7 @@ function modifier_alchemist_chemical_rage_lua:GetActivityTranslationModifiers()
 end
 
 function modifier_alchemist_chemical_rage_lua:GetModifierBaseAttackTimeConstant()
-	return self.bat
+	return 1
 end
 
 function modifier_alchemist_chemical_rage_lua:GetModifierConstantHealthRegen()

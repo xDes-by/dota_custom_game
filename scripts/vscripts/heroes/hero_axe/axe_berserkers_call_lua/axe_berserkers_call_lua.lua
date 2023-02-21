@@ -2,7 +2,7 @@
 axe_berserkers_call_lua = class({})
 LinkLuaModifier( "modifier_axe_berserkers_call_lua", "heroes/hero_axe/axe_berserkers_call_lua/modifier_axe_berserkers_call_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_axe_berserkers_str_lua", "heroes/hero_axe/axe_berserkers_call_lua/modifier_axe_berserkers_str_lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_axe_berserkers_speed_lua", "heroes/hero_axe/axe_berserkers_call_lua/modifier_axe_berserkers_speed_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_axe_berserkers_rearm", "heroes/hero_axe/axe_berserkers_call_lua/modifier_axe_berserkers_rearm", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_axe_berserkers_call_lua_debuff", "heroes/hero_axe/axe_berserkers_call_lua/modifier_axe_berserkers_call_lua_debuff", LUA_MODIFIER_MOTION_NONE )
 
 
@@ -28,74 +28,35 @@ function axe_berserkers_call_lua:OnAbilityPhaseStart()
 end
 
 --------------------------------------------------------------------------------
--- Ability Start
+
 function axe_berserkers_call_lua:OnSpellStart()
-	-- unit identifier
 	local caster = self:GetCaster()
 	local point = caster:GetOrigin()
 
-	-- load data
 	local radius = self:GetSpecialValueFor("radius")
 	local duration = self:GetSpecialValueFor("duration")
 	
-	local abil = caster:FindAbilityByName("npc_dota_hero_axe_agi6")				-- радиус +1700
-	if abil ~= nil then 
-	bonus = abil:GetSpecialValueFor( "value" )
-	radius = radius + bonus
+	if caster:FindAbilityByName("npc_dota_hero_axe_agi6")  ~= nil then 
+		bonus = abil:GetSpecialValueFor( "value" )
+		radius = radius + bonus
 	end
 	
-	local abil = caster:FindAbilityByName("npc_dota_hero_axe_str6")             --- урон на время кола от силы
-	if abil ~= nil then 
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_axe_berserkers_str_lua", -- modifier name
-		{ duration = duration } -- kv
-	)
+	if caster:FindAbilityByName("npc_dota_hero_axe_str6") ~= nil then 
+		caster:AddNewModifier( caster, self, "modifier_axe_berserkers_str_lua", { duration = duration })
 	end
 	
-	local abil = caster:FindAbilityByName("npc_dota_hero_axe_agi10")			--- бонус атакспид после агра
-	if abil ~= nil then 
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_axe_berserkers_speed_lua", -- modifier name
-		{ duration = duration } -- kv
-	)
-	end
 
-	-- find units caught
-	local enemies = FindUnitsInRadius(
-		caster:GetTeamNumber(),	-- int, your team number
-		point,	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
-
-	-- call
+	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(enemies) do
-		enemy:AddNewModifier(
-			caster, -- player source
-			self, -- ability source
-			"modifier_axe_berserkers_call_lua_debuff", -- modifier name
-			{ duration = duration } -- kv
-		)
+		enemy:AddNewModifier( caster, self, "modifier_axe_berserkers_call_lua_debuff", { duration = duration })
+		
+		if caster:FindAbilityByName("npc_dota_hero_axe_agi10") ~= nil then 
+			enemy:AddNewModifier( caster, self, "modifier_axe_berserkers_rearm", { duration = duration })
+		end
 	end
 
-	-- self buff
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_axe_berserkers_call_lua", -- modifier name
-		{ duration = duration } -- kv
-	)
+	caster:AddNewModifier( caster, self, "modifier_axe_berserkers_call_lua", { duration = duration } )
 
-	-- play effects
 	if #enemies>0 then
 		local sound_cast = "Hero_Axe.Berserkers_Call"
 		EmitSoundOn( sound_cast, self:GetCaster() )
