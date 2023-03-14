@@ -1,0 +1,197 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Mirana: Sacred Arrow (Lua version)
+	//=================================================================================================================
+	"magnataur_bus_rush_lua"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_bus_rush_lua"
+		"AbilityTextureName"			"magnataur_skewer"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1200"
+
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 16 12 8"
+		"AbilityManaCost"				"80 90 100 110"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_speed"					"950"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"10 20 30 40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_radius"				"145"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"3.3"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_damage"			"70 140 210 280"
+			}			
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_radius"				"200"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tool_attack_slow"				"10 20 30 40"
+			}	
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"skewer_cooldown"				"6"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_manacost"				"40"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vector_target"			"1"				
+			}
+		}
+	}
+	//=================================================================================================================
+	// Magnus: Skewer (Lua version)
+	//=================================================================================================================
+	"magnataur_skewer_lua"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_skewer_lua"
+		"AbilityTextureName"			"magnataur_skewer"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+
+		"HasScepterUpgrade"			"1"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.3 0.3 0.3"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"22 20 18 16"
+		"AbilityManaCost"				"0"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_speed"					"950"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"10 20 30 40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_radius"				"145"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"3.3"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_damage"			"70 140 210 280"
+			}			
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_radius"				"200"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tool_attack_slow"				"10 20 30 40"
+			}	
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"skewer_cooldown"				"6"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_manacost"				"40"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_TAUNT"
+	}
+}
+
+

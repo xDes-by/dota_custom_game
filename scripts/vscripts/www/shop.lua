@@ -121,6 +121,7 @@ _G.basicshop = {
 		[39] = {name = "other_48", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/alchemist.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_alchemist",tooltip="shop_image_heros_tooltip"},
 		[40] = {name = "other_50", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/bs.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_bloodseeker",tooltip="shop_image_heros_tooltip"},
 		[41] = {name = "other_51", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/gr.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_gyrocopter",tooltip="shop_image_heros_tooltip"},
+		[42] = {name = "other_52", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/aa.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_ancient_apparition",tooltip="shop_image_heros_tooltip"},
 	},
 	[5] = {
 		name = "gems",
@@ -316,6 +317,7 @@ function Shop:OnPlayerReconnected(keys)
 		Timers:CreateTimer(2, function() 
 			local sid = PlayerResource:GetSteamAccountID( keys.PlayerID )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "initShop", Shop.pShop[keys.PlayerID] )
+			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {} )
 		end)
 	end
 end

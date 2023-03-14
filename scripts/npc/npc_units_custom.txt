@@ -8055,3 +8055,4 @@
 	}
 }
 #base "../npc/npc_units_pets.txt"
+#base "../vscripts/heroes/hero_magnataur/magnataur_bus_rush_lua/npc_magnataur_bus_rush_lua.txt"

@@ -12,27 +12,27 @@ local lvls = {
     [7] = 15000,--64500
     [8] = 16500,--81000
     [9] = 18000,--99000
-    [10] = 18000,--118500
-    [11] = 18000,--139500
-    [12] = 18000,--162000
-    [13] = 18000,--186000
-    [14] = 18000,--211500
-    [15] = 18000,
-    [16] = 18000,
-    [17] = 18000,
-    [18] = 18000,
-    [19] = 18000,
-    [20] = 18000,
-    [21] = 18000,
-    [22] = 18000,
-    [23] = 18000,
-    [24] = 18000,
-    [25] = 18000,
-    [26] = 18000,
-    [27] = 18000,
-    [28] = 18000,
-    [29] = 18000,
-    [30] = 18000,
+    [10] = 18000,--117000
+    [11] = 18000,--135 000
+    [12] = 18000,--153 000
+    [13] = 18000,--171 000
+    [14] = 18000,--189 000
+    [15] = 18000,--207 000
+    [16] = 18000,--225 000
+    [17] = 18000,--243 000
+    [18] = 18000,--261 000
+    [19] = 18000,--279 000
+    [20] = 18000,--297 000
+    [21] = 18000,--315 000
+    [22] = 18000,--333 000
+    [23] = 18000,--351 000
+    [24] = 18000,--369 000
+    [25] = 18000,--387 000
+    [26] = 18000,--405 000
+    [27] = 18000,--423 000
+    [28] = 18000,--441 000
+    [29] = 18000,--459 000
+    [30] = 18000,--477 000
 }
 local talant_shop = {
     [1] = {
@@ -154,50 +154,57 @@ function talants:OnGameRulesStateChange()
         for nPlayerID = 0, 5 -1 do
             if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
                 if PlayerResource:HasSelectedHero( nPlayerID ) and PlayerResource:GetSelectedHeroEntity( nPlayerID ) then
-                    local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-                    --------------------------------------------------------------- gave_exp
-                    local gave_exp = 1
-                    --------------------------------------------------------------- стрик
-                    local tab = CustomNetTables:GetTableValue("talants", tostring(nPlayerID))
-                    local streek = tonumber(tab["gamecout"])
-                    if streek > 0 then
-                        streek = streek * 0.05
-                        if streek > 1.1 then
-                            gave_exp = gave_exp + 1.1
-                        else
-                            gave_exp = gave_exp + streek
-                        end
-                    end
-                    --------------------------------------------------------------- опыт за сложности
-                    if diff_wave.rating_scale == 0 then gave_exp = gave_exp * 0.5 end
-                    if diff_wave.rating_scale == 1 then gave_exp = gave_exp * 1 end
-                    if diff_wave.rating_scale == 2 then gave_exp = gave_exp * 1.25 end
-                    if diff_wave.rating_scale == 3 then gave_exp = gave_exp * 1.50 end
-                    if diff_wave.rating_scale == 4 then gave_exp = gave_exp * 1.75 end
-                    tab["gave_exp"] = gave_exp
-                    CustomNetTables:SetTableValue("talants", tostring(nPlayerID), tab)
                     --------------------------------------------------------------- выдача опыта по таймеру
-                    Timers:CreateTimer(1, function()
-                        local connectState = PlayerResource:GetConnectionState(nPlayerID)	
-                        if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:isCheatOn() then --  
-                            return
-                        end
-						
-						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-						if not hero:HasModifier("modifier_fountain_invulnerability") then
-							talants:AddExperienceDonate(nPlayerID, gave_exp)
-							talants:AddExperience(nPlayerID, gave_exp)
-						end
-                        
-                        if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
-                            return nil
-                        end
-                        return 1
+                    Timers:CreateTimer(4500, function()
+                        talants:tickExperience(nPlayerID)
                     end)
                 end
             end
         end
 	end
+end
+
+function talants:tickExperience(pid)
+
+    local hero = PlayerResource:GetSelectedHeroEntity( pid )
+    --------------------------------------------------------------- gave_exp
+    local gave_exp = 1
+    --------------------------------------------------------------- стрик
+    local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
+    local streek = tonumber(tab["gamecout"])
+    if streek > 0 then
+        streek = streek * 0.05
+        if streek > 1.1 then
+            gave_exp = gave_exp + 1.1
+        else
+            gave_exp = gave_exp + streek
+        end
+    end
+    --------------------------------------------------------------- опыт за сложности
+    if diff_wave.rating_scale == 0 then gave_exp = gave_exp * 0.5 end
+    if diff_wave.rating_scale == 1 then gave_exp = gave_exp * 1 end
+    if diff_wave.rating_scale == 2 then gave_exp = gave_exp * 1.25 end
+    if diff_wave.rating_scale == 3 then gave_exp = gave_exp * 1.50 end
+    if diff_wave.rating_scale == 4 then gave_exp = gave_exp * 1.75 end
+    tab["gave_exp"] = gave_exp
+    CustomNetTables:SetTableValue("talants", tostring(pid), tab)
+    Timers:CreateTimer(1, function()
+        local connectState = PlayerResource:GetConnectionState(pid)	
+        if bot(pid) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:isCheatOn() then --  
+            return
+        end
+        
+        
+        if not hero:HasModifier("modifier_fountain_invulnerability") then
+            talants:AddExperienceDonate(pid, gave_exp)
+            talants:AddExperience(pid, gave_exp)
+        end
+        
+        if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
+            return nil
+        end
+        return 1
+    end)
 end
 
 function talants:selectTalantButton(t)
@@ -346,13 +353,20 @@ function talants:FastLearning(t)
     end
 end
 
+function talants:giveExperienceFromQuest(id, n)
+    talants:AddExperience(id, n)
+    if RATING["rating"][id+1]["patron"] == 1 then
+        talants:AddExperienceDonate(id, n)
+    end
+end
+
 function talants:AddExperience(id, n)
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
     -- print("don2=",tab["don2"])
     if tab["don2"] == 1 then
         n = n * 1.15
     end
-    tab["gave_exp"] = n
+    -- tab["gave_exp"] = n
     this_lvl = 0
     totalexp = 0
     for k,v in pairs(lvls) do

@@ -1,0 +1,175 @@
+"DOTAAbilities"
+{
+// 	"npc_dota_hero_mars_str6"
+// 	{
+// 		"BaseClass"						"ability_lua"
+// 		"ScriptFile"					"heroes/hero_mars/hp"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_str7"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_str8"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 		"AbilitySpecial"
+// 		{
+// 			"01"
+// 			{
+// 				"var_type"					"FIELD_FLOAT"
+// 				"value"						"10"
+// 			}
+// 		}
+// 	}
+// 	"npc_dota_hero_mars_str9"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 		"AbilitySpecial"
+// 		{
+// 			"01"
+// 			{
+// 				"var_type"					"FIELD_FLOAT"
+// 				"value"						"28"
+// 			}
+// 		}
+// 	}
+// 	"npc_dota_hero_mars_str10"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_str11"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// //==	
+// 	"npc_dota_hero_mars_agi6"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_agi7"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 		"AbilitySpecial"
+// 		{
+// 			"01"
+// 			{
+// 				"var_type"					"FIELD_FLOAT"
+// 				"value"						"1"
+// 			}
+// 		}
+// 	}
+// 	"npc_dota_hero_mars_agi8"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_agi9"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 		"AbilitySpecial"
+// 		{
+// 			"01"
+// 			{
+// 				"var_type"					"FIELD_FLOAT"
+// 				"value"						"140"
+// 			}
+// 		}
+// 	}
+// 	"npc_dota_hero_mars_agi10"
+// 	{
+// 		"BaseClass"						"ability_lua"
+// 		"ScriptFile"					"heroes/hero_mars/cleave"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_agi11"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 		"AbilitySpecial"
+// 		{
+// 			"01"
+// 			{
+// 				"var_type"					"FIELD_FLOAT"
+// 				"value"						"5"
+// 			}
+// 		}
+// 	}
+// //==	
+// 	"npc_dota_hero_mars_int6"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int7"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int8"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int9"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int10"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int11"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}	
+
+// 	//last
+// 	"npc_dota_hero_mars_str_last"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_agi_last"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+// 	"npc_dota_hero_mars_int_last"
+// 	{
+// 		"BaseClass"             		"special_bonus_undefined"
+// 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+// 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+// 	}
+}

@@ -11,6 +11,7 @@ function use_pets:InitGameMode()
 end
 
 function use_pets:UsePet(t)
+	print('UsePetLua')
 	local player = PlayerResource:GetPlayer(t.PlayerID)
 	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
 	if hero:IsAlive() and not hero:HasModifier("modifier_silent") then

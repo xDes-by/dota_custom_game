@@ -13564,6 +13564,42 @@
         "npc_dota_hero_mars_int_last" "Божественная удача"
         "npc_dota_hero_mars_int_last_description" "Во время действия mars spear шанс срабатывания 10% gods rebuke"
 
+        //Magnus//
+
+        "dota_tooltip_ability_magnataur_shockwave_lua" "SHOCKWAVE"
+        "dota_tooltip_ability_magnataur_shockwave_lua_description" "Герой отправляет ударную волну во врагов находящихся поблизости. Волна притягивает врагов, наносит урон и ненадолго замедляет их."
+        "dota_tooltip_ability_magnataur_shockwave_lua_lore" "Вулкан Йорлак всегда был весьма нестабильным, и магнорог научился направлять его раскаты в нужном направлении."
+        "dota_tooltip_ability_magnataur_shockwave_lua_shock_damage" "УРОН:"
+        "dota_tooltip_ability_magnataur_shockwave_lua_movement_slow" "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+        "dota_tooltip_ability_magnataur_shockwave_lua_basic_slow_duration" "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+        "dota_tooltip_ability_magnataur_shockwave_lua_shock_width" "ШИРИНА:"
+        "dota_tooltip_ability_magnataur_shockwave_lua_cast_range" "ДАЛЬНОСТЬ:"
+
+        "dota_tooltip_ability_magnataur_empower_lua" "EMPOWER"
+        "dota_tooltip_ability_magnataur_empower_lua_description" "Даёт союзнику дополнительный урон и прорубающую атаку. Действует на владельца на 75.0% сильнее."
+        "dota_tooltip_ability_magnataur_empower_lua_lore" "Могучим утробным рыком магнорог демонстрирует свою недюжинную силу."
+        "dota_tooltip_ability_magnataur_empower_lua_empower_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "dota_tooltip_ability_magnataur_empower_lua_bonus_damage_pct" "%ДОПОЛНИТЕЛЬНЫЙ УРОН:"
+        "dota_tooltip_ability_magnataur_empower_lua_cleave_damage_pct" "%ПРОРУБАЮЩИЙ УРОН:"
+
+        "dota_tooltip_ability_magnataur_bus_rush_lua" "BUS RUSH"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_description" "Герой призывает духа, который мчится в указанном направлении. Если на пути духа окажутся враги то они получат урон, а их скорость передвижения и атаки уменьшится."
+        "dota_tooltip_ability_magnataur_bus_rush_lua_lore" "Рога магнорогов очень дороги. Их ценность пропорциональна опасности, которой себя подвергают излишне предприимчивые продавцы."
+        "dota_tooltip_ability_magnataur_bus_rush_lua_skewer_speed" "СКОРОСТЬ:"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_range" "РАССТОЯНИЕ:"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_slow_pct" "%ЗАМЕДЛЕНИЕ:"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_slow_duration" "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_skewer_damage" "УРОН:"
+        "dota_tooltip_ability_magnataur_bus_rush_lua_tool_attack_slow" "ЗАМЕДЛЕНИЕ АТАКИ:"
+
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua" "REVERSE POLARITY"
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_description" "Герой изменяет свойства материи, стягивая всех врагов вокруг в точку перед собой, оглушая их мощным хлопком и нанося им урон."
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_lore" "Магнорог сражается с яростью извергающегося вулкана Йорлак."
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_pull_radius" "РАДИУС СТЯГИВАНИЯ:"
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_polarity_damage" "УРОН:"
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_hero_stun_duration" "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+
         //Sven//
 
         "dota_tooltip_ability_sven_bringer" "Bringer"

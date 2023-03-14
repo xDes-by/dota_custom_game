@@ -1,0 +1,64 @@
+"DOTAUnits"
+{
+    "npc_magnataur_bus_rush_lua"
+	{										
+		"Model"						"models/heroes/magnataur/magnataur.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_WarlockGolem"			// Name of sound set.
+		"ModelScale"				"1"
+	
+		"Ability1"					"magnataur_skewer_lua"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"6"
+		"MagicalResistance"			"33"		// Magical protection.  // this should be 33, switch it back once we implement Resistant Skin
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"90"
+		"AttackDamageMax"			"110"	
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.26"	
+		"AttackAcquisitionRange"	"500"		
+		"AttackRange"				"225"		
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			  
+
+		"HealthBarOffset"			"240"
+
+		"BountyXP"					"98"
+		"BountyGoldMin"				"100"
+		"BountyGoldMax"				"100"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+
+		"StatusHealth"				"1000"		
+		"StatusHealthRegen"			"25"		
+		"StatusMana"				"0"			
+		//"StatusManaRegen"			"0"					 
+		
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+		"HasInventory"				"0"
+        "Creature"
+        {
+            "AttachWearables" // Default npc_dota_hero_magnataur
+            {
+                "1" { "ItemDef" "330" } // Magnus' Weapon
+                "2" { "ItemDef" "328" } // Magnus' Bracers
+                "3" { "ItemDef" "326" } // Magnus' Hair
+                "4" { "ItemDef" "327" } // Magnus' Horn
+                "5" { "ItemDef" "329" } // Magnus' Belt
+            }
+        }
+	}
+}

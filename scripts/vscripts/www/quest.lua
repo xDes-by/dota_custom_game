@@ -231,6 +231,17 @@ function Quests:OnNPCSpawned(t)
 				player_info[tostring(steamID)][main][tostring(k1)]["lock_item_select"] = false
 				player_info[tostring(steamID)][main][tostring(k1)]["experience"] = RandomInt(tonumber(quests[main][tostring(k1)]["reward"]["experience"]["min"]),tonumber(quests[main][tostring(k1)]["reward"]["experience"]["max"]))
 				player_info[tostring(steamID)][main][tostring(k1)]["gold"] = RandomInt(tonumber(quests[main][tostring(k1)]["reward"]["gold"]["min"]),tonumber(quests[main][tostring(k1)]["reward"]["gold"]["max"]))
+				if quests[main][tostring(k1)]["reward"]["talentExperience"] then
+					local talentExperience = tonumber(quests[main][tostring(k1)]["reward"]["talentExperience"])
+					if diff_wave.rating_scale == 0 then talentExperience = talentExperience * 0.5 end
+					if diff_wave.rating_scale == 1 then talentExperience = talentExperience * 1 end
+					if diff_wave.rating_scale == 2 then talentExperience = talentExperience * 1.25 end
+					if diff_wave.rating_scale == 3 then talentExperience = talentExperience * 1.50 end
+					if diff_wave.rating_scale == 4 then talentExperience = talentExperience * 1.75 end
+					player_info[tostring(steamID)][main][tostring(k1)]["talentExperience"] = math.modf(talentExperience)
+				else
+					player_info[tostring(steamID)][main][tostring(k1)]["talentExperience"] = 0
+				end
 				player_info[tostring(steamID)][main][tostring(k1)]["UnitName"] = quests[main][tostring(k1)]["UnitName"]
 				if v1['options'] then
 					if v1['options']['renewable'] then
@@ -683,9 +694,9 @@ function Quests:acceptButton(t)
 			end
 		end
 		sound = true
-		if t.type == 'main' then
-			talants:AddExperience(t.pid, tonumber(t.number) * 10)
-		end
+		-- if t.type == 'main' then
+		-- 	talants:AddExperience(t.pid, tonumber(t.number) * 10)
+		-- end
 	end
 	CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["renewable"] == 1
@@ -942,17 +953,20 @@ function Quests:giveReward(type, number, task, pid)
 	hero:SetGold(totalgold , false) 
 	-- herogold:addGold(pid,bonusGold)
 	hero:AddExperience(bonusExperience, 0, true, true)
-	local bonusTalant = 0
-	if diff_wave.rating_scale == 1 then 
-		bonusTalant = 15
-	elseif diff_wave.rating_scale == 2 then
-		bonusTalant = 20
-	elseif diff_wave.rating_scale == 3 then 
-		bonusTalant = 25
-	elseif diff_wave.rating_scale == 4 then 
-		bonusTalant = 30
+	-- local bonusTalant = 0
+	-- if diff_wave.rating_scale == 1 then 
+	-- 	bonusTalant = 15
+	-- elseif diff_wave.rating_scale == 2 then
+	-- 	bonusTalant = 20
+	-- elseif diff_wave.rating_scale == 3 then 
+	-- 	bonusTalant = 25
+	-- elseif diff_wave.rating_scale == 4 then 
+	-- 	bonusTalant = 30
+	-- end
+	if player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'] then
+		talants:giveExperienceFromQuest(pid, tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience']))
 	end
-	talants:AddExperience(pid, bonusTalant)
+	
 	--print('give revard')
 end
 
