@@ -472,17 +472,8 @@ if IsServer() then
 	end 
 end
 function modifier_item_mage_heart_lua_passive4:OnDestroy()
-	local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	local gem = string.sub(self:GetAbility():GetName(), -4)
-	local modifierName = "modifier_" .. gem
-
-	local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
-	if stacks > 0 then
-		self:GetCaster():SetModifierStackCount(modifierName, self:GetCaster(), stacks - bonus)
-		local stacks = self:GetCaster():GetModifierStackCount(modifierName, self:GetCaster())
-		if stacks == 0 then
-			self:GetCaster():RemoveModifierByNameAndCaster(modifierName, self:GetCaster())
-		end
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
 	end
 end
 --------------------------
