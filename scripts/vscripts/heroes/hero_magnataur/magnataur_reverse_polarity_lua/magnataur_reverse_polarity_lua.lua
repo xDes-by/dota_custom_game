@@ -1,3 +1,6 @@
+LinkLuaModifier( "modifier_talent_str9", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_str9", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_agi6", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_agi6", LUA_MODIFIER_MOTION_NONE )
+
 magnataur_reverse_polarity_lua = {}
 
 function magnataur_reverse_polarity_lua:OnAbilityPhaseStart()
@@ -29,6 +32,14 @@ function magnataur_reverse_polarity_lua:OnAbilityPhaseStart()
 	return true
 end
 
+function magnataur_reverse_polarity_lua:GetCooldown( level )
+	local int8 = self:GetCaster():FindAbilityByName("npc_dota_hero_magnataur_int8")
+	if int8 ~= nil and int8:GetSpecialValueFor("chance") >= RandomInt(1, 100) then
+		return 0
+	end
+	return self.BaseClass.GetCooldown( self, level )
+end
+
 function magnataur_reverse_polarity_lua:OnAbilityPhaseInterrupted()
 	self:StopEffects( true )
 end
@@ -42,6 +53,10 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 	local duration = self:GetSpecialValueFor( "hero_stun_duration" )
 	local range = 150
 
+	local agi7 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi7")
+	if agi7 ~= nil then
+		duration = duration + agi7:GetSpecialValueFor("additional_duration")
+	end
 	local damageTable = {
 		attacker = caster,
 		damage = damage,
@@ -89,6 +104,22 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 	end
 
 	EmitSoundOn( "Hero_Magnataur.ReversePolarity.Cast", caster )
+
+	local str9 = caster:FindAbilityByName("npc_dota_hero_magnataur_str9")
+	if str9 ~= nil then
+		caster:AddNewModifier(caster, self, "modifier_talent_str9", {
+			duration = str9:GetSpecialValueFor("duration"),
+			damage_reduction = str9:GetSpecialValueFor("damage_reduction"),
+		})
+	end
+	local agi6 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi6")
+	if agi6 ~= nil then
+		caster:AddNewModifier(caster, self, "modifier_talent_agi6", {
+			duration = self:GetSpecialValueFor( "hero_stun_duration" ),
+			chance = agi6:GetSpecialValueFor("chance"),
+			perc_crit = agi6:GetSpecialValueFor("perc_crit"),
+		})
+	end
 end
 
 function magnataur_reverse_polarity_lua:StopEffects( interrupted )

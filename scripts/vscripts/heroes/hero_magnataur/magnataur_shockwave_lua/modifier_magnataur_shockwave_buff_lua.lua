@@ -2,16 +2,31 @@ modifier_magnataur_shockwave_buff_lua = {}
 
 function modifier_magnataur_shockwave_buff_lua:OnCreated()
     self.parent = self:GetParent()
+	self.caster = self:GetCaster()
     self.ability = self:GetAbility()
+	self.tick = 0
     self:StartIntervalThink( 1 )
 	self:OnIntervalThink()
 end
 
+function modifier_magnataur_shockwave_buff_lua:AddStack( count )
+	self:SetStackCount( self:GetStackCount() + count)
+end
 
 
 function modifier_magnataur_shockwave_buff_lua:OnIntervalThink()
     if not IsServer() then return end
-
+	------- Talent ------------
+	local int10 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int10")
+	if int10 ~= nil then
+		self.tick = self.tick + 1
+		if self.tick % int10:GetSpecialValueFor("interval") == 0 then
+			self:AddStack(int10:GetSpecialValueFor("waves_count"))
+		end
+	end
+	----------------------------
+	if self:GetStackCount() < 1 then return end
+	
     local origin = self.parent:GetAbsOrigin()
 
     -- Находим все вражеские юниты в радиусе 1000 единиц от героя
@@ -56,5 +71,5 @@ function modifier_magnataur_shockwave_buff_lua:OnIntervalThink()
 		vVelocity = direction * speed,
 	}
 	ProjectileManager:CreateLinearProjectile(info)
+	self:DecrementStackCount()
 end
-

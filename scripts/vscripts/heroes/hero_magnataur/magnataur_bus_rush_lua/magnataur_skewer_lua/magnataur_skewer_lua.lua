@@ -10,9 +10,9 @@ Ability checklist (erase if done/checked):
 ]]
 --------------------------------------------------------------------------------
 magnataur_skewer_lua = class({})
-LinkLuaModifier( "modifier_magnataur_skewer_lua", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_magnataur_skewer_lua", LUA_MODIFIER_MOTION_HORIZONTAL )
-LinkLuaModifier( "modifier_magnataur_skewer_lua_debuff", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_magnataur_skewer_lua_debuff", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_magnataur_skewer_lua_slow", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_magnataur_skewer_lua_slow", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_magnataur_skewer_lua", "heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_skewer_lua/modifier_magnataur_skewer_lua", LUA_MODIFIER_MOTION_HORIZONTAL )
+LinkLuaModifier( "modifier_magnataur_skewer_lua_debuff", "heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_skewer_lua/modifier_magnataur_skewer_lua_debuff", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_magnataur_skewer_lua_slow", "heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_skewer_lua/modifier_magnataur_skewer_lua_slow", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Init Abilities
@@ -23,32 +23,16 @@ function magnataur_skewer_lua:Precache( context )
 end
 
 --------------------------------------------------------------------------------
--- Custom KV
-function magnataur_skewer_lua:GetCooldown( level )
-	if self:GetCaster():HasScepter() then
-		return self:GetSpecialValueFor( "skewer_cooldown" )
-	end
-
-	return self.BaseClass.GetCooldown( self, level )
-end
-
-function magnataur_skewer_lua:GetManaCost( level )
-	if self:GetCaster():HasScepter() then
-		return self:GetSpecialValueFor( "skewer_manacost" )
-	end
-
-	return self.BaseClass.GetManaCost( self, level )
-end
-
---------------------------------------------------------------------------------
 -- Ability Start
 function magnataur_skewer_lua:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
-
+	local modifier_bus_rush_unit_lua = self:GetCaster():FindModifierByName("modifier_bus_rush_unit_lua")
+	local main_hero = modifier_bus_rush_unit_lua:GetCaster()
+	local bus_rush_ability = main_hero:FindAbilityByName("magnataur_bus_rush_lua")
 	-- load data
-	local maxrange = self:GetSpecialValueFor( "range" )
+	local maxrange = bus_rush_ability:GetSpecialValueFor( "range" )
 
 	local direction = point-caster:GetOrigin()
 	if direction:Length2D() > maxrange then

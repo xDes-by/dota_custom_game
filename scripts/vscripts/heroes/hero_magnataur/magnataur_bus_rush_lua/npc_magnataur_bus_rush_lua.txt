@@ -5,7 +5,7 @@
 		"Model"						"models/heroes/magnataur/magnataur.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"Hero_WarlockGolem"			// Name of sound set.
-		"ModelScale"				"1"
+		"ModelScale"				"1.2"
 	
 		"Ability1"					"magnataur_skewer_lua"			// Ability 1
 		"Ability2"					""			// Ability 2
@@ -25,7 +25,7 @@
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			  
 
-		"HealthBarOffset"			"240"
+		"HealthBarOffset"			"9999"
 
 		"BountyXP"					"98"
 		"BountyGoldMin"				"100"

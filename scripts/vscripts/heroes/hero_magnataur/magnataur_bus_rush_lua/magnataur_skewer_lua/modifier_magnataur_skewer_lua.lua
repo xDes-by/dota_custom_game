@@ -32,12 +32,13 @@ end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_magnataur_skewer_lua:OnCreated( kv )
+	if not IsServer() then return end
 	-- references
 	self.radius = self:GetAbility():GetSpecialValueFor( "skewer_radius" )
 	self.speed = self:GetAbility():GetSpecialValueFor( "skewer_speed" )
 	self.tree = self:GetAbility():GetSpecialValueFor( "tree_radius" )
-
-	if not IsServer() then return end
+	self.debuff_duration = self:GetAbility():GetSpecialValueFor( "slow_duration" )
+	
 
 	-- get data
 	self.origin = self:GetParent():GetOrigin()
@@ -71,6 +72,9 @@ end
 function modifier_magnataur_skewer_lua:OnDestroy()
 	if not IsServer() then return end
 	self:GetParent():RemoveHorizontalMotionController( self )
+	if not self:GetParent():IsRealHero() then
+		UTIL_Remove(self:GetParent())
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -84,7 +88,7 @@ function modifier_magnataur_skewer_lua:DeclareFunctions()
 end
 
 function modifier_magnataur_skewer_lua:GetOverrideAnimation()
-	return ACT_DOTA_MAGNUS_SKEWER
+	return ACT_DOTA_MAGNUS_SKEWER_START
 end
 
 --------------------------------------------------------------------------------
@@ -132,10 +136,6 @@ function modifier_magnataur_skewer_lua:GetAuraRadius()
 	return self.radius
 end
 
-function modifier_magnataur_skewer_lua:GetAuraDuration()
-	return 1.1
-end
-
 function modifier_magnataur_skewer_lua:GetAuraSearchTeam()
 	return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
@@ -149,10 +149,6 @@ function modifier_magnataur_skewer_lua:GetAuraSearchFlags()
 end
 
 function modifier_magnataur_skewer_lua:GetAuraEntityReject( hEntity )
-	if IsServer() then
-		
-	end
-
 	return false
 end
 

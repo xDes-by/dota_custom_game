@@ -13,7 +13,7 @@
 		"ScriptFile"					"heroes/hero_magnataur/magnataur_shockwave_lua/magnataur_shockwave_lua"
 		"AbilityTextureName"			"magnataur_shockwave"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"4"
+		"MaxLevel"						"15"
 		
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13 12 11 10"
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"90 100 110 120"
 
 		// Damage
@@ -56,42 +56,33 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"75 150 225 300"
+				"movement_slow"				"75"
 			}
 			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shock_damage"				"50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+			}
+			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"pull_duration"				"0.2"
 			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"75"
-			}
+			
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2"
+				"slow_duration"				"0.9"
 			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"scepter_distance"		"2000"
+				"pull_distance"				"150"
 			}
 			"08"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"scepter_speed"		"1500"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"pull_distance"		"150"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"basic_slow_duration"		"0.9"
+				"wave_count"				"1 1 1 2 2 2 3 3 3 4 4 4 5 5 5"
 			}
 		}
 	}

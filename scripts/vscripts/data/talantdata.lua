@@ -9781,110 +9781,110 @@ npc_dota_hero_magnataur = {
             --------------------------------------------------------------------------------------------------------------UNIQUE        
     
             npc_dota_hero_magnataur_str6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-6.png", name = "npc_dota_hero_bloodseeker_str6", description = "", buff = "npc_dota_hero_bloodseeker_str6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-6.png", name = "npc_dota_hero_magnataur_str6", description = "", buff = "npc_dota_hero_magnataur_str6_Description",
                 place = {"str 6"}
             },
         
             npc_dota_hero_magnataur_str7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-7.png", name = "npc_dota_hero_bloodseeker_str7", description = "", buff = "npc_dota_hero_bloodseeker_str7_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-7.png", name = "npc_dota_hero_magnataur_str7", description = "", buff = "npc_dota_hero_magnataur_str7_Description",
                 place = {"str 7"}
             },
             
             npc_dota_hero_magnataur_str8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-8.png", name = "npc_dota_hero_bloodseeker_str8", description = "", buff = "npc_dota_hero_bloodseeker_str8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-8.png", name = "npc_dota_hero_magnataur_str8", description = "", buff = "npc_dota_hero_magnataur_str8_Description",
                 place = {"str 8"}
             },
                 
             npc_dota_hero_magnataur_str9 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-9.png", name = "npc_dota_hero_bloodseeker_str9", description = "", buff = "npc_dota_hero_bloodseeker_str9_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-9.png", name = "npc_dota_hero_magnataur_str9", description = "", buff = "npc_dota_hero_magnataur_str9_Description",
                 place = {"str 9"}
             },
             
             npc_dota_hero_magnataur_str10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-10.png", name = "npc_dota_hero_bloodseeker_str10", description = "", buff = "npc_dota_hero_bloodseeker_str10_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-10.png", name = "npc_dota_hero_magnataur_str10", description = "", buff = "npc_dota_hero_magnataur_str10_Description",
                 place = {"str 10"}
             },
             
             npc_dota_hero_magnataur_str11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-11.png", name = "npc_dota_hero_bloodseeker_str11", description = "", buff = "npc_dota_hero_bloodseeker_str11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-11.png", name = "npc_dota_hero_magnataur_str11", description = "", buff = "npc_dota_hero_magnataur_str11_Description",
                 place = {"str 11"}
             },
     
             npc_dota_hero_magnataur_str_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/str-talant-12.png", name = "npc_dota_hero_bloodseeker_str_last", description = "", buff = "npc_dota_hero_bloodseeker_str_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-12.png", name = "npc_dota_hero_magnataur_str_last", description = "", buff = "npc_dota_hero_magnataur_str_last_Description",
                 place = {"str 12"}
             },
                 
     ---     
         
             npc_dota_hero_magnataur_agi6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-6.png", name = "npc_dota_hero_bloodseeker_agi6", description = "", buff = "npc_dota_hero_bloodseeker_agi6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-6.png", name = "npc_dota_hero_magnataur_agi6", description = "", buff = "npc_dota_hero_magnataur_agi6_Description",
                 place = {"agi 6"}
             },
         
             npc_dota_hero_magnataur_agi7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-7.png", name = "npc_dota_hero_bloodseeker_agi7", description = "", buff = "npc_dota_hero_bloodseeker_agi7_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-6.png", name = "npc_dota_hero_magnataur_agi7", description = "", buff = "npc_dota_hero_magnataur_agi7_Description",
                 place = {"agi 7"}
             },
             
             npc_dota_hero_magnataur_agi8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-8.png", name = "npc_dota_hero_bloodseeker_agi8", description = "", buff = "npc_dota_hero_bloodseeker_agi8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-8.png", name = "npc_dota_hero_magnataur_agi8", description = "", buff = "npc_dota_hero_magnataur_agi8_Description",
                 place = {"agi 8"}
             },
                 
             npc_dota_hero_magnataur_agi9 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-9.png", name = "npc_dota_hero_bloodseeker_agi9", description = "", buff = "npc_dota_hero_bloodseeker_agi9_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-9.png", name = "npc_dota_hero_magnataur_agi9", description = "", buff = "npc_dota_hero_magnataur_agi9_Description",
                 place = {"agi 9"}
             },
             
             npc_dota_hero_magnataur_agi10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-10.png", name = "npc_dota_hero_bloodseeker_agi10", description = "", buff = "npc_dota_hero_bloodseeker_agi10_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-10.png", name = "npc_dota_hero_magnataur_agi10", description = "", buff = "npc_dota_hero_magnataur_agi10_Description",
                 place = {"agi 10"}
             },
             
             npc_dota_hero_magnataur_agi11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-11.png", name = "npc_dota_hero_bloodseeker_agi11", description = "", buff = "npc_dota_hero_bloodseeker_agi11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-11.png", name = "npc_dota_hero_magnataur_agi11", description = "", buff = "npc_dota_hero_magnataur_agi11_Description",
                 place = {"agi 11"}
             },
     
             npc_dota_hero_magnataur_agi_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-12.png", name = "npc_dota_hero_bloodseeker_agi_last", description = "", buff = "npc_dota_hero_bloodseeker_agi_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/agi/agi-talant-12.png", name = "npc_dota_hero_magnataur_agi_last", description = "", buff = "npc_dota_hero_magnataur_agi_last_Description",
                 place = {"agi 12"}
             },
              
     ---
             npc_dota_hero_magnataur_int6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-6.png", name = "npc_dota_hero_bloodseeker_int6", description = "", buff = "npc_dota_hero_bloodseeker_int6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-6.png", name = "npc_dota_hero_magnataur_int6", description = "", buff = "npc_dota_hero_magnataur_int6_Description",
                 place = {"int 6"}
             },
             
             npc_dota_hero_magnataur_int7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-7.png", name = "npc_dota_hero_bloodseeker_int7", description = "", buff = "npc_dota_hero_bloodseeker_int7_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-12.png", name = "npc_dota_hero_magnataur_int7", description = "", buff = "npc_dota_hero_magnataur_int7_Description",
                 place = {"int 7"}
             },
             
             npc_dota_hero_magnataur_int8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-8.png", name = "npc_dota_hero_bloodseeker_int8", description = "", buff = "npc_dota_hero_bloodseeker_int8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-8.png", name = "npc_dota_hero_magnataur_int8", description = "", buff = "npc_dota_hero_magnataur_int8_Description",
                 place = {"int 8"}
             },
                 
             npc_dota_hero_magnataur_int9 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-9.png", name = "npc_dota_hero_bloodseeker_int9", description = "", buff = "npc_dota_hero_bloodseeker_int9_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-9.png", name = "npc_dota_hero_magnataur_int9", description = "", buff = "npc_dota_hero_magnataur_int9_Description",
                 place = {"int 9"}
             },
             
             npc_dota_hero_magnataur_int10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-10.png", name = "npc_dota_hero_bloodseeker_int10", description = "", buff = "npc_dota_hero_bloodseeker_int10_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-11.png", name = "npc_dota_hero_magnataur_int10", description = "", buff = "npc_dota_hero_magnataur_int10_Description",
                 place = {"int 10"}
             },
                 
             npc_dota_hero_magnataur_int11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-11.png", name = "npc_dota_hero_bloodseeker_int11", description = "", buff = "npc_dota_hero_bloodseeker_int11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-11.png", name = "npc_dota_hero_magnataur_int11", description = "", buff = "npc_dota_hero_magnataur_int11_Description",
                 place = {"int 11"}
             },  
     
             npc_dota_hero_magnataur_int_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/int/int-talant-12.png", name = "npc_dota_hero_bloodseeker_int_last", description = "", buff = "npc_dota_hero_bloodseeker_int_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-12.png", name = "npc_dota_hero_magnataur_int_last", description = "", buff = "npc_dota_hero_magnataur_int_last_Description",
                 place = {"int 12"}
             },
                 

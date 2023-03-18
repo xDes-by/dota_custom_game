@@ -18,7 +18,7 @@ require("use_pets")
 
 _G.key = GetDedicatedServerKeyV3("MCF")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
+_G.cheatmode = false -- false
 _G.server_load = false -- true
 
 if CAddonAdvExGameMode == nil then

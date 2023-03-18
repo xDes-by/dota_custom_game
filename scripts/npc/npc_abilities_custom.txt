@@ -2783,15 +2783,11 @@
 
 //=====================================================================================================MAGNATAUR=================================================================================================================================================
 
+#base "../vscripts/heroes/hero_magnataur/magnataur_talents.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_empower_lua/magnataur_empower_lua.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_reverse_polarity_lua/magnataur_reverse_polarity_lua.txt"
-#base "../vscripts/heroes/hero_magnataur/magnataur_swashbuckle_lua/magnataur_swashbuckle_lua.txt"
-#base "../vscripts/heroes/hero_magnataur/pangolier_swashbuckle_lua/pangolier_swashbuckle_lua.txt"
-#base "../vscripts/heroes/hero_magnataur/mirana_sacred_arrow_lua/mirana_sacred_arrow_lua.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_bus_rush_lua.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_shockwave_lua/magnataur_shockwave_lua.txt"
-// #base "../vscripts/heroes/hero_magnataur/legion_courage/legion_courage.txt"
-// #base "../vscripts/heroes/hero_magnataur/legion_ult/legion_ult.txt"
 
 //=========================================================================================================================================================================================================================
 //=========================================================================================================================================================================================================================

@@ -58,7 +58,6 @@ function modifier_mars_atrophy_aura_lua_debuff:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 	}
-
 	return funcs
 end
 
