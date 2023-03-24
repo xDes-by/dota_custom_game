@@ -9,6 +9,13 @@ function modifier_magnataur_shockwave_buff_lua:OnCreated()
 	self:OnIntervalThink()
 end
 
+function modifier_magnataur_shockwave_buff_lua:IsHidden()
+	if self:GetStackCount() > 0 then
+		return false
+	end
+	return true
+end
+
 function modifier_magnataur_shockwave_buff_lua:AddStack( count )
 	self:SetStackCount( self:GetStackCount() + count)
 end
@@ -20,8 +27,8 @@ function modifier_magnataur_shockwave_buff_lua:OnIntervalThink()
 	local int10 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int10")
 	if int10 ~= nil then
 		self.tick = self.tick + 1
-		if self.tick % int10:GetSpecialValueFor("interval") == 0 then
-			self:AddStack(int10:GetSpecialValueFor("waves_count"))
+		if self.tick % 3 == 0 then
+			self:AddStack(1)
 		end
 	end
 	----------------------------
@@ -30,11 +37,11 @@ function modifier_magnataur_shockwave_buff_lua:OnIntervalThink()
     local origin = self.parent:GetAbsOrigin()
 
     -- Находим все вражеские юниты в радиусе 1000 единиц от героя
-    local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(), self.parent:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(), self.parent:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
     local point = nil
     if #enemies>0 then 
         local rand = RandomInt(1, #enemies)
-        point = enemies[rand]:GetOrigin()
+        point = enemies[1]:GetOrigin()
     else
         local angle = math.random(0, 360) -- генерируем случайный угол в градусах
         local random_vector = Vector(math.cos(angle), math.sin(angle), 0) -- создаем вектор из полученного угла

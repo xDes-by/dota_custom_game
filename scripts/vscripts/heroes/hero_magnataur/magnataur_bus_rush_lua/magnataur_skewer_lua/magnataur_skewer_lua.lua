@@ -53,3 +53,7 @@ function magnataur_skewer_lua:OnSpellStart()
 		} -- kv
 	)
 end
+
+function magnataur_skewer_lua:GetCastAnimation()
+	return ACT_DOTA_MAGNUS_SKEWER_START
+end

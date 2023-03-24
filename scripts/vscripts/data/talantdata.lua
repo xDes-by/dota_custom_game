@@ -9781,7 +9781,7 @@ npc_dota_hero_magnataur = {
             --------------------------------------------------------------------------------------------------------------UNIQUE        
     
             npc_dota_hero_magnataur_str6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-6.png", name = "npc_dota_hero_magnataur_str6", description = "", buff = "npc_dota_hero_magnataur_str6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-11.png", name = "npc_dota_hero_magnataur_str6", description = "", buff = "npc_dota_hero_magnataur_str6_Description",
                 place = {"str 6"}
             },
         
@@ -9796,12 +9796,12 @@ npc_dota_hero_magnataur = {
             },
                 
             npc_dota_hero_magnataur_str9 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-9.png", name = "npc_dota_hero_magnataur_str9", description = "", buff = "npc_dota_hero_magnataur_str9_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-12.png", name = "npc_dota_hero_magnataur_str9", description = "", buff = "npc_dota_hero_magnataur_str9_Description",
                 place = {"str 9"}
             },
             
             npc_dota_hero_magnataur_str10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-10.png", name = "npc_dota_hero_magnataur_str10", description = "", buff = "npc_dota_hero_magnataur_str10_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-11.png", name = "npc_dota_hero_magnataur_str10", description = "", buff = "npc_dota_hero_magnataur_str10_Description",
                 place = {"str 10"}
             },
             
@@ -9811,7 +9811,7 @@ npc_dota_hero_magnataur = {
             },
     
             npc_dota_hero_magnataur_str_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-12.png", name = "npc_dota_hero_magnataur_str_last", description = "", buff = "npc_dota_hero_magnataur_str_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_magnataur/str/str-talant-9.png", name = "npc_dota_hero_magnataur_str_last", description = "", buff = "npc_dota_hero_magnataur_str_last_Description",
                 place = {"str 12"}
             },
                 

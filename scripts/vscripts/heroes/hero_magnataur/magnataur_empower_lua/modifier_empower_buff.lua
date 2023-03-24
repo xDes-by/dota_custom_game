@@ -13,6 +13,7 @@ function modifier_empower_buff:IsPurgable()
 end
 
 function modifier_empower_buff:OnCreated( kv )
+	if not IsServer() then return end
 	---------------------- init data
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
@@ -25,10 +26,9 @@ function modifier_empower_buff:OnCreated( kv )
 	self.radius_end = self:GetAbility():GetSpecialValueFor( "cleave_ending_width" )
 	self.radius_dist = self:GetAbility():GetSpecialValueFor( "cleave_distance" )
 	----------------------- str
-	self.str6 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_str6")
 	self.str7 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_str7")
 	self.str8 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_str8")
-	self.str12 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_str_last")
+	self.str9 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_str9")
 	----------------------- agi
 	self.agi9 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_agi9")
 	self.agi10 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_agi10")
@@ -37,7 +37,9 @@ function modifier_empower_buff:OnCreated( kv )
 	----------------------- int
 	self.int7 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int7")
 	self.int12 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int_last")
-	
+	self.bonus_intelegent = self.parent:GetIntellect() * 0.05 * self.ability:GetLevel()
+	self.mp_regen = 5 * self.ability:GetLevel()
+	if self.int12 == nil then self.mp_regen = 0 end
 
 	if self.parent==self.caster then
 		self.damage = self.damage*self.mult
@@ -45,7 +47,7 @@ function modifier_empower_buff:OnCreated( kv )
 		self.attack_count = self.attack_count*self.mult
 	end
 	if self.agi10 ~= nil then
-		local multiplier = self.agi10:GetSpecialValueFor("multiplier")
+		local multiplier = 1.5
 		self.damage = self.damage*multiplier
 		self.cleave = self.cleave*multiplier
 	end
@@ -65,7 +67,7 @@ function modifier_empower_buff:OnCreated( kv )
 		DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES,
 		FIND_ANY_ORDER, 
 		false)
-		local damage = self.int7:GetSpecialValueFor("damage_per_level") * self.ability:GetLevel()
+		local damage = 50 * self.ability:GetLevel()
 		for __,v in pairs(units) do 
 
 			ApplyDamage({
@@ -79,19 +81,17 @@ function modifier_empower_buff:OnCreated( kv )
 		end
 		self:PlayEffect()
 	end
-	if self.str12 ~= nil then
-		self.parent:AddNewModifier(self.caster, self.ability, "modifier_talent_str12", {
-			duration = 3
-		})
+	if self.str9 ~= nil then
+		self.parent:AddNewModifier(self.caster, self.ability, "modifier_talent_str9", { duration = 3 })
 	end
+	print("self.damage:" , self.damage)
 end
-
--- modifier_empower_buff.OnRefresh = modifier_empower_buff.OnCreated
 
 function modifier_empower_buff:OnRefresh(table)
 	if table.existing_duration ~= nil then
 		self:OnCreated(table)
 	end
+	return false
 end
 
 function modifier_empower_buff:DeclareFunctions()
@@ -100,11 +100,10 @@ function modifier_empower_buff:DeclareFunctions()
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE,
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+		-- MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		-- MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 	}
 end
 
@@ -130,7 +129,7 @@ function modifier_empower_buff:OnAttackLanded( params )
 	local attacker = params.attacker
 	if attacker ~= self:GetParent() then return end
 	if self.str8 ~= nil then
-		local heal_amount = params.damage * self.str8:GetSpecialValueFor("vampirism") / 100
+		local heal_amount = params.damage * 0.2
 		self.parent:Heal(heal_amount, self.ability)
 		local particle_cast = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
 		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.parent )
@@ -146,13 +145,13 @@ end
 
 function modifier_empower_buff:GetModifierDamageOutgoing_Percentage()
 	if self.agi12 ~= nil then
-		return self.damage * self.agi12:GetSpecialValueFor("multiplier")
-	else
-		return 0
+		return self.damage * 0.5
 	end
+	return 0
 end
 
 function modifier_empower_buff:GetModifierBaseDamageOutgoing_Percentage()
+	print("BaseDamage:", self.damage)
 	return self.damage
 end
 
@@ -174,40 +173,27 @@ end
 ------ Talent Bonuses ----------------------------------------------------------
 --------------------------------------------------------------------------------
 
-function modifier_empower_buff:GetModifierMagicalResistanceBonus()
-	if self.str6 ~= nil then 
-		return 30
-	end
-	return 0
-end
-
 function modifier_empower_buff:GetModifierExtraHealthPercentage()
 	if self.str7 ~= nil then
-		return self.str7:GetSpecialValueFor("extra_health_perc")
+		return 50
 	end
 	return 0
 end
 
 function modifier_empower_buff:GetModifierBaseAttack_BonusDamage()
 	if self.agi11 ~= nil and self.parent:IsRealHero() then
-		return self.parent:GetAgility() * self.agi11:GetSpecialValueFor("multiplier")
-	else
-		return 0
+		return self.parent:GetAgility()
 	end
+	return 0
 end
 
 function modifier_empower_buff:GetModifierBonusStats_Intellect()
 	if self.int12 ~= nil and self.parent:IsRealHero() then
-		-- return self.parent:GetIntellect() * (self.int12:GetSpecialValueFor("level_bonus") * self.ability:GetLevel())
-		return 5 * self.ability:GetLevel()
+		return self.bonus_intelegent
 	end
 	return 0
 end
 
 function modifier_empower_buff:GetModifierMPRegenAmplify_Percentage()
-	if self.int12 ~= nil then
-		-- return self.int12:GetSpecialValueFor("level_bonus") * self.ability:GetLevel() * 100
-		return 5 * self.ability:GetLevel()
-	end
-	return 0
+	return self.mp_regen
 end

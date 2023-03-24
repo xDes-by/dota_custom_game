@@ -17,9 +17,10 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV3("MCF")
+_G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = false -- true
+_G.server_load = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -227,7 +228,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
-	--GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
@@ -242,6 +243,9 @@ end
 
 function CAddonAdvExGameMode:OrderFilter(event)
     if event.order_type == DOTA_UNIT_ORDER_PATROL then
+        return false
+    end
+	if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_DIRECTION then
         return false
     end
     return true
@@ -513,7 +517,7 @@ function loadscript()
 		require("www/loader")
 	else
 		print("server load")
-		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-lts?key=" .. _G.key
+		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-test?key=" .. _G.key
 		local req = CreateHTTPRequestScriptVM( "GET", url )
 		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 		req:Send(function(res)

@@ -33,6 +33,7 @@ end
 -- Initializations
 function modifier_magnataur_skewer_lua:OnCreated( kv )
 	if not IsServer() then return end
+	-- self:GetCaster():StartGesture()
 	-- references
 	self.radius = self:GetAbility():GetSpecialValueFor( "skewer_radius" )
 	self.speed = self:GetAbility():GetSpecialValueFor( "skewer_speed" )
@@ -72,6 +73,8 @@ end
 function modifier_magnataur_skewer_lua:OnDestroy()
 	if not IsServer() then return end
 	self:GetParent():RemoveHorizontalMotionController( self )
+	-- self:GetCaster():StartGesture(ACT_DDOTA_MAGNUS_SKEWER_END)
+	
 	if not self:GetParent():IsRealHero() then
 		UTIL_Remove(self:GetParent())
 	end
@@ -88,7 +91,7 @@ function modifier_magnataur_skewer_lua:DeclareFunctions()
 end
 
 function modifier_magnataur_skewer_lua:GetOverrideAnimation()
-	return ACT_DOTA_MAGNUS_SKEWER_START
+	return ACT_DOTA_CAST_ABILITY_3
 end
 
 --------------------------------------------------------------------------------
@@ -141,7 +144,7 @@ function modifier_magnataur_skewer_lua:GetAuraSearchTeam()
 end
 
 function modifier_magnataur_skewer_lua:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
 
 function modifier_magnataur_skewer_lua:GetAuraSearchFlags()

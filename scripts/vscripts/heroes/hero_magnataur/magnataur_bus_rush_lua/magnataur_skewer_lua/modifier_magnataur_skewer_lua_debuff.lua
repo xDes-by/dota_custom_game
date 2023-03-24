@@ -42,18 +42,20 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 	local parent = self:GetParent()
 	local caster = self:GetCaster()
 	local origin = caster:GetOrigin() + caster:GetForwardVector() * 500
-	parent:AddNewModifier(
-		self:GetCaster(), -- player source
-		self:GetAbility(), -- ability source
-		"modifier_generic_arc_lua", -- modifier name
-		{
-			target_x = origin.x,
-			target_y = origin.y,
-			duration = 0.2,
-			distance = 170,
-			activity = ACT_DOTA_FLAIL,
-		} -- kv
-	)
+	if not parent:IsRealHero() then
+		parent:AddNewModifier(
+			self:GetCaster(), -- player source
+			self:GetAbility(), -- ability source
+			"modifier_generic_arc_lua", -- modifier name
+			{
+				target_x = origin.x,
+				target_y = origin.y,
+				duration = 0.2,
+				distance = 170,
+				activity = ACT_DOTA_FLAIL,
+			} -- kv
+		)
+	end
 
 	parent:AddNewModifier(
 		self:GetCaster(), -- player source
@@ -73,7 +75,7 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 		self:GetAbility(), -- ability source
 		"modifier_talent_int6", -- modifier name
 		{
-			duration = int6:GetSpecialValueFor("duration"),
+			duration = 10,
 		}) -- kv
 	end
 	-- damage
@@ -97,7 +99,7 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 		self:GetAbility(), -- ability source
 		"modifier_generic_stunned_lua", -- modifier name
 		{
-			duration = str11:GetSpecialValueFor("duration")
+			duration = 1.5
 		} -- kv
 	)
 	end

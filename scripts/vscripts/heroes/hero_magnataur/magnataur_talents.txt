@@ -7,14 +7,6 @@
 		// "ScriptFile"					"heroes/hero_mars/hp"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"magic_resistance"			"30"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_str7"
@@ -22,14 +14,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"extra_health_perc"			"50"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_str8"
@@ -37,54 +21,20 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vampirism"					"15"
-			}
-		}
 	}
-	//-------------------------------  REVERSE POLARITY
+	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_str9"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_reduction"			"25"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"30"
-			}
-		}
 	}
-	//-------------------------------  SHOCKWAVE
+	//-------------------------------  BUS RUSH
 	"npc_dota_hero_magnataur_str10"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"armor_per_level"			"2"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"7"
-			}
-		}
 	}
 	//-------------------------------  BUS RUSH
 	"npc_dota_hero_magnataur_str11"
@@ -92,14 +42,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.5"
-			}
-		}
 	}
 //==	
 	//-------------------------------  REVERSE POLARITY
@@ -108,19 +50,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"chance"					"40"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"perc_crit"					"140"
-			}
-		}
 	}
 	//-------------------------------  BUS RUSH
 	"npc_dota_hero_magnataur_agi7"
@@ -128,14 +57,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"additional_duration"		"1.2"
-			}
-		}
 	}
 	//-------------------------------  SHOCKWAVE
 	"npc_dota_hero_magnataur_agi8"
@@ -143,14 +64,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_multiplier"			"2"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_agi9"
@@ -166,14 +79,6 @@
 		// "ScriptFile"					"heroes/hero_mars/cleave"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"multiplier"				"1.5"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_agi11"
@@ -181,14 +86,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"multiplier"				"1"
-			}
-		}
 	}
 //==	
 	//-------------------------------  BUS RUSH
@@ -197,19 +94,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_multiplier"				"1.1"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"						"10"
-			}
-		}
 	}
 	//-------------------------------  BUS RUSH
 	"npc_dota_hero_magnataur_int7"
@@ -217,14 +101,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_per_level"				"50"
-			}
-		}
 	}
 	//-------------------------------  REVERSE POLARITY
 	"npc_dota_hero_magnataur_int8"
@@ -232,14 +108,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"chance"						"50"
-			}
-		}
 	}
 	//-------------------------------  SHOCKWAVE
 	"npc_dota_hero_magnataur_int9"
@@ -247,14 +115,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_reduction"			"5"
-			}
-		}
 	}
 	//-------------------------------  SHOCKWAVE
 	"npc_dota_hero_magnataur_int10"
@@ -262,19 +122,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"waves_count"				"1"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"interval"					"3"
-			}
-		}
 	}
 	//-------------------------------  SHOCKWAVE
 	"npc_dota_hero_magnataur_int11"
@@ -282,31 +129,15 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"perc_damage"		"1.5"
-			}
-		}
 	}	
 
 	//last
-	//-------------------------------  EMPOWER
+	//-------------------------------  REVERSE POLARITY
 	"npc_dota_hero_magnataur_str_last"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"level_bonus"				"0.05"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_agi_last"
@@ -314,14 +145,6 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"multiplier"				"0.5"
-			}
-		}
 	}
 	//-------------------------------  EMPOWER
 	"npc_dota_hero_magnataur_int_last"
@@ -329,13 +152,5 @@
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"level_bonus"				"0.05"
-			}
-		}
 	}
 }

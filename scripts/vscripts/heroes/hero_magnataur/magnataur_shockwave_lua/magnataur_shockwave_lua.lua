@@ -12,7 +12,6 @@ Ability checklist (erase if done/checked):
 magnataur_shockwave_lua = class({})
 LinkLuaModifier( "modifier_magnataur_shockwave_lua", "heroes/hero_magnataur/magnataur_shockwave_lua/modifier_magnataur_shockwave_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_magnataur_shockwave_buff_lua", "heroes/hero_magnataur/magnataur_shockwave_lua/modifier_magnataur_shockwave_buff_lua", LUA_MODIFIER_MOTION_NONE )
--- LinkLuaModifier( "modifier_talent_str10", "heroes/hero_magnataur/magnataur_shockwave_lua/modifier_talent_str10", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_arc_lua", "heroes/generic/modifier_generic_arc_lua", LUA_MODIFIER_MOTION_BOTH )
 
 --------------------------------------------------------------------------------
@@ -39,18 +38,25 @@ function magnataur_shockwave_lua:OnAbilityPhaseInterrupted()
 	if not IsServer() then return end
 
 	-- stop effects
-	self:StopEffects1( true )
+	-- self:StopEffects1( true )
 end
 
 function magnataur_shockwave_lua:GetIntrinsicModifierName()
 	return "modifier_magnataur_shockwave_buff_lua"
 end
 
+function magnataur_shockwave_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
+end
+
 function magnataur_shockwave_lua:GetCooldown( level )
 	------- Talent -----
 	local int9 = self:GetCaster():FindAbilityByName("npc_dota_hero_magnataur_int9")
 	if int9 ~= nil then
-		return self.BaseClass.GetCooldown( self, level ) - int9:GetSpecialValueFor("cooldown_reduction")
+		return self.BaseClass.GetCooldown( self, level ) - 7
 	end
 	---------------------
 	return self.BaseClass.GetCooldown( self, level )
@@ -61,6 +67,10 @@ end
 function magnataur_shockwave_lua:OnSpellStart()
     local caster = self:GetCaster()
 	local wave_count = self:GetSpecialValueFor("wave_count")
+	local int9 = self:GetCaster():FindAbilityByName("npc_dota_hero_magnataur_int9")
+	if int9 ~= nil then
+		wave_count = wave_count + 1
+	end
 	caster:FindModifierByName( "modifier_magnataur_shockwave_buff_lua" ):AddStack(wave_count)
 
 	-- play effects
@@ -84,7 +94,7 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
 	--------- Talent ---------
 	local int11 = caster:FindAbilityByName("npc_dota_hero_magnataur_int11")
 	if int11 ~= nil then
-		damage = damage * int11:GetSpecialValueFor("perc_damage")
+		damage = damage * 1.5 + caster:GetIntellect() * 0.3
 	end
 	--------------------------
 	-- damage
@@ -100,7 +110,7 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
 	--------- Talent ---------
 	local agi8 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi8")
 	if agi8 ~= nil then
-		physical_damage = caster:GetAverageTrueAttackDamage(caster) * agi8:GetSpecialValueFor("damage_multiplier")
+		physical_damage = caster:GetAverageTrueAttackDamage(caster) * 2
 		ApplyDamage({
 			victim = target,
 			attacker = caster,
@@ -138,19 +148,6 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
     if mod then
 	    self:PlayEffects2( target, mod )
     end
-
-	-- local str10 = caster:FindAbilityByName("npc_dota_hero_magnataur_str10")
-	-- if str10 ~= nil then
-	-- 	target:AddNewModifier(
-	-- 	caster, -- player source
-	-- 	self, -- ability source
-	-- 	"modifier_talent_str10", -- modifier name
-	-- 	{
-	-- 		magic_damage_reduction = str10:GetSpecialValueFor("magic_damage_reduction"),
-	-- 		duration = str10:GetSpecialValueFor("duration"),
-	-- 	} -- kv
-	-- )
-	-- end
 	return false
 end
 

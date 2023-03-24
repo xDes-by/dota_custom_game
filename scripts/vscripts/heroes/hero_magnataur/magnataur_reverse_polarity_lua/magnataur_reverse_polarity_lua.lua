@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_talent_str9", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_str9", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_str12", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_str12", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_agi6", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_agi6", LUA_MODIFIER_MOTION_NONE )
 
 magnataur_reverse_polarity_lua = {}
@@ -34,10 +34,17 @@ end
 
 function magnataur_reverse_polarity_lua:GetCooldown( level )
 	local int8 = self:GetCaster():FindAbilityByName("npc_dota_hero_magnataur_int8")
-	if int8 ~= nil and int8:GetSpecialValueFor("chance") >= RandomInt(1, 100) then
+	if int8 ~= nil and 50 >= RandomInt(1, 100) then
 		return 0
 	end
 	return self.BaseClass.GetCooldown( self, level )
+end
+
+function magnataur_reverse_polarity_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect()*3)
+    end
 end
 
 function magnataur_reverse_polarity_lua:OnAbilityPhaseInterrupted()
@@ -55,7 +62,11 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 
 	local agi7 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi7")
 	if agi7 ~= nil then
-		duration = duration + agi7:GetSpecialValueFor("additional_duration")
+		duration = duration + 1.2
+	end
+	local int8 = caster:FindAbilityByName("npc_dota_hero_magnataur_int8")
+	if int8 ~= nil then
+		damage = damage * 1.15
 	end
 	local damageTable = {
 		attacker = caster,
@@ -78,8 +89,10 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 
 	for _,enemy in pairs(enemies) do
 		local origin = enemy:GetOrigin()
-		local pos = caster:GetOrigin() + caster:GetForwardVector() * range
-		FindClearSpaceForUnit( enemy, pos, true )
+		if not enemy:IsRealHero() then
+			local pos = caster:GetOrigin() + caster:GetForwardVector() * range
+			FindClearSpaceForUnit( enemy, pos, true )
+		end
 
 		enemy:AddNewModifier(
 			caster,
@@ -105,19 +118,16 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 
 	EmitSoundOn( "Hero_Magnataur.ReversePolarity.Cast", caster )
 
-	local str9 = caster:FindAbilityByName("npc_dota_hero_magnataur_str9")
-	if str9 ~= nil then
-		caster:AddNewModifier(caster, self, "modifier_talent_str9", {
-			duration = str9:GetSpecialValueFor("duration"),
-			damage_reduction = str9:GetSpecialValueFor("damage_reduction"),
-		})
+	local str12 = caster:FindAbilityByName("npc_dota_hero_magnataur_str_last")
+	if str12 ~= nil then
+		caster:AddNewModifier(caster, self, "modifier_talent_str12", {duration = 30})
 	end
 	local agi6 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi6")
 	if agi6 ~= nil then
 		caster:AddNewModifier(caster, self, "modifier_talent_agi6", {
-			duration = self:GetSpecialValueFor( "hero_stun_duration" ),
-			chance = agi6:GetSpecialValueFor("chance"),
-			perc_crit = agi6:GetSpecialValueFor("perc_crit"),
+			duration = duration,
+			chance = 40,
+			perc_crit = 160,
 		})
 	end
 end

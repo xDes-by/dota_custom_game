@@ -53,7 +53,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_pct"		"4 9 14 19 24 29 34 39 44 49 54 59 64 69 74"
+				"cleave_damage_pct"		"20 24 28 32 36 40 44 48 52 56 60 64 68 72 76"
 			}			
 			"05"
 			{
@@ -73,7 +73,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"self_multiplier"		"1.45"
+				"self_multiplier"		"1.5"
 			}
 			
 		}

@@ -1,10 +1,17 @@
 LinkLuaModifier("modifier_empower_buff", "heroes/hero_magnataur/magnataur_empower_lua/modifier_empower_buff.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_talent_str12", "heroes/hero_magnataur/magnataur_empower_lua/modifier_talent_str12.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_talent_str9", "heroes/hero_magnataur/magnataur_empower_lua/modifier_talent_str9.lua", LUA_MODIFIER_MOTION_NONE)
 
 magnataur_empower_lua = {}
 
 function magnataur_empower_lua:OnAbilityPhaseStart()
 	return true
+end
+
+function magnataur_empower_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
 end
 
 function magnataur_empower_lua:OnSpellStart()

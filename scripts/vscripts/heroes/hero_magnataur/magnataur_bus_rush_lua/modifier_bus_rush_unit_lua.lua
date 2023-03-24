@@ -25,3 +25,4 @@ function modifier_bus_rush_unit_lua:CheckState()
 		[MODIFIER_STATE_UNSELECTABLE] = true,
 	}
 end
+

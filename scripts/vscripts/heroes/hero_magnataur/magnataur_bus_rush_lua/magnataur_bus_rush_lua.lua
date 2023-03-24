@@ -3,8 +3,10 @@ magnataur_bus_rush_lua = class({})
 LinkLuaModifier( "modifier_generic_knockback_lua", "heroes/generic/modifier_generic_knockback_lua", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_bus_rush_unit_lua", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_bus_rush_unit_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_int6", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_talent_int6", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_talent_str6", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_talent_str6", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_str10", "heroes/hero_magnataur/magnataur_bus_rush_lua/modifier_talent_str10", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
+
 
 function magnataur_bus_rush_lua:Precache( context )
 	PrecacheResource( "soundfile", "soundevents/bus_rush_sound.vsndevts", context )
@@ -14,17 +16,18 @@ end
 -- Ability Phase Start
 function magnataur_bus_rush_lua:OnAbilityPhaseStart()
 	-- Vector targeting
-	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_taunt_magnus", {})
 	if not self:CheckVectorTargetPosition() then return false end
+	StartAnimation(self:GetCaster(), {duration=2.0, activity=ACT_DOTA_TAUNT, rate=0.8, translate="mag_power_gesture"})
 	return true -- if success
 end
 
-function magnataur_bus_rush_lua:OnAbilityPhaseInterrupted()
-	local taunt = self:GetCaster():FindModifierByName("modifier_taunt_magnus")
-	if taunt then
-		taunt:Destroy()
-	end
+function magnataur_bus_rush_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
 end
+
 --------------------------------------------------------------------------------
 -- Ability Start
 function magnataur_bus_rush_lua:OnSpellStart()
@@ -62,47 +65,18 @@ function magnataur_bus_rush_lua:OnSpellStart()
 		
 		-- Отдаем команду юниту
 		ExecuteOrderFromTable(order)
-		local str10 = self:GetCaster():FindAbilityByName("npc_dota_hero_magnataur_str10")
+		local str10 = caster:FindAbilityByName("npc_dota_hero_magnataur_str10")
 		if str10 ~= nil then
-			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_talent_str10", {
-				duration = str10:GetSpecialValueFor("duration"),
-				armor_per_level = str10:GetSpecialValueFor("armor_per_level"),
+			caster:AddNewModifier(caster, self, "modifier_talent_str10", {
+				duration = 7,
+				armor_per_level = 2,
 			})
+		end
+		local str6 = caster:FindAbilityByName("npc_dota_hero_magnataur_str6")
+		if str6 ~= nil then
+			caster:AddNewModifier(caster, self, "modifier_talent_str6", { duration = 2.5 })
 		end
 	end)
 	EmitSoundOn( "bus_rush_sound", caster )
     -- caster:StartGesture(ACT_DOTA_TAUNT)
-end
-
-
-LinkLuaModifier( "modifier_taunt_magnus", "heroes/hero_magnataur/magnataur_bus_rush_lua/magnataur_bus_rush_lua", LUA_MODIFIER_MOTION_NONE )
---Modifiers
-if modifier_taunt_magnus == nil then
-	modifier_taunt_magnus = class({}, nil, ModifierPositiveBuff)
-end
-function modifier_taunt_magnus:IsHidden()
-	return true
-end
-function modifier_taunt_magnus:OnDestroy()
-	if IsServer() then
-		self:GetParent():FadeGesture(ACT_DOTA_TAUNT)
-	end
-end
-function modifier_taunt_magnus:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
-	}
-end
-function modifier_taunt_magnus:GetOverrideAnimation()
-	return ACT_DOTA_TAUNT
-end
-function modifier_taunt_magnus:GetActivityTranslationModifiers()
-	return "mag_power_gesture"
-end
-function modifier_taunt_magnus:CheckState()
-	return {
-		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
-		[MODIFIER_STATE_DISARMED] = true
-	}
 end
