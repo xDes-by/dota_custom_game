@@ -162,8 +162,8 @@ end
 modifier_troll_warlord_fervor_lua_buff = class({
     IsHidden                = function(self) return false end,
     IsPurgable              = function(self) return true end,
-    IsDebuff                = function(self) return true end,
-    IsBuff                  = function(self) return false end,
+    IsDebuff                = function(self) return false end,
+    IsBuff                  = function(self) return true end,
     RemoveOnDeath           = function(self) return true end,
 	DeclareFunctions = function() return {
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT

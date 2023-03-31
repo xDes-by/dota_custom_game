@@ -2635,6 +2635,108 @@
 			}
 		}
 	}
+    "muerta_the_calling_custom"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_muerta/muerta_the_calling_custom.lua"
+        "AbilityTextureName"            "muerta_the_calling"
+        "FightRecapLevel"               "1"
+        "MaxLevel"                      "10"
+
+        "HasShardUpgrade" "1"
+
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+        
+        "precache"
+        {
+            "particle" "particles/units/heroes/hero_muerta/muerta_calling_aoe.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_calling_impact.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_calling_flames_ethereal.vpcf"
+            "particle" "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_calling_debuff_slow.vpcf"
+            "particle" "particles/generic_gameplay/generic_silenced.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
+        }
+        
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+
+        // Ability Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "580"
+        "AbilityCastPoint"              "0.1"
+
+        // Ability Resource
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30"
+        "AbilityManaCost"               "150 175 200 225 250 275 300 325 350 375"
+
+        "AbilityValues"
+        {
+            "duration" "14"
+            "damage" "45 105 165 225 285 345 405 465 525 585"
+            "slow" "-20"
+            "interval" "0.65"
+            "int_to_damage" "100"
+            "radius" "460"
+            "damage_increase_per_tick"
+            {
+                "value" "5.0"
+                "RequiresShard" "1"
+            }
+        }
+    }
+
+    "muerta_dead_shot_custom"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_muerta/muerta_dead_shot_custom.lua"
+        "AbilityTextureName"            "muerta_dead_shot"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "MaxLevel" "10"
+
+        "HasScepterUpgrade" "1"
+
+        "AbilityCastPoint" "0.15"
+        "AbilityCastRange" "900"
+        "AbilityCooldown" "16 15 14 13 12 11 10 9 8 7"
+        "AbilityManaCost" "100 120 140 160 180 200 220 240 260 280"
+
+        "precache"
+        {
+            "particle" "particles/units/heroes/hero_muerta/muerta_deadshot_tracking_proj.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_deadshot_linear.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_spell_fear_debuff.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_gunslinger_right.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_gunslinger_left.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+        }
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "damage" "75 150 225 300 375 450 525 600 675 750"
+            "impact_slow_pct" "100"
+            "impact_duration" "0.5"
+            "ricochet_damage" "38 76 114 152 190 228 266 304 342 380"
+            "ricochet_magic_res" "-14 -16 -18 -20 -22 -24 -26 -28 -30 -32"
+            "ricochet_magic_res_duration" "11"
+            "ricochet_radius" "600"
+        }
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
+    }
 }
 
 //=========================================================================================================================================================================================================================
@@ -3017,6 +3119,11 @@
 #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_lua/ancient_apparition_chilling_touch_lua.txt"
 #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_lua/ancient_apparition_ice_blast_lua.txt"
 
+//=====================================================================================================MUERTA==================================================================================================================================================
+
+// #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_talents.txt"
+#base "../vscripts/heroes/hero_muerta/muerta_gunslinger_lua/muerta_gunslinger_lua.txt"
+#base "../vscripts/heroes/hero_muerta/muerta_pierce_the_veil_lua/muerta_pierce_the_veil_lua.txt"
 
 //=====================================================================================================MARCI=====================================================================================================================================================
 
@@ -3036,3 +3143,12 @@
 #base "../vscripts/abilities/bosses/2023/fourth_skill/fourth_skill.txt"
 #base "../vscripts/abilities/bosses/2023/fifth_skill/fifth_skill.txt"
 #base "../vscripts/abilities/bosses/2023/ult/ult.txt"
+
+//================================================================================================ boss_earthshaker ======================
+
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_fissure_lua/earthshaker_fissure_lua.txt"
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_enchant_totem_lua/earthshaker_enchant_totem_lua.txt"
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_aftershock_lua/earthshaker_aftershock_lua.txt"
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_echo_slam_lua/earthshaker_echo_slam_lua.txt"
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_enrage_lua/earthshaker_enrage_lua.txt"
+#base "../vscripts/bosses/EARTHSHAKER/earthshaker_vacuum_lua/earthshaker_vacuum_lua.txt"

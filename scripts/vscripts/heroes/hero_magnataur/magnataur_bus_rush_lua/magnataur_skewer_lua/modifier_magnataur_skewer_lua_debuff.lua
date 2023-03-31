@@ -15,7 +15,7 @@ modifier_magnataur_skewer_lua_debuff = class({})
 --------------------------------------------------------------------------------
 -- Classifications
 function modifier_magnataur_skewer_lua_debuff:IsHidden()
-	return false
+	return true
 end
 
 function modifier_magnataur_skewer_lua_debuff:IsDebuff()
@@ -51,7 +51,7 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 				target_x = origin.x,
 				target_y = origin.y,
 				duration = 0.2,
-				distance = 170,
+				distance = 0,
 				activity = ACT_DOTA_FLAIL,
 			} -- kv
 		)
@@ -73,7 +73,7 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 		parent:AddNewModifier(
 		self:GetCaster(), -- player source
 		self:GetAbility(), -- ability source
-		"modifier_talent_int6", -- modifier name
+		"modifier_magnataur_talent_int6", -- modifier name
 		{
 			duration = 10,
 		}) -- kv
@@ -103,21 +103,4 @@ function modifier_magnataur_skewer_lua_debuff:OnCreated( kv )
 		} -- kv
 	)
 	end
-end
-
-function modifier_magnataur_skewer_lua_debuff:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-	}
-
-	return funcs
-end
-
-function modifier_magnataur_skewer_lua_debuff:GetModifierAttackSpeedBonus_Constant()
-	return self.as_slow
-end
-
-function modifier_magnataur_skewer_lua_debuff:GetModifierMoveSpeedBonus_Percentage()
-	return self.ms_slow
 end

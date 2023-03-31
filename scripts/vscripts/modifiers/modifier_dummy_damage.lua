@@ -75,7 +75,7 @@ function modifier_dummy_damage:OnTakeDamage(event)
 			_G.PlayerDamageMag[attackerID] = 0
 			_G.PlayerDamagePure[attackerID] = 0
 			
-			Stop(attacker)
+			-- Stop(attacker)
 
 			Timers:CreateTimer(5.0, function()
 				Timers:RemoveTimer(_G.PlayerDamageTimer[attackerID])

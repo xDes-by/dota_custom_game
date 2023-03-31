@@ -17,7 +17,6 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV3("MCF")
-_G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -242,9 +241,9 @@ function CAddonAdvExGameMode:InitGameMode()
 end
 
 function CAddonAdvExGameMode:OrderFilter(event)
-    if event.order_type == DOTA_UNIT_ORDER_PATROL then
-        return false
-    end
+    -- if event.order_type == DOTA_UNIT_ORDER_PATROL then
+    --     return false
+    -- end
 	if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_DIRECTION then
         return false
     end

@@ -29,7 +29,6 @@ end
 function modifier_arc_geminate_attack:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ATTACK,
-		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
 	}
 end
 
@@ -45,51 +44,6 @@ function modifier_arc_geminate_attack:OnAttack(keys)
 			keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_arc_geminate_attack_delay", {delay = self:GetAbility():GetSpecialValueFor("delay") * geminate_attacks})
 		end	
 		self:GetAbility():UseResources(true, true, true)
-	end
-end
-
-function modifier_arc_geminate_attack:GetModifierProcAttack_Feedback(keys)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int_last") ~= nil then
-		if keys.attacker == self:GetParent() and not keys.target:IsBuilding() and RandomInt(1, 100) <= 5 then
-			local enemy_projectile =
-				{
-					Target = keys.target,
-					Source = keys.attacker,
-					Ability = self:GetAbility(),
-					EffectName = "particles/units/heroes/hero_arc_warden/arc_warden_wraith_prj.vpcf",
-					bDodgeable = false,
-					bProvidesVision = false,
-					iMoveSpeed = 700,
-					flExpireTime = GameRules:GetGameTime() + 60,
-					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-				}
-				
-
-			ProjectileManager:CreateTrackingProjectile(enemy_projectile)
-		end
-	end
-end
-
-function arc_geminate_attack:OnProjectileHit_ExtraData(target, vLocation, extraData)
-	if IsServer() then
-		self.abi = self:GetCaster():FindAbilityByName("ark_spark_lua")
-		local caster = self:GetCaster()
-		local damage = self.abi:GetSpecialValueFor("damage")	
-
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi7") ~= nil then 
-			damage = damage + caster:GetAgility()
-		end
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int10") ~= nil then 
-			damage = damage + caster:GetIntellect()*0.75
-		end
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int11") ~= nil then
-			damage = damage * 2
-		end
-	
-		ApplyDamage({attacker = caster, victim = target, ability = self.abi, damage = damage, damage_type = self.abi:GetAbilityDamageType()})
-		target:EmitSound("Hero_ArcWarden.SparkWraith.Damage")
 	end
 end
 

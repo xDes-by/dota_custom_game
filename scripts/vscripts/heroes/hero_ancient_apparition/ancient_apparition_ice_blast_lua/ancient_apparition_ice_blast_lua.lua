@@ -20,6 +20,7 @@ function modifier_ancient_apparition_ice_blast_lua:IsPurgable()
 end
 
 function modifier_ancient_apparition_ice_blast_lua:OnCreated()
+
 end
 
 function modifier_ancient_apparition_ice_blast_lua:DeclareFunctions()
@@ -47,14 +48,7 @@ function modifier_ancient_apparition_ice_blast_lua:OnAttackLanded( params )
 			params.attacker:Heal(hp, nil)
 			SendOverheadEventMessage( params.attacker:GetPlayerOwner(), OVERHEAD_ALERT_HEAL , params.attacker, hp, nil )
 		end
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int9") ~= nil then 
-			local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), target:GetOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
-			for _,enemy in pairs(enemies) do
-				ApplyDamage({ victim = enemy, attacker = caster, damage = target:GetHealth(), damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
-			end		
-		end
-		
+
 		target:Kill(nil, caster)
 		
 		-- self:GetParent():EmitSound("Hero_Ancient_Apparition.IceBlast.Target")
@@ -82,10 +76,8 @@ end
 
 function modifier_ancient_apparition_ice_blast_lua_slow:OnCreated()
 	self.move_speed_slow = self:GetAbility():GetSpecialValueFor("slow") * (-1)
-
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int6") ~= nil then 	
-		self:StartIntervalThink(0.5)
-	end
+	self:StartIntervalThink(0.5)
+	self:OnIntervalThink()
 end
 
 function modifier_ancient_apparition_ice_blast_lua_slow:DeclareFunctions()
@@ -96,7 +88,20 @@ end
 
 function modifier_ancient_apparition_ice_blast_lua_slow:OnIntervalThink()
 	if not IsServer() then return end
-	ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = self:GetCaster():GetIntellect()/2, damage_type = DAMAGE_TYPE_MAGICAL})
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int6") ~= nil then 	
+		ApplyDamage({ victim = self:GetParent(), attacker = self:GetCaster(), damage = self:GetCaster():GetIntellect()/2, damage_type = DAMAGE_TYPE_MAGICAL})
+	end
+	self.deal_dmg = self:GetParent():GetHealth()
+end
+
+function modifier_ancient_apparition_ice_blast_lua_slow:OnRemoved()
+	if not IsServer() then return end
+	if not self:GetParent():IsAlive() and self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int9") ~= nil then
+		local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
+		for _,enemy in pairs(enemies) do
+			ApplyDamage({ victim = enemy, attacker = caster, damage = self.deal_dmg, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
+		end
+	end
 end
 
 function modifier_ancient_apparition_ice_blast_lua_slow:GetModifierMoveSpeedBonus_Percentage()

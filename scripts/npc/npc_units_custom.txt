@@ -704,7 +704,7 @@
 		"DisableResistance"			"80.0"
 		}
 	}
-"raid_new_year"
+	"raid_new_year"
 	{	
 		//"vscripts"					"ai/raid_boss.lua"
 		"BaseClass"					"npc_dota_creature"
@@ -8056,3 +8056,6 @@
 }
 #base "../npc/npc_units_pets.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_bus_rush_lua/npc_magnataur_bus_rush_lua.txt"
+
+//--------------------------------------- BOSS EARTHSHAKER -----------------------------------
+#base "../vscripts/bosses/EARTHSHAKER/models.txt"

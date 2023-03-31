@@ -1,5 +1,5 @@
-LinkLuaModifier( "modifier_talent_str12", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_str12", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_talent_agi6", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_talent_agi6", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_magnataur_talent_str12", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_magnataur_talent_str12", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_magnataur_talent_agi6", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_magnataur_talent_agi6", LUA_MODIFIER_MOTION_NONE )
 
 magnataur_reverse_polarity_lua = {}
 
@@ -89,10 +89,10 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 
 	for _,enemy in pairs(enemies) do
 		local origin = enemy:GetOrigin()
-		if not enemy:IsRealHero() then
-			local pos = caster:GetOrigin() + caster:GetForwardVector() * range
-			FindClearSpaceForUnit( enemy, pos, true )
-		end
+		-- if not enemy:IsRealHero() then
+		-- 	local pos = caster:GetOrigin() + caster:GetForwardVector() * range
+		-- 	FindClearSpaceForUnit( enemy, pos, true )
+		-- end
 
 		enemy:AddNewModifier(
 			caster,
@@ -120,11 +120,11 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 
 	local str12 = caster:FindAbilityByName("npc_dota_hero_magnataur_str_last")
 	if str12 ~= nil then
-		caster:AddNewModifier(caster, self, "modifier_talent_str12", {duration = 30})
+		caster:AddNewModifier(caster, self, "modifier_magnataur_talent_str12", {duration = 30})
 	end
 	local agi6 = caster:FindAbilityByName("npc_dota_hero_magnataur_agi6")
 	if agi6 ~= nil then
-		caster:AddNewModifier(caster, self, "modifier_talent_agi6", {
+		caster:AddNewModifier(caster, self, "modifier_magnataur_talent_agi6", {
 			duration = duration,
 			chance = 40,
 			perc_crit = 160,

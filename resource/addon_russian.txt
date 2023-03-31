@@ -740,6 +740,7 @@
         "npc_swamp_boss_fake" "Ядовитая Гидра"
         "npc_snow_boss_fake" "Большой камушек"
 
+
         //Enemy Structures//
 
         "npc_dota_custom_tower_dire_1" "Башня Тьмы"
@@ -964,7 +965,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_gold_and_exp_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_gold_and_exp_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_gold_and_exp_goex" "%БОНУСНЫЙ ПРИРОСТ ЗОЛОТА И ОПЫТА:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_gold_and_exp_note0" "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_gold_and_exp_note0" "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_16" "Goldexper"
 
         "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus" "<font color='#df1022'>Bigtribute</font>"
@@ -972,7 +973,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus_stats_bonus" "БОНУС АТРИБУТОВ ЗА УРОВЕНЬ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_attribute_bonus_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_17" "Bigtribute"
 
 
@@ -981,7 +982,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_dmg_reduction_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_dmg_reduction_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_dmg_reduction_dmg_reduction" "%СНИЖЕНИЕ УРОНА:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_dmg_reduction_note0"     "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_dmg_reduction_note0"     "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_18" "Blocky"
 
 
@@ -990,27 +991,27 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_regen_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_regen_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_regen_regen" "%ВОССТАНОВЛЕНИЯ ЗДОРОВЬЯ И МАНЫ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_regen_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_regen_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_19" "Regenci"
 
 
         "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion" "<font color='#df1022'>Phymage</font>"
-        "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Phymage вы становитесь крайне быстры. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Shell</h1>После использования петомца вы в течении 3 секунд неуязвимы к физическому урону."
+        "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Phymage вы становитесь крайне быстры. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Shell</h1>После использования питомца вы в течении 3 секунд неуязвимы к физическому урону."
         "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_note1"   "Эффект пассивной способности срабатывает раз в <font color='#ffffff'>30</font> секунд."
         "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_dur" "ДЛИТЕЛЬНОСТЬ НЕУЯЗВИМОСТИ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_phys_dmg_reducrion_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_20" "Phymage"
 
         
         "dota_tooltip_ability_spell_item_pet_donate_250_bkb" "<font color='#df1022'>Blabary</font>"
-        "dota_tooltip_ability_spell_item_pet_donate_250_bkb_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Blabary вы становитесь крайне быстры. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Arcane Armor</h1>После использования петомца вы в течении 3 секунд неуязвимы к магическому урону"
+        "dota_tooltip_ability_spell_item_pet_donate_250_bkb_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Blabary вы становитесь крайне быстры. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Arcane Armor</h1>После использования питомца вы в течении 3 секунд неуязвимы к магическому урону"
         "dota_tooltip_ability_spell_item_pet_donate_250_bkb_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_bkb_note1"   "Эффект пассивной способности срабатывает раз в <font color='#ffffff'>30</font> секунд."
         "dota_tooltip_ability_spell_item_pet_donate_250_bkb_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_bkb_bkb" "ДЛИТЕЛЬНОСТЬ НЕУЯЗВИМОСТИ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_bkb_note0"     "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_bkb_note0"     "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_21" "Blabary"
 
         "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage" "<font color='#df1022'>Purefy</font>"
@@ -1018,7 +1019,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage_pure_percent" "%ЧИСТОГО УРОНА ОТ БАЗОВОГО:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_pure_damage_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_22" "Purefy"
 
 
@@ -1027,7 +1028,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_phys_percent" "%БОНУСНЫЙ ФИЗИЧЕСКИЙ УРОН:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_no_spell_phys_bonus_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_23" "Physizizi"
 
         "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor" "<font color='#df1022'>Armius</font>"
@@ -1035,7 +1036,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor_minus_armor" "CНИЖЕНИЕ АРМОРА ЗА УРОВЕНЬ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_minus_armor_note0"   "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_25" "Armius"
 
         "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus" "<font color='#df1022'>Magiclay</font>"
@@ -1043,7 +1044,7 @@
         "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus_chance" "%ШАНС СРАБАТЫВАНИЯ:"
-        "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг петомца."
+        "dota_tooltip_ability_spell_item_pet_donate_250_no_phys_spell_bonus_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_24" "Magiclay"
 
         //===================================================================================================================================================================================================================================================
@@ -13577,6 +13578,9 @@
         "dota_tooltip_ability_magnataur_shockwave_lua_shock_width" "ШИРИНА:"
         "dota_tooltip_ability_magnataur_shockwave_lua_cast_range" "ДАЛЬНОСТЬ:"
 
+        "DOTA_Tooltip_modifier_magnataur_shockwave_buff_lua"                "SHOCKWAVE"
+        "DOTA_Tooltip_modifier_magnataur_shockwave_buff_lua_Description"    "Волны в очереди"
+
         "dota_tooltip_ability_magnataur_empower_lua" "EMPOWER"
         "dota_tooltip_ability_magnataur_empower_lua_description" "Даёт союзнику дополнительный урон и прорубающую атаку.<br>Усиливает только базовый урон.<br>Действует на владельца на 50% сильнее."
         "dota_tooltip_ability_magnataur_empower_lua_lore" "Могучим утробным рыком магнорог демонстрирует свою недюжинную силу."
@@ -13584,6 +13588,10 @@
         "dota_tooltip_ability_magnataur_empower_lua_attack_count" "ЧИСЛО АТАК:"
         "dota_tooltip_ability_magnataur_empower_lua_bonus_damage_pct" "%ДОПОЛНИТЕЛЬНЫЙ УРОН:"
         "dota_tooltip_ability_magnataur_empower_lua_cleave_damage_pct" "%ПРОРУБАЮЩИЙ УРОН:"
+
+        "DOTA_Tooltip_modifier_empower_buff"                                "EMPOWER"
+        "DOTA_Tooltip_modifier_empower_buff_Description"                    "Урон уведичен на %dMODIFIER_PROPERTY_TOOLTIP%%%. Атаки наносят сплеш урон %dMODIFIER_PROPERTY_TOOLTIP2%%%"
+        "DOTA_Tooltip_modifier_magnataur_talent_str9"                       "Благословение неуязвимости"
 
         "dota_tooltip_ability_magnataur_bus_rush_lua" "BUS RUSH"
         "dota_tooltip_ability_magnataur_bus_rush_lua_description" "Герой призывает духа, который мчится в указанном направлении. Если на пути духа окажутся враги то они получат урон, а их скорость передвижения и атаки уменьшится."
@@ -13595,12 +13603,26 @@
         "dota_tooltip_ability_magnataur_bus_rush_lua_skewer_damage" "УРОН:"
         "dota_tooltip_ability_magnataur_bus_rush_lua_tool_attack_slow" "ЗАМЕДЛЕНИЕ АТАКИ:"
 
+        "DOTA_Tooltip_modifier_magnataur_skewer_lua_slow"                   "Замедление"
+        "DOTA_Tooltip_modifier_magnataur_skewer_lua_slow_Description"       "Скорость передвижения замедлена на %dMODIFIER_PROPERTY_TOOLTIP%%%, скорость атаки замедлена на %dMODIFIER_PROPERTY_TOOLTIP2%"
+        "DOTA_Tooltip_modifier_magnataur_talent_int6"                       "BUS RUSH"
+        "DOTA_Tooltip_modifier_magnataur_talent_int6_Description"           "Сопротивление магии снижено на 10%"
+        "DOTA_Tooltip_modifier_magnataur_talent_str6"                       "Восстановление здоровья"
+        "DOTA_Tooltip_modifier_magnataur_talent_str6_Description"           "Восстановление здоровья увеличено на %dMODIFIER_PROPERTY_TOOLTIP%%% от максимального здоровья."
+        "DOTA_Tooltip_modifier_magnataur_talent_str10"                      "Увеличение брони"
+        "DOTA_Tooltip_modifier_magnataur_talent_str10_Description"          "Броня увеличена на %dMODIFIER_PROPERTY_TOOLTIP%"
+
         "dota_tooltip_ability_magnataur_reverse_polarity_lua" "REVERSE POLARITY"
-        "dota_tooltip_ability_magnataur_reverse_polarity_lua_description" "Герой изменяет свойства материи, стягивая всех врагов вокруг в точку перед собой, оглушая их мощным хлопком и нанося им урон."
+        "dota_tooltip_ability_magnataur_reverse_polarity_lua_description" "Герой изменяет свойства материи, не стягивая всех врагов вокруг в точку перед собой, но оглушает их мощным хлопком и нанося им урон."
         "dota_tooltip_ability_magnataur_reverse_polarity_lua_lore" "Магнорог сражается с яростью извергающегося вулкана Йорлак."
         "dota_tooltip_ability_magnataur_reverse_polarity_lua_pull_radius" "РАДИУС СТЯГИВАНИЯ:"
         "dota_tooltip_ability_magnataur_reverse_polarity_lua_polarity_damage" "УРОН:"
         "dota_tooltip_ability_magnataur_reverse_polarity_lua_hero_stun_duration" "ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+
+        "DOTA_Tooltip_modifier_magnataur_talent_str12"                      "Снижение урона"
+        "DOTA_Tooltip_modifier_magnataur_talent_str12_Description"          "Весь входящий урон снижен на 25%%"
+        "DOTA_Tooltip_modifier_magnataur_talent_agi6"                       "Критические атаки"
+        "DOTA_Tooltip_modifier_magnataur_talent_agi6_Description"           "Добавлен шанс %dMODIFIER_PROPERTY_TOOLTIP%%% нанести критическую атаку %dMODIFIER_PROPERTY_TOOLTIP2%%%"
 
         "npc_dota_hero_magnataur_str6" "Восстанавливающий рывок"
         "npc_dota_hero_magnataur_str6_description" "После применения способности Bus Rush герой получает дополнительную регенирацию здоровья равную 1% * ур.способности от макс.хп на 2.5сек"
@@ -13628,9 +13650,9 @@
         "npc_dota_hero_magnataur_agi10" "Усиленная атака"
         "npc_dota_hero_magnataur_agi10_description" "Эффекты от Empower на 50% сильнее"
         "npc_dota_hero_magnataur_agi11" "Взрывная мощь"
-        "npc_dota_hero_magnataur_agi11_description" "Во время действия эффекта Empower герой получает 1 единицу базового урона за 1 единизу ловкости"
+        "npc_dota_hero_magnataur_agi11_description" "Во время действия эффекта Empower герой получает 1 единицу базового урона за 1 единицу ловкости"
         "npc_dota_hero_magnataur_agi_last" "Сила в предметах"
-        "npc_dota_hero_magnataur_agi_last_description" "Спосбность Empower так же повышает урон от предметов, но эффект на 50% слабее"
+        "npc_dota_hero_magnataur_agi_last_description" "Способность Empower так же повышает урон от предметов, но эффект на 50% слабее"
 
         "npc_dota_hero_magnataur_int6" "Улучшенный Bus Rush"
         "npc_dota_hero_magnataur_int6_description" "Урон способности Bus Rush +10%\nНакладывает дебаф повышающий магический урон по врагам на 10% длительность 10 сек"
@@ -13639,13 +13661,13 @@
         "npc_dota_hero_magnataur_int8" "Неудержимый Reverse Polarity"
         "npc_dota_hero_magnataur_int8_description" "Reverse Polarity имеет шанс 50% не уйти в перезарядку\n +15% урона Reverse Polarity"
         "npc_dota_hero_magnataur_int9" "Усиленный Shockwave"
-        "npc_dota_hero_magnataur_int9_description" "-7 сек перезаряка способности Shockwave\n+1 волна способности Shockwave"
+        "npc_dota_hero_magnataur_int9_description" "-7 сек перезарядка способности Shockwave\n+1 волна способности Shockwave"
         "npc_dota_hero_magnataur_int10" "Волны Shockwave"
         "npc_dota_hero_magnataur_int10_description" "Выпускает 1 волну Shockwave каждые 3 сек"
         "npc_dota_hero_magnataur_int11" "Мощный удар волной"
-        "npc_dota_hero_magnataur_int11_description" "+50% базовый урон Shockwave\n+ 30% интеллекта в урон"
+        "npc_dota_hero_magnataur_int11_description" "+50% базовый урон Shockwave\n+ 10% интеллекта в урон"
         "npc_dota_hero_magnataur_int_last" "Empower: ум и энергия"
-        "npc_dota_hero_magnataur_int_last_description" "Empower повышает интиллект и воссатановление маны на 5% за уровень способности"
+        "npc_dota_hero_magnataur_int_last_description" "Empower повышает интеллект и восстановление маны на 5% за уровень способности"
 
         //Sven//
 
@@ -13847,7 +13869,7 @@
         "npc_dota_hero_wisp_str_last_description" "Под действием Owercharge входящий урон минус 30%"
 
         "npc_dota_hero_wisp_agi6" "Невообразимая сила"
-        "npc_dota_hero_wisp_agi6_description" "+базовый героя урон к урону Stirits"
+        "npc_dota_hero_wisp_agi6_description" "+базовый урон героя к урону Stirits"
         "npc_dota_hero_wisp_agi7" "Загадка вселенной"
         "npc_dota_hero_wisp_agi7_description" "Получает бонус к скорости атаки равный 5*уровень героя"
         "npc_dota_hero_wisp_agi8" "Силы притяжения"
@@ -14237,8 +14259,8 @@
         "npc_dota_hero_nevermore_agi10_description" "Урон от душ х2"
         "npc_dota_hero_nevermore_agi11" "Бережливость"
         "npc_dota_hero_nevermore_agi11_description" "-10% потери душ при смерти"
-        "npc_dota_hero_nevermore_agi_last" "ZXC ABUZER"
-        "npc_dota_hero_nevermore_agi_last_description" "2% шанс выпадения Requiem of Soul с атаки"
+        "npc_dota_hero_nevermore_agi_last" "Раздвоенный Ужас"
+        "npc_dota_hero_nevermore_agi_last_description" "Nevermore атакует 2 цели одновременно"
 
         "npc_dota_hero_nevermore_int6" "Душа магистра магии"
         "npc_dota_hero_nevermore_int6_description" "Shadowraze наносит 2 урона за душу"
@@ -14650,7 +14672,9 @@
 
         "dota_tooltip_ability_ark_spark_lua" "Spark"
         "dota_tooltip_ability_ark_spark_lua_description" "Призывает призрачные искры, которые атакуют врагов в небольшом радиусе."
-        "dota_tooltip_ability_ark_spark_lua_radius" "РАДИУС:"
+        "dota_tooltip_ability_ark_spark_lua_attributes_to_damage" "МНОЖИТЕЛЬ АТРИБУТОВ В УРОН:"
+        "dota_tooltip_ability_ark_spark_lua_aoe_radius" "РАДИУС НАНЕСЕНИЯ УРОНА:"
+        "dota_tooltip_ability_ark_spark_lua_radius" "ДАЛЬНОСТЬ:"
         "dota_tooltip_ability_ark_spark_lua_damage" "БАЗОВЫЙ УРОН:"
 
         "dota_tooltip_ability_arc_geminate_attack" "Arc Geminate Attack"
@@ -14691,7 +14715,7 @@
         "npc_dota_hero_arc_warden_int6" "Защитная матрица - слияние"
         "npc_dota_hero_arc_warden_int6_description" "Под действием Magnetic Field герои не получают магический урон"
         "npc_dota_hero_arc_warden_int7" "Блуждающие огоньки"
-        "npc_dota_hero_arc_warden_int7_description" "Каждую секунду призывает Spark"
+        "npc_dota_hero_arc_warden_int7_description" "Каждую 1 секунду призывает Spark"
         "npc_dota_hero_arc_warden_int8" "Гармония"
         "npc_dota_hero_arc_warden_int8_description" "Затраты маны на скилы в 2 раза меньше"
         "npc_dota_hero_arc_warden_int9" "Забвение"
@@ -14701,7 +14725,7 @@
         "npc_dota_hero_arc_warden_int11" "Сила искр"
         "npc_dota_hero_arc_warden_int11_description" "Spark срабатывает от способностей героя, при применение Spark наносит в 2 раза больше урона"
         "npc_dota_hero_arc_warden_int_last" "Удача искр"
-        "npc_dota_hero_arc_warden_int_last_description" "Эффект от ультимейта! Spark срабатывает при атаке 5%"
+        "npc_dota_hero_arc_warden_int_last_description" "Spark срабатывает при атаке 10%"
 
         //Spectre//
 
@@ -15361,6 +15385,7 @@
 
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua" "Arcane Bolt"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_description" "Герой выпускает во врага медленный заряд магической энергии, который наносит урон, зависящий от интеллекта."
+        "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_bolt_speed" "СКОРОСТЬ СНАРЯДА:"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_bolt_damage" "БАЗОВЫЙ УРОН:"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_int_multiplier" "МНОЖИТЕЛЬ ИНТЕЛЛЕКТА:"
 		
@@ -15923,7 +15948,7 @@
         "npc_dota_hero_ancient_apparition_int8" "мудрость льда"
         "npc_dota_hero_ancient_apparition_int8_description" "Ice Vortex показатели х2"
         "npc_dota_hero_ancient_apparition_int9" "буря"
-        "npc_dota_hero_ancient_apparition_int9_description" "убийство от Ice Blast наносит урон всем врагам в радиусе 300 оставшемуся хп убитого врага"
+        "npc_dota_hero_ancient_apparition_int9_description" "Урон от Ice Blast будет нанесен всем врагам в радиусе 300, и его величина будет равна оставшемуся здоровью убитого врага."
         "npc_dota_hero_ancient_apparition_int10" "Снятие ограничений"
         "npc_dota_hero_ancient_apparition_int10_description" "Ice Blast действует на античных"
         "npc_dota_hero_ancient_apparition_int11" "Холодный ветерок"

@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_empower_buff", "heroes/hero_magnataur/magnataur_empower_lua/modifier_empower_buff.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_talent_str9", "heroes/hero_magnataur/magnataur_empower_lua/modifier_talent_str9.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_magnataur_talent_str9", "heroes/hero_magnataur/magnataur_empower_lua/modifier_magnataur_talent_str9.lua", LUA_MODIFIER_MOTION_NONE)
 
 magnataur_empower_lua = {}
 

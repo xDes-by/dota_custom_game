@@ -1,0 +1,96 @@
+"DOTAUnits"
+{
+    "boss_earthshaker"
+	{	
+		"vscripts"					"bosses/EARTHSHAKER/ai.lua"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/earthshaker/earthshaker.vmdl"
+		"SoundSet"					"Hero_Earthshaker"
+		"ModelScale"				"2.5"
+		"Level"						"1"
+		"HasInventory"				"1"
+		"IsAncient"					"1"
+		
+	    "Ability1"					"earthshaker_vacuum_lua"
+	    "Ability2"					"earthshaker_enchant_totem_lua"     
+	    "Ability3"					"earthshaker_aftershock_lua"     
+	    "Ability4"					"earthshaker_echo_slam_lua"   
+	    "Ability5"					"earthshaker_enrage_lua"
+	    "Ability6"					""    
+		"Ability7"                 	""
+		"Ability8"                 	""
+		"Ability9"                 	""
+
+		"ArmorPhysical"				"1000"
+		"MagicalResistance"			"98"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1000000"
+		"AttackDamageMax"			"1000000"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.46"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"300"
+
+		"RingRadius"				"70"
+		"HealthBarOffset"			"500"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+		"MovementTurnRate"			"0.5"
+
+		"StatusHealth"				"10000000"
+		//"StatusHealthRegen"			"0"
+		"StatusMana"				"60000"
+		"StatusManaRegen"			"1000.0"
+		
+		"VisionDaytimeRange"		"2800"
+		"VisionNighttimeRange"		"2800"
+
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"Creature"
+		{	
+			"AttachWearables" // Tine of the Behemoth Bundle
+			{
+				"1" { "ItemDef" "8142" } // Bracers of the Behemoth
+				"2" { "ItemDef" "11298" } // Tine of the Behemoth Cursor Pack
+				"3" { "ItemDef" "8145" } // Tine of the Behemoth
+				"4" { "ItemDef" "8144" } // Great Helm of the Behemoth
+				"5" { "ItemDef" "8143" } // Belt of the Behemoth
+			}
+			"DisableResistance"			"80.0"
+			"EquippedItems"
+			{
+				"item_greater_crit_lua8"
+				{
+					"Item"					"item_greater_crit_lua5"
+				}
+				"item_greater_crit_lua8"
+				{
+					"Item"					"item_greater_crit_lua5"
+				}
+				"item_greater_crit_lua8"
+				{
+					"Item"					"item_greater_crit_lua5"
+				}
+				"item_moon_shard_lua8"
+				{
+					"Item"					"item_moon_shard_lua5"
+				}
+				"item_monkey_king_bar_lua5"
+				{
+					"Item"					"item_monkey_king_bar_lua5"
+				}
+				// "item_ethereal_blade"
+				// {
+				// 	"Item"					"item_ethereal_blade_lua1"
+				// }
+			}
+		}
+		
+	}
+}

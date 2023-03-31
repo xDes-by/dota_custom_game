@@ -36,7 +36,7 @@ function modifier_npc_dota_hero_arc_warden_int7:OnCreated()
 end
 
 function modifier_npc_dota_hero_arc_warden_int7:OnIntervalThink()
-    if self.abi:GetLevel() > 0 then
+    if self:GetCaster():IsAlive() and self.abi:GetLevel() > 0 then
 		self.abi:OnSpellStart()
     end
 end

@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+	"muerta_gunslinger_lua"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_muerta/muerta_gunslinger_lua/muerta_gunslinger_lua.lua"
+        "AbilityTextureName"            "muerta_gunslinger"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "MaxLevel" "10"
+
+        "precache"
+        {
+            "particle" "particles/units/heroes/hero_muerta/muerta_gunslinger.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_gunslinger_left.vpcf"
+            "particle" "particles/units/heroes/hero_muerta/muerta_gunslinger_right.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_muerta.vsndevts"
+        }
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "armor_reduction" "-1 -3 -5 -7 -9 -11 -13 -15 -17 -19"
+            "bonus_damage_pct" "55 60 65 70 75 80 85 90 95 100"
+            "duration" "6"
+            "chance" "50"
+        }
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
+    }
+}

@@ -94,7 +94,7 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
 	--------- Talent ---------
 	local int11 = caster:FindAbilityByName("npc_dota_hero_magnataur_int11")
 	if int11 ~= nil then
-		damage = damage * 1.5 + caster:GetIntellect() * 0.3
+		damage = damage * 1.5 + caster:GetIntellect() * 0.1
 	end
 	--------------------------
 	-- damage
@@ -117,6 +117,7 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
 			damage = physical_damage,
 			damage_type = DAMAGE_TYPE_PHYSICAL,
 			ability = self, --Optional.
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 		})
 	end
 	--------------------------

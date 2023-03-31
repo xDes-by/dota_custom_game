@@ -7,6 +7,7 @@ function modifier_magnataur_shockwave_buff_lua:OnCreated()
 	self.tick = 0
     self:StartIntervalThink( 1 )
 	self:OnIntervalThink()
+
 end
 
 function modifier_magnataur_shockwave_buff_lua:IsHidden()

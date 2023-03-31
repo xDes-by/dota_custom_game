@@ -12811,9 +12811,9 @@
 
         "dota_tooltip_modifier_modifier_infinite_all2_collector" "Stacks"
 
-        "dota_tooltip_modifier_increase_int" "Stacks of Agility "
+        "dota_tooltip_modifier_increase_int" "Stacks of Intelligence"
         "dota_tooltip_modifier_increase_str" "Stacks of Strength"
-        "dota_tooltip_modifier_increase_agi" "Stacks of Intelligence"
+        "dota_tooltip_modifier_increase_agi" "Stacks of Agility"
         
         //Alchemist//
 
@@ -13639,7 +13639,7 @@
         "npc_dota_hero_magnataur_int10" "Shockwave Waves"
         "npc_dota_hero_magnataur_int10_description" "Releases 1 Shockwave wave every 3 seconds"
         "npc_dota_hero_magnataur_int11" "Powerful Wave Strike"
-        "npc_dota_hero_magnataur_int11_description" "+50% base Shockwave damage\n+ 30% intelligence in damage"
+        "npc_dota_hero_magnataur_int11_description" "+50% base Shockwave damage\n+ 10% intelligence in damage"
         "npc_dota_hero_magnataur_int_last" "Empower: Mind and Energy"
         "npc_dota_hero_magnataur_int_last_description" "Empower increases intelligence and mana regeneration by 5% per ability level"
 
@@ -14233,8 +14233,8 @@
         "npc_dota_hero_nevermore_agi10_description" "Souls grants 2x damage now"
         "npc_dota_hero_nevermore_agi11" "Thrift"
         "npc_dota_hero_nevermore_agi11_description" "Decrease souls lost in case of death by another 10%"
-        "npc_dota_hero_nevermore_agi_last" "ZXC ABUZER."
-        "npc_dota_hero_nevermore_agi_last_description" "2% chance to cast free use of Requiem of Soul on attack"
+        "npc_dota_hero_nevermore_agi_last" "Forked Horror"
+        "npc_dota_hero_nevermore_agi_last_description" "Nevermore attacks 2 targets at the same time"
 
         "npc_dota_hero_nevermore_int6" "Soul of the Master of Magic"
         "npc_dota_hero_nevermore_int6_description" "Shadowraze deals 2 damage per soul."
@@ -14646,7 +14646,9 @@
 
         "dota_tooltip_ability_ark_spark_lua" "Spark"
         "dota_tooltip_ability_ark_spark_lua_description" "Summons ghostly sparks that attack enemies in a small radius dealing base damage."
-        "dota_tooltip_ability_ark_spark_lua_radius" "RADIUS:"
+        "dota_tooltip_ability_ark_spark_lua_attributes_to_damage" "ATTRIBUT MULTIPLIER TO DAMAGE:"
+        "dota_tooltip_ability_ark_spark_lua_aoe_radius" "DAMAGE RADIUS:"
+        "dota_tooltip_ability_ark_spark_lua_radius" "RANGE:"
         "dota_tooltip_ability_ark_spark_lua_damage" "DMG:"
 
         "dota_tooltip_ability_arc_geminate_attack" "Arc Geminate Attack"
@@ -14687,7 +14689,7 @@
         "npc_dota_hero_arc_warden_int6" "Warden matrix - fusion"
         "npc_dota_hero_arc_warden_int6_description" "Allies do not take any magical damage while under the effect of Magnetic Field."
         "npc_dota_hero_arc_warden_int7" "Wandering lights"
-        "npc_dota_hero_arc_warden_int7_description" "Summon spark every 2 seconds"
+        "npc_dota_hero_arc_warden_int7_description" "Summons a Spark every 1 seconds"
         "npc_dota_hero_arc_warden_int8" "Harmony"
         "npc_dota_hero_arc_warden_int8_description" "Half mana cost for all abilities"
         "npc_dota_hero_arc_warden_int9" "Oblivion"
@@ -14697,7 +14699,7 @@
         "npc_dota_hero_arc_warden_int11" "The power of sparks"
         "npc_dota_hero_arc_warden_int11_description" "Create spark when use hero abilities; Spark that was created by spark skill deals 2x more damage."
         "npc_dota_hero_arc_warden_int_last" "Spark Luck"
-        "npc_dota_hero_arc_warden_int_last_description" "Ultimate effect! Spark's chance of falling out of an attack is 5%"
+        "npc_dota_hero_arc_warden_int_last_description" "Spark's chance of falling out of an attack is 10%"
 
         //Spectre//
 
@@ -15355,6 +15357,7 @@
 
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua" "Arcane Bolt"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_description" "Skywrath Mage launches a slow-moving bolt of arcane magic, dealing damage to an enemy unit based on Skywrath Mage's intelligence."
+        "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_bolt_speed" "PROJECT SPEED:"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_bolt_damage" "BASE DAMAGE:"
         "dota_tooltip_ability_skywrath_mage_arcane_bolt_lua_int_multiplier" "STATS DAMAGE MULTIPLIER:"
 
@@ -15845,7 +15848,7 @@
         "npc_dota_hero_Gyrocopter_int9" "Target Extension"
         "npc_dota_hero_Gyrocopter_int9_description" "+5 volleys of Flak Cannon"
         "npc_dota_hero_Gyrocopter_int10" "Epiphany"
-        "npc_dota_hero_Gyrocopter_int10_description" "If the coin is larger than other stats, then doubles the damage of all skills"
+        "npc_dota_hero_Gyrocopter_int10_description" "If Intelligence is greater than the other stats, then it doubles the damage of all skills."
         "npc_dota_hero_Gyrocopter_int11" "Fire to kill"
         "npc_dota_hero_Gyrocopter_int11_description" "Launches 3 Homing Missile"
         "npc_dota_hero_Gyrocopter_int_last" "New technologies"

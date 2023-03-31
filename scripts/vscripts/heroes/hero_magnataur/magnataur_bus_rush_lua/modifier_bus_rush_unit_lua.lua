@@ -20,9 +20,10 @@ end
 
 function modifier_bus_rush_unit_lua:CheckState()
     return {
-		[MODIFIER_STATE_ATTACK_IMMUNE] = true,
-		[MODIFIER_STATE_UNTARGETABLE] = true,
 		[MODIFIER_STATE_UNSELECTABLE] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 end
 

@@ -105,6 +105,7 @@ function modifier_medusa_split_shot_lua:OnAttack( params )
 	self.use_modifier = true
 	end
 	
+	
 	if self.use_modifier then
 		self:SplitShotModifier( params.target )
 	else
@@ -261,7 +262,7 @@ function modifier_medusa_split_shot_lua:SplitShotNoModifier( target )
 				Source = self:GetParent(),
 				Ability = self:GetAbility(),	
 				
-				EffectName = self.projectile_name,
+				EffectName = "particles/econ/items/medusa/medusa_ti10_immortal_tail/medusa_ti10_projectile.vpcf",
 				iMoveSpeed = self.projectile_speed,
 				bDodgeable = true,                           -- Optional
 				-- bIsAttack = true,                                -- Optional

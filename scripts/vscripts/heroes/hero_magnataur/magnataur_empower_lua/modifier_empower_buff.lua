@@ -13,7 +13,6 @@ function modifier_empower_buff:IsPurgable()
 end
 
 function modifier_empower_buff:OnCreated( kv )
-	if not IsServer() then return end
 	---------------------- init data
 	self.ability = self:GetAbility()
 	self.parent = self:GetParent()
@@ -37,7 +36,10 @@ function modifier_empower_buff:OnCreated( kv )
 	----------------------- int
 	self.int7 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int7")
 	self.int12 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int_last")
-	self.bonus_intelegent = self.parent:GetIntellect() * 0.05 * self.ability:GetLevel()
+	if self.parent.empower_bonus_intelegent == nil then self.parent.empower_bonus_intelegent = 0 end
+	if self.parent:IsRealHero() then 
+		self.parent.empower_bonus_intelegent = (self.parent:GetIntellect() - self.parent.empower_bonus_intelegent) * 0.05 * self.ability:GetLevel() 
+	end
 	self.mp_regen = 5 * self.ability:GetLevel()
 	if self.int12 == nil then self.mp_regen = 0 end
 
@@ -82,9 +84,16 @@ function modifier_empower_buff:OnCreated( kv )
 		self:PlayEffect()
 	end
 	if self.str9 ~= nil then
-		self.parent:AddNewModifier(self.caster, self.ability, "modifier_talent_str9", { duration = 3 })
+		self.parent:AddNewModifier(self.caster, self.ability, "modifier_magnataur_talent_str9", { duration = 3 })
 	end
-	print("self.damage:" , self.damage)
+end
+
+function modifier_empower_buff:OnTooltip()
+    return self.damage
+end
+
+function modifier_empower_buff:OnTooltip2()
+    return self.cleave
 end
 
 function modifier_empower_buff:OnRefresh(table)
@@ -92,6 +101,10 @@ function modifier_empower_buff:OnRefresh(table)
 		self:OnCreated(table)
 	end
 	return false
+end
+
+function modifier_empower_buff:OnDestroy()
+	self.parent.empower_bonus_intelegent = 0
 end
 
 function modifier_empower_buff:DeclareFunctions()
@@ -102,8 +115,10 @@ function modifier_empower_buff:DeclareFunctions()
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_EXTRA_HEALTH_PERCENTAGE,
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-		-- MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		-- MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_TOOLTIP,
+		MODIFIER_PROPERTY_TOOLTIP2,
 	}
 end
 
@@ -151,7 +166,6 @@ function modifier_empower_buff:GetModifierDamageOutgoing_Percentage()
 end
 
 function modifier_empower_buff:GetModifierBaseDamageOutgoing_Percentage()
-	print("BaseDamage:", self.damage)
 	return self.damage
 end
 
@@ -189,7 +203,7 @@ end
 
 function modifier_empower_buff:GetModifierBonusStats_Intellect()
 	if self.int12 ~= nil and self.parent:IsRealHero() then
-		return self.bonus_intelegent
+		return self.parent.empower_bonus_intelegent
 	end
 	return 0
 end

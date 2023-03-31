@@ -77,8 +77,12 @@ function modifier_legion_courage:OnAttackLanded( params )
 			end	
 		else
 			if not self:GetCaster():PassivesDisabled() and (params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or params.attacker == self:GetCaster() then
-				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then	
-					deal_damage(self, self:GetAbility(), self:GetParent(), params.target, damage_type)					
+				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then
+					if params.target == self:GetParent() then
+						deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)
+					else
+						deal_damage(self, self:GetAbility(), self:GetParent(), params.target, damage_type)
+					end			
 				end
 			end
 		end
@@ -126,7 +130,9 @@ function modifier_legion_courage:PlayEffects()
 	local particle_cast2 = "particles/units/heroes/hero_legion_commander/legion_commander_courage_hit.vpcf"--"particles/units/heroes/hero_axe/axe_attack_blur_counterhelix.vpcf"
 	
 	local sound_cast = "Hero_LegionCommander.Courage"
-	StartAnimation(self:GetParent(), {duration = 0.1, activity = ACT_DOTA_CAST3_STATUE})--ACT_DOTA_MOMENT_OF_COURAGE
+	-- StartAnimation(self:GetParent(), {duration = 0.1, activity = ACT_DOTA_CAST3_STATUE})--ACT_DOTA_MOMENT_OF_COURAGE
+	self:GetCaster():FadeGesture(ACT_DOTA_CAST3_STATUE)
+	self:GetCaster():StartGesture(ACT_DOTA_CAST3_STATUE)
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 

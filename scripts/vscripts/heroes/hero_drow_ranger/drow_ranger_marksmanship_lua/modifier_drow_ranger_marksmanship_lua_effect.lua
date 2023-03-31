@@ -114,31 +114,30 @@ function modifier_drow_ranger_marksmanship_lua_effect:GetModifierBonusStats_Stre
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str6")
 	if abil ~= nil then 
 			
-	if self:GetCaster()==self:GetParent() then
-		-- use lock mechanism to prevent infinite recursive
-		if self.lock1 then return end
+		if self:GetCaster()==self:GetParent() then
+			-- use lock mechanism to prevent infinite recursive
+			if self.lock1 then return end
 
-		-- calculate bonus
-		self.lock1 = true
-		local str = self:GetCaster():GetStrength()
-		self.lock1 = false
+			-- calculate bonus
+			self.lock1 = true
+			local str = self:GetCaster():GetStrength()
+			self.lock1 = false
 
-		local bonus = self.str*str/100
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
-		return bonus * 2
-	end
-		return bonus
-	else
-		-- this agi includes bonus from this ability, which should be excluded
-		local str = self:GetCaster():GetStrength()
-		str = 100/(100+self.agility)*str
+			local bonus = self.str*str/100
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
+				return bonus * 2
+			end
+			return bonus
+		else
+			-- this agi includes bonus from this ability, which should be excluded
+			local str = self:GetCaster():GetStrength()
+			str = 100/(100+self.str)*str
 
-		local bonus = self.str*str/100
+			local bonus = self.str*str/100
 
-		return bonus
+			return bonus
 		end
 		
-	else 
-		return 0
-		end
+	end
+	return 0
 end

@@ -181,12 +181,13 @@ function modifier_imba_wisp_spirit_handler:OnCreated(params)
 	end
 end
 
+
+
 function modifier_imba_wisp_spirit_handler:OnIntervalThink()
 	if IsServer() then 
 		local spirit = self:GetParent()
 		local enemies = FindUnitsInRadius( self.caster:GetTeam(), spirit:GetAbsOrigin(), nil, self.collision_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 		if enemies ~= nil and #enemies > 0 then
-		
 			damage_type = DAMAGE_TYPE_PHYSICAL
 			if self.caster:FindAbilityByName("npc_dota_hero_wisp_int11") ~= nil then
 				damage_type = DAMAGE_TYPE_MAGICAL
@@ -195,7 +196,7 @@ function modifier_imba_wisp_spirit_handler:OnIntervalThink()
 			for _,enemy in pairs(enemies) do
 				if not enemy:HasModifier("modifier_wisp_spirits_lua_creep_hit") then
 					enemy:AddNewModifier(self.caster, nil, "modifier_wisp_spirits_lua_creep_hit", {duration = 0.25})
-					ApplyDamage({ victim = enemy, damage = self.creep_damage, damage_type = damage_type, attacker = self:GetCaster()})	
+					ApplyDamage({ victim = enemy, damage = self.creep_damage, damage_type = damage_type, attacker = self:GetCaster(), ability = self:GetAbility()})
 				end
 			end	
 		end

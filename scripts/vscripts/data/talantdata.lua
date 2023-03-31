@@ -2963,12 +2963,10 @@ talantlist = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-7.png", name = "npc_dota_hero_nevermore_agi7", description = "", buff = "npc_dota_hero_nevermore_agi7_Description",
                 place = {"agi 7"}
             },
-            
             npc_dota_hero_nevermore_agi8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-8.png", name = "npc_dota_hero_nevermore_agi8", description = "", buff = "npc_dota_hero_nevermore_agi8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-8.png", name = "npc_dota_hero_nevermore_agi_last", description = "", buff = "npc_dota_hero_nevermore_agi_last_Description",
                 place = {"agi 8"}
-            },
-                
+            },  
             npc_dota_hero_nevermore_agi9 = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-9.png", name = "npc_dota_hero_nevermore_agi9", description = "", buff = "npc_dota_hero_nevermore_agi9_Description",
                 place = {"agi 9"}
@@ -2983,8 +2981,9 @@ talantlist = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-11.png", name = "npc_dota_hero_nevermore_agi11", description = "", buff = "npc_dota_hero_nevermore_agi11_Description",
                 place = {"agi 11"}
             },
+            
             npc_dota_hero_nevermore_agi_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-12.png", name = "npc_dota_hero_nevermore_agi_last", description = "", buff = "npc_dota_hero_nevermore_agi_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_nevermore/agi/agi-talant-11.png", name = "npc_dota_hero_nevermore_agi8", description = "", buff = "npc_dota_hero_nevermore_agi8_Description",
                 place = {"agi 12"}
             },
     ---

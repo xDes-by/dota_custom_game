@@ -17,7 +17,7 @@
 					"min"		"1700"
 					"max"		"2300"
 				}
-				"talentExperience"	"20"
+				"talentExperience"	"50"
 			}
 			"tasks"
 			{
@@ -116,7 +116,7 @@
 					"min"		"3100"
 					"max"		"3900"
 				}
-				"talentExperience"	"40"
+				"talentExperience"	"75"
 			}
 			"tasks"
 			{
@@ -169,7 +169,7 @@
 					"min"		"2500"
 					"max"		"2500"
 				}
-				"talentExperience"	"90"
+				"talentExperience"	"100"
 				"items"
 				{
 					"1"
@@ -227,7 +227,7 @@
 					"min"		"4750"
 					"max"		"6050"
 				}
-				"talentExperience"	"140"
+				"talentExperience"	"250"
 			}
 			"unlock"
 			{
@@ -322,7 +322,7 @@
 					"min"		"3000"
 					"max"		"4000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"275"
 				"items"
 				{
 					"1"
@@ -380,7 +380,7 @@
 					"min"		"3333"
 					"max"		"5555"
 				}
-				"talentExperience"	"200"
+				"talentExperience"	"300"
 			}
 			"tasks"
 			{
@@ -459,7 +459,7 @@
 					"min"		"3500"
 					"max"		"5000"
 				}
-				"talentExperience"	"210"
+				"talentExperience"	"325"
 			}
 			"tasks"
 			{
@@ -529,7 +529,7 @@
 					"min"		"4500"
 					"max"		"7500"
 				}
-				"talentExperience"	"220"
+				"talentExperience"	"350"
 				"items"
 				{
 					"1"
@@ -588,7 +588,7 @@
 					"min"		"7500"
 					"max"		"1000"
 				}
-				"talentExperience"	"300"
+				"talentExperience"	"400"
 			}
 			"tasks"
 			{
@@ -681,7 +681,7 @@
 					"min"		"10000"
 					"max"		"15000"
 				}
-				"talentExperience"	"310"
+				"talentExperience"	"425"
 				"items"
 				{
 					"1"
@@ -740,7 +740,7 @@
 					"min"	"10000"
 					"max"	"13250"
 				}
-				"talentExperience"	"350"
+				"talentExperience"	"450"
 				"items"
 				{
 					"1"
@@ -826,7 +826,7 @@
 					"min"	"12500"
 					"max"	"15000"
 				}
-				"talentExperience"	"360"
+				"talentExperience"	"460"
 			}
 			"tasks"
 			{
@@ -899,7 +899,7 @@
 					"min"	"15000"
 					"max"	"17500"
 				}
-				"talentExperience"	"370"
+				"talentExperience"	"470"
 				"items"
 				{
 					"1"
@@ -958,7 +958,7 @@
 					"min"	"17500"
 					"max"	"20000"
 				}
-				"talentExperience"	"380"
+				"talentExperience"	"480"
 			}
 			"tasks"
 			{
@@ -970,13 +970,13 @@
 					{
 						"1"
 						{
-							"x"	"10025"
-							"y"	"-2076"
+							"x"	"10110"
+							"y"	"-2025"
 						}
 						"2"
 						{
-							"x"	"8707"
-							"y"	"850"
+							"x"	"8750"
+							"y"	"905"
 						}
 					}
 					"kill"
@@ -1016,7 +1016,7 @@
 					"min"	"20000"
 					"max"	"25000"
 				}
-				"talentExperience"	"390"
+				"talentExperience"	"490"
 				"items"
 				{
 					"1"
@@ -1036,8 +1036,8 @@
 					{
 						"1"
 						{
-							"x"	"11212"
-							"y"	"3078"
+							"x"	"7393"
+							"y"	"53"
 						}
 					}
 					"kill"
@@ -1075,7 +1075,7 @@
 					"min"	"17500"
 					"max"	"20000"
 				}
-				"talentExperience"	"400"
+				"talentExperience"	"500"
 			}
 			"tasks"
 			{
@@ -1087,13 +1087,13 @@
 					{
 						"1"
 						{
-							"x"	"10594"
-							"y"	"6902"
+							"x"	"10777"
+							"y"	"4420"
 						}
 						"2"
 						{
-							"x"	"6721"
-							"y"	"5673"
+							"x"	"8400"
+							"y"	"3715"
 						}
 					}
 					"kill"
@@ -1133,7 +1133,7 @@
 					"min"	"20000"
 					"max"	"22500"
 				}
-				"talentExperience"	"410"
+				"talentExperience"	"510"
 				"items"
 				{
 					"1"
@@ -1153,8 +1153,8 @@
 					{
 						"1"
 						{
-							"x"	"2466"
-							"y"	"5416"
+							"x"	"5635"
+							"y"	"2813"
 						}
 					}
 					"kill"
@@ -1182,14 +1182,17 @@
 // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
 // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
 // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
-// 20+40+90
-// 140+150
-// 200+210+220
-// 300+310
-// 350
-// 360+370
-// 380+390
-// 400+410
+// 50+75+100 = 225
+// 250+275 = 525
+// 300+325+350 = 975
+// 400+425 = 825
+// 450
+// 460+470 = 930
+// 480+490 = 970
+// 500+510 = 1010
+// ----------------------
+// 5910
+
 // 4340
 	"bonus"
 	{
@@ -1213,7 +1216,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1296,7 +1299,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1350,7 +1353,7 @@
 					"min"	"3000"
 					"max"	"5000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1404,7 +1407,7 @@
 					"min"		"3000"
 					"max"		"5000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1571,6 +1574,7 @@
 					"min"		"20000"
 					"max"		"10000"
 				}
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1652,7 +1656,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1700,7 +1704,7 @@
 					"min"	"2000"
 					"max"	"3000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -1754,7 +1758,7 @@
 					"min"	"5000"
 					"max"	"5000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"175"
 				"ChoosItems"
 				{
 					"1"
@@ -1858,7 +1862,7 @@
 					"min"	"10000"
 					"max"	"15000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"200"
 				"ChoosItems"
 				{
 					"1"
@@ -1929,7 +1933,7 @@
 					"min"	"15000"
 					"max"	"25000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"225"
 				"ChoosItems"
 				{
 					"1"
@@ -2009,7 +2013,7 @@
 					"min"	"25000"
 					"max"	"35000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"250"
 				"ChoosItems"
 				{
 					"1"
@@ -2108,7 +2112,7 @@
 					"min"	"25000"
 					"max"	"40000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"275"
 				"ChoosItems"
 				{
 					"1"
@@ -2166,7 +2170,7 @@
 					"min"	"35000"
 					"max"	"45000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"300"
 				"ChoosItems"
 				{
 					"1"
@@ -2258,7 +2262,7 @@
 					"min"	"40000"
 					"max"	"50000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"325"
 				"ChoosItems"
 				{
 					"1"
@@ -2320,7 +2324,7 @@
 					"min"	"45000"
 					"max"	"60000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"350"
 				"ChoosItems"
 				{
 					"1"
@@ -2406,7 +2410,7 @@
 					"min"	"70000"
 					"max"	"70000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"375"
 			}
 			"tasks"
 			{
@@ -2454,7 +2458,7 @@
 					"min"	"10000"
 					"max"	"11000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -2496,7 +2500,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -2545,7 +2549,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -2601,7 +2605,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"options"
 			{
@@ -2659,7 +2663,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"tasks"
 			{
@@ -2708,7 +2712,7 @@
 					"min"		"25000"
 					"max"		"25000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"200"
 			}
 			"tasks"
 			{
@@ -2750,7 +2754,7 @@
 					"min"		"50000"
 					"max"		"50000"
 				}
-				"talentExperience"	"100"
+				"talentExperience"	"150"
 			}
 			"options"
 			{

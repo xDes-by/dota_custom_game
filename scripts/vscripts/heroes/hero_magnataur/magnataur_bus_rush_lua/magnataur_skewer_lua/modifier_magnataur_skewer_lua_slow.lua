@@ -59,6 +59,8 @@ function modifier_magnataur_skewer_lua_slow:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_TOOLTIP,
+		MODIFIER_PROPERTY_TOOLTIP2,
 	}
 
 	return funcs
@@ -70,4 +72,10 @@ end
 
 function modifier_magnataur_skewer_lua_slow:GetModifierMoveSpeedBonus_Percentage()
 	return self.ms_slow
+end
+function modifier_magnataur_skewer_lua_slow:OnTooltip()
+	return self.ms_slow
+end
+function modifier_magnataur_skewer_lua_slow:OnTooltip2()
+	return self.as_slow
 end

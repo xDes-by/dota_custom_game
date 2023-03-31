@@ -1,5 +1,5 @@
+LinkLuaModifier( "modifier_arc_talent_int12", "heroes/hero_arc/arc_spark/modifier_arc_talent_int12", LUA_MODIFIER_MOTION_NONE )
 ark_spark_lua = class({})
-
 function ark_spark_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int8")
 		if abil ~= nil then
@@ -7,6 +7,10 @@ function ark_spark_lua:GetManaCost(iLevel)
 		else
         return math.min(65000, self:GetCaster():GetIntellect()	)
 	end
+end
+
+function ark_spark_lua:GetIntrinsicModifierName()
+	return "modifier_arc_talent_int12"
 end
 
 function ark_spark_lua:OnSpellStart()
@@ -30,7 +34,7 @@ function ark_spark_lua:OnSpellStart()
 					Target = enemy,
 					Source = caster,
 					Ability = self,
-					EffectName = "particles/units/heroes/hero_arc_warden/arc_warden_wraith_prj.vpcf",
+					EffectName = "particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_prj.vpcf",
 					bDodgeable = false,
 					bProvidesVision = false,
 					iMoveSpeed = enemy_speed,
@@ -46,9 +50,10 @@ end
 
 function ark_spark_lua:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	if IsServer() then
+		if not target then return end
 		local caster = self:GetCaster()
-		local damage = self:GetSpecialValueFor("damage")	
-		
+		local damage = self:GetSpecialValueFor("damage") + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * self:GetSpecialValueFor("attributes_to_damage")
+
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi7") ~= nil then 
 			damage = damage + caster:GetAgility()
 		end
@@ -60,8 +65,11 @@ function ark_spark_lua:OnProjectileHit_ExtraData(target, vLocation, extraData)
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int11") ~= nil then
 			damage = damage * 2
 		end
-	
-		ApplyDamage({attacker = caster, victim = target, ability = self, damage = damage, damage_type = self:GetAbilityDamageType()})
+		
+		local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), target:GetAbsOrigin(), nil, self:GetSpecialValueFor("aoe_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({attacker = caster, victim = enemy, ability = self, damage = damage, damage_type = self:GetAbilityDamageType()})
+		end
 		target:EmitSound("Hero_ArcWarden.SparkWraith.Damage")
 	end
 end
