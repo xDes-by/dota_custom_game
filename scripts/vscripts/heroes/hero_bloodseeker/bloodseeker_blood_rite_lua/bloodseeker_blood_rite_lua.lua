@@ -14,9 +14,12 @@ end
 function bloodseeker_blood_rite_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
-
+	if self.cast_position ~= nil then
+		point = self.cast_position
+	end
 	CreateModifierThinker( caster, self, "modifier_bloodseeker_blood_rite_lua_thinker", {}, point, caster:GetTeamNumber(), false )
 	EmitSoundOn( "Hero_Bloodseeker.BloodRite.Cast", caster )
+	self.cast_position = nil
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -120,7 +123,7 @@ function modifier_bloodseeker_blood_rite_lua_effect:OnCreated( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi7") ~= nil then
 		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetAgility()
 	end
-	self.try_damage = self.damage *0.25 / 5
+	self.try_damage = self.damage *0.40 / 5
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int10") ~= nil then
 		self:StartIntervalThink( 0.2 )
 	end

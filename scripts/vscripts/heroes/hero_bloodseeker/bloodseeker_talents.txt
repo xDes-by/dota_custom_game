@@ -140,7 +140,8 @@
 	}
 	"npc_dota_hero_bloodseeker_agi_last"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_bloodseeker/auto_apply_blood_rite"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

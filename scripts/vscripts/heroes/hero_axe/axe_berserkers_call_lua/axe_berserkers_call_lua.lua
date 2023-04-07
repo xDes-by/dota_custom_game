@@ -50,9 +50,9 @@ function axe_berserkers_call_lua:OnSpellStart()
 	for _,enemy in pairs(enemies) do
 		enemy:AddNewModifier( caster, self, "modifier_axe_berserkers_call_lua_debuff", { duration = duration })
 		
-		if caster:FindAbilityByName("npc_dota_hero_axe_agi10") ~= nil then 
-			enemy:AddNewModifier( caster, self, "modifier_axe_berserkers_rearm", { duration = duration })
-		end
+		-- if caster:FindAbilityByName("npc_dota_hero_axe_agi10") ~= nil then 
+		-- 	enemy:AddNewModifier( caster, self, "modifier_axe_berserkers_rearm", { duration = duration })
+		-- end
 	end
 
 	caster:AddNewModifier( caster, self, "modifier_axe_berserkers_call_lua", { duration = duration } )

@@ -15,9 +15,6 @@ function bloodseeker_bloodrage_lua:GetManaCost(iLevel)
 end
 
 function bloodseeker_bloodrage_lua:GetBehavior()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int_last") ~= nil then 
-		return  DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
-	end
 	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
 
@@ -26,16 +23,8 @@ function bloodseeker_bloodrage_lua:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
 	EmitSoundOn( "hero_bloodseeker.bloodRage", caster )
 	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int_last") ~= nil then 
-		local target_point = self:GetCursorPosition()
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), target_point, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-		for _,unit in pairs(units) do
-			unit:AddNewModifier( caster, self, "modifier_bloodseeker_bloodrage_lua", { duration = duration } )
-		end
-	else
-		local target = self:GetCursorTarget()
-		target:AddNewModifier( caster, self, "modifier_bloodseeker_bloodrage_lua", { duration = duration } )
-	end
+	local target = self:GetCursorTarget()
+	target:AddNewModifier( caster, self, "modifier_bloodseeker_bloodrage_lua", { duration = duration } )
 end
 
 ---------------------------------------------------------------------------------------
@@ -54,13 +43,9 @@ function modifier_bloodseeker_bloodrage_lua:OnCreated( kv )
 	self.bonus_as = self:GetAbility():GetSpecialValueFor( "bonus_as" )
 	self.bonus_spell_amp = self:GetAbility():GetSpecialValueFor( "bonus_spell_amp" )
 	self.hp_loss = self:GetAbility():GetSpecialValueFor( "hp_loss" )
-	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi8") ~= nil then 
-		self.bonus_as = self.bonus_as * 2
-		self.bonus_spell_amp = self.bonus_spell_amp * 2
-		self.hp_loss = self:GetAbility():GetSpecialValueFor( "hp_loss" ) * 2
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int_last") then
+		self.bonus_spell_amp = self.bonus_spell_amp + self:GetParent():GetIntellect() * 0.3
 	end
-	
 	self:StartIntervalThink(0.1)
 end
 

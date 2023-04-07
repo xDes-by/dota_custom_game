@@ -62,14 +62,14 @@ function modifier_medusa_mana_shield_lua:IsPurgable() 		return false end
 function modifier_medusa_mana_shield_lua:RemoveOnDeath()	return false end
 
 function modifier_medusa_mana_shield_lua:OnCreated()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str_last") ~= nil then
-		self.damage_per_mana					= self:GetAbility():GetSpecialValueFor("damage_per_mana") * 3
-	else
-        self.damage_per_mana					= self:GetAbility():GetSpecialValueFor("damage_per_mana")
-	end
-	
+	self.damage_per_mana					= self:GetAbility():GetSpecialValueFor("damage_per_mana")
 	self.absorption_tooltip					= self:GetAbility():GetSpecialValueFor("absorption_tooltip")
 	
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str11")
+	if abil ~= nil then 
+	self.damage_per_mana = self.damage_per_mana * 2
+	end	
+
 	if not IsServer() then return end
 
 	self.mana_raw = self:GetParent():GetMana()
@@ -109,22 +109,33 @@ function modifier_medusa_mana_shield_lua:GetModifierIncomingDamage_Percentage(ke
     
     if not (keys.damage_type == DAMAGE_TYPE_MAGICAL and self:GetParent():IsMagicImmune()) then
     
-    local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str9")
-    if abil ~= nil then 
-    self.absorption_tooltip = 80
-    end    
-    
-        local mana_to_block    = keys.original_damage * self.absorption_tooltip * 0.01 / self.damage_per_mana
+        local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str9")
+        if abil ~= nil then 
+            self.absorption_tooltip = 80
+        end 
+        local taken = keys.original_damage
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str_last") ~= nil then
+			local magic_resistance = self:GetCaster():GetBaseMagicalResistanceValue()
+			local armor = self:GetCaster():GetPhysicalArmorValue(false)
+			local damage_reduction = 1 - (1 / (1 + (0.06 * armor)))
+
+			if keys.damage_type == DAMAGE_TYPE_PHYSICAL then
+				taken = keys.original_damage * (1 - damage_reduction)
+			elseif keys.damage_type == DAMAGE_TYPE_MAGICAL then
+				taken = keys.original_damage * (1 - magic_resistance / 100)
+			end
+		end
+        local mana_to_block = taken * self.absorption_tooltip * 0.01 / self.damage_per_mana
         self:GetParent():EmitSound("Hero_Medusa.ManaShield.Proc")    
         local shield_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
         ParticleManager:ReleaseParticleIndex(shield_particle)
-        if mana_to_block >= self:GetParent():GetMana() then
-            self:GetAbility():ToggleAbility()
-            return 0
-        else
-            self:GetParent():ReduceMana(mana_to_block)
+        if mana_to_block <= self:GetParent():GetMana() then
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str7") == nil or RandomInt(1, 100) > 25  then
+                self:GetParent():ReduceMana(mana_to_block)
+            end
             return self.absorption_tooltip * -1
+        else
+            return 0
         end
-        
     end
 end

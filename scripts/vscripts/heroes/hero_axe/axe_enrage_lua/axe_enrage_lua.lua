@@ -44,15 +44,15 @@ function axe_enrage_lua:OnSpellStart()
 	)
 		end
 		
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int11")			--ВСЕ АТРИБУТЫ
-		if abil ~= nil then 
-			self:GetCaster():AddNewModifier(
-			self:GetCaster(),
-			self,
-			"modifier_axe_enrage_other_lua",
-			{ duration = bonus_duration }
-	)
-	end	
+	-- local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int11")			--ВСЕ АТРИБУТЫ
+	-- 	if abil ~= nil then 
+	-- 		self:GetCaster():AddNewModifier(
+	-- 		self:GetCaster(),
+	-- 		self,
+	-- 		"modifier_axe_enrage_other_lua",
+	-- 		{ duration = bonus_duration }
+	-- )
+	-- end	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int_last")			--- усиливает весь исходящий
 		if abil ~= nil then 
 			self:GetCaster():AddNewModifier(

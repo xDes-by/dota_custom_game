@@ -55,11 +55,6 @@ function modifier_shadow_fiend_necromastery_lua:OnAttackLanded( params )
 	local caster = self:GetCaster()
 	local target = params.target
 	if params.attacker~=self:GetParent() then return end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi_last") ~= nil and RandomInt(1, 100) <= 2 and params.attacker:FindAbilityByName("shadow_fiend_requiem_of_souls_lua") ~= nil then
-		if params.attacker:FindAbilityByName("shadow_fiend_requiem_of_souls_lua"):IsTrained() then
-			params.attacker:FindAbilityByName("shadow_fiend_requiem_of_souls_lua"):OnSpellStart()
-		end
-	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi9") ~= nil then 
 		if caster:HasAbility("shadow_fiend_shadowraze_a_lua") and not caster:IsIllusion() then
 

@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	"medusa_stone_gaze_lua"
+    {
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "medusa_stone_gaze"
+        "ScriptFile"					"heroes/hero_medusa/medusa_stone_gaze_lua/medusa_stone_gaze_lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+        "AbilityCastRange"				"700"
+		"AbilityCooldown"				"15"
+		
+        "AbilitySpecial"
+		{
+            "01"
+			{	
+				"var_type"						"FIELD_INTEGER"
+				"range"					                "700"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"first_transformation_delay"		    "6.5 6 5.5 5 4.5 4 3.5 3 2.5 2"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"first_transformation_duration"		    "1"
+			}
+            "04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"subsequent_transformations_delay"		"19 18 17 16 15 14 13 12 11 10"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"subsequent_transformations_duration"	"2"
+			}
+			"06"
+			{	
+				"var_type"						"FIELD_INTEGER"
+				"damage_bonus"					        "10 15 20 25 35 45 50 55 60 65"
+			}
+		}
+    }
+}
+

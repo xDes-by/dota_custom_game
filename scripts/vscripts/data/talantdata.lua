@@ -76,12 +76,12 @@ talantlist = {
             },
             
             npc_dota_hero_axe_str8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-8.png", name = "npc_dota_hero_axe_str8", description = "", buff = "npc_dota_hero_axe_str8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str8", description = "", buff = "npc_dota_hero_axe_str8_Description",
                 place = {"str 8"}
             },
                 
             npc_dota_hero_axe_str9 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-9.png", name = "npc_dota_hero_axe_str9", description = "", buff = "npc_dota_hero_axe_str9_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str9", description = "", buff = "npc_dota_hero_axe_str9_Description",
                 place = {"str 9"}
             },
             
@@ -96,14 +96,14 @@ talantlist = {
             },
     
             npc_dota_hero_axe_str_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-12.png", name = "npc_dota_hero_axe_str_last", description = "", buff = "npc_dota_hero_axe_str_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str_last", description = "", buff = "npc_dota_hero_axe_str_last_Description",
                 place = {"str 12"}
             },
                 
     ---     
         
            npc_dota_hero_axe_agi6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-6.png", name = "npc_dota_hero_axe_agi6", description = "", buff = "npc_dota_hero_axe_agi6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-9.png", name = "npc_dota_hero_axe_agi6", description = "", buff = "npc_dota_hero_axe_agi6_Description",
                 place = {"agi 6"}
             },
         
@@ -113,7 +113,7 @@ talantlist = {
             },
             
             npc_dota_hero_axe_agi8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-8.png", name = "npc_dota_hero_axe_agi8", description = "", buff = "npc_dota_hero_axe_agi8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-12.png", name = "npc_dota_hero_axe_agi8", description = "", buff = "npc_dota_hero_axe_agi8_Description",
                 place = {"agi 8"}
             },
                 
@@ -123,7 +123,7 @@ talantlist = {
             },
             
             npc_dota_hero_axe_agi10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-10.png", name = "npc_dota_hero_axe_agi10", description = "", buff = "npc_dota_hero_axe_agi10_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/agi/agi-talant-12.png", name = "npc_dota_hero_axe_agi10", description = "", buff = "npc_dota_hero_axe_agi10_Description",
                 place = {"agi 10"}
             },
             
@@ -149,7 +149,7 @@ talantlist = {
             },
             
             npc_dota_hero_axe_int8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-8.png", name = "npc_dota_hero_axe_int8", description = "", buff = "npc_dota_hero_axe_int8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-6.png", name = "npc_dota_hero_axe_int8", description = "", buff = "npc_dota_hero_axe_int8_Description",
                 place = {"int 8"}
             },
                 
@@ -164,7 +164,7 @@ talantlist = {
             },
                 
             npc_dota_hero_axe_int11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-11.png", name = "npc_dota_hero_axe_int11", description = "", buff = "npc_dota_hero_axe_int11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-6.png", name = "npc_dota_hero_axe_int11", description = "", buff = "npc_dota_hero_axe_int11_Description",
                 place = {"int 11"}
             },  
     
@@ -6642,17 +6642,17 @@ talantlist = {
             --------------------------------------------------------------------------------------------------------------UNIQUE        
     
            npc_dota_hero_medusa_str6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-6.png", name = "npc_dota_hero_medusa_str6", description = "", buff = "npc_dota_hero_medusa_str6_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-13.png", name = "npc_dota_hero_medusa_str6", description = "", buff = "npc_dota_hero_medusa_str6_Description",
                 place = {"str 6"}
             },
         
-            npc_dota_hero_medusa_str7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-7.png", name = "npc_dota_hero_medusa_str7", description = "", buff = "npc_dota_hero_medusa_str7_Description",
+            npc_dota_hero_medusa_str10 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-10.png", name = "npc_dota_hero_medusa_str10", description = "", buff = "npc_dota_hero_medusa_str10_Description",
                 place = {"str 7"}
             },
-            
+           
             npc_dota_hero_medusa_str8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-8.png", name = "npc_dota_hero_medusa_str8", description = "", buff = "npc_dota_hero_medusa_str8_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/medusa_stone_gaze.png", name = "npc_dota_hero_medusa_str8", description = "", buff = "npc_dota_hero_medusa_str8_Description",
                 place = {"str 8"}
             },
                 
@@ -6661,8 +6661,8 @@ talantlist = {
                 place = {"str 9"}
             },
             
-            npc_dota_hero_medusa_str10 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-10.png", name = "npc_dota_hero_medusa_str10", description = "", buff = "npc_dota_hero_medusa_str10_Description",
+            npc_dota_hero_medusa_str7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/str/str-talant-9.png", name = "npc_dota_hero_medusa_str7", description = "", buff = "npc_dota_hero_medusa_str7_Description",
                 place = {"str 10"}
             },
             
@@ -6675,14 +6675,14 @@ talantlist = {
                 place = {"str 12"}
             },
     ---     
-        
-           npc_dota_hero_medusa_agi6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-6.png", name = "npc_dota_hero_medusa_agi6", description = "", buff = "npc_dota_hero_medusa_agi6_Description",
+            
+            npc_dota_hero_medusa_agi6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-12.png", name = "npc_dota_hero_medusa_agi_last", description = "", buff = "npc_dota_hero_medusa_agi_last_Description",
                 place = {"agi 6"}
             },
         
             npc_dota_hero_medusa_agi7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-7.png", name = "npc_dota_hero_medusa_agi7", description = "", buff = "npc_dota_hero_medusa_agi7_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-13.png", name = "npc_dota_hero_medusa_agi7", description = "", buff = "npc_dota_hero_medusa_agi7_Description",
                 place = {"agi 7"}
             },
             
@@ -6706,27 +6706,29 @@ talantlist = {
                 place = {"agi 11"}
             },
             npc_dota_hero_medusa_agi_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-12.png", name = "npc_dota_hero_medusa_agi_last", description = "", buff = "npc_dota_hero_medusa_agi_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/agi/agi-talant-6.png", name = "npc_dota_hero_medusa_agi6", description = "", buff = "npc_dota_hero_medusa_agi6_Description",
                 place = {"agi 12"}
             },
     ---
-            npc_dota_hero_medusa_int6 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int6", description = "", buff = "npc_dota_hero_medusa_int6_Description",
+            
+           
+            npc_dota_hero_medusa_int7 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int7", description = "", buff = "npc_dota_hero_medusa_int7_Description",
                 place = {"int 6"}
             },
-            
-            npc_dota_hero_medusa_int7 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-7.png", name = "npc_dota_hero_medusa_int7", description = "", buff = "npc_dota_hero_medusa_int7_Description",
-                place = {"int 7"}
-            },
-            
-            npc_dota_hero_medusa_int8 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-8.png", name = "npc_dota_hero_medusa_int8", description = "", buff = "npc_dota_hero_medusa_int8_Description",
-                place = {"int 8"}
-            },
-                
+
             npc_dota_hero_medusa_int9 = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-9.png", name = "npc_dota_hero_medusa_int9", description = "", buff = "npc_dota_hero_medusa_int9_Description",
+                place = {"int 7"}
+            },
+
+            npc_dota_hero_medusa_int8 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int8", description = "", buff = "npc_dota_hero_medusa_int8_Description",
+                place = {"int 8"}
+            },
+            
+            npc_dota_hero_medusa_int6 = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int6", description = "", buff = "npc_dota_hero_medusa_int6_Description",
                 place = {"int 9"}
             },
             
@@ -6736,11 +6738,11 @@ talantlist = {
             },
                 
             npc_dota_hero_medusa_int11 = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-11.png", name = "npc_dota_hero_medusa_int11", description = "", buff = "npc_dota_hero_medusa_int11_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int11", description = "", buff = "npc_dota_hero_medusa_int11_Description",
                 place = {"int 11"}
             },  
             npc_dota_hero_medusa_int_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-12.png", name = "npc_dota_hero_medusa_int_last", description = "", buff = "npc_dota_hero_medusa_int_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_medusa/int/int-talant-6.png", name = "npc_dota_hero_medusa_int_last", description = "", buff = "npc_dota_hero_medusa_int_last_Description",
                 place = {"int 12"}
             }, 
     -----------------------------------------------------------------------don
@@ -9622,7 +9624,7 @@ npc_dota_hero_bloodseeker = {
             },
     
             npc_dota_hero_bloodseeker_agi_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-12.png", name = "npc_dota_hero_bloodseeker_agi_last", description = "", buff = "npc_dota_hero_bloodseeker_agi_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_bloodseeker/agi/agi-talant-10.png", name = "npc_dota_hero_bloodseeker_agi_last", description = "", buff = "npc_dota_hero_bloodseeker_agi_last_Description",
                 place = {"agi 12"}
             },
              

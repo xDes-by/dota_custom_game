@@ -4,6 +4,7 @@ function math_round( roundIn , roundDig ) -- первый аргумент - ч�
 end
 local threshold = nil
 local prev_hp = nil
+local owner = nil
 
 function Spawn( entityKeyValues )
     if not IsServer() then
@@ -19,6 +20,14 @@ end
 
 function NeutralThink()
     if ( not thisEntity:IsAlive() ) then
+		if not DataBase:isCheatOn() then
+			if diff_wave.rating_scale == 0 then DataBase:AddRP(owner:GetPlayerID(), 25) end
+			if diff_wave.rating_scale == 1 then DataBase:AddRP(owner:GetPlayerID(), 50) end
+			if diff_wave.rating_scale == 2 then DataBase:AddRP(owner:GetPlayerID(), 70) end
+			if diff_wave.rating_scale == 3 then DataBase:AddRP(owner:GetPlayerID(), 90) end
+			if diff_wave.rating_scale == 4 then DataBase:AddRP(owner:GetPlayerID(), 110) end
+			DataBase:Event2021Boss(owner:GetPlayerID())
+		end
 		return -1
 	end	
 
@@ -34,14 +43,17 @@ function NeutralThink()
 		prev_hp = thisEntity:GetMaxHealth()
 		threshold = prev_hp * 0.05
 	end
+	if not owner then
+		owner = thisEntity.summoner
+	end
 	local hp_now = thisEntity:GetHealth()
 	local AbilityTotem = thisEntity:FindAbilityByName("earthshaker_enchant_totem_lua")
 	local AbilityEcho = thisEntity:FindAbilityByName("earthshaker_echo_slam_lua")
 	local AbilityFissure = thisEntity:FindAbilityByName("earthshaker_fissure_lua")
 	local AbilityEnrage = thisEntity:FindAbilityByName("earthshaker_enrage_lua")
 	local AbilityVacuum = thisEntity:FindAbilityByName("earthshaker_vacuum_lua")
+	local unitsInArea = GetEnemiesInRadius(thisEntity, 1100)
 
-	
 	if AbilityVacuum:IsFullyCastable() then
 		local vacuum_point = FindBestClusterCenter(thisEntity, 1000, 600)
 		ExecuteOrderFromTable({
@@ -98,7 +110,21 @@ function NeutralThink()
 			})
 		end
 	end
+	if #unitsInArea < 1 and thisEntity.summoner:IsAlive() then
+        ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(), 
+            OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+            Position = owner:GetAbsOrigin()
+        })
+    end
 	return 1
+end
+
+function IsTargetAncient(target)
+    if target:GetUnitName() == "npc_main_base" then
+        return true
+    end
+    return false
 end
 
 function FindBestClusterCenter(caster, search_radius, cluster_radius)

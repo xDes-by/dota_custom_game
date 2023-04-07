@@ -185,10 +185,10 @@
 	"npc_dota_hero_medusa"
 	{
 	"override_hero"			"npc_dota_hero_medusa"
-	"Ability1"				"medusa_poison_arrow_lua"
+	"Ability1"				"medusa_split_shot_lua"
 	"Ability2"				"medusa_mystic_snake_lua"
 	"Ability3"				"medusa_mana_shield_lua"
-	"Ability6"				"medusa_split_shot_lua"
+	"Ability6"				"medusa_stone_gaze_lua"
 	"Ability10"				""
 	"Ability11"				""
 	"Ability12"				""

@@ -3,6 +3,7 @@ require('libraries/timers')
 require('libraries/notifications')
 require("libraries/animations")
 require("libraries/vector_target/vector_target" )
+require("libraries/table")
 require("creep_spawner")
 require("drop")
 require("spawner")
@@ -19,7 +20,7 @@ require("use_pets")
 _G.key = GetDedicatedServerKeyV3("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = true -- true
+_G.server_load = false -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -238,7 +239,36 @@ function CAddonAdvExGameMode:InitGameMode()
 	_G.Activate_belka = false
 	use_pets:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
+
+	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OnExecuteOrderFilter"), self)
 end
+
+_G.HandleGoldChange = function(hero, income)
+	local mod = hero:FindModifierByName("modifier_gold_bank")
+	local PlayerGold = hero:GetGold()
+	if PlayerGold + income > 99999 then
+		local bank_gold = mod:GetStackCount()
+		mod:SetStackCount(PlayerGold + income - 99999 + bank_gold)
+	end
+end
+
+function CAddonAdvExGameMode:OnExecuteOrderFilter(filterTable)
+    local order_type = filterTable.order_type
+
+    if order_type == DOTA_UNIT_ORDER_SELL_ITEM then
+        DeepPrintTable(filterTable)
+    end
+
+    return true
+end
+
+function CAddonAdvExGameMode:GoldFilter(event)
+	DeepPrintTable(event)
+	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
+	HandleGoldChange(hero, event.gold)
+	return true
+  end
 
 function CAddonAdvExGameMode:OrderFilter(event)
     -- if event.order_type == DOTA_UNIT_ORDER_PATROL then
@@ -510,13 +540,13 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 end
 
 
-function loadscript()	
+function loadscript()
 	if _G.server_load == false then
 		print("local load")
 		require("www/loader")
 	else
 		print("server load")
-		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-test?key=" .. _G.key
+		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-lts?key=" .. _G.key
 		local req = CreateHTTPRequestScriptVM( "GET", url )
 		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 		req:Send(function(res)
@@ -534,7 +564,7 @@ LinkLuaModifier( "modifier_base_passive", "modifiers/modifier_base", LUA_MODIFIE
 LinkLuaModifier( "modifier_transformation", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_silent2", "modifiers/modifier_silent2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA_MODIFIER_MOTION_NONE )
-
+LinkLuaModifier( "modifier_gold_bank", "modifiers/modifier_gold_bank", LUA_MODIFIER_MOTION_NONE)
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
@@ -545,6 +575,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		
 		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
+		npc:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
 		
 		CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
 		CheckCheatMode()

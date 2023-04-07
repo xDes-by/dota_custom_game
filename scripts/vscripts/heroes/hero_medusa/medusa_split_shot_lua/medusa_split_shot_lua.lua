@@ -2,8 +2,28 @@ medusa_split_shot_lua = class({})
 LinkLuaModifier( "modifier_medusa_split_shot_lua", "heroes/hero_medusa/medusa_split_shot_lua/medusa_split_shot_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_medusa_slow", "heroes/hero_medusa/medusa_split_shot_lua/medusa_split_shot_lua", LUA_MODIFIER_MOTION_NONE )
 
-function medusa_split_shot_lua:GetIntrinsicModifierName()
-	return "modifier_medusa_split_shot_lua"
+
+function medusa_split_shot_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
+
+function medusa_split_shot_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
+function medusa_split_shot_lua:OnToggle()
+	if not IsServer() then return end
+	
+	if self:GetToggleState() then
+		-- self:GetCaster():EmitSound("Hero_Medusa.ManaShield.On")
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_medusa_split_shot_lua", {})
+	else
+		-- self:GetCaster():EmitSound("Hero_Medusa.ManaShield.Off")
+		self:GetCaster():RemoveModifierByNameAndCaster("modifier_medusa_split_shot_lua", self:GetCaster())
+	end
+	
 end
 
 function medusa_split_shot_lua:OnProjectileHit( target, location )
@@ -125,32 +145,13 @@ function modifier_medusa_split_shot_lua:OnAttack( params )
 end
 
 function modifier_medusa_split_shot_lua:GetModifierDamageOutgoing_Percentage()
-	if not IsServer() then return end
-
-
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi10")
-	if abil ~= nil then 
-	self.reduction = 100
-	end
-	
-	if self.split_shot then
+	-- if not IsServer() then return end
+	if self:GetAbility():GetToggleState() and self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi10") == nil then
 		return self.reduction
 	end
-
-	-- if not use modifier
-	if self:GetAbility().split_shot_attack then
-		return self.reduction
-	end
+	return 0
 end
 
-function modifier_medusa_split_shot_lua:OnAttackLanded(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi_last") ~= nil and RandomInt(1, 100) <= 10 and params.attacker:FindAbilityByName("medusa_mystic_snake_lua") ~= nil then
-		if params.attacker:FindAbilityByName("medusa_mystic_snake_lua"):IsTrained() then
-			_G.snaketarget = params.target
-			params.attacker:FindAbilityByName("medusa_mystic_snake_lua"):OnSpellStart()
-		end
-	end
-end
 --------------------------------------------------------------------------------
 function modifier_medusa_split_shot_lua:SplitShotModifier( target )
 	-- get radius
@@ -262,7 +263,7 @@ function modifier_medusa_split_shot_lua:SplitShotNoModifier( target )
 				Source = self:GetParent(),
 				Ability = self:GetAbility(),	
 				
-				EffectName = "particles/econ/items/medusa/medusa_ti10_immortal_tail/medusa_ti10_projectile.vpcf",
+				EffectName = self.projectile_name, --"particles/econ/items/medusa/medusa_ti10_immortal_tail/medusa_ti10_projectile.vpcf",
 				iMoveSpeed = self.projectile_speed,
 				bDodgeable = true,                           -- Optional
 				-- bIsAttack = true,                                -- Optional

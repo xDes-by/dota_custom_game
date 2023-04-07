@@ -3,7 +3,7 @@
 	"npc_dota_hero_medusa_str6"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/regen"
+		// "ScriptFile"					"heroes/hero_medusa/regen"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -11,14 +11,14 @@
 	"npc_dota_hero_medusa_str7"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/hp"
+		// "ScriptFile"					"heroes/hero_medusa/hp"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"npc_dota_hero_medusa_str8"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/armor"
+		// "ScriptFile"					"heroes/hero_medusa/armor"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -43,15 +43,14 @@
 //==	
 	"npc_dota_hero_medusa_agi6"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/x2_damage"
+		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"npc_dota_hero_medusa_agi7"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/dmg"
+		// "ScriptFile"					"heroes/hero_medusa/dmg"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -113,7 +112,7 @@
 	"npc_dota_hero_medusa_int11"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_medusa/mp_reg"
+		// "ScriptFile"					"heroes/hero_medusa/mp_reg"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -127,10 +126,12 @@
 	}
 	"npc_dota_hero_medusa_agi_last"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_medusa/x2_damage"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
+	
 	"npc_dota_hero_medusa_int_last"
 	{
 		"BaseClass"             		"special_bonus_undefined"

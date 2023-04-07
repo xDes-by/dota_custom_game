@@ -227,7 +227,7 @@
 					"min"		"4750"
 					"max"		"6050"
 				}
-				"talentExperience"	"250"
+				"talentExperience"	"150"
 			}
 			"unlock"
 			{
@@ -322,7 +322,7 @@
 					"min"		"3000"
 					"max"		"4000"
 				}
-				"talentExperience"	"275"
+				"talentExperience"	"175"
 				"items"
 				{
 					"1"
@@ -380,7 +380,7 @@
 					"min"		"3333"
 					"max"		"5555"
 				}
-				"talentExperience"	"300"
+				"talentExperience"	"200"
 			}
 			"tasks"
 			{
@@ -459,7 +459,7 @@
 					"min"		"3500"
 					"max"		"5000"
 				}
-				"talentExperience"	"325"
+				"talentExperience"	"225"
 			}
 			"tasks"
 			{
@@ -529,7 +529,7 @@
 					"min"		"4500"
 					"max"		"7500"
 				}
-				"talentExperience"	"350"
+				"talentExperience"	"250"
 				"items"
 				{
 					"1"
@@ -588,7 +588,7 @@
 					"min"		"7500"
 					"max"		"1000"
 				}
-				"talentExperience"	"400"
+				"talentExperience"	"300"
 			}
 			"tasks"
 			{
@@ -681,7 +681,7 @@
 					"min"		"10000"
 					"max"		"15000"
 				}
-				"talentExperience"	"425"
+				"talentExperience"	"325"
 				"items"
 				{
 					"1"
@@ -740,7 +740,7 @@
 					"min"	"10000"
 					"max"	"13250"
 				}
-				"talentExperience"	"450"
+				"talentExperience"	"350"
 				"items"
 				{
 					"1"
@@ -826,7 +826,7 @@
 					"min"	"12500"
 					"max"	"15000"
 				}
-				"talentExperience"	"460"
+				"talentExperience"	"360"
 			}
 			"tasks"
 			{
@@ -899,7 +899,7 @@
 					"min"	"15000"
 					"max"	"17500"
 				}
-				"talentExperience"	"470"
+				"talentExperience"	"370"
 				"items"
 				{
 					"1"
@@ -958,7 +958,7 @@
 					"min"	"17500"
 					"max"	"20000"
 				}
-				"talentExperience"	"480"
+				"talentExperience"	"380"
 			}
 			"tasks"
 			{
@@ -1016,7 +1016,7 @@
 					"min"	"20000"
 					"max"	"25000"
 				}
-				"talentExperience"	"490"
+				"talentExperience"	"390"
 				"items"
 				{
 					"1"
@@ -1075,7 +1075,7 @@
 					"min"	"17500"
 					"max"	"20000"
 				}
-				"talentExperience"	"500"
+				"talentExperience"	"400"
 			}
 			"tasks"
 			{
@@ -1133,7 +1133,7 @@
 					"min"	"20000"
 					"max"	"22500"
 				}
-				"talentExperience"	"510"
+				"talentExperience"	"410"
 				"items"
 				{
 					"1"
@@ -1183,15 +1183,15 @@
 // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
 // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS // BONUS 
 // 50+75+100 = 225
-// 250+275 = 525
-// 300+325+350 = 975
-// 400+425 = 825
-// 450
-// 460+470 = 930
-// 480+490 = 970
-// 500+510 = 1010
+// 150+175 = 525
+// 200+225+250 = 975
+// 300+325 = 825
+// 350
+// 360+370 = 930
+// 380+390 = 970
+// 400+410 = 1010
 // ----------------------
-// 5910
+// 5910 - 1400
 
 // 4340
 	"bonus"
@@ -1216,7 +1216,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1241,45 +1241,48 @@
 				}
 			}
 		}
-		// 800 любых крипов
-		"2"
+		"2" // шейкер
 		{
-			"UnitName"	"npc_4"
+			
+			"UnitName"	"npc_1"
 			"reward"
 			{
 				"experience"
 				{
-					"min"		"20000"
-					"max"		"20000"
+					"min"		"50000"
+					"max"		"50000"
 				}
 				"gold"
 				{
-					"min"		"40000"
-					"max"		"40000"
+					"min"		"50000"
+					"max"		"50000"
 				}
+				"talentExperience"	"100"
+				"items"
+				{
+					"1"
+					{
+						"TextName"	"dota_tooltip_ability_item_shaker_boss_summon"
+						"DotaName"	"item_shaker_boss_summon"
+					}
+				}
+			}
+			"options"
+			{
+				"available"	"1"
 			}
 			"tasks"
 			{
 				"1"
 				{
-					"UnitName"	"npc_4"
-					
-					"kill"
+					"UnitName"	"npc_1"
+					"custom"
 					{
-						"use_type"	"random"
-						"units"
-						{
-							"1"
-							{
-								"min"	"800"
-								"max"	"800"
-								"TextName"	"quest_tank_any_creep"
-								"Desc"	"quest_tank_any_creep_desc"
-								"1"		"any_creep"
-							}
-						}
+						"min"			"4"
+						"max"   		"4"
+						"TextName"		"quest_npc_shaker_boss_summon"
+						"Desc"			"quest_npc_shaker_boss_summon_desc"
 					}
-					
 				}
 			}
 		}
@@ -1299,7 +1302,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1353,7 +1356,7 @@
 					"min"	"3000"
 					"max"	"5000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1407,7 +1410,7 @@
 					"min"		"3000"
 					"max"		"5000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1574,7 +1577,7 @@
 					"min"		"20000"
 					"max"		"10000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1656,7 +1659,7 @@
 					"min"		"2000"
 					"max"		"3000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1704,7 +1707,7 @@
 					"min"	"2000"
 					"max"	"3000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -1758,7 +1761,7 @@
 					"min"	"5000"
 					"max"	"5000"
 				}
-				"talentExperience"	"175"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -1862,7 +1865,7 @@
 					"min"	"10000"
 					"max"	"15000"
 				}
-				"talentExperience"	"200"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -1933,7 +1936,7 @@
 					"min"	"15000"
 					"max"	"25000"
 				}
-				"talentExperience"	"225"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2013,7 +2016,7 @@
 					"min"	"25000"
 					"max"	"35000"
 				}
-				"talentExperience"	"250"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2112,7 +2115,7 @@
 					"min"	"25000"
 					"max"	"40000"
 				}
-				"talentExperience"	"275"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2170,7 +2173,7 @@
 					"min"	"35000"
 					"max"	"45000"
 				}
-				"talentExperience"	"300"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2262,7 +2265,7 @@
 					"min"	"40000"
 					"max"	"50000"
 				}
-				"talentExperience"	"325"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2324,7 +2327,7 @@
 					"min"	"45000"
 					"max"	"60000"
 				}
-				"talentExperience"	"350"
+				"talentExperience"	"100"
 				"ChoosItems"
 				{
 					"1"
@@ -2410,7 +2413,7 @@
 					"min"	"70000"
 					"max"	"70000"
 				}
-				"talentExperience"	"375"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -2458,7 +2461,7 @@
 					"min"	"10000"
 					"max"	"11000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -2500,7 +2503,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -2549,7 +2552,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -2605,7 +2608,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"options"
 			{
@@ -2663,7 +2666,7 @@
 					"min"		"20000"
 					"max"		"30000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"tasks"
 			{
@@ -2754,7 +2757,7 @@
 					"min"		"50000"
 					"max"		"50000"
 				}
-				"talentExperience"	"150"
+				"talentExperience"	"100"
 			}
 			"options"
 			{
@@ -2783,6 +2786,7 @@
 				}
 			}
 		}
+		
 		
 	}
 	

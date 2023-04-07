@@ -11,10 +11,8 @@ end
 
 function modifier_axe_counter_helix_lua:OnCreated( kv )
 	-- references
-	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 	if IsServer() then
 		local damage = self:GetAbility():GetSpecialValueFor( "damage" )
-		
 	end
 end
 
@@ -39,83 +37,110 @@ function modifier_axe_counter_helix_lua:DeclareFunctions()
 end
 
 function modifier_axe_counter_helix_lua:OnAttackLanded( params )
-	if IsServer() then
+	if not IsServer() then return end
 	if self:GetAbility():IsFullyCastable() then
 		self.chance = self:GetAbility():GetSpecialValueFor( "trigger_chance" )
 		self.damage	 = self:GetAbility():GetSpecialValueFor( "damage" )
+		self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 		
-	if self:GetAbility() and not self:GetCaster():PassivesDisabled() and ((params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or (params.attacker == self:GetCaster() and HasTalent(self:GetCaster(), "npc_dota_hero_axe_agi11") )) then
-		
-	caster = self:GetCaster()
-	damage_type = DAMAGE_TYPE_PURE
-	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int9")				--магический усиливаемый
-		if abil ~= nil then 
-		damage_type = DAMAGE_TYPE_MAGICAL
-		damage_flags = DOTA_DAMAGE_FLAG_NONE
-	end
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_agi_last")				-- + к урону крутилки
-		if abil ~= nil then 
-		self.damage = self.damage + self:GetCaster():GetAgility()
-	end
-		
-		
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_axe_str9")               -- шанс крутилки 100%
-			if abil ~= nil then 
-				if caster:HasModifier("modifier_axe_berserkers_call_lua") then 
-				  self.chance = 100
-				end
-		end
+		if self:GetAbility() and not self:GetCaster():PassivesDisabled() and ((params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or (params.attacker == self:GetCaster() and HasTalent(self:GetCaster(), "npc_dota_hero_axe_agi11") )) then
 			
-		
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
-			self.chance = self.chance + 15
+			caster = self:GetCaster()
+			damage_type = DAMAGE_TYPE_PURE
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+			
+			if self:GetAbility():GetToggleState() then
+				damage_type = DAMAGE_TYPE_MAGICAL
+				damage_flags = DOTA_DAMAGE_FLAG_NONE
+				if caster:FindAbilityByName("npc_dota_hero_axe_str9") then 
+					self.damage = self.damage + caster:GetStrength()
+				end
+				if caster:FindAbilityByName("npc_dota_hero_axe_agi10") then 
+					self.damage = self.damage + caster:GetAgility()
+				end
+				if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_int9") then
+					self.damage = self.damage + caster:GetIntellect()
+				end
+			else
+				if caster:FindAbilityByName("npc_dota_hero_axe_str_last") then
+					if caster:GetMaxHealth() * 0.002 <= 2000 then
+						self.damage = self.damage + caster:GetMaxHealth() * 0.002
+					else
+						self.damage = self.damage + 2000
+					end
+				end
+				if caster:FindAbilityByName("npc_dota_hero_axe_int11") then
+					self.damage = self.damage + self:GetAbility():GetLevel() * 30
+				end
+			end
+			
+			if caster:FindAbilityByName("npc_dota_hero_axe_agi8") then
+				self.radius = self.radius + 100
+			end
+			if caster:FindAbilityByName("npc_dota_hero_axe_int8") and RandomInt(1, 100) <= 50 then
+				self.damage = self.damage * 2
+			end
+			if caster:FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
+				self.chance = self.chance + 15
+			end
+			if RandomInt(1,100) <= self.chance then 
+
+
+				-- find enemies
+				local enemies = FindUnitsInRadius(
+					caster:GetTeamNumber(),	-- int, your team number
+					caster:GetOrigin(),	-- point, center point
+					nil,	-- handle, cacheUnit. (not known)
+					self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+					DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
+					0,	-- int, order filter
+					false	-- bool, can grow cache
+				)
+			
+				---------------------------------------------------
+				self.damageTable = {
+					-- victim = target,
+					attacker = caster,
+					damage = self.damage,
+					damage_type = damage_type,
+					ability = self:GetAbility(), --Optional.
+					damage_flags = damage_flags, --Optional.
+				}
+
+				-- damage
+				for _,enemy in pairs(enemies) do
+					if caster:FindAbilityByName("npc_dota_hero_axe_str8") then
+						if not enemy:HasModifier("modifire_dota_hero_axe_str8") then
+							enemy:AddNewModifier(caster, self:GetAbility(), "modifire_dota_hero_axe_str8", {})
+						end
+						enemy:FindModifierByName("modifire_dota_hero_axe_str8"):AddStack(15)
+					end
+					self.damageTable.victim = enemy
+					ApplyDamage( self.damageTable )
+					if caster:FindAbilityByName("npc_dota_hero_axe_agi_last") and not self:GetAbility():GetToggleState() then
+						caster:PerformAttack(
+							enemy, -- hTarget
+							false, -- bUseCastAttackOrb
+							true, -- bProcessProcs
+							true, -- bSkipCooldown
+							false, -- bIgnoreInvis
+							false, -- bUseProjectile
+							false, -- bFakeAttack
+							false -- bNeverMiss
+						)
+					end
+				end
+
+				-- cooldown
+				self:GetAbility():UseResources( false, false, true )
+
+				-- effects
+				self:PlayEffects()
+			end
 		end
-		local c = RandomInt(1,100)
-				
-		if c <= self.chance then 
-
-
-		-- find enemies
-		local enemies = FindUnitsInRadius(
-			self:GetCaster():GetTeamNumber(),	-- int, your team number
-			self:GetCaster():GetOrigin(),	-- point, center point
-			nil,	-- handle, cacheUnit. (not known)
-			self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-			DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-			0,	-- int, order filter
-			false	-- bool, can grow cache
-		)
-	
----------------------------------------------------
-		self.damageTable = {
-			-- victim = target,
-			attacker = self:GetCaster(),
-			damage = self.damage,
-			damage_type = damage_type,
-			ability = self:GetAbility(), --Optional.
-			damage_flags = damage_flags, --Optional.
-		}
-
-		-- damage
-		for _,enemy in pairs(enemies) do
-			self.damageTable.victim = enemy
-			ApplyDamage( self.damageTable )
-		end
-
-		-- cooldown
-		self:GetAbility():UseResources( false, false, true )
-
-		-- effects
-		self:PlayEffects()
 	end
-	end
-end
-end
 end
 
 --------------------------------------------------------------------------------

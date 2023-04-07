@@ -2623,6 +2623,19 @@
             "charges"					"15 20 25 30 35 40 45 50"
         }
     }
+	"item_shaker_boss_summon"
+	{       
+        "BaseClass"						"item_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"	        "npc_dota_hero_spectre_incinerator_lua"
+		"ScriptFile"					"bosses/EARTHSHAKER/summon"
+		"ItemStackable"					"0"
+		"ItemKillable"                  "0"
+		"ItemSellable"                  "0"
+		"ItemDroppable"                 "1"
+		"ItemPurchasable"				"0"
+		"ItemPermanent"					"1"
+	}
 }
 
 #base "../npc/items_full_custom.txt"

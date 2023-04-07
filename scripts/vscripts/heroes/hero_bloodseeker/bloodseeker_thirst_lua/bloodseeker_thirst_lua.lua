@@ -49,12 +49,6 @@ function modifier_bloodseeker_thirst_lua:OnCreated( kv )
 		self.try_damage = self.bonus_damage + self:GetCaster():GetAgility()
 	end
 	
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi_last") ~= nil then
-		self.try_damage = self.try_damage * 2
-		self.bonus_lifesteal = self:GetAbility():GetSpecialValueFor( "bonus_lifesteal" ) * 2
-		self.bonus_movespeed = self:GetAbility():GetSpecialValueFor( "bonus_movespeed" ) * 2
-	end
-	
 end
 
 function modifier_bloodseeker_thirst_lua:DeclareFunctions()

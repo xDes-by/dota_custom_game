@@ -24,9 +24,9 @@ function modifier_axe_enrage_lua:OnCreated( kv )
 			self.base_str = self:GetAbility():GetSpecialValueFor("bonus_str") * (self.caster:GetStrength()/100) * 2
 		end
 		
-		if self.caster:FindAbilityByName("npc_dota_hero_axe_str_last") ~= nil then 
-			self.base_str = self.base_str * 5
-		end
+		-- if self.caster:FindAbilityByName("npc_dota_hero_axe_str_last") ~= nil then 
+		-- 	self.base_str = self.base_str * 5
+		-- end
 	end
 end
 
@@ -44,19 +44,17 @@ function modifier_axe_enrage_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_MODEL_SCALE,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 	}
 	return funcs
 end
 
 --------------------------------------------------------------------------------
-function modifier_axe_enrage_lua:GetModifierPreAttack_BonusDamage( params )
-	self.damage = self:GetCaster():GetAttackDamage()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_str8") ~= nil then 
-		tru = 1
-		da = (self.damage * tru)/2
+function modifier_axe_enrage_lua:GetModifierDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_agi6") ~= nil then 
+		return 100
 	end
-	return da
+	return 0
 end
 
 function modifier_axe_enrage_lua:GetModifierIncomingDamage_Percentage( params )

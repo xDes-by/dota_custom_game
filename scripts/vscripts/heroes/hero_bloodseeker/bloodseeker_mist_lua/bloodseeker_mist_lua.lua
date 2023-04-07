@@ -65,6 +65,9 @@ function modifier_bloodseeker_mist_aura_lua:OnIntervalThink()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str_last") ~= nil then
 		self.damage = self.damage + self:GetCaster():GetStrength()
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi8") ~= nil then 
+		self.damage = self.damage + self:GetCaster():GetBaseDamageMin() * 0.20
+	end
 	local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(enemies) do
 		enemy:AddNewModifier(self.caster, self, "modifier_bloodseeker_mist_burn_lua", {duration = 0.6})

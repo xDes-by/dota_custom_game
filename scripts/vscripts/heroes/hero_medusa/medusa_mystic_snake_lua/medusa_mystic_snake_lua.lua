@@ -1,23 +1,67 @@
 LinkLuaModifier( "modifier_medusa_stone_gaze_lua_petrified", "heroes/hero_medusa/medusa_mystic_snake_lua/medusa_mystic_snake_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_medusa_mystic_snake_lua_autocast", "heroes/hero_medusa/medusa_mystic_snake_lua/medusa_mystic_snake_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_medusa_poison_arrow_lua", "heroes/hero_medusa/medusa_mystic_snake_lua/modifier_medusa_poison_arrow_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_medusa_magic_resist", "heroes/hero_medusa/medusa_mystic_snake_lua/modifier_medusa_poison_arrow_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_agil_lua", "heroes/hero_medusa/medusa_mystic_snake_lua/medusa_mystic_snake_lua", LUA_MODIFIER_MOTION_NONE )
 
 medusa_mystic_snake_lua = class({})
 
+function medusa_mystic_snake_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
+
+function medusa_mystic_snake_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
 function medusa_mystic_snake_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int11") ~= nil then
+		return math.min(65000, self:GetCaster():GetMana() * 0.3	)
+	end
 	return math.min(65000, self:GetCaster():GetIntellect()	)
 end
 
+function medusa_mystic_snake_lua:GetCastRange(vLocation, hTarget)
+    return self:GetSpecialValueFor("radius")
+end
+
+function medusa_mystic_snake_lua:CastFilterResultTarget(hTarget)
+    if self:GetCaster():GetTeamNumber() == hTarget:GetTeamNumber() then
+        return UF_FAIL_FRIENDLY
+    end
+
+    return UF_SUCCESS
+end
+
+function medusa_mystic_snake_lua:GetIntrinsicModifierName()
+    return "modifier_medusa_mystic_snake_lua_autocast"
+end
+medusa_mystic_snake_lua.double_snake = false
 function medusa_mystic_snake_lua:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
+	self.phys_dmg = caster:GetAverageTrueAttackDamage(caster) * 5
 	if _G.snaketarget ~= nil then
 		target = _G.snaketarget
 	else
 	 	target = self:GetCursorTarget()
 	end
-
+	
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int6") ~= nil and not medusa_mystic_snake_lua.double_snake then
+		medusa_mystic_snake_lua.double_snake_target = target
+		Timers:CreateTimer(0.5, function()
+			if medusa_mystic_snake_lua.double_snake_target then
+				_G.snaketarget = medusa_mystic_snake_lua.double_snake_target
+				medusa_mystic_snake_lua.double_snake = true
+				self:OnSpellStart()
+				medusa_mystic_snake_lua.double_snake = false
+			end
+		end)
+	end
 	-- load data
-	local mana_steal = self:GetSpecialValueFor( "snake_mana_steal" )/100
+	local mana_steal = self:GetSpecialValueFor( "snake_mana_steal" )
 	local jumps = self:GetSpecialValueFor( "snake_jumps" )
 	local radius = self:GetSpecialValueFor( "radius" )
 	local base_damage = self:GetSpecialValueFor( "snake_damage" )
@@ -28,34 +72,21 @@ function medusa_mystic_snake_lua:OnSpellStart()
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int10")                         
 	if abil ~= nil then 
-		base_damage = self:GetCaster():GetIntellect()
+		base_damage = base_damage + self:GetCaster():GetIntellect()
+	end                     
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str6") ~= nil then 
+		base_damage = base_damage + self:GetCaster():GetStrength()
 	end
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi8")                         
-	if abil ~= nil then 
-			if not self:GetCaster():HasModifier("modifier_agil_lua") then 
-			self:GetCaster():AddNewModifier(
-						self:GetCaster(), -- player source
-						self, -- ability source
-						"modifier_agil_lua", -- modifier name
-						{
-							duration = 5
-						}
-			)
-		end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi8") ~= nil then
+		base_damage = base_damage + self:GetCaster():GetAbility()
 	end
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int6")                         
-	if abil ~= nil then 
-		mult_damage = 0.5
-	end
-	
+
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int9")                         
 	if abil ~= nil then 
 		base_stun = self:GetSpecialValueFor( "stone_form_scepter_base" )
 	end
 
-	local projectile_name = "particles/units/heroes/hero_medusa/medusa_mystic_snake_projectile.vpcf"
+	local projectile_name = "particles/econ/items/medusa/medusa_ti10_immortal_tail/medusa_ti10_projectile.vpcf"
 	local projectile_speed = self:GetSpecialValueFor( "initial_speed" )
 	local projectile_vision = 100
 
@@ -111,7 +142,17 @@ end
 -- Projectile
 medusa_mystic_snake_lua.projectiles = {}
 function medusa_mystic_snake_lua:OnProjectileHit_ExtraData( target, location, ExtraData )
-	-- load data
+	local snake_poison_duration = self:GetSpecialValueFor( "snake_poison_duration" )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int_last") ~= nil then 
+		snake_poison_duration = snake_poison_duration + 2
+	end
+	if target ~= self:GetCaster() then
+		target:AddNewModifier(self:GetCaster(), self, "modifier_medusa_poison_arrow_lua", { duration = snake_poison_duration })
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int7") ~= nil then
+			target:AddNewModifier(self:GetCaster(), self, "modifier_medusa_magic_resist", { duration = snake_poison_duration })
+		end
+	end
+		-- load data
 	local data = self.projectiles[ ExtraData.index ]
 
 	-- if returning, returns mana
@@ -153,10 +194,19 @@ function medusa_mystic_snake_lua:OnProjectileHit_ExtraData( target, location, Ex
 			ability = self, --Optional.
 		}
 		ApplyDamage(damageTable)
-
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi6") ~= nil then
+			ApplyDamage({
+				victim = target,
+				attacker = self:GetCaster(),
+				damage = self.phys_dmg,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = self, --Optional.
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+			})
+		end
+		
 		-- take mana
-		local mana_taken = math.min( target:GetMaxMana()*data.mana_steal, target:GetMana() )
-		target:ReduceMana( mana_taken )
+		local mana_taken = self:GetCaster():GetMaxMana() / 100 * data.mana_steal
 		data.mana_stolen = data.mana_stolen + mana_taken
 
 		-- play effects
@@ -220,6 +270,7 @@ function medusa_mystic_snake_lua:OnProjectileHit_ExtraData( target, location, Ex
 	data.projectile_info.Target = next_target
 	data.projectile_info.Source = target
 	ProjectileManager:CreateTrackingProjectile( data.projectile_info )
+	
 end
 
 function medusa_mystic_snake_lua:Returning( data, target )
@@ -283,6 +334,34 @@ function medusa_mystic_snake_lua:DelUniqueInt( i )
 	self.unique[ i ] = nil
 end
 
+modifier_medusa_mystic_snake_lua_autocast = class({})
+
+function modifier_medusa_mystic_snake_lua_autocast:IsHidden()
+    return true
+end
+function modifier_medusa_mystic_snake_lua_autocast:IsPurgable()
+    return false
+end
+
+function modifier_medusa_mystic_snake_lua_autocast:DeclareFunctions()
+    return {
+        MODIFIER_EVENT_ON_ATTACK_START
+    }
+end
+
+function modifier_medusa_mystic_snake_lua_autocast:OnAttackStart(keys)
+    if not IsServer() then return end
+
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
+    local target = keys.target
+
+    if keys.attacker == caster and ability:IsFullyCastable() and ability:GetAutoCastState() then
+        caster:SetCursorCastTarget(target)
+        ability:OnSpellStart()
+        ability:UseResources(true, false, true)
+    end
+end
 
 ----------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------

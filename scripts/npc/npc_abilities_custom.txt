@@ -2737,6 +2737,7 @@
         }
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
     }
+	
 }
 
 //=========================================================================================================================================================================================================================
@@ -2965,6 +2966,7 @@
 #base "../vscripts/heroes/hero_medusa/medusa_mana_shield_lua/medusa_mana_shield_lua.txt"
 #base "../vscripts/heroes/hero_medusa/medusa_mystic_snake_lua/medusa_mystic_snake_lua.txt"
 #base "../vscripts/heroes/hero_medusa/medusa_poison_arrow_lua/medusa_poison_arrow_lua.txt"
+#base "../vscripts/heroes/hero_medusa/medusa_stone_gaze_lua/medusa_stone_gaze_lua.txt"
 
 
 //=========================================================================================================================================================================================================================

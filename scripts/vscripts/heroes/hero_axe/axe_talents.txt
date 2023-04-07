@@ -142,8 +142,8 @@
 	
 "npc_dota_hero_axe_int8"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_axe/cooldown"
+		"BaseClass"						"special_bonus_undefined"
+		// "ScriptFile"					"heroes/hero_axe/cooldown"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}	
