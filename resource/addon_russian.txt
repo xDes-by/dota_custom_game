@@ -1221,6 +1221,9 @@
         "quest_swamp_creep_1" "Убей Рыбьеголового или Медузу"
         "quest_swamp_creep_1_desc" "Да, что-то тут какие-то странные монстры, но это не меняйт того факта что их нужно истребить!"
 
+        "quest_swamp_creep_2" "Убей любых крипов на локации"
+        "quest_swamp_creep_2_desc" "Да, что-то тут какие-то странные монстры, но это не меняйт того факта что их нужно истребить!"
+
         "quest_swamp_creep_3" "Убей Сирен или Водяных"
         "quest_swamp_creep_3_desc" "Да, что-то тут какие-то странные монстры, но это не меняйт того факта что их нужно истребить!"
 
@@ -13584,7 +13587,7 @@
         "DOTA_Tooltip_modifier_magnataur_shockwave_buff_lua_Description"    "Волны в очереди"
 
         "dota_tooltip_ability_magnataur_empower_lua" "EMPOWER"
-        "dota_tooltip_ability_magnataur_empower_lua_description" "Даёт союзнику дополнительный урон и прорубающую атаку.<br>Усиливает только базовый урон.<br>Действует на владельца на 50% сильнее."
+        "dota_tooltip_ability_magnataur_empower_lua_description" "Даёт союзнику дополнительный урон и прорубающую атаку.<br>Усиливает только базовый урон.<br>Действует на владельца на 75% сильнее."
         "dota_tooltip_ability_magnataur_empower_lua_lore" "Могучим утробным рыком магнорог демонстрирует свою недюжинную силу."
         "dota_tooltip_ability_magnataur_empower_lua_empower_duration" "ДЛИТЕЛЬНОСТЬ:"
         "dota_tooltip_ability_magnataur_empower_lua_attack_count" "ЧИСЛО АТАК:"
@@ -13627,7 +13630,7 @@
         "DOTA_Tooltip_modifier_magnataur_talent_agi6_Description"           "Добавлен шанс %dMODIFIER_PROPERTY_TOOLTIP%%% нанести критическую атаку %dMODIFIER_PROPERTY_TOOLTIP2%%%"
 
         "npc_dota_hero_magnataur_str6" "Восстанавливающий рывок"
-        "npc_dota_hero_magnataur_str6_description" "После применения способности Bus Rush герой получает дополнительную регенирацию здоровья равную 1% * ур.способности от макс.хп на 2.5сек"
+        "npc_dota_hero_magnataur_str6_description" "После применения способности Bus Rush герой получает дополнительную регенирацию здоровья равную 1% * ур.способности от макс.хп на 5 сек"
         "npc_dota_hero_magnataur_str7" "Укрепление здоровья"
         "npc_dota_hero_magnataur_str7_description" "Под действием Empower герой получает +50% очков здоровья"
         "npc_dota_hero_magnataur_str8" "Кровавая сила"
@@ -13642,7 +13645,7 @@
         "npc_dota_hero_magnataur_str_last_description" "После применения Reverse Polarity герой получает бафф, снижающий весь полученный им урон на 25% длительность 30сек"
 
         "npc_dota_hero_magnataur_agi6" "Критический сокрушитель"
-        "npc_dota_hero_magnataur_agi6_description" "После использования Reverse Polarity герой получает бафф, во время которого имеет шанс 40% на крит атаку 160% длительность баффа ровна длительности оглушения"
+        "npc_dota_hero_magnataur_agi6_description" "После использования Reverse Polarity герой получает бафф, во время которого имеет шанс 80% на крит атаку 200% длительность баффа ровна длительности оглушения"
         "npc_dota_hero_magnataur_agi7" "Продленное оглушение"
         "npc_dota_hero_magnataur_agi7_description" "Увеличение длительности оглушения Reverse Polarity на 1.2 сек"
         "npc_dota_hero_magnataur_agi8" "Усиленные волны"
@@ -13654,7 +13657,7 @@
         "npc_dota_hero_magnataur_agi11" "Взрывная мощь"
         "npc_dota_hero_magnataur_agi11_description" "Во время действия эффекта Empower герой получает 1 единицу базового урона за 1 единицу ловкости"
         "npc_dota_hero_magnataur_agi_last" "Сила в предметах"
-        "npc_dota_hero_magnataur_agi_last_description" "Способность Empower так же повышает урон от предметов, но эффект на 50% слабее"
+        "npc_dota_hero_magnataur_agi_last_description" "Способность Empower так же повышает урон от предметов"
 
         "npc_dota_hero_magnataur_int6" "Улучшенный Bus Rush"
         "npc_dota_hero_magnataur_int6_description" "Урон способности Bus Rush +10%\nНакладывает дебаф повышающий магический урон по врагам на 10% длительность 10 сек"
@@ -14721,7 +14724,7 @@
         "npc_dota_hero_arc_warden_int8" "Гармония"
         "npc_dota_hero_arc_warden_int8_description" "Затраты маны на скилы в 2 раза меньше"
         "npc_dota_hero_arc_warden_int9" "Забвение"
-        "npc_dota_hero_arc_warden_int9_description" "Spark атакует всех врагов в радиусе"
+        "npc_dota_hero_arc_warden_int9_description" "Spark снижает сопротивление магии на 15%"
         "npc_dota_hero_arc_warden_int10" "Светлячки вселенной"
         "npc_dota_hero_arc_warden_int10_description" "Spark получает бонусный урон равный 75% интеллекта героя"
         "npc_dota_hero_arc_warden_int11" "Сила искр"
@@ -17559,7 +17562,7 @@
         "dota_tooltip_ability_item_shaker_boss_summon" "Summon"
         "dota_tooltip_ability_item_shaker_boss_summon_description" "Владелец получит 25/50/70/90/110 РП в зависимости от сложности"
         
-        "dota_tooltip_modifier_gold_bank"                   "Золотой резерв"
+        "dota_tooltip_modifier_gold_bank"                   "Золотой Резерв"
         "dota_tooltip_modifier_gold_bank_description"       "%dMODIFIER_PROPERTY_TOOLTIP% золота отправленно в резерв"
     }
 }

@@ -74,7 +74,7 @@ function magnataur_bus_rush_lua:OnSpellStart()
 		end
 		local str6 = caster:FindAbilityByName("npc_dota_hero_magnataur_str6")
 		if str6 ~= nil then
-			caster:AddNewModifier(caster, self, "modifier_magnataur_talent_str6", { duration = 2.5 })
+			caster:AddNewModifier(caster, self, "modifier_magnataur_talent_str6", { duration = 5 })
 		end
 	end)
 	EmitSoundOn( "bus_rush_sound", caster )

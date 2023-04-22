@@ -1220,6 +1220,9 @@
         "quest_swamp_creep_1" "Kill Fishhead or Medusa"
         "quest_swamp_creep_1_desc" "Yes, there are some strange monsters here, but this does not change the fact that they need to be exterminated!"
 
+        "quest_swamp_creep_2" "Kill any creeps in the location"
+        "quest_swamp_creep_2_desc" "Yes, there are some strange monsters here, but this does not change the fact that they need to be exterminated!"
+
         "quest_swamp_creep_3" "Kill the Sirens or Waters"
         "quest_swamp_creep_3_desc" "Yes, there are some strange monsters here, but this does not change the fact that they need to be exterminated!"
 
@@ -13588,7 +13591,7 @@
         "DOTA_Tooltip_modifier_magnataur_shockwave_buff_lua_Description" "Waves in queue"
 
         "dota_tooltip_ability_magnataur_empower_lua" "EMPOWER"
-        "dota_tooltip_ability_magnataur_empower_lua_description" "Grants an ally additional damage and cleaving attack.<br>Only amplifies base damage.<br>Works 50% stronger on the owner."
+        "dota_tooltip_ability_magnataur_empower_lua_description" "Grants an ally additional damage and cleaving attack.<br>Only amplifies base damage.<br>Works 75% stronger on the owner."
         "dota_tooltip_ability_magnataur_empower_lua_lore" "With a mighty guttural roar, the Magnorog demonstrates its extraordinary strength."
         "dota_tooltip_ability_magnataur_empower_lua_empower_duration" "DURATION:"
         "dota_tooltip_ability_magnataur_empower_lua_attack_count" "NUMBER OF ATTACKS:"
@@ -13638,7 +13641,7 @@
         "DOTA_Tooltip_modifier_magnataur_talent_agi6_Description" "Added %dMODIFIER_PROPERTY_TOOLTIP%%% chance to deal a critical attack of %dMODIFIER_PROPERTY_TOOLTIP2%%%"
 
         "npc_dota_hero_magnataur_str6" "Restorative Rush"
-        "npc_dota_hero_magnataur_str6_description" "After using the Bus Rush ability, the hero gains additional health regeneration equal to 1% * ability level of max HP for 2.5 seconds."
+        "npc_dota_hero_magnataur_str6_description" "After using the Bus Rush ability, the hero gains additional health regeneration equal to 1% * ability level of max HP for 5 seconds."
         "npc_dota_hero_magnataur_str7" "Health Fortification"
         "npc_dota_hero_magnataur_str7_description" "While under the effect of Empower, the hero gains +50% health points"
         "npc_dota_hero_magnataur_str8" "Bloody Strength"
@@ -13653,7 +13656,7 @@
         "npc_dota_hero_magnataur_str_last_description" "After casting Reverse Polarity, the hero gains a buff reducing all incoming damage by 25% for 30 seconds"
 
         "npc_dota_hero_magnataur_agi6" "Critical Smasher"
-        "npc_dota_hero_magnataur_agi6_description" "After using Reverse Polarity, the hero gains a buff granting a 40% chance of 160% critical attack; buff duration equals stun duration"
+        "npc_dota_hero_magnataur_agi6_description" "After using Reverse Polarity, the hero gains a buff granting a 80% chance of 200% critical attack; buff duration equals stun duration"
         "npc_dota_hero_magnataur_agi7" "Prolonged Stun"
         "npc_dota_hero_magnataur_agi7_description" "Increases Reverse Polarity stun duration by 1.2 seconds"
         "npc_dota_hero_magnataur_agi8" "Enhanced Waves"
@@ -13665,7 +13668,7 @@
         "npc_dota_hero_magnataur_agi11" "Explosive Power"
         "npc_dota_hero_magnataur_agi11_description" "While under the effect of Empower, the hero gains 1 base damage per point of agility"
         "npc_dota_hero_magnataur_agi_last" "Power in Items"
-        "npc_dota_hero_magnataur_agi_last_description" "Empower also increases damage from items, but the effect is 50% weaker"
+        "npc_dota_hero_magnataur_agi_last_description" "Empower also increases damage from items"
 
         "npc_dota_hero_magnataur_int6" "Improved Bus Rush"
         "npc_dota_hero_magnataur_int6_description" "Bus Rush damage +10%\nApplies a debuff increasing magical damage taken by enemies by 10% for 10 seconds"
@@ -14732,7 +14735,7 @@
         "npc_dota_hero_arc_warden_int8" "Harmony"
         "npc_dota_hero_arc_warden_int8_description" "Half mana cost for all abilities"
         "npc_dota_hero_arc_warden_int9" "Oblivion"
-        "npc_dota_hero_arc_warden_int9_description" "Spark attacks all enemies in radius now"
+        "npc_dota_hero_arc_warden_int9_description" "Spark reduces magic resistance by 15%"
         "npc_dota_hero_arc_warden_int10" "Fireflies of the universe"
         "npc_dota_hero_arc_warden_int10_description" "Spark has bonus damage from Arc Warden's INT"
         "npc_dota_hero_arc_warden_int11" "The power of sparks"
@@ -17547,5 +17550,8 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         "dota_tooltip_ability_item_shaker_boss_summon" "Summon"
         "dota_tooltip_ability_item_shaker_boss_summon_description" "The owner will receive 25/50/70/90/110 RP depending on the difficulty"
+        
+        "dota_tooltip_modifier_gold_bank" "Gold Reserve"
+        "dota_tooltip_modifier_gold_bank_description" "%dMODIFIER_PROPERTY_TOOLTIP% of gold sent to the reserve"
     }
 }

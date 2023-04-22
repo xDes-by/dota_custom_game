@@ -100,7 +100,7 @@ function pudge_rot_active_lua:OnIntervalThink()
 						victim = self:GetParent(),
 						attacker = self:GetParent(),
 						damage = self.dmg,
-						damage_type = self:GetAbility():GetAbilityDamageType(),
+						damage_type = DAMAGE_TYPE_MAGICAL,
 						-- damage_flags = DOTA_DAMAGE_FLAG_HPLOSS, 
 						ability = self:GetAbility(), 
 						}

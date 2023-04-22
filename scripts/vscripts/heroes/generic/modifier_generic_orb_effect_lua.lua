@@ -58,7 +58,7 @@ function modifier_generic_orb_effect_lua:OnAttack( params )
 	-- register attack if being cast and fully castable
 	if self:ShouldLaunch( params.target ) then
 		-- use mana and cd
-		self:GetAbility():UseResources( true, false, true )
+		self:GetAbility():UseResources( true, false,false, true)
 
 		-- record the attack
 		self.records[params.record] = true

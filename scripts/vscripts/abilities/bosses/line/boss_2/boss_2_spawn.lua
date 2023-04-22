@@ -28,7 +28,7 @@ function modifier_boss_2_spawn:OnIntervalThink()
 			if #hEnemies > 0 then
 				local unit = CreateUnitByName("boss_2_minion", self:GetParent():GetAbsOrigin(), true, nil, nil, self:GetParent():GetTeamNumber())
 				unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 3})
-				self:GetAbility():UseResources(false, false, true)
+				self:GetAbility():UseResources(false, false, false, true)
 			end	
 		end
 	end

@@ -36,7 +36,7 @@ if not IsServer() then return end
 										if PlayerResource:HasSelectedHero( nPlayerID ) then
 											local unit = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 											gold = 2500 / PlayersInGameCount()
-											unit:ModifyGold( gold, true, 0 )
+											unit:ModifyGoldFiltered( gold, true, 0 )
 											SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, gold, nil)
 											UTIL_RemoveImmediate(item)	
 										end

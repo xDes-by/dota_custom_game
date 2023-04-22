@@ -7915,7 +7915,7 @@
 		"ItemResult"						"item_pipe_lua1"
 		"ItemRequirements"
 		{
-			"01"							"item_headdress;item_hood_of_defiance"
+			"01"							"item_headdress;item_cloak"
 		}
 	}
 	

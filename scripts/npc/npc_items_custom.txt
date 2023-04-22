@@ -108,8 +108,12 @@
 "item_refresher"							"REMOVED"
 "item_recipe_refresher"						"REMOVED"
 "item_recipe_nullifier"						"REMOVED"
-"item_nullifier"						"REMOVED"
-
+"item_nullifier"							"REMOVED"
+"item_recipe_harpoon"							"REMOVED"
+"item_harpoon"							"REMOVED"
+"item_harpoon"							"REMOVED"
+"item_diffusal_blade"							"REMOVED"
+"item_disperser"							"REMOVED"
 
 
 //==========================================================================================================================================================================================================================================================
@@ -489,6 +493,7 @@
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"ItemPermanent"					"1"
 		"ItemInitialCharges"			"1"
+		"ItemSellable"					"0"
 		"ItemDisplayCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
 		"AbilityTextureName" 		    "books/greed_str"
@@ -513,6 +518,7 @@
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"ItemPermanent"					"1"
+		"ItemSellable"					"0"
 		"ItemInitialCharges"			"1"
 		"ItemDisplayCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
@@ -539,6 +545,7 @@
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"ItemPermanent"					"1"
 		"ItemInitialCharges"			"1"
+		"ItemSellable"					"0"
 		"ItemDisplayCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
 		"AbilityTextureName" 		    "books/greed_int"
@@ -562,6 +569,7 @@
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"ItemPermanent"					"1"
 		"ItemInitialCharges"			"1"
+		"ItemSellable"					"0"
 		"ItemDisplayCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
 		"AbilityTextureName" 		    "books/weird_potion"

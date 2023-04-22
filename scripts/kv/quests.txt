@@ -166,19 +166,10 @@
 				}
 				"gold"
 				{
-					"min"		"2500"
-					"max"		"2500"
+					"min"		"17500"
+					"max"		"17500"
 				}
 				"talentExperience"	"100"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"2"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -224,8 +215,8 @@
 				}
 				"gold"
 				{
-					"min"		"4750"
-					"max"		"6050"
+					"min"		"9750"
+					"max"		"11050"
 				}
 				"talentExperience"	"150"
 			}
@@ -319,19 +310,10 @@
 				}
 				"gold"
 				{
-					"min"		"3000"
-					"max"		"4000"
+					"min"		"18000"
+					"max"		"19000"
 				}
 				"talentExperience"	"175"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"4"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -377,8 +359,8 @@
 				}
 				"gold"
 				{
-					"min"		"3333"
-					"max"		"5555"
+					"min"		"8333"
+					"max"		"10555"
 				}
 				"talentExperience"	"200"
 			}
@@ -456,8 +438,8 @@
 				}
 				"gold"
 				{
-					"min"		"3500"
-					"max"		"5000"
+					"min"		"8500"
+					"max"		"10000"
 				}
 				"talentExperience"	"225"
 			}
@@ -526,19 +508,10 @@
 				}
 				"gold"
 				{
-					"min"		"4500"
-					"max"		"7500"
+					"min"		"24500"
+					"max"		"27500"
 				}
 				"talentExperience"	"250"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"6"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -585,8 +558,8 @@
 				}
 				"gold"
 				{
-					"min"		"7500"
-					"max"		"1000"
+					"max"		"21000"
+					"min"		"27500"
 				}
 				"talentExperience"	"300"
 			}
@@ -615,8 +588,8 @@
 						{
 							"1"
 							{
-								"min"	"25"
-								"max"   "45"
+								"min"	"20"
+								"max"   "40"
 								"TextName"			"quest_dust_creep_1"
 								"Desc"				"quest_dust_creep_1_desc"
 								"1" 	"dust_creep_1"
@@ -624,8 +597,8 @@
 							}
 							"2"
 							{
-								"min"	"25"
-								"max"   "45"
+								"min"	"20"
+								"max"   "40"
 								"TextName"			"quest_dust_creep_2"
 								"Desc"				"quest_dust_creep_2_desc"
 								"1" 	"dust_creep_3"
@@ -633,8 +606,8 @@
 							}
 							"3"
 							{
-								"min"	"25"
-								"max"   "45"
+								"min"	"20"
+								"max"   "40"
 								"TextName"			"quest_dust_creep_3"
 								"Desc"				"quest_dust_creep_3_desc"
 								"1" 	"dust_creep_5"
@@ -642,7 +615,7 @@
 							}
 							"4"
 							{
-								"min"	"35"
+								"min"	"30"
 								"max"   "55"
 								"TextName"			"quest_dust_creep_any"
 								"Desc"				"quest_dust_creep_any_desc"
@@ -678,19 +651,10 @@
 				}
 				"gold"
 				{
-					"min"		"10000"
-					"max"		"15000"
+					"min"		"40000"
+					"max"		"45000"
 				}
 				"talentExperience"	"325"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"8"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -737,19 +701,10 @@
 				}
 				"gold"
 				{
-					"min"	"10000"
-					"max"	"13250"
+					"min"	"50000"
+					"max"	"53250"
 				}
 				"talentExperience"	"350"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"10"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -778,8 +733,8 @@
 						{
 							"1"
 							{
-								"min"	"50"
-								"max"	"70"
+								"min"	"35"
+								"max"	"50"
 								"TextName"	"quest_cemetery_1"
 								"Desc"	"quest_cemetery_1_desc"
 								"1"	"cemetery_creep_1"
@@ -787,8 +742,8 @@
 							}
 							"2"
 							{
-								"min"	"50"
-								"max"	"70"
+								"min"	"35"
+								"max"	"50"
 								"TextName"	"quest_cemetery_2"
 								"Desc"	"quest_cemetery_2_desc"
 								"1"	"cemetery_creep_3"
@@ -796,8 +751,8 @@
 							}
 							"3"
 							{
-								"min"	"80"
-								"max"	"100"
+								"min"	"60"
+								"max"	"80"
 								"TextName"	"quest_cemetery_any"
 								"Desc"	"quest_cemetery_any_desc"
 								"1"	"cemetery_creep_1"
@@ -823,8 +778,8 @@
 				}
 				"gold"
 				{
-					"min"	"12500"
-					"max"	"15000"
+					"min"	"32500"
+					"max"	"35000"
 				}
 				"talentExperience"	"360"
 			}
@@ -855,8 +810,8 @@
 						{
 							"1"
 							{
-								"min"	"50"
-								"max"	"85"
+								"min"	"40"
+								"max"	"60"
 								"TextName"	"quest_swamp_creep_1"
 								"Desc"	"quest_swamp_creep_1_desc"
 								"1"	"swamp_creep_1"
@@ -864,12 +819,23 @@
 							}
 							"2"
 							{
-								"min"	"50"
-								"max"	"85"
+								"min"	"40"
+								"max"	"60"
 								"TextName"	"quest_swamp_creep_3"
 								"Desc"	"quest_swamp_creep_3_desc"
 								"1"	"swamp_creep_3"
 								"2"	"swamp_creep_4"
+							}
+							"3"
+							{
+								"min"	"80"
+								"max"	"100"
+								"TextName"	"quest_swamp_creep_2"
+								"Desc"	"quest_swamp_creep_2_desc"
+								"1"	"swamp_creep_1"
+								"2"	"swamp_creep_2"
+								"3"	"swamp_creep_3"
+								"4"	"swamp_creep_4"
 							}
 						}
 					}
@@ -896,19 +862,10 @@
 				}
 				"gold"
 				{
-					"min"	"15000"
-					"max"	"17500"
+					"min"	"55000"
+					"max"	"57500"
 				}
 				"talentExperience"	"370"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"12"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -955,8 +912,8 @@
 				}
 				"gold"
 				{
-					"min"	"17500"
-					"max"	"20000"
+					"min"	"42500"
+					"max"	"45000"
 				}
 				"talentExperience"	"380"
 			}
@@ -987,8 +944,8 @@
 						{
 							"1"
 							{
-								"min"	"100"
-								"max"	"120"
+								"min"	"80"
+								"max"	"100"
 								"TextName"	"quest_snow_creep_1"
 								"Desc"	"quest_snow_creep_desc"
 								"1"	"snow_creep_1"
@@ -1013,19 +970,10 @@
 				}
 				"gold"
 				{
-					"min"	"20000"
-					"max"	"25000"
+					"min"	"65000"
+					"max"	"70000"
 				}
 				"talentExperience"	"390"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"14"
-					}
-				}
 			}
 			"tasks"
 			{
@@ -1072,8 +1020,8 @@
 				}
 				"gold"
 				{
-					"min"	"17500"
-					"max"	"20000"
+					"min"	"47500"
+					"max"	"50000"
 				}
 				"talentExperience"	"400"
 			}
@@ -1104,8 +1052,8 @@
 						{
 							"1"
 							{
-								"min"	"100"
-								"max"	"120"
+								"min"	"80"
+								"max"	"100"
 								"TextName"	"quest_last_creep_1"
 								"Desc"	"quest_last_creep_desc"
 								"1"	"last_creep_1"
@@ -1130,19 +1078,10 @@
 				}
 				"gold"
 				{
-					"min"	"20000"
-					"max"	"22500"
+					"min"	"70000"
+					"max"	"72500"
 				}
 				"talentExperience"	"410"
-				"items"
-				{
-					"1"
-					{
-						"TextName"	"item_gold_brus"
-						"DotaName"	"item_gold_brus"
-						"quantity"	"16"
-					}
-				}
 			}
 			"tasks"
 			{

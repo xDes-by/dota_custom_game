@@ -79,7 +79,7 @@ end
 function modifier_ability_devour:OnDestroy()
 	if IsServer() then
 		local player = PlayerResource:GetSelectedHeroEntity(self:GetParent():GetPlayerOwnerID() )
-        PlayerResource:ModifyGold( self:GetParent():GetPlayerOwnerID(), self.bonus_gold, false, DOTA_ModifyGold_Unspecified )
+        PlayerResource:ModifyGoldFiltered( self:GetParent():GetPlayerOwnerID(), self.bonus_gold, false, DOTA_ModifyGold_Unspecified )
 		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, self:GetParent(), self.bonus_gold, nil)
     end
 end

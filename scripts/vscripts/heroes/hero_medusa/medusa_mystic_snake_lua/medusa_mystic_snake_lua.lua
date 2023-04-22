@@ -78,7 +78,7 @@ function medusa_mystic_snake_lua:OnSpellStart()
 		base_damage = base_damage + self:GetCaster():GetStrength()
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi8") ~= nil then
-		base_damage = base_damage + self:GetCaster():GetAbility()
+		base_damage = base_damage + self:GetCaster():GetAgility()
 	end
 
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int9")                         
@@ -359,7 +359,7 @@ function modifier_medusa_mystic_snake_lua_autocast:OnAttackStart(keys)
     if keys.attacker == caster and ability:IsFullyCastable() and ability:GetAutoCastState() then
         caster:SetCursorCastTarget(target)
         ability:OnSpellStart()
-        ability:UseResources(true, false, true)
+        ability:UseResources(true, false,false, true)
     end
 end
 

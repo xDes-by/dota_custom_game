@@ -20,7 +20,7 @@ require("use_pets")
 _G.key = GetDedicatedServerKeyV3("MCF")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = false -- true
+_G.server_load = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -222,6 +222,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.2)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 6)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.00)
 	--------------------------------------------------------------------------------------------	
 	
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
@@ -239,36 +240,29 @@ function CAddonAdvExGameMode:InitGameMode()
 	_G.Activate_belka = false
 	use_pets:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
-
+	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
-	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OnExecuteOrderFilter"), self)
-end
-
-_G.HandleGoldChange = function(hero, income)
-	local mod = hero:FindModifierByName("modifier_gold_bank")
-	local PlayerGold = hero:GetGold()
-	if PlayerGold + income > 99999 then
-		local bank_gold = mod:GetStackCount()
-		mod:SetStackCount(PlayerGold + income - 99999 + bank_gold)
-	end
-end
-
-function CAddonAdvExGameMode:OnExecuteOrderFilter(filterTable)
-    local order_type = filterTable.order_type
-
-    if order_type == DOTA_UNIT_ORDER_SELL_ITEM then
-        DeepPrintTable(filterTable)
-    end
-
-    return true
 end
 
 function CAddonAdvExGameMode:GoldFilter(event)
-	DeepPrintTable(event)
 	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
-	HandleGoldChange(hero, event.gold)
+	local mod = hero:FindModifierByName("modifier_gold_bank")
+	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
+		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
+	elseif event.gold < 0 then
+		hero:ModifyGold(event.gold, true, 0)
+		if hero:GetGold() + mod:GetStackCount() <= 99999 then
+			hero:ModifyGold(mod:GetStackCount(), true, 0)
+			mod:SetStackCount(0)
+		else
+			local flaw = 99999 - hero:GetGold()
+			mod:SetStackCount(mod:GetStackCount() - flaw)
+			hero:ModifyGold(flaw, true, 0)
+		end
+		return false
+	end
 	return true
-  end
+end
 
 function CAddonAdvExGameMode:OrderFilter(event)
     -- if event.order_type == DOTA_UNIT_ORDER_PATROL then
@@ -706,37 +700,37 @@ function add_soul(boss)
 			local unit = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if boss == "npc_forest_boss" then
 					sInv:AddSoul("item_forest_soul", nPlayerID)
-					unit:ModifyGold( 500, true, 0 )
+					unit:ModifyGoldFiltered( 500, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 				end
 				if boss == "npc_village_boss" then
 					sInv:AddSoul("item_village_soul", nPlayerID)
-					unit:ModifyGold( 1000, true, 0 )
+					unit:ModifyGoldFiltered( 1000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1000, nil)
 				end
 				if boss == "npc_mines_boss" then
 					sInv:AddSoul("item_mines_soul", nPlayerID)
-					unit:ModifyGold( 1500, true, 0 )
+					unit:ModifyGoldFiltered( 1500, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 1500, nil)
 				end
 				if boss == "npc_dust_boss" then
 					sInv:AddSoul("item_dust_soul", nPlayerID)
-					unit:ModifyGold( 2000, true, 0 )
+					unit:ModifyGoldFiltered( 2000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2000, nil)					
 				end
 				if boss == "npc_swamp_boss" then
 					sInv:AddSoul("item_swamp_soul", nPlayerID)
-					unit:ModifyGold( 2500, true, 0 )
+					unit:ModifyGoldFiltered( 2500, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 2500, nil)					
 				end
 				if boss == "npc_snow_boss" then
 					sInv:AddSoul("item_snow_soul", nPlayerID)
-					unit:ModifyGold( 3000, true, 0 )
+					unit:ModifyGoldFiltered( 3000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 3000, nil)			
 				end
 				if boss == "npc_boss_location8" then
 					sInv:AddSoul("item_divine_soul", nPlayerID)
-					unit:ModifyGold( 4000, true, 0 )
+					unit:ModifyGoldFiltered( 4000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
 				end
 			end
@@ -854,7 +848,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local gold = golddrop / #heroes
             local playerID = heroes[i]:GetPlayerID()
             local player = PlayerResource:GetSelectedHeroEntity(playerID )
-            player:ModifyGold( gold, true, 0 )
+            player:ModifyGoldFiltered( gold, true, 0 )
 			-- herogold:addGold(playerID,gold)
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player, gold, nil)
 		end
@@ -877,7 +871,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local gold = 5000 / #heroes
             local playerID = heroes[i]:GetPlayerID()
             local player = PlayerResource:GetSelectedHeroEntity(playerID )
-            player:ModifyGold( gold, true, 0 )
+            player:ModifyGoldFiltered( gold, true, 0 )
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player, gold, nil)
 			player:EmitSound("Hero_LegionCommander.Duel.Victory")
 			local duel_victory_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf", PATTACH_ABSORIGIN_FOLLOW, player)
@@ -899,7 +893,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local gold = (golddrop / #heroes) * 2
             local playerID = heroes[i]:GetPlayerID()
             local player = PlayerResource:GetSelectedHeroEntity(playerID )
-            player:ModifyGold( gold, true, 0 )
+            player:ModifyGoldFiltered( gold, true, 0 )
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player, gold, nil)
 		end
 	end
@@ -1040,49 +1034,49 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_forest_boss_fake" then
 		sInv:AddSoul("item_forest_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 500, true, 0 )
+		unit:ModifyGoldFiltered( 500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 	end
 	
 	if killedUnit:GetUnitName() == "npc_village_boss_fake" then
 		sInv:AddSoul("item_village_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 1000, true, 0 )
+		unit:ModifyGoldFiltered( 1000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mines_boss_fake" then
 		sInv:AddSoul("item_mines_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 1500, true, 0 )
+		unit:ModifyGoldFiltered( 1500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_dust_boss_fake" then
 		sInv:AddSoul("item_dust_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 2000, true, 0 )
+		unit:ModifyGoldFiltered( 2000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_swamp_boss_fake" then
 		sInv:AddSoul("item_swamp_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 2500, true, 0 )
+		unit:ModifyGoldFiltered( 2500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_snow_boss_fake" then
 		sInv:AddSoul("item_snow_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 3000, true, 0 )
+		unit:ModifyGoldFiltered( 3000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	
 	if killedUnit:GetUnitName() == "npc_boss_location8_fake" then
 		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGold( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 4000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 	end
 	

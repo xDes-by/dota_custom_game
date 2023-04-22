@@ -43,7 +43,7 @@ function modifier_arc_geminate_attack:OnAttack(keys)
 		for geminate_attacks = 1, how_much do
 			keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_arc_geminate_attack_delay", {delay = self:GetAbility():GetSpecialValueFor("delay") * geminate_attacks})
 		end	
-		self:GetAbility():UseResources(true, true, true)
+		self:GetAbility():UseResources(true, false, true, true)
 	end
 end
 

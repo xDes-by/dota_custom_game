@@ -44,19 +44,19 @@ function modifier_greed_book_int:OnIntervalThink()
     local charges = self:GetAbility():GetCurrentCharges()
     local gold = caster:GetGold()
     if  gold >= 20000 and gold < 40000 then
-        parent:ModifyGold(-20000, true, 0)
+        parent:ModifyGoldFiltered(-20000, true, 0)
         ability:SetCurrentCharges(charges + 1)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
         elseif  gold >= 40000 and gold < 60000  then
-        parent:ModifyGold(-40000, true, 0)
+        parent:ModifyGoldFiltered(-40000, true, 0)
         ability:SetCurrentCharges(charges + 2)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
         elseif gold >= 60000 and gold < 80000 then 
-        parent:ModifyGold(-60000, true, 0)
+        parent:ModifyGoldFiltered(-60000, true, 0)
         ability:SetCurrentCharges(charges + 3)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
         elseif gold >= 80000 then
-        parent:ModifyGold(-80000, true, 0)
+        parent:ModifyGoldFiltered(-80000, true, 0)
         ability:SetCurrentCharges(charges + 4)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     end

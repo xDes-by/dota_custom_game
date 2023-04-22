@@ -53,7 +53,7 @@ function modifier_item_pet_donate_gold:OnIntervalThink()
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
 		local gold = ability:GetSpecialValueFor("gold")
-		parent:ModifyGold(gold, true, 0)
+		parent:ModifyGoldFiltered(gold, true, 0)
 	end
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

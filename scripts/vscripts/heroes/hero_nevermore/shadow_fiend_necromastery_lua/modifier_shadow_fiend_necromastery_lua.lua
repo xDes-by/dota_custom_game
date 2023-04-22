@@ -68,7 +68,7 @@ function modifier_shadow_fiend_necromastery_lua:OnAttackLanded( params )
 					--	caster:SetCursorTargetingNothing(true)
 					if trigger_ability1:GetLevel() > 0  then
 						trigger_ability1:OnSpellStart()
-						trigger_ability1:UseResources(true, false, false)
+						trigger_ability1:UseResources(true, false,false, false)
 					end
 				end
 			end
@@ -78,7 +78,7 @@ function modifier_shadow_fiend_necromastery_lua:OnAttackLanded( params )
 					--	caster:SetCursorTargetingNothing(true)
 					if trigger_ability2:GetLevel() > 0  then
 						trigger_ability2:OnSpellStart()
-						trigger_ability2:UseResources(true, false, false)
+						trigger_ability2:UseResources(true, false,false, false)
 					end
 				end
 			end
@@ -88,7 +88,7 @@ function modifier_shadow_fiend_necromastery_lua:OnAttackLanded( params )
 					--    caster:SetCursorTargetingNothing(true)
 					if trigger_ability3:GetLevel() > 0  then
 						trigger_ability3:OnSpellStart()
-						trigger_ability3:UseResources(true, false, false)
+						trigger_ability3:UseResources(true, false,false, false)
 					end	
 				end
 			end

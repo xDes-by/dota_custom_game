@@ -79,7 +79,7 @@ local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_agi10"
 						ability:OnSpellStart()
 						ability:SetChanneling(true)
 						ability:EndChannel(true)
-						ability:UseResources(true, false, false)
+						ability:UseResources(true, false,false, false)
 					end
 				end
 			end

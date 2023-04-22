@@ -59,7 +59,7 @@ function modifier_enchantress_two_shots:OnAttack( keys )
 							bProvidesVision = true
 						}
 						ProjectileManager:CreateTrackingProjectile(projectile_info)                    
-						self:GetAbility():UseResources(false,false,true)
+						self:GetAbility():UseResources(false,false,false,true)
 						self:GetParent():EmitSound("Hero_Enchantress.Impetus")
 					--end
 				end
@@ -85,7 +85,7 @@ function modifier_enchantress_two_shots:OnAttack( keys )
 						bProvidesVision = true
 					}
 					ProjectileManager:CreateTrackingProjectile(projectile_info)                    
-					self:GetAbility():UseResources(false,false,true)
+					self:GetAbility():UseResources(false,false,false,true)
 					self:GetParent():EmitSound("Hero_Enchantress.Impetus")		
 					
 					target_number = target_number + 1

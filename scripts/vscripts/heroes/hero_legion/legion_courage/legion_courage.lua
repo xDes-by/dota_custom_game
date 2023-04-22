@@ -54,6 +54,7 @@ function modifier_legion_courage:OnAttackLanded( params )
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int9") ~= nil then 
 		damage_type = DAMAGE_TYPE_MAGICAL
+		damage_flags = DOTA_DAMAGE_FLAG_NONE
 	end	
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int11") ~= nil and params.attacker == self:GetCaster() then 
@@ -71,7 +72,7 @@ function modifier_legion_courage:OnAttackLanded( params )
 		if abil == nil then  			
 			if not self:GetCaster():PassivesDisabled() and params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber() and params.attacker ~= self:GetCaster() then
 				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then 
-					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)
+					deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type, damage_flags)
 
 				end
 			end	
@@ -79,9 +80,9 @@ function modifier_legion_courage:OnAttackLanded( params )
 			if not self:GetCaster():PassivesDisabled() and (params.target == self:GetParent() and not params.attacker:IsBuilding() and not params.attacker:IsOther() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber()) or params.attacker == self:GetCaster() then
 				if RandomInt(1,100) <= self.chance and self:GetAbility():IsFullyCastable() then
 					if params.target == self:GetParent() then
-						deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type)
+						deal_damage(self, self:GetAbility(), self:GetParent(), params.attacker, damage_type, damage_flags)
 					else
-						deal_damage(self, self:GetAbility(), self:GetParent(), params.target, damage_type)
+						deal_damage(self, self:GetAbility(), self:GetParent(), params.target, damage_type, damage_flags)
 					end			
 				end
 			end
@@ -89,7 +90,7 @@ function modifier_legion_courage:OnAttackLanded( params )
 	end		
 end
 
-function deal_damage(mod, abil, parent, target, damage_type)
+function deal_damage(mod, abil, parent, target, damage_type, damage_flags)
 	damage = parent:GetAverageTrueAttackDamage(nil)
 	local heal = damage * abil:GetSpecialValueFor("damage")/100
 	parent:Heal( heal, abil )
@@ -108,9 +109,10 @@ function deal_damage(mod, abil, parent, target, damage_type)
 		attacker = parent,
 		damage = damage,
 		damage_type = damage_type,
+		damage_flags = damage_flags,
 	})
 
-	abil:UseResources( false, false, true )
+	abil:UseResources( false,false, false, true )
 	mod:PlayEffects()
 end
 

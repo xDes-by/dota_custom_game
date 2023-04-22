@@ -87,7 +87,7 @@ function modifier_treant_skill_1_auto:GetModifierProcAttack_Feedback(keys)
 					self:GetAbility():OnSpellStart()
 					self:GetAbility():SetChanneling(true)
 					self:GetAbility():EndChannel(true)
-					self:GetAbility():UseResources(true, false, false)
+					self:GetAbility():UseResources(true, false, false, false)
 				end
 			end
 		end

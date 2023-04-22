@@ -41,7 +41,7 @@ function modifier_npc_dota_hero_skywrath_mage_agi10:OnAttack( params )
 					local ability = self:GetParent():FindAbilityByName("skywrath_mage_concussive_shot_lua")	
 						if ability ~= nil and ability:IsTrained() and not self:GetParent():IsIllusion() then
 					ability:OnSpellStart()
-					ability:UseResources(true, false, false)
+					ability:UseResources(true, false, false, false)
 				end
 			end
 		end

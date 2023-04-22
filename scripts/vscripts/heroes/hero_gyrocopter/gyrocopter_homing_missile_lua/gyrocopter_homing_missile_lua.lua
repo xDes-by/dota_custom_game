@@ -227,7 +227,6 @@ function modifier_gyrocopter_homing_missile_lua:OnIntervalThink()
 	self:SetStackCount(self.speed_counter)
 	if self.target then
 		if self.target:IsNull() or not self.target:IsAlive() then
-			local nearby_targets = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)
 			local explosion_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf", PATTACH_WORLDORIGIN, self:GetParent())
 			ParticleManager:SetParticleControl(explosion_particle, 0, self:GetParent():GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(explosion_particle)

@@ -32,7 +32,7 @@ function modifier_ability_npc_boss_barrack1_spell3:GetModifierProcAttack_Feedbac
     if self:GetAbility():IsCooldownReady() then
         EmitSoundOn("DOTA_Item.AbyssalBlade.Activate", data.target)
         data.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", {duration = self.stun_duration})
-        self:GetAbility():UseResources(false, false, true)
+        self:GetAbility():UseResources(false, false, false, true)
     end
 end
 

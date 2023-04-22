@@ -83,7 +83,7 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 				end
 			end			
 		end
-		self:GetAbility():UseResources(false, false, true)	
+		self:GetAbility():UseResources(false, false,false, true)	
 		self:StartIntervalThink(-1)
 		self:StartIntervalThink(self:GetAbility():GetCooldown(level))
 	end

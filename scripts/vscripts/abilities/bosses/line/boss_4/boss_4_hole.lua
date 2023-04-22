@@ -27,7 +27,7 @@ function modifier_boss_4_hole_helper:OnIntervalThink()
 			local point = self:GetParent():GetAbsOrigin()
 			local duration = self:GetAbility():GetSpecialValueFor("duration")
 			self.thinker = CreateModifierThinker(caster,self:GetAbility(),"modifier_boss_4_hole_thinker",{ duration = duration },point+RandomVector(RandomInt(1,700)),caster:GetTeamNumber(),false)
-			self:GetAbility():UseResources(false, false, true)
+			self:GetAbility():UseResources(false, false,false, true)
 		end
 	end
 end

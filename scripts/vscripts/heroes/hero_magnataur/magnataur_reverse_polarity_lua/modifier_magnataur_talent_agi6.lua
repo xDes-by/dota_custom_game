@@ -15,13 +15,13 @@ function modifier_magnataur_talent_agi6:DeclareFunctions()
 end
 
 function modifier_magnataur_talent_agi6:GetModifierPreAttack_CriticalStrike()
-    if self.chance >= RandomInt(1, 100) then
+    if 80 >= RandomInt(1, 100) then
         return self.perc_crit -- критический удар будет наносить вдвое больше урона
     end
 end
 function modifier_magnataur_talent_agi6:OnTooltip()
-	return self.chance
+	return 80
 end
 function modifier_magnataur_talent_agi6:OnTooltip2()
-	return self.perc_crit
+	return 200
 end

@@ -47,7 +47,7 @@ if not IsServer() then return end
     local charges = self:GetAbility():GetCurrentCharges()
     local gold = caster:GetGold()
     if  gold >= 72000 then
-        parent:ModifyGold(-72000, true, 0)
+        parent:ModifyGoldFiltered(-72000, true, 0)
         ability:SetCurrentCharges(charges + 1)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     end

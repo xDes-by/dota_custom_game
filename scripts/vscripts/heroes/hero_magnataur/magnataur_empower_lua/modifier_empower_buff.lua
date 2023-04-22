@@ -160,12 +160,15 @@ end
 
 function modifier_empower_buff:GetModifierDamageOutgoing_Percentage()
 	if self.agi12 ~= nil then
-		return self.damage * 0.5
+		return self.damage
 	end
 	return 0
 end
 
 function modifier_empower_buff:GetModifierBaseDamageOutgoing_Percentage()
+	if self.agi12 ~= nil then
+		return 0
+	end
 	return self.damage
 end
 

@@ -53,7 +53,7 @@ end
 -- Helper Function
 function modifier_wraith_king_reincarnation_lua:Reincarnate()
 
-	self:GetAbility():UseResources(true, false, true)
+	self:GetAbility():UseResources(true, false, false, true)
 
 	-- find affected enemies
 	local enemies = FindUnitsInRadius(

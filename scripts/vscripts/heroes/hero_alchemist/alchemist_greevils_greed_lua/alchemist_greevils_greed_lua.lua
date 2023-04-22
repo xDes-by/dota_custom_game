@@ -56,14 +56,14 @@ if self:GetParent():PassivesDisabled() then return end
 		self.hero_bonus = self.hero_bonus * 1.5
 	end
 	if params.attacker == self:GetParent() then
-		PlayerResource:ModifyGold( params.attacker:GetPlayerOwnerID(), self.hero_bonus, false, DOTA_ModifyGold_Unspecified )	
+		self:GetCaster():ModifyGoldFiltered(self.hero_bonus, false, DOTA_ModifyGold_Unspecified )	
 		self:PlayEffects1(params.attacker)
 		self:PlayEffects2(params.attacker, self.hero_bonus )	
 	end
 	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_alchemist_int_last")	
 	if abil ~= nil then 
 		if params.attacker:GetTeamNumber() == self:GetParent():GetTeamNumber() and params.attacker:IsRealHero() and params.attacker ~= self:GetParent() then
-			PlayerResource:ModifyGold( params.attacker:GetPlayerOwnerID(), self.hero_bonus/2, false, DOTA_ModifyGold_Unspecified )	
+			self:GetCaster():ModifyGoldFiltered(self.hero_bonus/2, false, DOTA_ModifyGold_Unspecified )	
 			self:PlayEffects1(params.attacker)
 			self:PlayEffects2(params.attacker, (self.hero_bonus/2) )	
 		end

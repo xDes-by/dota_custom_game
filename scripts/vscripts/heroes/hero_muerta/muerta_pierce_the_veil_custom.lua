@@ -204,7 +204,7 @@ function modifier_muerta_pierce_the_veil_custom:OnRemoved()
         self:GetAbility():ToggleAbility()
     end
 
-    self:GetAbility():UseResources(false, false, true)
+    self:GetAbility():UseResources(false, false,false, true)
 
     local heal = caster:GetMaxHealth() * (self:GetAbility():GetSpecialValueFor("end_duration_heal_pct")/100)
     caster:Heal(heal, self:GetAbility())

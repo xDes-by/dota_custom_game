@@ -73,7 +73,7 @@ function modifier_sabre_blade:OnAttack(event)
         })
         victim:AddNewModifier(victim, self:GetAbility(), "modifier_sabre_blade_doubleattack_debuff", { duration = self.slow })
 
-        ability:UseResources(false, false, true)
+        ability:UseResources(false, false,false, true)
 
         Timers:CreateTimer(ability:GetCooldownTimeRemaining(), function()
             attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
