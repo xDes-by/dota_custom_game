@@ -18,8 +18,9 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV3("MCF")
+_G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
+_G.cheatmode = true -- false
 _G.server_load = true -- true
 
 if CAddonAdvExGameMode == nil then
@@ -217,12 +218,13 @@ function CAddonAdvExGameMode:InitGameMode()
 	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA ,7)
 	
 	--------------------------------------------------------------------------------------------
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.2)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 6)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.00)
+	
 	--------------------------------------------------------------------------------------------	
 	
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )

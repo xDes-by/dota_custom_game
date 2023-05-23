@@ -1,6 +1,6 @@
 "DOTAAbilities"
 {
-
+    
 "item_occult_bracelet"
 	{
 
@@ -14,7 +14,7 @@
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"0"
-
+        "ItemShareability"              "1"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -29,6 +29,7 @@
 			"stack_limit"				"10"
 			"stack_duration"			"10"
 		}
+        
 	}
 
 "item_seeds_of_serenity"
@@ -44,7 +45,7 @@
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"0"
-
+        "ItemShareability"              "1"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 			
@@ -79,7 +80,7 @@
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"0"
-
+        "ItemShareability"              "1"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		
 		// Special	
@@ -102,13 +103,13 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30.0"
-
+        "ItemShareability"              "1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"0"
-
+    
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 		
 		// Special	
@@ -135,7 +136,7 @@
 		"ItemCost"						"0"
 		"ItemIsNeutralDrop"				"1"
 		"ItemPurchasable"				"0"
-
+        "ItemShareability"              "1"
 		"Model"							"models/props_gameplay/neutral_box.vmdl"
 
 		// Special	
@@ -164,7 +165,7 @@
         "ItemIsNeutralDrop"             "1"
         "DisplayOverheadAlertOnReceived" "0"
         "ItemPurchasable"               "0"
-        
+        "ItemShareability"              "1"
         // Special  
         //-------------------------------------------------------------------------------------------------------------
         "AbilitySpecial"
@@ -196,7 +197,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -235,7 +236,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -272,7 +273,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -301,7 +302,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -329,7 +330,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -368,7 +369,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -402,7 +403,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "8.0"
@@ -447,7 +448,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
 
@@ -485,7 +486,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
             
@@ -517,7 +518,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -556,7 +557,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -600,7 +601,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
-
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         // Special  
@@ -678,6 +679,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -711,6 +713,7 @@
         "ItemIsNeutralDrop"             "1"
         "DisplayOverheadAlertOnReceived" "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
         
         // Special  
         //-------------------------------------------------------------------------------------------------------------
@@ -738,6 +741,7 @@
         "ItemIsNeutralDrop"             "1"
         "DisplayOverheadAlertOnReceived" "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -782,6 +786,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -814,6 +819,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats        
         //-------------------------------------------------------------------------------------------------------------
@@ -849,6 +855,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -902,6 +909,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -933,6 +941,7 @@
         "ItemIsNeutralDrop"             "1"
         "DisplayOverheadAlertOnReceived" "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -959,6 +968,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "AbilityCooldown"               "7"
 
@@ -979,36 +989,37 @@
     //=================================================================================================================
     // Spider Legs
     //=================================================================================================================
-    "item_spider_legs"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "326"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    // "item_spider_legs"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "326"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         
-        // Stats        
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "3.0"
+    //     // Stats        
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityCooldown"               "3.0"
             
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemIsNeutralDrop"             "1"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "0"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "bonus_movement_speed"  "75"
-            "turn_rate" "60"
-            "bonus_movement_speed_active"   "3"
-            "duration"          "6.6"
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityValues"
+    //     {
+    //         "bonus_movement_speed"  "75"
+    //         "turn_rate" "60"
+    //         "bonus_movement_speed_active"   "3"
+    //         "duration"          "6.6"
+    //     }
+    // }
     //=================================================================================================================
     // Paladinka
     //=================================================================================================================
@@ -1024,6 +1035,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1052,6 +1064,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1091,6 +1104,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
         "AbilityCooldown"               "4.0"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
@@ -1135,6 +1149,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1161,6 +1176,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1200,6 +1216,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1249,6 +1266,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1283,6 +1301,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -1315,6 +1334,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1343,6 +1363,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1418,6 +1439,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1446,6 +1468,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -1494,6 +1517,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -1528,6 +1552,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1572,6 +1597,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1601,6 +1627,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1616,32 +1643,33 @@
     //=================================================================================================================
     // Spy Gadget (Telescope)
     //=================================================================================================================
-    "item_spy_gadget"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "336"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    // "item_spy_gadget"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "336"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemIsNeutralDrop"             "1"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "0"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "scan_cooldown_reduction"   "90"
-            "attack_range"  "150"
-            "cast_range"    "250"
-            "aura_range"    "6500"
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityValues"
+    //     {
+    //         "scan_cooldown_reduction"   "90"
+    //         "attack_range"  "150"
+    //         "cast_range"    "250"
+    //         "aura_range"    "6500"
+    //     }
+    // }
     //=================================================================================================================
     // 
     //=================================================================================================================
@@ -1657,6 +1685,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -1700,6 +1729,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -1764,6 +1794,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1806,57 +1837,58 @@
     //=================================================================================================================
     // Force Boots
     //=================================================================================================================
-    "item_force_boots"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "291"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-        "FightRecapLevel"               "1"
+    // "item_force_boots"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "291"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    //     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    //     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
+    //     "FightRecapLevel"               "1"
 
-        // Stats        
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "750"
-        "AbilityCooldown"               "4.0"
-        "AbilityManaCost"               "75"
+    //     // Stats        
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityCastRange"              "750"
+    //     "AbilityCooldown"               "4.0"
+    //     "AbilityManaCost"               "75"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemIsNeutralDrop"             "1"
-        "DisplayOverheadAlertOnReceived" "0"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "0"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "DisplayOverheadAlertOnReceived" "0"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_movement_speed"  "500"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "push_length"           "600"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "push_duration"         "0.2"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "hp_regen"          "170"
-            }
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilitySpecial"
+    //     {
+    //         "01"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "bonus_movement_speed"  "500"
+    //         }
+    //         "02"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "push_length"           "600"
+    //         }
+    //         "03"
+    //         {
+    //             "var_type"              "FIELD_FLOAT"
+    //             "push_duration"         "0.2"
+    //         }
+    //         "04"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "hp_regen"          "170"
+    //         }
+    //     }
+    // }
     //=================================================================================================================
     // Desolator 2 Stygian
     //=================================================================================================================
@@ -1872,6 +1904,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1921,6 +1954,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -1970,6 +2004,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -2009,6 +2044,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -2022,90 +2058,92 @@
     //=================================================================================================================
     // 
     //=================================================================================================================
-    "item_demonicon"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "370"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    // "item_demonicon"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "370"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "10.0"
+    //     // Stats
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityCooldown"               "10.0"
                     
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemIsNeutralDrop"             "1"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "0"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_strength"            "280"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_intellect"       "320"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "summon_duration"               "60"
-            }
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilitySpecial"
+    //     {
+    //         "01"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "bonus_strength"            "280"
+    //         }
+    //         "02"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "bonus_intellect"       "320"
+    //         }
+    //         "03"
+    //         {
+    //             "var_type"              "FIELD_FLOAT"
+    //             "summon_duration"               "60"
+    //         }
+    //     }
+    // }
     //=================================================================================================================
     // Meteor
     //=================================================================================================================
-    "item_fallen_sky"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "371"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    // "item_fallen_sky"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "371"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "2400"
-        "AbilityCooldown"               "24.0"
+    //     // Stats
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityCastRange"              "2400"
+    //     "AbilityCooldown"               "24.0"
                     
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "4751"
-        "ItemIsNeutralDrop"             "1"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "4751"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "bonus_strength"        "150"
-            "bonus_intellect"       "150"
-            "bonus_health_regen"        "150.0"
-            "bonus_mana_regen"      "100.0"
-            "burn_dps_buildings"        "600"
-            "burn_dps_units"        "1250"
-            "burn_duration"     "3"
-            "stun_duration"     "1.75"
-            "burn_interval"             "0.1"
-            "land_time"             "1"
-            "impact_radius"     "415"
-            "max_duration"      "2.5"
-            "impact_damage_buildings"       "75"
-            "impact_damage_units"       "5000"
-            "blink_damage_cooldown" "5.0"
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilityValues"
+    //     {
+    //         "bonus_strength"        "150"
+    //         "bonus_intellect"       "150"
+    //         "bonus_health_regen"        "150.0"
+    //         "bonus_mana_regen"      "100.0"
+    //         "burn_dps_buildings"        "600"
+    //         "burn_dps_units"        "1250"
+    //         "burn_duration"     "3"
+    //         "stun_duration"     "1.75"
+    //         "burn_interval"             "0.1"
+    //         "land_time"             "1"
+    //         "impact_radius"     "415"
+    //         "max_duration"      "2.5"
+    //         "impact_damage_buildings"       "75"
+    //         "impact_damage_units"       "5000"
+    //         "blink_damage_cooldown" "5.0"
+    //     }
+    // }
     //=================================================================================================================
     // Arcanist's Armor
     //=================================================================================================================
@@ -2121,6 +2159,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
         "AbilityCooldown"               "9999"
@@ -2161,6 +2200,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -2192,6 +2232,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "0"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "1"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
@@ -2209,55 +2250,56 @@
     //=================================================================================================================
     // Giant's Ring
     //=================================================================================================================
-    "item_giants_ring"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "678"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    // "item_giants_ring"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ID"                            "678"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    //     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    //     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    //     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"                      "0"
-        "ItemIsNeutralDrop"             "1"
-        "ItemPurchasable"               "0"
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                      "0"
+    //     "ItemIsNeutralDrop"             "1"
+    //     "ItemPurchasable"               "0"
+    //     "ItemShareability"              "1"
 
 
-        "Model"                         "models/props_gameplay/neutral_box.vmdl"
+    //     "Model"                         "models/props_gameplay/neutral_box.vmdl"
         
-        // Special  
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "bonus_strength"            "350"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "movement_speed"            "150"
-            }       
-            "03"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "model_scale"           "75"
-            }   
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "pct_str_damage_per_second"         "5"
-            }   
-            "05"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "damage_radius"         "175"
-            }       
-        }
-    }
+    //     // Special  
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "AbilitySpecial"
+    //     {
+    //         "01"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "bonus_strength"            "350"
+    //         }
+    //         "02"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "movement_speed"            "150"
+    //         }       
+    //         "03"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "model_scale"           "75"
+    //         }   
+    //         "04"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "pct_str_damage_per_second"         "5"
+    //         }   
+    //         "05"
+    //         {
+    //             "var_type"              "FIELD_INTEGER"
+    //             "damage_radius"         "175"
+    //         }       
+    //     }
+    // }
     //=================================================================================================================
     // 
     //=================================================================================================================
@@ -2275,6 +2317,7 @@
         "ItemCost"                      "0"
         "ItemIsNeutralDrop"             "1"
         "ItemPurchasable"               "0"
+        "ItemShareability"              "ITEM_FULLY_SHAREABLE"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -2295,5 +2338,15 @@
             "duration"          "2"
         }
     }
+
+
+
+    // "item_spider_legs"							"REMOVED"
+    // "item_pogo_stick"							"REMOVED"
+    // "item_spy_gadget"							"REMOVED"
+    // "item_force_boots"							    "REMOVED"
+    "item_giants_ring"							    "REMOVED"
+    "item_fallen_sky"							    "REMOVED"
+    "item_demonicon"							    "REMOVED"
 
 }

@@ -42,7 +42,7 @@ function damage:OnEntityHurt(t)
 							end
 							 if t.damagetype_const == 2 then	
 								damage.dmgtable[t.entindex_attacker] = damage.dmgtable[t.entindex_attacker] or {}
-								dmg = t.damage - victim:Script_GetMagicalArmorValue() * t.damage
+								dmg = t.damage - victim:GetBaseMagicalResistanceValue() * t.damage
 								if dmg > hp then
 									dmg = hp	
 								end
@@ -96,7 +96,7 @@ function damage:OnEntityHurt(t)
 					t.entindex_killed = PlayerResource:GetSelectedHeroEntity(victim:GetPlayerID()):entindex()
 						if t.damagetype_const == 2 then	
 							damage.dmgtable[t.entindex_killed] = damage.dmgtable[t.entindex_killed] or {}
-                            dmg = t.damage - victim:Script_GetMagicalArmorValue() * t.damage
+                            dmg = t.damage - victim:GetBaseMagicalResistanceValue() * t.damage
                             if dmg > hp then
                                 dmg = hp	
                             end

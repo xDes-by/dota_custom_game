@@ -1,5 +1,6 @@
 "neutral_items"
 {
+    
     "1"
     {
         "drop_rates"
@@ -27,7 +28,7 @@
             "item_possessed_mask"             "1"
             "item_mysterious_hat"             "1"
             "item_unstable_wand"              "0"
-            "item_pogo_stick"                 "0"                       
+            // "item_pogo_stick"                 "0"                       
             "item_royal_jelly"                "0"
 			"item_seeds_of_serenity"		"1"
 			"item_occult_bracelet"		"1"
@@ -85,7 +86,7 @@
         {
             "item_quickening_charm"           "1"
             "item_black_powder_bag"               "1"
-            "item_spider_legs"                "0"
+            // "item_spider_legs"                "0"
             //"item_icarus_wings"                   "1"
             "item_paladin_sword"              "1"
             //"item_orb_of_destruction"       "1"
@@ -124,7 +125,7 @@
             //"item_fortitude_ring"           "1"
             "item_the_leveller"               "1"
             //"item_minotaur_horn"            "1"
-            "item_spy_gadget"                 "0"
+            // "item_spy_gadget"                 "0"
             "item_trickster_cloak"            "1"
             "item_stormcrafter"               "1"
             "item_penta_edged_sword"          "1"
@@ -146,21 +147,21 @@
 
         "items"
         {
-            "item_force_boots"                "0"
+            // "item_force_boots"                "0"
             "item_desolator_2"                "1"
             "item_seer_stone"                 "1"
             "item_mirror_shield"                  "1"
             "item_apex"                   "1"
             //"item_ballista"                     "1"
-            "item_demonicon"                  "0"
-            "item_fallen_sky"             "0"
-            "item_force_field"                "0"
+            // "item_demonicon"                  "0"
+            // "item_fallen_sky"             "0"
+            // "item_force_field"                "0"
             //"item_pirate_hat"                 "0"
             "item_ex_machina"                 "0"
-            "item_giants_ring"                "0"
+            // "item_giants_ring"                "0"
             //"item_vengeances_shadow"                "0"
-            "item_book_of_shadows"            "1"
-            "item_havoc_hammer" "1"
+            // "item_book_of_shadows"            "1"
+            // "item_havoc_hammer" "1"
             
         }
     }

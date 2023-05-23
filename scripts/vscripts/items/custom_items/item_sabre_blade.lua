@@ -60,20 +60,21 @@ function modifier_sabre_blade:OnAttack(event)
     local ability = self:GetAbility()
 
     if attacker:IsRealHero() then
-        if self.hits >= 3 then
-            attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
-            self.hits = 0
-        else
-            self.hits = self.hits + 1
-        end
+        -- if self.hits >= 3 then
+        --     attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
+        --     self.hits = 0
+        -- else
+        --     self.hits = self.hits + 1
+        -- end
 
-        if not ability:IsCooldownReady() then return end
+        if not ability:IsFullyCastable() then return end
         attacker:AddNewModifier(attacker, self:GetAbility(), "modifier_sabre_blade_doubleattack", {
-            enemyEntIndex = victim:GetEntityIndex()
+            enemyEntIndex = victim:GetEntityIndex(),
+            duration = 0.5,
         })
         victim:AddNewModifier(victim, self:GetAbility(), "modifier_sabre_blade_doubleattack_debuff", { duration = self.slow })
 
-        ability:UseResources(false, false,false, true)
+        ability:UseResources(false, false, false, true)
 
         Timers:CreateTimer(ability:GetCooldownTimeRemaining(), function()
             attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
@@ -106,7 +107,6 @@ end
 
 
 modifier_sabre_blade_doubleattack = class({})
-
 function modifier_sabre_blade_doubleattack:IsHidden()
 	return true
 end
