@@ -20,7 +20,7 @@
 		"AbilityValues"
 		{
 			"base_damage"				"1500"
-			"hp_percent"				"0.2"
+			"hp_percent"				"2"
 		}
 	}
 

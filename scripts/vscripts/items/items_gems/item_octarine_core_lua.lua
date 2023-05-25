@@ -112,7 +112,7 @@ if not IsServer() then return end
 		local current_item = caster:GetItemInSlot(i)
 		local should_refresh = true
 		
-		if current_item and (string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster) then
+		if current_item and (string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster) or string.find(current_item:GetName(), "item_ex_machina") then
 			should_refresh = false
 		end
 

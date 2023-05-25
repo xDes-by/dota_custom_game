@@ -73,7 +73,7 @@ function modifier_penek_passive:OnIntervalThink()
         local caster_team = self:GetCaster():GetTeamNumber()
         if unit:IsAncient() then return end
         if unit:GetTeamNumber() ~= caster_team then
-            ApplyDamage({ victim = unit, attacker = self:GetCaster(), damage = total_damage, ability = self:GetParent(), damage_type = self:GetAbility():GetAbilityDamageType() })
+            ApplyDamage({ victim = unit, attacker = self:GetCaster(), damage = total_damage, ability = self:GetParent(), damage_type = DAMAGE_TYPE_MAGICAL })
         else
             unit:Heal(heal, self:GetCaster())
         end

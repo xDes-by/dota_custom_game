@@ -40,7 +40,7 @@ function modifier_boss_4_midnignt_thinker:OnCreated( kv )
 
 		self.damageTable = {
 			attacker = self:GetCaster(),
-			damage_type = self:GetAbility():GetAbilityDamageType(),
+			damage_type = DAMAGE_TYPE_PURE,
 			ability = self:GetAbility(), --Optional.
 			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 		}

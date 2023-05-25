@@ -58,7 +58,7 @@ function modifier_razor_eye_of_the_storm_lua:OnCreated( kv )
 		-- victim = target,
 		attacker = self.parent,
 		damage = self.damage,
-		damage_type = self.abilityDamageType,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
 		ability = self:GetAbility(), --Optional.
 	}
 	-- ApplyDamage(damageTable)

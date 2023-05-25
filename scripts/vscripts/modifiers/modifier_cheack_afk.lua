@@ -49,3 +49,14 @@ function modifier_cheack_afk:OnIntervalThink()
 		end
 	end
 end
+
+function modifier_cheack_afk:DeclareFunctions()
+    local funcs = {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION
+    }
+    return funcs
+end
+
+function modifier_cheack_afk:GetModifierMagicalResistanceDirectModification()
+	return -0.1 * self:GetParent():GetIntellect()
+end

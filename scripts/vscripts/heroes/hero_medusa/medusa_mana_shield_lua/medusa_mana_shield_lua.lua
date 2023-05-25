@@ -131,7 +131,7 @@ function modifier_medusa_mana_shield_lua:GetModifierIncomingDamage_Percentage(ke
         ParticleManager:ReleaseParticleIndex(shield_particle)
         if mana_to_block <= self:GetParent():GetMana() then
             if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_str7") == nil or RandomInt(1, 100) > 25  then
-                self:GetParent():ReduceMana(mana_to_block)
+                self:GetParent():Script_ReduceMana(mana_to_block, nil)
             end
             return self.absorption_tooltip * -1
         else

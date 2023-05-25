@@ -79,7 +79,7 @@ function modifier_boss_10_flame_fire:OnCreated( kv )
 		victim = self:GetParent(),
 		attacker = self:GetCaster(),
 		damage = damage,
-		damage_type = self:GetAbility():GetAbilityDamageType(),
+		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self:GetAbility(), --Optional.
 		damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, --Optional.
 	}

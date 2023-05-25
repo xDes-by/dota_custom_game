@@ -91,7 +91,7 @@ function modifier_wisp_overcharge_lua:OnIntervalThink()
 			end
 			
 			self:GetCaster():ModifyHealth(current_health - health_drain, self:GetAbility(), true, 0)
-			self:GetCaster():ReduceMana(self.manacost)
+			self:GetCaster():Script_ReduceMana(self.manacost, nil)--ReduceMana(self.manacost)
 		else
 			hAbility:ToggleAbility()
 	end

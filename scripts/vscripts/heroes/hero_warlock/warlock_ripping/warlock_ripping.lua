@@ -136,7 +136,7 @@ function warlock_ripping:OnSpellStart()
 		max_base_hp = target:GetBaseMaxHealth()
 		hp = target:GetMaxHealth()
 
-	target:ForceKill(false)
+	ApplyDamage({victim = target, attacker = caster, damage = target:GetMaxHealth(), damage_type = DAMAGE_TYPE_PURE, ability = ability})
 	
 	EmitSoundOn("Hero_Warlock.RainOfChaos", self:GetCaster())
 	local particle_start_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody_mid.vpcf", PATTACH_ABSORIGIN, self:GetCaster())  --particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf
@@ -172,7 +172,7 @@ function warlock_ripping:OnSpellStart()
 	creep_hp = hp*mnozhitel
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_agi6")
-		if abil ~= nil	then 
+		if abil ~= nil then 
 			dmg = 3
 			hpa = 0.5
 	end

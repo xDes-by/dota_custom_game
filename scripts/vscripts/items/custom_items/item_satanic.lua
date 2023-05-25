@@ -16,6 +16,7 @@ end
 
 function item_satanic_lua1:OnSpellStart()
 	EmitSoundOn("DOTA_Item.Satanic.Activate", self:GetCaster())
+	self:GetCaster():Purge(false, true, false, false, false)
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_satanic_lua_active", {duration = self:GetSpecialValueFor("duration")})
 end
 

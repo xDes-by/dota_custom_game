@@ -791,6 +791,8 @@
 	"Ability1"				"alchemist_acid_spray_lua"
 	"Ability2"				"alchemist_unstable_concoction_lua"
 	"Ability3"				"alchemist_greevils_greed_lua"
+	"Ability4"				"generic_hidden"
+	"Ability5"				"generic_hidden"
 	"Ability6"				"alchemist_chemical_rage_lua"
 	"Ability10"				""
 	"Ability11"				""

@@ -57,19 +57,27 @@
 
 		"AbilityManaCost"				"80"
 
-		"AbilityValues"
+	"AbilityValues"
 		{
 			"AbilityChannelTime"
 			{
-				"value" "3"
-				"special_bonus_unique_lich_2" "+0.5"
+				"value" "4"
+				"special_bonus_unique_lich_2" "+0.4"
+			}
+
+			"channel_duration"
+			{
+				"value" "4"
+				"special_bonus_unique_lich_2" "+0.4"
 			}
 			"destination"		"50"
-			"mana_drain"		"500"
+			"mana_drain"		"5000"
 			"aoe_scepter"
 			{
 				"special_bonus_scepter" "+400"
 			}
+			"creep_duration_multiplier"				"2"
+			"creep_damage"					"250"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}

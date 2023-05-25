@@ -32,6 +32,7 @@ if not IsServer() then return end
 	local damage = self:GetAbility():GetSpecialValueFor("damage")
 	local caster_damage = keys.attacker:GetBaseDamageMin()
 		if RandomInt(1,100) <= chance then
+			
 			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi11") ~= nil then 
 				caster_damage = keys.attacker:GetAverageTrueAttackDamage(nil)
 			end
@@ -40,12 +41,19 @@ if not IsServer() then return end
 			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi_last") ~= nil then
 				flags = DOTA_DAMAGE_FLAG_NONE 
 			end
-			
 			local boom_damage = math.ceil(caster_damage * damage / 100)
+			
+			damage_table = {
+				attacker = keys.attacker,
+				damage = boom_damage,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				damage_flags = flags
+			}
 			
 			local enemies = FindUnitsInRadius(DOTA_UNIT_TARGET_TEAM_ENEMY, keys.target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 			for _,enemy in pairs(enemies) do
-				ApplyDamage({victim = enemy, attacker = keys.attacker, damage = boom_damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = flags})
+				damage_table.victim = enemy
+				ApplyDamage(damage_table)
 			end
 			
 			EmitSoundOn("Hero_Jakiro.LiquidFire", keys.attacker)
