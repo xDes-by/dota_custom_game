@@ -14,8 +14,6 @@ function invoker_telekinesis:OnSpellStart( params )
 
 	self.target = self:GetCursorTarget()
 	self.target_origin = self.target:GetAbsOrigin()
-
-	if self.target:GetName() == 'npc_invoker_boss' then return end
 	
 	if self.target:TriggerSpellAbsorb(self) then
 		return nil
@@ -41,10 +39,6 @@ end
 -------------------------------------------
 
 modifier_invoker_telekinesis = class({})
-function modifier_invoker_telekinesis:IsDebuff()
-	if self:GetParent():GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then return true end
-	return false
-end
 function modifier_invoker_telekinesis:IsHidden() return false end
 function modifier_invoker_telekinesis:IsPurgable() return false end
 function modifier_invoker_telekinesis:IsPurgeException() return false end
@@ -54,8 +48,9 @@ function modifier_invoker_telekinesis:IsMotionController() return true end
 function modifier_invoker_telekinesis:GetMotionControllerPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM end
 
 function modifier_invoker_telekinesis:OnCreated( params )
-
 	if IsServer() then
+		if self:GetParent():GetUnitName() == 'npc_invoker_boss' then self:Destroy() return nil end
+	
 		local caster = self:GetCaster()
 		local ability = self:GetAbility()
 		self.parent = self:GetParent()
@@ -159,7 +154,6 @@ end
 
 function modifier_invoker_telekinesis:HorizontalMotion(unit, dt)
 	if IsServer() then
-
 		self.distance = self.distance or 0
 		if (self.current_time > (self.duration - self.fall_animation)) then
 			if self.changed_target then
@@ -183,7 +177,7 @@ end
 
 function modifier_invoker_telekinesis:OnDestroy()
 	if IsServer() then
-		if not self.parent:IsAlive() then
+		if self.parent and not self.parent:IsAlive() then
 			SetUnitOnClearGround(self.parent)
 		end
 	end
@@ -196,10 +190,13 @@ end
 -------------------------------------------
 modifier_invoker_telekinesis_stun = class({})
 function modifier_invoker_telekinesis_stun:IsDebuff() return true end
-function modifier_invoker_telekinesis_stun:IsHidden() return false end
+function modifier_invoker_telekinesis_stun:IsHidden() return true end
 function modifier_invoker_telekinesis_stun:IsPurgable() return false end
 function modifier_invoker_telekinesis_stun:IsPurgeException() return false end
 function modifier_invoker_telekinesis_stun:IsStunDebuff() return true end
+function modifier_invoker_telekinesis_stun:OnCreated()
+	if self:GetParent():GetUnitName() == 'npc_invoker_boss' then self:Destroy() return nil end
+end
 
 function modifier_invoker_telekinesis_stun:DeclareFunctions()
 	local decFuns =
@@ -228,7 +225,7 @@ function modifier_invoker_telekinesis_root:IsHidden() return true end
 function modifier_invoker_telekinesis_root:IsPurgable() return false end
 function modifier_invoker_telekinesis_root:IsPurgeException() return false end
 function modifier_invoker_telekinesis_root:OnCreated()
-
+	if self:GetParent():GetUnitName() == 'npc_invoker_boss' then self:Destroy() return nil end
 	self:StartIntervalThink(0.2)
 end
 

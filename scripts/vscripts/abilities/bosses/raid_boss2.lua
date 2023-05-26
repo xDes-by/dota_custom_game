@@ -59,8 +59,6 @@ function modifier_boss_split_split_delay:OnDestroy()
 			end
 		end
 
-		
-		
 		if diff_wave.wavedef == "Easy" then
 			earth_panda:AddNewModifier(unit, nil, "modifier_easy", {})
 			storm_panda:AddNewModifier(unit, nil, "modifier_easy", {})
@@ -97,6 +95,37 @@ end
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 modifier_invu = class({})
+
+function modifier_invu:IsPurgable()
+	return false
+end
+
+function modifier_invu:OnCreated()
+	self.count = 3
+end
+
+function modifier_invu:DeclareFunctions()
+	local funcs = 
+	{
+		MODIFIER_EVENT_ON_DEATH,
+	}
+	return funcs
+end
+
+function modifier_invu:OnDeath(keys)
+	if not IsServer() then return end
+	if keys.unit:GetUnitName() == "npc_raid_earth" or
+		keys.unit:GetUnitName() == "npc_raid_storm" or
+		keys.unit:GetUnitName() == "npc_raid_fire" then
+		self.count = self.count - 1
+		if self.count == 0 then
+			self:GetParent():RemoveNoDraw()
+			self:GetParent():SetHealth(self:GetParent():GetMaxHealth()/2)	
+			self:GetParent():EmitSound("Hero_Brewmaster.PrimalSplit.Spawn")
+			self:Destroy()
+		end
+	end
+end
 
 function modifier_invu:CheckState()
 	return {

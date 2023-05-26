@@ -82,7 +82,7 @@ function boss_6_gush:OnProjectileHit_ExtraData(target, location, data)
 				local damageTable = {
 					victim 			= target,
 					damage 			= 10000,
-					damage_type		= self:GetAbilityDamageType(),
+					damage_type		= DAMAGE_TYPE_MAGICAL,
 					damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 					attacker 		= self:GetCaster(),
 					ability 		= self

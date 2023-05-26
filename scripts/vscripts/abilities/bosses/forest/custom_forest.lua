@@ -32,7 +32,7 @@ function custom_forest_boom(event)
 										attacker = caster,
 										victim = unit,
 										ability = ability,
-										damage_type = ability:GetAbilityDamageType(),
+										damage_type = DAMAGE_TYPE_MAGICAL,
 										damage = damage
 									}
 				ApplyDamage(damage_table)

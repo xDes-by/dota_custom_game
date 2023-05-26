@@ -50,7 +50,7 @@ if not IsServer() then return end
 								attacker = caster,
 								victim = unit,
 								ability = ability,
-								damage_type = ability:GetAbilityDamageType(),
+								damage_type = DAMAGE_TYPE_PURE,
 								damage = damage
 							}
 		ApplyDamage(damage_table)

@@ -93,29 +93,27 @@ function modifier_bristleback_bristleback_lua:OnTakeDamage( params )
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "frostivus2018_spectre_active_dispersion"  then return end
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "ability_npc_boss_plague_squirrel_spell2"  then return end
 				
-			local forwardVector			= self.caster:GetForwardVector()
-			local forwardAngle			= math.deg(math.atan2(forwardVector.x, forwardVector.y))
+			local forwardVector = self.caster:GetForwardVector()
+			local forwardAngle = math.deg(math.atan2(forwardVector.x, forwardVector.y))
 					
-			local reverseEnemyVector	= (self.caster:GetAbsOrigin() - params.attacker:GetAbsOrigin()):Normalized()
-			local reverseEnemyAngle		= math.deg(math.atan2(reverseEnemyVector.x, reverseEnemyVector.y))
+			local reverseEnemyVector = (self.caster:GetAbsOrigin() - params.attacker:GetAbsOrigin()):Normalized()
+			local reverseEnemyAngle = math.deg(math.atan2(reverseEnemyVector.x, reverseEnemyVector.y))
 
 			local difference = math.abs(forwardAngle - reverseEnemyAngle)
 
 			if (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
 				self:SetStackCount(self:GetStackCount() + params.damage)
 				
+				local ability = self:GetParent():FindAbilityByName("bristleback_quill_spray_lua")
 				if self:GetCaster():FindAbilityByName("npc_dota_hero_bristleback_int6") ~= nil then 
-					local ability = self:GetParent():FindAbilityByName("bristleback_quill_spray_lua")
 					if ability ~= nil and ability:GetLevel()>=1 then
 						ApplyDamage({victim = params.attacker, attacker = self:GetCaster(), damage = ability:GetSpecialValueFor("quill_base_damage"), damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 					end
 				end
 				
-				local quill_spray_ability = self:GetParent():FindAbilityByName("bristleback_quill_spray_lua")
-				
-				if quill_spray_ability and quill_spray_ability:IsTrained() and self:GetStackCount() >= self.quill_release_threshold then
+				if ability and ability:IsTrained() and self:GetStackCount() >= self.quill_release_threshold then
 					self:GetParent():AddNewModifier(self:GetParent(),nil,"modifier_sptay_realise",{ duration = 0.1 })
-					quill_spray_ability:OnSpellStart()
+					ability:OnSpellStart()
 					self:SetStackCount(0)
 				end
 			end

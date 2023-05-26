@@ -66,7 +66,7 @@ function modifier_boss_10_macropyre_thinker:OnCreated( kv )
 
 	if not IsServer() then return end
 
-	self.abilityDamageType = self:GetAbility():GetAbilityDamageType()
+	self.abilityDamageType = DAMAGE_TYPE_MAGICAL
 	self.abilityTargetTeam = self:GetAbility():GetAbilityTargetTeam()
 	self.abilityTargetType = self:GetAbility():GetAbilityTargetType()
 	self.abilityTargetFlags = self:GetAbility():GetAbilityTargetFlags()

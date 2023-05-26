@@ -28,7 +28,7 @@ function stack_created(params)
 		victim = parent,
 		attacker = params.caster,
 		damage = final_damage,
-		damage_type = params.ability:GetAbilityDamageType(),
+		damage_type = DAMAGE_TYPE_PURE,
 		damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		ability = params.ability,
 	}

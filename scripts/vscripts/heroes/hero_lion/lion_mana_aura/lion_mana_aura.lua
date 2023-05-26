@@ -52,7 +52,7 @@ self:OnRefresh()
     if #enemies > 0 then
 		for _,unit in pairs(enemies) do
 			if unit:GetMana() >= self.mana_loss then
-			unit:ReduceMana(self.mana_loss/10)			
+			unit:Script_ReduceMana(self.mana_loss/10, nil)--ReduceMana(self.mana_loss/10)			
 			if self.caster:GetMana() < self.caster:GetMaxMana() then
 			self.caster:SetMana(self.caster:GetMana() + (self.mana_loss/10)*#enemies)	
 			end

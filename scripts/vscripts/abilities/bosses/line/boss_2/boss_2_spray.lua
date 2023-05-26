@@ -57,7 +57,7 @@ function modifier_boss_2_spray:OnCreated( kv )
 	self.damageTable = {
 		victim = target,
 		attacker = self:GetCaster(),
-		damage_type = self:GetAbility():GetAbilityDamageType(),
+		damage_type = DAMAGE_TYPE_PHYSICAL,
 		ability = self:GetAbility(),
 	}
 

@@ -22,7 +22,7 @@ function modifier_custom_seed:OnCreated()
 	
 	if not IsServer() then return end
 	
-	self.damage_type		= self:GetAbility():GetAbilityDamageType()
+	self.damage_type		= DAMAGE_TYPE_MAGICAL
 	
 	self:OnIntervalThink()
 	self:StartIntervalThink(self.damage_interval)

@@ -72,7 +72,7 @@ function build(data)
 	
 	local abil = caster:FindAbilityByName("npc_dota_hero_tinker_agi9")
 	if abil ~= nil then
-	dummy_unit_turret:AddAbility("sniper_ult"):SetLevel(6)
+		dummy_unit_turret:AddAbility("sniper_ult"):SetLevel(6)
 	end
 	
 	dummy_unit_turret:SetModelScale(0.2)	

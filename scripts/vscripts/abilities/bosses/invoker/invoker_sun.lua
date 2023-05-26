@@ -32,7 +32,7 @@ if not IsServer() then return end
 	local range = self:GetAbility():GetSpecialValueFor("range")
 	local damage_table = {
 						attacker = self:GetCaster(),
-						damage_type = self:GetAbility():GetAbilityDamageType(),
+						damage_type = DAMAGE_TYPE_PURE,
 						damage = damage
 						}
 	

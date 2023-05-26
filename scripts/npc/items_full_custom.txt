@@ -8327,6 +8327,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 		
 
 		"AbilityValues"
@@ -8391,6 +8392,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 		
 
 		"AbilityValues"
@@ -8438,7 +8440,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{
@@ -8486,7 +8488,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{
@@ -8533,7 +8535,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{
@@ -8580,7 +8582,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{
@@ -8627,7 +8629,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{
@@ -8671,7 +8673,7 @@
 		"ItemKillable"                  "1"
 		"ItemSellable"                  "1"
 		"ItemDroppable"                 "1"
-		
+		"AbilitySharedCooldown"			"item_octarine_core_lua1"
 
 		"AbilityValues"
 		{

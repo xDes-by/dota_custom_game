@@ -86,11 +86,11 @@ end
 
 function modifier_nyx_leak:OnIntervalThink()
 	if not IsServer() then return end
-	local new_position		= self.parent:GetAbsOrigin()
-	local max_mana			= self.parent:GetMaxMana()
+	local new_position = self.parent:GetAbsOrigin()
+	local max_mana = self.parent:GetMaxMana()
 	
 
-	self.parent:ReduceMana(max_mana * self.mana_leak_pct * 0.01)
+	self.parent:Script_ReduceMana(max_mana * self.mana_leak_pct * 0.01, nil)
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:ReleaseParticleIndex(particle)
 	
@@ -103,6 +103,5 @@ end
 
 function modifier_nyx_leak:OnDestroy()
 	if not IsServer() then return end
-
 	self.parent:StopSound("Imba.Hero_KeeperOfTheLight.ManaLeak.Target.FP")
 end

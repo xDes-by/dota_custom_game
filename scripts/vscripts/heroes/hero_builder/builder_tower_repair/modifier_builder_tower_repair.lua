@@ -107,7 +107,7 @@ function modifier_builder_tower_repair:OnIntervalThink()
 	local hp_rep_perc = (hp_max / 100) * self.hp_repair
  	
 	self:GetParent():Heal(hp_rep_perc, self:GetParent())
-	self:GetCaster():ReduceMana( self.mana_loss )	
+	self:GetCaster():Script_ReduceMana(self.mana_loss, nil)--ReduceMana( self.mana_loss )	
 end
 
 --------------------------------------------------------------------------------

@@ -26,11 +26,6 @@ function bristleback_quill_spray_lua:OnSpellStart()
 	if caster:FindAbilityByName("npc_dota_hero_bristleback_str_last") ~= nil then 
 		base_damage = base_damage * 5
 	end
-
-	if caster:FindAbilityByName("special_bonus_unique_brist_custom") ~= nil then 
-		bonus = abil:GetSpecialValueFor( "value" )
-		base_damage = base_damage + bonus
-	end
 	
 	if caster:FindAbilityByName("npc_dota_hero_bristleback_int10") ~= nil then 
 		max_damage = caster:GetIntellect()
@@ -91,7 +86,7 @@ function bristleback_quill_spray_lua:OnSpellStart()
 end
 
 function bristleback_quill_spray_lua:PlayEffects1()
-	local particle_cast = ""--"particles/units/heroes/hero_bristleback/bristleback_quill_spray.vpcf"
+	local particle_cast = "particles/units/heroes/hero_bristleback/bristleback_quill_spray.vpcf"
 	 
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN, self:GetCaster() )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
