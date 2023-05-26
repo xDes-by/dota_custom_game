@@ -5,11 +5,18 @@ end
 
 
 function statist:init()
+    print("DFCS")
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( statist, 'OnGameRulesStateChange'), self)
     ListenToGameEvent( 'dota_item_picked_up', Dynamic_Wrap( statist, 'itemPickedUp'), self)
     ListenToGameEvent( 'dota_match_done', Dynamic_Wrap( statist, 'GameEnd'), self)
     ListenToGameEvent( 'dota_item_purchased', Dynamic_Wrap( statist, 'OnItemPurchased'), self)
     ListenToGameEvent( "entity_killed", Dynamic_Wrap( statist, "OnEntityKilled"), self)
+    -- ListenToGameEvent( "player_chat", Dynamic_Wrap( statist, "OnChat" ), self )
+end
+
+function statist:OnChat(t)
+    print("statist:OnChat")
+    statist:GameEnd(t)
 end
 
 function statist:itemPickedUp(t)
@@ -22,9 +29,11 @@ end
 
 function statist:GameEnd(t)
     if _G.kill_invoker then
+        print("win")
         sendata["game_result"] = "win"
     else
         sendata["game_result"] = "lose"
+        print("lose")
     end
     sendata["rait"] = ((_G.rating_wave * diff_wave.rating_scale) + (_G.mega_boss_bonus * diff_wave.rating_scale))
     -- sendata["difficult"] = diff_wave.rating_scale

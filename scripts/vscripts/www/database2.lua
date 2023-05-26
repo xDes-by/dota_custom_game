@@ -252,6 +252,8 @@ function DataBase:OnChat(t)
 			end)
 		elseif text == 'abs' then
 			print(hero:GetAbsOrigin())
+		elseif text == 'test' then
+			statist:GameEnd(t)
 		end
 	end
 

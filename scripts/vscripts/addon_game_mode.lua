@@ -21,7 +21,7 @@ _G.key = GetDedicatedServerKeyV3("MCF")
 _G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
-_G.server_load = true -- true
+_G.server_load = false -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -179,7 +179,7 @@ end
 
 _G.connectionError = 0
 
-function Activate()
+function Activate() 
 	GameRules.AddonAdventure = CAddonAdvExGameMode()
 	GameRules.AddonAdventure:InitGameMode()
 	ListenToGameEvent("dota_player_gained_level", LevelUp, nil)
@@ -244,6 +244,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
+	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAddonAdvExGameMode, "InventoryFilter"), self)
 end
 
 function CAddonAdvExGameMode:GoldFilter(event)
@@ -264,6 +265,10 @@ function CAddonAdvExGameMode:GoldFilter(event)
 		return false
 	end
 	return true
+end
+
+function CAddonAdvExGameMode:InventoryFilter(event)
+	DeepPrintTable(event)
 end
 
 function CAddonAdvExGameMode:OrderFilter(event)

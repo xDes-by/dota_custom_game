@@ -1208,7 +1208,7 @@
 			}
 			"options"
 			{
-				"available"	"1"
+				"available"	"0"
 			}
 			"tasks"
 			{
