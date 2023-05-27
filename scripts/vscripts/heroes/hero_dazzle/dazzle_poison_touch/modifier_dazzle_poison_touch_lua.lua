@@ -62,7 +62,6 @@ function modifier_dazzle_poison_touch_lua:OnCreated( kv )
 	self:OnIntervalThink()
 end
 
-
 --------------------------------------------------------------------------------
 -- Modifier Effects
 function modifier_dazzle_poison_touch_lua:DeclareFunctions()
