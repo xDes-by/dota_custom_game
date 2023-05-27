@@ -18,10 +18,9 @@ require("dummy")
 require("use_pets")
 
 _G.key = GetDedicatedServerKeyV3("MCF")
-_G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
-_G.server_load = false -- true
+_G.cheatmode = false -- false
+_G.server_load = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -96,7 +95,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
-	GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAddonAdvExGameMode, "InventoryFilter"), self)
+	-- GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAddonAdvExGameMode, "InventoryFilter"), self)
 end
 
 function CAddonAdvExGameMode:GoldFilter(event)

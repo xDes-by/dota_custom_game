@@ -4761,7 +4761,7 @@ talantlist = {
             
             npc_dota_hero_spectre_int10 = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_spectre/int/int-talant-10.png", name = "npc_dota_hero_spectre_int10", description = "", buff = "npc_dota_hero_spectre_int10_Description",
-                place = {"int 10"}
+                place = {"int 12"}
             },
                 
             npc_dota_hero_spectre_int11 = {
@@ -4770,7 +4770,7 @@ talantlist = {
             },  
             npc_dota_hero_spectre_int_last = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_spectre/int/int-talant-12.png", name = "npc_dota_hero_spectre_int_last", description = "", buff = "npc_dota_hero_spectre_int_last_Description",
-                place = {"int 12"}
+                place = {"int 10"}
             }, 
     -----------------------------------------------------------------------don
             modifier_don1 = {
@@ -6960,7 +6960,7 @@ talantlist = {
                 place = {"int 11"}
             },  
             npc_dota_hero_legion_commander_int_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_legion_commander/int/int-talant-12.png", name = "npc_dota_hero_legion_commander_int_last", description = "", buff = "npc_dota_hero_legion_commander_int_last_Description",
+                url = "/images/custom_game/talants/img/npc_dota_hero_legion_commander/int/int-talant-8.png", name = "npc_dota_hero_legion_commander_int_last", description = "", buff = "npc_dota_hero_legion_commander_int_last_Description",
                 place = {"int 12"}
             },
     -----------------------------------------------------------------------don

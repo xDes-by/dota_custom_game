@@ -2941,6 +2941,7 @@
 #base "../vscripts/heroes/hero_spectre/spectre_step/spectre_step.txt"
 #base "../vscripts/heroes/hero_spectre/spectre_desolate_dd/spectre_desolate_dd.txt"
 #base "../vscripts/heroes/hero_spectre/spectre_dispersion_dd/spectre_dispersion_dd.txt"
+#base "../vscripts/heroes/hero_spectre/spectre_dispersion_lua/spectre_dispersion_lua.txt"
 #base "../vscripts/heroes/hero_spectre/spectre_haunt/spectre_haunt.txt"
 
 //=====================================================================================================DROW RANGER================================================================================================================================================

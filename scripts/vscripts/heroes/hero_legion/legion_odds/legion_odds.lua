@@ -23,9 +23,9 @@ function legion_odds:OnSpellStart()
 		local radius 				= ability:GetSpecialValueFor("radius")
 		local pierce_spellimmunity 	= false
 
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then
-			damage = damage + self:GetCaster():GetIntellect()/2
-		end
+		-- if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then
+		-- 	damage = damage + self:GetCaster():GetIntellect()/2
+		-- end
 		local position 				= self:GetCaster():GetAbsOrigin()	
 
 		if self.thundergod_spell_cast then

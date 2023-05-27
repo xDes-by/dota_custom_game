@@ -28,19 +28,22 @@ function statist:itemPickedUp(t)
 end
 
 function statist:GameEnd(t)
+    if statist.gameend then return end
+    if DataBase:isCheatOn() then return end
+    print(_G.kill_invoker)
     if _G.kill_invoker then
-        print("win")
         sendata["game_result"] = "win"
     else
         sendata["game_result"] = "lose"
-        print("lose")
     end
+    print(sendata["game_result"])
     sendata["rait"] = ((_G.rating_wave * diff_wave.rating_scale) + (_G.mega_boss_bonus * diff_wave.rating_scale))
     -- sendata["difficult"] = diff_wave.rating_scale
     sendata["difficult"] = diff_wave.rating_scale
     sendata["in_game_time"] = GameRules:GetGameTime()
     sendata["match_id"] = tostring(GameRules:Script_GetMatchID())
     statist:loadendstatist()
+    statist.gameend = true
 end
 
 function statist:ShowState(gane, WinOrLose)
@@ -153,6 +156,10 @@ function statist:OnEntityKilled(keys)
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
     local killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	local name = killedUnit:GetUnitName()
+    if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
+        _G.kill_invoker = true
+        statist:GameEnd()
+    end
     if killerEntity:IsRealHero() then
         local pid = killerEntity:GetPlayerID()
         for _,boss in pairs({"boss_1","boss_2","boss_3","boss_4","boss_5","boss_6","boss_7","boss_8","boss_9","boss_10","boss_11","boss_12","boss_13","boss_14","boss_15","boss_16","boss_17","boss_18","boss_19","boss_20", "npc_forest_boss", "npc_village_boss", "npc_mines_boss","npc_dust_boss","npc_swamp_boss","npc_snow_boss","npc_mega_boss"}) do

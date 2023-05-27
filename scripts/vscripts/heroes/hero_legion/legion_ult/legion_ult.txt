@@ -8,17 +8,20 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"			"legion_commander_duel"
         "MaxLevel"                      "10"
+		"AbilityCooldown"				"7.0"
 		"AbilitySpecial"
 		{
+			
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"dmg_per_stack"			"1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5"
+				"LinkedSpecialBonus"		"npc_dota_hero_legion_commander_agi9"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shag"					"11 10 9 8 7 6 5 4 3 2"
+				"hp_regen_per_stack"	"0.2"
 			}
 		}
 	}

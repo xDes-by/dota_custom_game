@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{	
+  "spectre_dispersion_lua"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_spectre/spectre_dispersion_lua/spectre_dispersion_lua"
+        "AbilityTextureName"            "spectre_dispersion"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"15"
+		
+		"AbilityManacost"				"0"
+		"AbilityCooldown"				"0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "700"
+            }
+            "02"
+            {
+				"var_type"				"FIELD_FLOAT"
+				"interval"			    "1.0"
+            }
+            "03"
+            {
+				"var_type"					"FIELD_INTEGER"
+				"damage_reflection_pct"		"6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+                "CalculateSpellDamageTooltip"	"0"
+                "LinkedSpecialBonus"		"npc_dota_hero_spectre_str_last"
+            }           
+        }
+    }
+}	

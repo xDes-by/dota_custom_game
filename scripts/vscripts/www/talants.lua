@@ -326,25 +326,25 @@ function talants:FastLearning(t)
         if t.j >= 2 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 1})
         end
-        if t.j >= 3 and tab[t.i..1] ~= 2 then
+        if t.j >= 3 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 2})
         end
-        if t.j >= 4 and tab[t.i..1] ~= 3 then
+        if t.j >= 4 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 3})
         end
-        if t.j >= 5 and tab[t.i..1] ~= 4 then
+        if t.j >= 5 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 4})
         end
-        if t.j >= 6 and tab[t.i..1] ~= 5 then
+        if t.j >= 6 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 5})
         end
-        if t.j == 9 and tab[t.i..1] ~= 6 then
+        if t.j == 9 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 6})
         end
-        if t.j == 10 and tab[t.i..1] ~= 7 then
+        if t.j == 10 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 7})
         end
-        if t.j == 11 and tab[t.i..1] ~= 8 then
+        if t.j == 11 and tab[t.i..1] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 8})
         end
         talants:selectTalantButton(t)

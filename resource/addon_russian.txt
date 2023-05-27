@@ -13292,8 +13292,11 @@
 
         "dota_tooltip_ability_legion_ult" "Damage Collector"
         "dota_tooltip_ability_legion_ult_description" "Находясь на поле боя герой накапливает урон."
-        "dota_tooltip_ability_legion_ult_bonus_damage" "УРОН:"
-        "dota_tooltip_ability_legion_ult_shag" "ИНТЕРВАЛ В СЕК:"
+        "dota_tooltip_ability_legion_ult_dmg_per_stack" "УРОН ЗА СТАК:"
+        "dota_tooltip_ability_legion_ult_hp_regen_per_stack" "РЕГЕН ХП ЗА СТАК:"
+
+        "dota_tooltip_modifier_legion_ult"                      "Damage Collector"
+        "dota_tooltip_modifier_legion_ult_description"          "Урон увеличен на %dMODIFIER_PROPERTY_TOOLTIP%, регенерация на %dMODIFIER_PROPERTY_TOOLTIP2%"
 
         "npc_dota_hero_legion_commander_str6" "Прихоть богов"
         "npc_dota_hero_legion_commander_str6_description" "+150 здоровья за уровень"
@@ -13302,7 +13305,7 @@
         "npc_dota_hero_legion_commander_str8" "Стальные наручи"
         "npc_dota_hero_legion_commander_str8_description" "Press the attack дает броню равную восстановлению здоровья"
         "npc_dota_hero_legion_commander_str9" "Львиное сердце"
-        "npc_dota_hero_legion_commander_str9_description" "Ульт дает восстановление здоровья равное 50% накопленного урона"
+        "npc_dota_hero_legion_commander_str9_description" "Восстановление здороья за стак\n\n0.50 \\ 0.75 \\ 1.0 \\ 1.25 \\ 1.50\n\\ 1.75 \\ 2.00 \\ 2.15 \\ 2.25 \\ 2.50"
         "npc_dota_hero_legion_commander_str10" "Милосердие легионера"
         "npc_dota_hero_legion_commander_str10_description" "Press the attack применяется в радиусе 350"
         "npc_dota_hero_legion_commander_str11" "Сила Бога"
@@ -13317,7 +13320,7 @@
         "npc_dota_hero_legion_commander_agi8" "Острая Секира"
         "npc_dota_hero_legion_commander_agi8_description" "Press the attack дает 100% клив"
         "npc_dota_hero_legion_commander_agi9" "Чутье командира"
-        "npc_dota_hero_legion_commander_agi9_description" "Интервал ультимейта меньше на 1 секунду"
+        "npc_dota_hero_legion_commander_agi9_description" "Шанс 5% получить стак при убийстве крипа"
         "npc_dota_hero_legion_commander_agi10" "Ярость"
         "npc_dota_hero_legion_commander_agi10_description" "Moment of Courage срабатывает от своих атак"
         "npc_dota_hero_legion_commander_agi11" "Ловкое чутьё"
@@ -13330,7 +13333,7 @@
         "npc_dota_hero_legion_commander_int7" "Знание тресдина"
         "npc_dota_hero_legion_commander_int7_description" "-50% перезарядки способностей и предметов"
         "npc_dota_hero_legion_commander_int8" "Божественный умысел"
-        "npc_dota_hero_legion_commander_int8_description" "После изучения ультимейта расход маны на все способности равен 0"
+        "npc_dota_hero_legion_commander_int8_description" "Бонусы от ультимейта становятся аурой"
         "npc_dota_hero_legion_commander_int9" "Прилив энергии"
         "npc_dota_hero_legion_commander_int9_description" "Урон от Moment of Courage становится магическим"
         "npc_dota_hero_legion_commander_int10" "Заклинающие копья"
@@ -13338,7 +13341,7 @@
         "npc_dota_hero_legion_commander_int11" "Превосходство"
         "npc_dota_hero_legion_commander_int11_description" "От своих атак 5% шанс вызвать Overwhelming Odds"
         "npc_dota_hero_legion_commander_int_last" "Божья кара"
-        "npc_dota_hero_legion_commander_int_last_description" "При срабатывании Moment of Courage 50% шанс вызвать Overwhelming Odds + урон 50% от интеллекта в Overwhelming Odds."
+        "npc_dota_hero_legion_commander_int_last_description" "Ультимей дает базовы урон"
 
         //Axe//
 
@@ -14753,6 +14756,11 @@
         "dota_tooltip_ability_spectre_dispersion_dd_max_stack_dmg" "Максимальный накопленный урон:"
         "dota_tooltip_ability_spectre_dispersion_dd_radius" "Радиус:"
 
+        "dota_tooltip_ability_spectre_dispersion_lua" "Dispersion"
+        "dota_tooltip_ability_spectre_dispersion_lua_description" "Владелец способности блокирует урон и накапливает его. Накопленный урон отражается во врагов каждые %interval% секунды."
+        "dota_tooltip_ability_spectre_dispersion_lua_damage_reflection_pct" "%СНИЖЕНИЕ УРОНА:"
+        "dota_tooltip_ability_spectre_dispersion_lua_radius" "РАДИУС:"
+
         "dota_tooltip_ability_spectre_haunt_lua" "Haunt"
         "dota_tooltip_ability_spectre_haunt_lua_description" "Создаёт рядом с собой 2 спектральные копии, которые получают все бонусы от скилов героя. Во время действия можно применить способность Reality, чтобы поменяться местами с выбранной иллюзией."
         "dota_tooltip_ability_spectre_haunt_lua_illusion_duration" "ДЛИТЕЛЬНОСТЬ:"
@@ -14775,7 +14783,7 @@
         "npc_dota_hero_spectre_str11" "Физическая форма"
         "npc_dota_hero_spectre_str11_description" "1000 здоровья за босcа"
         "npc_dota_hero_spectre_str_last" "Истинное спектральное отражение"
-        "npc_dota_hero_spectre_str_last_description" "Поглощаемый Dispersion урон больше в 5 раз"
+        "npc_dota_hero_spectre_str_last_description" "Снижение урона +10%"
 
         "npc_dota_hero_spectre_agi6" "Разрубание материи"
         "npc_dota_hero_spectre_agi6_description" "Урон Desolate х2"
@@ -14801,9 +14809,9 @@
         "npc_dota_hero_spectre_int9" "Насквозь"
         "npc_dota_hero_spectre_int9_description" "В момент каста Reality герой наносит чистый урон равный интеллекту героя все в радиусе 500"
         "npc_dota_hero_spectre_int10" "Концентрация"
-        "npc_dota_hero_spectre_int10_description" "Dispersion наносит в 2 раза больше урона"
+        "npc_dota_hero_spectre_int10_description" "Dispersion накапливает в 2 раза больше урона"
         "npc_dota_hero_spectre_int11" "Преображение"
-        "npc_dota_hero_spectre_int11_description" "Dispersion снижает магическую защиту на 15% когда активен"
+        "npc_dota_hero_spectre_int11_description" "Аура Dispersion снижает магическую защиту на 15%"
         "npc_dota_hero_spectre_int_last" "Спектральный театр иллюзий"
         "npc_dota_hero_spectre_int_last_description" "+3 илюзии с Haunt"
 
