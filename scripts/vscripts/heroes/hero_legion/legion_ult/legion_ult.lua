@@ -9,35 +9,32 @@ end
 
 modifier_legion_ult = class({})
 
-function modifier_legion_ult:IsHidden() return false end
-function modifier_legion_ult:IsDebuff() return false end
-function modifier_legion_ult:IsPurgable() return false end
-function modifier_legion_ult:IsPermanent() return true end
-function modifier_legion_ult:RemoveOnDeath() return false end
+function modifier_legion_ult:IsHidden()
+	return false
+end
+
+function modifier_legion_ult:IsPurgable()
+	return false
+end
+
+function modifier_legion_ult:RemoveOnDeath()
+	return false
+end
+
 function modifier_legion_ult:GetTexture()
     return "legion_commander_duel"
 end
 
-stack = 0.01
-
 function modifier_legion_ult:OnCreated()
-	self.shag = self:GetAbility():GetSpecialValueFor( "shag" )
-	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
 	self:StartIntervalThink(0.1)
 end
 
-function modifier_legion_ult:OnRefresh( kv )
-	self.shag = self:GetAbility():GetSpecialValueFor( "shag" )
-	self.bonus_damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" )
-end
-	
 function modifier_legion_ult:OnIntervalThink()
 	if not IsServer() then return end
 	if not self:GetAbility():IsFullyCastable() then return end
-	self:GetAbility():UseResources(true, false, false, true)
+	self:GetAbility():UseResources(false, false, false, true)
 	self:IncrementStackCount()
 end
-
 
 function modifier_legion_ult:DeclareFunctions()
 	local funcs = {
@@ -53,37 +50,70 @@ function modifier_legion_ult:DeclareFunctions()
 end
 
 function modifier_legion_ult:OnTooltip()
-    return CalculateDamage(self)
+    return self:CalculateDamage()
 end
 
 function modifier_legion_ult:OnTooltip2()
-	return CalculateHPRegen(self)
+	return self:CalculateHPRegen()
 end
 
 function modifier_legion_ult:OnDeath(params)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi9") then
-		if IsMyKilledBadGuys(self:GetParent(), params) and RollPercentage(5) then
+		if IsMyKilledBadGuys(self:GetParent(), params) and RandomInt(1,100) <= 5 then
 			self:IncrementStackCount()
 		end
 	end
+end
+
+function IsMyKilledBadGuys(hero, params)
+    if params.unit:GetTeamNumber() ~= DOTA_TEAM_BADGUYS then return false end
+    if hero == params.attacker then
+        return true
+    else
+        if hero == params.attacker:GetOwner() then
+            return true
+        else
+            return false
+        end
+    end
 end
 
 function modifier_legion_ult:GetModifierPreAttack_BonusDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then
 		return 0
 	end
-    return CalculateDamage(self)
+    return self:CalculateDamage()
 end
 
 function modifier_legion_ult:GetModifierBaseAttack_BonusDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") == nil then 
 		return 0
 	end
-    return CalculateDamage(self)
+    return self:CalculateDamage()
 end
 
 function modifier_legion_ult:GetModifierConstantHealthRegen()
-	return CalculateHPRegen(self)
+	return self:CalculateHPRegen()
+end
+
+function modifier_legion_ult:CalculateDamage()
+	self.dmg_per_stack = self:GetAbility():GetSpecialValueFor("dmg_per_stack")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi6") then 
+		self.dmg_per_stack = self.dmg_per_stack + 1
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str_last") then
+		self.dmg_per_stack = self.dmg_per_stack * 5
+	end
+    return self:GetStackCount() * self.dmg_per_stack
+end
+
+function modifier_legion_ult:CalculateHPRegen()
+	self.hp_regen_per_stack = self:GetAbility():GetSpecialValueFor("hp_regen_per_stack")
+	local talent = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str9")
+	if talent ~= nil then 
+		return self:GetStackCount() * talent:GetLevelSpecialValueFor("value", self:GetAbility():GetLevel())
+	end
+	return self:GetStackCount() * self.hp_regen_per_stack
 end
 
 function modifier_legion_ult:IsAura() 
@@ -113,61 +143,34 @@ function modifier_legion_ult:GetAuraSearchType()
 	return DOTA_UNIT_TARGET_HERO
 end
 
-function IsMyKilledBadGuys(hero, params)
-    if params.unit:GetTeamNumber() ~= DOTA_TEAM_BADGUYS then
-        return false
-    end
-    local attacker = params.attacker
-    if hero == attacker then
-        return true
-    else
-        if hero == attacker:GetOwner() then
-            return true
-        else
-            return false
-        end
-    end
+function modifier_legion_ult:GetAuraDuration()
+	return 0.1
 end
 
-function CalculateDamage( modifier )
-	local dmg_per_stack = modifier:GetAbility():GetSpecialValueFor("dmg_per_stack")
-	if modifier:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi6") then 
-		dmg_per_stack = dmg_per_stack + 1
+function modifier_legion_ult:GetAuraEntityReject(target)
+	if target == self:GetCaster() then
+		return true
 	end
-	if modifier:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str_last") then
-		dmg_per_stack = dmg_per_stack * 5
-	end
-    return modifier:GetStackCount() * dmg_per_stack
 end
 
-function CalculateHPRegen( modifier )
-	local hp_regen_per_stack = modifier:GetAbility():GetSpecialValueFor("hp_regen_per_stack")
-	local talent = modifier:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str9")
-	if talent ~= nil then 
-		return modifier:GetStackCount() * talent:GetLevelSpecialValueFor("value", modifier:GetAbility():GetLevel())
-	end
-	return modifier:GetStackCount() * hp_regen_per_stack
-end
+--------------------------------------------------------------------------------------------
 
 modifier_legion_ult_aura = {}
 
 function modifier_legion_ult_aura:IsDebuff() return false end
 function modifier_legion_ult_aura:IsPurgable() return false end
-function modifier_legion_ult_aura:IsHidden() 
-	if self:GetCaster() == self:GetParent() then
-		return true
-	end
-	return false
-end
+function modifier_legion_ult_aura:IsHidden() return false end
+
 function modifier_legion_ult_aura:GetTexture()
     return "legion_commander_duel"
 end
 
 function modifier_legion_ult_aura:OnCreated( kv )
-	print(self:GetCaster():HasModifier("modifier_legion_ult"))
-    self.mod = self:GetCaster():FindModifierByName("modifier_legion_ult")
-	print(self.mod)
-
+	if IsServer() then 
+		self.damage = self:GetCaster():FindModifierByName("modifier_legion_ult"):CalculateDamage()
+		self.hp = self:GetCaster():FindModifierByName("modifier_legion_ult"):CalculateHPRegen()
+		self:SetHasCustomTransmitterData(true)
+	end
 end
 
 function modifier_legion_ult_aura:DeclareFunctions()
@@ -179,23 +182,37 @@ function modifier_legion_ult_aura:DeclareFunctions()
 	return funcs
 end
 
-function modifier_legion_ult_aura:GetModifierPreAttack_BonusDamage()
-	if self:GetCaster() == self:GetParent() then return 0 end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then 
-		return 0
-	end
-	return CalculateDamage(self.mod)
+function modifier_legion_ult_aura:AddCustomTransmitterData()
+    return
+    {
+        damage = self.damage,
+        hp = self.hp
+    }
 end
 
-function modifier_legion_ult:GetModifierBaseAttack_BonusDamage()
-	if self:GetCaster() == self:GetParent() then return 0 end
+function modifier_legion_ult_aura:HandleCustomTransmitterData(data)
+    if data.damage ~= nil then
+       self.damage = tonumber(data.damage)
+    end
+	if data.hp ~= nil then
+        self.hp = tonumber(data.hp)
+    end
+end
+
+function modifier_legion_ult_aura:GetModifierPreAttack_BonusDamage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") ~= nil then
+		return 0
+	end
+	return self.damage
+end
+
+function modifier_legion_ult_aura:GetModifierBaseAttack_BonusDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int_last") == nil then 
 		return 0
 	end
-    return CalculateDamage(self.mod)
+	return self.damage
 end
 
 function modifier_legion_ult_aura:GetModifierConstantHealthRegen()
-	if self:GetCaster() == self:GetParent() then return 0 end
-	return CalculateHPRegen(self)
+	return self.hp
 end
