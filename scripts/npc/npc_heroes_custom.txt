@@ -877,4 +877,27 @@
         // "Ability23"     	"magic_damage"
         // "Ability24"     	"Increase_int"
     }
+	"npc_dota_hero_huskar"
+    {
+		"override_hero"		"npc_dota_hero_huskar"
+        "Ability1" 			"huskar_inner_fire_lua"
+        "Ability2" 			"huskar_burning_spear_lua"
+        "Ability3" 			"huskar_berserkers_blood_lua"
+        "Ability6" 			"huskar_life_break_lua"
+        // "Ability10"     	"hp_per_level"
+        // "Ability11"     	"hp_regen_level"
+        // "Ability12"     	"status"
+        // "Ability13"     	"armor_per_level"
+        // "Ability14"     	"Increase_str"
+        // "Ability15"     	"movespeed"
+        // "Ability16"     	"dmg_per_level"
+        // "Ability17"     	"all_evasion"
+        // "Ability18"     	"base_attack_time"
+        // "Ability19"     	"Increase_agi"
+        // "Ability20"     	"mp_per_level"
+        // "Ability21"     	"mp_regen_level"
+        // "Ability22"     	"m_resist"
+        // "Ability23"     	"magic_damage"
+        // "Ability24"     	"Increase_int"
+    }
 }

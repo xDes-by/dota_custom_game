@@ -96,7 +96,6 @@ function modifier_spectre_dispersion_lua:OnDeath( params )
 				attacker = self:GetParent(),
 				damage = dmg,
 				damage_type = DAMAGE_TYPE_PURE,
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
 			}
 			ApplyDamage(damageTable)
 		end

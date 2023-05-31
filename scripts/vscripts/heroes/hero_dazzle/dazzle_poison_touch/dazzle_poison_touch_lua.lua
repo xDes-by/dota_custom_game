@@ -103,16 +103,12 @@ function dazzle_poison_touch_lua:OnProjectileHit( target, location )
 	local duration = self:GetSpecialValueFor( "duration" )
 
 	-- add debuff
-	if target:HasModifier("modifier_dazzle_poison_touch_lua") then
-		target:FindModifierByName("modifier_dazzle_poison_touch_lua"):SetDuration( duration, true )
-	else
-		target:AddNewModifier(
-			self:GetCaster(), -- player source
-			self, -- ability source
-			"modifier_dazzle_poison_touch_lua", -- modifier name
-			{ duration = duration } -- kv
-		)
-	end
+	target:AddNewModifier(
+		self:GetCaster(), -- player source
+		self, -- ability source
+		"modifier_dazzle_poison_touch_lua", -- modifier name
+		{ duration = duration } -- kv
+	)
 
 	-- Play effects
 	local sound_target = "Hero_Dazzle.Poison_Touch"

@@ -1,0 +1,63 @@
+"DOTAAbilities"
+{
+    "huskar_inner_fire_lua"
+    {
+        // Ability Technical Aspect
+        // base script folder   : scripts/vscripts
+        // base texture folder  : resource/flash3/images/spellicons
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.lua"
+        "AbilityTextureName"            "huskar_inner_fire"
+        "FightRecapLevel"               "1"
+        "MaxLevel"                      "10"
+        "HasShardUpgrade"               "1"
+
+        "precache"
+        {
+            "particle" "particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf"
+        }
+        
+        // Ability General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"                   "DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+        "AbilityManaCost" "40 50 60 70 80 90 100 110 120 130"
+        "AbilityCooldown" "15 14 13 12 11 10 9 8 7 6"
+        "AbilityCastPoint" "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "base_damage"          "40 100 160 220 280 340 400 460 520 580"
+                "CalculateSpellDamageTooltip"   "1"
+            }
+            "02"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "radius"                        "500"
+            }
+            "03"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "disarm_duration"          "1.0 1.25 1.50 1.75 2.0 2.25 2.50 2.75 3.0 3.25"
+            }
+            "04"
+            {
+                "var_type"                      "FIELD_FLOAT"
+                "heal_from_damage_pct"          "100"
+                "RequiresShard"                       "1"
+            }
+        }
+    }
+}

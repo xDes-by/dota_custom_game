@@ -17,8 +17,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 
-_G.key = GetDedicatedServerKeyV3("MCF")
-_G.key = "3C8ABD24582496D50F8598F6E45A44DC5026F9A1"
+_G.key = GetDedicatedServerKeyV3("UA")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -55,7 +54,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
+    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 5 )
 	
 	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )  --true
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
@@ -771,8 +770,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 		Timers:CreateTimer(3,function() 
 			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-		end)		
-		rating_lose()
+		end)
+		if _G.kill_invoker == false then
+			rating_lose()
+		end
 	end
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then

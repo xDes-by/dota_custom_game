@@ -13317,10 +13317,10 @@
         "npc_dota_hero_legion_commander_str11" "God's Power"
         "npc_dota_hero_legion_commander_str11_description" "Press the attack gives spell immune"
         "npc_dota_hero_legion_commander_str_last" "Time = Damage"
-        "npc_dota_hero_legion_commander_str_last_description" "+ ultimate damage x5"
+        "npc_dota_hero_legion_commander_str_last_description" "ultimate damage x4"
 
         "npc_dota_hero_legion_commander_agi6" "The rush of power"
-        "npc_dota_hero_legion_commander_agi6_description" "Ultimate give 1 more damage"
+        "npc_dota_hero_legion_commander_agi6_description" "Ultimate give 2 more damage"
         "npc_dota_hero_legion_commander_agi7" "Bloodlust"
         "npc_dota_hero_legion_commander_agi7_description" "+2 damage per level"
         "npc_dota_hero_legion_commander_agi8" "The Sharp Hatchet"

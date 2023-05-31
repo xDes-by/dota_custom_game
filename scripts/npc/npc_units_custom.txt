@@ -405,7 +405,7 @@
 	
 		"Ability1"					""
         "Ability2" 					"drake_corrosive_skin"
-        // "Ability4" 					"black_dragon_splash_attack"
+        "Ability4" 					"black_dragon_splash_attack"
 
 		"ArmorPhysical"				"500"
         "MagicalResistance" 		"25"
@@ -4255,7 +4255,7 @@
 			"ModelScale" 				"1.20"
 			"CanRespawn"				"1"
 			
-			// "Ability1"					"lone_druid_spirit_bear_entangle"
+			"Ability1"					"lone_druid_spirit_bear_entangle"
 			"Ability2"					""			
 			"Ability3"					"hp_regen_ability"			
 
@@ -4849,7 +4849,7 @@
 			"CanRespawn"				"1"
 			
 			"Ability1"					""			
-			// "Ability2"					"lycan_summon_wolves_critical_strike"
+			"Ability2"					"lycan_summon_wolves_critical_strike"
 			"Ability3"					"hp_regen_ability"				
 
 			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -6030,7 +6030,7 @@
 		"CanRespawn"				"1"
 	 
 		"Ability1"					"spawnlord_master_stomp"			// Ability 1
-		// "Ability2"					"spawnlord_master_freeze"			// Ability 2
+		"Ability2"					"spawnlord_master_freeze"			// Ability 2
 		"Ability3"					"hp_regen_ability"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"

@@ -2,6 +2,31 @@ if DataBase == nil then
     _G.DataBase = class({})
 end
 
+DataBase.TESTER = {
+	120578788
+}
+DataBase.ADMIN = {
+	169401485, 1062658804, 455872541, 393187346, 81459554, 351759722, 456780017, 111684601,
+	111684601, 103583376, 103583376, 487111321
+}
+function DataBase:IsTester(sid)
+	for _,admin in pairs(DataBase.TESTER) do
+		if sid == admin then
+			return true
+		end
+	end
+	return false
+end
+function DataBase:IsAdmin(sid)
+	for _,admin in pairs(DataBase.ADMIN) do
+		if sid == admin then
+			return true
+		end
+	end
+	return false
+end
+
+
 function DataBase:isCheatOn()
 	if _G.cheatmode then
 		return false
@@ -78,7 +103,7 @@ function DataBase:OnChat(t)
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	--end
 
-	if steamID == 169401485 or steamID == 1062658804 or steamID == 455872541 or steamID == 393187346 or steamID == 81459554 or steamID == 351759722 or steamID == 456780017 or steamID == 111684601 then
+	if DataBase:IsAdmin(steamID) then
 		local hero = PlayerResource:GetSelectedHeroEntity(t.playerid)
 		if text == 's1' then
 			hero:AddItemByName('item_forest_soul')
@@ -269,7 +294,17 @@ function DataBase:OnChat(t)
 	if text == "boss" then
 		
 	end
+	if text == "я талант" then
+		DataBase:TestTalents(t.playerid)
+	end
+end
 
+function DataBase:TestTalents(pid)
+	local sid = PlayerResource:GetSteamAccountID(pid)
+	if DataBase:IsTester(sid) == false and DataBase:IsAdmin(sid) == false then return end
+	talants.testing[pid] = true
+	talants:fillTabel(pid, true, false)
+	talants:unset({PlayerID = pid})
 end
 
 function DataBase:PromoCode(text, PlayerID)
@@ -434,7 +469,7 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
         gameNormalExp = tab["gameNormalExp"],
 		auto_pet = Shop.Auto_Pet[player],
 	}
-	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 then
+	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[player] then
 		arr['gameDonatExp'] = 0
 		arr['gameNormalExp'] = 0
 	end

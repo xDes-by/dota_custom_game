@@ -3138,6 +3138,14 @@
 #base "../vscripts/heroes/hero_crystal/crystal_talents.txt"
 #base "../vscripts/heroes/hero_crystal/crystal_spells.txt"
 
+//=====================================================================================================HUSKAR=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_huskar/huskar_berserkers_blood_lua/huskar_berserkers_blood_lua.txt"
+#base "../vscripts/heroes/hero_huskar/huskar_burning_spear_lua/huskar_burning_spear_lua.txt"
+#base "../vscripts/heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua.txt"
+#base "../vscripts/heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.txt"
+
+
 //==============================================================================================new boss ability===========================
 
 #base "../vscripts/abilities/bosses/2023/first_skill/first_skill.txt"

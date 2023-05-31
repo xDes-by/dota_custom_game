@@ -17,7 +17,7 @@ function LightningJump(keys)
 				end
 	
 
-	ApplyDamage({victim = target, attacker = caster, damage = damage_lighing, damage_type = ability:GetAbilityDamageType(),damage_flags = damage_flags})
+	ApplyDamage({victim = target, attacker = caster, damage = damage_lighing, damage_type = ability:GetAbilityDamageType(), damage_flags = damage_flags})
 	target:RemoveModifierByName("modifier_arc_lightning_datadriven")
 
 	Timers:CreateTimer(jump_delay,

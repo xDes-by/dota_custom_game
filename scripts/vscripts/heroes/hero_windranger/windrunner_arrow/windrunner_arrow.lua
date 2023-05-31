@@ -75,8 +75,6 @@ function windrunner_arrow:OnProjectileHit(hTarget, vLocation)
 		hTarget:AddNewModifier(self:GetCaster(),self,"modifier_stop",{ duration = 0.2 })
 		end
 		
-
-		
 		ApplyDamage({
 			victim = hTarget,
 			attacker = self:GetCaster(),

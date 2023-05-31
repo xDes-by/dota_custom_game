@@ -74,7 +74,7 @@ function modifier_zuus_arc_lightning_lua:OnCreated(keys)
 			victim 			= self.current_unit,
 			damage 			= self.static_damage,
 			damage_type		= DAMAGE_TYPE_MAGICAL,
-			damage_flags 	= damage_flags,
+			damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 			attacker 		= self:GetCaster(),
 		})
 	else
@@ -118,7 +118,7 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 					victim 			= enemy,
 					damage 			= self.static_damage,
 					damage_type		= DAMAGE_TYPE_MAGICAL,
-					damage_flags 	= damage_flags,
+					damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
 					attacker 		= self:GetCaster(),
 				})
 				break

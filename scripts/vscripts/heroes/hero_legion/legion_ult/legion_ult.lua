@@ -99,10 +99,10 @@ end
 function modifier_legion_ult:CalculateDamage()
 	self.dmg_per_stack = self:GetAbility():GetSpecialValueFor("dmg_per_stack")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi6") then 
-		self.dmg_per_stack = self.dmg_per_stack + 1
+		self.dmg_per_stack = self.dmg_per_stack + 2
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str_last") then
-		self.dmg_per_stack = self.dmg_per_stack * 5
+		self.dmg_per_stack = self.dmg_per_stack * 4
 	end
     return self:GetStackCount() * self.dmg_per_stack
 end

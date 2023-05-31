@@ -71,7 +71,7 @@ function talants:init()
     CustomGameEventManager:RegisterListener("talant_shop", Dynamic_Wrap(talants, 'talant_shop'))
     ListenToGameEvent("player_reconnected", Dynamic_Wrap( talants, 'OnPlayerReconnected' ), self)
     CustomGameEventManager:RegisterListener("HeroesAmountInfo", Dynamic_Wrap(talants, 'HeroesAmountInfo'))
-    
+    talants.testing = {}
     talants.barakDestroy = false;
 end
 
@@ -289,7 +289,7 @@ function talants:selectTalantButton(t)
         end
         CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( id ), "updatetab", { progress = progress[id] } )
     end
-    if not DataBase:isCheatOn() and progress[id]["cheat"] == nil then
+    if not DataBase:isCheatOn() and progress[id]["cheat"] == nil and not talants.testing[id] then
         talants:sendServer({PlayerID = id, changename = arg, value = 1, changetype = "set", chartype = "int", win_lose = nil})
     end
 end
@@ -769,16 +769,17 @@ function talants:unset(t)
     if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
         arr[stratege_time] = 1
     end
-
-	local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/talants?reqtype=unset&key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
-    arr = json.encode(arr)
-	req:SetHTTPRequestGetOrPostParameter('arr',arr)
-	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-	req:Send(function(res)
-		if res.StatusCode == 200 then
-            -- print(res.Body)
-		end
-	end)
+    if not talants.testing[t.PlayerID] then
+        local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/talants?reqtype=unset&key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
+        arr = json.encode(arr)
+        req:SetHTTPRequestGetOrPostParameter('arr',arr)
+        req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+        req:Send(function(res)
+            if res.StatusCode == 200 then
+                -- print(res.Body)
+            end
+        end)
+    end
     local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     talants:addskill(t.PlayerID, false)
     for k,v in pairs({'agi','int','str','don'}) do

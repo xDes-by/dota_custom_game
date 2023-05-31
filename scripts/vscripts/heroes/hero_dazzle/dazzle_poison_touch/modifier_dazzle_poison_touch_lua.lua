@@ -34,9 +34,11 @@ function modifier_dazzle_poison_touch_lua:OnCreated( kv )
 	self.duration = kv.duration
 
 	damage_type = DAMAGE_TYPE_PHYSICAL
+	damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int6") ~= nil then 
 		damage_type = DAMAGE_TYPE_MAGICAL
+		damage_flags = DOTA_DAMAGE_FLAG_NONE
 	end
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_str11") ~= nil	then 
@@ -54,6 +56,7 @@ function modifier_dazzle_poison_touch_lua:OnCreated( kv )
 		damage = damage,
 		damage_type = damage_type,
 		ability = self:GetAbility(), --Optional.
+		damage_flags = damage_flags,
 	}
 	-- ApplyDamage(damageTable)
 
