@@ -55,6 +55,16 @@ function enchantress_impetus_lua:OnSpellStart()
 		}
 
 	ProjectileManager:CreateTrackingProjectile(searing_arrow_active)
+	caster:PerformAttack(
+		target, -- hTarget
+		false, -- bUseCastAttackOrb
+		true, -- bProcessProcs
+		true, -- bSkipCooldown
+		false, -- bIgnoreInvis
+		true, -- bUseProjectile
+		false, -- bFakeAttack
+		false -- bNeverMiss
+	)
 end
 
 function enchantress_impetus_lua:OnProjectileHit(target, location)
@@ -141,7 +151,7 @@ function modifier_enchantress_impetus_lua:OnAttack( keys )
 	if keys.attacker == self.caster then
 		if not self.caster:IsIllusion() and self.ability:IsFullyCastable() and not self.caster:IsSilenced() and not keys.target:IsBuilding() and not keys.target:IsOther() and (self.ability:GetAutoCastState() or self.impetus_orb) then
 			table.insert(self.attack_queue, true)
-			self.ability:UseResources(true, false, false)
+			self.ability:UseResources(true, false, false, false)
 			self.caster:EmitSound(self.impetus_start)
 			self.impetus_orb = false
 		else
@@ -165,7 +175,7 @@ function modifier_enchantress_impetus_lua:OnAttackLanded( keys )
 		end
 		
 		local damage = distance_dmg / 100 * distance
-		if caster:FindAbilityByName("npc_dota_hero_enchantress_int_last") ~= nil then
+		if self.caster:FindAbilityByName("npc_dota_hero_enchantress_int_last") ~= nil then
 			damage = damage + self:GetCaster():GetIntellect() * 0.3
 		end
 		
@@ -200,65 +210,3 @@ function modifier_enchantress_impetus_lua:OnOrder(keys)
 		end
 	end
 end
-
--- LinkLuaModifier( "modifier_generic_orb_effect_lua", "heroes/generic/modifier_generic_orb_effect_lua", LUA_MODIFIER_MOTION_NONE )
-
--- enchantress_impetus_lua = class({})
-
--- function enchantress_impetus_lua:GetIntrinsicModifierName()
-	-- return "modifier_generic_orb_effect_lua"
--- end
-
--- function enchantress_impetus_lua:GetManaCost(iLevel)
-	-- local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8") 
-	-- local level = self:GetLevel() / 2       
-	-- if abil ~= nil then 
-		-- local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-			-- if ability:GetLevel() > 0 then
-				-- mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-				-- return math.min(65000,((self:GetCaster():GetIntellect()/2) - (self:GetCaster():GetIntellect() * mp_loss)))
-			-- end	
-		-- return math.min(65000, (self:GetCaster():GetIntellect() / 2))
-	-- end
-	-------------------------------------------------------------------------------------------------------------------------------
-	-- local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-	-- if ability:GetLevel() > 0 then
-		-- mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-		-- return math.min(65000,(self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)))
-	-- end	
-	-- return math.min(65000, (self:GetCaster():GetIntellect() ))
--- end
-
--- function enchantress_impetus_lua:GetProjectileName()
-	-- return "particles/units/heroes/hero_enchantress/enchantress_impetus.vpcf"
--- end
-
--- function enchantress_impetus_lua:OnOrbFire( params )
-	-- EmitSoundOn( "Hero_Enchantress.Impetus", self:GetCaster() )
--- end
-
--- function enchantress_impetus_lua:OnOrbImpact( params )
-	-- local caster = self:GetCaster()
-	-- local target = params.target
-	-- local distance_cap = self:GetSpecialValueFor("distance_cap")
-	-- local distance_dmg = self:GetSpecialValueFor("distance_damage_pct")
-	-- local distance = math.min( (caster:GetOrigin()-target:GetOrigin()):Length2D(), distance_cap )
-	
-	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_agi11") ~= nil	then 
-		-- distance_dmg = distance_dmg + 10 
-	-- end
-	
-	-- local damage = distance_dmg/100 * distance
-	-- if caster:FindAbilityByName("npc_dota_hero_enchantress_int_last") ~= nil then
-		-- damage = damage + self:GetCaster():GetIntellect() * 0.3
-	-- end
-	-- local damageTable = {
-		-- victim = target,
-		-- attacker = caster,
-		-- damage = damage,
-		-- damage_type = DAMAGE_TYPE_MAGICAL,
-		-- ability = self, --Optional.
-	-- }
-	-- ApplyDamage(damageTable)
-	-- EmitSoundOn( "Hero_Enchantress.ImpetusDamage", target )
--- end
