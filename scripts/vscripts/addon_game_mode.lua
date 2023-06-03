@@ -54,7 +54,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 5 )
+    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	
 	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )  --true
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
@@ -264,6 +264,34 @@ function leave_game()
 			end
 		return 15
     end)
+end
+
+function Add_bsa_hero()    
+    if GetMapName() == "normal" and not GameRules:IsCheatMode() then
+        arr = {}
+        players = {}
+        for i = 0, PlayerResource:GetPlayerCount() - 1 do
+            if PlayerResource:IsValidPlayer(i) then 
+                players[i] = {sid = tostring(PlayerResource:GetSteamID(i))}
+            end
+        end
+        arr['players'] = players
+        arr = json.encode(arr)
+        local req = CreateHTTPRequestScriptVM( "POST", "http://91.240.87.224/api_add_hero/?key=".._G.key )
+        req:SetHTTPRequestGetOrPostParameter('arr',arr)
+        req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+        req:Send(function(res)
+            if res.StatusCode == 200 and res.Body ~= nil then
+                print("DONE BSA HERO")
+                print(res.StatusCode)
+                print("DONE BSA HERO")
+            else
+                print("ERROR BSA HERO")
+                print(res.StatusCode)
+                print("ERROR BSA HERO")
+            end
+        end)
+    end
 end
 
 _G.kill_invoker = false
@@ -779,7 +807,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
-
+		Add_bsa_hero()
 		local vok =  {"invoker_invo_death_02","invoker_invo_death_08","invoker_invo_death_10","invoker_invo_death_13","invoker_invo_death_01"}
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )

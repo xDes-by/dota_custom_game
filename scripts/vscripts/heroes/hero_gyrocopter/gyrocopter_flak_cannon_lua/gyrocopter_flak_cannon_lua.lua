@@ -11,10 +11,11 @@ modifier_gyrocopter_flak_cannon_lua_side_gunner	= modifier_gyrocopter_flak_canno
 gyrocopter_flak_cannon_lua = gyrocopter_flak_cannon_lua or class({})
 
 function gyrocopter_flak_cannon_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    -- local caster = self:GetCaster()
+    -- if caster then
+    --     return math.min(65000, caster:GetIntellect())
+    -- end
+	return 0
 end
 
 
@@ -26,7 +27,7 @@ function gyrocopter_flak_cannon_lua:OnSpellStart()
 	self.max_attacks = self:GetSpecialValueFor("max_attacks")
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int9") ~= nil then 
-		self.max_attacks = self:GetSpecialValueFor("max_attacks") + 5
+		self.max_attacks = self:GetSpecialValueFor("max_attacks") + 12
 	end	
 
 	self:GetCaster():EmitSound("Hero_Gyrocopter.FlackCannon.Activate")
@@ -90,8 +91,8 @@ function modifier_gyrocopter_flak_cannon_lua:OnAttack(keys)
 					})
 				end
 				
-				count = count + 1
-				if count>=7 then break end
+				-- count = count + 1
+				-- if count>=7 then break end
 			end
 		end
 		

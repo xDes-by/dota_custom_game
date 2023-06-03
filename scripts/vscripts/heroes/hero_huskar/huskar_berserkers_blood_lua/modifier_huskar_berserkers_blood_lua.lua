@@ -31,10 +31,26 @@ function modifier_huskar_berserkers_blood_lua:OnCreated( kv )
 	-- references
 	self.max_as = self:GetAbility():GetSpecialValueFor( "maximum_attack_speed" )
 	self.max_mr = self:GetAbility():GetSpecialValueFor( "maximum_resistance" )
+	self.max_hr = self:GetAbility():GetSpecialValueFor( "maximum_regen" )
 	self.max_threshold = self:GetAbility():GetSpecialValueFor( "hp_threshold_max" )
 	self.range = 100-self.max_threshold
 	self.max_size = 35
 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi6") then
+		self.max_as = self.max_as + 120
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str7") then 
+		self.max_mr = self.max_mr + 20
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str9") then
+		self.max_threshold = 30
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str10") then
+		self.max_hr = self.max_hr * 2
+	end
 	-- effects
 	self:PlayEffects()
 end
@@ -46,6 +62,22 @@ function modifier_huskar_berserkers_blood_lua:OnRefresh( kv )
 	self.max_hr = self:GetAbility():GetSpecialValueFor( "maximum_regen" )
 	self.max_threshold = self:GetAbility():GetSpecialValueFor( "hp_threshold_max" )	
 	self.range = 100-self.max_threshold
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi6") then
+		self.max_as = self.max_as + 120
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str7") then 
+		self.max_mr = self.max_mr + 20
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str9") then
+		self.max_threshold = 30
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str10") then
+		self.max_hr = self.max_hr * 2
+	end
 end
 
 function modifier_huskar_berserkers_blood_lua:OnRemoved()
@@ -62,6 +94,11 @@ function modifier_huskar_berserkers_blood_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MODEL_SCALE,
+		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 	}
 
 	return funcs
@@ -94,6 +131,52 @@ function modifier_huskar_berserkers_blood_lua:GetModifierModelScale()
 		return (1-pct)*self.max_size
 	end
 end
+
+
+function modifier_huskar_berserkers_blood_lua:GetModifierBaseDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi10") then
+		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
+		return (1-pct)*100
+	end
+	return 0
+end
+
+function modifier_huskar_berserkers_blood_lua:GetModifierPhysicalArmorBonusUnique()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str6") then
+		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
+		return (1-pct)*(self:GetAbility():GetLevel() * 10)
+	end
+    return 0
+end
+
+function modifier_huskar_berserkers_blood_lua:GetModifierIncomingDamage_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str8") then
+		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
+		return (1-pct)*-30
+	end
+	return 0
+end
+
+function modifier_huskar_berserkers_blood_lua:GetModifierSpellAmplify_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_int8") then
+		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
+		return (1-pct)*(self:GetAbility():GetLevel() * 30)
+	end
+	return 0
+end
+
+
+function modifier_huskar_berserkers_blood_lua:OnTakeDamage(params)
+	if params.unit == self:GetParent() then
+		if self:GetParent():FindAbilityByName("npc_dota_hero_huskar_str_last") and params.damage_type == DAMAGE_TYPE_PHYSICAL then
+			local burning_spear = self:GetParent():FindAbilityByName("huskar_burning_spear_lua")
+			if params.attacker:IsAlive() and not params.attacker:IsBuilding() and params.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and burning_spear and burning_spear:GetLevel() > 0 then
+				params.attacker:AddNewModifier(self:GetParent(), burning_spear, "modifier_huskar_burning_spear_lua", {duration = burning_spear:GetSpecialValueFor("duration")})
+			end
+		end
+	end
+end
+
 --------------------------------------------------------------------------------
 -- Graphics & Animations
 function modifier_huskar_berserkers_blood_lua:PlayEffects()
@@ -112,4 +195,41 @@ function modifier_huskar_berserkers_blood_lua:PlayEffects()
 		false, -- bHeroEffect
 		false -- bOverheadEffect
 	)
+end
+
+modifier_huskar_berserkers_blood_lua_bkb = class({})
+
+function modifier_huskar_berserkers_blood_lua_bkb:IsHidden()
+    return false
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:IsDebuff()
+    return false
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:IsPurgable()
+    return false
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:GetEffectName()
+    return "particles/items_fx/black_king_bar_avatar.vpcf"
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:CheckState()
+    local state = {
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    }
+    return state
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:GetPriority()
+    return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+function modifier_huskar_berserkers_blood_lua_bkb:GetAttributes()
+    return MODIFIER_ATTRIBUTE_MULTIPLE
 end

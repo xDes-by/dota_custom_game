@@ -19,7 +19,6 @@ LinkLuaModifier( "modifier_generic_orb_effect_lua", "heroes/generic/modifier_gen
 function huskar_burning_spear_lua:GetIntrinsicModifierName()
 	return "modifier_generic_orb_effect_lua"
 end
-
 function huskar_burning_spear_lua:GetHealthCost()
 	return self:GetCaster():GetHealth() / 100 * self:GetSpecialValueFor("health_cost")
 end
@@ -44,13 +43,12 @@ function huskar_burning_spear_lua:OnOrbFire( params )
 end
 
 function huskar_burning_spear_lua:OnOrbImpact( params )
-	local duration = self:GetSpecialValueFor("duration")
-
+	if params.target:IsBuilding() then return end
 	params.target:AddNewModifier(
 		self:GetCaster(), -- player source
 		self, -- ability source
 		"modifier_huskar_burning_spear_lua", -- modifier name
-		{ duration = duration } -- kv
+		{ duration = self:GetSpecialValueFor("duration") } -- kv
 	)
 
 	-- play effects

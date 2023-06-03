@@ -11,12 +11,9 @@ end
 function modifier_skelet_resist:OnCreated( kv )
 end
 
-function modifier_skelet_resist:DeclareFunctions()
-	return {
-	MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-	}
-end
-
-function modifier_skelet_resist:GetModifierMagicalResistanceBonus()
-	return 50
+function modifier_skelet_resist:CheckState()
+    local state = {
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    }
+    return state
 end

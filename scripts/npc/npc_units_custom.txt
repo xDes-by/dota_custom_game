@@ -1,6 +1,43 @@
 "DOTAUnits"
 {	
 
+"npc_quest_shapeshifter"
+{
+	"vscripts"					"ai/ai_shapeshifter.lua"
+	"Model"		"models/items/lycan/ultimate/blood_moon_hunter_shapeshift_form/blood_moon_hunter_shapeshift_form.vmdl"
+	"BaseClass"				"npc_dota_creature"
+	"ModelScale"			"1"
+	"HasInventory"			"0"
+	"Level"					"25"
+	"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+	"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackRange"			"150"
+	"ProjectileModel"		"particles/units/heroes/hero_lina/lina_base_attack.vpcf" //"particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare.vpcf"
+	"MovementSpeed"			"350"
+	"ConsideredHero"		"0"
+	"RingRadius"			"150"
+	"AttackRate"			"0.2"
+	"StatusStartingMana"	"300"
+	"ArmorPhysical"				"120"
+	"MagicalResistance"			"40"
+	"AttackDamageMin"			"500"
+	"AttackDamageMax"			"600"
+	"StatusHealth"              "70000"
+	"StatusHealthRegen"         "100"
+	"StatusMana"                "0"
+	"StatusManaRegen"           "0"
+	"BountyXP"					"1000"
+	"BountyGoldMin"				"1000"
+	"BountyGoldMax"				"1000"
+	"Ability1"		"shapeshifter_ability1"
+	"Ability2"		"shapeshifter_ability2"
+	"Ability3"		"shapeshifter_ability3"
+	"Ability4"		"shapeshifter_ability4"
+	"Ability5"		"lycan_summon_wolves_critical_strike"
+	// "Ability6"		"riki_permanent_invisibility"
+	
+}
+
 "npc_quest_dragon"
 {
 	"Model"		"models/heroes/dragon_knight_persona/dk_persona_dragon.vmdl"
@@ -33,6 +70,7 @@
 	"Ability2"		"spectre_dispersion"
 	"Ability3"		"ursa_lapki"
 	"Ability4"		"viper_corrosive_skin"
+
 }
 
 "npc_quest_necronomicon_warrior"

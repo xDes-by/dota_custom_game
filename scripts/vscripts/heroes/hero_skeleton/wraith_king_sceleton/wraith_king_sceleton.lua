@@ -63,7 +63,7 @@ function wraith_king_sceleton:OnSpellStart()
 		caster.skelet:SetMaxHealth(max_hp + (hero_health - 100))
 		caster.skelet:SetHealth(max_hp + (hero_health - 100))
 	------------------------------------------------------------------------------------------------		
-		local hero_dmg = caster:GetBaseDamageMin() * 0.01
+		local hero_dmg = self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 0.01
 		
 		caster.skelet:SetBaseDamageMin(hero_dmg * self.dmg_mnoz)
 		caster.skelet:SetBaseDamageMax(hero_dmg * self.dmg_mnoz)

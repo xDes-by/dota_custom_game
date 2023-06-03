@@ -11495,38 +11495,26 @@
 
 "item_quest_blue_stone"
 	{
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/blue_stone"
 		"AbilityTextureName"			"quest/kartinka_5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemDroppable"					"1" 
 		"ItemSellable"					"0" 
 		"ItemKillable"					"1"
 		"ItemPurchasable" 				"0"
+		"ItemStackableMax"				"5"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"all"	"10"
+				"bonus_attributes"		"10"
 			}
 		}
 		
-		"Modifiers"
-		{
-			"modifier_item_gloves_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%all"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%all"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%all"
-				}
-			}
-		}
 	}
 
 "item_quest_moon"

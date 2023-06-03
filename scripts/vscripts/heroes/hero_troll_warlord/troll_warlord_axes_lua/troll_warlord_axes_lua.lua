@@ -212,9 +212,8 @@ function troll_warlord_whirling_axes_melee_lua:GetManaCost(iLevel)
 	if abil ~= nil	then 
 		return 0
 	end
-    local caster = self:GetCaster()
-    if caster then
-        return caster:GetIntellect()
+    if self:GetCaster() then
+        return math.min(65000, self:GetCaster():GetIntellect())
     end
 end
 

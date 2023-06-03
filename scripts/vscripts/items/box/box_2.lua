@@ -32,9 +32,12 @@ end
 
 item_box_2 = class({})
 --------------------------------------------------------------------------------
-function item_box_2:OnSpellStart()
+function item_box_2:OnSpellStart(cheat_target)
 		self.caster = self:GetCaster()
-		vTargetPosition = self:GetCursorPosition()
+		vTargetPosition = cheat_target
+		if vTargetPosition == nil then 
+			vTargetPosition = self:GetCursorPosition()
+		end
 		
 		local point_closed_zone = Entities:FindByName( nil, "main_base_location") 
 		local closed_zone_point = point_closed_zone:GetAbsOrigin()

@@ -123,6 +123,7 @@ _G.basicshop = {
 		[41] = {name = "other_51", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/gr.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_gyrocopter",tooltip="shop_image_heros_tooltip"},
 		[42] = {name = "other_52", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/aa.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_ancient_apparition",tooltip="shop_image_heros_tooltip"},
 		[43] = {name = "other_53", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/magnus.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_magnataur",tooltip="shop_image_heros_tooltip"},
+		[44] = {name = "other_54", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/huskar.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_huskar",tooltip="shop_image_heros_tooltip"},
 	},
 	[5] = {
 		name = "gems",

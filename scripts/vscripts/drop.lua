@@ -97,6 +97,7 @@ quest_drop = {
 	{name = "item_quest_blue_ice", items = {"item_quest_blue_ice"}, chance = 10,  duration = 30, units = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}},
 }
 
+
 function GameMode:InitGameMode()
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
 end
@@ -121,6 +122,7 @@ function GameMode:OnEntityKilled( keys )
 		RollNeutralItemDrop(killedUnit, killerEntity)
 		RollItemDrop_diff(killedUnit)
 		RollQuestDrop(killedUnit, killerEntity)
+		-- RollBlueStone(killedUnit, killerEntity)
 	end
 	--функция в которой может быть ошибка
 	---------------------------------------------------------------------
@@ -335,6 +337,39 @@ function RollQuestDrop( unit, killerEntity )
 	end
 end
 
+function RollBlueStone( unit, killerEntity )
+	local unit_name = unit:GetUnitName()
+	local item_blue_stone = nil
+	local check = false
+	if not killerEntity:IsRealHero() then return end
+	if not killerEntity:HasItemInInventory("item_quest_blue_stone") then return end
+	for i=DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+        item_blue_stone = killerEntity:GetItemInSlot(i)
+        if item_blue_stone ~= nil and item_blue_stone:GetName() == "item_quest_blue_stone" and killerEntity:GetName() == item_blue_stone:GetPurchaser():GetName() then
+			check = true
+			break
+		end
+    end
+	if check == false then return end
+	if RandomInt(1, 100) > 5 then return end
+
+	local spawnPoint = unit:GetAbsOrigin()	
+	local newItem = CreateItem( "item_quest_blue_stone", killerEntity, killerEntity )
+
+	if item_blue_stone:GetCurrentCharges() > 0 and item_blue_stone:GetCurrentCharges() < 10 then
+		newItem:SetCurrentCharges(1)
+	elseif item_blue_stone:GetCurrentCharges() >= 10 and item_blue_stone:GetCurrentCharges() < 20 then
+		newItem:SetCurrentCharges(2)
+	elseif item_blue_stone:GetCurrentCharges() >= 20 and item_blue_stone:GetCurrentCharges() < 30 then
+		newItem:SetCurrentCharges(3)
+	elseif item_blue_stone:GetCurrentCharges() >= 30 then
+		newItem:SetCurrentCharges(4)
+	end
+
+	local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
+	newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( RandomFloat( 50, 100 ) ) )
+	newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
+end
 
 function KillLoot( item, drop )
 	if drop:IsNull() then

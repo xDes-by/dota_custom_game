@@ -1151,6 +1151,159 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
+
+	"shapeshifter_ability1"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/bosses/shapeshifter/shapeshifter_ability1.lua"
+        "AbilityTextureName"            "bloodseeker_rupture"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"  
+        "FightRecapLevel"               "2"
+
+        "HasScepterUpgrade"         "1"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.0"
+        "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "20"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"       
+        
+        // Cast Range
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "800"
+            
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"   "0.0"   // Only does damage
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "10"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_damage_pct"       "60"
+                "CalculateSpellDamageTooltip"   "0"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_cap_amount"         "200"
+                "CalculateSpellDamageTooltip"   "0"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "abilitycastrange"          ""
+                "LinkedSpecialBonus"        "special_bonus_unique_bloodseeker_3"
+                
+            }
+            "05"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "max_charges_scepter"       "2"
+                "RequiresScepter"       "1"
+            }
+            "06"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "charge_restore_time_scepter"       "40"
+                "RequiresScepter"       "1"
+            }
+        }
+    }
+
+	"shapeshifter_ability2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/shapeshifter/shapeshifter_ability2.lua"
+		"AbilityTextureName"			"ursa_fury_swipes"
+		"FightRecapLevel"				"1"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time"				"20"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa_4"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_reset_time_roshan"		"10"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_stack"				"36"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+			}
+		}
+	}
+
+	"shapeshifter_ability3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/shapeshifter/shapeshifter_ability3.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"lycan_howl"
+		
+		"AbilityCastPoint"				"0.3"
+	
+		"AbilityCooldown"				"20"
+		"AbilityDuration"				"10"
+		"AbilityCastRange"				"700"
+		"AbilityManaCost"				"100"
+	
+		"AbilityValues"
+		{
+			"duration"			"10.0"		
+			"as"				"100"
+			"movespeed"			"60"
+			"radius"			"700"
+		}
+	}
+
+	"shapeshifter_ability4"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/shapeshifter/shapeshifter_ability4.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lycan_feral_impulse"
+
+		"AbilityValues"
+		{	
+			"damage"					"80"
+			"armor"						"20"
+		}
+	}
 	
 //======================================================================================================================================================================================================================================================
 
@@ -3140,6 +3293,7 @@
 
 //=====================================================================================================HUSKAR=====================================================================================================================================================
 
+#base "../vscripts/heroes/hero_huskar/huskar_talents.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_berserkers_blood_lua/huskar_berserkers_blood_lua.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_burning_spear_lua/huskar_burning_spear_lua.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua.txt"

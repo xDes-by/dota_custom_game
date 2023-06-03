@@ -13,7 +13,7 @@
 		"ScriptFile"					"heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua"
 		"AbilityTextureName"			"huskar_life_break"
 		"FightRecapLevel"				"2"
-		"MaxLevel"						"3"
+		"MaxLevel"						"10"
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
@@ -53,52 +53,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"health_cost_percent"		"0.34 0.39 0.44"
+				"health_cost_percent"		"25 27 29 31 33 35 37 39 41 43"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"health_damage"				"0.34 0.39 0.44"
+				"damage"					"1000 1500 2000 2500 3000 3500 4000 4500 5000 5500"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"health_damage_scepter"		"0.65"
-			}
-			"04"
-			{
 				"var_type"					"FIELD_INTEGER"
 				"charge_speed"				"1200"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"tooltip_health_damage"				"34 38 42"
-			}
-			"06"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"tooltip_health_cost_percent"		"34 38 42"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed"					"-40 -50 -60"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_durtion_tooltip"		"4 5 6"
-			}
-			"09"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"tooltip_health_damage_scepter"		"65"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown_scepter"			"4"
 			}
 		}
 	}

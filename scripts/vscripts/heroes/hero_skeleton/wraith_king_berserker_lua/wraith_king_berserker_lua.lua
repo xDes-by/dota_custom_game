@@ -151,7 +151,7 @@ function modifier_wraith_king_berserker_lua:GetModifierProcAttack_Feedback( para
 end
 
 function modifier_wraith_king_berserker_lua:OnAttackLanded(params)
-	if params.attacker == self:GetParent() and not params.target:IsBuilding() and  self:GetCaster():FindAbilityByName("npc_dota_hero_skeleton_king_int_last") ~= nil and RandomInt(1, 100) == 1 and params.attacker:FindAbilityByName("wraith_king_sceleton") ~= nil then
+	if params.attacker == self:GetParent() and not params.target:IsBuilding() and  self:GetCaster():FindAbilityByName("npc_dota_hero_skeleton_king_int_last") ~= nil and RandomInt(1, 100) <= 5 and params.attacker:FindAbilityByName("wraith_king_sceleton") ~= nil then
 		if params.attacker:FindAbilityByName("wraith_king_sceleton"):GetLevel() > 0 then
 			self:GetCaster():FindAbilityByName("wraith_king_sceleton"):OnSpellStart()
 		end

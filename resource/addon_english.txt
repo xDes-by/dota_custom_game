@@ -174,7 +174,7 @@
 		"dota_tooltip_ability_item_forever_ward_description" "Forever ward that provides 1600 vision around it"
 
         "dota_tooltip_ability_item_quest_blue_stone" "Blue crystal"
-        "dota_tooltip_ability_item_quest_blue_stone_all" "+$all"
+        "dota_tooltip_ability_item_quest_blue_stone_bonus_attributes" "+ attributes"
         "dota_tooltip_ability_item_quest_moon" "Moon Necklace"
         "dota_tooltip_ability_item_quest_raindow_stone" "Rainbow Stone"
         "dota_tooltip_ability_item_quest_furion_item" "Staff of the Furion"
@@ -432,6 +432,7 @@
         "other_51" "Gyrocopter"
         "other_52" "Ancient Apparition"
         "other_53" "Magnus"
+        "other_54" "Huskar"
 
         //Scrolls//
         
@@ -14033,7 +14034,7 @@
         "npc_dota_hero_skeleton_king_str8" "Royal Power"
         "npc_dota_hero_skeleton_king_str8_description" "Berserk gives armor equal to magic resistance as bonus"
         "npc_dota_hero_skeleton_king_str9" "Mage's cape"
-        "npc_dota_hero_skeleton_king_str9_description" "+50% to skelet magic resistance"
+        "npc_dota_hero_skeleton_king_str9_description" "Invulnerability to magic in skeletons"
         "npc_dota_hero_skeleton_king_str10" "My homies"
         "npc_dota_hero_skeleton_king_str10_description" "Reincarnation summons skeletons"
         "npc_dota_hero_skeleton_king_str11" "Bloodlust"
@@ -14069,7 +14070,7 @@
         "npc_dota_hero_skeleton_king_int11" "Sidekick with a tower"
         "npc_dota_hero_skeleton_king_int11_description" "Skeleton now deal bonus damage equal to INT."
         "npc_dota_hero_skeleton_king_int_last" "1 chance per million"
-        "npc_dota_hero_skeleton_king_int_last_description" "With a 1% chance calls two skeletons when attacking"
+        "npc_dota_hero_skeleton_king_int_last_description" "With a 5% chance calls two skeletons when attacking"
 
         //Treant//
       
@@ -15840,7 +15841,7 @@
         "dota_tooltip_ability_gyrocopter_flak_cannon_lua_description" "The hero's next few attacks will fire volleys at enemies in an area around him. Unused volleys expire after a second."
         "dota_tooltip_ability_gyrocopter_flak_cannon_lua_radius" "RADIUS:"
         "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_attacks" "volleys:"
-        "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_targets" "MAX TARGETS:"
+        // "dota_tooltip_ability_gyrocopter_flak_cannon_lua_max_targets" "MAX TARGETS:"
 
         "dota_tooltip_ability_gyrocopter_call_down_lua" "Call Down"
         "dota_tooltip_ability_gyrocopter_call_down_lua_description" "Calls an air strike on the target area, dropping one projectile after 1 sec and another after 1 sec."
@@ -15887,7 +15888,7 @@
         "npc_dota_hero_Gyrocopter_int8" "New Android"
         "npc_dota_hero_Gyrocopter_int8_description" "-15% cd"
         "npc_dota_hero_Gyrocopter_int9" "Target Extension"
-        "npc_dota_hero_Gyrocopter_int9_description" "+5 volleys of Flak Cannon"
+        "npc_dota_hero_Gyrocopter_int9_description" "+12 volleys of Flak Cannon"
         "npc_dota_hero_Gyrocopter_int10" "Epiphany"
         "npc_dota_hero_Gyrocopter_int10_description" "If Intelligence is greater than the other stats, then it doubles the damage of all skills."
         "npc_dota_hero_Gyrocopter_int11" "Fire to kill"
@@ -15967,6 +15968,75 @@
         "npc_dota_hero_ancient_apparition_int_last" "Very Cold"
         "npc_dota_hero_ancient_apparition_int_last_description" "Ice Blast HP х2"
 
+        //Huskar
+
+        "DOTA_Tooltip_ability_huskar_burning_spear_lua" "BURNING SPEAR"
+        "DOTA_Tooltip_ability_huskar_burning_spear_lua_Description" "The hero sacrifices a portion of their health to ignite their spear, adding stacking periodic damage to their regular attacks."
+        "DOTA_Tooltip_ability_huskar_burning_spear_lua_health_cost" "HEALTH COST:"
+        "DOTA_Tooltip_ability_huskar_burning_spear_lua_burn_damage" "PERIODIC DAMAGE:"
+        "DOTA_Tooltip_ability_huskar_burning_spear_lua_duration" "DURATION:"
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua"							        "BERSERKER'S BLOOD"
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua_Description"				        "Wounds make the hero stronger, increasing their attack speed, magic resistance, and health regeneration based on the missing health percentage. Health regeneration is proportional to the hero's strength."
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua_maximum_attack_speed"				"MAX ATTACK SPEED:"
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua_maximum_regen"					"MAX REGENERATION FROM STRENGTH:"
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua_maximum_resistance"				"MAX MAGIC RESISTANCE:"
+        "DOTA_Tooltip_ability_huskar_berserkers_blood_lua_hp_threshold_max"					"HEALTH THRESHOLD FOR MAX EFFECT:"
+
+        "DOTA_Tooltip_ability_huskar_inner_fire_lua"						                "INNER FIRE"
+        "DOTA_Tooltip_ability_huskar_inner_fire_lua_Description"			                "The hero's fiery rage pushes back nearby enemies, dealing damage to them and applying a disarm effect."
+        "DOTA_Tooltip_ability_huskar_inner_fire_lua_base_damage"					        "DAMAGE:"
+        "DOTA_Tooltip_ability_huskar_inner_fire_lua_radius"					                "RADIUS:"
+        "DOTA_Tooltip_ability_huskar_inner_fire_lua_disarm_duration"		                "DURATION:"
+
+        "DOTA_Tooltip_ability_huskar_life_break_lua"								        "LIFE BREAK"
+        "DOTA_Tooltip_ability_huskar_life_break_lua_Description"					        "The hero deals massive damage at the cost of their own health. They leap at the target, subtracting a portion of its current health and slowing it."
+        "DOTA_Tooltip_ability_huskar_life_break_lua_damage"					                "TARGET DAMAGE:"
+        "DOTA_Tooltip_ability_huskar_life_break_lua_health_cost_percent"				    "SELF DAMAGE PERCENTAGE:"
+
+        "npc_dota_hero_huskar_str6" "Armor of the Furious Warrior"
+        "npc_dota_hero_huskar_str6_description" "Berserker's Blood provides armor equal to 10 times the ability level."
+        "npc_dota_hero_huskar_str7" "Reinforced Resilience"
+        "npc_dota_hero_huskar_str7_description" "Magic resistance from Berserker's Blood is increased by 20%."
+        "npc_dota_hero_huskar_str8" "Fiery Rage"
+        "npc_dota_hero_huskar_str8_description" "7% of strength is added to Burning Spear damage."
+        "npc_dota_hero_huskar_str9" "Endurance Threshold"
+        "npc_dota_hero_huskar_str9_description" "The minimum required health to reach the maximum effect of Berserker's Blood is 30%."
+        "npc_dota_hero_huskar_str10" "Healing Fury"
+        "npc_dota_hero_huskar_str10_description" "Health regeneration from Berserker's Blood is doubled."
+        "npc_dota_hero_huskar_str11" "Unyielding Fury"
+        "npc_dota_hero_huskar_str11_description" "Berserker's Blood gains an active ability that grants Spell Immunity for 3 seconds. Cooldown: 30 seconds."
+        "npc_dota_hero_huskar_str_last" "Burning Curse"
+        "npc_dota_hero_huskar_str_last_description" "When receiving physical damage, apply a Burning Spear stack to the attacker."
+
+        "npc_dota_hero_huskar_agi6" "Swift Furious Assault"
+        "npc_dota_hero_huskar_agi6_description" "Attack speed from Berserker's Blood is increased by 120."
+        "npc_dota_hero_huskar_agi7" "Penetrating Fury"
+        "npc_dota_hero_huskar_agi7_description" "Each Burning Spear stack reduces armor by 1. Maximum reduction equals the ability level."
+        "npc_dota_hero_huskar_agi8" "Fiery Rage"
+        "npc_dota_hero_huskar_agi8_description" "20% chance to apply 2 stacks of Burning Spear simultaneously."
+        "npc_dota_hero_huskar_agi9" "Dual Penetration"
+        "npc_dota_hero_huskar_agi9_description" "The hero can attack two targets simultaneously."
+        "npc_dota_hero_huskar_agi10" "Fury of Enhanced Destruction"
+        "npc_dota_hero_huskar_agi10_description" "Berserker's Blood increases base damage. Maximum increase is 100%."
+        "npc_dota_hero_huskar_agi11" "Sharp Flames"
+        "npc_dota_hero_huskar_agi11_description" "10% of agility is added to Burning Spear damage."
+        "npc_dota_hero_huskar_agi_last" "Infernal Slaughter"
+        "npc_dota_hero_huskar_agi_last_description" "15% of attack damage goes to Burning Spear damage. Damage type becomes physical, and the ability is no longer amplified."
+
+        "npc_dota_hero_huskar_int6" "Intellectual Flame"
+        "npc_dota_hero_huskar_int6_description" "Inner Fire damage is increased by 100% of intelligence."
+        "npc_dota_hero_huskar_int7" "Power of Life Break"
+        "npc_dota_hero_huskar_int7_description" "Life Break damage is increased by 200% of intelligence."
+        "npc_dota_hero_huskar_int8" "Rage of Strengthened Spells"
+        "npc_dota_hero_huskar_int8_description" "Berserker's Blood provides spell amplification equal to 30 times the ability level."
+        "npc_dota_hero_huskar_int9" "Ignited Guardians"
+        "npc_dota_hero_huskar_int9_description" "Inner Fire applies 1 + ability level / 2 stacks of Burning Spear."
+        "npc_dota_hero_huskar_int10" "Burning Trail"
+        "npc_dota_hero_huskar_int10_description" "Life Break applies 5 + ability level stacks of Burning Spear."
+        "npc_dota_hero_huskar_int11" "Magical Radiance"
+        "npc_dota_hero_huskar_int11_description" "10% of intelligence is added to Burning Spear damage."
+        "npc_dota_hero_huskar_int_last" "Redemptive Fire"
+        "npc_dota_hero_huskar_int_last_description" "Final damage of Burning Spear is increased by 40%."
         //Marci//
 
         //Marci Change =========================================================================================================================

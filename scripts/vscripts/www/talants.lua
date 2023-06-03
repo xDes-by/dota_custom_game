@@ -113,9 +113,9 @@ function talants:OnPlayerReconnected(keys)
 end
 
 function talants:talant_shop(t)
-    if DataBase:isCheatOn() == true then
-        return
-    end
+    -- if DataBase:isCheatOn() == true then
+    --     return
+    -- end
     local shop = CustomNetTables:GetTableValue("shopinfo", tostring(t.PlayerID))
     if t.cur == "gems" and tonumber(shop["coins"]) >= talant_shop[tonumber(t.i)]["gems"] then
         shop["coins"] = tonumber(shop["coins"]) - talant_shop[tonumber(t.i)]["gems"]
@@ -302,7 +302,7 @@ function talants:FastLearning(t)
     if t.j == 6 or t.j == 7 or t.j == 8 then
         levelNeed = levelNeed + 1
     end
-    if t.j == 6 or t.j == 7 or t.j == 8 then
+    if t.j == 9 or t.j == 10 or t.j == 11 then
         levelNeed = levelNeed + 2
     end
     if t.j == 12 then
@@ -315,36 +315,36 @@ function talants:FastLearning(t)
             branch_count = branch_count + 1
         end
     end
-    if tab[t.i..6] == 1 or tab[t.i..7] == 1 or tab[t.i..8] == 1 then
+    if tonumber(tab[t.i.."6"]) + tonumber(tab[t.i.."7"]) + tonumber(tab[t.i.."8"]) == 1 then
         branch_count = branch_count + 1
     end
-    if tab[t.i..9] == 1 or tab[t.i..10] == 1 or tab[t.i..11] == 1 then
+    if tonumber(tab[t.i.."9"]) + tonumber(tab[t.i.."10"]) + tonumber(tab[t.i.."11"]) == 1 then
         branch_count = branch_count + 1
     end
     
     if (t.i == 'don' and tab['freedonpoints'] >= levelNeed - branch_count) or (t.i ~= 'don' and tab['freepoints'] >= levelNeed - branch_count) then
-        if t.j >= 2 and tab[t.i..1] ~= 1 then
+        if t.j >= 2 and tab[t.i.."1"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 1})
         end
-        if t.j >= 3 and tab[t.i..1] ~= 1 then
+        if t.j >= 3 and tab[t.i.."2"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 2})
         end
-        if t.j >= 4 and tab[t.i..1] ~= 1 then
+        if t.j >= 4 and tab[t.i.."3"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 3})
         end
-        if t.j >= 5 and tab[t.i..1] ~= 1 then
+        if t.j >= 5 and tab[t.i.."4"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 4})
         end
-        if t.j >= 6 and tab[t.i..1] ~= 1 then
+        if t.j >= 6 and tab[t.i.."5"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 5})
         end
-        if t.j == 9 and tab[t.i..1] ~= 1 then
+        if t.j == 9 and tab[t.i.."6"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 6})
         end
-        if t.j == 10 and tab[t.i..1] ~= 1 then
+        if t.j == 10 and tab[t.i.."7"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 7})
         end
-        if t.j == 11 and tab[t.i..1] ~= 1 then
+        if t.j == 11 and tab[t.i.."8"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 8})
         end
         talants:selectTalantButton(t)
@@ -702,31 +702,32 @@ function talants:sendServer(tab)
 end
 
 function talants:BuyExp(t)
-    -- print("talants:BuyExp",t.type)
-    local arr = {
-		sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
-		heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),
-		name = PlayerResource:GetPlayerName( t.PlayerID ),
-        in_game_time = GameRules:GetGameTime(),
-        stratege_time = 0,
-        currency = t.currency,
-        gane = t.gane,
-        price = t.price,
-        type = t.type,
-	}
-    if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
-        arr[stratege_time] = 1
-    end
+    if not talants.testing[t.PlayerID] and DataBase:isCheatOn() == false then
+        local arr = {
+            sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
+            heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),
+            name = PlayerResource:GetPlayerName( t.PlayerID ),
+            in_game_time = GameRules:GetGameTime(),
+            stratege_time = 0,
+            currency = t.currency,
+            gane = t.gane,
+            price = t.price,
+            type = t.type,
+        }
+        if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
+            arr[stratege_time] = 1
+        end
 
-	local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/buy-exp?key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
-    arr = json.encode(arr)
-	req:SetHTTPRequestGetOrPostParameter('arr',arr)
-	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-	req:Send(function(res)
-		if res.StatusCode == 200 then
-            -- print(res.Body)
-		end
-	end)
+        local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/buy-exp?key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
+        arr = json.encode(arr)
+        req:SetHTTPRequestGetOrPostParameter('arr',arr)
+        req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+        req:Send(function(res)
+            if res.StatusCode == 200 then
+                -- print(res.Body)
+            end
+        end)
+    end
     local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     if t.type == "normal" then
         tab['totalexp'] = tonumber(tab['totalexp']) + t.gane
@@ -756,20 +757,23 @@ function talants:BuyExp(t)
 end
 
 function talants:unset(t)
-    local arr = {
-		sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
-		heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),
-		name = PlayerResource:GetPlayerName( t.PlayerID ),
-        in_game_time = GameRules:GetGameTime(),
-        stratege_time = 0,
-        currency = t.currency,
-        price = t.price,
+    -- if DataBase:isCheatOn() == true then
+    --     return
+    -- end
+    if not talants.testing[t.PlayerID] and DataBase:isCheatOn() == false then
+        local arr = {
+            sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
+            heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),
+            name = PlayerResource:GetPlayerName( t.PlayerID ),
+            in_game_time = GameRules:GetGameTime(),
+            stratege_time = 0,
+            currency = t.currency,
+            price = t.price,
 
-	}
-    if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
-        arr[stratege_time] = 1
-    end
-    if not talants.testing[t.PlayerID] then
+        }
+        if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
+            arr[stratege_time] = 1
+        end
         local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/talants?reqtype=unset&key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
         arr = json.encode(arr)
         req:SetHTTPRequestGetOrPostParameter('arr',arr)

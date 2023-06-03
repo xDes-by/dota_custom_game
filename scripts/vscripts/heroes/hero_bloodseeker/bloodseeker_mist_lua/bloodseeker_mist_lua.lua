@@ -38,7 +38,7 @@ function modifier_bloodseeker_mist_aura_lua:OnCreated()
 	if self.caster:FindAbilityByName("npc_dota_hero_bloodseeker_int8") ~= nil then
 		self.radius = self.radius + 150
 	end
-	self:StartIntervalThink(0.5)
+	self:StartIntervalThink(1)
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(particle, 0, self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, Vector(self.radius, self.radius, self.radius))
@@ -71,7 +71,7 @@ function modifier_bloodseeker_mist_aura_lua:OnIntervalThink()
 	local enemies = FindUnitsInRadius(self.caster:GetTeamNumber(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(enemies) do
 		enemy:AddNewModifier(self.caster, self, "modifier_bloodseeker_mist_burn_lua", {duration = 0.6})
-		ApplyDamage({attacker = self.caster, victim = enemy, damage = self.damage/2, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility()})
+		ApplyDamage({attacker = self.caster, victim = enemy, damage = self.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility()})
 	end	
 end
 

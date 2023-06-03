@@ -1,5 +1,5 @@
 -- LinkLuaModifier("modifier_huskar_vitality_explosion_custom", "heroes/hero_huskar/vitality_explosion.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_huskar_inner_fire_lua_debuff", "heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_huskar_inner_fire_lua_debuff", "heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua", LUA_MODIFIER_MOTION_NONE)
 
 -- LinkLuaModifier( "modifier_huskar_burning_spear_custom", "heroes/hero_huskar/burning_spear_custom.lua", LUA_MODIFIER_MOTION_NONE )
 -- LinkLuaModifier( "modifier_huskar_burning_spear_custom_stack", "heroes/hero_huskar/burning_spear_custom.lua", LUA_MODIFIER_MOTION_NONE )
@@ -15,13 +15,7 @@ function huskar_inner_fire_lua:RemoveOnDeath() return false end
 function huskar_inner_fire_lua:IsHidden() return true end
 function huskar_inner_fire_lua:IsStackable() return false end
 
-modifier_huskar_inner_fire_lua_debuff = class({})
 
-function modifier_huskar_inner_fire_lua_debuff:IsPurgable() return false end
-function modifier_huskar_inner_fire_lua_debuff:RemoveOnDeath() return false end
-function modifier_huskar_inner_fire_lua_debuff:IsHidden() return false end
-function modifier_huskar_inner_fire_lua_debuff:IsStackable() return true end
-function modifier_huskar_inner_fire_lua_debuff:IsDebuff() return true end
 
 -- modifier_huskar_vitality_explosion_custom = class(huskar_vitality_explosion_custom)
 
@@ -30,22 +24,45 @@ function huskar_inner_fire_lua:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
 
+function huskar_inner_fire_lua:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
+end
+
 function huskar_inner_fire_lua:OnSpellStart()
 
     EmitSoundOn("Hero_Huskar.Inner_Fire.Cast", self:GetCaster())
     self:PlayEffects(self:GetCaster())
-    
-    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, self:GetSpecialValueFor( "radius" ), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    local damage = self:GetSpecialValueFor("base_damage")
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_int6") then
+        damage = damage + self:GetCaster():GetIntellect()
+    end
+    local duration = self:GetSpecialValueFor("disarm_duration")
+    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, self:GetSpecialValueFor( "radius" ), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    local burning_spear = self:GetCaster():FindAbilityByName("huskar_burning_spear_lua")
     for _,enemy in pairs(enemies) do
-        local damageTable = {
+        enemy:AddNewModifier(self:GetCaster(), self, "modifier_huskar_inner_fire_lua_debuff", {duration = duration})
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_int9") and burning_spear and burning_spear:GetLevel() > 0 then
+            local burning_spear_duration = burning_spear:GetSpecialValueFor("duration")
+            for i = 0, (1 + self:GetLevel()/2) do
+                enemy:AddNewModifier(
+                    self:GetCaster(), -- player source
+                    burning_spear, -- ability source
+                    "modifier_huskar_burning_spear_lua", -- modifier name
+                    { duration = burning_spear_duration } -- kv
+                )
+            end
+        end
+        ApplyDamage({
             victim = enemy,
             attacker = self:GetCaster(),
-            damage = 500,
+            damage = damage,
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
             ability 		= self
-        }
-        ApplyDamage(damageTable)
+        })
     end
 end
 
@@ -59,6 +76,13 @@ function huskar_inner_fire_lua:PlayEffects(target)
     ParticleManager:ReleaseParticleIndex( effect_cast )
 end
 -------------
+modifier_huskar_inner_fire_lua_debuff = class({})
+
+function modifier_huskar_inner_fire_lua_debuff:IsPurgable() return false end
+function modifier_huskar_inner_fire_lua_debuff:RemoveOnDeath() return false end
+function modifier_huskar_inner_fire_lua_debuff:IsHidden() return false end
+function modifier_huskar_inner_fire_lua_debuff:IsStackable() return true end
+function modifier_huskar_inner_fire_lua_debuff:IsDebuff() return true end
 
 function modifier_huskar_inner_fire_lua_debuff:CheckState()
     local state = {
