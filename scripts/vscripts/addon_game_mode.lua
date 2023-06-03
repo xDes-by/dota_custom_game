@@ -808,6 +808,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc457f6fde6600764f904fe72168d05e2bc5250d
 		local vok =  {"invoker_invo_death_02","invoker_invo_death_08","invoker_invo_death_10","invoker_invo_death_13","invoker_invo_death_01"}
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
@@ -1175,6 +1179,33 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 end
 
+function Add_bsa_hero()	
+	if GetMapName() == "normal" and not GameRules:IsCheatMode() then
+		arr = {}
+		players = {}
+		for i = 0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(i) then 
+				players[i] = {sid = tostring(PlayerResource:GetSteamID(i))}
+			end
+		end
+		arr['players'] = players
+		arr = json.encode(arr)
+		local req = CreateHTTPRequestScriptVM( "POST", "http://91.240.87.224/api_add_hero/?key=".._G.key )
+		req:SetHTTPRequestGetOrPostParameter('arr',arr)
+		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+		req:Send(function(res)
+			if res.StatusCode == 200 and res.Body ~= nil then
+				print("DONE BSA HERO")
+				print(res.StatusCode)
+				print("DONE BSA HERO")
+			else
+				print("ERROR BSA HERO")
+				print(res.StatusCode)
+				print("ERROR BSA HERO")
+			end
+		end)
+	end
+end
 
 function set_max_stats(unit)
 	local max_set = 2000000000
