@@ -3,13 +3,6 @@ LinkLuaModifier( "modifier_bloodseeker_bloodrage_lua_proc", "heroes/hero_bloodse
 
 bloodseeker_bloodrage_lua = class({})
 
-function bloodseeker_bloodrage_lua:GetAOERadius()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int_last") ~= nil then 
-		return 300
-	end
-	return 0
-end
-
 function bloodseeker_bloodrage_lua:GetManaCost(iLevel)
 	return math.min(65000, self:GetCaster():GetIntellect())
 end
@@ -25,6 +18,11 @@ function bloodseeker_bloodrage_lua:OnSpellStart()
 	
 	local target = self:GetCursorTarget()
 	target:AddNewModifier( caster, self, "modifier_bloodseeker_bloodrage_lua", { duration = duration } )
+	blood_rite = self:GetCaster():FindAbilityByName("bloodseeker_blood_rite_lua")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int10") and blood_rite and blood_rite:GetLevel() > 0 then
+		blood_rite.cast_position = target:GetAbsOrigin()
+		blood_rite:OnSpellStart()
+	end
 end
 
 ---------------------------------------------------------------------------------------
@@ -44,7 +42,7 @@ function modifier_bloodseeker_bloodrage_lua:OnCreated( kv )
 	self.bonus_spell_amp = self:GetAbility():GetSpecialValueFor( "bonus_spell_amp" )
 	self.hp_loss = self:GetAbility():GetSpecialValueFor( "hp_loss" )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int_last") then
-		self.bonus_spell_amp = self.bonus_spell_amp + self:GetParent():GetIntellect() * 0.3
+		self.bonus_spell_amp = self.bonus_spell_amp + self:GetParent():GetIntellect() * 0.5
 	end
 	self:StartIntervalThink(0.1)
 end
@@ -67,6 +65,8 @@ function modifier_bloodseeker_bloodrage_lua:OnAttackLanded(keys)
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi11") ~= nil and self:GetParent() == keys.attacker and RandomInt(1,100) <= 10 then
 			keys.target:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_bloodseeker_bloodrage_lua_proc", {duration = 0.01})
 		end
+		-- local damage = self:GetParent():GetAgility() / 100 * self:GetSpecialValueFor("agi_dmg")
+		-- ApplyDamage({attacker = self:GetParent(), victim = keys.target, damage = damage, damage_type = self:GetAbilityDamageType(), ability = self:GetAbility()})
 	end
 end	
 			

@@ -15,6 +15,7 @@ LinkLuaModifier( "modifier_huskar_berserkers_blood_lua_bkb", "heroes/hero_huskar
 
 --------------------------------------------------------------------------------
 function huskar_berserkers_blood_lua:OnSpellStart()
+	EmitSoundOn("DOTA_Item.BlackKingBar.Activate", self:GetCaster())
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_huskar_berserkers_blood_lua_bkb", {duration = 3})
 end
 -- Passive Modifier

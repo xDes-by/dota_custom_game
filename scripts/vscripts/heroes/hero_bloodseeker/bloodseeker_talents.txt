@@ -9,8 +9,7 @@
 
 "npc_dota_hero_bloodseeker_str7"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_bloodseeker/hp_regen_death"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}	
@@ -24,7 +23,7 @@
 	
 "npc_dota_hero_bloodseeker_str9"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}	
@@ -59,8 +58,7 @@
 	
 "npc_dota_hero_bloodseeker_agi8"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_axe/bonus_dmg"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}	
@@ -88,16 +86,14 @@
 	
 "npc_dota_hero_bloodseeker_int6"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_bloodseeker/cooldown"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 
 "npc_dota_hero_bloodseeker_int7"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_axe/cooldown"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}	

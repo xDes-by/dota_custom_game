@@ -19,7 +19,7 @@ function modifier_auto_apply_blood_rite:OnAttackLanded( params )
     if not IsServer() then return end
     if params.attacker == self:GetParent() and not params.target:IsBuilding() and params.attacker:GetTeamNumber() ~= params.target:GetTeamNumber() then
         local blood_rite = self:GetCaster():FindAbilityByName("bloodseeker_blood_rite_lua")
-        if blood_rite and RandomInt(1, 100) <= 10 then
+        if blood_rite and RollPseudoRandomPercentage(10, self:GetCaster():entindex(), self:GetCaster()) then
             blood_rite.cast_position = params.target:GetAbsOrigin()
             blood_rite:OnSpellStart()
         end

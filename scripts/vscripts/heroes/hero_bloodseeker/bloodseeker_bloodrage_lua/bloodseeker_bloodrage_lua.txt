@@ -14,6 +14,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		"AbilityCastRange"				"800"
@@ -27,6 +28,7 @@
 			"bonus_as"					"50 60 70 80 90 100 110 120 130 140 150 160 170 180 190"
 			"bonus_spell_amp"			"25 50 75 100 125 150 175 200 225 250 275 300 325 350 375"
 			"hp_loss"					"2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0 4.2 4.4 4.6 4.8"
+			"agi_dmg"					"20"
 		}
 	}
 }

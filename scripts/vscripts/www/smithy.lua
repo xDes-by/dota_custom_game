@@ -125,13 +125,13 @@ function Smithy:put_item_lua(t)
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
     if hero then
         local current_item = hero:GetItemInSlot(slot)
-        
         if current_item then
             local item_name = current_item:GetName()
             local quantity = current_item:GetCurrentCharges()
             if hero:GetName() ~= current_item:GetPurchaser():GetName() or slot > 8 and item_name ~= item_gold then
                 return
             end
+            if item_name == "item_quest_blue_stone" or item_name == "item_cheese_lua" then return end
             if t.type == nil then
                 t.item_name = item_name
                 Smithy:automatic_installation_lua(t)

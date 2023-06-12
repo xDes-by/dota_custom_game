@@ -49,13 +49,7 @@
             "03"
             {
                 "var_type"                      "FIELD_FLOAT"
-                "disarm_duration"               "1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4"
-            }
-            "04"
-            {
-                "var_type"                      "FIELD_FLOAT"
-                "heal_from_damage_pct"          "100"
-                "RequiresShard"                       "1"
+                "add_stack"                     "2"
             }
         }
     }

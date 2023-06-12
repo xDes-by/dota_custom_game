@@ -81,7 +81,7 @@
     "npc_dota_hero_enigma"        "0"
     "npc_dota_hero_faceless_void"        "0"
     "npc_dota_hero_furion"        "0"
-    "npc_dota_hero_huskar"        "0"
+    "npc_dota_hero_huskar"        "1"
     "npc_dota_hero_invoker"        "0"
     "npc_dota_hero_kunkka"        "0"
     "npc_dota_hero_life_stealer"        "0"

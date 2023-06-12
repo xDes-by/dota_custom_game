@@ -47,7 +47,11 @@ function item_boss_summon:OnSpellStart()
 				self:add_items(unit)	
 				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 				Rules:difficality_modifier(unit)
-				self.caster:RemoveItem(self)
+				if self:GetCurrentCharges() > 1 then
+					self:SetCurrentCharges(self:GetCurrentCharges() - 1)
+				else
+					self.caster:RemoveItem(self)
+				end
 			end
 	end
 end

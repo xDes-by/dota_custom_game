@@ -614,6 +614,7 @@ function Quests:selectItem(t)
 end
 
 function Quests:acceptButton(t)
+	DeepPrintTable(t)
 	local steamID = PlayerResource:GetSteamAccountID(t.pid)
 	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
 	local sound = false
@@ -699,11 +700,13 @@ function Quests:acceptButton(t)
 			end
 		end
 		sound = true
-		-- if t.type == 'main' then
-		-- 	talants:AddExperience(t.pid, tonumber(t.number) * 10)
-		-- end
 	end
 	CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
+	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil and t.type == 'main' and player_info[tostring(steamID)]['main'][tostring(t.number+1)] ~= nil then
+		t.number = t.number + 1
+		t.task = 1
+		Quests:acceptButton(t)
+	end
 	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["renewable"] == 1
 	and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil then
 		Quests:renewableQuest(t.type, t.number, t.task, t.pid)

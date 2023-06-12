@@ -16,11 +16,13 @@ require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("use_pets")
+require("effects")
 
 _G.key = GetDedicatedServerKeyV3("UA")
+_G.key = "FF5F3A404F82A1B08FCA7B6233F2CD5F3C8EBC5C"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
-_G.server_load = true -- true
+_G.cheatmode = true -- false
+_G.server_load = false -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -85,20 +87,22 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
+	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
 	FilterManager:Init()
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
+	effects:init()
 	_G.Activate_belka = false
 	use_pets:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
-	-- GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(CAddonAdvExGameMode, "InventoryFilter"), self)
 end
 
 function CAddonAdvExGameMode:GoldFilter(event)
+	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
 	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
 	local mod = hero:FindModifierByName("modifier_gold_bank")
 	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
@@ -297,18 +301,24 @@ end
 _G.kill_invoker = false
 _G.destroyed_barracks = false
 
-function CAddonAdvExGameMode:OnPlayerReconnected(keys)
-local state = GameRules:State_Get()
-if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		Timers:CreateTimer(2, function()	
-				mmr = ((math.floor(rat / 5)) * 2 )
-				doom = mega_boss_bonus
-				doom = mega_boss_bonus * diff_wave.rating_scale
-				mmr = mmr * diff_wave.rating_scale
-			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "updateRatingCouter", {a = mmr,b = doom} )
-		end)
-	end
+
+function CAddonAdvExGameMode:EndScreenExit(keys)
+	print(keys.PlayerID)
+	DisconnectClient(keys.PlayerID, false)
 end
+
+function CAddonAdvExGameMode:OnPlayerReconnected(keys)
+	local state = GameRules:State_Get()
+	if state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+			Timers:CreateTimer(2, function()	
+					mmr = ((math.floor(rat / 5)) * 2 )
+					doom = mega_boss_bonus
+					doom = mega_boss_bonus * diff_wave.rating_scale
+					mmr = mmr * diff_wave.rating_scale
+				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "updateRatingCouter", {a = mmr,b = doom} )
+			end)
+		end
+	end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -555,6 +565,7 @@ function rating_lose()
 			end	
 		end			
 	end
+	CustomGameEventManager:Send_ServerToAllClients( "showEndScreen", {} )
 end
 
 function rating_win()
@@ -566,6 +577,7 @@ function rating_win()
 			end
 		end
 	end
+	CustomGameEventManager:Send_ServerToAllClients( "showEndScreen", {game_reuslt = "win"} )
 end
 
 function full_win()
@@ -784,7 +796,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 	
-	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" then --and not GameRules:IsCheatMode() then
+	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:isCheatOn() then
 			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 					if PlayerResource:HasSelectedHero( nPlayerID ) then
@@ -808,10 +820,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
-<<<<<<< HEAD
-=======
-
->>>>>>> dc457f6fde6600764f904fe72168d05e2bc5250d
 		local vok =  {"invoker_invo_death_02","invoker_invo_death_08","invoker_invo_death_10","invoker_invo_death_13","invoker_invo_death_01"}
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )

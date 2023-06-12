@@ -32,6 +32,7 @@ function modifier_huskar_berserkers_blood_lua:OnCreated( kv )
 	self.max_as = self:GetAbility():GetSpecialValueFor( "maximum_attack_speed" )
 	self.max_mr = self:GetAbility():GetSpecialValueFor( "maximum_resistance" )
 	self.max_hr = self:GetAbility():GetSpecialValueFor( "maximum_regen" )
+	self.max_sr = self:GetAbility():GetSpecialValueFor( "maximum_status_resistance" )
 	self.max_threshold = self:GetAbility():GetSpecialValueFor( "hp_threshold_max" )
 	self.range = 100-self.max_threshold
 	self.max_size = 35
@@ -60,6 +61,7 @@ function modifier_huskar_berserkers_blood_lua:OnRefresh( kv )
 	self.max_as = self:GetAbility():GetSpecialValueFor( "maximum_attack_speed" )
 	self.max_mr = self:GetAbility():GetSpecialValueFor( "maximum_resistance" )
 	self.max_hr = self:GetAbility():GetSpecialValueFor( "maximum_regen" )
+	self.max_sr = self:GetAbility():GetSpecialValueFor( "maximum_status_resistance" )
 	self.max_threshold = self:GetAbility():GetSpecialValueFor( "hp_threshold_max" )	
 	self.range = 100-self.max_threshold
 
@@ -99,9 +101,16 @@ function modifier_huskar_berserkers_blood_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPERTY_STATUS_RESISTANCE,
 	}
 
 	return funcs
+end
+
+function modifier_huskar_berserkers_blood_lua:GetModifierStatusResistance()
+	-- interpolate missing health
+	local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
+	return (1-pct)*self.max_sr
 end
 
 function modifier_huskar_berserkers_blood_lua:GetModifierMagicalResistanceBonus()
@@ -171,6 +180,7 @@ function modifier_huskar_berserkers_blood_lua:OnTakeDamage(params)
 		if self:GetParent():FindAbilityByName("npc_dota_hero_huskar_str_last") and params.damage_type == DAMAGE_TYPE_PHYSICAL then
 			local burning_spear = self:GetParent():FindAbilityByName("huskar_burning_spear_lua")
 			if params.attacker:IsAlive() and not params.attacker:IsBuilding() and params.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and burning_spear and burning_spear:GetLevel() > 0 then
+				EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
 				params.attacker:AddNewModifier(self:GetParent(), burning_spear, "modifier_huskar_burning_spear_lua", {duration = burning_spear:GetSpecialValueFor("duration")})
 			end
 		end

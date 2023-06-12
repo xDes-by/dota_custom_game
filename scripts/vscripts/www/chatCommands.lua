@@ -180,8 +180,12 @@ function ChatCommands:Gold(pid, text)
     if split[3] and tonumber(split[3]) and PlayerResource:IsValidPlayer(tonumber(split[3])) then
         hero = PlayerResource:GetSelectedHeroEntity(tonumber(split[3]))
     end
-    if not split[2] or not tonumber(split[2]) then return end
-    hero:ModifyGoldFiltered(tonumber(split[2]), true, 0)
+    if not split[2] or not tonumber(split[2]) then
+        hero:ModifyGoldFiltered(2000000000, true, 0)
+    else
+        hero:ModifyGoldFiltered(tonumber(split[2]), true, 0)
+    end
+    
 end
 
 function ChatCommands:GoldMessage(keyword)
@@ -485,17 +489,31 @@ function ChatCommands:Box(pid, text)
     if split[2] ~= nil and tonumber(split[2]) then 
         chest_level = tonumber(split[2])
     end
+    local count = 1
+    if split[3] ~= nil and tonumber(split[3]) then 
+        count = tonumber(split[3])
+    end
+    local interval = 0
+    if split[4] ~= nil and tonumber(split[4]) then 
+        interval = tonumber(split[4])
+    end
     local hero = PlayerResource:GetSelectedHeroEntity(pid)
-    local item_box = hero:AddItemByName('item_box_'..chest_level)
-    item_box:OnSpellStart(hero:GetAbsOrigin())
+    Timers:CreateTimer(0 ,function()
+        local item_box = hero:AddItemByName('item_box_'..chest_level)
+        item_box:OnSpellStart(hero:GetAbsOrigin())
+        count = count-1
+        if count == 0 then return end
+        return interval
+    end)
+    
 end
 function ChatCommands:BoxMessage(keyword)
-    local message = self:Font() .. keyword .. " [1|2|3] </font> Сундучок"
+    local message = self:Font() .. keyword .. " [1|2|3] {количество} {интервал} </font> Сундучок"
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
 function ChatCommands:TestTalents(pid, text)
-    local keyword = {"-talent", "я талант"}
+    local keyword = {"-talent", "я талант", "t"}
     if pid < 0 then
         self:TestTalentsMessage(keyword)
         return

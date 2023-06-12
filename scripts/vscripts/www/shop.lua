@@ -36,20 +36,20 @@ _G.basicshop = {
 	},
 	[2] = {
 		name = "consumables",
-		[1] = {name = "scroll_1", price = {don = 5}, itemname = "item_armor_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[2] = {name = "scroll_2", price = {don = 5}, itemname = "item_base_damage_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[3] = {name = "scroll_3", price = {don = 5}, itemname = "item_expiriance_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[4] = {name = "scroll_4", price = {don = 5}, itemname = "item_move_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[5] = {name = "scroll_5", price = {don = 5}, itemname = "item_attack_speed_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[6] = {name = "scroll_6", price = {don = 5}, itemname = "item_hp_aura", rarity = "gold", type = "consumabl", combinable = true},
-		[7] = {name = "scroll_11", price = {don = 2}, itemname = "item_ticket", rarity = "gold", type = "consumabl", combinable = true},
-		[8] = {name = "scroll_12", price = {don = 10}, itemname = "item_boss_summon", rarity = "gold", type = "consumabl", combinable = true},
-		[9] = {name = "other_1", price = {don = 5}, itemname = "item_str", rarity = "red"},
-		[10] = {name = "other_2", price = {don = 5}, itemname = "item_agi", rarity = "green"},
-		[11] = {name = "other_3", price = {don = 5}, itemname = "item_int", rarity = "blue"},
-		[12] = {name = "other_4", price = {don = 15}, itemname = "item_tree_gold", rarity = "gold"},
-		[13] = {name = "other_8", price = {don = 30}, itemname = "item_tower_protection", rarity = "gold"},
-		[14] = {name = "other_49", price = {don = 25}, itemname = "item_forever_ward", rarity = "gold"},
+		[1] = {name = "scroll_1", price = {don = 5}, itemname = "item_armor_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[2] = {name = "scroll_2", price = {don = 5}, itemname = "item_base_damage_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[3] = {name = "scroll_3", price = {don = 5}, itemname = "item_expiriance_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[4] = {name = "scroll_4", price = {don = 5}, itemname = "item_move_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[5] = {name = "scroll_5", price = {don = 5}, itemname = "item_attack_speed_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[6] = {name = "scroll_6", price = {don = 5}, itemname = "item_hp_aura", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[7] = {name = "scroll_11", price = {don = 2}, itemname = "item_ticket", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[8] = {name = "scroll_12", price = {don = 10}, itemname = "item_boss_summon", rarity = "gold", type = "consumabl", combinable = true, layout = "DonateShopItem2", counter = true},
+		[9] = {name = "other_1", price = {don = 5}, itemname = "item_str", rarity = "red", layout = "DonateShopItem1"},
+		[10] = {name = "other_2", price = {don = 5}, itemname = "item_agi", rarity = "green", layout = "DonateShopItem1"},
+		[11] = {name = "other_3", price = {don = 5}, itemname = "item_int", rarity = "blue", layout = "DonateShopItem1"},
+		[12] = {name = "other_4", price = {don = 15}, itemname = "item_tree_gold", rarity = "gold", layout = "DonateShopItem1"},
+		[13] = {name = "other_8", price = {don = 30}, itemname = "item_tower_protection", rarity = "gold", layout = "DonateShopItem1"},
+		[14] = {name = "other_49", price = {don = 25}, itemname = "item_forever_ward", rarity = "gold", layout = "DonateShopItem1"},
 	},
 	[3] = {
 		name = "effects",
@@ -78,6 +78,27 @@ _G.basicshop = {
 		[23] = {name = "effect_4", price = {don = 25}, rarity = "white", image = "images/custom_game/DonateShop/items/ef4.png", type = "effect", tooltip = "shop_image_effect_tooltip"},
 		[24] = {name = "effect_5", price = {don = 25}, rarity = "white", image = "images/custom_game/DonateShop/items/ef5.png", type = "effect", tooltip = "shop_image_effect_tooltip"},
 	},
+	-- [4] = {
+	-- 	name = "spray",
+	-- 	[1] = {name = "treasurie1_spray1", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/1.png", spray_path = "particles/spray/1.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[2] = {name = "treasurie1_spray2", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/2.png", spray_path = "particles/spray/2.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[3] = {name = "treasurie1_spray3", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/3.png", spray_path = "particles/spray/3.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[4] = {name = "treasurie1_spray4", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/4.png", spray_path = "particles/spray/4.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[5] = {name = "treasurie1_spray5", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/5.png", spray_path = "particles/spray/5.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[6] = {name = "treasurie1_spray6", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/6.png", spray_path = "particles/spray/6.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[7] = {name = "treasurie1_spray7", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/7.png", spray_path = "particles/spray/7.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[8] = {name = "treasurie1_spray8", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/8.png", spray_path = "particles/spray/8.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[9] = {name = "treasurie1_spray9", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/9.png", spray_path = "particles/spray/9.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
+	-- 	[10] = {name = "treasurie1_spray10", price = {}, rarity = "white", image = "images/custom_game/DonateShop/spray/10.png", spray_path = "particles/spray/10.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true},
+	-- },
+	-- [5] = {
+	-- 	name = "highfive",
+	-- 	[1] = {name = "treasurie1_highfive1", price = {don = 10}, rarity = "white", image = "images/custom_game/DonateShop/items/ef7.png", type = "effect", tooltip = ""},
+	-- },
+	-- [6] = {
+	-- 	name = "treasuries",
+	-- 	[1] = {name = "treasurie1", price = {don = 10, rp = 50}, rarity = "white", image = "images/custom_game/DonateShop/treasuries/1.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "DonateShopItem2"},
+	-- },
 	[4] = {
 		name = "other",
 		[1] = {name = "other_10", price = {don = 200, rp = 1000}, image = "images/custom_game/DonateShop/heros/Axe.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_axe",tooltip="shop_image_heros_tooltip"},
@@ -480,6 +501,9 @@ function Shop:ChangeHeroLua(t)
 	PlayerResource:ReplaceHeroWith(t.PlayerID,t.hero_name,0,0)
 	hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
 	hero:ModifyGoldFiltered(GoldNow, true, 0)
+	-- if diff_wave.wavedef == "Insane" then
+	-- 	hero:AddNewModifier(hero, nil, "modifier_insane_lives", {}):SetStackCount(5)
+	-- end	
 	CustomGameEventManager:Send_ServerToAllClients( "talant_replace_hero", { PlayerID = t.PlayerID, hero_name = heroOld} )
 	talants:pickinfo(t.PlayerID,true)
 	-- talants:ReplaceTree()

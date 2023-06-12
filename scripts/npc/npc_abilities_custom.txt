@@ -1164,7 +1164,7 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"  
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"  
         "FightRecapLevel"               "2"
 
         "HasScepterUpgrade"         "1"

@@ -683,6 +683,8 @@
 		"ScriptFile"					"items/boss_summon"
 		"AbilityCooldown"				"60"
 		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
 	}
 	
 //=====================================================================================================================================

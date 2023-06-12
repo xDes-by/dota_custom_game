@@ -80,17 +80,6 @@ function modifier_huskar_life_break_lua:OnDestroy()
 		}
 		ApplyDamage(damageTable)
 		local burning_spear = self:GetCaster():FindAbilityByName("huskar_burning_spear_lua")
-        if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_int9") and burning_spear and burning_spear:GetLevel() > 0 then
-            local burning_spear_duration = burning_spear:GetSpecialValueFor("duration")
-            for i = 0, (5 + self:GetAbility():GetLevel()) do
-                enemy:AddNewModifier(
-                    self:GetCaster(), -- player source
-                    burning_spear, -- ability source
-                    "modifier_huskar_burning_spear_lua", -- modifier name
-                    { duration = burning_spear_duration } -- kv
-                )
-            end
-        end
 		-- percentage self damage
 		damageTable.victim = self:GetCaster()
 		damageTable.damage = self:GetCaster():GetHealth() / 100 * self.cost_pct

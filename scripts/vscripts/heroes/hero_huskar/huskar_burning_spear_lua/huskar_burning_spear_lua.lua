@@ -48,7 +48,7 @@ function huskar_burning_spear_lua:OnOrbImpact( params )
 		self:GetCaster(), -- player source
 		self, -- ability source
 		"modifier_huskar_burning_spear_lua", -- modifier name
-		{ duration = self:GetSpecialValueFor("duration") } -- kv
+		{ duration = self:GetSpecialValueFor("duration"), auto_attack = true } -- kv
 	)
 
 	-- play effects

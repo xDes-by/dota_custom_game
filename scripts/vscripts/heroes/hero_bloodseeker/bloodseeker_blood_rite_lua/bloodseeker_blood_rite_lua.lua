@@ -37,9 +37,13 @@ function modifier_bloodseeker_blood_rite_lua_thinker:OnCreated( kv )
 		self.duration = self:GetAbility():GetSpecialValueFor("duration")
 		local vision = 200
 		
-		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
+		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetAgility() * self:GetAbility():GetSpecialValueFor("agility_dmg")
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi7") ~= nil then
-			self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetAgility()
+			self.damage = self.damage + self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetAgility() * 1.5
+		end
+
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int7") then
+			delay = 1
 		end
 
 		self:StartIntervalThink( delay )
@@ -76,9 +80,8 @@ function modifier_bloodseeker_blood_rite_lua_thinker:OnIntervalThink()
 	for _,enemy in pairs(enemies) do
 		damageTable.victim = enemy
 		ApplyDamage(damageTable)
-
-		enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_bloodseeker_blood_rite_lua_effect",  { duration = self.duration } )
 		
+		enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_bloodseeker_blood_rite_lua_effect",  { duration = self.duration } )
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str9") ~= nil then
 			enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned",  { duration = self.duration } )
 		end
@@ -120,13 +123,6 @@ end
 
 function modifier_bloodseeker_blood_rite_lua_effect:OnCreated( kv )
 	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi7") ~= nil then
-		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) + self:GetCaster():GetAgility()
-	end
-	self.try_damage = self.damage *0.40 / 5
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int10") ~= nil then
-		self:StartIntervalThink( 0.2 )
-	end
 end
 
 function modifier_bloodseeker_blood_rite_lua_effect:OnIntervalThink()
@@ -151,11 +147,6 @@ function modifier_bloodseeker_blood_rite_lua_effect:OnIntervalThink()
 	ApplyDamage( self.damageTable )
 end
 
-function modifier_bloodseeker_blood_rite_lua_effect:GetEffectName()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int10") ~= nil then
-		return "particles/units/heroes/hero_bloodseeker/blood_gore_arterial_drip_2.vpcf"
-	end
-end
 
 function modifier_bloodseeker_blood_rite_lua_effect:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW

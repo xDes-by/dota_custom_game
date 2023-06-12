@@ -280,6 +280,9 @@ function DataBase:OnChat(t)
 	-- end
 
 	----- PromoCode
+	if text == "test" then
+		effects:CastSpray({PlayerID = 0})
+	end
 
 	for _,word in pairs({"Hello new players"}) do
 		if text == word then

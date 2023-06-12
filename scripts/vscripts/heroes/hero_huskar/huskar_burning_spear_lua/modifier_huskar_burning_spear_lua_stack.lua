@@ -37,8 +37,8 @@ end
 function modifier_huskar_burning_spear_lua_stack:OnRemoved()
 	if IsServer() then
 		-- decrement stack
-		if not self.modifier:IsNull() then
-			self.modifier:DecrementStackCount()
+		if not self:GetCaster():FindModifierByName("modifier_huskar_burning_spear_lua"):IsNull() then
+			self:GetCaster():FindModifierByName("modifier_huskar_burning_spear_lua"):DecrementStackCount()
 		end
 	end
 end

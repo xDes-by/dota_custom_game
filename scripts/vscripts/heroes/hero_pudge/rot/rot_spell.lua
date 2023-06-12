@@ -147,7 +147,7 @@ function modifier_rot_slow:OnCreated()
 	self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str8") ~= nil then
-		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage")*2 + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5	
+		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage")*2 + self.atribute * self:GetAbility():GetSpecialValueFor("damage_per_str"))/5
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str10") ~= nil then	
 		self.dmg = (self:GetAbility():GetSpecialValueFor("base_damage") + self.atribute * (self:GetAbility():GetSpecialValueFor("damage_per_str")+0.2))/5
