@@ -13256,7 +13256,7 @@
           "npc_dota_hero_sand_king_agi8_description" "Ulta casts Caustic"
           "npc_dota_hero_sand_king_agi9" "狡猾之王"
           "npc_dota_hero_sand_king_agi9_description" "终极造成敏捷伤害"
-          “npc_dota_hero_sand_king_agi10” “风暴”
+          "npc_dota_hero_sand_king_agi10" "风暴"
           "npc_dota_hero_sand_king_agi10_description" "在沙尘暴中获得 80% 闪避"
           "npc_dota_hero_sand_king_agi11" "风暴中的风暴"
           "npc_dota_hero_sand_king_agi11_description" "在沙尘暴中，获得相当于 5*英雄等级的攻击速度加成"
@@ -13275,7 +13275,7 @@
           "npc_dota_hero_sand_king_int10_description" "每次拍击造成的伤害 + 30%"
           "npc_dota_hero_sand_king_int11" "魔法毒药"
           "npc_dota_hero_sand_king_int11_description" "腐蚀伤害 + 100% 智力"
-“npc_dota_hero_sand_king_int_last” “斯汀”
+"npc_dota_hero_sand_king_int_last" "斯汀"
           "npc_dota_hero_sand_king_int_last_description" "Clap casts on all Caustic"
 		  
         //Legion Commander//
@@ -15855,7 +15855,79 @@
         "npc_dota_hero_ancient_apparition_int11_description" "Chilling Touch -75% manacost"
         "npc_dota_hero_ancient_apparition_int_last" "Very Cold"
         "npc_dota_hero_ancient_apparition_int_last_description" "Ice Blast HP х2"
+		
+		//Broodmother//
+	
+		"DOTA_Tooltip_ability_broodmother_web" "丝球"
+		"DOTA_Tooltip_ability_broodmother_web_description" "向周围的每个敌人投掷蛛网，对他们造成伤害并使其减速。"
+		"DOTA_Tooltip_ability_broodmother_web_damage" "损害："
+		"DOTA_Tooltip_ability_broodmother_web_slow" "%慢动作："
+		"DOTA_Tooltip_ability_broodmother_web_duration" "期间："
+		"DOTA_Tooltip_ability_broodmother_web_radius" "半径："
 
+		"DOTA_Tooltip_ability_broodmother_steal" "永不满足的饥饿"
+		"DOTA_Tooltip_ability_broodmother_steal_description" "攻击英雄的敌人有一定几率偷取他的部分生命力，行动结束时，生命力归还。"
+		"DOTA_Tooltip_ability_broodmother_steal_duration" "期间："
+		"DOTA_Tooltip_ability_broodmother_steal_chance" "％机会："
+		"DOTA_Tooltip_ability_broodmother_steal_hp_steal" "健康泄漏："
+		
+		"DOTA_Tooltip_ability_broodmother_poison" "毒"
+		"DOTA_Tooltip_ability_broodmother_poison_description" "攻击敌人时，英雄会使受害者中毒，造成持续伤害并降低他们的护甲。"
+		"DOTA_Tooltip_ability_broodmother_poison_damage" "每层伤害："
+		"DOTA_Tooltip_ability_broodmother_poison_disarm" "护甲降低："
+		"DOTA_Tooltip_ability_broodmother_poison_duration" "期间："
+		"DOTA_Tooltip_ability_broodmother_poison_stacks" "最大限度。斯塔科夫："
+
+		"DOTA_Tooltip_ability_broodmother_ult" "扩大"
+		"DOTA_Tooltip_ability_broodmother_ult_description" "每杀死一个敌人都会增加英雄的基础伤害、生命恢复和移动速度。英雄没有移动速度限制。"
+		"DOTA_Tooltip_ability_broodmother_ult_damage" "每层伤害："
+		"DOTA_Tooltip_ability_broodmother_ult_regen" "每层健康恢复："
+		"DOTA_Tooltip_ability_broodmother_ult_ms" "每层移动速度："
+
+			"npc_dota_hero_broodmother_str6" "尽在网络"
+          "npc_dota_hero_broodmother_str6_description" "15% 当你受到伤害时，在不消耗法力的情况下应用 Silken Bola"
+          "npc_dota_hero_broodmother_str7" "密网"
+          "npc_dota_hero_broodmother_str7_description" "Silken Bola 伤害等于英雄力量"
+          "npc_dota_hero_broodmother_str8" "骨牙"
+          "npc_dota_hero_broodmother_str8_description" "+3% 的生命值来窃取永不满足的饥饿"
+          "npc_dota_hero_broodmother_str9" "更多毒药"
+          "npc_dota_hero_broodmother_str9_description" "+10 毒层"
+          "npc_dota_hero_broodmother_str10" "治疗之怒"
+          "npc_dota_hero_broodmother_str10_description" "对受 Silken Bola 影响的目标 +50% 吸血"
+          "npc_dota_hero_broodmother_str11" "密度"
+          "npc_dota_hero_broodmother_str11_description" "每层偷来的永不满足的饥饿生命值都会增加 1 点护甲和 1% 魔法抗性"
+          "npc_dota_hero_broodmother_str_last" "肥胖症"
+          "npc_dota_hero_broodmother_str_last_description" "扩展中每层 x5 生命恢复"
+
+          "npc_dota_hero_broodmother_agi6" "锋利的线"
+          "npc_dota_hero_broodmother_agi6_description" "+ Silken Bola 伤害敏捷"
+          "npc_dota_hero_broodmother_agi7" "不"
+          "npc_dota_hero_broodmother_agi7_description" "永不满足的饥饿目标无法治愈"
+          "npc_dota_hero_broodmother_agi8" "尖牙"
+          "npc_dota_hero_broodmother_agi8_description" "+50% 毒药伤害敏捷度"
+          "npc_dota_hero_broodmother_agi9" "暴击"
+          "npc_dota_hero_broodmother_agi9_description" "对受 Silken Bola 影响的目标的每次攻击都有 200% 的暴击"
+          "npc_dota_hero_broodmother_agi10" "更频繁"
+          "npc_dota_hero_broodmother_agi10_description" "+50% 永不满足的饥饿机率"
+          "npc_dota_hero_broodmother_agi11" "穿甲"
+          "npc_dota_hero_broodmother_agi11_description" "x2 毒护甲减少"
+          "npc_dota_hero_broodmother_agi_last" "杀手"
+          "npc_dota_hero_broodmother_agi_last_description" "每层 x3 扩展伤害"
+
+          "npc_dota_hero_broodmother_int6""通过魔法"
+          "npc_dota_hero_broodmother_int6_description" "毒药也会降低魔法抗性"
+          "npc_dota_hero_broodmother_int7" "魔法的力量"
+          "npc_dota_hero_broodmother_int7_description" "+ Silken Bola 伤害情报"
+          "npc_dota_hero_broodmother_int8" "时间"
+          "npc_dota_hero_broodmother_int8_description" "+10 秒技能持续时间"
+          "npc_dota_hero_broodmother_int9" "魔法两次"
+          "npc_dota_hero_broodmother_int9_description" "+毒伤害智力"
+          "npc_dota_hero_broodmother_int10" "毒药"
+          "npc_dota_hero_broodmother_int10_description" "Silken Bola 毒药会随着时间的推移造成伤害"
+          "npc_dota_hero_broodmother_int11" "魔法光辉"
+          "npc_dota_hero_broodmother_int11_description" "每 100 个扩展堆叠 +10% 法术增强"
+          "npc_dota_hero_broodmother_int_last" "赎罪"
+          "npc_dota_hero_broodmother_int_last_description" "每层 Extension +1 所有属性"	
         //Marci//
 
         //Marci Change =========================================================================================================================

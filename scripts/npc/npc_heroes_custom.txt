@@ -900,4 +900,28 @@
         "Ability23"     	""
         "Ability24"     	""
     }
+	
+	"npc_dota_hero_broodmother"
+		{
+		"override_hero"			"npc_dota_hero_broodmother"
+		"Ability1"				"broodmother_web"
+		"Ability2"				"broodmother_steal"
+		"Ability3"				"broodmother_poison"
+		"Ability6"				"broodmother_ult"
+        "Ability10"     	""
+        "Ability11"     	""
+        "Ability12"     	""
+        "Ability13"     	""
+        "Ability14"     	""
+        "Ability15"     	""
+        "Ability16"     	""
+        "Ability17"     	""
+        "Ability18"     	""
+        "Ability19"     	""
+        "Ability20"     	""
+        "Ability21"     	""
+        "Ability22"     	""
+        "Ability23"     	""
+        "Ability24"     	""
+    }
 }

@@ -46,7 +46,7 @@
     "npc_dota_hero_tiny"        "0"
     "npc_dota_hero_naga_siren"        "0" //готов
     "npc_dota_hero_riki"        "0" //готов
-    "npc_dota_hero_broodmother"        "0"
+    "npc_dota_hero_broodmother"        "1"
     "npc_dota_hero_gyrocopter"        "0"
     "npc_dota_hero_viper"        "0"
     "npc_dota_hero_disruptor"        "0"

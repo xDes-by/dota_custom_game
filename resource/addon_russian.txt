@@ -16059,6 +16059,87 @@
         "npc_dota_hero_huskar_int_last_description" "Конечный урон Burning Spear увеличен на 40%."
 
 
+        //Broodmother//
+		
+		"DOTA_Tooltip_ability_broodmother_web" "SILKEN BOLA"
+		"DOTA_Tooltip_ability_broodmother_web_description" "Выбрасывает паутину в каждого врага вокруг себя, нанося им урон и замедляя их."
+		"DOTA_Tooltip_ability_broodmother_web_damage" "УРОН:"
+		"DOTA_Tooltip_ability_broodmother_web_slow" "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_broodmother_web_duration" "ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_broodmother_web_radius" "РАДИУС:"
+
+		"DOTA_Tooltip_ability_broodmother_steal" "Insatiable Hunger"
+		"DOTA_Tooltip_ability_broodmother_steal_description" "С небольшим шансов акакуя врага героя может похитить часть его жизненных сил, по окончанию действия жизненные силы вернуться назад."
+		"DOTA_Tooltip_ability_broodmother_steal_duration" "ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_broodmother_steal_chance" "%ШАНС:"
+		"DOTA_Tooltip_ability_broodmother_steal_hp_steal" "ПОХИЩЕНИЕ ЗДОРОВЬЯ:"
+
+		"DOTA_Tooltip_ability_broodmother_poison" "poison"
+		"DOTA_Tooltip_ability_broodmother_poison_description" "Атакуя врага герой отравляет жертву нанося периодический урон и снижая ее броню."
+		"DOTA_Tooltip_ability_broodmother_poison_damage" "УРОН ЗА СТАК:"
+		"DOTA_Tooltip_ability_broodmother_poison_disarm" "СНИЖЕНИЕ БРОНИ ЗА СТАК:"
+		"DOTA_Tooltip_ability_broodmother_poison_duration" "ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_broodmother_poison_stacks" "МАКС. СТАКОВ:"
+
+		"DOTA_Tooltip_ability_broodmother_ult" "Extension"
+		"DOTA_Tooltip_ability_broodmother_ult_description" "Каждый убитый враг увеличивает базовый урон, регенерацию здоровья, и скорость передвижения героя. У героя нет ограничения по скорости передвижения."
+		"DOTA_Tooltip_ability_broodmother_ult_damage" "К УРОНУ ЗА СТАК:"
+		"DOTA_Tooltip_ability_broodmother_ult_regen" "К РЕГЕНУ ЗДОРОВЬЯ ЗА СТАК:"
+		"DOTA_Tooltip_ability_broodmother_ult_ms" "К СКОРОСТИ ПЕРЕДВИЖЕНИЕЯ ЗА СТАК:"
+		
+		"DOTA_Tooltip_modifier_broodmother_ult"	"Extension"
+		"DOTA_Tooltip_modifier_broodmother_ult_description"	"Урон увеличен на %dMODIFIER_PROPERTY_TOOLTIP%, регенерация на %dMODIFIER_PROPERTY_TOOLTIP2%, скорость передвижения на %dMODIFIER_PROPERTY_TOOLTIP2%"
+		"DOTA_Tooltip_modifier_broodmother_steal_buff"	"Insatiable Hunger"
+		"DOTA_Tooltip_modifier_broodmother_steal_buff_description"	"Похищено здоровья %dMODIFIER_PROPERTY_TOOLTIP%"
+		"DOTA_Tooltip_modifier_broodmother_steal_debuff"	"Insatiable Hunger"
+		"DOTA_Tooltip_modifier_broodmother_steal_debuff_description"	"Потеряно здоровья %dMODIFIER_PROPERTY_TOOLTIP%"
+		
+		
+		"npc_dota_hero_broodmother_str6" "Все в паутине"
+        "npc_dota_hero_broodmother_str6_description" "15% при получении урона применить Silken Bola не тратя ману"
+        "npc_dota_hero_broodmother_str7" "Плотная паутина"
+        "npc_dota_hero_broodmother_str7_description" "Урон Silken Bola равен силе героя"
+        "npc_dota_hero_broodmother_str8" "Остные клыки"
+        "npc_dota_hero_broodmother_str8_description" "+3% от своего здоровья к похищению Insatiable Hunger"
+        "npc_dota_hero_broodmother_str9" "Больше яда"
+        "npc_dota_hero_broodmother_str9_description" "+10 стаков Poison"
+        "npc_dota_hero_broodmother_str10" "Исцеляющая ярость"
+        "npc_dota_hero_broodmother_str10_description" "+50% к вампиризму по целям под действием Silken Bola"
+        "npc_dota_hero_broodmother_str11" "Плотность"
+        "npc_dota_hero_broodmother_str11_description" "Каждый стак похищенного здоровья Insatiable Hunger дает 1 брони и 1% маг резиста"
+        "npc_dota_hero_broodmother_str_last" "Ожирение"
+        "npc_dota_hero_broodmother_str_last_description" "х5 к регену здоровья за стак от Extension"
+		
+        "npc_dota_hero_broodmother_agi6" "Острые нити"
+        "npc_dota_hero_broodmother_agi6_description" "+ ловкость к урону Silken Bola"
+        "npc_dota_hero_broodmother_agi7" "Неа"
+        "npc_dota_hero_broodmother_agi7_description" "Цель под действием Insatiable Hunger не может хилиться"
+        "npc_dota_hero_broodmother_agi8" "Острые клыки"
+        "npc_dota_hero_broodmother_agi8_description" "+50% ловкости к урону Poison"
+        "npc_dota_hero_broodmother_agi9" "Крит"
+        "npc_dota_hero_broodmother_agi9_description" "Каждая атака по цели под действием Silken Bola крит 200%"
+        "npc_dota_hero_broodmother_agi10" "Чаще"
+        "npc_dota_hero_broodmother_agi10_description" "+50% к шансу Insatiable Hunger"
+        "npc_dota_hero_broodmother_agi11" "Сквозь броню"
+        "npc_dota_hero_broodmother_agi11_description" "x2 снижение брони от Poison"
+        "npc_dota_hero_broodmother_agi_last" "Убивайка"
+        "npc_dota_hero_broodmother_agi_last_description"  "х3 к урону за стак от Extension"
+		
+        "npc_dota_hero_broodmother_int6" "Сквозь магию"
+        "npc_dota_hero_broodmother_int6_description" "Poison также снижает маг резист"
+        "npc_dota_hero_broodmother_int7" "Мощь магии"
+        "npc_dota_hero_broodmother_int7_description" "+ интеллект к урону Silken Bola"
+        "npc_dota_hero_broodmother_int8" "Время"
+        "npc_dota_hero_broodmother_int8_description" "+10 сек к длительности способностей"
+        "npc_dota_hero_broodmother_int9" "Сквозь магию дважды"
+        "npc_dota_hero_broodmother_int9_description" "+ интеллект к урону Poison"
+        "npc_dota_hero_broodmother_int10" "Отрава"
+        "npc_dota_hero_broodmother_int10_description" "Silken Bola отравляет нанося периодический урон"
+        "npc_dota_hero_broodmother_int11" "Магическое сияние"
+        "npc_dota_hero_broodmother_int11_description" "+10% к усилению закленаний за каждые 100 стаков Extension"
+        "npc_dota_hero_broodmother_int_last" "Искупление"
+        "npc_dota_hero_broodmother_int_last_description" "каждый стак Extension +1 ко всем атрибутам"
+		
         //Marci//
 
         //Marci Change =========================================================================================================================

@@ -3299,6 +3299,13 @@
 #base "../vscripts/heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.txt"
 
+//====================================================================================================ANAKIM===================================================================================================================================================
+
+#base "../vscripts/heroes/hero_broodmother/broodmother_talents.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_web/broodmother_web.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_steal/broodmother_steal.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_poison/broodmother_poison.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_ult/broodmother_ult.txt"
 
 //==============================================================================================new boss ability===========================
 

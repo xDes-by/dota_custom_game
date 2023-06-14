@@ -75,14 +75,14 @@ function modifier_item_octarine_core_lua:OnCreated()
 	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
 	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
 	-------------------------------------------
-		if not IsServer() then return end
+	if not IsServer() then return end
 		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
 		if modifier:GetName() == "modifier_item_octarine_core_lua1" or
-		modifier:GetName() == "modifier_item_octarine_core_lua2" or
-		modifier:GetName() == "modifier_item_octarine_core_lua3" or
-		modifier:GetName() == "modifier_item_octarine_core_lua4" or
-		modifier:GetName() == "modifier_item_octarine_core_lua5" then
-		self:GetParent():RemoveModifierByName(modifier:GetName())
+			modifier:GetName() == "modifier_item_octarine_core_lua2" or
+			modifier:GetName() == "modifier_item_octarine_core_lua3" or
+			modifier:GetName() == "modifier_item_octarine_core_lua4" or
+			modifier:GetName() == "modifier_item_octarine_core_lua5" then
+			self:GetParent():RemoveModifierByName(modifier:GetName())
 		end
 	end
 end
