@@ -13307,6 +13307,10 @@
         "dota_tooltip_modifier_legion_ult"                      "Damage Collector"
         "dota_tooltip_modifier_legion_ult_description"          "Урон увеличен на %dMODIFIER_PROPERTY_TOOLTIP%, регенерация на %dMODIFIER_PROPERTY_TOOLTIP2%"
 
+        "dota_tooltip_ability_legion_ult2" "Damage Collector"
+        "dota_tooltip_ability_legion_ult2_description" "Герой получает еще больше урона за стаки."
+        "dota_tooltip_ability_legion_ult2_dmg_per_stack" "УРОН ЗА СТАК:"
+
         "npc_dota_hero_legion_commander_str6" "Прихоть богов"
         "npc_dota_hero_legion_commander_str6_description" "+150 здоровья за уровень"
         "npc_dota_hero_legion_commander_str7" "Быстрая Реакция"

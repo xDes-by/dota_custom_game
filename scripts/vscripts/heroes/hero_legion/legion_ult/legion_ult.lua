@@ -1,10 +1,22 @@
 LinkLuaModifier("modifier_legion_ult", "heroes/hero_legion/legion_ult/legion_ult", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_legion_ult2", "heroes/hero_legion/legion_ult/legion_ult", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_legion_ult_aura", "heroes/hero_legion/legion_ult/legion_ult", LUA_MODIFIER_MOTION_NONE)
+
+legion_ult2 = class({})
+function legion_ult2:GetTexture()
+    return "legion_commander_duel"
+end
 
 legion_ult = class({})
 
 function legion_ult:GetIntrinsicModifierName()
 	return "modifier_legion_ult"
+end
+
+function legion_ult:OnUpgrade()
+	if self:GetLevel() == self:GetMaxLevel() then
+		self:GetCaster():AddAbility("legion_ult2")
+	end
 end
 
 modifier_legion_ult = class({})
@@ -215,4 +227,27 @@ end
 
 function modifier_legion_ult_aura:GetModifierConstantHealthRegen()
 	return self.hp
+end
+
+modifier_legion_ult2 = class({})
+
+function modifier_legion_ult2:IsHidden()
+	return true
+end
+
+function modifier_legion_ult2:IsPurgable()
+	return false
+end
+
+function modifier_legion_ult2:RemoveOnDeath()
+	return false
+end
+
+function modifier_legion_ult2:DeclareFunctions()
+	local funcs = {
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+	}
+	return funcs
 end

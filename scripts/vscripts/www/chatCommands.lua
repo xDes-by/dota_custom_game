@@ -144,7 +144,7 @@ function ChatCommands:Effect(pid, text)
         return
     end
     local modifiers = {"modifier_cheat_move", "modifier_magic_immune"}
-    local keyword = "-effect [move|immune]"
+    local keyword = "-effect [move|immune] {игрок}"
     local split = self:SplitString(text)
     if split[1] ~= '-effect' then return end
     for _, m in pairs(modifiers) do
@@ -155,6 +155,9 @@ function ChatCommands:Effect(pid, text)
     end
     if not modifier_name then return end
     local hero = PlayerResource:GetSelectedHeroEntity(pid)
+    if split[3] and tonumber(split[3]) and PlayerResource:IsValidPlayer(tonumber(split[3])) then
+        hero = PlayerResource:GetSelectedHeroEntity(tonumber(split[3]))
+    end
     if hero:HasModifier(modifier_name) then
         hero:RemoveModifierByName(modifier_name)
     else
@@ -242,10 +245,8 @@ function ChatCommands:GiveSouls(pid, text)
             sInv:AddSoul("item_snow_soul", PlayerID)
         end
     end
-    if split[2] and split[2] == "all" then
-        for n = 0, self:GetPlayerCount()-1 do
-            give(n)
-        end
+    if split[2] and tonumber(split[2]) and PlayerResource:IsValidPlayer(tonumber(split[2])) then
+        give(tonumber(split[2]))
     else
         give(pid)
     end
@@ -451,6 +452,9 @@ function ChatCommands:DropBag(pid, text)
     if split[2] == nil or not tonumber(split[2]) then return end
     local count = tonumber(split[2])
     local hero = PlayerResource:GetSelectedHeroEntity(pid)
+    if split[4] and tonumber(split[4]) and PlayerResource:IsValidPlayer(tonumber(split[4])) then
+        hero = PlayerResource:GetSelectedHeroEntity(tonumber(split[4]))
+    end
     local step = 0
     local delay = 0.1
     if split[3] and tonumber(split[3]) then
@@ -472,8 +476,9 @@ function ChatCommands:DropBag(pid, text)
         return nil
     end)
 end
+-- -bags 5000 3 4
 function ChatCommands:DropBagMessage(keyword)
-    local message = self:Font() .. keyword .. " {количество} {интервал} </font> Из героя сыпятся мешки с золотом"
+    local message = self:Font() .. keyword .. " {количество} {интервал} {игрок} </font> Из героя сыпятся мешки с золотом"
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------

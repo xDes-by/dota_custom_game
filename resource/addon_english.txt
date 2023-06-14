@@ -13314,9 +13314,12 @@
         "dota_tooltip_ability_legion_ult_dmg_per_stack" "DAMAGE PER STACK:"
         "dota_tooltip_ability_legion_ult_hp_regen_per_stack" "HP REGEN PER STACK:"
 
-
         "dota_tooltip_modifier_legion_ult" "Damage Collector"
         "dota_tooltip_modifier_legion_ult_description" "Damage increased by %dMODIFIER_PROPERTY_TOOLTIP%, regeneration by %dMODIFIER_PROPERTY_TOOLTIP2%"
+
+        "dota_tooltip_ability_legion_ult2" "Damage Collector"
+        "dota_tooltip_ability_legion_ult2_description" "The hero gains even more damage per stack."
+        "dota_tooltip_ability_legion_ult2_dmg_per_stack" "DAMAGE PER STACK:"
 
         "npc_dota_hero_legion_commander_str6" "The Gods' Fancy"
         "npc_dota_hero_legion_commander_str6_description" "+150 hp per level"

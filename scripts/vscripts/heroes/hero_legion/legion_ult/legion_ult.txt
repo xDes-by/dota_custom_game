@@ -25,4 +25,23 @@
 			}
 		}
 	}
+	"legion_ult2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_legion/legion_ult/legion_ult.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"legion_commander_duel"
+       	"RequiredLevel"							"100"
+		"LevelsBetweenUpgrades"				    "50"
+		"MaxLevel"								"5"
+		"AbilitySpecial"
+		{
+			
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"dmg_per_stack"				"10 20 30 40 50"
+			}
+		}
+	}
 }
