@@ -26,7 +26,7 @@
             "03"
             {
 				"var_type"					"FIELD_INTEGER"
-				"damage_reflection_pct"		"6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+				"damage_reflection_pct"		"11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"
                 "CalculateSpellDamageTooltip"	"0"
                 "LinkedSpecialBonus"		"npc_dota_hero_spectre_str_last"
             }           

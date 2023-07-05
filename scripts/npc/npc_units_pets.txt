@@ -1,8 +1,8 @@
 "DOTAUnits"
 {
-"pet_donate_agi"
+"pet_rda_agi"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_agi.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_agi.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/el_gato_hero/el_gato_hero.vmdl" 
 		"Ability1"					"pet_ability"
@@ -16,9 +16,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 	
-"pet_donate_all_dmg_amp"
+"pet_rda_all_dmg_amp"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_all_dmg_amp.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_all_dmg_amp.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/amaterasu/amaterasu.vmdl" 
 		"Ability1"					"pet_ability"
@@ -32,9 +32,9 @@
 		"VisionNighttimeRange"		"0"
     }
 	
-"pet_donate_block"
+"pet_rda_block"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_block.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_block.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/deathripper/deathripper.vmdl" 
 		"Ability1"					"pet_ability"
@@ -48,9 +48,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_cleave"
+"pet_rda_cleave"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_cleave.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_cleave.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/faceless_rex/faceless_rex.vmdl" 
 		"Ability1"					"pet_ability"
@@ -64,9 +64,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_dmg"
+"pet_rda_dmg"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_dmg.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_dmg.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/seekling/seekling.vmdl" 
 		"Ability1"					"pet_ability"
@@ -80,9 +80,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_fast"
+"pet_rda_fast"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_fast.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_fast.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/arneyb_rabbit/arneyb_rabbit.vmdl" 
 		"Ability1"					"pet_ability"
@@ -96,9 +96,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_gold"
+"pet_rda_gold"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_gold.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_gold.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/greevil/gold_greevil.vmdl" 
 		"Ability1"					"pet_ability"
@@ -112,9 +112,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_heal"
+"pet_rda_heal"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_heal.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_heal.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/livery_llama_courier/livery_llama_courier.vmdl" 
 		"Ability1"					"pet_ability"
@@ -128,9 +128,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_hp"
+"pet_rda_hp"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_hp.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_hp.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/minipudge/minipudge.vmdl" 
 		"Ability1"					"pet_ability"
@@ -144,9 +144,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_int"
+"pet_rda_int"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_int.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_int.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/axolotl/axolotl.vmdl" 
 		"Ability1"					"pet_ability"
@@ -160,9 +160,9 @@
 		"VisionNighttimeRange"		"0"		
     }
 
-"pet_donate_mana_regen"
+"pet_rda_mana_regen"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_mana_regen.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_mana_regen.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/baekho/baekho_flying.vmdl" 
 		"Ability1"					"pet_ability"
@@ -176,9 +176,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 	
-"pet_donate_simple_1"
+"pet_rda_simple_1"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_simple_1.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_simple_1.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/ram/ram.vmdl" 
 		"Ability1"					"pet_ability"
@@ -192,9 +192,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_simple_2"
+"pet_rda_simple_2"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_simple_2.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_simple_2.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/alphid_of_lecaciida/alphid_of_lecaciida.vmdl" 
 		"Ability1"					"pet_ability"
@@ -208,9 +208,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_simple_3"
+"pet_rda_simple_3"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_simple_3.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_simple_3.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/mok/mok.vmdl" 
 		"Ability1"					"pet_ability"
@@ -224,9 +224,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_str"
+"pet_rda_str"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_str.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_str.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/butch_pudge_dog/butch_pudge_dog.vmdl" 
 		"Ability1"					"pet_ability"
@@ -240,9 +240,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_total_dmg"
+"pet_rda_total_dmg"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_total_dmg.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_total_dmg.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/huntling/huntling.vmdl" 
 		"Ability1"					"pet_ability"
@@ -256,9 +256,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_dmg_com"
+"pet_rda_dmg_com"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_dmg_com.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_dmg_com.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/bearzky_v2/bearzky_v2.vmdl" 
 		"Ability1"					"pet_ability"
@@ -272,9 +272,9 @@
 		"VisionNighttimeRange"		"0"		
     }	
 
-"pet_donate_hp_com"
+"pet_rda_hp_com"
     {
-		"vscripts"       			"items/pets/ai/pet_donate_hp_com.lua"
+		"vscripts"       			"items/pets/ai/pet_rda_hp_com.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/tegu/tegu.vmdl" 
 		"Ability1"					"pet_ability"
@@ -287,9 +287,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }
-"pet_donate_250_gold_and_exp"
+"pet_rda_250_gold_and_exp"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_gold_and_exp.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_gold_and_exp.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/hermit_crab/hermit_crab.vmdl"
 		"Ability1"					"pet_ability"
@@ -302,9 +302,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }		
-"pet_donate_250_attribute_bonus"
+"pet_rda_250_attribute_bonus"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_attribute_bonus.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_attribute_bonus.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/hermit_crab/hermit_crab.vmdl"
 		"Ability1"					"pet_ability"
@@ -317,9 +317,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_dmg_reduction"
+"pet_rda_250_dmg_reduction"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_dmg_reduction.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_dmg_reduction.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/ol_dirty_boot_courier_courier/ol_dirty_boot_courier_courier.vmdl"
 		"Ability1"					"pet_ability"
@@ -332,9 +332,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_regen"
+"pet_rda_250_regen"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_regen.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_regen.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/pangolier_squire/pangolier_squire.vmdl"
 		"Ability1"					"pet_ability"
@@ -347,9 +347,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_bkb"
+"pet_rda_250_bkb"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_bkb.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_bkb.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/premier_league_wyrmeleon/premier_league_wyrmeleon.vmdl"
 		"Ability1"					"pet_ability"
@@ -362,9 +362,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_phys_dmg_reducrion"
+"pet_rda_250_phys_dmg_reducrion"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_phys_dmg_reducrion.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_phys_dmg_reducrion.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/premier_league_wyrmeleon/premier_league_wyrmeleon.vmdl"
 		"Ability1"					"pet_ability"
@@ -377,9 +377,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_pure_damage"
+"pet_rda_250_pure_damage"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_pure_damage.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_pure_damage.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/nilbog/nilbog.vmdl"
 		"Ability1"					"pet_ability"
@@ -392,9 +392,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_no_spell_phys_bonus"
+"pet_rda_250_no_spell_phys_bonus"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_no_spell_phys_bonus.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_no_spell_phys_bonus.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/lilnova/lilnova.vmdl"
 		"Ability1"					"pet_ability"
@@ -407,9 +407,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_no_phys_spell_bonus"
+"pet_rda_250_no_phys_spell_bonus"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_no_phys_spell_bonus.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_no_phys_spell_bonus.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/itsy/itsy.vmdl"
 		"Ability1"					"pet_ability"
@@ -422,9 +422,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_donate_250_minus_armor"
+"pet_rda_250_minus_armor"
     {
-		"vscripts"       			"items/pets/ai/item_pet_donate_250_minus_armor.lua"
+		"vscripts"       			"items/pets/ai/item_pet_RDA_250_minus_armor.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/items/courier/grim_wolf/grim_wolf.vmdl"
 		"Ability1"					"pet_ability"

@@ -108,13 +108,13 @@
 			{
 				"experience"
 				{
-					"min"		"3300"
-					"max"		"4050"
+					"min"		"8300"
+					"max"		"9050"
 				}
 				"gold"
 				{
-					"min"		"3100"
-					"max"		"3900"
+					"min"		"8100"
+					"max"		"9900"
 				}
 				"talentExperience"	"75"
 			}
@@ -166,8 +166,8 @@
 				}
 				"gold"
 				{
-					"min"		"17500"
-					"max"		"17500"
+					"min"		"12500"
+					"max"		"12500"
 				}
 				"talentExperience"	"100"
 			}
@@ -1182,8 +1182,7 @@
 		}
 		"2" // шейкер
 		{
-			
-			"UnitName"	"npc_1"
+			"UnitName"	"npc_6"
 			"reward"
 			{
 				"experience"
@@ -1214,7 +1213,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_1"
+					"UnitName"	"npc_6"
 					"custom"
 					{
 						"min"			"4"
@@ -2513,8 +2512,8 @@
 						{
 							"1"
 							{
-								"min"			"20"
-								"max"   		"40"
+								"min"			"5"
+								"max"   		"15"
 								"TextName"		"quest_medusa_ward"
 								"Desc"			"quest_medusa_ward_desc"
 								"1" 			"medusa_ward"
@@ -2581,8 +2580,8 @@
 								"TextName"	"quest_item_quest_blue_ice"
 								"DotaName"	"item_quest_blue_ice"
 								"Desc"		"quest_item_quest_blue_ice_desc"
-								"min"		"10"
-								"max"		"20"
+								"min"		"5"
+								"max"		"15"
 							}
 						}
 					}
@@ -2627,8 +2626,8 @@
 						{
 							"1"
 							{
-								"min"			"2"
-								"max"   		"4"
+								"min"			"1"
+								"max"   		"3"
 								"TextName"		"quest_npc_snow_boss"
 								"Desc"			"quest_npc_snow_boss_desc"
 								"1" 			"npc_snow_boss"

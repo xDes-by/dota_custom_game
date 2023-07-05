@@ -80,6 +80,7 @@ function modifier_huskar_berserkers_blood_lua:OnRefresh( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str10") then
 		self.max_hr = self.max_hr * 2
 	end
+
 end
 
 function modifier_huskar_berserkers_blood_lua:OnRemoved()
@@ -97,7 +98,7 @@ function modifier_huskar_berserkers_blood_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MODEL_SCALE,
 		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
@@ -150,7 +151,7 @@ function modifier_huskar_berserkers_blood_lua:GetModifierBaseDamageOutgoing_Perc
 	return 0
 end
 
-function modifier_huskar_berserkers_blood_lua:GetModifierPhysicalArmorBonusUnique()
+function modifier_huskar_berserkers_blood_lua:GetModifierPhysicalArmorBonus()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_str6") then
 		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
 		return (1-pct)*(self:GetAbility():GetLevel() * 10)
@@ -181,7 +182,7 @@ function modifier_huskar_berserkers_blood_lua:OnTakeDamage(params)
 			local burning_spear = self:GetParent():FindAbilityByName("huskar_burning_spear_lua")
 			if params.attacker:IsAlive() and not params.attacker:IsBuilding() and params.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and burning_spear and burning_spear:GetLevel() > 0 then
 				EmitSoundOn("DOTA_Item.BlackKingBar.Activate", caster)
-				params.attacker:AddNewModifier(self:GetParent(), burning_spear, "modifier_huskar_burning_spear_lua", {duration = burning_spear:GetSpecialValueFor("duration")})
+				params.attacker:AddNewModifier(self:GetParent(), burning_spear, "modifier_huskar_burning_spear_lua", {duration = burning_spear:GetSpecialValueFor("duration"), auto_attack = true})
 			end
 		end
 	end

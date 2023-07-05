@@ -7,13 +7,14 @@ function item_greed_str:GetIntrinsicModifierName()
 end
 
 function item_greed_str:OnSpellStart()
-	local str = self:GetSpecialValueFor("bonus_stat")
+	local str = self:GetSpecialValueFor("bonus_stat") * self:GetCurrentCharges()
     self.caster = self:GetCaster()
 	self.caster:ModifyStrength(str)
-    self:SpendCharge()
-	if self:GetCurrentCharges() <= 0 then
-	     self.caster:RemoveItem(self)
+    if self:GetCurrentCharges() <= 0 then
+	    self.caster:RemoveItem(self)
+        return
     end
+    self:SetCurrentCharges(0)
     self.caster:EmitSound("Item.TomeOfKnowledge")
 end
 
@@ -43,21 +44,15 @@ function modifier_greed_book_str:OnIntervalThink()
     local ability = self:GetAbility()
     local charges = self:GetAbility():GetCurrentCharges()
     local gold = caster:GetGold()
-    if  gold >= 20000 and gold < 40000 then
-        parent:ModifyGoldFiltered(-20000, true, 0)
-        ability:SetCurrentCharges(charges + 1)
-        caster:EmitSound("DOTA_Item.Hand_Of_Midas")
-        elseif  gold >= 40000 and gold < 60000  then
-        parent:ModifyGoldFiltered(-40000, true, 0)
-        ability:SetCurrentCharges(charges + 2)
-        caster:EmitSound("DOTA_Item.Hand_Of_Midas")
-        elseif gold >= 60000 and gold < 80000 then 
-        parent:ModifyGoldFiltered(-60000, true, 0)
-        ability:SetCurrentCharges(charges + 3)
-        caster:EmitSound("DOTA_Item.Hand_Of_Midas")
-        elseif gold >= 80000 then
-        parent:ModifyGoldFiltered(-80000, true, 0)
-        ability:SetCurrentCharges(charges + 4)
+    local gold_bank = caster:FindModifierByName("modifier_gold_bank")
+    gold = gold + gold_bank:GetStackCount()
+    gold_bank:SetStackCount(0)
+    if gold >= 20000 then
+        count = ( gold - ( gold % 20000 ) ) / 20000 
+        gold = gold % 20000
+        caster:SetGold(0 , false) 
+        caster:ModifyGoldFiltered( gold, true, 0 )
+        ability:SetCurrentCharges(charges + count)
         caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     end
 end

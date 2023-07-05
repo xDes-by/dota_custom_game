@@ -186,6 +186,7 @@ function modifier_sheepstick_lua:OnCreated()
     self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
     self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	self.projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed")
 
 	
 	
@@ -200,7 +201,8 @@ function modifier_sheepstick_lua:DeclareFunctions()
         MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_EVENT_ON_ATTACK_LANDED
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
 
     }
 end
@@ -221,6 +223,9 @@ function modifier_sheepstick_lua:GetModifierConstantManaRegen()
     return self.bonus_mana_regen
 end
 
+function modifier_sheepstick_lua:GetModifierProjectileSpeedBonus()
+    return self.projectile_speed
+end
 
 
 function modifier_sheepstick_lua:OnAttackLanded(params)

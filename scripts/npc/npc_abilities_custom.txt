@@ -3275,6 +3275,14 @@
 #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_lua/ancient_apparition_chilling_touch_lua.txt"
 #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_lua/ancient_apparition_ice_blast_lua.txt"
 
+//=====================================================================================================SILENCER==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_silencer/silencer_talents.txt"
+#base "../vscripts/heroes/hero_silencer/curse_of_the_silent_lua/curse_of_the_silent_lua.txt"
+#base "../vscripts/heroes/hero_silencer/glaives_of_wisdom_lua/glaives_of_wisdom_lua.txt"
+#base "../vscripts/heroes/hero_silencer/global_silence_lua/global_silence_lua.txt"
+#base "../vscripts/heroes/hero_silencer/last_word_lua/last_word_lua.txt"
+
 //=====================================================================================================MUERTA==================================================================================================================================================
 
 // #base "../vscripts/heroes/hero_ancient_apparition/ancient_apparition_talents.txt"
@@ -3299,6 +3307,13 @@
 #base "../vscripts/heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.txt"
 
+//====================================================================================================ANAKIM===================================================================================================================================================
+
+#base "../vscripts/heroes/hero_broodmother/broodmother_talents.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_web/broodmother_web.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_steal/broodmother_steal.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_poison/broodmother_poison.txt"
+#base "../vscripts/heroes/hero_broodmother/broodmother_ult/broodmother_ult.txt"
 
 //==============================================================================================new boss ability===========================
 

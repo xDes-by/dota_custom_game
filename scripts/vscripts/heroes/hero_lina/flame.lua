@@ -68,7 +68,7 @@ if IsServer() then
 			attacker = self:GetCaster(),
 			damage = damage,
 			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self, --Optional.
+			ability = self:GetAbility(), --Optional.
 		}
 		self:StartIntervalThink( 0.5 )
 		self:OnIntervalThink()

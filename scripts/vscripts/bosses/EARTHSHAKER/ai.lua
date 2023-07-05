@@ -21,11 +21,7 @@ end
 function NeutralThink()
     if ( not thisEntity:IsAlive() ) then
 		if not DataBase:isCheatOn() then
-			if diff_wave.rating_scale == 0 then DataBase:AddRP(owner:GetPlayerID(), 25) end
-			if diff_wave.rating_scale == 1 then DataBase:AddRP(owner:GetPlayerID(), 50) end
-			if diff_wave.rating_scale == 2 then DataBase:AddRP(owner:GetPlayerID(), 70) end
-			if diff_wave.rating_scale == 3 then DataBase:AddRP(owner:GetPlayerID(), 90) end
-			if diff_wave.rating_scale == 4 then DataBase:AddRP(owner:GetPlayerID(), 110) end
+			DataBase:AddRP(owner:GetPlayerID(), 1)
 			DataBase:Event2021Boss(owner:GetPlayerID())
 		end
 		return -1
@@ -45,6 +41,11 @@ function NeutralThink()
 	end
 	if not owner then
 		owner = thisEntity.summoner
+	end
+	local badguys_fort = Entities:FindByName(nil, "badguys_fort")
+	if ( not badguys_fort or not badguys_fort:IsAlive() ) and _G.kill_invoker == false then
+		thisEntity:AddNewModifier(nil, nil, "modifier_boss_invoker_active", {duration = 2})
+		return 0.1
 	end
 	local hp_now = thisEntity:GetHealth()
 	local AbilityTotem = thisEntity:FindAbilityByName("earthshaker_enchant_totem_lua")

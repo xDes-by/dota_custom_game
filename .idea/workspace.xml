@@ -26,7 +26,7 @@
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/greed_book_int.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/greed_book_int.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/greed_book_str.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/greed_book_str.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/other/gold_brick.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/other/gold_brick.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/pets/pet_donate_gold.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/pets/pet_donate_gold.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/pets/pet_rda_gold.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/pets/pet_rda_gold.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/items/weird_potion.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/items/weird_potion.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/modifiers/modifier_gold_bank.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/modifiers/modifier_gold_bank.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/vscripts/modifiers/modifier_take_drop_gem.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/vscripts/modifiers/modifier_take_drop_gem.lua" afterDir="false" />

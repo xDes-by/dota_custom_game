@@ -1,0 +1,20 @@
+"DOTAAbilities"
+{
+	"broodmother_ult"
+	{
+		"ScriptFile"					"heroes/hero_broodmother/broodmother_ult/broodmother_ult"
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"broodmother_4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"10"
+		"AbilityValues"
+		{
+			"damage" "0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+			"regen"	"0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+			"ms" 	"0.1 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55"
+			"ms_limit"		"1500"
+		}
+	}
+}

@@ -47,10 +47,10 @@ function wraith_king_sceleton:OnSpellStart()
 	for i =1, count do
 		caster.skelet = CreateUnitByName("npc_skelets", position + RandomVector( RandomFloat( 150, 150 )), true, caster, nil, caster:GetTeam())
 		caster.skelet:AddNewModifier(caster.skelet, ability, "modifier_kill", {duration = 60})
-		
+		caster.skelet:AddNewModifier(caster.skelet, ability, "modifier_skelet_resist", {duration = 60})
 		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skeleton_king_str9")
 		if abil ~= nil then 
-			caster.skelet:AddNewModifier(caster.skelet, ability, "modifier_skelet_resist", {duration = 60})
+			caster.skelet:AddNewModifier(caster.skelet, ability, "modifier_health_voker", {}):SetStackCount(1)
 		end
 		
 		caster.skelet:SetControllableByPlayer(caster:GetPlayerID(), true)

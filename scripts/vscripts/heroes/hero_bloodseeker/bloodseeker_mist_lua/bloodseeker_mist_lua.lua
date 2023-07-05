@@ -88,9 +88,9 @@ end
 
 function modifier_bloodseeker_mist_aura_lua:OnIntervalThink()
 	local df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION 
-	if self.caster:FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
-		df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NON_LETHAL
-	end
+	-- if self.caster:FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
+	-- 	df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NON_LETHAL
+	-- end
 	local damage = self.caster:GetMaxHealth()/100*self:GetAbility():GetSpecialValueFor("self_hit") * self:GetAbility():GetSpecialValueFor("tick")
 	ApplyDamage({attacker = self:GetParent(), victim = self.caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = df})
 end
@@ -125,13 +125,13 @@ function modifier_bloodseeker_mist_debuff:OnCreated()
 	if IsServer() then
 		self.damage = self:GetAbility():GetSpecialValueFor("damage") + self:GetCaster():GetAgility() * self:GetAbility():GetSpecialValueFor("agility_dmg")
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int11") ~= nil then
-			self.damage = self.damage + self:GetCaster():GetIntellect() * 0.5
+			self.damage = self.damage + self:GetCaster():GetIntellect() * 0.75
 		end
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str_last") ~= nil then
-			self.damage = self.damage + self:GetCaster():GetStrength()
+			self.damage = self.damage + self:GetCaster():GetStrength() * 1.75
 		end
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi8") ~= nil then 
-			self.damage = self.damage + self:GetCaster():GetAgility() * 1.5
+			self.damage = self.damage + self:GetCaster():GetAgility() * 0.5
 		end
 		self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("tick"))
 	end

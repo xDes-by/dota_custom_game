@@ -18,11 +18,11 @@ require("dummy")
 require("use_pets")
 require("effects")
 
-_G.key = GetDedicatedServerKeyV3("UA")
-_G.key = "FF5F3A404F82A1B08FCA7B6233F2CD5F3C8EBC5C"
+_G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
-_G.server_load = false -- true
+_G.cheatmode = false -- false
+_G.server_load = true -- true
+_G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -420,7 +420,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	creep_spawner:spawn_creeps_forest()	
 	Spawner:Init()
 	Rules:tower_hp()
-	Rules:spawn_creeps_donate()
+	Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
 	Dummy:init()
@@ -723,10 +723,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 
-	if _G.donate_bosses_count and #_G.donate_bosses_count > 0 then
-		for i, hCreep in ipairs( _G.donate_bosses_count ) do
+	if _G.don_bosses_count and #_G.don_bosses_count > 0 then
+		for i, hCreep in ipairs( _G.don_bosses_count ) do
 			if killedUnit == hCreep then
-				table.remove( _G.donate_bosses_count, i )
+				table.remove( _G.don_bosses_count, i )
 			end
 		end 
 	end

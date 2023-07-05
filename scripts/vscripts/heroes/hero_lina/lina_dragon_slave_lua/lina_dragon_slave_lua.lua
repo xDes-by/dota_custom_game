@@ -157,7 +157,6 @@ function lina_dragon_slave_lua:OnProjectileHitHandle( target, location, projecti
 	damage_slave = damage_slave + self:GetCaster():GetIntellect()
 	end
 
-	print(self:GetAbilityDamageType())
 	-- apply damage
 	local damageTable = {
 		victim = target,

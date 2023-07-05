@@ -131,7 +131,9 @@ function Smithy:put_item_lua(t)
             if hero:GetName() ~= current_item:GetPurchaser():GetName() or slot > 8 and item_name ~= item_gold then
                 return
             end
-            if item_name == "item_quest_blue_stone" or item_name == "item_cheese_lua" then return end
+            for _,block in pairs({"item_quest_blue_stone","item_cheese_lua","item_greed_agi","item_greed_int","item_greed_str","item_weird_potion"}) do
+                if item_name == block then return end
+            end
             if t.type == nil then
                 t.item_name = item_name
                 Smithy:automatic_installation_lua(t)

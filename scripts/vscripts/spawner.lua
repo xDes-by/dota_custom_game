@@ -66,7 +66,9 @@ actual_t_boss = {}
 function Spawner:Init()
 	Timers:CreateTimer(120,function()
 		_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-		Spawn_system()
+		if spawnCreeps then
+			Spawn_system()
+		end
 	end)
 end
 
@@ -94,8 +96,8 @@ function Spawn_system()
 		wave = wave + 1
 		rat = rat + wave_count * 2
 		for i = 0, 4 do
-			Quests:compl("bonus", 17, 1, i, 1)
-			Quests:compl("bonus", 15, 1, i, 1)
+			Quests:UpdateCounter("bonus", 17, 1, i, 1)
+			Quests:UpdateCounter("bonus", 15, 1, i, 1)
 		end
 		if wave ~= 0 and wave % 5 == 0 then 
 			Spawner:SpawnBosses()	

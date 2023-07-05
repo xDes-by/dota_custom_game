@@ -504,44 +504,44 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-_G.donate_spawn_level = 0
+_G.don_spawn_level = 0
 
 function donate_level()
-	_G.donate_spawn_level = _G.donate_spawn_level + 1
+	_G.don_spawn_level = _G.don_spawn_level + 1
 end
 
 function check_trigger_actiate()
 	local triggerName = thisEntity:GetName()
 	
-	if _G.donate_spawn_level == 0 then 
+	if _G.don_spawn_level == 0 then 
 		mini_creep = forest_mini[RandomInt(1,#forest_mini)]
 		big_creep = forest_big[RandomInt(1,#forest_big)]
 	end
-	if _G.donate_spawn_level == 1 then 
+	if _G.don_spawn_level == 1 then 
 		mini_creep = village_mini[RandomInt(1,#village_mini)]
 		big_creep = village_big[RandomInt(1,#village_big)]
 	end
-	if _G.donate_spawn_level == 2 then 
+	if _G.don_spawn_level == 2 then 
 		mini_creep = mines_mini[RandomInt(1,#mines_mini)]
 		big_creep = mines_big[RandomInt(1,#mines_big)]
 	end
-	if _G.donate_spawn_level == 3 then 
+	if _G.don_spawn_level == 3 then 
 		mini_creep = dust_mini[RandomInt(1,#dust_mini)]
 		big_creep = dust_big[RandomInt(1,#dust_big)]
 	end
-	if _G.donate_spawn_level == 4 then 
+	if _G.don_spawn_level == 4 then 
 		mini_creep = cemetery_mini[RandomInt(1,#cemetery_mini)]
 		big_creep = cemetery_big[RandomInt(1,#cemetery_big)]
 	end
-	if _G.donate_spawn_level == 5 then  
+	if _G.don_spawn_level == 5 then  
 		mini_creep = swamp_mini[RandomInt(1,#swamp_mini)]
 		big_creep = swamp_big[RandomInt(1,#swamp_big)]
 	end
-	if _G.donate_spawn_level == 6 then 
+	if _G.don_spawn_level == 6 then 
 		mini_creep = snow_mini[RandomInt(1,#snow_mini)]
 		big_creep = snow_big[RandomInt(1,#snow_big)]
 	end
-	if _G.donate_spawn_level == 7 then 
+	if _G.don_spawn_level == 7 then 
 		mini_creep = last_mini[RandomInt(1,#last_mini)]
 		big_creep = last_big[RandomInt(1,#last_big)]
 	end

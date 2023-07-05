@@ -55,7 +55,7 @@ function modifier_bloodseeker_bloodrage_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
-		MODIFIER_EVENT_ON_ATTACK_LANDEDs
+		MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
 	return funcs
 end
@@ -95,9 +95,9 @@ end
 function modifier_bloodseeker_bloodrage_lua:OnIntervalThink()
 if not IsServer() then return end
 	df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
-		df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NON_LETHAL
-	end
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") ~= nil then 
+	-- 	df = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NON_LETHAL
+	-- end
 	local damage_table	=  {victim = self:GetParent(),
 			attacker = self:GetParent(),
 			damage = self:GetParent():GetMaxHealth()/1000*self.hp_loss,

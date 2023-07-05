@@ -14,6 +14,17 @@ end
 
 function effects:CastSpray(t)
 	print("spray start")
+	local sprayName = t.sprayName
+	if not sprayName then
+		sprayName = Shop.spray[t.PlayerID]
+	end
+	if sprayName then
+		for _, value in ipairs(Shop.pShop[t.PlayerID][Shop.sprayCategory]) do
+			if value.name == sprayName then
+				sprayPath = value.spray_path
+			end
+		end
+	end
 	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
 	local front = hero:GetForwardVector():Normalized()	
 	local point = hero:GetAbsOrigin() + front * 150
@@ -26,7 +37,7 @@ function effects:CastSpray(t)
 	local effect = ParticleManager:CreateParticle( "particles/sprays/spray_placement.vpcf", PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( effect, 0, point )
 
-	local spray = ParticleManager:CreateParticle( "particles/spray/9000.vpcf", PATTACH_WORLDORIGIN, nil )
+	local spray = ParticleManager:CreateParticle( sprayPath, PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleControl( spray, 0, point )
 	ParticleManager:SetParticleControl( spray, 1, Vector( 196, 1, 0 ) )
 

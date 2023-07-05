@@ -2,35 +2,35 @@
 _G.basicshop = {
 	[1] = {
 		name = "pets",
-		[1] = {name = "pet_change", price = {don = 500}, image = "images/custom_game/DonateShop/items/pet_change.png", rarity = "#fa3535", text_color = "white", type = "pet_change", tooltip = "shop_image_pet_change_tooltip"},
-		[2] = {name = "ratingpoints_1", price = {rp = 250}, itemname = "spell_item_pet_donate_simple_1", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
-		[3] = {name = "ratingpoints_2", price = {rp = 350}, itemname = "spell_item_pet_donate_simple_2", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
-		[4] = {name = "ratingpoints_3", price = {rp = 450}, itemname = "spell_item_pet_donate_simple_3", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
-		[5] = {name = "pet_15", price = {don = 50}, itemname = "spell_item_pet_donate_mana_regen", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
-		[6] = {name = "pet_13", price = {don = 50}, itemname = "spell_item_pet_donate_hp_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
-		[7] = {name = "pet_14", price = {don = 50}, itemname = "spell_item_pet_donate_dmg_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
-		[8] = {name = "pet_5", price = {don = 100}, itemname = "spell_item_pet_donate_total_dmg", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
-		[9] = {name = "pet_6", price = {don = 100}, itemname = "spell_item_pet_donate_int", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
-		[10] = {name = "pet_7", price = {don = 100}, itemname = "spell_item_pet_donate_str", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
-		[11] = {name = "pet_8", price = {don = 100}, itemname = "spell_item_pet_donate_agi", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
-		[12] = {name = "pet_9", price = {don = 100}, itemname = "spell_item_pet_donate_heal", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
-		[13] = {name = "pet_1", price = {don = 150}, itemname = "spell_item_pet_donate_dmg", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[14] = {name = "pet_2", price = {don = 150}, itemname = "spell_item_pet_donate_hp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[15] = {name = "pet_3", price = {don = 150}, itemname = "spell_item_pet_donate_fast", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[16] = {name = "pet_4", price = {don = 150}, itemname = "spell_item_pet_donate_cleave", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[17] = {name = "pet_10", price = {don = 150}, itemname = "spell_item_pet_donate_block", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[18] = {name = "pet_11", price = {don = 150}, itemname = "spell_item_pet_donate_all_dmg_amp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[19] = {name = "pet_12", price = {don = 150}, itemname = "spell_item_pet_donate_gold", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
-		[20] = {name = "pet_16", price = {don = 250}, itemname = "spell_item_pet_donate_250_gold_and_exp", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[21] = {name = "pet_17", price = {don = 250}, itemname = "spell_item_pet_donate_250_attribute_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[22] = {name = "pet_18", price = {don = 250}, itemname = "spell_item_pet_donate_250_dmg_reduction", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[23] = {name = "pet_19", price = {don = 250}, itemname = "spell_item_pet_donate_250_regen", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[24] = {name = "pet_20", price = {don = 250}, itemname = "spell_item_pet_donate_250_bkb", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[25] = {name = "pet_21", price = {don = 250}, itemname = "spell_item_pet_donate_250_phys_dmg_reducrion", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[26] = {name = "pet_22", price = {don = 250}, itemname = "spell_item_pet_donate_250_pure_damage", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[27] = {name = "pet_23", price = {don = 250}, itemname = "spell_item_pet_donate_250_no_spell_phys_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[28] = {name = "pet_24", price = {don = 250}, itemname = "spell_item_pet_donate_250_no_phys_spell_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
-		[29] = {name = "pet_25", price = {don = 250}, itemname = "spell_item_pet_donate_250_minus_armor", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[1] = {name = "pet_change", price = {don = 500}, image = "images/custom_game/RDAShop/items/pet_change.png", rarity = "#fa3535", text_color = "white", type = "pet_change", tooltip = "shop_image_pet_change_tooltip"},
+		[2] = {name = "ratingpoints_1", price = {rp = 250}, itemname = "spell_item_pet_RDA_simple_1", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+		[3] = {name = "ratingpoints_2", price = {rp = 350}, itemname = "spell_item_pet_RDA_simple_2", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+		[4] = {name = "ratingpoints_3", price = {rp = 450}, itemname = "spell_item_pet_RDA_simple_3", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+		[5] = {name = "pet_15", price = {don = 50}, itemname = "spell_item_pet_RDA_mana_regen", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+		[6] = {name = "pet_13", price = {don = 50}, itemname = "spell_item_pet_RDA_hp_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+		[7] = {name = "pet_14", price = {don = 50}, itemname = "spell_item_pet_RDA_dmg_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+		[8] = {name = "pet_5", price = {don = 100}, itemname = "spell_item_pet_RDA_total_dmg", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[9] = {name = "pet_6", price = {don = 100}, itemname = "spell_item_pet_RDA_int", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[10] = {name = "pet_7", price = {don = 100}, itemname = "spell_item_pet_RDA_str", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[11] = {name = "pet_8", price = {don = 100}, itemname = "spell_item_pet_RDA_agi", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[12] = {name = "pet_9", price = {don = 100}, itemname = "spell_item_pet_RDA_heal", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[13] = {name = "pet_1", price = {don = 150}, itemname = "spell_item_pet_RDA_dmg", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[14] = {name = "pet_2", price = {don = 150}, itemname = "spell_item_pet_RDA_hp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[15] = {name = "pet_3", price = {don = 150}, itemname = "spell_item_pet_RDA_fast", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[16] = {name = "pet_4", price = {don = 150}, itemname = "spell_item_pet_RDA_cleave", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[17] = {name = "pet_10", price = {don = 150}, itemname = "spell_item_pet_RDA_block", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[18] = {name = "pet_11", price = {don = 150}, itemname = "spell_item_pet_RDA_all_dmg_amp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[19] = {name = "pet_12", price = {don = 150}, itemname = "spell_item_pet_RDA_gold", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[20] = {name = "pet_16", price = {don = 250}, itemname = "spell_item_pet_RDA_250_gold_and_exp", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[21] = {name = "pet_17", price = {don = 250}, itemname = "spell_item_pet_RDA_250_attribute_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[22] = {name = "pet_18", price = {don = 250}, itemname = "spell_item_pet_RDA_250_dmg_reduction", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[23] = {name = "pet_19", price = {don = 250}, itemname = "spell_item_pet_RDA_250_regen", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[24] = {name = "pet_20", price = {don = 250}, itemname = "spell_item_pet_RDA_250_bkb", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[25] = {name = "pet_21", price = {don = 250}, itemname = "spell_item_pet_RDA_250_phys_dmg_reducrion", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[26] = {name = "pet_22", price = {don = 250}, itemname = "spell_item_pet_RDA_250_pure_damage", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[27] = {name = "pet_23", price = {don = 250}, itemname = "spell_item_pet_RDA_250_no_spell_phys_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[28] = {name = "pet_24", price = {don = 250}, itemname = "spell_item_pet_RDA_250_no_phys_spell_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[29] = {name = "pet_25", price = {don = 250}, itemname = "spell_item_pet_RDA_250_minus_armor", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
 		[30] = {name = "feed_x230", price = {don = 3, rp = 15}, image = "images/custom_game/pet/shop_feed.png", give = 230, rarity = "#fa3535", text_color = "#fa3535", type ="feed", combinable = true, tooltip = "feed_x230_tooltip"},
 		[31] = {name = "feed_x600", price = {don = 7, rp = 35}, image = "images/custom_game/pet/shop_feed.png", give = 600, rarity = "#fa3535", text_color = "#fa3535", type ="feed", combinable = true, tooltip = "feed_x600_tooltip"},
 	},
@@ -49,7 +49,7 @@ _G.basicshop = {
 		[11] = {name = "other_3", price = {don = 5}, itemname = "item_int", rarity = "blue", layout = "RDAShopItem1"},
 		[12] = {name = "other_4", price = {don = 15}, itemname = "item_tree_gold", rarity = "gold", layout = "RDAShopItem1"},
 		[13] = {name = "other_8", price = {don = 30}, itemname = "item_tower_protection", rarity = "gold", layout = "RDAShopItem1"},
-		[14] = {name = "other_49", price = {don = 25}, itemname = "item_forever_ward", rarity = "gold", layout = "RDAShopItem1"},
+		[14] = {name = "other_49", price = {don = 25}, itemname = "item_forever_ward", rarity = "gold", type = "consumabl", combinable = true, layout = "RDAShopItem2", counter = true},
 	},
 	[3] = {
 		name = "effects",
@@ -78,38 +78,85 @@ _G.basicshop = {
 		[23] = {name = "effect_4", price = {don = 25}, rarity = "white", image = "images/custom_game/RDAShop/items/ef4.png", type = "effect", tooltip = "shop_image_effect_tooltip"},
 		[24] = {name = "effect_5", price = {don = 25}, rarity = "white", image = "images/custom_game/RDAShop/items/ef5.png", type = "effect", tooltip = "shop_image_effect_tooltip"},
 	},
-	-- [4] = {
-	-- 	name = "spray",
-	-- 	[1] = {name = "treasurie1_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/1.png", spray_path = "particles/spray/1.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[2] = {name = "treasurie1_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/2.png", spray_path = "particles/spray/2.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[3] = {name = "treasurie1_spray3", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/3.png", spray_path = "particles/spray/3.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[4] = {name = "treasurie1_spray4", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/4.png", spray_path = "particles/spray/4.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[5] = {name = "treasurie1_spray5", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/5.png", spray_path = "particles/spray/5.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[6] = {name = "treasurie1_spray6", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/6.png", spray_path = "particles/spray/6.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[7] = {name = "treasurie1_spray7", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/7.png", spray_path = "particles/spray/7.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[8] = {name = "treasurie1_spray8", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/8.png", spray_path = "particles/spray/8.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[9] = {name = "treasurie1_spray9", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/9.png", spray_path = "particles/spray/9.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true, source = { treasury = "treasurie1" }},
-	-- 	[10] = {name = "treasurie1_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/10.png", spray_path = "particles/spray/10.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = true},
-	-- },
+	[4] = {
+		name = "spray",
+		[1] = {name = "treasurie1_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/1.png", spray_path = "particles/spray/1.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[2] = {name = "treasurie1_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/2.png", spray_path = "particles/spray/2.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[3] = {name = "treasurie1_spray3", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/3.png", spray_path = "particles/spray/3.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[4] = {name = "treasurie1_spray4", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/4.png", spray_path = "particles/spray/4.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[5] = {name = "treasurie1_spray5", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/5.png", spray_path = "particles/spray/5.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[6] = {name = "treasurie1_spray6", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/6.png", spray_path = "particles/spray/6.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[7] = {name = "treasurie1_spray7", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/7.png", spray_path = "particles/spray/7.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[8] = {name = "treasurie1_spray8", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/8.png", spray_path = "particles/spray/8.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[9] = {name = "treasurie1_spray9", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/9.png", spray_path = "particles/spray/9.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[10] = {name = "treasurie1_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/10.png", spray_path = "particles/spray/10.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[11] = {name = "treasurie1_spray11", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/11.png", spray_path = "particles/spray/11.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[12] = {name = "treasurie1_spray12", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/12.png", spray_path = "particles/spray/12.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[13] = {name = "treasurie1_spray13", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/13.png", spray_path = "particles/spray/13.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[14] = {name = "treasurie1_spray14", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/14.png", spray_path = "particles/spray/14.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[15] = {name = "treasurie1_spray15", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/15.png", spray_path = "particles/spray/15.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie1" }},
+		[16] = {name = "gems_award", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_award.png", hidden = true, source = { treasury = "treasurie1" }},
+		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		[17] = {name = "treasurie2_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/17.png", spray_path = "particles/spray/17.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[18] = {name = "treasurie2_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/18.png", spray_path = "particles/spray/18.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[19] = {name = "treasurie2_spray3", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/19.png", spray_path = "particles/spray/19.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[20] = {name = "treasurie2_spray4", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/20.png", spray_path = "particles/spray/20.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[21] = {name = "treasurie2_spray5", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/21.png", spray_path = "particles/spray/21.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[22] = {name = "treasurie2_spray6", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/22.png", spray_path = "particles/spray/22.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[23] = {name = "treasurie2_spray7", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/23.png", spray_path = "particles/spray/23.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[24] = {name = "treasurie2_spray8", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/24.png", spray_path = "particles/spray/24.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[25] = {name = "treasurie2_spray9", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/25.png", spray_path = "particles/spray/25.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[26] = {name = "treasurie2_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/26.png", spray_path = "particles/spray/26.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[27] = {name = "treasurie2_spray11", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/27.png", spray_path = "particles/spray/27.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[28] = {name = "treasurie2_spray12", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/28.png", spray_path = "particles/spray/28.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[29] = {name = "treasurie2_spray13", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/29.png", spray_path = "particles/spray/29.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[30] = {name = "treasurie2_spray14", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/30.png", spray_path = "particles/spray/30.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[31] = {name = "treasurie2_spray15", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/31.png", spray_path = "particles/spray/31.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie2" }},
+		[32] = {name = "gems_award", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_award.png", hidden = true, source = { treasury = "treasurie2" }},
+		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		[33] = {name = "treasurie3_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/33.png", spray_path = "particles/spray/33.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[34] = {name = "treasurie3_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/34.png", spray_path = "particles/spray/34.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[35] = {name = "treasurie3_spray3", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/35.png", spray_path = "particles/spray/35.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[36] = {name = "treasurie3_spray4", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/36.png", spray_path = "particles/spray/36.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[37] = {name = "treasurie3_spray5", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/37.png", spray_path = "particles/spray/37.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[38] = {name = "treasurie3_spray6", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/38.png", spray_path = "particles/spray/38.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[39] = {name = "treasurie3_spray7", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/39.png", spray_path = "particles/spray/39.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[40] = {name = "treasurie3_spray8", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/40.png", spray_path = "particles/spray/40.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[41] = {name = "treasurie3_spray9", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/41.png", spray_path = "particles/spray/41.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[42] = {name = "treasurie3_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/42.png", spray_path = "particles/spray/42.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[43] = {name = "treasurie3_spray11", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/43.png", spray_path = "particles/spray/43.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[44] = {name = "treasurie3_spray12", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/44.png", spray_path = "particles/spray/44.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[45] = {name = "treasurie3_spray13", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/45.png", spray_path = "particles/spray/45.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[46] = {name = "treasurie3_spray14", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/46.png", spray_path = "particles/spray/46.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[47] = {name = "treasurie3_spray15", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/47.png", spray_path = "particles/spray/47.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie3" }},
+		[48] = {name = "gems_award", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_award.png", hidden = true, source = { treasury = "treasurie3" }},
+		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		
+		
+	},
 	-- [5] = {
 	-- 	name = "highfive",
 	-- 	[1] = {name = "treasurie1_highfive1", price = {don = 10}, rarity = "white", image = "images/custom_game/RDAShop/items/ef7.png", type = "effect", tooltip = ""},
 	-- },
-	-- [6] = {
-	-- 	name = "treasuries",
-	-- 	[1] = {name = "treasurie1", price = {don = 10, rp = 50}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/1.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2"},
-	-- },
-	[4] = {
+	[5] = {
+		name = "treasuries",
+		[1] = {name = "treasurie1", price = {don = 10, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/1.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 25},
+		[2] = {name = "treasurie2", price = {don = 10, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/2.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 25},
+		[3] = {name = "treasurie3", price = {don = 10, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/3.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 25},
+		
+	},
+	[6] = {
 		name = "other",
-		[1] = {name = "other_10", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/Axe.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_axe",tooltip="shop_image_heros_tooltip"},
-		[2] = {name = "other_11", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/bb.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_bristleback",tooltip="shop_image_heros_tooltip"},
-		[3] = {name = "other_12", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/cent.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_centaur",tooltip="shop_image_heros_tooltip"},
-		[4] = {name = "other_13", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/dk.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_dragon_knight",tooltip="shop_image_heros_tooltip"},
-		[5] = {name = "other_14", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/io.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_wisp",tooltip="shop_image_heros_tooltip"},
-		[6] = {name = "other_15", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/mars.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_mars",tooltip="shop_image_heros_tooltip"},
-		[7] = {name = "other_16", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/sk.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_sand_king",tooltip="shop_image_heros_tooltip"},
-		[8] = {name = "other_17", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/sven.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_sven",tooltip="shop_image_heros_tooltip"},
-		[9] = {name = "other_18", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/trent.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_treant",tooltip="shop_image_heros_tooltip"},
+		[1] =  {name = "other_10", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/Axe.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_axe",tooltip="shop_image_heros_tooltip"},
+		[2] =  {name = "other_11", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/bb.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_bristleback",tooltip="shop_image_heros_tooltip"},
+		[3] =  {name = "other_12", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/cent.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_centaur",tooltip="shop_image_heros_tooltip"},
+		[4] =  {name = "other_13", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/dk.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_dragon_knight",tooltip="shop_image_heros_tooltip"},
+		[5] =  {name = "other_14", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/io.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_wisp",tooltip="shop_image_heros_tooltip"},
+		[6] =  {name = "other_15", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/mars.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_mars",tooltip="shop_image_heros_tooltip"},
+		[7] =  {name = "other_16", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/sk.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_sand_king",tooltip="shop_image_heros_tooltip"},
+		[8] =  {name = "other_17", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/sven.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_sven",tooltip="shop_image_heros_tooltip"},
+		[9] =  {name = "other_18", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/trent.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_treant",tooltip="shop_image_heros_tooltip"},
 		[10] = {name = "other_19", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/wk.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_skeleton_king",tooltip="shop_image_heros_tooltip"},
 		[11] = {name = "other_20", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/arc.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_arc_warden",tooltip="shop_image_heros_tooltip"},
 		[12] = {name = "other_21", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/drowjpg.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_drow_ranger",tooltip="shop_image_heros_tooltip"},
@@ -145,8 +192,10 @@ _G.basicshop = {
 		[42] = {name = "other_52", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/aa.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_ancient_apparition",tooltip="shop_image_heros_tooltip"},
 		[43] = {name = "other_53", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/magnus.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_magnataur",tooltip="shop_image_heros_tooltip"},
 		[44] = {name = "other_54", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/huskar.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_huskar",tooltip="shop_image_heros_tooltip"},
+		[45] = {name = "other_55", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/broodmother.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_broodmother",tooltip="shop_image_heros_tooltip"},
+		[46] = {name = "other_56", price = {don = 200, rp = 1000}, image = "images/custom_game/RDAShop/heros/silencer.png", rarity = "gold", type = "talant", hero = "npc_dota_hero_silencer",tooltip="shop_image_heros_tooltip"},
 	},
-	[5] = {
+	[7] = {
 		name = "gems",
 		[1] = {name = "shop_gem_purple_puck_1", price = {don = 3, rp = 100}, image = "images/custom_game/RDAShop/gems/purple__1.png", rarity = "white", text_color = "white", type = "gem", give = 1000, gem_type = 1, combinable = true, tooltip="shop_image_gems_tooltip_1"},
 		[2] = {name = "shop_gem_blue_puck_1", price = {don = 3, rp = 100}, image = "images/custom_game/RDAShop/gems/blue__1.png", rarity = "white", text_color = "white", type = "gem", give = 1000, gem_type = 2, combinable = true, tooltip="shop_image_gems_tooltip_2"},
@@ -168,8 +217,6 @@ _G.basicshop = {
 		[18] = {name = "shop_gem_orange_puck_4", price = {don = 40, rp = 600}, image = "images/custom_game/RDAShop/gems/yellow__4.png", rarity = "white", text_color = "white", type = "gem", give = 20000, gem_type = 3, combinable = true, tooltip="shop_image_gems_tooltip_3"},
 		[19] = {name = "shop_gem_red_puck_4", price = {don = 40, rp = 600}, image = "images/custom_game/RDAShop/gems/red__4.png", rarity = "white", text_color = "white", type = "gem", give = 20000, gem_type = 4, combinable = true, tooltip="shop_image_gems_tooltip_4"},
 		[20] = {name = "shop_gem_green_puck_4", price = {don = 40, rp = 600}, image = "images/custom_game/RDAShop/gems/green__4.png", rarity = "white", text_color = "white", type = "gem", give = 20000, gem_type = 5, combinable = true, tooltip="shop_image_gems_tooltip_5"},
-		
-		-- [6] = {name = "gem_random_1", price = {don = 250, rp = 1000}, image = "images/custom_game/DonateShop/loot-boxes-problem-gambling.png", rarity = "#00ff48", text_color = "#00ff48", type = "loot-box", loot = 1, combinable = true},
 	},
 }
 local loot_box_info = {
@@ -198,21 +245,26 @@ end
 function Shop:init()
 	Shop.pShop = {}
     CustomGameEventManager:RegisterListener("giveItem", Dynamic_Wrap( Shop, 'giveItem' ))
-	CustomGameEventManager:RegisterListener("ChangeHeroLua", Dynamic_Wrap( Shop, 'ChangeHeroLua' ))
 	CustomGameEventManager:RegisterListener("buyItem", Dynamic_Wrap( Shop, 'buyItem' ))
     CustomGameEventManager:RegisterListener("takeOffEffect", Dynamic_Wrap( Shop, 'takeOffEffect' ))
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap( Shop, 'OnPlayerReconnected' ), self)
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( Shop, 'OnGameRulesStateChange'), self)
-	ListenToGameEvent( 'dota_player_gained_level', Dynamic_Wrap( Shop, 'dota_player_gained_level'), self)
 	CustomGameEventManager:RegisterListener("GetPets",function(_, keys)
         Shop:GetPets(keys)
     end)
 	CustomGameEventManager:RegisterListener("UpdatePetButton",function(_, keys)
         Shop:UpdatePetButton(keys)
     end)
+	CustomGameEventManager:RegisterListener("OpenTreasure",function(_, keys)
+        Shop:OpenTreasure(keys)
+    end)
+	CustomGameEventManager:RegisterListener("SprayToggleActivate",function(_, keys)
+        Shop:SprayToggleActivate(keys)
+    end)
+	
 	ListenToGameEvent("player_chat", Dynamic_Wrap( Shop, "OnChat" ), self )
 	Shop.marci = {name = "change_hero_marci", hero_name = "npc_dota_hero_marci", available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
-	Shop.pango = {name = "", hero_name = "npc_dota_hero_pangolier",available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
+	Shop.pango = {name = "change_hero_pangolier", hero_name = "npc_dota_hero_pangolier",available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
 	Shop.pet = {}
 	CustomGameEventManager:RegisterListener("GetPet",function(_, keys)
         Shop:GetPet(keys)
@@ -222,6 +274,8 @@ function Shop:init()
     end)
 	Shop.Auto_Pet = {}
 	Shop.Change_Available = {}
+	Shop.sprayCategory = 4
+	Shop.spray = {}
 end
 
 function Shop:GetPets(keys)
@@ -265,47 +319,6 @@ end
 function Shop:OnGameRulesStateChange(keys)
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		Timers:CreateTimer(2, function() 
-			Shop.marci['unit'] = CreateUnitByName(Shop.marci['name'], Vector(-2218,-10550,512), false, nil, nil, DOTA_TEAM_GOODGUYS)
-			if Shop.marci['unit'] then
-				Shop.marci['unit']:AddNewModifier(Shop.marci['unit'],nil,"modifier_quest",{})
-				Shop.marci['index'] = Shop.marci['unit']:entindex()
-			end
-			Shop.pango['unit'] = CreateUnitByName(Shop.pango['name'], Vector(-2218,-10350,512), false, nil, nil, DOTA_TEAM_GOODGUYS)
-			if Shop.pango['unit'] then
-				Shop.pango['unit']:AddNewModifier(Shop.pango['unit'],nil,"modifier_quest",{})
-				Shop.pango['index'] = Shop.pango['unit']:entindex()
-			end
-			for i = 0 , PlayerResource:GetPlayerCount() do
-				if PlayerResource:IsValidPlayer(i) then
-					-- print("OnGameRulesStateChange GetPlayerCount i=",i)
-					local sid = PlayerResource:GetSteamAccountID(i)
-					-- print("OnGameRulesStateChange GetPlayerCount sid=",sid)
-					
-					if Shop.pShop[i].totaldonate >= 1000 or RATING["rating"][i+1]["patron"] == 1 or DataBase:isCheatOn() then
-						Shop.marci.available[i] = true
-						Shop.pango.available[i] = true
-					end
-					local effects = {}
-					for n,f in pairs(Shop.pShop[i][3]) do
-						if n ~= name and f.now == 1 then
-							table.insert(effects, n)
-						end
-					end
-					-- if #effects > 0 then
-					-- 	local hero = PlayerResource:GetSelectedHeroEntity( i )
-					-- 	local random_effect = RandomInt(1, #effects)
-					-- 	Shop.pShop[i][3][effects[random_effect]].now = 0
-					-- 	LinkLuaModifier( "modifier_" .. Shop.pShop[i][3][effects[random_effect]].name, "effects/" .. Shop.pShop[i][3][effects[random_effect]].name, LUA_MODIFIER_MOTION_NONE )
-						
-					-- 	hero:AddNewModifier( hero, nil, "modifier_" .. Shop.pShop[i][3][effects[random_effect]].name, {} )
-					-- 	Shop.pShop[i][3][effects[random_effect]]['status'] = 'takeoff'
-					-- end
-					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "UpdateChangeHeresInfo", {Shop.marci, Shop.pango} )
-					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "initShop", Shop.pShop[i] )
-				end
-			end
-		end)
-		Timers:CreateTimer(3, function() 
 			for i = 0 , PlayerResource:GetPlayerCount()-1 do --
 				if PlayerResource:IsValidPlayer(i) then
 					if Shop.Auto_Pet[i] then 
@@ -320,7 +333,11 @@ function Shop:OnGameRulesStateChange(keys)
 						})
 					end
 					Shop.Change_Available[i] = true
+					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(i), "UpdatePetIcon", {
+						can_change = Shop.Change_Available[i]
+					} )
 				end
+				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "initShop", Shop.pShop[i] )
 			end
 		end)	
 	end
@@ -340,7 +357,7 @@ function Shop:OnPlayerReconnected(keys)
 		Timers:CreateTimer(2, function() 
 			local sid = PlayerResource:GetSteamAccountID( keys.PlayerID )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "initShop", Shop.pShop[keys.PlayerID] )
-			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {} )
+			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {can_change = can_change} )
 		end)
 	end
 end
@@ -434,6 +451,7 @@ function Shop:createShop()
 				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i + 1 ][ 'likes' ], reports = RATING[ 'rating' ][ i + 1 ][ 'reports' ]})
 
 				Shop.Auto_Pet[i] = SHOP[i+1].auto_pet
+				Shop.spray[i] = SHOP[i+1].auto_spray
 				Shop.Change_Available[i] = true
 			end
 		end
@@ -459,69 +477,6 @@ function Shop:createShop()
 		print("CREATE SHOP FAILED")
 		print("============================")
 	end
-end
-
-
-
-function Shop:dota_player_gained_level(t)
-	local player = EntIndexToHScript( t.player )
-	local player_id = player:GetPlayerID()
-	if Shop.pango.available[player_id] or Shop.marci.available[player_id] then
-		Shop.pango.available[player_id] = false
-		Shop.marci.available[player_id] = false
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( player_id ), "UpdateChangeHeresInfo", {Shop.marci, Shop.pango} )
-	end
-end
-
-function Shop:ChangeHeroLua(t)
-	if t.hero_name == Shop.pango.hero_name then
-		if Shop.pango.available[t.PlayerID] == false then
-			return
-		else
-			for i = 0, 4 do
-				Shop.pango.available[i] = false
-			end
-			Shop.pango.selected[t.PlayerID] = true
-			Shop.marci.available[t.PlayerID] = false
-		end
-	elseif t.hero_name == Shop.marci.hero_name then
-		if Shop.marci.available[t.PlayerID] == false then
-			return
-		else
-			for i = 0, 4 do
-				Shop.marci.available[i] = false
-			end
-			Shop.marci.selected[t.PlayerID] = true
-			Shop.pango.available[t.PlayerID] = false
-		end
-	end
-	local heroOld = PlayerResource:GetSelectedHeroName( t.PlayerID )
-	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-	GoldNow = hero:GetGold()
-	PlayerResource:ReplaceHeroWith(t.PlayerID,t.hero_name,0,0)
-	hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-	hero:ModifyGoldFiltered(GoldNow, true, 0)
-	-- if diff_wave.wavedef == "Insane" then
-	-- 	hero:AddNewModifier(hero, nil, "modifier_insane_lives", {}):SetStackCount(5)
-	-- end	
-	CustomGameEventManager:Send_ServerToAllClients( "talant_replace_hero", { PlayerID = t.PlayerID, hero_name = heroOld} )
-	talants:pickinfo(t.PlayerID,true)
-	-- talants:ReplaceTree()
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "UpdateChangeHeresInfo", {Shop.marci, Shop.pango} )
-	Shop.Change_Available[t.PlayerID] = true
-	Shop.pet[t.PlayerID] = nil
-	if Shop.Auto_Pet[t.PlayerID] then 
-		Shop:GetPet({
-			PlayerID = t.PlayerID,
-			pet = {name = Shop.Auto_Pet[t.PlayerID]},
-		})
-	else
-		Shop:GetPet({
-			PlayerID = t.PlayerID,
-			pet = {name = "spell_item_pet"},
-		})
-	end
-	Shop.Change_Available[t.PlayerID] = true
 end
 
 function Shop:giveItem(t)
@@ -572,6 +527,12 @@ function Shop:giveItem(t)
 		end
 		Shop:ChangeHero(pid, Shop.pShop[pid][tonumber(categoryKey)][tonumber(productKey)].hero_name)
 	end
+	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
+	-- 	shopinfo = Shop.pShop[pid], 
+	-- 	updateCount = {
+	-- 		{categoryKey = categoryKey, productKey = productKey},
+	-- 	},
+	-- })
 end
 
 function Shop:takeOffEffect(t)
@@ -680,6 +641,12 @@ function Shop:buyItem(t)
 		shopinfo['mmrpoints'] = Shop.pShop[pid]["mmrpoints"]
 		CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
 	end
+	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
+	-- 	shopinfo = Shop.pShop[pid], 
+	-- 	updateCount = {
+	-- 		{categoryKey = i, productKey = n},
+	-- 	},
+	-- })
 end
 
 
@@ -734,8 +701,6 @@ end
 
 
 function Shop:GetPet(t)
-	print("GetPet")
-	print(Shop.Change_Available[t.PlayerID])
 	local pet_name = t.pet.name
 	local pid = t.PlayerID
 	local hero = PlayerResource:GetSelectedHeroEntity(pid)
@@ -763,14 +728,16 @@ function Shop:GetPet(t)
 		hero:AddAbility(pet.itemname):SetLevel(GetLevel(pet.now))
 		Shop.pet[pid] = pet.itemname
 		CustomNetTables:SetTableValue("player_pets", tostring(pid), {pet = pet.itemname})
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {} )
+		if Shop.pShop[pid][1][1].now == 0 then
+			Shop.Change_Available[pid] = false
+		end
 	else
 		hero:AddAbility("spell_item_pet"):SetLevel(1)
 		Shop.pet[pid] = nil
 		CustomNetTables:SetTableValue("player_pets", tostring(pid), {pet = "spell_item_pet"})
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {} )
 	end
-	Shop.Change_Available[pid] = false
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {can_change = Shop.Change_Available[pid]} )
+	
 	
 end
 
@@ -780,7 +747,215 @@ function Shop:AutoGetPetOprion(t)
 	else
 		Shop.Auto_Pet[t.PlayerID] = t.pet.name
 	end
+	DataBase:AutoGetPetOprion(t)
 end
 
+function Shop:OpenTreasure(t)
+	for categoryKey, categoryValue in pairs(Shop.pShop[t.PlayerID]) do
+		if type(categoryValue) == 'table' then
+			for productKey, productValue in ipairs(categoryValue) do
+				if productValue.name == t.treasureName then
+					thisTreasure = productValue
+					thisTreasure.categoryKey = categoryKey
+					thisTreasure.productKey = productKey
+				elseif productValue.source and productValue.source.treasury and productValue.source.treasury == t.treasureName then
+					if not awardList then awardList = {} end
+					local award = productValue
+					award.categoryKey = categoryKey
+					award.productKey = productKey
+					table.insert(awardList, award)
+					if award.name == "gems_award" then
+						gemsAward = award
+					end
+				end
+			end
+		end
+	end
+	if thisTreasure == nil or thisTreasure.now < 1 then return end
+	thisTreasure.now = thisTreasure.now - 1
+	thisTreasure.onStart = thisTreasure.onStart - 1
+	local itemPrize = awardList[RandomInt(1, #awardList)]
+	print(itemPrize.name)
+	while itemPrize.name == "gems_award" do
+		itemPrize = awardList[RandomInt(1, #awardList)]
+	end
+	if RandomFloat(1, 100) <= 1.05 then
+		itemPrize = gemsAward
+	end
+	local compensation = thisTreasure.compensation
+	local data = {
+		itemPool = {},
+		itemPrize = itemPrize,
+		glory = 0,
+		skipAnimation = false,
+	}
+	for _,award in pairs(awardList) do
+		table.insert(data.itemPool, award)
+	end
+	
+	local requestData = {
+		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
+		treasureName = t.treasureName,
+	}
+	if itemPrize.name == "gems_award" then
+		DataBase:AddCoins(t.PlayerID, 500)
+		-- requestData.gemAward = 500
+	elseif itemPrize.counter and itemPrize.counter == true and itemPrize.onStart > 0 then
+		itemPrize.now = itemPrize.now + 1
+		itemPrize.onStart = itemPrize.onStart + 1
+		requestData.itemAward = itemPrize.name
+	elseif itemPrize.onStart == 0 then
+		itemPrize.now = 1
+		itemPrize.onStart = 1
+		requestData.itemAward = itemPrize.name
+	elseif itemPrize.onStart > 0 then
+		Shop.pShop[t.PlayerID].mmrpoints = Shop.pShop[t.PlayerID].mmrpoints + compensation
+		requestData.rpAward = compensation
+		data.glory = compensation
+	end
+	DataBase:OpenTreasure(requestData)
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "ShowWheel", data )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(t.PlayerID), "UpdateStore", {
+		shopinfo = Shop.pShop[t.PlayerID], 
+		updateCount = {
+			{categoryKey = thisTreasure.categoryKey, productKey = thisTreasure.productKey},
+			{categoryKey = itemPrize.categoryKey, productKey = itemPrize.productKey},
+		},
+	})
+	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(t.PlayerID))
+	shopinfo['feed'] = Shop.pShop[t.PlayerID]["feed"]
+	shopinfo['coins'] = Shop.pShop[t.PlayerID]["coins"]
+	shopinfo['mmrpoints'] = Shop.pShop[t.PlayerID]["mmrpoints"]
+	CustomNetTables:SetTableValue("shopinfo", tostring(t.PlayerID), shopinfo)
+end
+
+function Shop:SprayToggleActivate(t)
+	local toggleState = t.toggleState == 1
+	if toggleState == false then 
+		Shop.spray[t.PlayerID] = nil
+	else
+		Shop.spray[t.PlayerID] = Shop.pShop[t.PlayerID][tonumber(t.categoryKey)][tonumber(t.productKey)].name
+	end
+	DataBase:SprayToggleActivate({
+		PlayerID = t.PlayerID,
+		sprayName = Shop.spray[t.PlayerID],
+	})
+end
+
+if ChangeHero == nil then
+    _G.ChangeHero = class({})
+end
+
+function ChangeHero:init()
+	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
+	ListenToGameEvent( 'dota_player_gained_level', Dynamic_Wrap( self, 'dota_player_gained_level'), self)
+	CustomGameEventManager:RegisterListener("ChangeHeroLua",function(_, keys)
+        self:ChangeHeroLua(keys)
+    end)
+
+	self.heroes = {
+		npc_dota_hero_marci = {unitName = "change_hero_marci", position = Vector(-640,-9926,512), minimumTotal = 1000, trialName = "hero_marci_trial", minimumOneTimeDon = 150},
+		npc_dota_hero_silencer = {unitName = "change_hero_silencer", position = Vector(-474,-10162,512), minimumTotal = 2000, trialName = "hero_silencer_trial", minimumOneTimeDon = 200},
+	}
+	for name, heroData in pairs(self.heroes) do
+		heroData.available = {}
+		heroData.selected = {}
+		heroData.trialCount = {}
+		heroData.heroName = name
+		for i = 0, 4 do
+			heroData.available[i] = false
+			heroData.selected[i] = false
+		end
+	end
+end
+
+function ChangeHero:OnGameRulesStateChange()
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+		Timers:CreateTimer(1, function()
+			for heroName, heroData in pairs(self.heroes) do
+				heroData.unit = CreateUnitByName(heroData.unitName , heroData.position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+				if heroData.unit then
+					heroData.unit:AddNewModifier(heroData.unit,nil,"modifier_quest",{})
+					heroData.unitIndex = heroData.unit:entindex()
+					heroData.unit:SetForwardVector(heroData.unit:GetForwardVector() * -1)
+				end
+				for i = 0 , PlayerResource:GetPlayerCount()-1 do
+					if PlayerResource:IsValidPlayer(i) then
+						heroData.trialCount[i] = RATING["rating"][i+1][heroData.trialName]
+						if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
+							heroData.trialCount[i] = -1
+						end
+						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:isCheatOn() or heroData.trialCount[i] > 0 then
+							heroData.available[i] = true
+						end
+						if heroName == "npc_dota_hero_marci" and RATING["rating"][i+1]["patron"] == 1 then
+							heroData.trialCount[i] = -1
+							heroData.available[i] = true
+						end
+						if heroName == "npc_dota_hero_silencer" and RATING["rating"][i+1]["silencer_date"] ~= nil then
+							heroData.trialCount[i] = -1
+							heroData.available[i] = true
+						end
+					end
+				end
+			end
+			
+			CustomGameEventManager:Send_ServerToAllClients( "UpdateChangeHeresInfo", self.heroes )
+		end)
+	end
+end
+
+function ChangeHero:dota_player_gained_level(t)
+	local player = EntIndexToHScript( t.player )
+	local player_id = player:GetPlayerID()
+	for _, heroData in pairs(self.heroes) do
+		heroData.available[player_id] = false
+	end
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( player_id ), "UpdateChangeHeresInfo", self.heroes )
+end
+
+function ChangeHero:ChangeHeroLua(t)
+	if self.heroes[t.heroName].available[t.PlayerID] == false then return end
+	if Shop.pShop[t.PlayerID].totaldonate < self.heroes[t.heroName].minimumTotal then
+		self.heroes[t.heroName].trialCount[t.PlayerID] = RATING["rating"][t.PlayerID+1][self.heroes[t.heroName].trialName] - 1
+	end
+	self.heroes[t.heroName].selected[t.PlayerID] = true
+	for i = 0, 4 do
+		if PlayerResource:IsValidPlayer(i) then
+			self.heroes[t.heroName].available[i] = false
+		end
+	end 
+	for _, heroData in pairs(self.heroes) do
+		heroData.available[t.PlayerID] = false
+	end
+	local heroOld = PlayerResource:GetSelectedHeroName( t.PlayerID )
+	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	GoldNow = hero:GetGold()
+	PlayerResource:ReplaceHeroWith(t.PlayerID,t.heroName,0,0)
+	hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	hero:ModifyGoldFiltered(GoldNow, true, 0)
+	CustomGameEventManager:Send_ServerToAllClients( "talant_replace_hero", { PlayerID = t.PlayerID, hero_name = heroOld} )
+	talants:pickinfo(t.PlayerID,true)
+
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "UpdateChangeHeresInfo", self.heroes )
+	Shop.Change_Available[t.PlayerID] = true
+	Shop.pet[t.PlayerID] = nil
+	if Shop.Auto_Pet[t.PlayerID] then 
+		Shop:GetPet({
+			PlayerID = t.PlayerID,
+			pet = {name = Shop.Auto_Pet[t.PlayerID]},
+		})
+	else
+		Shop:GetPet({
+			PlayerID = t.PlayerID,
+			pet = {name = "spell_item_pet"},
+		})
+	end
+	Shop.Change_Available[t.PlayerID] = true
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(t.PlayerID), "UpdatePetIcon", {
+		can_change = Shop.Change_Available[t.PlayerID]
+	} )
+end
 
 Shop:init()
+ChangeHero:init()

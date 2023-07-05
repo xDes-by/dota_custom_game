@@ -68,6 +68,7 @@ end
 function talants:init()
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( talants, 'OnGameRulesStateChange'), self)
     CustomGameEventManager:RegisterListener("selectTalantButton", Dynamic_Wrap(talants, 'selectTalantButton'))
+    CustomGameEventManager:RegisterListener("selectTalantCheat", Dynamic_Wrap(talants, 'selectTalantCheat'))
     CustomGameEventManager:RegisterListener("talant_shop", Dynamic_Wrap(talants, 'talant_shop'))
     ListenToGameEvent("player_reconnected", Dynamic_Wrap( talants, 'OnPlayerReconnected' ), self)
     CustomGameEventManager:RegisterListener("HeroesAmountInfo", Dynamic_Wrap(talants, 'HeroesAmountInfo'))
@@ -152,13 +153,11 @@ function talants:OnGameRulesStateChange()
 	elseif gamestate == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         --------------------------------------------------------------- DOTA_GAMERULES_STATE_GAME_IN_PROGRESS
         for nPlayerID = 0, 5 -1 do
-            if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
-                if PlayerResource:HasSelectedHero( nPlayerID ) and PlayerResource:GetSelectedHeroEntity( nPlayerID ) then
-                    --------------------------------------------------------------- выдача опыта по таймеру
-                    Timers:CreateTimer(30*60, function()
-                        talants:tickExperience(nPlayerID)
-                    end)
-                end
+            if PlayerResource:IsValidPlayer(nPlayerID) and PlayerResource:HasSelectedHero( nPlayerID ) and PlayerResource:GetSelectedHeroEntity( nPlayerID ) then
+                --------------------------------------------------------------- выдача опыта по таймеру
+                Timers:CreateTimer(30*60, function()
+                    talants:tickExperience(nPlayerID)
+                end)
             end
         end
 	end
@@ -205,6 +204,49 @@ function talants:tickExperience(pid)
         end
         return 1
     end)
+end
+
+function talants:selectTalantCheat(t)
+    if not talants.testing[t.PlayerID] then return end
+    if ChatCommands:IsAvailable("selectTalantCheat", t.PlayerID) == false then return end
+    local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
+    local arg = t.i .. t.j
+    if tab[arg] == 1 then return end
+    if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
+        tab["freedonpoints"] = tonumber(tab["freedonpoints"]) - 1
+        tab[arg] = 1
+    elseif t.i ~= "don" and tonumber(tab["freepoints"]) > 0 then
+        tab["freepoints"] = tonumber(tab["freepoints"]) - 1
+        tab[arg] = 1
+    else
+        return
+    end
+    CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), tab)
+    local heroName = PlayerResource:GetSelectedHeroName(t.PlayerID)
+    local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
+    local tree = talantlist[heroName]
+    local skillname = nil
+    for skill_key, skill_value in pairs(tree) do
+        for pos_key, pos_value in pairs(skill_value.place) do
+            local s = pos_value
+            local words = {}
+            for w in (s .. " "):gmatch("([^ ]*) ") do 
+                table.insert(words, w) 
+            end
+            if words[1] == t.i and tonumber(words[2]) == tonumber(t.j) then
+                skillname = skill_key
+                break
+            end
+        end
+        if skillname ~= nil then
+            break
+        end
+    end
+    if t.i == "don" then
+        hero:AddNewModifier( hero, nil, skillname, {} )
+    elseif t.i ~= "don" then
+        hero:AddAbility(skillname):SetLevel(1)
+    end
 end
 
 function talants:selectTalantButton(t)
@@ -275,7 +317,8 @@ function talants:selectTalantButton(t)
         if t.i == "don" then
             hero:AddNewModifier( hero, nil, skillname, {} )
         elseif t.i ~= "don" then
-            hero:AddAbility(skillname):SetLevel(1)
+            ability = hero:AddAbility(skillname)
+            ability:SetLevel(1)
         end
     elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_HERO_SELECTION then
         if t.i == "don" and tonumber(progress[id]["freedonpoints"]) > 0 then
@@ -511,16 +554,14 @@ function talants:loadTree(PlayerID)
     --------------------------------------------------------------- Создание дерева
     -- print("loadTree INIT")
     for nPlayerID = 0, 5 -1 do
-        if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
-            if PlayerResource:HasSelectedHero( nPlayerID ) then
-                local heroname = PlayerResource:GetSelectedHeroName( nPlayerID )
-                local index = PlayerResource:GetSelectedHeroEntity( nPlayerID ):entindex()
-                local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-                pInfo[nPlayerID] = { heroname, index}
-                CustomNetTables:SetTableValue("talants", tostring(nPlayerID), progress[nPlayerID])
+        if PlayerResource:IsValidPlayer(nPlayerID) and PlayerResource:HasSelectedHero( nPlayerID ) and PlayerResource:GetSelectedHeroEntity( nPlayerID ) then
+            local heroname = PlayerResource:GetSelectedHeroName( nPlayerID )
+            local index = PlayerResource:GetSelectedHeroEntity( nPlayerID ):entindex()
+            local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+            pInfo[nPlayerID] = { heroname, index}
+            CustomNetTables:SetTableValue("talants", tostring(nPlayerID), progress[nPlayerID])
 -----------------------------------------------------------------------------------------------------------------------------	
-                talants:addskill(nPlayerID, true)
-            end
+            talants:addskill(nPlayerID, true)
         end
     end
     CustomGameEventManager:Send_ServerToAllClients( "talantTreeInit", { info = herotalant, players = pInfo, lvls = lvls, talant_shop = talant_shop, match =  tostring(GameRules:Script_GetMatchID())} )

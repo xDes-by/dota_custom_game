@@ -14,17 +14,22 @@ function ChatCommands:init()
 end
 
 function ChatCommands:IsAdmin(sid)
-    local admins = {
+    return table.has_value({
         1062658804, 81459554, --Ваня
         393187346, -- Витя
         455872541, -- Я
         -- Тестері
-        120578788, -- Dыnьka ;3
+        487111321,
         111684601, --Андрей (deal with it)
+    }, sid)
+end
+
+function ChatCommands:IsTester(sid)
+    return table.has_value({
+        120578788, -- Dыnьka ;3
         103583376, -- headmower1q
-        351759722, 487111321,
-    }
-    return table.has_value(admins, sid)
+        351759722, -- ᛝ Nุ MɆɌȻɎ BUT FRENZY △
+    }, sid)
 end
 
 function ChatCommands:SplitString(string)
@@ -39,52 +44,71 @@ function ChatCommands:Font()
     return "<font color='#df2170'>"
 end
 
+function ChatCommands:IsAvailable(commandName, pid)
+    local sid = PlayerResource:GetSteamAccountID(pid)
+    if self:IsAdmin(sid) then
+        self[commandName .. "_access"] = true
+        if commandName == "ActivateGodMode" then
+        end
+        return true
+    end
+    if self:IsTester(sid) then
+        if self[commandName .. "_access"] == true or DataBase:isCheatOn() == true then
+            return true
+        end
+    end
+    return false
+end
+
 function ChatCommands:OnChat(t)
     local text = t.text
     local pid = t.playerid
     local sid = PlayerResource:GetSteamAccountID(pid)
-    if self:IsAdmin(sid) then
+    if self:IsAdmin(sid) or self:IsTester(sid) then
         self:ActivateGodMode(pid, text)
         self:DeactivateGodMode(pid, text)
         self:Gold(pid, text)
         self:LevelUp(pid, text)
         self:CreateUnit(pid, text)
         self:ForceKillUnits(pid, text)
-        self:DropItems(pid, text)
+        -- self:DropItems(pid, text)
         self:DropBooks(pid, text)
         self:DropBag(pid, text)
         self:TestTalents(pid, text)
         self:Effect(pid, text)
         self:GiveSouls(pid, text)
         self:Box(pid, text)
-        
+        self:DropItemsNew(pid, text)
+        self:ChangeHero(pid, text)
         Timers:CreateTimer(0.1 ,function()
             self:CreateInfo(text)
-            self:Info(text)
+            self:Info(pid, text)
         end)
     end
 end
 
-function ChatCommands:Info(text)
+function ChatCommands:Info(pid, text)
     if text ~= "-info" then return end
-	self:ActivateGodMode(-1)
-    self:DeactivateGodMode(-1)
-    self:Effect(-1)
-    self:Gold(-1)
-    self:LevelUp(-1)
-    self:GiveSouls(-1)
-    self:Box(-1)
-    self:CreateUnit(-1)
-    self:ForceKillUnits(-1)
-    self:DropItems(-1)
-    self:DropBooks(-1)
-    self:DropBag(-1)
-    self:TestTalents(-1)
+	self:ActivateGodMode(pid, _, true)
+    self:DeactivateGodMode(pid, _, true)
+    self:Effect(pid, _, true)
+    self:Gold(pid, _, true)
+    self:LevelUp(pid, _, true)
+    self:GiveSouls(pid, _, true)
+    self:Box(pid, _, true)
+    self:CreateUnit(pid, _, true)
+    self:ForceKillUnits(pid, _, true)
+    -- self:DropItems(-1)
+    self:DropItemsNew(pid, _, true)
+    self:DropBooks(pid, _, true)
+    self:DropBag(pid, _, true)
+    self:TestTalents(pid, _, true)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:ActivateGodMode(pid, text)
+function ChatCommands:ActivateGodMode(pid, text, info)
+    if self:IsAvailable("ActivateGodMode", pid) == false then return end 
     local keyword = {"-god","a1","я гей"}
-    if pid < 0 then
+    if info then
         self:ActivateGodModeMessage(keyword)
         return
     end
@@ -109,9 +133,10 @@ function ChatCommands:ActivateGodModeMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:DeactivateGodMode(pid, text)
+function ChatCommands:DeactivateGodMode(pid, text, info)
+    if self:IsAvailable("DeactivateGodMode", pid) == false then return end 
     local keyword = {"--god","a2","я нормальный пидр"}
-    if pid < 0 then
+    if info then
         self:DeactivateGodModeMessage(keyword)
         return
     end
@@ -138,8 +163,9 @@ function ChatCommands:DeactivateGodModeMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:Effect(pid, text)
-    if pid < 0 then
+function ChatCommands:Effect(pid, text, info)
+    if self:IsAvailable("Effect", pid) == false then return end 
+    if info then
         self:EffectMessage(keyword)
         return
     end
@@ -170,9 +196,10 @@ function ChatCommands:EffectMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:Gold(pid, text)
+function ChatCommands:Gold(pid, text, info)
+    if self:IsAvailable("Gold", pid) == false then return end 
     local keyword = {"-gold", "gold", "g"}
-    if pid < 0 then
+    if info then
         self:GoldMessage(keyword)
         return
     end
@@ -203,9 +230,10 @@ function ChatCommands:GoldMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:LevelUp(pid, text)
+function ChatCommands:LevelUp(pid, text, info)
+    if self:IsAvailable("LevelUp", pid) == false then return end 
     local keyword = "-lvlup {значение} {игрок}"
-    if pid < 0 then
+    if info then
         self:LevelUpMessage(keyword)
         return
     end
@@ -227,9 +255,10 @@ function ChatCommands:LevelUpMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:GiveSouls(pid, text)
+function ChatCommands:GiveSouls(pid, text, info)
+    if self:IsAvailable("GiveSouls", pid) == false then return end 
     local keyword = {"-soul", "s"}
-    if pid < 0 then
+    if info then
         self:GiveSoulsMessage(keyword)
         return
     end
@@ -243,6 +272,10 @@ function ChatCommands:GiveSouls(pid, text)
             sInv:AddSoul("item_dust_soul", PlayerID)
             sInv:AddSoul("item_swamp_soul", PlayerID)
             sInv:AddSoul("item_snow_soul", PlayerID)
+            sInv:AddSoul("item_divine_soul", PlayerID)
+            sInv:AddSoul("item_dragon_soul", PlayerID)
+            sInv:AddSoul("item_dragon_soul_2", PlayerID)
+            sInv:AddSoul("item_dragon_soul_3", PlayerID)
         end
     end
     if split[2] and tonumber(split[2]) and PlayerResource:IsValidPlayer(tonumber(split[2])) then
@@ -263,9 +296,10 @@ function ChatCommands:GiveSoulsMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:CreateUnit(pid, text)
+function ChatCommands:CreateUnit(pid, text, info)
+    if self:IsAvailable("CreateUnit", pid) == false then return end 
     local keyword = "-createhero {название} [enemy]"
-    if pid < 0 then
+    if info then
         self:CreateUnitMessage(keyword)
         return
     end
@@ -328,9 +362,10 @@ function ChatCommands:CreateInfo(text)
     GameRules:SendCustomMessage(self:Font() .. "boss_earthshaker" .. "</font> Шейкер"  ,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:ForceKillUnits(pid, text)
+function ChatCommands:ForceKillUnits(pid, text, info)
+    if self:IsAvailable("ForceKillUnits", pid) == false then return end 
     local keyword = "-killall"
-    if pid < 0 then
+    if info then
         self:ForceKillUnitsMessage(keyword)
         return
     end
@@ -347,9 +382,10 @@ function ChatCommands:ForceKillUnitsMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:DropItems(pid, text)
+function ChatCommands:DropItems(pid, text, info)
+    if self:IsAvailable("DropItems", pid) == false then return end 
     local keyword = {"-drop","geycock"}
-    if pid < 0 then
+    if info then
         self:DropItemsMessage(keyword)
         return
     end
@@ -413,9 +449,125 @@ function ChatCommands:DropItemsMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:DropBooks(pid, text)
+function ChatCommands:DropItemsNew(pid, text, info)
+    if self:IsAvailable("DropItemsNew", pid) == false then return end 
+    local keyword = {"-drop"}
+    if info then
+        self:DropItemsNewMessage(keyword)
+        return
+    end
+    local split = self:SplitString(text)
+    if not table.has_value(keyword, split[1]) then return end
+    local hero = PlayerResource:GetSelectedHeroEntity(pid)
+    local owner = hero
+    local itemsType = 0
+    if split[2] and split[2] == "all" or (tonumber(split[2]) and tonumber(split[2]) >= 0 and tonumber(split[2]) <= 6) then
+        if split[2] == "all" then
+            itemsType = 6
+        else
+            itemsType = tonumber(split[2])
+        end
+        if split[3] and split[3] == "public" then
+            owner = nil
+        end
+    end
+    if split[2] and split[2] == "public" then
+        owner = nil
+    end
+    local heroPoint = hero:GetAbsOrigin()
+    local itemsList = {
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 300), name = "item_assault_lua8"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 300), name = "item_desolator_lua8"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 300), name = "item_butterfly_lua8"},
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 250), name = "item_monkey_king_bar_lua8"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 250), name = "item_vladmir_lua8"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 250), name = "item_hood_sword_lua8"},
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 200), name = "item_greater_crit_lua8"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 200), name = "item_moon_shard_lua8"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 200), name = "item_satanic_lua8"},
+
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 300), name = "item_kaya_custom_lua8"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 250), name = "item_bloodstone_lua8"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 200), name = "item_kaya_lua8"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 300), name = "item_sheepstick_lua8"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_veil_of_discord_lua8"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 200), name = "item_shivas_guard_lua8"},
+
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 300), name = "item_pudge_heart_lua8"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_mage_heart_lua8"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 200), name = "item_agility_heart_lua8"},
+
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 300), name = "item_heart_lua8"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 300), name = "item_crimson_guard_lua8"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 300), name = "item_octarine_core_lua8"},
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 250), name = "item_ring_of_flux_lua8"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 250), name = "item_meteor_hammer_lua8"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 250), name = "item_radiance_lua8"},
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 200), name = "item_ethereal_blade_lua8"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 200), name = "item_mjollnir_lua8"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 200), name = "item_bfury_lua8"},
+
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 100), name = "item_tank_cuirass8"},
+        {vector = Vector(heroPoint.x + 0, heroPoint.y + 100), name = "item_tank_crimson8"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 100), name = "item_tank_hell8"},
+    }
+    if itemsType == 6 then
+        for _, item in pairs(itemsList) do
+            item.vector = Vector(item.vector.x, item.vector.y-500)
+        end
+    end
+    if itemsType == 0 or itemsType == 6 then
+        for _, item in pairs(itemsList) do
+            local newItem = CreateItem( item.name, owner, owner )
+            if newItem then
+                local drop = CreateItemOnPositionForLaunch( item.vector, newItem )
+                newItem:LaunchLootInitialHeight( false, 0, 150, 0.2, item.vector )
+                newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )
+            end  
+        end
+    end
+    if itemsType >= 1 and itemsType <= 5 then
+        for _, item in pairs(itemsList) do
+            local itemname = item.name .. "_gem" .. itemsType
+            local newItem = CreateItem( itemname, owner, owner )
+            if newItem then
+                local drop = CreateItemOnPositionForLaunch( item.vector, newItem )
+                newItem:LaunchLootInitialHeight( false, 0, 150, 0.2, item.vector )
+                newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )
+            end
+        end
+    end
+    if itemsType == 6 then
+        for i = 1, 5 do
+            for _, item in pairs(itemsList) do
+                local itemname = item.name .. "_gem" .. i
+                local vector = Vector(item.vector.x, item.vector.y + 200 * i)
+                local newItem = CreateItem( itemname, owner, owner )
+                if newItem then
+                    local drop = CreateItemOnPositionForLaunch( vector, newItem )
+                    newItem:LaunchLootInitialHeight( false, 0, 150, 0.2, vector )
+                    newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )
+                end
+            end
+        end
+    end
+end
+function ChatCommands:DropItemsNewMessage(keyword)
+    local message = self:Font()
+    for i = 1, #keyword do
+        message = message .. keyword[i]
+        if i < #keyword then
+            message = message .. " / "
+        end
+    end
+    message = message .. " [0-6|all] [public]</font> Получить предметы последнего уровня"
+    GameRules:SendCustomMessage(message,0,0)
+end
+---------------------------------------------------------------------------------------------------
+function ChatCommands:DropBooks(pid, text, info)
+    if self:IsAvailable("DropBooks", pid) == false then return end 
     local keyword = "-books"
-    if pid < 0 then
+    if info then
         self:DropBooksMessage(keyword)
         return
     end
@@ -441,9 +593,10 @@ function ChatCommands:DropBooksMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:DropBag(pid, text)
+function ChatCommands:DropBag(pid, text, info)
+    if self:IsAvailable("DropBag", pid) == false then return end 
     local keyword = "-bags"
-    if pid < 0 then
+    if info then
         self:DropBagMessage(keyword)
         return
     end
@@ -482,9 +635,10 @@ function ChatCommands:DropBagMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:Box(pid, text)
+function ChatCommands:Box(pid, text, info)
+    if self:IsAvailable("Box", pid) == false then return end 
     local keyword = "box"
-    if pid < 0 then
+    if info then
         self:BoxMessage(keyword)
         return
     end
@@ -529,6 +683,50 @@ function ChatCommands:TestTalents(pid, text)
 	talants:fillTabel(pid, true, false)
 end
 function ChatCommands:TestTalentsMessage(keyword)
+    local message = self:Font()
+    for i = 1, #keyword do
+        message = message .. keyword[i]
+        if i < #keyword then
+            message = message .. " / "
+        end
+    end
+    message = message .. "</font> Режим тестирования талантов"
+    GameRules:SendCustomMessage(message,0,0)
+end
+---------------------------------------------------------------------------------------------------
+function ChatCommands:ChangeHero(pid, text)
+    if pid < 0 then
+        -- self:ChangeHeroMessage(keyword)
+        return
+    end
+    if text == "salo" then
+        local heroOld = PlayerResource:GetSelectedHeroName( pid )
+        local hero = PlayerResource:GetSelectedHeroEntity( pid )
+        GoldNow = hero:GetGold()
+        PlayerResource:ReplaceHeroWith(pid,"npc_dota_hero_silencer",0,0)
+        hero = PlayerResource:GetSelectedHeroEntity( pid )
+        hero:ModifyGoldFiltered(GoldNow, true, 0)
+        CustomGameEventManager:Send_ServerToAllClients( "talant_replace_hero", { PlayerID = pid, hero_name = heroOld} )
+        talants:pickinfo(pid,true)
+        Shop.pet[pid] = nil
+        if Shop.Auto_Pet[pid] then 
+            Shop:GetPet({
+                PlayerID = pid,
+                pet = {name = Shop.Auto_Pet[pid]},
+            })
+        else
+            Shop:GetPet({
+                PlayerID = pid,
+                pet = {name = "spell_item_pet"},
+            })
+        end
+        Shop.Change_Available[pid] = true
+        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {
+            can_change = Shop.Change_Available[pid]
+        } )
+    end
+end
+function ChatCommands:ChangeHeroMessage(keyword)
     local message = self:Font()
     for i = 1, #keyword do
         message = message .. keyword[i]

@@ -18,6 +18,7 @@ function Quests:init()
 	CustomGameEventManager:RegisterListener("acceptButton", Dynamic_Wrap(Quests, 'acceptButton'))
 	CustomGameEventManager:RegisterListener("selectItem", Dynamic_Wrap(Quests, 'selectItem'))
 	CustomGameEventManager:RegisterListener("minimapEvent", Dynamic_Wrap(Quests, 'minimapEvent'))
+	CustomGameEventManager:RegisterListener("auto_quest_toggle", Dynamic_Wrap(Quests, 'auto_quest_toggle'))
 	--GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(Quests, 'OnDamageDealt'), self)
     Quests.questTabel = LoadKeyValues("scripts/kv/quests.txt")
 	-- print("Quests.questTabel", Quests.questTabel)
@@ -36,13 +37,19 @@ function Quests:init()
 	Quests.complite_quest_main = "particles/vopros_gold.vpcf"
 	Quests.has_quest_bonus = "particles/voskl_blue.vpcf"
 	Quests.complite_quest_bonus = "particles/vopros_blue.vpcf"
+	Quests.auto = {}
+	Quests.midLine = {9,11,12,13,14,15,16,17,18}
+	Quests.midLine2 = {10, 20, 25}
+	Quests.trialPeriodCount = {}
 end
 
 function Quests:OnGameRulesStateChange()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		--print("OnGameRulesStateChange")
-		Timers:CreateTimer(2, function() Quests:createNPC()  end)
-		--Timers:CreateTimer(2, function() Quests:updateParticle() end)
+		Timers:CreateTimer(2, function() 
+			Quests:createNPC()
+			Quests:AutoQuestToggleInit()
+		end)
 		
 		
 	end
@@ -53,7 +60,7 @@ function Quests:PlayerConnectFull()
 end
 
 function Quests:OnRunePickup(t)
-	_G.Quests:compl("bonus", 1, 1, t.PlayerID)
+	Quests:UpdateCounter("bonus", 1, 1, t.PlayerID)
 end
 
 function Quests:OnPlayerReconnected(keys)
@@ -165,7 +172,7 @@ function Quests:FillTable()
 	CustomNetTables:SetTableValue("quests", 'giveItem', giveItem)
 end
 
-function _G.Quests:compl(type, number, task, id, kol)
+function Quests:UpdateCounter(type, number, task, id, kol)
 	local n = 1
 	if kol and kol > 1 then
 		n = kol
@@ -185,11 +192,19 @@ function _G.Quests:compl(type, number, task, id, kol)
 		else
 			player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"] = player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["HowMuch"]
 			CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
-			Quests:updateParticle()
+			if Quests.auto[id] then
+				Quests:AutoComplete({
+					pid = id,
+					type = type,
+					number = number,
+					task = task,
+				})
+			else
+				Quests:updateParticle()
+			end
 		end
-		
     end
-
+	
 end
 
 function Quests:OnNPCSpawned(t)
@@ -217,7 +232,7 @@ function Quests:OnNPCSpawned(t)
 			bonus = {},
 			exchanger = {}
 		}
-		for _,main in pairs{'main', 'bonus'} do
+		for _,main in pairs ({'main', 'bonus'}) do
 			for k1,v1 in pairs(quests[main]) do
 				player_info[tostring(steamID)][main][tostring(k1)] = {}
 				player_info[tostring(steamID)][main][tostring(k1)]["tasks"] = {}
@@ -606,6 +621,62 @@ function Quests:minimapEvent(t)
 	Quests:updateMinimap(t.pid, {t.type,t.number,t.task})
 end
 
+function Quests:AutoQuestToggleInit()
+	for i = 1, PlayerResource:GetPlayerCount() do
+		local subscribe = false 
+		if RATING["rating"][i]["patron"] and RATING["rating"][i]["patron"] == 1 then
+			subscribe = true
+		end
+		if PlayerResource:IsValidPlayer(i-1) and RATING["rating"][i] and RATING["rating"][i]['auto_quest_trial'] ~= nil then
+			Quests.trialPeriodCount[i-1] = RATING["rating"][i]['auto_quest_trial']
+			if subscribe and RATING["rating"][i]['auto_quest'] and RATING["rating"][i]['auto_quest'] == 1 then
+				Quests.auto[i-1] = true
+			else
+				Quests.auto[i-1] = false
+			end
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(i-1),"change_auto_quest_toggle_state",{
+				toggle_state = Quests.auto[i-1], 
+				count = Quests.trialPeriodCount[i-1],
+				subscribe = subscribe,
+			})
+		end
+	end
+end
+
+function Quests:auto_quest_toggle(t)
+	local subscribe = false 
+	if RATING["rating"][t.PlayerID+1]["patron"] and RATING["rating"][t.PlayerID+1]["patron"] == 1 then
+		subscribe = true
+	end
+	if subscribe == false and Quests.trialPeriodCount[t.PlayerID] > 0 then
+		Quests.trialPeriodCount[t.PlayerID] = RATING["rating"][t.PlayerID+1]['auto_quest_trial'] - 1
+		Quests.auto[t.PlayerID] = t.toggle_state == 1
+		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.PlayerID),"change_auto_quest_toggle_state",{
+			toggle_state = Quests.auto[t.PlayerID], 
+			count = Quests.trialPeriodCount[t.PlayerID],
+			subscribe = subscribe,
+		})
+	elseif subscribe == false then
+		if t.toggle_state == 1 then
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.PlayerID),"change_auto_quest_toggle_state",{
+				toggle_state = false, 
+				count = Quests.trialPeriodCount[t.PlayerID],
+				subscribe = subscribe,
+			})
+		end
+	elseif subscribe == true then
+		Quests.auto[t.PlayerID] = t.toggle_state == 1
+		DataBase:AutoQuestToggle(t)
+	end
+end
+
+function Quests:AutoComplete(t)
+	t.task = t.task + 1
+	t.number = tonumber(t.number)
+	Quests:acceptButton(t)
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.pid),"QuestEmitSound",{})
+end
+
 function Quests:selectItem(t)
 	local steamID = PlayerResource:GetSteamAccountID(t.pid)
 	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
@@ -614,7 +685,6 @@ function Quests:selectItem(t)
 end
 
 function Quests:acceptButton(t)
-	DeepPrintTable(t)
 	local steamID = PlayerResource:GetSteamAccountID(t.pid)
 	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
 	local sound = false
@@ -663,6 +733,9 @@ function Quests:acceptButton(t)
 		player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)]['active'] = 1
 		
 	elseif player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil then
+		if t.type == 'bonus' and tonumber(t.number) == Quests.midLine[2] and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['selectedItem'] == 0 then
+			return
+		end
 		if tonumber(player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task-1)]['have']) < tonumber(player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task-1)]['HowMuch']) then
 			Timers:CreateTimer(0, function() CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.pid),"open_quest_window",{index = t.index, sound = sound})  end)
 			return
@@ -678,7 +751,7 @@ function Quests:acceptButton(t)
 			Quests.giveSelectedItem(t.type, t.number, t.task, t.pid)
 		end
 		Quests:giveReward(t.type, t.number, t.task, t.pid)
-		if t.type == 'bonus' and t.number == 11 and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['selectedItem'] ~= 0 then
+		if t.type == 'bonus' and t.number == Quests.midLine[2] and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['selectedItem'] ~= 0 then
 			local selectedItem = player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["selectedItem"]
 			player_info[tostring(steamID)][tostring(t.type)][tostring(12)]["selectedItem"] = selectedItem
 			player_info[tostring(steamID)][tostring(t.type)][tostring(13)]["selectedItem"] = selectedItem
@@ -702,11 +775,6 @@ function Quests:acceptButton(t)
 		sound = true
 	end
 	CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
-	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil and t.type == 'main' and player_info[tostring(steamID)]['main'][tostring(t.number+1)] ~= nil then
-		t.number = t.number + 1
-		t.task = 1
-		Quests:acceptButton(t)
-	end
 	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["renewable"] == 1
 	and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil then
 		Quests:renewableQuest(t.type, t.number, t.task, t.pid)
@@ -722,7 +790,6 @@ function Quests:acceptButton(t)
 	end
 	Quests:updateKillList()
 	Quests:createDropList()
-	--Quests:updateTaikAndMaik(t.pid)
 	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task-1)] and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task-1)]["NotTakeAway"] == 0 then
 		Quests:deliteItem(t.type, t.number, t.task, t.pid)
 	end
@@ -730,6 +797,28 @@ function Quests:acceptButton(t)
 	Timers:CreateTimer(0, function() CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.pid),"open_quest_window",{index = t.index, sound = sound})  end)
 	Quests:basically_complete(t.type, t.number, t.task, t.pid)
 	Quests:updateParticle()
+	if Quests.auto[t.pid] == true and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['complete'] == 1 and player_info[tostring(steamID)][t.type][tostring(t.number+1)] ~= nil then
+		if t.type == 'main' then
+			t.number = t.number + 1
+			t.task = 1
+			Quests:acceptButton(t)
+		elseif t.type == 'bonus' and table.has_value(Quests.midLine, tonumber(t.number) ) then
+			local pos = table.findkey(Quests.midLine, tonumber(t.number))
+			if pos < #Quests.midLine then
+				t.number = Quests.midLine[pos+1]
+				t.task = 1
+				Quests:acceptButton(t)
+			end
+		elseif t.type == 'bonus' and table.has_value(Quests.midLine2, tonumber(t.number) ) then
+			local pos = table.findkey(Quests.midLine2, tonumber(t.number))
+			if pos < #Quests.midLine2 then
+				t.number = Quests.midLine2[pos+1]
+				t.task = 1
+				Quests:acceptButton(t)
+			end
+		end
+	end
+	
 end
 
 function Quests:updateTaikAndMaik(pid)
@@ -1008,7 +1097,11 @@ function Quests.giveItem(id, itemName, n)
 	-- print('giveItem')
 	local hero = PlayerResource:GetSelectedHeroEntity( id )
 	for i = 1, n do
-		hero:AddItemByName(itemName)
+		if itemName == 'item_dragon_soul' or itemName == 'item_dragon_soul_2' or itemName == 'item_dragon_soul_3' then
+			sInv:AddSoul(itemName, id)
+		else
+			hero:AddItemByName(itemName)
+		end
 	end
 end
 
@@ -1069,7 +1162,7 @@ function Quests:OnEntityKilled( keys )
 		if name == n then
 			for i = 0, PlayerResource:GetPlayerCount()-1 do
 				if PlayerResource:IsValidPlayer(i) then
-					_G.Quests:compl("bonus", 2, 1, i)
+					Quests:UpdateCounter("bonus", 2, 1, i)
 				end
 			end
 		end
@@ -1127,43 +1220,62 @@ function Quests:OnEntityKilled( keys )
 				local playerID = heroes[i]:GetPlayerID()
 				local steamID = PlayerResource:GetSteamAccountID(playerID)
 				local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-				--print('if player_info and heroes[i]:IsAlive() then')
+				local player_info_changed = false
 				if player_info and heroes[i]:IsAlive() then
-					--DeepPrintTable(player_info)
 					if Quests.unitsKillList[name] then 
 						for k,v in pairs(Quests.unitsKillList[name][playerID]) do
-							--print('DeepPrint v')
-							--DeepPrintTable(v)
 							local type = v[1]
 							local number = v[2]
 							local task = v[3]
+							if player_info_changed then
+								player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
+							end
 							if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] < player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
 								player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] = player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] + 1
-								--print('ok_1')
+								player_info_changed = true
 								CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 								if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] == player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
-									--print('ok_2')
-									Quests:updateParticle()
-									Quests:updateMinimap(playerID, {type,number,task})
+									print("Quests.auto:",Quests.auto[playerID])
+									if Quests.auto[playerID] then
+										Quests:AutoComplete({
+											pid = playerID,
+											type = type,
+											number = number,
+											task = task,
+										})
+									else
+										Quests:updateParticle()
+										Quests:updateMinimap(playerID, {type,number,task})
+									end
 								end
 							end
 						end
 					end
 					if Quests.unitsKillList['any_creep'] ~= nil and Quests.unitsKillList['any_creep'].active == true then
 						for k,v in pairs(Quests.unitsKillList['any_creep'][playerID]) do
-							--print('DeepPrint v')
-							--DeepPrintTable(v)
+							if player_info_changed then
+								player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
+							end
 							local type = v[1]
 							local number = v[2]
 							local task = v[3]
 							if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] < player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
 								player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] = player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] + 1
-								--print('ok_1')
 								CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 								if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] == player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
-									--print('ok_2')
-									Quests:updateParticle()
-									Quests:updateMinimap(playerID, {type,number,task})
+									if Quests.auto[playerID] then
+										Quests:AutoComplete({
+											pid = playerID,
+											type = type,
+											number = number,
+											task = task,
+										})
+									else
+										Quests:updateParticle()
+										Quests:updateMinimap(playerID, {type,number,task})
+									end
+									
+									
 								end
 							end
 						end
@@ -1306,6 +1418,12 @@ function Quests:updateItems(id)
 								Quests:updateParticle()
 								if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] == player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch'] then
 									Quests:updateMinimap(id, {k1,k2,k3})
+									Quests:AutoComplete({
+										pid = id,
+										type = k1,
+										number = k2,
+										task = k3,
+									})
 								end
 							end
 						end

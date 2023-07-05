@@ -13,12 +13,12 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityCasrRange"				"250"
+		"AbilityCastRange"				"250"
 
 		"AbilityValues"
 		{
 			"damage"					"80 160 240 320 400 480 560 640 720 800"
-			"agility_dmg"				"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+			"agility_dmg"				"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			"self_hit"					"5"
 			"slow"						"25"
 			"radius"					"250"

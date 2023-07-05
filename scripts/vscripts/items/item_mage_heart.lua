@@ -37,85 +37,87 @@ function modifier_item_mage_heart_passive:OnCreated( kv )
 	local ability = self:GetAbility()
     self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
     self.tick = self:GetAbility():GetSpecialValueFor("tick")
-	self:StartIntervalThink(self.tick)
+	if IsServer() then
+		self:StartIntervalThink(self.tick)
+	end
 end
 
 --------------------------
 function modifier_item_mage_heart_passive:OnIntervalThink()		
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
-		local ability = self:GetAbility()
-		
-		local maxcount = ability:GetSpecialValueFor('count')
-		local radius = ability:GetSpecialValueFor('radius')
-		local damage = caster:GetIntellect() /2
-
-		local enemy_list = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)		
-		
-		local count = 0
-		for _,enemy in pairs(enemy_list) do
-			if count < maxcount then
-				count = count + 1
-				self:_FireEffect(enemy)
-				self:_ApplyDamage(enemy)
-			end
-		end
-	end
-
-	function modifier_item_mage_heart_passive:_OnAttacked(attacker)
-		local parent = self:GetParent()
-		local ability = self:GetAbility()
+	local parent = self:GetParent()
+	local caster = self:GetCaster()
+	local ability = self:GetAbility()
 	
-		if parent.attack_counter > 1 then
-			parent.attack_counter = parent.attack_counter - 1
-			parent:SetHealth(parent.attack_counter)
-			parent:ModifyHealth(parent.attack_counter, ability, false, 0)
+	local maxcount = ability:GetSpecialValueFor('count')
+	local radius = ability:GetSpecialValueFor('radius')
+	local damage = caster:GetIntellect() /2
+
+	local enemy_list = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)		
+	
+	local count = 0
+	for _,enemy in pairs(enemy_list) do
+		if count < maxcount then
+			count = count + 1
+			self:_FireEffect(enemy)
+			self:_ApplyDamage(enemy)
 		end
 	end
+end
 
-	function modifier_item_mage_heart_passive:_FireEffect(target)
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
-		local ability = self:GetAbility()
+function modifier_item_mage_heart_passive:_OnAttacked(attacker)
+	local parent = self:GetParent()
+	local ability = self:GetAbility()
 
-		local ward = parent
-		-- There are some light/medium/heavy unused versions
-		local p_list = {
-			"particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf",
-			"particles/units/heroes/hero_pugna/pugna_ward_attack_light.vpcf",
-			"particles/units/heroes/hero_pugna/pugna_ward_attack_medium.vpcf",
-			"particles/units/heroes/hero_pugna/pugna_ward_attack_heavy.vpcf",
-		}
-		local p_id = RandomInt(1, #p_list)
-		local p_name = p_list[p_id]
-		local p_attack = ParticleManager:CreateParticle(p_name, PATTACH_ABSORIGIN_FOLLOW, ward)
-		ParticleManager:SetParticleControl(p_attack, 1, target:GetAbsOrigin())
-		ParticleManager:ReleaseParticleIndex(p_attack)
-
-		--target:EmitSound("Hero_Pugna.NetherWard.Target")
-		-- caster:EmitSound("Hero_Pugna.NetherWard.Attack")
-		ward:EmitSound("Hero_Pugna.NetherWard.Attack")
+	if parent.attack_counter > 1 then
+		parent.attack_counter = parent.attack_counter - 1
+		parent:SetHealth(parent.attack_counter)
+		parent:ModifyHealth(parent.attack_counter, ability, false, 0)
 	end
+end
 
-	function modifier_item_mage_heart_passive:_ApplyDamage(target)
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
-		local ability = self:GetAbility()
+function modifier_item_mage_heart_passive:_FireEffect(target)
+	local parent = self:GetParent()
+	local caster = self:GetCaster()
+	local ability = self:GetAbility()
 
-		local damage = caster:GetIntellect() /2
+	local ward = parent
+	-- There are some light/medium/heavy unused versions
+	local p_list = {
+		"particles/units/heroes/hero_pugna/pugna_ward_attack.vpcf",
+		"particles/units/heroes/hero_pugna/pugna_ward_attack_light.vpcf",
+		"particles/units/heroes/hero_pugna/pugna_ward_attack_medium.vpcf",
+		"particles/units/heroes/hero_pugna/pugna_ward_attack_heavy.vpcf",
+	}
+	local p_id = RandomInt(1, #p_list)
+	local p_name = p_list[p_id]
+	local p_attack = ParticleManager:CreateParticle(p_name, PATTACH_ABSORIGIN_FOLLOW, ward)
+	ParticleManager:SetParticleControl(p_attack, 1, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(p_attack)
 
-		ApplyDamage({
-			attacker = caster,
-			victim = target,
-			ability = ability,
-			damage_type = ability:GetAbilityDamageType(),
-			damage = damage
-		})
-	end
+	--target:EmitSound("Hero_Pugna.NetherWard.Target")
+	-- caster:EmitSound("Hero_Pugna.NetherWard.Attack")
+	ward:EmitSound("Hero_Pugna.NetherWard.Attack")
+end
+
+function modifier_item_mage_heart_passive:_ApplyDamage(target)
+	local parent = self:GetParent()
+	local caster = self:GetCaster()
+	local ability = self:GetAbility()
+
+	local damage = caster:GetIntellect() /2
+
+	ApplyDamage({
+		attacker = caster,
+		victim = target,
+		ability = ability,
+		damage_type = ability:GetAbilityDamageType(),
+		damage = damage
+	})
+end
 
 
 
-
+	
 end
 
 -----------------------

@@ -36,15 +36,17 @@ function modifier_huskar_burning_spear_lua:OnCreated( kv )
 	self.dps = self:GetAbility():GetSpecialValueFor( "burn_damage" )
 
 	if IsServer() then
+		self.auto_attack = kv.auto_attack
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_int10") then
-			self:AddStack()
-			self:AddStack()
+			self:AddStack(7)
+		else
+			self:AddStack(self:GetAbility():GetSpecialValueFor("stack"))
 		end
-		self:AddStack()
+
 		-- increment stack
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi8") and RandomInt(1,100) <= 20 then
-			self:AddStack()
-		end
+		-- if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi8") and RandomInt(1,100) <= 20 then
+		-- 	self:AddStack()
+		-- end
 
 		-- precache damage
 		self.damageTable = {
@@ -56,21 +58,23 @@ function modifier_huskar_burning_spear_lua:OnCreated( kv )
 		}
 
 		-- start interval
-		self:StartIntervalThink( 1 )
-		self:OnIntervalThink()
+		self.interval = 0.5
+		self:StartIntervalThink( self.interval )
 	end
 end
 
-function modifier_huskar_burning_spear_lua:AddStack()
+function modifier_huskar_burning_spear_lua:AddStack(count)
+	count = count or 1
 	local mod = self:GetParent():AddNewModifier(
 		self:GetParent(), -- player source
 		self:GetAbility(), -- ability source
 		"modifier_huskar_burning_spear_lua_stack", -- modifier name
 		{
 			duration = self:GetAbility():GetSpecialValueFor("duration"),
-		} -- kv
+		}
 	)
-	self:IncrementStackCount()
+	mod:SetStackCount( mod:GetStackCount() +  count)
+	self:SetStackCount( self:GetStackCount() +  count )
 end
 
 
@@ -81,8 +85,11 @@ function modifier_huskar_burning_spear_lua:OnRefresh( kv )
 
 	if IsServer() then
 		self:AddStack()
+		if kv.auto_attack == true then
+			self.auto_attack = true
+		end
 		-- increment stack
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi8") and RollPseudoRandomPercentage(20, self:GetParent():entindex(), self:GetParent()) then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi9") and RollPseudoRandomPercentage(20, self:GetParent():entindex(), self:GetParent()) then
 			self:AddStack()
 		end
 	end
@@ -101,8 +108,11 @@ end
 -- Interval Effects
 function modifier_huskar_burning_spear_lua:OnIntervalThink()
 	-- apply dot damage
-	
-	self.damageTable.damage = self:CalculateDamage()
+	if self.auto_attack == 1 then
+		self.damageTable.damage = self:CalculateDamage()
+	else
+		self.damageTable.damage = self:CalculateDamage() * 0.75
+	end
 	ApplyDamage( self.damageTable )
 end
 
@@ -137,15 +147,15 @@ function modifier_huskar_burning_spear_lua:CalculateDamage()
 	if caster:FindAbilityByName("npc_dota_hero_huskar_str8") then
 		damage = damage + caster:GetStrength() * 0.07
 	end
-	-- if caster:FindAbilityByName("npc_dota_hero_huskar_agi_last") then
-	-- 	damage = damage + self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 0.15
-	-- 	self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
-	-- 	self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-	-- end
+	if caster:FindAbilityByName("npc_dota_hero_huskar_agi_last") then
+		damage = damage + self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 0.25
+		self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
+		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+	end
 	if caster:FindAbilityByName("npc_dota_hero_huskar_int_last") then
 		damage = damage * 1.4
 	end
-	return self:GetStackCount() * damage
+	return self:GetStackCount() * damage * self.interval
 end
 
 function modifier_huskar_burning_spear_lua:GetModifierPhysicalArmorBonus()
@@ -159,9 +169,9 @@ function modifier_huskar_burning_spear_lua:GetModifierPhysicalArmorBonus()
 end
 -- 
 function modifier_huskar_burning_spear_lua:OnTakeDamage(params)
-	if params.attacker == self:GetCaster() and self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi_last") and params.damage_type == DAMAGE_TYPE_PHYSICAL and RollPseudoRandomPercentage(10, self:GetParent():entindex(), self:GetParent()) then
-		self.damageTable.damage = self:CalculateDamage()
-		print(self.damageTable.damage)
-		ApplyDamage( self.damageTable )
-	end
+	-- if params.attacker == self:GetCaster() and self:GetCaster():FindAbilityByName("npc_dota_hero_huskar_agi_last") and params.damage_type == DAMAGE_TYPE_PHYSICAL and RollPseudoRandomPercentage(10, self:GetParent():entindex(), self:GetParent()) then
+	-- 	self.damageTable.damage = self:CalculateDamage()
+	-- 	print(self.damageTable.damage)
+	-- 	ApplyDamage( self.damageTable )
+	-- end
 end

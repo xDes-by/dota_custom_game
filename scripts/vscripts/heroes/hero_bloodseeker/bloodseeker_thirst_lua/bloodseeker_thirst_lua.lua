@@ -7,8 +7,39 @@ function bloodseeker_thirst_lua:GetIntrinsicModifierName()
     return "modifier_bloodseeker_thirst_lua"
 end
 
----------------------------------------------------------------------------------------
+function bloodseeker_thirst_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+	end
+	return DOTA_ABILITY_BEHAVIOR_PASSIVE
+end
 
+function bloodseeker_thirst_lua:GetCooldown()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
+		return 60
+	end
+	return 0
+end
+
+function bloodseeker_thirst_lua:GetHealthCost()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
+		return self:GetCaster():GetHealth() / 2
+	end
+	return 0
+end
+
+function bloodseeker_thirst_lua:OnSpellStart()
+	modifier = self:GetCaster():FindModifierByName("modifier_bloodseeker_thirst_lua")
+	modifier:AddStack(self:GetCaster():GetLevel())
+end
+
+
+
+-- 
+---------------------------------------------------------------------------------------
+-- if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
+-- 	return self:GetAbility():GetSpecialValueFor("bonus_movespeed") * self:GetStackCount() * 2
+-- end
 modifier_bloodseeker_thirst_lua = class({})
 
 function modifier_bloodseeker_thirst_lua:IsHidden()
@@ -74,19 +105,27 @@ end
 function modifier_bloodseeker_thirst_lua:OnDeath(params)
 	if self:GetCaster() ~= params.attacker then return end
 	self:AddStack()
-	self:GetParent():Heal(self:GetParent():GetMaxHealth() / 100 * self:GetAbility():GetSpecialValueFor("bonus_lifesteal"), self:GetAbility())
+	heal = self:GetParent():GetMaxHealth() / 100 * self:GetAbility():GetSpecialValueFor("bonus_lifesteal")
+	SendOverheadEventMessage( self:GetCaster(), OVERHEAD_ALERT_HEAL , self:GetCaster(), heal, nil )
+	self:GetParent():Heal(heal, self:GetAbility())
 end
 
-function modifier_bloodseeker_thirst_lua:AddStack()
+function modifier_bloodseeker_thirst_lua:AddStack(count)
+	count = count or 1
+	local duration = self:GetAbility():GetSpecialValueFor("duration")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") and RandomInt(1, 100) <= 20 then
+		duration = 120
+	end
 	local mod = self:GetParent():AddNewModifier(
 		self:GetParent(), -- player source
 		self:GetAbility(), -- ability source
 		"modifier_bloodseeker_thirst_lua_stack", -- modifier name
 		{
 			duration = self:GetAbility():GetSpecialValueFor("duration"),
-		} -- kv
+		}
 	)
-	self:IncrementStackCount()
+	mod:SetStackCount( mod:GetStackCount() +  count)
+	self:SetStackCount( self:GetStackCount() +  count )
 end
 
 function modifier_bloodseeker_thirst_lua:GetModifierBonusStats_Agility()
@@ -131,9 +170,9 @@ end
 -- end
 
 function modifier_bloodseeker_thirst_lua:GetModifierMoveSpeedBonus_Constant()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
-		return self:GetAbility():GetSpecialValueFor("bonus_movespeed") * self:GetStackCount() * 2
-	end
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str7") then
+	-- 	return self:GetAbility():GetSpecialValueFor("bonus_movespeed") * self:GetStackCount() * 2
+	-- end
 	return self:GetAbility():GetSpecialValueFor("bonus_movespeed") * self:GetStackCount()
 end
 
@@ -218,7 +257,8 @@ function modifier_bloodseeker_thirst_lua_stack:OnRemoved()
 	if IsServer() then
 		-- decrement stack
 		if not self:GetCaster():FindModifierByName("modifier_bloodseeker_thirst_lua"):IsNull() then
-			self:GetCaster():FindModifierByName("modifier_bloodseeker_thirst_lua"):DecrementStackCount()
+			local modifier_bloodseeker_thirst_lua = self:GetCaster():FindModifierByName("modifier_bloodseeker_thirst_lua")
+			modifier_bloodseeker_thirst_lua:SetStackCount(modifier_bloodseeker_thirst_lua:GetStackCount() - self:GetStackCount())
 		end
 	end
 end

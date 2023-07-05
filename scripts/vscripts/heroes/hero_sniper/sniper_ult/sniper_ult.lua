@@ -36,13 +36,14 @@ if not IsServer() then return end
 			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi11") ~= nil then 
 				caster_damage = keys.attacker:GetAverageTrueAttackDamage(nil)
 			end
-			flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION 
-			
-			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi_last") ~= nil then
-				flags = DOTA_DAMAGE_FLAG_NONE 
-			end
+			flags =  DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 			local boom_damage = math.ceil(caster_damage * damage / 100)
-			
+
+			if self:GetParent():FindAbilityByName("npc_dota_hero_sniper_agi_last") ~= nil then
+				-- flags = DOTA_DAMAGE_FLAG_NONE 
+				boom_damage = boom_damage + boom_damage * self:GetCaster():GetSpellAmplification(false) * 0.10
+			end
+
 			damage_table = {
 				attacker = keys.attacker,
 				damage = boom_damage,

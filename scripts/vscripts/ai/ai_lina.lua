@@ -35,7 +35,7 @@ function NecroLordThink()
    for _, hEnemy in pairs( enemies ) do
 	local id = hEnemy:GetPlayerID()
 	--towershop:StartGame()  
-	_G.Quests:compl("main", 7, 1, id)
+	Quests:UpdateCounter("main", 7, 1, id)
 		end
 	return 0.1
 end

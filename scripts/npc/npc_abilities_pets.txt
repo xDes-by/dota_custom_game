@@ -21,12 +21,12 @@
 	}
 	
     //======================================================================================================================================
-    "spell_item_pet_donate_simple_1"
+    "spell_item_pet_RDA_simple_1"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_1"
-		"ScriptFile"					"items/pets/pet_donate_simple_1"
+		"ScriptFile"					"items/pets/pet_rda_simple_1"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -41,12 +41,12 @@
 		}
 	}
 	
-    "spell_item_pet_donate_simple_2"
+    "spell_item_pet_RDA_simple_2"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_2"
-		"ScriptFile"					"items/pets/pet_donate_simple_2"
+		"ScriptFile"					"items/pets/pet_rda_simple_2"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -61,12 +61,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_simple_3"
+    "spell_item_pet_RDA_simple_3"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_3"
-		"ScriptFile"					"items/pets/pet_donate_simple_3"
+		"ScriptFile"					"items/pets/pet_rda_simple_3"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -81,12 +81,12 @@
 		}
 	}
     //======================================================================================================================================
-    "spell_item_pet_donate_gold"
+    "spell_item_pet_RDA_gold"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK  | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/greevil"
-		"ScriptFile"					"items/pets/pet_donate_gold"
+		"ScriptFile"					"items/pets/pet_rda_gold"
 		//"ItemIsNeutralDrop"			"1"
 		//"ItemPurchasable"				"0"
 		//"AbilityCooldown"				"10.0"
@@ -106,12 +106,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_dmg"
+    "spell_item_pet_RDA_dmg"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Seekling"
-		"ScriptFile"					"items/pets/pet_donate_dmg"
+		"ScriptFile"					"items/pets/pet_rda_dmg"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -131,12 +131,12 @@
 		}
 	}
 	
-    "spell_item_pet_donate_hp"
+    "spell_item_pet_RDA_hp"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Butch"
-		"ScriptFile"					"items/pets/pet_donate_hp"
+		"ScriptFile"					"items/pets/pet_rda_hp"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -156,12 +156,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_fast"
+    "spell_item_pet_RDA_fast"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Arneyb"
-		"ScriptFile"					"items/pets/pet_donate_fast"
+		"ScriptFile"					"items/pets/pet_rda_fast"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -176,12 +176,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_cleave"
+    "spell_item_pet_RDA_cleave"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Rex"
-		"ScriptFile"					"items/pets/pet_donate_cleave"
+		"ScriptFile"					"items/pets/pet_rda_cleave"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -206,12 +206,12 @@
 		}
 	}
 	
-	"spell_item_pet_donate_block"
+	"spell_item_pet_RDA_block"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/deathripper"
-		"ScriptFile"					"items/pets/pet_donate_block"
+		"ScriptFile"					"items/pets/pet_rda_block"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -231,12 +231,12 @@
 		}
 	}
 	
-	"spell_item_pet_donate_all_dmg_amp"
+	"spell_item_pet_RDA_all_dmg_amp"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/amaterasu"
-		"ScriptFile"					"items/pets/pet_donate_all_dmg_amp"
+		"ScriptFile"					"items/pets/pet_rda_all_dmg_amp"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -256,12 +256,12 @@
 		}
 	}	
 	//======================================================================================================================================
-    "spell_item_pet_donate_total_dmg"
+    "spell_item_pet_RDA_total_dmg"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Huntling"
-		"ScriptFile"					"items/pets/pet_donate_total_dmg"
+		"ScriptFile"					"items/pets/pet_rda_total_dmg"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -281,12 +281,12 @@
 		}
 	}
 	
-    "spell_item_pet_donate_int"
+    "spell_item_pet_RDA_int"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Axolotl"
-		"ScriptFile"					"items/pets/pet_donate_int"
+		"ScriptFile"					"items/pets/pet_rda_int"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -306,12 +306,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_str"
+    "spell_item_pet_RDA_str"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Dog"
-		"ScriptFile"					"items/pets/pet_donate_str"
+		"ScriptFile"					"items/pets/pet_rda_str"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -331,12 +331,12 @@
 		}
 	}
 	
-    "spell_item_pet_donate_agi"
+    "spell_item_pet_RDA_agi"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Gato"
-		"ScriptFile"					"items/pets/pet_donate_agi"
+		"ScriptFile"					"items/pets/pet_rda_agi"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -356,12 +356,12 @@
 		}
 	}
 
-    "spell_item_pet_donate_heal"
+    "spell_item_pet_RDA_heal"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Llama"
-		"ScriptFile"					"items/pets/pet_donate_heal"
+		"ScriptFile"					"items/pets/pet_rda_heal"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -386,12 +386,12 @@
 		}
 	}
     //======================================================================================================================================
-    "spell_item_pet_donate_hp_com"
+    "spell_item_pet_RDA_hp_com"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/tegu"
-		"ScriptFile"					"items/pets/common/pet_donate_hp_com"
+		"ScriptFile"					"items/pets/common/pet_rda_hp_com"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -411,12 +411,12 @@
 		}
 	}	
 	
-    "spell_item_pet_donate_dmg_com"
+    "spell_item_pet_RDA_dmg_com"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/bearzky"
-		"ScriptFile"					"items/pets/common/pet_donate_dmg_com"
+		"ScriptFile"					"items/pets/common/pet_rda_dmg_com"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -436,12 +436,12 @@
 		}
 	}	
 	
-    "spell_item_pet_donate_mana_regen"
+    "spell_item_pet_RDA_mana_regen"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/baekho"
-		"ScriptFile"					"items/pets/pet_donate_mana_regen"
+		"ScriptFile"					"items/pets/pet_rda_mana_regen"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -461,12 +461,12 @@
 		}
 	}
     //======================================================================================================================================	
-    "spell_item_pet_donate_250_gold_and_exp"
+    "spell_item_pet_RDA_250_gold_and_exp"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/goexp"
-		"ScriptFile"					"items/pets/item_pet_donate_250_gold_and_exp"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_gold_and_exp"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -485,12 +485,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_attribute_bonus"
+	"spell_item_pet_RDA_250_attribute_bonus"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/atrib"
-		"ScriptFile"					"items/pets/item_pet_donate_250_attribute_bonus"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_attribute_bonus"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -509,12 +509,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_dmg_reduction"
+	"spell_item_pet_RDA_250_dmg_reduction"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/dmgr"
-		"ScriptFile"					"items/pets/item_pet_donate_250_dmg_reduction"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_dmg_reduction"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -533,12 +533,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_regen"
+	"spell_item_pet_RDA_250_regen"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/regen"
-		"ScriptFile"					"items/pets/item_pet_donate_250_regen"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_regen"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -557,12 +557,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_bkb"
+	"spell_item_pet_RDA_250_bkb"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/bkb"
-		"ScriptFile"					"items/pets/item_pet_donate_250_bkb"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_bkb"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -581,12 +581,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_phys_dmg_reducrion"
+	"spell_item_pet_RDA_250_phys_dmg_reducrion"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/pdr"
-		"ScriptFile"					"items/pets/item_pet_donate_250_phys_dmg_reducrion"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_phys_dmg_reducrion"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -605,12 +605,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_pure_damage"
+	"spell_item_pet_RDA_250_pure_damage"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/pdmg"
-		"ScriptFile"					"items/pets/item_pet_donate_250_pure_damage"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_pure_damage"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -629,12 +629,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_no_spell_phys_bonus"
+	"spell_item_pet_RDA_250_no_spell_phys_bonus"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/nosphbo"
-		"ScriptFile"					"items/pets/item_pet_donate_250_no_spell_phys_bonus"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_no_spell_phys_bonus"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -658,12 +658,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_no_phys_spell_bonus"
+	"spell_item_pet_RDA_250_no_phys_spell_bonus"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/nophspebo"
-		"ScriptFile"					"items/pets/item_pet_donate_250_no_phys_spell_bonus"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_no_phys_spell_bonus"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"
@@ -687,12 +687,12 @@
 			}
 		}
 	}	
-	"spell_item_pet_donate_250_minus_armor"
+	"spell_item_pet_RDA_250_minus_armor"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/armor"
-		"ScriptFile"					"items/pets/item_pet_donate_250_minus_armor"
+		"ScriptFile"					"items/pets/item_pet_RDA_250_minus_armor"
 		// "ItemIsNeutralDrop"				"1"
 		// "ItemPurchasable"				"0"
 		// "AbilityCooldown"				"10.0"

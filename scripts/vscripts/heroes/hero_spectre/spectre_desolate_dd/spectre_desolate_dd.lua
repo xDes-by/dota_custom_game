@@ -3,6 +3,7 @@ function Desolate (keys)
 	local target = keys.target
 	local ability = keys.ability
 	local damage = ability:GetLevelSpecialValueFor( "bonus_damage", ability:GetLevel()-1 )
+	damage = damage + self:GetCaster():GetBaseDamageMax() / 100 * self:GetLevelSpecialValueFor( "base_damage_perc", ability:GetLevel()-1 )
 	
     if target:IsAlive() and not target:IsMagicImmune() then
 	local abil = caster:FindAbilityByName("npc_dota_hero_spectre_agi6")
@@ -32,13 +33,13 @@ function Desolate (keys)
 			damage_type = DAMAGE_TYPE_MAGICAL
 			damage_flags = DOTA_DAMAGE_FLAG_NONE
 		end
-
 		local damageTable = {
 			victim = target,
 			attacker = caster,
 			damage = damage,
 			damage_type = damage_type,
 			damage_flags = damage_flags,
+			ability = keys.ability,
 		}
 		 
 		ApplyDamage(damageTable)

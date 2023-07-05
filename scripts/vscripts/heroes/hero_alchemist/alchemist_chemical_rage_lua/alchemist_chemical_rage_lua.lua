@@ -130,10 +130,15 @@ function modifier_alchemist_chemical_rage_lua:DeclareFunctions()
 	MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 	MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
-	MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE
+	MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+	MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 	}
 
 	return funcs
+end
+
+function modifier_alchemist_chemical_rage_lua:GetModifierAttackSpeedBonus_Constant()
+	return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_alchemist_chemical_rage_lua:GetModifierProcAttack_Feedback( params )

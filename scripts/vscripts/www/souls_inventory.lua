@@ -16,6 +16,9 @@ function sInv:init()
     self.item_swamp_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_snow_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_divine_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
+    self.item_dragon_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
+    self.item_dragon_soul_2 = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
+    self.item_dragon_soul_3 = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
 end
 
 function sInv:AddSoul(soul_name, pid)
@@ -64,6 +67,9 @@ function sInv:UpdateInventory(pid)
         [4] = self.item_swamp_soul[pid],
         [5] = self.item_snow_soul[pid],
         [6] = self.item_divine_soul[pid],
+        [7] = self.item_dragon_soul[pid],
+        [8] = self.item_dragon_soul_2[pid],
+        [9] = self.item_dragon_soul_3[pid],
     } )
 end
 

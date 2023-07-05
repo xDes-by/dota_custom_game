@@ -36,3 +36,7 @@ function huskar_berserkers_blood_lua:GetCooldown()
 	end
 	return 0
 end
+
+function huskar_berserkers_blood_lua:GetCastRange(vLocation, hTarget)
+	return 150
+end

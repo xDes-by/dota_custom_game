@@ -1,0 +1,20 @@
+"DOTAAbilities"
+{
+	"broodmother_steal"
+	{
+		"ScriptFile"					"heroes/hero_broodmother/broodmother_steal/broodmother_steal"
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"broodmother_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"MaxLevel"						"15"
+		
+		"AbilityValues"
+		{
+			"duration"			"4"
+			"chance" 			"25"
+			"hp_steal"			"30 45 60 75 90 105 120 135 150 165 180 195 210 225 240"	
+		}
+	}
+}

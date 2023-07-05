@@ -52,11 +52,9 @@ function huskar_inner_fire_lua:OnSpellStart()
             self:GetCaster(), -- player source
             burning_spear, -- ability source
             "modifier_huskar_burning_spear_lua", -- modifier name
-            { duration = burning_spear_duration } -- kv
+            { duration = burning_spear_duration, auto_attack = true } -- kv
         )
-        for i = 2, count do
-            modifier:AddStack()
-        end
+        modifier:AddStack(2)
         ApplyDamage({
             victim = enemy,
             attacker = self:GetCaster(),

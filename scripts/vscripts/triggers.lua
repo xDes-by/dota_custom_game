@@ -17,11 +17,10 @@ end
 
 -------------------------------------------------------------------------------------------------------------------------------------
 function teleport_in_donate(event)
+	local pass = false
 	local unit = event.activator  	
 	local Key = unit:FindItemInInventory( "item_ticket" )
-	if Key == nil then return end
-	--if unit:GetUnitName() == "npc_dota_hero_treant" then return end
-		if Key ~= nil then
+	if Key ~= nil then
 		local ticket_charges = Key:GetCurrentCharges()
 		local ostatok = ticket_charges - 1	
 			if ostatok >= 1 then
@@ -29,6 +28,28 @@ function teleport_in_donate(event)
 			else
 			unit:RemoveItem(Key)
 		end
+		pass = true
+	end
+	if Key == nil and unit:IsHero() and unit:GetPlayerID() then
+		local shop = Shop.pShop[unit:GetPlayerID()]
+		for categoryKey, category in pairs(shop) do
+			if type(category) == 'table' then
+				for itemKey, item in pairs(category) do
+					if item.itemname and item.itemname == "item_ticket" then
+						if item.now > 0 then
+							item.now = item.now - 1
+							CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( unit:GetPlayerID() ), "SetShopItemCount", {categoryKey = categoryKey, itemKey = itemKey, count = item.now} )
+							pass = true
+						end
+						break
+					end
+				end
+			end
+		end
+	end
+	if pass == true then 
+	--if unit:GetUnitName() == "npc_dota_hero_treant" then return end
+		
 		ProjectileManager:ProjectileDodge(unit) 
 		ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, unit) 
 		unit:EmitSound("DOTA_Item.BlinkDagger.Activate")
@@ -40,8 +61,8 @@ function teleport_in_donate(event)
 		event.activator:Stop() 
 		PlayerResource:SetCameraTarget(event.activator:GetPlayerOwnerID(), event.activator)
 		Timers:CreateTimer(0.1, function()
-		PlayerResource:SetCameraTarget(event.activator:GetPlayerOwnerID(), nil)
-		return nil
+			PlayerResource:SetCameraTarget(event.activator:GetPlayerOwnerID(), nil)
+			return nil
 		end)
 	end
 end

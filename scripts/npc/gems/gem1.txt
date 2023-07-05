@@ -663,6 +663,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -701,6 +702,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -739,6 +741,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -777,6 +780,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -815,6 +819,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -853,6 +858,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -891,6 +897,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
@@ -929,6 +936,7 @@
 			"sheep_movement_speed"	"140"
 			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
 			"duration"				"3"
+            "projectile_speed"		"320 340 360 380 400 420 440 460"
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}	

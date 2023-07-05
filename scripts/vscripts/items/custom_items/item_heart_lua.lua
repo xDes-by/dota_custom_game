@@ -37,7 +37,7 @@ function modifier_item_heart_lua:OnCreated()
 	self.health_regen_pct = self:GetAbility():GetSpecialValueFor("health_regen_pct")
 	self.hp_regen_amp = self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-if IsServer() then
+	if IsServer() then
 		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
 		if modifier:GetName() == "modifier_item_heart_lua1" or
 		modifier:GetName() == "modifier_item_heart_lua2" or

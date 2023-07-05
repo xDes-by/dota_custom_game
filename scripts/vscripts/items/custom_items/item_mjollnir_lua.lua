@@ -210,7 +210,7 @@ end
 
 function modifier_item_mjollnir_lua:OnAttackLanded(keys)
 
-	if self.bChainCooldown == false and keys.attacker == self:GetParent() and self:GetParent():IsAlive() and not self.prock and not self:GetParent():IsIllusion() and not keys.target:IsMagicImmune() and not keys.target:IsBuilding() and not keys.target:IsOther() and self:GetParent():GetTeamNumber() ~= keys.target:GetTeamNumber() and RandomInt(1, 100) <= self.chain_chance then
+	if RandomInt(1, 100) <= self.chain_chance and self.bChainCooldown == false and keys.attacker == self:GetParent() and self:GetParent():IsAlive() and not self.prock and not self:GetParent():IsIllusion() and not keys.target:IsMagicImmune() and not keys.target:IsBuilding() and not keys.target:IsOther() and self:GetParent():GetTeamNumber() ~= keys.target:GetTeamNumber() then
 		
 		self:GetParent():EmitSound("Item.Maelstrom.Chain_Lightning")
 	

@@ -7,15 +7,41 @@ function legion_ult2:GetTexture()
     return "legion_commander_duel"
 end
 
+function legion_ult2:GetIntrinsicModifierName()
+	return "modifier_legion_ult2"
+end
+
+function legion_ult2:OnUpgrade()
+	legion_ult = self:GetCaster():FindAbilityByName("legion_ult")
+	level = self:GetLevel()
+	if level <= 10 and level > legion_ult:GetLevel() then
+		legion_ult:SetLevel(level)
+	end
+end
+
+function legion_ult2:GetCastRange()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int8") then 
+		return 800
+	end
+end
+
 legion_ult = class({})
+
+function legion_ult:GetCastRange()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int8") then 
+		return 800
+	end
+end
 
 function legion_ult:GetIntrinsicModifierName()
 	return "modifier_legion_ult"
 end
 
 function legion_ult:OnUpgrade()
-	if self:GetLevel() == self:GetMaxLevel() then
-		self:GetCaster():AddAbility("legion_ult2")
+	legion_ult2 = self:GetCaster():FindAbilityByName("legion_ult2")
+	level = self:GetLevel()
+	if level > legion_ult2:GetLevel() then
+		legion_ult2:SetLevel(level)
 	end
 end
 
@@ -43,6 +69,26 @@ end
 
 function modifier_legion_ult:OnIntervalThink()
 	if not IsServer() then return end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi9") then
+		legion_ult = self:GetCaster():FindAbilityByName("legion_ult")
+		if not legion_ult:IsHidden() then
+			level = legion_ult:GetLevel()
+			self:GetCaster():SwapAbilities("legion_ult", "legion_ult2", false, true)
+			local legion_ult2 = self:GetCaster():FindAbilityByName("legion_ult2")
+			-- legion_ult2:SetLevel(level)
+		end
+	else
+		legion_ult2 = self:GetCaster():FindAbilityByName("legion_ult2")
+		if not legion_ult2:IsHidden() then
+			level = legion_ult2:GetLevel()
+			if level > 10 then
+				level = 10
+			end
+			self:GetCaster():SwapAbilities("legion_ult", "legion_ult2", true, false)
+			local legion_ult = self:GetCaster():FindAbilityByName("legion_ult")
+			-- legion_ult:SetLevel(level)
+		end
+	end
 	if not self:GetAbility():IsFullyCastable() then return end
 	self:GetAbility():UseResources(false, false, false, true)
 	self:IncrementStackCount()
@@ -70,11 +116,11 @@ function modifier_legion_ult:OnTooltip2()
 end
 
 function modifier_legion_ult:OnDeath(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi9") then
-		if IsMyKilledBadGuys(self:GetParent(), params) and RandomInt(1,100) <= 5 then
-			self:IncrementStackCount()
-		end
-	end
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi9") then
+	-- 	if IsMyKilledBadGuys(self:GetParent(), params) and RandomInt(1,100) <= 5 then
+	-- 		self:IncrementStackCount()
+	-- 	end
+	-- end
 end
 
 function IsMyKilledBadGuys(hero, params)
@@ -110,6 +156,10 @@ end
 
 function modifier_legion_ult:CalculateDamage()
 	self.dmg_per_stack = self:GetAbility():GetSpecialValueFor("dmg_per_stack")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi9") then
+		legion_ult2 = self:GetCaster():FindAbilityByName("legion_ult2")
+		self.dmg_per_stack = legion_ult2:GetSpecialValueFor("dmg_per_stack")
+	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_agi6") then 
 		self.dmg_per_stack = self.dmg_per_stack + 2
 	end
@@ -140,7 +190,7 @@ function modifier_legion_ult:GetModifierAura()
 end
 
 function modifier_legion_ult:GetAuraRadius()
-	return 700
+	return 800
 end
 
 function modifier_legion_ult:GetAuraSearchFlags() 
@@ -243,11 +293,12 @@ function modifier_legion_ult2:RemoveOnDeath()
 	return false
 end
 
-function modifier_legion_ult2:DeclareFunctions()
-	local funcs = {
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
-	}
-	return funcs
+function modifier_legion_ult2:OnCreated()
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_legion_ult2:OnIntervalThink()
+	if not IsServer() then return end
+	if not self:GetAbility():IsFullyCastable() then return end
+	self:GetAbility():UseResources(false, false, false, true)
 end

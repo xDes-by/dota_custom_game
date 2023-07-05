@@ -37,13 +37,13 @@ function Rules:tower_hp()
 	end
 end
 
-timer_spawn_time_donate = 13
+timer_spawn_time_don = 13
 
-function Rules:spawn_creeps_donate()
+function Rules:spawn_creeps_don()
 	Timers:CreateTimer(function()
 		local hRelay = Entities:FindByName( nil, "spawn_stack_donate" )
 		hRelay:Trigger(nil,nil)
-		return timer_spawn_time_donate
+		return timer_spawn_time_don
 	end)
 end
 

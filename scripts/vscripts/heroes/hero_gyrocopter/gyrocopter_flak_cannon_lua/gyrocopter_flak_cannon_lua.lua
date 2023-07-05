@@ -95,6 +95,16 @@ function modifier_gyrocopter_flak_cannon_lua:OnAttack(keys)
 				-- if count>=7 then break end
 			end
 		end
+
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int_last") ~= nil then 
+			ApplyDamage({
+				victim 			= keys.target,
+				damage 			= self:GetCaster():GetIntellect(),
+				damage_type		= DAMAGE_TYPE_MAGICAL,
+				damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
+				attacker 		= self:GetCaster(),
+			})
+		end
 		
 		self:DecrementStackCount()
 		

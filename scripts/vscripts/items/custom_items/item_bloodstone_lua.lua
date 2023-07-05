@@ -96,7 +96,7 @@ function modifier_item_bloodstone_lua:OnTakeDamage(keys)
 		"item_bfury_lua1_gem3","item_bfury_lua2_gem3","item_bfury_lua3_gem3","item_bfury_lua4_gem3","item_bfury_lua5_gem3","item_bfury_lua6_gem3","item_bfury_lua7_gem3",
 		"item_bfury_lua1_gem4","item_bfury_lua2_gem4","item_bfury_lua3_gem4","item_bfury_lua4_gem4","item_bfury_lua5_gem4","item_bfury_lua6_gem4","item_bfury_lua7_gem4",
 		"item_bfury_lua1_gem5","item_bfury_lua2_gem5","item_bfury_lua3_gem5","item_bfury_lua4_gem5","item_bfury_lua5_gem5","item_bfury_lua6_gem5","item_bfury_lua7_gem5",
-		"sven_bringer","sven_great_cleave_lua","item_pet_donate_cleave","luna_moon_glaive_lua","npc_dota_hero_treant_agi11","npc_dota_hero_centaur_agi11",
+		"sven_bringer","sven_great_cleave_lua","item_pet_RDA_cleave","luna_moon_glaive_lua","npc_dota_hero_treant_agi11","npc_dota_hero_centaur_agi11",
 		"npc_dota_hero_mars_agi10","npc_dota_hero_phantom_assassin_agi11","npc_dota_hero_slark_agi9","bristleback_warpath_lua"}
 
 		for _,current_name in pairs(all_cleaves) do

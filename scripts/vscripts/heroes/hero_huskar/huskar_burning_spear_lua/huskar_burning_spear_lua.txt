@@ -61,6 +61,11 @@
 				"var_type"						"FIELD_INTEGER"
 				"duration"						"6"
 			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stack"							"3"
+			}
 		}
 	}
 }

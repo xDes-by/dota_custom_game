@@ -1086,7 +1086,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"donate/ticket"
+		"AbilityTextureName"			"don/ticket"
 		"ItemPermanent"					"0"
 		"ItemStackable"					"1"
 		"ItemStackableMax"				"500"
@@ -2648,7 +2648,7 @@
 }
 
 #base "../npc/items_full_custom.txt"
-#base "../npc/items_donate.txt"
+#base "../npc/items_don.txt"
 #base "../npc/gems/gem1.txt"
 #base "../npc/gems/gem2.txt"
 #base "../npc/gems/gem3.txt"

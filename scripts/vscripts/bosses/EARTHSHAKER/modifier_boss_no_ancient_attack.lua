@@ -18,3 +18,26 @@ function modifier_boss_no_ancient_attack:CheckState()
     }
     return state
 end
+
+modifier_boss_invoker_active = class({})
+
+function modifier_boss_invoker_active:IsHidden()
+    return false
+end
+
+function modifier_boss_invoker_active:IsPurgable()
+    return false
+end
+
+function modifier_boss_invoker_active:RemoveOnDeath()
+    return false
+end
+
+function modifier_boss_invoker_active:CheckState()
+    local state = {
+        [MODIFIER_STATE_STUNNED] = true,
+        [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+        [MODIFIER_STATE_INVULNERABLE] = true,
+    }
+    return state
+end

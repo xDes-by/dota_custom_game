@@ -2,31 +2,6 @@ if DataBase == nil then
     _G.DataBase = class({})
 end
 
-DataBase.TESTER = {
-	120578788
-}
-DataBase.ADMIN = {
-	169401485, 1062658804, 455872541, 393187346, 81459554, 351759722, 456780017, 111684601,
-	111684601, 103583376, 103583376, 487111321
-}
-function DataBase:IsTester(sid)
-	for _,admin in pairs(DataBase.TESTER) do
-		if sid == admin then
-			return true
-		end
-	end
-	return false
-end
-function DataBase:IsAdmin(sid)
-	for _,admin in pairs(DataBase.ADMIN) do
-		if sid == admin then
-			return true
-		end
-	end
-	return false
-end
-
-
 function DataBase:isCheatOn()
 	if _G.cheatmode then
 		return false
@@ -57,6 +32,11 @@ function DataBase:init()
 	DataBase.addRaitPoint = _G.host .. "/backend/api/add-rait-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.addCoins = _G.host .. "/backend/api/add-coins?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.squirrel = _G.host .. "/backend/api/squirrel?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.AutoPet = _G.host .. "/backend/api/set-auto-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.AutoQuestLink = _G.host .. "/backend/api/auto-quest-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.OpenTreasureLink = _G.host .. "/backend/api/open-treasure?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.SprayToggleActivateLink = _G.host .. "/backend/api/spray-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
@@ -98,190 +78,10 @@ LinkLuaModifier( "modifier_cheat_move", "modifiers/modifier_cheat_move", LUA_MOD
 function DataBase:OnChat(t)
 	local text = t.text 
 	steamID = PlayerResource:GetSteamAccountID(t.playerid)
-	
-	--if text == 'gg' and GameRules:GetGameTime() < 300 then
-	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-	--end
-
-	-- if DataBase:IsAdmin(steamID) then
-	-- 	local hero = PlayerResource:GetSelectedHeroEntity(t.playerid)
-	-- 	if text == 's1' then
-	-- 		hero:AddItemByName('item_forest_soul')
-	-- 	elseif text == 's2' then
-	-- 		hero:AddItemByName('item_village_soul')
-	-- 	elseif text == 's3' then
-	-- 		hero:AddItemByName('item_mines_soul')
-	-- 	elseif text == 's4' then
-	-- 		hero:AddItemByName('item_dust_soul')
-	-- 	elseif text == 's5' then
-	-- 		hero:AddItemByName('item_swamp_soul')
-	-- 	elseif text == 's6' then
-	-- 		hero:AddItemByName('item_snow_soul')
-	-- 	elseif text == 's7' then
-	-- 		hero:AddItemByName('item_divine_soul')
-	-- 	elseif text == 'test2' then
-	-- 		for i = 0, 15 do
-	-- 			item = hero:GetItemInSlot(i)
-	-- 			if item then
-	-- 				name = item:GetName()
-	-- 				-- print(i,',',name)
-	-- 			else
-	-- 				-- print(i,',','none')
-	-- 			end
-	-- 		end
-	-- 	elseif text == 'a1' or text == 'я гей' then
-	-- 		hero:SetBaseIntellect(hero:GetBaseIntellect() + 1000000)
-	-- 		hero:SetBaseAgility(hero:GetBaseAgility() + 1000000)
-	-- 		hero:SetBaseStrength(hero:GetBaseStrength() + 1000000)    
-	-- 		hero:AddNewModifier( hero, nil, "modifier_cheat_move", {} )
-	-- 		hero:AddNewModifier( hero, nil, "modifier_magic_immune", {} )
-	-- 	elseif text == 'a2' or text == 'я нормальный пидр' then
-	-- 		if hero:GetBaseIntellect() > 1000000 and hero:GetBaseAgility() > 1000000 and hero:GetBaseStrength() > 1000000 then
-	-- 			hero:SetBaseIntellect(hero:GetBaseIntellect() - 1000000)
-	-- 			hero:SetBaseAgility(hero:GetBaseAgility() - 1000000)
-	-- 			hero:SetBaseStrength(hero:GetBaseStrength() - 1000000)
-	-- 			hero:RemoveModifierByName( "modifier_cheat_move" )
-	-- 			hero:RemoveModifierByName( "modifier_magic_immune" )
-	-- 		end
-	-- 	elseif text == 'g1' then
-	-- 		local totalgold = hero:GetGold() + 99999
-	-- 		hero:SetGold(0 , false) 
-	-- 		hero:SetGold(totalgold , false)
-	-- 		charges = 0
-	-- 		item = hero:FindItemInInventory('item_gold_brus')
-	-- 		if item then
-	-- 			charges = item:GetCurrentCharges()
-	-- 		end
-	-- 		hero:AddItemByName('item_gold_brus'):SetCurrentCharges(charges + 50)
-	-- 	elseif text == 'box' then
-	-- 		local box_1 = hero:AddItemByName('item_box_1')
-	-- 		box_1:OnSpellStart(hero:GetAbsOrigin())
-	-- 	elseif string.find(text, 'gold') then
-	-- 		local _, _, num1 = string.find(text, "(%d+)")
-	-- 		num1 = num1 or 1
-	-- 		hero:ModifyGoldFiltered(tonumber(num1), true, 0)
-	-- 	elseif string.find(text, 'exp') then
-	-- 		local _, _, num1 = string.find(text, "(%d+)")
-	-- 		num1 = num1 or 1
-	-- 		num1 = tonumber(num1)
-	-- 		hero:AddExperience(num1, 0, false, true )
-	-- 	elseif string.find(text, "create") then
-	-- 		local name_string = string.gsub(text, 'create', "")
-	-- 		local _, _, num1 = string.find(text, "(%d+)")
-	-- 		if num1 ~= nil then
-	-- 			name_string = string.gsub(name_string, num1, "")
-	-- 		end
-	-- 		name_string = string.gsub(name_string, " ", "")
-	-- 		npc_units = LoadKeyValues("scripts/npc/npc_units_custom.txt")
-	-- 		for k,v in pairs(npc_units) do
-	-- 		--	print(k)
-	-- 			if string.find(k, name_string) then
-	-- 				if num1 ~= nil and num1 ~= 0 then
-	-- 					table.insert(DataBase.units, CreateUnitByName( k, hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS ))
-	-- 					DataBase.units[#DataBase.units]:SetControllableByPlayer(t.playerid, true)
-    -- 					DataBase.units[#DataBase.units]:SetOwner(hero)
-	-- 				else
-	-- 					table.insert(DataBase.units, CreateUnitByName( k, hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS ))
-	-- 				end
-	-- 				break
-	-- 			end
-	-- 		end
-	-- 		local name = 'npc_raid_earth'
-	-- 	elseif text == 'clear' then
-	-- 		for _, unit in pairs(DataBase.units) do
-	-- 			unit:ForceKill(true)
-	-- 		end
-	-- 		DataBase.units = {}
-	-- 	elseif text == "event" then
-	-- 		statist:GameEnd({})
-	-- 		print("rait",((_G.rating_wave * diff_wave.rating_scale) + (_G.mega_boss_bonus * diff_wave.rating_scale)))
-	-- 		print(_G.rating_wave)
-	-- 		print(diff_wave.rating_scale)
-	-- 		print(_G.mega_boss_bonus)
-	-- 	elseif text == "gey cock" then
-	-- 		local heroPoint = hero:GetAbsOrigin()
-	-- 		local itemsList = {
-	-- 			{vector = Vector(heroPoint.x + 0, heroPoint.y + 275), name = "item_assault_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_sheepstick_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_satanic_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -75, heroPoint.y + 225), name = "item_ring_of_flux_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 75, heroPoint.y + 225), name = "item_bloodstone_lua8"},
-
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + -150), name = "item_radiance_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + -75), name = "item_desolator_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + 0), name = "item_butterfly_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + 75), name = "item_monkey_king_bar_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + 150), name = "item_bfury_lua8"},
-
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + -150), name = "item_veil_of_discord_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + -75), name = "item_shivas_guard_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + 0), name = "item_crimson_guard_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + 75), name = "item_heart_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + 150), name = "item_greater_crit_lua8"},
-
-	-- 			{vector = Vector(heroPoint.x + -137, heroPoint.y + -210), name = "item_kaya_custom_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 137, heroPoint.y + -210), name = "item_ethereal_blade_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -160, heroPoint.y + -260), name = "item_vladmir_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 160, heroPoint.y + -260), name = "item_pipe_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -137, heroPoint.y + -312), name = "item_octarine_core_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 137, heroPoint.y + -312), name = "item_skadi_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -100, heroPoint.y + -335), name = "item_mjollnir_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 100, heroPoint.y + -335), name = "item_pudge_heart_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -62, heroPoint.y + -297), name = "item_mage_heart_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 62, heroPoint.y + -297), name = "item_agility_heart_lua8"},
-	-- 			{vector = Vector(heroPoint.x + -25, heroPoint.y + -260), name = "item_moon_shard_lua8"},
-	-- 			{vector = Vector(heroPoint.x + 25, heroPoint.y + -260), name = "item_hood_sword_lua8"},
-	-- 		}
-
-	-- 		for _, item in pairs(itemsList) do
-	-- 			local newItem = CreateItem( item.name, hero, hero )
-	-- 			local drop = CreateItemOnPositionForLaunch( heroPoint, newItem )
-	-- 			newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, item.vector )
-	-- 			newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
-	-- 		end
-	-- 	elseif text == 'book' then
-	-- 		for _, item_name in pairs({"item_greed_agi", "item_greed_int", "item_greed_str"}) do
-	-- 			local spawnPoint = hero:GetAbsOrigin()	
-	-- 			local newItem = CreateItem( item_name, nil, nil )
-	-- 			newItem:SetCurrentCharges(1000)
-	-- 			local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
-	-- 			local dropRadius = RandomFloat( 50, 100 )
-
-	-- 			newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
-	-- 			newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
-	-- 		end
-	-- 	elseif string.find(text, 'bags') then
-	-- 		local _, _, num1 = string.find(text, "(%d+)")
-	-- 		num1 = num1 or 1
-	-- 		num1 = tonumber(num1)
-	-- 		local step = 0
-	-- 		Timers:CreateTimer(0.1 ,function()
-	-- 			for i = 0, 3 do
-	-- 				local spawnPoint = hero:GetAbsOrigin()	
-	-- 				local newItem = CreateItem( "item_bag_of_gold_big", nil, nil )
-	-- 				newItem:SetCurrentCharges(1000)
-	-- 				local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
-	-- 				local dropRadius = RandomFloat( 50, 100 )
-	
-	-- 				newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
-	-- 				newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
-	-- 			end
-	-- 			step = step + 1
-	-- 			if step < num1/3 then
-	-- 				return 0.1
-	-- 			end
-	-- 			return nil
-	-- 		end)
-	-- 	elseif text == 'abs' then
-	-- 		print(hero:GetAbsOrigin())
-	-- 	elseif text == 'test' then
-	-- 		statist:GameEnd(t)
-	-- 	end
-	-- end
-
 	----- PromoCode
-	if text == "test" then
-		effects:CastSpray({PlayerID = 0})
+	if text == "abs" then
+		local hero = PlayerResource:GetSelectedHeroEntity( t.playerid )
+		print(hero:GetAbsOrigin())
 	end
 
 	for _,word in pairs({"Hello new players"}) do
@@ -290,14 +90,6 @@ function DataBase:OnChat(t)
 			break
 		end
 	end
-end
-
-function DataBase:TestTalents(pid)
-	local sid = PlayerResource:GetSteamAccountID(pid)
-	if DataBase:IsTester(sid) == false and DataBase:IsAdmin(sid) == false then return end
-	talants.testing[pid] = true
-	talants:unset({PlayerID = pid})
-	talants:fillTabel(pid, true, false)
 end
 
 function DataBase:PromoCode(text, PlayerID)
@@ -461,6 +253,9 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
         gameDonatExp = tab["gameDonatExp"],
         gameNormalExp = tab["gameNormalExp"],
 		auto_pet = Shop.Auto_Pet[player],
+		trial_period_count = Quests.trialPeriodCount[player],
+		hero_marci_trial = ChangeHero.heroes["npc_dota_hero_marci"].trialCount[player],
+		hero_silencer_trial = ChangeHero.heroes["npc_dota_hero_silencer"].trialCount[player],
 	}
 	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[player] then
 		arr['gameDonatExp'] = 0
@@ -553,6 +348,40 @@ function DataBase:EdditGems(t)
 	elseif t.action == 'add' then
 		req = CreateHTTPRequestScriptVM( "GET", DataBase.aGems )
 	end
+	req:SetHTTPRequestGetOrPostParameter('arr',arr)
+	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+	req:Send(function(res)
+		if res.StatusCode == 200 then
+			-- print(res.Body)
+		end
+	end)
+end
+
+function DataBase:AutoGetPetOprion(t)
+	
+	local arr = {
+		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
+		pet  = t.pet.name,
+	}
+	arr = json.encode(arr)
+	req = CreateHTTPRequestScriptVM( "POST", DataBase.AutoPet )
+	req:SetHTTPRequestGetOrPostParameter('arr',arr)
+	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+	req:Send(function(res)
+		if res.StatusCode == 200 then
+			-- print(res.Body)
+		end
+	end)
+end
+
+function DataBase:AutoQuestToggle(t)
+	
+	local arr = {
+		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
+		toggle_state  = t.toggle_state,
+	}
+	arr = json.encode(arr)
+	req = CreateHTTPRequestScriptVM( "POST", DataBase.AutoQuestLink )
 	req:SetHTTPRequestGetOrPostParameter('arr',arr)
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
@@ -703,6 +532,36 @@ function DataBase:AddCoins(pid, count)
 	local req = CreateHTTPRequestScriptVM( "GET", DataBase.addCoins )
 	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(arr))
 	req:Send(function(res)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:OpenTreasure(arr)
+	if DataBase:isCheatOn() then return end
+	local req = CreateHTTPRequestScriptVM( "POST", DataBase.OpenTreasureLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(arr))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:SprayToggleActivate(t)
+	if DataBase:isCheatOn() then return end
+	requestData = {
+		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
+		sprayName = t.sprayName,
+	}
+	local req = CreateHTTPRequestScriptVM( "POST", DataBase.SprayToggleActivateLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			
 		end
