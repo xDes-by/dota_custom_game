@@ -3307,6 +3307,22 @@
 #base "../vscripts/heroes/hero_huskar/huskar_life_break_lua/huskar_life_break_lua.txt"
 #base "../vscripts/heroes/hero_huskar/huskar_inner_fire_lua/huskar_inner_fire_lua.txt"
 
+//=====================================================================================================VIPER=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_viper/viper_talents.txt"
+#base "../vscripts/heroes/hero_viper/corrosive_skin/corrosive_skin.txt"
+#base "../vscripts/heroes/hero_viper/nethertoxin/nethertoxin.txt"
+#base "../vscripts/heroes/hero_viper/poison_attack/poison_attack.txt"
+#base "../vscripts/heroes/hero_viper/viper_strike/viper_strike.txt"
+
+//=====================================================================================================WITCH DOCTOR=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_witch_doctor/witch_doctor_talents.txt"
+#base "../vscripts/heroes/hero_witch_doctor/death_ward/death_ward.txt"
+#base "../vscripts/heroes/hero_witch_doctor/maledict/maledict.txt"
+#base "../vscripts/heroes/hero_witch_doctor/paralyzing_cask/paralyzing_cask.txt"
+#base "../vscripts/heroes/hero_witch_doctor/voodoo_restoration/voodoo_restoration.txt"
+
 //====================================================================================================ANAKIM===================================================================================================================================================
 
 #base "../vscripts/heroes/hero_broodmother/broodmother_talents.txt"

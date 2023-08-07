@@ -7,6 +7,16 @@ function silencer_curse_of_the_silent_lua:GetIntrinsicModifierName()
     return "modifier_silencer_curse_of_the_silent_aura"
 end
 
+function silencer_curse_of_the_silent_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
+
+function silencer_curse_of_the_silent_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
 function silencer_curse_of_the_silent_lua:GetAOERadius()
 	return self:GetSpecialValueFor( "radius" )
 end
@@ -26,8 +36,17 @@ end
 
 function silencer_curse_of_the_silent_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
-		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+		return DOTA_ABILITY_BEHAVIOR_TOGGLE
 	end
+end
+
+function silencer_curse_of_the_silent_lua:OnToggle()
+	if not IsServer() then return end
+	
+	if self:GetToggleState() then
+		EmitSoundOn( "Hero_Silencer.Curse.Cast", self:GetCaster() )
+	end
+	
 end
 
 function silencer_curse_of_the_silent_lua:OnSpellStart()
@@ -186,6 +205,7 @@ end
 
 modifier_silencer_curse_of_the_silent_aura = class({})
 
+
 function modifier_silencer_curse_of_the_silent_aura:IsDebuff()			
 	return false 
 end
@@ -203,7 +223,7 @@ function modifier_silencer_curse_of_the_silent_aura:IsPurgeException()
 end
 
 function modifier_silencer_curse_of_the_silent_aura:IsAura() 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
+	if self:GetAbility():GetToggleState() then
 		return true 
 	end
 	return false 

@@ -62,8 +62,11 @@ function item_box_3:OnSpellStart(cheat_target)
 		
 		EmitSoundOnLocationWithCaster( vTargetPosition, "ui.treasure_reveal", self:GetCaster() )
 	
-		self.caster:RemoveItem(self)
-			Timers:CreateTimer(119, function()
+		self:SetCurrentCharges( self:GetCurrentCharges() -1)
+		if self:GetCurrentCharges() < 1 then
+			self.caster:RemoveItem(self)
+		end
+		Timers:CreateTimer(119, function()
 			unit:SetModelScale(0)
 			unit:ForceKill(false)
 		end)

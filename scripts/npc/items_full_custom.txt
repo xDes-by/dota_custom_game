@@ -1,21 +1,337 @@
 "DOTAAbilities"
 {
 
-
-"item_recipe_sabre_blade1"
+"item_recipe_hurricane_pike1"
 	{
 		"AbilityTextureName" 				"recipe"				
 		"Model"								"models/props_gameplay/recipe.vmdl"
 		"BaseClass"                     	"item_datadriven"
 		
-		"ItemCost"							"0"	
+		"ItemCost"							"250"	
 		"ItemShopTags"						"artifacts"
 		
 		"ItemRecipe"						"1"
-		"ItemResult"						"item_sabre_blade1"
+		"ItemResult"						"item_hurricane_pike1"
 		"ItemRequirements"
 		{
-			"01"							"item_echo_sabre;item_ultimate_orb"
+			"01"							"item_dragon_lance;item_staff_of_wizardry;item_fluffy_hat;item_claymore;"
+		}
+	}
+
+"item_recipe_hurricane_pike2"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"5000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike2"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike1;item_forest_soul;"
+		}
+	}
+	
+"item_recipe_hurricane_pike3"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"10000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike3"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike2;item_village_soul;"
+		}
+	}	
+	
+"item_recipe_hurricane_pike4"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"20000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike4"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike3;item_mines_soul;"
+		}
+	}	
+	
+"item_recipe_hurricane_pike5"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"30000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike5"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike4;item_dust_soul;"
+		}
+	}	
+	
+"item_recipe_hurricane_pike6"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"40000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike6"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike5;item_swamp_soul;"
+		}
+	}		
+"item_recipe_hurricane_pike7"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"50000"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike7"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike6;item_snow_soul;"
+		}
+	}	
+"item_recipe_hurricane_pike8"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"99999"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_hurricane_pike8"
+		"ItemRequirements"
+		{
+			"01"							"item_hurricane_pike7;item_divine_soul;"
+		}
+	}
+
+	"item_hurricane_pike1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_1"
+		"AbilityCooldown" 									"2"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+	"item_hurricane_pike2"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_2"
+		"AbilityCooldown" 									"1.5"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "2"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+	"item_hurricane_pike3"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_3"
+		"AbilityCooldown" 									"1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "3"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+	"item_hurricane_pike4"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_4"
+		"AbilityCooldown" 									"0.8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "4"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+
+	"item_hurricane_pike5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_5"
+		"AbilityCooldown" 									"0.6"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "5"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+	"item_hurricane_pike6"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_6"
+		"AbilityCooldown" 									"0.4"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "6"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+
+	"item_hurricane_pike7"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_7"
+		"AbilityCooldown" 									"0.3"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "7"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
+		}
+	}
+	"item_hurricane_pike8"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "all/hurricane_pike_8"
+		"AbilityCooldown" 									"0.2"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "8"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"2.0 1.5 1.0 0.8 0.6 0.4 0.3 0.2"
+			"multishot_damage"								"20 30 40 50 70 90 120 150"
+			"multishot_radius"								"200"
 		}
 	}
 
@@ -12052,9 +12368,12 @@
         "AbilityTextureName"            "box_1"
         "ScriptFile"                    "items/box/box_1"
         "AbilityCastRange"                "300"
-        "AbilityCooldown"                "30"
+        "AbilityCooldown"                "15"
         "AbilityManaCost"                "25"
-        "ItemPurchasable"                 "0"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
     }
 	
 
@@ -12066,9 +12385,12 @@
         "AbilityTextureName"            "box_2"
         "ScriptFile"                    "items/box/box_2"
         "AbilityCastRange"                "300"
-        "AbilityCooldown"                "45"
+        "AbilityCooldown"                "30"
         "AbilityManaCost"                "25"
-        "ItemPurchasable"                 "0"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
     }
 
 	"item_box_3"
@@ -12079,9 +12401,12 @@
         "AbilityTextureName"			"box_3"
         "ScriptFile"                    "items/box/box_3"
         "AbilityCastRange"                "300"
-        "AbilityCooldown"                "60"
+        "AbilityCooldown"                "45"
         "AbilityManaCost"                "25"
-        "ItemPurchasable"                 "0"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
     }
 	
 }

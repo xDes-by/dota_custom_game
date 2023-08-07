@@ -30,7 +30,12 @@ end
 
 function bloodseeker_thirst_lua:OnSpellStart()
 	modifier = self:GetCaster():FindModifierByName("modifier_bloodseeker_thirst_lua")
-	modifier:AddStack(self:GetCaster():GetLevel())
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") then
+		modifier:AddStack(self:GetCaster():GetLevel() * 0.2, 120)
+		modifier:AddStack(self:GetCaster():GetLevel() * 0.8, self:GetSpecialValueFor("duration"))
+	else
+		modifier:AddStack(self:GetCaster():GetLevel(), self:GetSpecialValueFor("duration"))
+	end
 end
 
 
@@ -68,13 +73,14 @@ function modifier_bloodseeker_thirst_lua:OnCreated( kv )
 end
 
 function modifier_bloodseeker_thirst_lua:OnIntervalThink()
-	if self:GetStackCount() > 30 and self.particle then return end
-	if self:GetStackCount() > 30 then
+	duration = self:GetAbility():GetSpecialValueFor("duration")
+	if self:GetStackCount() > duration and self.particle then return end
+	if self:GetStackCount() > duration then
 		self.particle = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_ti7/bloodseeker_ti7_thirst_owner.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		-- ParticleManager:SetParticleControl(self.particle, 0, self:GetParent():GetAbsOrigin())
 		self:AddParticle(self.particle, false, false, -1, false, false)
 	end
-	if self:GetStackCount() < 30 and self.particle then
+	if self:GetStackCount() < duration and self.particle then
 		ParticleManager:DestroyParticle(self.particle, false)
 		self.particle = nil
 	end
@@ -110,18 +116,20 @@ function modifier_bloodseeker_thirst_lua:OnDeath(params)
 	self:GetParent():Heal(heal, self:GetAbility())
 end
 
-function modifier_bloodseeker_thirst_lua:AddStack(count)
+function modifier_bloodseeker_thirst_lua:AddStack(count, duration)
 	count = count or 1
-	local duration = self:GetAbility():GetSpecialValueFor("duration")
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") and RandomInt(1, 100) <= 20 then
-		duration = 120
+	if not duration then
+		duration = self:GetAbility():GetSpecialValueFor("duration")
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_str10") and RandomInt(1, 100) <= 20 then
+			duration = 120
+		end
 	end
 	local mod = self:GetParent():AddNewModifier(
 		self:GetParent(), -- player source
 		self:GetAbility(), -- ability source
 		"modifier_bloodseeker_thirst_lua_stack", -- modifier name
 		{
-			duration = self:GetAbility():GetSpecialValueFor("duration"),
+			duration = duration,
 		}
 	)
 	mod:SetStackCount( mod:GetStackCount() +  count)
@@ -129,10 +137,11 @@ function modifier_bloodseeker_thirst_lua:AddStack(count)
 end
 
 function modifier_bloodseeker_thirst_lua:GetModifierBonusStats_Agility()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi6") then
-		return self:GetAbility():GetSpecialValueFor("bonus_agility") * self:GetStackCount() * 2
+	bonus = self:GetAbility():GetSpecialValueFor("bonus_agility") * self:GetStackCount()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi11") then
+		bonus = bonus * 2
 	end
-	return self:GetAbility():GetSpecialValueFor("bonus_agility") * self:GetStackCount()
+	return bonus
 end
 
 function modifier_bloodseeker_thirst_lua:GetModifierBonusStats_Intellect()

@@ -1,0 +1,91 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+	// Witch Doctor: Maledict
+	//=================================================================================================================
+	"witch_doctor_maledict"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"witch_doctor_maledict"
+		"ScriptFile"				"heroes/hero_witch_doctor/maledict/maledict.lua"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		"LevelsBetweenUpgrades"			"2"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf"
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_witch_doctor.vsndevts"
+			"soundfile"					"soundevents/voscripts/game_sounds_vo_witchdoctor.vsndevts"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"575"
+		"AbilityCastPoint"				"0.35"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 26 22 18"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"105 110 115 120"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"180"
+				"LinkedSpecialBonus"		"special_bonus_imba_witch_doctor_maledict_radius"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"12"
+				"LinkedSpecialBonus"		"special_bonus_imba_witch_doctor_maledict_duration"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"main_damage"				"7 14 21 28"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_pct"			"16 24 32 40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tick_time_main"			"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tick_time_sec"				"4"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_reduce_pct"			"10 20 30 40"
+				"LinkedSpecialBonus"		"special_bonus_imba_witch_doctor_9"
+			}
+		}
+	}
+}

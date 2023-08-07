@@ -109,12 +109,16 @@
 "item_recipe_refresher"						"REMOVED"
 "item_recipe_nullifier"						"REMOVED"
 "item_nullifier"							"REMOVED"
-"item_recipe_harpoon"							"REMOVED"
-"item_harpoon"							"REMOVED"
-"item_harpoon"							"REMOVED"
-"item_diffusal_blade"							"REMOVED"
+"item_recipe_harpoon"						"REMOVED"
+"item_harpoon"								"REMOVED"
+"item_harpoon"								"REMOVED"
+"item_diffusal_blade"						"REMOVED"
 "item_disperser"							"REMOVED"
-
+"item_dagon"								"REMOVED"
+"item_dagon_2"								"REMOVED"
+"item_dagon_3"								"REMOVED"
+"item_dagon_4"								"REMOVED"
+"item_dagon_5"								"REMOVED"
 
 
 //==========================================================================================================================================================================================================================================================

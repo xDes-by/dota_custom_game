@@ -1,0 +1,73 @@
+"DOTAAbilities"
+{
+    "witch_doctor_voodoo_restoration"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"witch_doctor_voodoo_restoration"
+		"ScriptFile"				"heroes/hero_witch_doctor/voodoo_restoration/voodoo_restoration.lua"
+		"MaxLevel"						"4"
+		"LevelsBetweenUpgrades"			"2"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration.vpcf"
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_voodoo_restoration_flame.vpcf"
+			"particle"					"particles/hero/witch_doctor/voodoo_cleanse.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_witch_doctor.vsndevts"
+			"soundfile"					"soundevents/voscripts/game_sounds_vo_witchdoctor.vsndevts"
+		}
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"35 40 45 50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_per_second"			"8 12 16 20"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"500"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal"						"16 24 32 40"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"int_to_heal"				"20 30 40 50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_spell_amp_pct"		"50"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cleanse_interval"			"5"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"heal_interval"				"0.25"		//0.33 is vanilla, but this is for better synching for cleanse
+			}
+		}
+	}
+}

@@ -59,7 +59,7 @@ function silencer_glaives_of_wisdom_lua:GetDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_int_last") then
 		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100
 	else
-		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100 * 2.0
+		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100 * 2.5
 	end
 	return damage
 end

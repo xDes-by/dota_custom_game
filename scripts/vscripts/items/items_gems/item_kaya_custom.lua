@@ -101,7 +101,8 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-			--	self:Destroy()
+				self:Destroy()
+				return
 			end
 		end
 	end
@@ -114,6 +115,13 @@ function modifier_item_kaya_custom1:OnCreated( kv )
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
 	end 
+end
+
+function modifier_item_kaya_custom1:OnRefresh( kv )
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+		self:OnCreated( kv )
+	end
 end
 
 function modifier_item_kaya_custom1:OnDestroy()
@@ -204,17 +212,20 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 	
 	
 	if IsServer() then
-	for i = 0, 8 do 
-	local item = self:GetCaster():GetItemInSlot(i)
-		if item ~= nil then
-		local itemname = item:GetAbilityName()
-		local namecheck = string.sub( itemname, 1, 16 )
-			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
-				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-			--	self:Destroy()
+		for i = 0, 8 do
+			print(i)
+			local item = self:GetCaster():GetItemInSlot(i)
+			if item ~= nil then
+				local itemname = item:GetAbilityName()
+				local namecheck = string.sub( itemname, 1, 16 )
+				print(itemname)
+				if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
+					self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
+					self:Destroy()
+					return
+				end
 			end
 		end
-	end
 
 	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
@@ -224,6 +235,13 @@ function modifier_item_kaya_custom2:OnCreated( kv )
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
 	end 
+end
+
+function modifier_item_kaya_custom2:OnRefresh( kv )
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+		self:OnCreated( kv )
+	end
 end
 
 function modifier_item_kaya_custom2:OnDestroy()
@@ -320,7 +338,8 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				--self:Destroy()
+				self:Destroy()
+				return
 			end
 		end
 	end
@@ -333,6 +352,13 @@ function modifier_item_kaya_custom3:OnCreated( kv )
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
 	end 
+end
+
+function modifier_item_kaya_custom3:OnRefresh( kv )
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+		self:OnCreated( kv )
+	end
 end
 
 function modifier_item_kaya_custom3:OnDestroy()
@@ -424,16 +450,17 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 	
 	if IsServer() then
 	for i = 0, 8 do 
-	local item = self:GetCaster():GetItemInSlot(i)
-		if item ~= nil then
-		local itemname = item:GetAbilityName()
-		local namecheck = string.sub( itemname, 1, 16 )
-			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
-				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-				--self:Destroy()
+		local item = self:GetCaster():GetItemInSlot(i)
+			if item ~= nil then
+			local itemname = item:GetAbilityName()
+			local namecheck = string.sub( itemname, 1, 16 )
+				if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
+					self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
+					self:Destroy()
+					return
+				end
 			end
 		end
-	end
 
 	
 		local bonus = self:GetAbility():GetSpecialValueFor("bonus_gem")
@@ -443,6 +470,13 @@ function modifier_item_kaya_custom4:OnCreated( kv )
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
 	end 
+end
+
+function modifier_item_kaya_custom4:OnRefresh( kv )
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+		self:OnCreated( kv )
+	end
 end
 
 function modifier_item_kaya_custom4:OnDestroy()
@@ -543,7 +577,8 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 		local namecheck = string.sub( itemname, 1, 16 )
 			if namecheck == "item_kaya_custom" and item ~= self:GetAbility() then
 				self:GetParent():DropItemAtPositionImmediate(item,self:GetParent():GetOrigin())
-			--	self:Destroy()
+				self:Destroy()
+				return
 			end
 		end
 	end
@@ -556,6 +591,13 @@ function modifier_item_kaya_custom5:OnCreated( kv )
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
 	end 
+end
+
+function modifier_item_kaya_custom5:OnRefresh( kv )
+	if self.gem_bonus_modifier then
+		self.gem_bonus_modifier:Destroy()
+		self:OnCreated( kv )
+	end
 end
 
 function modifier_item_kaya_custom5:OnDestroy()

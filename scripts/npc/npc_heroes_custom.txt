@@ -950,4 +950,50 @@
         "Ability23"     	""
         "Ability24"     	""
     }
+	"npc_dota_hero_viper"
+		{
+		"override_hero"			"npc_dota_hero_viper"
+		"Ability1"				"viper_poison_attack_lua"
+		"Ability2"				"viper_nethertoxin_lua"
+		"Ability3"				"viper_corrosive_skin_lua"
+		"Ability6"				"viper_viper_strike_lua"
+        "Ability10"     	""
+        "Ability11"     	""
+        "Ability12"     	""
+        "Ability13"     	""
+        "Ability14"     	""
+        "Ability15"     	""
+        "Ability16"     	""
+        "Ability17"     	""
+        "Ability18"     	""
+        "Ability19"     	""
+        "Ability20"     	""
+        "Ability21"     	""
+        "Ability22"     	""
+        "Ability23"     	""
+        "Ability24"     	""
+    }
+	"npc_dota_hero_witch_doctor"
+		{
+		"override_hero"			"npc_dota_hero_witch_doctor"
+		"Ability1"				"witch_doctor_paralyzing_cask"
+		"Ability2"				"witch_doctor_voodoo_restoration"//
+		"Ability3"				""//witch_doctor_maledict
+		"Ability6"				"witch_doctor_death_ward"//
+        "Ability10"     	""
+        "Ability11"     	""
+        "Ability12"     	""
+        "Ability13"     	""
+        "Ability14"     	""
+        "Ability15"     	""
+        "Ability16"     	""
+        "Ability17"     	""
+        "Ability18"     	""
+        "Ability19"     	""
+        "Ability20"     	""
+        "Ability21"     	""
+        "Ability22"     	""
+        "Ability23"     	""
+        "Ability24"     	""
+    }
 }

@@ -48,7 +48,7 @@ insane_drop = {
 		
 		{items = {"item_gems_1","item_gems_2","item_gems_3","item_gems_4","item_gems_5"}, chance = 4, duration = 30, units = {"creep_1","comandir_creep_1","creep_2","comandir_creep_2","creep_3","comandir_creep_3","creep_4","comandir_creep_4","creep_5","comandir_creep_5","creep_6","comandir_creep_6","creep_7","comandir_creep_7", "creep_8", "comandir_creep_8", "creep_9", "comandir_creep_9","creep_10","comandir_creep_10"}},
 		
-		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},	
+		{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},
 		
 		{items = {"item_points_40"}, chance = 100, units = {"raid_new_year"}},
 		{items = {"item_points_40"}, chance = 100, units = {"npc_2023"}},
@@ -69,10 +69,15 @@ item_drop = {
 		{items = {"item_kristal"}, chance = 1,  duration = 30, units = {"comandir_creep_1","comandir_creep_2","comandir_creep_3","comandir_creep_4","comandir_creep_5","comandir_creep_6","comandir_creep_7", "comandir_creep_8", "comandir_creep_9","comandir_creep_10"}},
 
 		{items = {"item_box_1"}, chance = 2,  duration = 30, units = {"creep_box_1"}},
+		{items = {"item_box_1"}, chance = 0.7,  duration = 30, units = {"creep_box_2"}},
+		{items = {"item_box_1"}, chance = 0.5,  duration = 30, units = {"creep_box_3"}},
+
 		{items = {"item_box_2"}, chance = 0.7,  duration = 30, units = {"creep_box_1"}},
-		{items = {"item_box_2"}, chance = 0.8,  duration = 30, units = {"creep_box_2"}},
+		{items = {"item_box_2"}, chance = 0.9,  duration = 30, units = {"creep_box_2"}},
+		{items = {"item_box_2"}, chance = 0.5,  duration = 30, units = {"creep_box_3"}},
+
 		{items = {"item_box_3"}, chance = 0.5,  duration = 30, units = {"creep_box_2"}},
-		{items = {"item_box_3"}, chance = 0.5,  duration = 30, units = {"creep_box_3"}},
+		{items = {"item_box_3"}, chance = 0.7,  duration = 30, units = {"creep_box_3"}},
 }
 
 neutral_items_drop = {

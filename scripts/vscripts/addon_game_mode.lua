@@ -88,7 +88,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
+	-- GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
 	FilterManager:Init()
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
@@ -107,19 +107,21 @@ function CAddonAdvExGameMode:GoldFilter(event)
 	local mod = hero:FindModifierByName("modifier_gold_bank")
 	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
 		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
+		hero:SetGold( 99999, false )
+	elseif event.gold > 0 then
+		hero:SetGold( hero:GetGold() + event.gold, false )
 	elseif event.gold < 0 then
 		hero:ModifyGold(event.gold, true, 0)
 		if hero:GetGold() + mod:GetStackCount() <= 99999 then
-			hero:ModifyGold(mod:GetStackCount(), true, 0)
+			hero:SetGold( hero:GetGold() + mod:GetStackCount(), false )
 			mod:SetStackCount(0)
 		else
 			local flaw = 99999 - hero:GetGold()
 			mod:SetStackCount(mod:GetStackCount() - flaw)
-			hero:ModifyGold(flaw, true, 0)
+			hero:SetGold( 99999, false )
 		end
-		return false
 	end
-	return true
+	return false
 end
 
 function CAddonAdvExGameMode:InventoryFilter(event)
@@ -513,8 +515,15 @@ end
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 function CAddonAdvExGameMode:BountyFilter( kv )
+	DeepPrintTable(kv)
+	for i = 0, PlayerResource:GetPlayerCount()-1 do
+		if PlayerResource:IsValidPlayer(i) then
+			local hero = PlayerResource:GetSelectedHeroEntity(i)
+			hero:ModifyGoldFiltered(500, true, 0)
+		end
+	end
     local hero = PlayerResource:GetSelectedHeroEntity(kv.player_id_const)
-    kv.gold_bounty = 500
+    kv.gold_bounty = 0
     return true
 end
 
@@ -1166,6 +1175,21 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 	end	
+
+	for _, name in pairs(bosses_names) do
+		if name == killedUnit:GetUnitName() then
+			if killerEntity:GetOwner() ~= nil and not killerEntity:IsRealHero() and killerEntity:GetTeam() == DOTA_TEAM_GOODGUYS then
+				--it's a friendly summon killing something, credit to the owner
+				if killerEntity:GetOwner() ~= nil and killerEntity:GetOwner():IsRealHero() then
+					killerEntity:GetOwner():IncrementKills(1)
+				end
+			elseif killerEntity:IsRealHero() then
+				killerEntity:IncrementKills(1)
+			end
+			break
+		end
+	end
+	
 	--функция в которой может быть ошибка
 	---------------------------------------------------------------------
 	---------------------------------------------------------------------
