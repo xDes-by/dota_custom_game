@@ -228,36 +228,45 @@ function modifier_wisp_spirits_bh_wisp:OnIntervalThink()
 
 	local enemies = caster:FindEnemyUnitsInRadius(parent:GetAbsOrigin(), self.collisionRadius)
 	for _,enemy in pairs(enemies) do
-		-- if not self.hitUnits[enemy:entindex()] and enemy:IsMinion() then
+		if not self.hitUnits[enemy:entindex()] and enemy:IsMinion() then
 
-		-- 	EmitSoundOn("Hero_Wisp.Spirits.TargetCreep", parent)
-		-- 	if not enemy:TriggerSpellAbsorb( self:GetAbility() ) then
-		-- 		if RollPercentage(50) then
-		-- 			local nfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion_small.vpcf", PATTACH_POINT_FOLLOW, parent)
-		-- 						 ParticleManager:SetParticleControlEnt(nfx2, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-		-- 						 ParticleManager:ReleaseParticleIndex(nfx2)
-		-- 		else
-		-- 			local nfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion_small.vpcf", PATTACH_POINT, caster)
-		-- 						 ParticleManager:SetParticleControlEnt(nfx2, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-		-- 						 ParticleManager:ReleaseParticleIndex(nfx2)
-		-- 		end
+			EmitSoundOn("Hero_Wisp.Spirits.TargetCreep", parent)
+			if not enemy:TriggerSpellAbsorb( self:GetAbility() ) then
+				if RollPercentage(50) then
+					local nfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion_small.vpcf", PATTACH_POINT_FOLLOW, parent)
+								 ParticleManager:SetParticleControlEnt(nfx2, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+								 ParticleManager:ReleaseParticleIndex(nfx2)
+				else
+					local nfx2 = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_guardian_explosion_small.vpcf", PATTACH_POINT, caster)
+								 ParticleManager:SetParticleControlEnt(nfx2, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+								 ParticleManager:ReleaseParticleIndex(nfx2)
+				end
 
-		-- 		damage_type = DAMAGE_TYPE_PHYSICAL
-		-- 		if enemy:IsAlive() then
-		-- 			ApplyDamage({
-		-- 				victim = enemy,
-		-- 				attacker = caster,
-		-- 				damage = self.collisionDamage,
-		-- 				damage_type = damage_type,
-		-- 				ability = self:GetAbility(),
-		-- 			})
-		-- 		end
-		-- 	end
-		-- 	self.hitUnits[enemy:entindex()] = true
-		-- else
-		-- 	parent:ForceKill(false)
-		-- 	return
-		-- end
+				damage_type = DAMAGE_TYPE_PHYSICAL
+				if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int11") then
+					damage_type = DAMAGE_TYPE_MAGICAL
+        			damage_flags = DOTA_DAMAGE_FLAG_NONE
+				end
+				damage = self.collisionDamage
+				if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") then
+					damage = damage + self:GetCaster():GetIntellect() * 0.5
+				end
+				if enemy:IsAlive() then
+					ApplyDamage({
+						victim = enemy,
+						attacker = caster,
+						damage = damage,
+						damage_type = damage_type,
+						damage_flags = damage_flags,
+						ability = self:GetAbility(),
+					})
+				end
+			end
+			self.hitUnits[enemy:entindex()] = true
+		else
+			parent:ForceKill(false)
+			return
+		end
 	end
 
 	if self.elaspedTime < self.time then
@@ -310,11 +319,20 @@ function modifier_wisp_spirits_bh_wisp:OnRemoved()
 				if enemy:IsAlive() then
 					enemy:Paralyze(self:GetAbility(), caster, slow)
 					damage_type = DAMAGE_TYPE_PHYSICAL
+					if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int11") then
+						damage_type = DAMAGE_TYPE_MAGICAL
+						damage_flags = DOTA_DAMAGE_FLAG_NONE
+					end
+					damage = self.endDamage
+					if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") then
+						damage = damage + self:GetCaster():GetIntellect() * 0.5
+					end
 					ApplyDamage({
 						victim = enemy,
 						attacker = caster,
-						damage = self.endDamage,
+						damage = damage,
 						damage_type = damage_type,
+						damage_flags = damage_flags,
 						ability = self:GetAbility()
 					})
 				end

@@ -3362,10 +3362,12 @@
 
 #base "../vscripts/heroes/hero_wisp/wisp_talents.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_tether/wisp_tether_lua.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_tether/lifestealer_infest_bh.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_spirits/wisp_spirits_lua.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_spirits/wisp_spirits_bh.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_overcharge/wisp_overcharge.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_relocate/wisp_relocate.txt"
+
 
 //====================================================================================================ANAKIM===================================================================================================================================================
 

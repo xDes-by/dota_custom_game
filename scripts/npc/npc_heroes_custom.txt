@@ -319,7 +319,7 @@
 	"Ability2"				"wisp_spirits_bh"//
 	"Ability3"				"wisp_overcharge_lua"//
 	"Ability4"				"wisp_tether_break_lua"//
-	"Ability5"				""
+	"Ability5"				""//lifestealer_infest_bh
 	"Ability6"				"wisp_relocate_lua"//
 	"Ability7"				"wisp_spirit_inout"//
 	

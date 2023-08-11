@@ -23,7 +23,7 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = false -- true
+_G.server_load = true -- true
 _G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
@@ -421,7 +421,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	creep_spawner:spawn_creeps_forest()	
 	Spawner:Init()
 	Rules:tower_hp()
-	-- Rules:spawn_creeps_don()
+	Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
 	Dummy:init()

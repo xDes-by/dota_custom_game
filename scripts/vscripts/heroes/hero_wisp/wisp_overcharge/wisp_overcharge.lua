@@ -102,11 +102,11 @@ function modifier_wisp_overcharge_lua:DeclareFunctions()
 end
 
 function modifier_wisp_overcharge_lua:GetModifierIncomingDamage_Percentage()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") ~= nil then
-		return -30
-	else
-        return 0
-	end
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") ~= nil then
+	-- 	return -30
+	-- else
+    --     return 0
+	-- end
 	
 end
 function modifier_wisp_overcharge_lua:IsAura()

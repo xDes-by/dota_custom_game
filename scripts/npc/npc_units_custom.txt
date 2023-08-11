@@ -4449,7 +4449,7 @@
 			"ModelScale" 				"1.20"
 			"CanRespawn"				"1"
 			
-			"Ability1"					"lone_druid_spirit_bear_entangle"
+			// "Ability1"					"lone_druid_spirit_bear_entangle"
 			"Ability2"					""			
 			"Ability3"					"hp_regen_ability"			
 

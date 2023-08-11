@@ -16,9 +16,9 @@ function wisp_tether_lua:GetManaCost(iLevel)
 end
 
 function wisp_tether_lua:GetCastRange(vLocation, hTarget)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi10") then
-		return self:GetSpecialValueFor("radius") + 1500
-	end
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi10") then
+	-- 	return self:GetSpecialValueFor("radius") + 1500
+	-- end
 	return self:GetSpecialValueFor("radius")
 end
 
@@ -110,7 +110,8 @@ function modifier_wisp_tether_lua:OnCreated(params)
 	self.original_speed		= self:GetParent():GetMoveSpeedModifier(self:GetParent():GetBaseMoveSpeed(), false)
 	self.target_speed		= self.target:GetMoveSpeedModifier(self.target:GetBaseMoveSpeed(), true)
 	self.difference			= self.target_speed - self.original_speed
-
+	self.heal 				= 0
+	self.mana 				= 0
 	if IsServer() then 
 		self.tether_heal_amp 	= self:GetAbility():GetSpecialValueFor("tether_heal_amp")	
 		
@@ -126,7 +127,7 @@ function modifier_wisp_tether_lua:OnCreated(params)
 		self:GetCaster():EmitSound("Hero_Wisp.Tether")
 	end
 	
-	self:StartIntervalThink(FrameTime())
+	self:StartIntervalThink(0.2)
 end
 
 function modifier_wisp_tether_lua:OnIntervalThink()
@@ -140,12 +141,17 @@ function modifier_wisp_tether_lua:OnIntervalThink()
 
 	if not IsServer() then return end
 	
-
 	if not self:GetAbility() or not self:GetAbility().tether_ally then
 		self:Destroy()
 		return
 	end
 
+	SendOverheadEventMessage( self:GetCaster(), OVERHEAD_ALERT_HEAL , self.target, self.heal * self.tether_heal_amp, nil )
+	self.target:Heal(self.heal * self.tether_heal_amp, self:GetAbility())
+	self.heal = 0
+	SendOverheadEventMessage( self:GetCaster(), OVERHEAD_ALERT_MANA_ADD , self.target, self.mana * self.tether_heal_amp, nil )
+	self.target:GiveMana(self.mana * self.tether_heal_amp)
+	self.mana = 0
 	-- self.update_timer = self.update_timer + FrameTime()
 
 	-- handle health and mana
@@ -193,14 +199,14 @@ end
 
 function modifier_wisp_tether_lua:OnHealReceived(keys)
 	if keys.unit == self:GetParent() then
-		self.target:Heal(keys.gain * self.tether_heal_amp, self:GetAbility())
+		self.heal = self.heal + keys.gain
 		self.total_gained_health = self.total_gained_health + keys.gain
 	end
 end
 
 function modifier_wisp_tether_lua:OnManaGained(keys)
 	if keys.unit == self:GetParent() and self.target.GiveMana then
-		self.target:GiveMana(keys.gain * self.tether_heal_amp)
+		self.mana = self.mana + keys.gain
 		-- in order to avoid spam in "OnGained" we group it up in total_gained. Value is sent and reset each 1s
 		self.total_gained_mana = self.total_gained_mana + keys.gain
 	end
@@ -375,20 +381,20 @@ end
 modifier_wisp_tether_lua_ally_attack = class({})
 function modifier_wisp_tether_lua_ally_attack:IsHidden() return true end
 function modifier_wisp_tether_lua_ally_attack:IsPurgable() return false end
--- function modifier_wisp_tether_lua_ally_attack:DeclareFunctions()
--- 	local decFuncs = {
--- 		-- MODIFIER_EVENT_ON_ATTACK,
--- 	}
--- 	return decFuncs
--- end
+function modifier_wisp_tether_lua_ally_attack:DeclareFunctions()
+	local decFuncs = {
+		MODIFIER_EVENT_ON_ATTACK,
+	}
+	return decFuncs
+end
 
--- function modifier_wisp_tether_lua_ally_attack:OnAttack(params)
--- 	if IsServer() then
--- 		if params.attacker == self:GetParent() then
--- 			self:GetCaster():PerformAttack(params.target, true, true, true, false, true, false, false)
--- 		end
--- 	end
--- end
+function modifier_wisp_tether_lua_ally_attack:OnAttack(params)
+	if IsServer() then
+		if params.attacker == self:GetParent() then
+			self:GetCaster():PerformAttack(params.target, true, true, true, false, true, false, false)
+		end
+	end
+end
 
 --------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
@@ -509,29 +515,29 @@ function modifier_wisp_tether_lua_agi_talant:IsPurgable()
 	return false
 end
 
--- function modifier_wisp_tether_lua_agi_talant:DeclareFunctions()
--- 	return {
--- 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
--- 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
--- 		MODIFIER_EVENT_ON_ATTACK,
--- 	}
--- end
+function modifier_wisp_tether_lua_agi_talant:DeclareFunctions()
+	return {
+		-- MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		-- MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_EVENT_ON_ATTACK,
+	}
+end
 
--- function modifier_wisp_tether_lua_agi_talant:OnAttack( params )
---     caster = self:GetCaster()
---     if params.attacker == self:GetParent() then
---         caster:PerformAttack(
--- 			params.target, -- hTarget
--- 			false, -- bUseCastAttackOrb
--- 			true, -- bProcessProcs
--- 			true, -- bSkipCooldown
--- 			false, -- bIgnoreInvis
--- 			false, -- bUseProjectile
--- 			false, -- bFakeAttack
--- 			false -- bNeverMiss
--- 		)
---     end
--- end
+function modifier_wisp_tether_lua_agi_talant:OnAttack( params )
+    caster = self:GetCaster()
+    if params.attacker == self:GetParent() then
+        caster:PerformAttack(
+			params.target, -- hTarget
+			false, -- bUseCastAttackOrb
+			true, -- bProcessProcs
+			true, -- bSkipCooldown
+			false, -- bIgnoreInvis
+			false, -- bUseProjectile
+			false, -- bFakeAttack
+			false -- bNeverMiss
+		)
+    end
+end
 
 -- function modifier_wisp_tether_lua_agi_talant:GetModifierPreAttack_BonusDamage()
 -- 	return self:GetAbility():GetSpecialValueFor("movespeed") * 10

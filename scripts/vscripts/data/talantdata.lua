@@ -6232,8 +6232,8 @@ talantlist = {
                 url = "/images/custom_game/talants/img/npc_dota_hero_wisp/str/str-talant-11.png", name = "npc_dota_hero_wisp_str11", description = "", buff = "npc_dota_hero_wisp_str11_Description",
                 place = {"str 11"}
             },
-            npc_dota_hero_wisp_str_last = {
-                url = "/images/custom_game/talants/img/npc_dota_hero_wisp/str/str-talant-12.png", name = "npc_dota_hero_wisp_str_last", description = "", buff = "npc_dota_hero_wisp_str_last_Description",
+            lifestealer_infest_bh = {
+                url = "/images/custom_game/talants/img/npc_dota_hero_wisp/str/life_stealer_infest.png", name = "npc_dota_hero_wisp_str_last", description = "", buff = "npc_dota_hero_wisp_str_last_Description",
                 place = {"str 12"}
             },
     ---     
