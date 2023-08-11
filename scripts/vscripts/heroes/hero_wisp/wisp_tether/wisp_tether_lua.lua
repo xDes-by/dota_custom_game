@@ -15,6 +15,13 @@ function wisp_tether_lua:GetManaCost(iLevel)
     end
 end
 
+function wisp_tether_lua:GetCastRange(vLocation, hTarget)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi10") then
+		return self:GetSpecialValueFor("radius") + 1500
+	end
+	return self:GetSpecialValueFor("radius")
+end
+
 
 function wisp_tether_lua:GetCustomCastErrorTarget(target)
 	if target == self:GetCaster() then
@@ -60,11 +67,14 @@ function wisp_tether_lua:OnSpellStart()
 	self.target 				= self:GetCursorTarget()
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi_last") ~= nil then
-		caster:AddNewModifier(caster, self, "modifier_wisp_tether_lua_agi_talant", {})
-		self.target:AddNewModifier(caster, self, "modifier_wisp_tether_lua_agi_talant", {})
+		-- caster:AddNewModifier(caster, self, "modifier_wisp_tether_lua_agi_talant", {})
+		self.target:AddNewModifier(caster, self, "modifier_wisp_tether_lua_ally_attack", {})
 	end
-
-	caster:AddNewModifier(self.target, self, "modifier_wisp_tether_lua", {})
+	local radius 			= self:GetSpecialValueFor("radius")
+	if caster:FindAbilityByName("npc_dota_hero_wisp_agi10") then
+		radius = radius + 1500
+	end
+	caster:AddNewModifier(self.target, self, "modifier_wisp_tether_lua", {radius = radius})
 
 
 	local tether_modifier = self:GetCursorTarget():AddNewModifier(self:GetCaster(), ability, "modifier_wisp_tether_lua_ally", {})
@@ -102,7 +112,6 @@ function modifier_wisp_tether_lua:OnCreated(params)
 	self.difference			= self.target_speed - self.original_speed
 
 	if IsServer() then 
-		self.radius 			= self:GetAbility():GetSpecialValueFor("radius")
 		self.tether_heal_amp 	= self:GetAbility():GetSpecialValueFor("tether_heal_amp")	
 		
 		if self:GetParent():FindAbilityByName("npc_dota_hero_wisp_str6") ~= nil then 
@@ -113,7 +122,7 @@ function modifier_wisp_tether_lua:OnCreated(params)
 		self.total_gained_health 	= 0
 		self.update_timer 			= 0
 		self.time_to_send 			= 1
-
+		self.radius = params.radius
 		self:GetCaster():EmitSound("Hero_Wisp.Tether")
 	end
 	
@@ -127,8 +136,11 @@ function modifier_wisp_tether_lua:OnIntervalThink()
 	self.target_speed		= self.target:GetMoveSpeedModifier(self.target:GetBaseMoveSpeed(), true)
 	self.difference			= self.target_speed - self.original_speed
 	
+	
+
 	if not IsServer() then return end
 	
+
 	if not self:GetAbility() or not self:GetAbility().tether_ally then
 		self:Destroy()
 		return
@@ -158,7 +170,6 @@ function modifier_wisp_tether_lua:OnIntervalThink()
 	if (self:GetAbility().tether_ally:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D() <= self.radius then
 		return
 	end
-
 	self:GetParent():RemoveModifierByName("modifier_wisp_tether_lua")
 end
 
@@ -177,10 +188,6 @@ function modifier_wisp_tether_lua:DeclareFunctions()
 end
 
 function modifier_wisp_tether_lua:GetDisableHealing()
-	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_wisp_str9")
-	if abil == nil then		
-	return 1
-	end
 	return 0
 end
 
@@ -323,27 +330,37 @@ function modifier_wisp_tether_lua_ally:DeclareFunctions()
 	local decFuncs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	}
 
 	return decFuncs
 end
 
 function modifier_wisp_tether_lua_ally:GetModifierAttackSpeedBonus_Constant()
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi10")	
-				if abil ~= nil then 
-	return self:GetCaster():GetAgility()/4 
-	end
+-- local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi10")	
+-- 				if abil ~= nil then 
+-- 	return self:GetCaster():GetAgility()/4 
+-- 	end
 	return 0
 end
 
 
 function modifier_wisp_tether_lua_ally:GetModifierMoveSpeedBonus_Percentage()
 	if self:GetAbility() then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str9") then
+			return self:GetAbility():GetSpecialValueFor("movespeed") * 2
+		end
 		return self:GetAbility():GetSpecialValueFor("movespeed")
 	end
 end
 
+function modifier_wisp_tether_lua_ally:GetModifierIgnoreMovespeedLimit()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str9") then
+		return 1
+	end
+	return 0
+end
 
 function modifier_wisp_tether_lua_ally:GetModifierBonusStats_Intellect()
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int8")	
@@ -358,20 +375,20 @@ end
 modifier_wisp_tether_lua_ally_attack = class({})
 function modifier_wisp_tether_lua_ally_attack:IsHidden() return true end
 function modifier_wisp_tether_lua_ally_attack:IsPurgable() return false end
-function modifier_wisp_tether_lua_ally_attack:DeclareFunctions()
-	local decFuncs = {
-		MODIFIER_EVENT_ON_ATTACK
-	}
-	return decFuncs
-end
+-- function modifier_wisp_tether_lua_ally_attack:DeclareFunctions()
+-- 	local decFuncs = {
+-- 		-- MODIFIER_EVENT_ON_ATTACK,
+-- 	}
+-- 	return decFuncs
+-- end
 
-function modifier_wisp_tether_lua_ally_attack:OnAttack(params)
-	if IsServer() then
-		if params.attacker == self:GetParent() then
-			self:GetCaster():PerformAttack(params.target, true, true, true, false, true, false, false)
-		end
-	end
-end
+-- function modifier_wisp_tether_lua_ally_attack:OnAttack(params)
+-- 	if IsServer() then
+-- 		if params.attacker == self:GetParent() then
+-- 			self:GetCaster():PerformAttack(params.target, true, true, true, false, true, false, false)
+-- 		end
+-- 	end
+-- end
 
 --------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
@@ -401,7 +418,6 @@ function modifier_wisp_tether_lua_latch:OnIntervalThink()
 		local casterDir = self:GetCaster():GetAbsOrigin() - self.target:GetAbsOrigin()
 		local distToAlly = casterDir:Length2D()
 		casterDir = casterDir:Normalized()
-		
 		if distToAlly > self.final_latch_distance then
 			distToAlly = distToAlly - self:GetAbility():GetSpecialValueFor("latch_speed") * FrameTime()
 			distToAlly = math.max( distToAlly, self.final_latch_distance )	-- Clamp this value
@@ -493,15 +509,34 @@ function modifier_wisp_tether_lua_agi_talant:IsPurgable()
 	return false
 end
 
-function modifier_wisp_tether_lua_agi_talant:DeclareFunctions()
-	return {MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
-end
+-- function modifier_wisp_tether_lua_agi_talant:DeclareFunctions()
+-- 	return {
+-- 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+-- 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+-- 		MODIFIER_EVENT_ON_ATTACK,
+-- 	}
+-- end
 
-function modifier_wisp_tether_lua_agi_talant:GetModifierPreAttack_BonusDamage()
-	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
-end
+-- function modifier_wisp_tether_lua_agi_talant:OnAttack( params )
+--     caster = self:GetCaster()
+--     if params.attacker == self:GetParent() then
+--         caster:PerformAttack(
+-- 			params.target, -- hTarget
+-- 			false, -- bUseCastAttackOrb
+-- 			true, -- bProcessProcs
+-- 			true, -- bSkipCooldown
+-- 			false, -- bIgnoreInvis
+-- 			false, -- bUseProjectile
+-- 			false, -- bFakeAttack
+-- 			false -- bNeverMiss
+-- 		)
+--     end
+-- end
 
-function modifier_wisp_tether_lua_agi_talant:GetModifierAttackSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
-end
+-- function modifier_wisp_tether_lua_agi_talant:GetModifierPreAttack_BonusDamage()
+-- 	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
+-- end
+
+-- function modifier_wisp_tether_lua_agi_talant:GetModifierAttackSpeedBonus_Constant()
+-- 	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
+-- end

@@ -335,6 +335,23 @@
 		}
 	}
 
+"item_recipe_sabre_blade1"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"0"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_sabre_blade1"
+		"ItemRequirements"
+		{
+			"01"							"item_echo_sabre;item_ultimate_orb;"
+		}
+	}
+
 "item_recipe_sabre_blade2"
 	{
 		"AbilityTextureName" 				"recipe"				

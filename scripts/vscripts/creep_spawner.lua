@@ -64,37 +64,37 @@ function creep_spawner:spawn_creeps_forest()
 			if count == 1 or count == 7 or count == 9 or count == 10 then
 				for i = 1, 4 do
 					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_1")
+						-- local unit = CreateUnitByName("forest_creep_big_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_big_1")
 					else	
-						local unit = CreateUnitByName("forest_creep_mini_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_1")
+						-- local unit = CreateUnitByName("forest_creep_mini_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_mini_1")
 					end	
 				end
 			else if count == 2 or count == 4 or count == 5 or count == 11 then
 				for i = 1, 4 do
 					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_2")
+						-- local unit = CreateUnitByName("forest_creep_big_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_big_2")
 					else	
-						local unit = CreateUnitByName("forest_creep_mini_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_2")
+						-- local unit = CreateUnitByName("forest_creep_mini_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_mini_2")
 					end	
 				end
 			else 
 				for i = 1, 4 do
 					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_3")
+						-- local unit = CreateUnitByName("forest_creep_big_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_big_3")
 					else	
-						local unit = CreateUnitByName("forest_creep_mini_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_3")
+						-- local unit = CreateUnitByName("forest_creep_mini_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+						-- Rules:difficality_modifier(unit)
+						-- add_modifier_death(unit, "forest_creep_mini_3")
 					end	
 				end
 			end	
@@ -104,7 +104,7 @@ function creep_spawner:spawn_creeps_forest()
 		return nil
 		end
 	end)
-	creep_spawner:bosses()	
+	-- creep_spawner:bosses()	
 end
 
 

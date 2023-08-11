@@ -130,6 +130,7 @@
             "item_trickster_cloak"            "1"
             "item_stormcrafter"               "1"
             "item_penta_edged_sword"          "1"
+            "item_phylactery"                   "1"
         }
     }
     "5"

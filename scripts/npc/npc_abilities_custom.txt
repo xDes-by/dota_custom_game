@@ -3005,14 +3005,6 @@
 #base "../vscripts/heroes/hero_sand/sand_caustic/sand_caustic.txt"
 #base "../vscripts/heroes/hero_sand/sand_ult/sand_ult.txt"
 
-//=====================================================================================================WISP=================================================================================================================================================
-
-#base "../vscripts/heroes/hero_wisp/wisp_talents.txt"
-#base "../vscripts/heroes/hero_wisp/wisp_tether/wisp_tether_lua.txt"
-#base "../vscripts/heroes/hero_wisp/wisp_spirits/wisp_spirits_lua.txt"
-#base "../vscripts/heroes/hero_wisp/wisp_overcharge/wisp_overcharge.txt"
-#base "../vscripts/heroes/hero_wisp/wisp_relocate/wisp_relocate.txt"
-
 //=====================================================================================================DRAGON=================================================================================================================================================
 
 #base "../vscripts/heroes/hero_dragon/dragon_talents.txt"
@@ -3322,6 +3314,58 @@
 #base "../vscripts/heroes/hero_witch_doctor/maledict/maledict.txt"
 #base "../vscripts/heroes/hero_witch_doctor/paralyzing_cask/paralyzing_cask.txt"
 #base "../vscripts/heroes/hero_witch_doctor/voodoo_restoration/voodoo_restoration.txt"
+
+//===================================================================================================== dawnbreaker =====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_starbreaker_lua/dawnbreaker_starbreaker_lua.txt"
+#base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_celestial_hammer_lua/dawnbreaker_celestial_hammer_lua.txt"
+#base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_luminosity_lua/dawnbreaker_luminosity_lua.txt"
+#base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_solar_guardian_lua/dawnbreaker_solar_guardian_lua.txt"
+
+//===================================================================================================== hero_necrolyte =====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_necrolyte/hero_necrolyte_talents.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_death_pulse/necrolyte_death_pulse.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_ghost_shroud/necrolyte_ghost_shroud.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_heartstopper_aura/necrolyte_heartstopper_aura.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_sadist/necrolyte_sadist.txt"
+
+//===================================================================================================== hero_vengeful_spirit =====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_vengeful_spirit/hero_vengeful_spirit_talents.txt"
+#base "../vscripts/heroes/hero_vengeful_spirit/command_aura/command_aura.txt"
+#base "../vscripts/heroes/hero_vengeful_spirit/magic_missile/magic_missile.txt"
+#base "../vscripts/heroes/hero_vengeful_spirit/nether_swap/nether_swap.txt"
+#base "../vscripts/heroes/hero_vengeful_spirit/wave_of_terror/wave_of_terror.txt"
+#base "../vscripts/heroes/hero_vengeful_spirit/vengeful_tempest_double/vengeful_tempest_double.txt"
+
+//===================================================================================================== RAZOR =====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_razor/hero_razor_talents.txt"
+#base "../vscripts/heroes/hero_razor/static_link_lua/static_link_lua.txt"
+#base "../vscripts/heroes/hero_razor/razor_eye_of_the_storm_lua/razor_eye_of_the_storm_lua.txt"
+#base "../vscripts/heroes/hero_razor/razor_plasma_field_lua/razor_plasma_field_lua.txt"
+#base "../vscripts/heroes/hero_razor/razor_storm_surge_lua/razor_storm_surge_lua.txt"
+#base "../vscripts/heroes/hero_razor/razor_storm_surge_lua/razor_unstable_current_bh.txt"
+
+//=====================================================================================================  death prophet =====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_talents.txt"
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_crypt_swarm_bh/death_prophet_crypt_swarm_bh.txt"
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_exorcism_bh/death_prophet_exorcism_bh.txt"
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_ghastly_haunting/death_prophet_ghastly_haunting.txt"
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_occultism/death_prophet_occultism.txt"
+#base "../vscripts/heroes/hero_death_prophet/death_prophet_spirit_siphon_bh/death_prophet_spirit_siphon_bh.txt"
+
+//=====================================================================================================WISP=================================================================================================================================================
+
+#base "../vscripts/heroes/hero_wisp/wisp_talents.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_tether/wisp_tether_lua.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_spirits/wisp_spirits_lua.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_spirits/wisp_spirits_bh.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_overcharge/wisp_overcharge.txt"
+#base "../vscripts/heroes/hero_wisp/wisp_relocate/wisp_relocate.txt"
 
 //====================================================================================================ANAKIM===================================================================================================================================================
 

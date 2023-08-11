@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+	"static_link_lua"
+  {
+    "BaseClass"           "ability_lua"
+    "ScriptFile"          "heroes/hero_razor/static_link_lua/static_link_lua.lua"
+    "AbilityTextureName"  "razor_static_link"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
+    "AbilitySound"          "Ability.static.start"
+
+    "precache"
+    {
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+      "particle"  "particles/units/heroes/hero_razor/razor_static_link.vpcf"
+    }
+
+    "AbilityCastRange"        "600"
+    "AbilityCastPoint"        "0.3"
+
+    "AbilityCooldown"       "8"
+    "AbilityManaCost"       "0"
+    "MaxLevel"						"15"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "drain_length"      "10"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "drain_rate"      "15 27 40 50 60 70 90 110 130 150 170 190 210 230 250"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "drain_duration"      "120"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "maximum_damage_reduction"      "20"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "drain_range_buffer"  "250"
+      }
+    }
+  }
+}

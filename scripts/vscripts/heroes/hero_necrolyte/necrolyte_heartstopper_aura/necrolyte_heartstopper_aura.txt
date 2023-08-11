@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Necrolyte's Heartstopper Aura
+	//=================================================================================================================
+	"imba_necrolyte_heartstopper_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		"ScriptFile"				"heroes/hero_necrolyte/necrolyte_heartstopper_aura/necrolyte_heartstopper_aura"
+		"HasScepterUpgrade"			"1"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/auras/aura_heartstopper.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"900"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_pct"				"0.6 1.2 1.8 2.4"
+				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_8"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"heal_reduce_pct"			"7.5 15 22.5 30"
+				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_4"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"tick_rate"					"0.2"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"scepter_multiplier"		"2" 
+				"RequiresScepter"			"1"
+			} 
+		}
+	}
+}

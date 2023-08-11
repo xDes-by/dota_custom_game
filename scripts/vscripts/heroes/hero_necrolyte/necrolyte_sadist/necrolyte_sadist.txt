@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  	//=================================================================================================================
+	// Necrolyte's Sadist
+	//=================================================================================================================
+	"imba_necrolyte_sadist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				"heroes/hero_necrolyte/necrolyte_sadist/necrolyte_sadist"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"necrolyte_sadist"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_regen"			"0.4"
+				"LinkedSpecialBonus"	"special_bonus_imba_necrolyte_6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_regen"			"0.4"
+				"LinkedSpecialBonus"	"special_bonus_imba_necrolyte_6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hero_multiplier"		"6"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_duration"		"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"regen_minimum"			"6.5"
+			}
+		}
+	}
+}

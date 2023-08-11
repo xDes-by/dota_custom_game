@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+  	//=================================================================================================================
+	// Necrolyte's Reaper's Scythe
+	//=================================================================================================================
+	"imba_necrolyte_reapers_scythe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				    "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+		"AbilityTextureName"			"necrolyte_reapers_scythe"
+		"HasScepterUpgrade"				"1"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe_start.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
+			"particle"					"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.55"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 350 500"
+
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage"						"0.7 0.8 0.9"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"respawn_increase"			"15 25 35"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"debuff_duration"			"30"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reduction_pct"		"20 30 40"
+				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_7"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"spellpower_reduction"		"20 30 40"
+				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_7"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_cooldown"			"60"
+			}
+		}
+	}
+}

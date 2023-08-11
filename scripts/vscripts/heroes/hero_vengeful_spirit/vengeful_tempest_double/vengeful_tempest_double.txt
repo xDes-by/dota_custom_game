@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+	"vengeful_tempest_double"
+	{
+		"ID"							"205683"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_vengeful_spirit/vengeful_tempest_double/vengeful_tempest_double"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_ArcWarden.TempestDouble"
+		"HasScepterUpgrade"				"1"
+		"MaxLevel"						"10"
+		"AbilityTextureName"			"arc_warden_tempest_double"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
+		"precache"
+		{
+			"particle"	"particles/status_fx/status_effect_arc_warden_tempest.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_tempest_cast.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_death.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"58 56 54 52 50 48 46 44 42 40"
+
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"17 20 23 26 29 32 34 36 38 40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"incoming_damage"		"375 350 325 300 275 250 225 200 175 150"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"outgoing_damage"		"25 30 35 40 45 50 55 60 65 70"
+			}
+		}
+	}
+}

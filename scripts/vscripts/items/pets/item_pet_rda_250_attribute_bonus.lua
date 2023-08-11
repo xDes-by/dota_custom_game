@@ -35,10 +35,13 @@ function modifier_item_pet_RDA_250_attribute_bonus:OnCreated( kv )
 		if IsServer() then
 		local point = self:GetCaster():GetAbsOrigin()
 		if not self:GetCaster():IsIllusion() then
-	self.pet = CreateUnitByName("pet_rda_250_attribute_bonus", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
-	self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
-	self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
-	self.pet:SetOwner(self:GetCaster())
+			self.pet = CreateUnitByName("pet_rda_250_attribute_bonus", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
+			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
+			self.pet:SetOwner(self:GetCaster())
+
+			print("------------------------------")
+			print(self:GetParent():GetLevel())
 		end
 end
 end

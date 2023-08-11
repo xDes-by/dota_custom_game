@@ -2,8 +2,10 @@ require('diff_wave')
 require('libraries/timers')
 require('libraries/notifications')
 require("libraries/animations")
+-- require("libraries/custom_indicator/custom_indicator" )
 require("libraries/vector_target/vector_target" )
 require("libraries/table")
+require('libraries/util')
 require("creep_spawner")
 require("drop")
 require("spawner")
@@ -21,7 +23,7 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = true -- true
+_G.server_load = false -- true
 _G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
@@ -67,9 +69,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
 	GameModeEntity:SetUseCustomHeroLevels( true )
 	
-	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED,0.4)
-	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA ,7)
-	
 	--------------------------------------------------------------------------------------------
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
@@ -88,7 +87,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	-- GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
 	FilterManager:Init()
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
@@ -422,7 +421,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	creep_spawner:spawn_creeps_forest()	
 	Spawner:Init()
 	Rules:tower_hp()
-	Rules:spawn_creeps_don()
+	-- Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
 	Dummy:init()

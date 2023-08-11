@@ -1,0 +1,85 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Necrolyte's Ghost Shroud
+	//=================================================================================================================
+	"imba_necrolyte_ghost_shroud"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"necrolyte_sadist"
+		"ScriptFile"				"heroes/hero_necrolyte/necrolyte_ghost_shroud/necrolyte_ghost_shroud"
+		"HasScepterUpgrade"			"1"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"					"particles/status_fx/status_effect_necrolyte_spirit.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_spirit_debuff.vpcf"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_spirit.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"		
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"28 24 20 16"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"750"
+				"LinkedSpecialBonus"	"special_bonus_imba_necrolyte_5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0 3.5 4.0 4.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_amp_pct"			"40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"healing_amp_pct"		"75"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"6 12 18 24"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"healing_amp_tooltip"	"37.5 40 42.5 45"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown_scepter"		"10" 
+				"RequiresScepter"		"1"
+			} 	
+		}
+	}
+}
