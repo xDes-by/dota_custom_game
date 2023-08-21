@@ -106,6 +106,7 @@ function modifier_wisp_tether_lua:IsPurgable() return false end
 function modifier_wisp_tether_lua:GetPriority() return MODIFIER_PRIORITY_SUPER_ULTRA end
 
 function modifier_wisp_tether_lua:OnCreated(params)
+	self.parent 			= self:GetParent()
 	self.target 			= self:GetCaster()
 	self.original_speed		= self:GetParent():GetMoveSpeedModifier(self:GetParent():GetBaseMoveSpeed(), false)
 	self.target_speed		= self.target:GetMoveSpeedModifier(self.target:GetBaseMoveSpeed(), true)
@@ -127,7 +128,7 @@ function modifier_wisp_tether_lua:OnCreated(params)
 		self:GetCaster():EmitSound("Hero_Wisp.Tether")
 	end
 	
-	self:StartIntervalThink(0.2)
+	self:StartIntervalThink(0.5)
 end
 
 function modifier_wisp_tether_lua:OnIntervalThink()
@@ -198,17 +199,14 @@ function modifier_wisp_tether_lua:GetDisableHealing()
 end
 
 function modifier_wisp_tether_lua:OnHealReceived(keys)
-	if keys.unit == self:GetParent() then
+	if keys.unit == self.parent then
 		self.heal = self.heal + keys.gain
-		self.total_gained_health = self.total_gained_health + keys.gain
 	end
 end
 
 function modifier_wisp_tether_lua:OnManaGained(keys)
-	if keys.unit == self:GetParent() and self.target.GiveMana then
+	if keys.unit == self.parent and self.target.GiveMana then
 		self.mana = self.mana + keys.gain
-		-- in order to avoid spam in "OnGained" we group it up in total_gained. Value is sent and reset each 1s
-		self.total_gained_mana = self.total_gained_mana + keys.gain
 	end
 end
 
@@ -274,7 +272,7 @@ function modifier_wisp_tether_lua_ally:OnCreated()
 		
 	--	self:GetParent():AddNewModifier(self:GetParent(), self, "modifier_spell_ampl_tether", {})
 		
-		self:StartIntervalThink(FrameTime())
+		-- self:StartIntervalThink(FrameTime())
 	end
 end
 

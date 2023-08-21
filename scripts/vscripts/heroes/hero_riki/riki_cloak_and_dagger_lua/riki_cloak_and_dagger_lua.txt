@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	"riki_cloak_and_dagger_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_riki/riki_cloak_and_dagger_lua/riki_cloak_and_dagger_lua"
+		"AbilityTextureName"			"riki_permanent_invisibility"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityManaCost"		"0"
+		"MaxLevel"						"10"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage_multiplier"				"0.9 1.0 1.1 1.2 1.3 1.4 1.6 1.8 2.0 2.2"
+				//"LinkedSpecialBonus"		"special_bonus_unique_riki_1"
+				"LinkedSpecialBonus"		"special_bonus_imba_riki_cloak_and_dagger_damage"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"backstab_angle"				"105"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_delay"					"3"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"regards_health_regen_pct"	"1.5"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"regards_mana_regen_pct"	"1.5"
+			}
+		}
+	}
+}

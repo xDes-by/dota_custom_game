@@ -49,7 +49,7 @@ end
 
 function modifier_hurricane_multishot:OnAttack(keys)
     if not IsServer() then return end
-    if keys.attacker == self:GetParent() and self:GetParent():IsRangedAttacker() and keys.target and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not keys.no_attack_cooldown and self:GetAbility():IsFullyCastable() then	
+    if keys.attacker == self:GetParent() and self:GetParent():IsRangedAttacker() and keys.target and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not keys.no_attack_cooldown and self:GetAbility():IsFullyCastable() and RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("multishot_chance"), self:GetCaster():entindex(), self:GetCaster()) then	
 		
         if not self:GetParent():HasFlyMovementCapability() then
             local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), keys.target:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("multishot_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)		
@@ -95,7 +95,7 @@ function modifier_hurricane_multishot:GetModifierBonusStats_Agility()
 end
 
 function modifier_hurricane_multishot:GetModifierAttackRangeBonusUnique()
-    return self:GetAbility():GetSpecialValueFor("attack_range")
+    return self:GetAbility():GetSpecialValueFor("base_attack_range")
 end
 
 

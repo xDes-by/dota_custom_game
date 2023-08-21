@@ -310,14 +310,14 @@ function dawnbreaker_celestial_hammer_lua:Converge()
 	mod:Return()
 
 	-- add travel modifier
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_dawnbreaker_celestial_hammer_lua", -- modifier name
-		{
-			target = target:entindex(),
-		} -- kv
-	)
+	-- caster:AddNewModifier(
+	-- 	caster, -- player source
+	-- 	self, -- ability source
+	-- 	"modifier_dawnbreaker_celestial_hammer_lua", -- modifier name
+	-- 	{
+	-- 		target = target:entindex(),
+	-- 	} -- kv
+	-- )
 
 	-- play effects
 	local sound_cast = "Hero_Dawnbreaker.Converge.Cast"

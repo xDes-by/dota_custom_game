@@ -12,41 +12,43 @@ function death_prophet_crypt_swarm_bh:OnSpellStart()
 	local width = self:GetSpecialValueFor("start_radius")
 	local endWidth = self:GetSpecialValueFor("end_radius")
 	
-	
-	-- if caster:HasTalent("special_bonus_unique_death_prophet_crypt_swarm_2") then
-	-- 	for _, enemy in ipairs( caster:FindEnemyUnitsInRadius( caster:GetAbsOrigin(), distance ) ) do
-	-- 		self:OnProjectileHitHandle( enemy, enemy:GetAbsOrigin() )
-	-- 	end
-	-- 	ParticleManager:FireParticle( "particles/units/heroes/hero_death_prophet/death_prophet_carrion_nova.vpcf", PATTACH_ABSORIGIN, caster, {[0] = caster:GetAbsOrigin() + Vector(0,0,64)} )
-	-- else
-		
-	-- end
-    self.projectiles = self.projectiles or {}
-    local info = {
-        Ability = self,
-        EffectName = "",
-        vSpawnOrigin = caster:GetAbsOrigin(),
-        fDistance = distance,
-        fStartRadius = width,
-        fEndRadius = width,
-        Source = caster,
-        bHasFrontalCone = false,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        bDeleteOnHit = false,
-        vVelocity = direction * speed,
-        bProvidesVision = true,
-        iVisionRadius = self:GetSpecialValueFor("vision_aoe"),
-        iVisionTeamNumber = caster:GetTeamNumber(),
+	self.projectiles = self.projectiles or {}
+	local proj = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
+
+    local directions = {
+        caster:GetForwardVector()  -- Original direction
     }
-    local id = ProjectileManager:CreateLinearProjectile(info)
-    local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_death_prophet/death_prophet_carrion_swarm.vpcf", PATTACH_CUSTOMORIGIN, caster )
-    ParticleManager:SetParticleControl( fx, 0, caster:GetAbsOrigin() )
-    ParticleManager:SetParticleControl( fx, 1, direction * speed )
-    ParticleManager:SetParticleControl( fx, 2, Vector(endWidth, width, endWidth) )
-    self.projectiles[id] = fx
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str6") then
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, 40, 0), caster:GetForwardVector()))
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, -40, 0), caster:GetForwardVector()))
+    end
+    for _, direction in pairs(directions) do
+        local info = {
+            Ability = self,
+            EffectName = "",
+            vSpawnOrigin = caster:GetAbsOrigin(),
+            fDistance = distance,
+            fStartRadius = width,
+            fEndRadius = width,
+            Source = caster,
+            bHasFrontalCone = false,
+            bReplaceExisting = false,
+            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            bDeleteOnHit = false,
+            vVelocity = direction * speed,
+            bProvidesVision = true,
+            iVisionRadius = self:GetSpecialValueFor("vision_aoe"),
+            iVisionTeamNumber = caster:GetTeamNumber(),
+        }
+        local id = ProjectileManager:CreateLinearProjectile(info)
+        local fx = ParticleManager:CreateParticle( "particles/units/heroes/hero_death_prophet/death_prophet_carrion_swarm.vpcf", PATTACH_CUSTOMORIGIN, caster )
+        ParticleManager:SetParticleControl( fx, 0, caster:GetAbsOrigin() )
+        ParticleManager:SetParticleControl( fx, 1, direction * speed )
+        ParticleManager:SetParticleControl( fx, 2, Vector(endWidth, width, endWidth) )
+        self.projectiles[id] = fx
+    end
 	caster:EmitSound("Hero_DeathProphet.CarrionSwarm")
 end
 
@@ -59,6 +61,12 @@ function death_prophet_crypt_swarm_bh:OnProjectileHitHandle( target, position, i
 			
 		-- end
         local damage = self:GetSpecialValueFor("damage")
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi7") then
+            damage = damage + self:GetCaster():GetAgility() * 0.75
+        end
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str9") then
+            damage = damage + self:GetCaster():GetStrength() * 0.75
+        end
         ApplyDamage({
             victim = target,
             attacker = caster,

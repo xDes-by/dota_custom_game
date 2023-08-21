@@ -251,6 +251,9 @@ function modifier_wisp_spirits_bh_wisp:OnIntervalThink()
 				if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") then
 					damage = damage + self:GetCaster():GetIntellect() * 0.5
 				end
+				if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi6") then
+					damage = damage + self:GetCaster():GetBaseDamageMax()
+				end
 				if enemy:IsAlive() then
 					ApplyDamage({
 						victim = enemy,
@@ -323,9 +326,12 @@ function modifier_wisp_spirits_bh_wisp:OnRemoved()
 						damage_type = DAMAGE_TYPE_MAGICAL
 						damage_flags = DOTA_DAMAGE_FLAG_NONE
 					end
-					damage = self.endDamage
+					damage = self.endDamage 
 					if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int_last") then
 						damage = damage + self:GetCaster():GetIntellect() * 0.5
+					end
+					if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi6") then
+						damage = damage + self:GetCaster():GetBaseDamageMax()
 					end
 					ApplyDamage({
 						victim = enemy,

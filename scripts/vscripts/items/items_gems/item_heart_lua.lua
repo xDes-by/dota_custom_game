@@ -101,7 +101,12 @@ if IsServer() then
 			local modifierName = "modifier_" .. gem
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
-	end 
+		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
+			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
+				self:GetParent():RemoveModifierByName(modifier:GetName())
+			end
+		end
+	end
 end
 
 function modifier_item_heart_lua1:OnDestroy()
@@ -166,6 +171,11 @@ if IsServer() then
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
 			local modifierName = "modifier_" .. gem
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
+		end
+		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
+			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
+				self:GetParent():RemoveModifierByName(modifier:GetName())
+			end
 		end
 	end 	
 end
@@ -232,6 +242,11 @@ if IsServer() then
 			local modifierName = "modifier_" .. gem
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
+		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
+			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
+				self:GetParent():RemoveModifierByName(modifier:GetName())
+			end
+		end
 	end 
 end
 function modifier_item_heart_lua3:OnDestroy()
@@ -297,6 +312,11 @@ if IsServer() then
 			local modifierName = "modifier_" .. gem
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
 		end
+		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
+			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
+				self:GetParent():RemoveModifierByName(modifier:GetName())
+			end
+		end
 	end 
 end
 function modifier_item_heart_lua4:OnDestroy()
@@ -361,6 +381,11 @@ if IsServer() then
 		if gem == "gem1" or gem == "gem2" or gem == "gem3" or gem == "gem4" or gem == "gem5" then
 			local modifierName = "modifier_" .. gem
 			self.gem_bonus_modifier = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), modifierName, {stacks = self:GetAbility():GetSpecialValueFor("bonus_gem")})
+		end
+		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
+			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
+				self:GetParent():RemoveModifierByName(modifier:GetName())
+			end
 		end
 	end 
 end

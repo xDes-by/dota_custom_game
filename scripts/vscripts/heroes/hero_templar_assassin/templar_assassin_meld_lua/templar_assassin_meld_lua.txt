@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"templar_assassin_meld_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_templar_assassin/templar_assassin_meld_lua/templar_assassin_meld_lua"
+		"AbilityTextureName"			"templar_assassin_meld"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_TemplarAssassin.Meld"
+		"AbilityCooldown"				"8 6 4 2"
+
+		"AbilityValues"
+		{
+			"bonus_damage"				"50 100 150 200"
+			"bonus_armor"
+			{
+				"value"						"-3 -4 -5 -6"
+				"LinkedSpecialBonus"		"npc_dota_hero_templar_assassin_tal1"
+			}
+			"duration"					"3"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

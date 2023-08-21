@@ -3307,6 +3307,14 @@
 #base "../vscripts/heroes/hero_viper/poison_attack/poison_attack.txt"
 #base "../vscripts/heroes/hero_viper/viper_strike/viper_strike.txt"
 
+//=====================================================================================================hero spirit breaker=====================================================================================================================================================
+
+#base "../vscripts/heroes/hero_spirit_breaker/spirit_breaker_talents.txt"
+#base "../vscripts/heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/spirit_breaker_bulldoze_lua.txt"
+#base "../vscripts/heroes/hero_spirit_breaker/spirit_breaker_charge_of_darkness_lua/spirit_breaker_charge_of_darkness_lua.txt"
+#base "../vscripts/heroes/hero_spirit_breaker/spirit_breaker_greater_bash_lua/spirit_breaker_greater_bash_lua.txt"
+#base "../vscripts/heroes/hero_spirit_breaker/spirit_breaker_nether_strike_lua/spirit_breaker_nether_strike_lua.txt"
+
 //=====================================================================================================WITCH DOCTOR=====================================================================================================================================================
 
 #base "../vscripts/heroes/hero_witch_doctor/witch_doctor_talents.txt"
@@ -3317,6 +3325,7 @@
 
 //===================================================================================================== dawnbreaker =====================================================================================================================================================
 
+#base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_talents.txt"
 #base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_starbreaker_lua/dawnbreaker_starbreaker_lua.txt"
 #base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_celestial_hammer_lua/dawnbreaker_celestial_hammer_lua.txt"
 #base "../vscripts/heroes/hero_dawnbreaker/dawnbreaker_luminosity_lua/dawnbreaker_luminosity_lua.txt"
@@ -3368,6 +3377,21 @@
 #base "../vscripts/heroes/hero_wisp/wisp_overcharge/wisp_overcharge.txt"
 #base "../vscripts/heroes/hero_wisp/wisp_relocate/wisp_relocate.txt"
 
+//=====================================================================================================TEMPLAR ASSASSIN==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_templar_assassin/templar_assassin_refraction_lua/templar_assassin_refraction_lua.txt"
+#base "../vscripts/heroes/hero_templar_assassin/templar_assassin_meld_lua/templar_assassin_meld_lua.txt"
+#base "../vscripts/heroes/hero_templar_assassin/templar_assassin_psi_blades_lua/templar_assassin_psi_blades_lua.txt"
+#base "../vscripts/heroes/hero_templar_assassin/templar_assassin_trap_lua/templar_assassin_trap_lua.txt"
+
+
+//===================================================================================================== RIKI ==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_riki/riki_talents.txt"
+#base "../vscripts/heroes/hero_riki/riki_blink_strike_lua/riki_blink_strike_lua.txt"
+#base "../vscripts/heroes/hero_riki/riki_smoke_screen_lua/riki_smoke_screen_lua.txt"
+#base "../vscripts/heroes/hero_riki/riki_cloak_and_dagger_lua/riki_cloak_and_dagger_lua.txt"
+#base "../vscripts/heroes/hero_riki/riki_tricks_of_the_trade_lua/riki_tricks_of_the_trade_lua.txt"
 
 //====================================================================================================ANAKIM===================================================================================================================================================
 

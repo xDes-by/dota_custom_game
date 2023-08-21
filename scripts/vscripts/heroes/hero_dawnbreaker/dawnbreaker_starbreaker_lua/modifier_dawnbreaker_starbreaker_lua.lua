@@ -54,7 +54,9 @@ function modifier_dawnbreaker_starbreaker_lua:OnCreated( kv )
 	self.bonus = 0
 	self.ctr = 0
 	local interval = self:GetDuration()/(self.attacks-1)
-
+	
+	-- self.parent:SetForwardVector(self.forward)
+	-- self.parent:FaceTowards( self.forward)
 	-- apply forward motion
 	self:ApplyHorizontalMotionController()
 
@@ -80,9 +82,14 @@ function modifier_dawnbreaker_starbreaker_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_SUPPRESS_CLEAVE,
+		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 	}
 
 	return funcs
+end
+
+function modifier_dawnbreaker_starbreaker_lua:GetOverrideAnimation( params )
+	return ACT_DOTA_OVERRIDE_ABILITY_1
 end
 
 function modifier_dawnbreaker_starbreaker_lua:GetModifierPreAttack_BonusDamage()
@@ -156,11 +163,7 @@ function modifier_dawnbreaker_starbreaker_lua:Swipe()
 	-- increment luminosity stack
 	if #enemies>0 then
 		local mod1 = self.parent:FindModifierByName( "modifier_dawnbreaker_luminosity_lua" )
-		local mod2 = self.parent:FindModifierByName( "modifier_dawnbreaker_luminosity_lua_buff" )
-
-		if mod2 then
-			mod2:Destroy()
-		elseif mod1 then
+		if mod1 then
 			mod1:Increment()
 		end
 	end
@@ -213,7 +216,6 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 		end
 	end
 
-	-- self stun
 	self.parent:AddNewModifier(
 		self.parent, -- player source
 		self:GetAbility(), -- ability source
@@ -224,11 +226,7 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 	-- increment luminosity stack
 	if #enemies>0 then
 		local mod1 = self.parent:FindModifierByName( "modifier_dawnbreaker_luminosity_lua" )
-		local mod2 = self.parent:FindModifierByName( "modifier_dawnbreaker_luminosity_lua_buff" )
-
-		if mod2 then
-			mod2:Destroy()
-		elseif mod1 then
+		if mod1 then
 			mod1:Increment()
 		end
 	end
@@ -241,19 +239,20 @@ end
 -- Motion Effects
 function modifier_dawnbreaker_starbreaker_lua:UpdateHorizontalMotion( me, dt )
 	-- get forward pos
-	local pos = me:GetOrigin() + self.forward * self.speed * dt
+    local pos = me:GetOrigin() + self.forward * self.speed * dt
 
-	-- if not traversable, stop
-	if not GridNav:IsTraversable( pos ) then return end
+    -- if not traversable, stop
+    if not GridNav:IsTraversable( pos ) then return end
 
-	-- destroy trees
-	GridNav:DestroyTreesAroundPoint( me:GetOrigin(), self.tree_radius, true )
+    -- destroy trees
+    GridNav:DestroyTreesAroundPoint( me:GetOrigin(), self.tree_radius, true )
 
-	pos = GetGroundPosition( pos, me )
-	me:SetOrigin( pos )
+    pos = GetGroundPosition( pos, me )
+    me:SetOrigin( pos )
 end
 
 function modifier_dawnbreaker_starbreaker_lua:OnHorizontalMotionInterrupted()
+	self:ApplyHorizontalMotionController()
 end
 
 --------------------------------------------------------------------------------

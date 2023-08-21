@@ -1,0 +1,84 @@
+"DOTAAbilities"
+{
+	"riki_tricks_of_the_trade_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_riki/riki_tricks_of_the_trade_lua/riki_tricks_of_the_trade_lua"
+		"AbilityTextureName"			"riki_tricks_of_the_trade"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"				"1"
+		"MaxLevel"						"15"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"39 38 37 36 35 34 33 32 31 30 29 28 27 26 25"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"		
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+			"particle"					"particles/units/heroes/hero_riki/riki_tricks_cast.vpcf"
+			"particle"					"particles/units/heroes/hero_riki/riki_tricks_end.vpcf"
+			"particle"					"particles/units/heroes/hero_riki/riki_tricks.vpcf"
+			"particle"					"particles/hero/riki/riki_martyr_dagger_start_pos.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"450"				
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_count"			"5 5 6 6 7 7 8 8 9 9 10 10 11 11 12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"channel_duration"		"5.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_cast_range"	"1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_duration"		"8 9 10"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"martyr_aspd_pct"		"30"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_perc"				"28 31 34 37 40 43 46 49 52 55 58 61 64 67 70"
+			}				
+		}
+	}
+}

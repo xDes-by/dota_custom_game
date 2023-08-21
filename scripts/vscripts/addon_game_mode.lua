@@ -2,7 +2,7 @@ require('diff_wave')
 require('libraries/timers')
 require('libraries/notifications')
 require("libraries/animations")
--- require("libraries/custom_indicator/custom_indicator" )
+require("libraries/custom_indicator/custom_indicator" )
 require("libraries/vector_target/vector_target" )
 require("libraries/table")
 require('libraries/util')
@@ -24,7 +24,7 @@ _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
-_G.spawnCreeps = true -- true
+_G.spawnCreeps = false -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -38,6 +38,7 @@ function Activate()
 	GameRules.AddonAdventure = CAddonAdvExGameMode()
 	GameRules.AddonAdventure:InitGameMode()
 	ListenToGameEvent("dota_player_gained_level", LevelUp, nil)
+	require("projectilemanager")
 end
 
 ------------------------------------------------------------------------------
@@ -52,7 +53,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(10)
-	
+
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)

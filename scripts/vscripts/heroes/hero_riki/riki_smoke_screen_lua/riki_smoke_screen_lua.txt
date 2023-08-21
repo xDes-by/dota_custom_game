@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+    "riki_smoke_screen_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_riki/riki_smoke_screen_lua/riki_smoke_screen_lua"
+		"AbilityTextureName"			"riki_smoke_screen"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Riki.Smoke_Screen"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 17 14 11"
+		"AbilityDuration"				"6"
+		"MaxLevel"						"15"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"90"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"260 270 280 290 300 310 320 330 340 350 360 370 380 390 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"miss_rate"					"13 16 19 22 25 28 31 34 37 40 43 46 49 52 55"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"remnants_movespeed_slow"	"4 6 8 10"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"remnants_vision"			"200"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"solid_turn_rate_slow"		"15"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+}

@@ -184,6 +184,7 @@
 		"item"		"item_bloodstone_lua1"
 		"item"		"item_radiance_lua1"
 		"item"		"item_sabre_blade1"
+		"item"		"item_hurricane_pike1"
 	}
 	
 	"secretshop"

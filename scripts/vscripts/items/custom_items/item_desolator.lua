@@ -882,5 +882,5 @@ function Desolate(attacker, target, ability, modifier_name, duration)
 	if not target:HasModifier(modifier_name) then
 		target:EmitSound("Item_Desolator.Target")
 	end
-	target:AddNewModifier(attacker, ability, modifier_name, {duration = duration * (1 - target:GetStatusResistance())})
+	target:AddNewModifier(attacker, ability, modifier_name, {duration = duration})
 end

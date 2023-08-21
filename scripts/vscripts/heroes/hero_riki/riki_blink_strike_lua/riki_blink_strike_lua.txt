@@ -1,0 +1,193 @@
+"DOTAAbilities"
+{
+"riki_blink_strike_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				    "heroes/hero_riki/riki_blink_strike_lua/riki_blink_strike_lua.lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"		
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"riki_blink_strike"
+		"MaxLevel"						"15"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastPoint"				"0.3"		
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 8 6 4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
+			"particle"					"particles/units/heroes/hero_riki/riki_blink_strike_start.vpcf"
+			"particle"					"particles/hero/riki/blink_trail.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"70 90 110 130 150 180 210 240 270 300 340 390 450 630 700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"turn_rate_slow_pct"	"30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_range"			"700"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_jumps"				"1 2 3 4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_interval_frames"	"12"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lagg_threshold"		"100"		// If it gets too crowded, it could get laggy.
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"abilitycastrange"					""
+				"LinkedSpecialBonus"		"special_bonus_imba_riki_blink_strike_cast_range"
+			}			
+		}
+	}
+
+    //=================================================================================================================
+	// Riki's Blink Strike (7.23)
+	//=================================================================================================================
+	"riki_blink_strike_723_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_riki/riki_blink_strike_lua/riki_blink_strike_lua.lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"		
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"riki_blink_strike"
+		"MaxLevel"						"15"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastPoint"				"0.3"		
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
+			"particle"					"particles/units/heroes/hero_riki/riki_blink_strike_start.vpcf"
+			"particle"					"particles/hero/riki/blink_trail.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"				"70 90 110 130 150 180 210 240 270 300 340 390 450 630 700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"turn_rate_slow_pct"	"30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_range"			"700"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_jumps"				"1 2 3 4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_interval_frames"	"12"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lagg_threshold"		"100"		// If it gets too crowded, it could get laggy.
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"abilitycastrange"					""
+				"LinkedSpecialBonus"		"special_bonus_imba_riki_blink_strike_cast_range"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_charges"				"2"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"charge_restore_time"		"25 20 15 10"
+			}
+		}
+	}
+}

@@ -37,7 +37,7 @@ function item_veil_of_discord_lua1:OnSpellStart()
 		false)
 
 	for _,enemy in pairs(enemies) do
-		enemy:AddNewModifier(self:GetCaster(), self, "modifier_item_veil_of_discord_active_lua", {duration = self:GetSpecialValueFor("resist_debuff_duration") * (1 - enemy:GetStatusResistance())})
+		enemy:AddNewModifier(self:GetCaster(), self, "modifier_item_veil_of_discord_active_lua", {duration = self:GetSpecialValueFor("resist_debuff_duration")})
 	end
 end
 -----------------------------------------------------------------------------------

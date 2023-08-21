@@ -137,7 +137,7 @@ function modifier_lifestealer_infest_bh:OnRemoved()
         for _,enemy in pairs(enemies) do
             ability:DealDamage(parent, enemy, self.damage)
         end
-        -- ability.target:RemoveModifierByName("modifier_lifestealer_infest_bh_ally")
+        ability.target:RemoveModifierByName("modifier_lifestealer_infest_bh_ally")
 		if self.talent2 then
 			parent:RefreshAllCooldowns(true, true)
 		end
@@ -190,6 +190,12 @@ function modifier_lifestealer_infest_bh_ally:OnCreated()
 	if IsServer() then -- heal
 		self:GetParent():HealEvent( self.bonus_hp, self:GetAbility(), self:GetCaster(), {heal_flags = HEAL_FLAG_IGNORE_AMPLIFICATION} )
 	end
+end
+
+function modifier_lifestealer_infest_bh_ally:OnRemoved()
+    if IsServer() then 
+        self:GetCaster():RemoveModifierByName("modifier_lifestealer_infest_bh")
+    end
 end
 
 function modifier_lifestealer_infest_bh_ally:DeclareFunctions()
