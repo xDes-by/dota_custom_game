@@ -1,3 +1,59 @@
+item_sabre_blade = class({})
+
+item_sabre_blade1 = item_sabre_blade
+item_sabre_blade2 = item_sabre_blade
+item_sabre_blade3 = item_sabre_blade
+item_sabre_blade4 = item_sabre_blade
+item_sabre_blade5 = item_sabre_blade
+item_sabre_blade6 = item_sabre_blade
+item_sabre_blade7 = item_sabre_blade
+item_sabre_blade8 = item_sabre_blade
+
+item_sabre_blade1_gem1 = item_sabre_blade
+item_sabre_blade2_gem1 = item_sabre_blade
+item_sabre_blade3_gem1 = item_sabre_blade
+item_sabre_blade4_gem1 = item_sabre_blade
+item_sabre_blade5_gem1 = item_sabre_blade
+item_sabre_blade6_gem1 = item_sabre_blade
+item_sabre_blade7_gem1 = item_sabre_blade
+item_sabre_blade8_gem1 = item_sabre_blade
+
+item_sabre_blade1_gem2 = item_sabre_blade
+item_sabre_blade2_gem2 = item_sabre_blade
+item_sabre_blade3_gem2 = item_sabre_blade
+item_sabre_blade4_gem2 = item_sabre_blade
+item_sabre_blade5_gem2 = item_sabre_blade
+item_sabre_blade6_gem2 = item_sabre_blade
+item_sabre_blade7_gem2 = item_sabre_blade
+item_sabre_blade8_gem2 = item_sabre_blade
+
+item_sabre_blade1_gem3 = item_sabre_blade
+item_sabre_blade2_gem3 = item_sabre_blade
+item_sabre_blade3_gem3 = item_sabre_blade
+item_sabre_blade4_gem3 = item_sabre_blade
+item_sabre_blade5_gem3 = item_sabre_blade
+item_sabre_blade6_gem3 = item_sabre_blade
+item_sabre_blade7_gem3 = item_sabre_blade
+item_sabre_blade8_gem3 = item_sabre_blade
+
+item_sabre_blade1_gem4 = item_sabre_blade
+item_sabre_blade2_gem4 = item_sabre_blade
+item_sabre_blade3_gem4 = item_sabre_blade
+item_sabre_blade4_gem4 = item_sabre_blade
+item_sabre_blade5_gem4 = item_sabre_blade
+item_sabre_blade6_gem4 = item_sabre_blade
+item_sabre_blade7_gem4 = item_sabre_blade
+item_sabre_blade8_gem4 = item_sabre_blade
+
+item_sabre_blade1_gem5 = item_sabre_blade
+item_sabre_blade2_gem5 = item_sabre_blade
+item_sabre_blade3_gem5 = item_sabre_blade
+item_sabre_blade4_gem5 = item_sabre_blade
+item_sabre_blade5_gem5 = item_sabre_blade
+item_sabre_blade6_gem5 = item_sabre_blade
+item_sabre_blade7_gem5 = item_sabre_blade
+item_sabre_blade8_gem5 = item_sabre_blade
+
 LinkLuaModifier("modifier_sabre_blade", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sabre_blade_doubleattack", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sabre_blade_doubleattack_debuff", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
@@ -5,20 +61,9 @@ LinkLuaModifier("modifier_sabre_blade_illusion_modifier", "items/custom_items/it
 
 LinkLuaModifier("modifier_movement_speed_uba", "modifiers/modifier_movement_speed_uba.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_sabre_blade1 = item_sabre_blade1 or class({})
-item_sabre_blade2 = item_sabre_blade1 or class({})
-item_sabre_blade3 = item_sabre_blade1 or class({})
-item_sabre_blade4 = item_sabre_blade1 or class({})
-item_sabre_blade5 = item_sabre_blade1 or class({})
-item_sabre_blade6 = item_sabre_blade1 or class({})
-item_sabre_blade7 = item_sabre_blade1 or class({})
-item_sabre_blade8 = item_sabre_blade1 or class({})
-
-function item_sabre_blade1:GetIntrinsicModifierName()
+function item_sabre_blade:GetIntrinsicModifierName()
     return "modifier_sabre_blade"
 end
-
-------------
 
 modifier_sabre_blade = class({})
 
@@ -30,8 +75,37 @@ function modifier_sabre_blade:IsPurgable()
 	return false
 end
 
+function modifier_sabre_blade:RemoveOnDeath()
+	return false
+end
+
+function modifier_sabre_blade:OnCreated()
+    self.parent = self:GetParent()
+    self.cooldown = 6
+    self.slow = self:GetAbility():GetSpecialValueFor("slow_duration")
+    self.hits = 0
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_sabre_blade:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
+end
+
 function modifier_sabre_blade:DeclareFunctions()
-    local funcs = {
+    return {
         MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, 
         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
@@ -39,14 +113,6 @@ function modifier_sabre_blade:DeclareFunctions()
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK
     }
-    return funcs
-end
-
-function modifier_sabre_blade:OnCreated()
-    if not IsServer() then return end
-    self.cooldown = 6
-    self.slow = self:GetAbility():GetSpecialValueFor("slow_duration")
-    self.hits = 0
 end
 
 function modifier_sabre_blade:OnAttack(event)

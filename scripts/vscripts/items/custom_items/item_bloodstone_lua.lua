@@ -1,26 +1,73 @@
-item_bloodstone_lua1 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua2 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua3 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua4 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua5 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua6 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua7 = item_bloodstone_lua1 or class({})
-item_bloodstone_lua8 = item_bloodstone_lua1 or class({})
+item_bloodstone_lua = class({})
+
+item_bloodstone_lua1 = item_bloodstone_lua
+item_bloodstone_lua2 = item_bloodstone_lua
+item_bloodstone_lua3 = item_bloodstone_lua
+item_bloodstone_lua4 = item_bloodstone_lua
+item_bloodstone_lua5 = item_bloodstone_lua
+item_bloodstone_lua6 = item_bloodstone_lua
+item_bloodstone_lua7 = item_bloodstone_lua
+item_bloodstone_lua8 = item_bloodstone_lua
+
+item_bloodstone_lua1_gem1 = item_bloodstone_lua
+item_bloodstone_lua2_gem1 = item_bloodstone_lua
+item_bloodstone_lua3_gem1 = item_bloodstone_lua
+item_bloodstone_lua4_gem1 = item_bloodstone_lua
+item_bloodstone_lua5_gem1 = item_bloodstone_lua
+item_bloodstone_lua6_gem1 = item_bloodstone_lua
+item_bloodstone_lua7_gem1 = item_bloodstone_lua
+item_bloodstone_lua8_gem1 = item_bloodstone_lua
+
+item_bloodstone_lua1_gem2 = item_bloodstone_lua
+item_bloodstone_lua2_gem2 = item_bloodstone_lua
+item_bloodstone_lua3_gem2 = item_bloodstone_lua
+item_bloodstone_lua4_gem2 = item_bloodstone_lua
+item_bloodstone_lua5_gem2 = item_bloodstone_lua
+item_bloodstone_lua6_gem2 = item_bloodstone_lua
+item_bloodstone_lua7_gem2 = item_bloodstone_lua
+item_bloodstone_lua8_gem2 = item_bloodstone_lua
+
+item_bloodstone_lua1_gem3 = item_bloodstone_lua
+item_bloodstone_lua2_gem3 = item_bloodstone_lua
+item_bloodstone_lua3_gem3 = item_bloodstone_lua
+item_bloodstone_lua4_gem3 = item_bloodstone_lua
+item_bloodstone_lua5_gem3 = item_bloodstone_lua
+item_bloodstone_lua6_gem3 = item_bloodstone_lua
+item_bloodstone_lua7_gem3 = item_bloodstone_lua
+item_bloodstone_lua8_gem3 = item_bloodstone_lua
+
+item_bloodstone_lua1_gem4 = item_bloodstone_lua
+item_bloodstone_lua2_gem4 = item_bloodstone_lua
+item_bloodstone_lua3_gem4 = item_bloodstone_lua
+item_bloodstone_lua4_gem4 = item_bloodstone_lua
+item_bloodstone_lua5_gem4 = item_bloodstone_lua
+item_bloodstone_lua6_gem4 = item_bloodstone_lua
+item_bloodstone_lua7_gem4 = item_bloodstone_lua
+item_bloodstone_lua8_gem4 = item_bloodstone_lua
+
+item_bloodstone_lua1_gem5 = item_bloodstone_lua
+item_bloodstone_lua2_gem5 = item_bloodstone_lua
+item_bloodstone_lua3_gem5 = item_bloodstone_lua
+item_bloodstone_lua4_gem5 = item_bloodstone_lua
+item_bloodstone_lua5_gem5 = item_bloodstone_lua
+item_bloodstone_lua6_gem5 = item_bloodstone_lua
+item_bloodstone_lua7_gem5 = item_bloodstone_lua
+item_bloodstone_lua8_gem5 = item_bloodstone_lua
 
 LinkLuaModifier("modifier_item_bloodstone_lua", 'items/custom_items/item_bloodstone_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_blodstone_active_lua", 'items/custom_items/item_bloodstone_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-function item_bloodstone_lua1:GetIntrinsicModifierName()
+function item_bloodstone_lua:GetIntrinsicModifierName()
 	return "modifier_item_bloodstone_lua"
 end
 
-function item_bloodstone_lua1:GetManaCost()
+function item_bloodstone_lua:GetManaCost()
 	if self and not self:IsNull() and self.GetCaster and self:GetCaster() ~= nil then
-	return self:GetCaster():GetMaxMana() * 0.3
+		return self:GetCaster():GetMaxMana() * 0.3
 	end
 end
 
-function item_bloodstone_lua1:OnSpellStart()
+function item_bloodstone_lua:OnSpellStart()
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_item_blodstone_active_lua", {duration = 2})
 end
 
@@ -41,18 +88,32 @@ function modifier_item_bloodstone_lua:RemoveOnDeath()
 end
 
 function modifier_item_bloodstone_lua:OnCreated()
-	
-	
-
+	self.parent = self:GetParent()
 	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 	self.creep_lifesteal= self:GetAbility():GetSpecialValueFor("creep_lifesteal")
-
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
 end
 
+function modifier_item_bloodstone_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
+end
 function modifier_item_bloodstone_lua:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_HEALTH_BONUS,
@@ -90,12 +151,12 @@ function modifier_item_bloodstone_lua:OnTakeDamage(keys)
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() then		
 		if self:GetParent():FindAllModifiersByName(self:GetName())[1] == self and keys.damage_category == 0 and keys.inflictor and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
 		
-				all_cleaves = {"item_bfury_lua1","item_bfury_lua2","item_bfury_lua3","item_bfury_lua4","item_bfury_lua5","item_bfury_lua6","item_bfury_lua7",
-		"item_bfury_lua1_gem1","item_bfury_lua2_gem1","item_bfury_lua3_gem1","item_bfury_lua4_gem1","item_bfury_lua5_gem1","item_bfury_lua6_gem1","item_bfury_lua7_gem1",
-		"item_bfury_lua1_gem2","item_bfury_lua2_gem2","item_bfury_lua3_gem2","item_bfury_lua4_gem2","item_bfury_lua5_gem2","item_bfury_lua6_gem2","item_bfury_lua7_gem2",
-		"item_bfury_lua1_gem3","item_bfury_lua2_gem3","item_bfury_lua3_gem3","item_bfury_lua4_gem3","item_bfury_lua5_gem3","item_bfury_lua6_gem3","item_bfury_lua7_gem3",
-		"item_bfury_lua1_gem4","item_bfury_lua2_gem4","item_bfury_lua3_gem4","item_bfury_lua4_gem4","item_bfury_lua5_gem4","item_bfury_lua6_gem4","item_bfury_lua7_gem4",
-		"item_bfury_lua1_gem5","item_bfury_lua2_gem5","item_bfury_lua3_gem5","item_bfury_lua4_gem5","item_bfury_lua5_gem5","item_bfury_lua6_gem5","item_bfury_lua7_gem5",
+				all_cleaves = {"item_bloodstone_lua1","item_bloodstone_lua2","item_bloodstone_lua3","item_bloodstone_lua4","item_bloodstone_lua5","item_bloodstone_lua6","item_bloodstone_lua7",
+		"item_bloodstone_lua1_gem1","item_bloodstone_lua2_gem1","item_bloodstone_lua3_gem1","item_bloodstone_lua4_gem1","item_bloodstone_lua5_gem1","item_bloodstone_lua6_gem1","item_bloodstone_lua7_gem1",
+		"item_bloodstone_lua1_gem2","item_bloodstone_lua2_gem2","item_bloodstone_lua3_gem2","item_bloodstone_lua4_gem2","item_bloodstone_lua5_gem2","item_bloodstone_lua6_gem2","item_bloodstone_lua7_gem2",
+		"item_bloodstone_lua1_gem3","item_bloodstone_lua2_gem3","item_bloodstone_lua3_gem3","item_bloodstone_lua4_gem3","item_bloodstone_lua5_gem3","item_bloodstone_lua6_gem3","item_bloodstone_lua7_gem3",
+		"item_bloodstone_lua1_gem4","item_bloodstone_lua2_gem4","item_bloodstone_lua3_gem4","item_bloodstone_lua4_gem4","item_bloodstone_lua5_gem4","item_bloodstone_lua6_gem4","item_bloodstone_lua7_gem4",
+		"item_bloodstone_lua1_gem5","item_bloodstone_lua2_gem5","item_bloodstone_lua3_gem5","item_bloodstone_lua4_gem5","item_bloodstone_lua5_gem5","item_bloodstone_lua6_gem5","item_bloodstone_lua7_gem5",
 		"sven_bringer","sven_great_cleave_lua","item_pet_RDA_cleave","luna_moon_glaive_lua","npc_dota_hero_treant_agi11","npc_dota_hero_centaur_agi11",
 		"npc_dota_hero_mars_agi10","npc_dota_hero_phantom_assassin_agi11","npc_dota_hero_slark_agi9","bristleback_warpath_lua"}
 

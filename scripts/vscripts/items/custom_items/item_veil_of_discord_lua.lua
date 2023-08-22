@@ -1,21 +1,68 @@
-item_veil_of_discord_lua1 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua2 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua3 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua4 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua5 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua6 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua7 = item_veil_of_discord_lua1 or class({})
-item_veil_of_discord_lua8 = item_veil_of_discord_lua1 or class({})
+item_veil_of_discord_lua = class({})
+
+item_veil_of_discord_lua1 = item_veil_of_discord_lua
+item_veil_of_discord_lua2 = item_veil_of_discord_lua
+item_veil_of_discord_lua3 = item_veil_of_discord_lua
+item_veil_of_discord_lua4 = item_veil_of_discord_lua
+item_veil_of_discord_lua5 = item_veil_of_discord_lua
+item_veil_of_discord_lua6 = item_veil_of_discord_lua
+item_veil_of_discord_lua7 = item_veil_of_discord_lua
+item_veil_of_discord_lua8 = item_veil_of_discord_lua
+
+item_veil_of_discord_lua1_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua2_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua3_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua4_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua5_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua6_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua7_gem1 = item_veil_of_discord_lua
+item_veil_of_discord_lua8_gem1 = item_veil_of_discord_lua
+
+item_veil_of_discord_lua1_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua2_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua3_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua4_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua5_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua6_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua7_gem2 = item_veil_of_discord_lua
+item_veil_of_discord_lua8_gem2 = item_veil_of_discord_lua
+
+item_veil_of_discord_lua1_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua2_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua3_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua4_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua5_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua6_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua7_gem3 = item_veil_of_discord_lua
+item_veil_of_discord_lua8_gem3 = item_veil_of_discord_lua
+
+item_veil_of_discord_lua1_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua2_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua3_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua4_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua5_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua6_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua7_gem4 = item_veil_of_discord_lua
+item_veil_of_discord_lua8_gem4 = item_veil_of_discord_lua
+
+item_veil_of_discord_lua1_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua2_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua3_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua4_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua5_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua6_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua7_gem5 = item_veil_of_discord_lua
+item_veil_of_discord_lua8_gem5 = item_veil_of_discord_lua
 
 LinkLuaModifier("modifier_item_veil_of_discord_lua", 'items/custom_items/item_veil_of_discord_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_veil_of_discord_active_lua", 'items/custom_items/item_veil_of_discord_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_veil_of_discord_aura_lua", 'items/custom_items/item_veil_of_discord_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-function item_veil_of_discord_lua1:GetIntrinsicModifierName()
+function item_veil_of_discord_lua:GetIntrinsicModifierName()
 	return "modifier_item_veil_of_discord_lua"
 end
 
-function item_veil_of_discord_lua1:OnSpellStart()
+function item_veil_of_discord_lua:OnSpellStart()
 	local target_loc = self:GetCursorPosition()
 	local particle = "particles/items2_fx/veil_of_discord.vpcf"
 
@@ -71,8 +118,31 @@ end
 
 modifier_item_veil_of_discord_lua = class({})
 
+function modifier_item_veil_of_discord_lua:IsDebuff() return false end
+function modifier_item_veil_of_discord_lua:IsHidden() return true end
+function modifier_item_veil_of_discord_lua:IsPurgable() return false end
+
 function modifier_item_veil_of_discord_lua:OnCreated()
+	self.parent = self:GetParent()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_item_veil_of_discord_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_item_veil_of_discord_lua:DeclareFunctions()

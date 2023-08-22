@@ -1,20 +1,67 @@
-item_heart_lua1 = item_heart_lua1 or class({})
-item_heart_lua2 = item_heart_lua1 or class({})
-item_heart_lua3 = item_heart_lua1 or class({})
-item_heart_lua4 = item_heart_lua1 or class({})
-item_heart_lua5 = item_heart_lua1 or class({})
-item_heart_lua6 = item_heart_lua1 or class({})
-item_heart_lua7 = item_heart_lua1 or class({})
-item_heart_lua8 = item_heart_lua1 or class({})
+item_heart_lua = class({})
+
+item_heart_lua1 = item_heart_lua
+item_heart_lua2 = item_heart_lua
+item_heart_lua3 = item_heart_lua
+item_heart_lua4 = item_heart_lua
+item_heart_lua5 = item_heart_lua
+item_heart_lua6 = item_heart_lua
+item_heart_lua7 = item_heart_lua
+item_heart_lua8 = item_heart_lua
+
+item_heart_lua1_gem1 = item_heart_lua
+item_heart_lua2_gem1 = item_heart_lua
+item_heart_lua3_gem1 = item_heart_lua
+item_heart_lua4_gem1 = item_heart_lua
+item_heart_lua5_gem1 = item_heart_lua
+item_heart_lua6_gem1 = item_heart_lua
+item_heart_lua7_gem1 = item_heart_lua
+item_heart_lua8_gem1 = item_heart_lua
+
+item_heart_lua1_gem2 = item_heart_lua
+item_heart_lua2_gem2 = item_heart_lua
+item_heart_lua3_gem2 = item_heart_lua
+item_heart_lua4_gem2 = item_heart_lua
+item_heart_lua5_gem2 = item_heart_lua
+item_heart_lua6_gem2 = item_heart_lua
+item_heart_lua7_gem2 = item_heart_lua
+item_heart_lua8_gem2 = item_heart_lua
+
+item_heart_lua1_gem3 = item_heart_lua
+item_heart_lua2_gem3 = item_heart_lua
+item_heart_lua3_gem3 = item_heart_lua
+item_heart_lua4_gem3 = item_heart_lua
+item_heart_lua5_gem3 = item_heart_lua
+item_heart_lua6_gem3 = item_heart_lua
+item_heart_lua7_gem3 = item_heart_lua
+item_heart_lua8_gem3 = item_heart_lua
+
+item_heart_lua1_gem4 = item_heart_lua
+item_heart_lua2_gem4 = item_heart_lua
+item_heart_lua3_gem4 = item_heart_lua
+item_heart_lua4_gem4 = item_heart_lua
+item_heart_lua5_gem4 = item_heart_lua
+item_heart_lua6_gem4 = item_heart_lua
+item_heart_lua7_gem4 = item_heart_lua
+item_heart_lua8_gem4 = item_heart_lua
+
+item_heart_lua1_gem5 = item_heart_lua
+item_heart_lua2_gem5 = item_heart_lua
+item_heart_lua3_gem5 = item_heart_lua
+item_heart_lua4_gem5 = item_heart_lua
+item_heart_lua5_gem5 = item_heart_lua
+item_heart_lua6_gem5 = item_heart_lua
+item_heart_lua7_gem5 = item_heart_lua
+item_heart_lua8_gem5 = item_heart_lua
 
 
 LinkLuaModifier("modifier_item_heart_lua", 'items/custom_items/item_heart_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-modifier_item_heart_lua = class({})
-
-function item_heart_lua1:GetIntrinsicModifierName()
+function item_heart_lua:GetIntrinsicModifierName()
 	return "modifier_item_heart_lua"
 end
+
+modifier_item_heart_lua = class({})
 
 function modifier_item_heart_lua:IsHidden()
 	return true
@@ -33,23 +80,28 @@ function modifier_item_heart_lua:RemoveOnDeath()
 end
 
 function modifier_item_heart_lua:OnCreated()
+	self.parent = self:GetParent()
 	self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
 	self.health_regen_pct = self:GetAbility():GetSpecialValueFor("health_regen_pct")
 	self.hp_regen_amp = self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	if IsServer() then
-		for _,modifier in pairs( self:GetParent():FindAllModifiers() ) do
-			-- if modifier:GetName() == "modifier_item_heart_lua1" or
-			-- 	modifier:GetName() == "modifier_item_heart_lua2" or
-			-- 	modifier:GetName() == "modifier_item_heart_lua3" or
-			-- 	modifier:GetName() == "modifier_item_heart_lua4" or
-			-- 	modifier:GetName() == "modifier_item_heart_lua5" then
-			-- 	self:GetParent():RemoveModifierByName(modifier:GetName())
-			-- end
-			if string.find(modifier:GetName(), "modifier_item_heart_lua") and modifier ~= self then
-				self:GetParent():RemoveModifierByName(modifier:GetName())
-			end
-		end
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_item_heart_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
 end
 

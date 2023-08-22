@@ -1,28 +1,75 @@
 LinkLuaModifier("modifier_item_meteor_hammer_lua", 'items/custom_items/item_meteor_hammer_lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_lua_burn", 'items/custom_items/item_meteor_hammer_lua', LUA_MODIFIER_MOTION_NONE)
 
-item_meteor_hammer_lua1 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua2 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua3 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua4 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua5 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua6 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua7 = item_meteor_hammer_lua1 or class({})
-item_meteor_hammer_lua8 = item_meteor_hammer_lua1 or class({})
+item_meteor_hammer_lua = class({})
 
-function item_meteor_hammer_lua1:GetIntrinsicModifierName()
+item_meteor_hammer_lua1 = item_meteor_hammer_lua
+item_meteor_hammer_lua2 = item_meteor_hammer_lua
+item_meteor_hammer_lua3 = item_meteor_hammer_lua
+item_meteor_hammer_lua4 = item_meteor_hammer_lua
+item_meteor_hammer_lua5 = item_meteor_hammer_lua
+item_meteor_hammer_lua6 = item_meteor_hammer_lua
+item_meteor_hammer_lua7 = item_meteor_hammer_lua
+item_meteor_hammer_lua8 = item_meteor_hammer_lua
+
+item_meteor_hammer_lua1_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua2_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua3_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua4_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua5_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua6_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua7_gem1 = item_meteor_hammer_lua
+item_meteor_hammer_lua8_gem1 = item_meteor_hammer_lua
+
+item_meteor_hammer_lua1_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua2_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua3_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua4_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua5_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua6_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua7_gem2 = item_meteor_hammer_lua
+item_meteor_hammer_lua8_gem2 = item_meteor_hammer_lua
+
+item_meteor_hammer_lua1_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua2_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua3_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua4_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua5_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua6_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua7_gem3 = item_meteor_hammer_lua
+item_meteor_hammer_lua8_gem3 = item_meteor_hammer_lua
+
+item_meteor_hammer_lua1_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua2_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua3_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua4_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua5_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua6_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua7_gem4 = item_meteor_hammer_lua
+item_meteor_hammer_lua8_gem4 = item_meteor_hammer_lua
+
+item_meteor_hammer_lua1_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua2_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua3_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua4_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua5_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua6_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua7_gem5 = item_meteor_hammer_lua
+item_meteor_hammer_lua8_gem5 = item_meteor_hammer_lua
+
+function item_meteor_hammer_lua:GetIntrinsicModifierName()
 	return "modifier_item_meteor_hammer_lua"
 end
 
-function item_meteor_hammer_lua1:GetAOERadius()
+function item_meteor_hammer_lua:GetAOERadius()
 	return self:GetSpecialValueFor("impact_radius")
 end
 
-function item_meteor_hammer_lua1:GetChannelAnimation()
+function item_meteor_hammer_lua:GetChannelAnimation()
 	return ACT_DOTA_GENERIC_CHANNEL_1
 end
 
-function item_meteor_hammer_lua1:OnSpellStart()
+function item_meteor_hammer_lua:OnSpellStart()
 	self.caster = self:GetCaster()
 	
 	self.burn_dps_buildings			=	self:GetSpecialValueFor("burn_dps_buildings")
@@ -51,7 +98,7 @@ function item_meteor_hammer_lua1:OnSpellStart()
 	self.particle2 = ParticleManager:CreateParticle("particles/items4_fx/meteor_hammer_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 end
 
-function item_meteor_hammer_lua1:OnChannelFinish(bInterrupted)
+function item_meteor_hammer_lua:OnChannelFinish(bInterrupted)
 	if not IsServer() then return end
 
 	self.position = self:GetCursorPosition()
@@ -172,11 +219,8 @@ function modifier_item_meteor_hammer_lua_burn:OnCreated()
 	self:StartIntervalThink(self.burn_interval)
 end
 
-function modifier_item_meteor_hammer_lua_burn:OnIntervalThink()
-	if not IsServer() then return end
-				
+function modifier_item_meteor_hammer_lua_burn:OnIntervalThink()		
 	ApplyDamage(self.damageTable)
-	
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, self.parent, self.burn_dps, nil)
 end
 
@@ -190,19 +234,32 @@ function modifier_item_meteor_hammer_lua:RemoveOnDeath()	return false end
 function modifier_item_meteor_hammer_lua:GetAttributes()	return MODIFIER_ATTRIBUTE_MULTIPLE end
 
 function modifier_item_meteor_hammer_lua:OnCreated()
-	if IsServer() then
-        if not self:GetAbility() then self:Destroy() end
-    end
-	
+	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
-	
-	if self.ability == nil then return end
-	
+
 	self.bonus_strength				=	self.ability:GetSpecialValueFor("bonus_all_stats")
 	self.bonus_intellect			=	self.ability:GetSpecialValueFor("bonus_all_stats")
 	self.bonus_agility			=	self.ability:GetSpecialValueFor("bonus_all_stats")
 	self.bonus_health_regen			=	self.ability:GetSpecialValueFor("bonus_health_regen")
 	self.bonus_mana_regen			=	self.ability:GetSpecialValueFor("bonus_mana_regen")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_item_meteor_hammer_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_item_meteor_hammer_lua:DeclareFunctions()

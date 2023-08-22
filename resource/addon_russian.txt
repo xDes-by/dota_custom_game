@@ -3912,10 +3912,10 @@
         "dota_tooltip_modifier_item_assault_lua1_positive_buildings_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
         "dota_tooltip_modifier_item_assault_lua1_negative_buildings_aura" "Assault Cuirass"
         "dota_tooltip_modifier_item_assault_lua1_negative_buildings_aura_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-        "dota_tooltip_modifier_assault_lua1_aura_positive_effect" "Assault Cuirass"
-        "dota_tooltip_modifier_assault_lua1_aura_positive_effect_description" "Броня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\n Скорость атаки увеличена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
         "dota_tooltip_modifier_assault_lua_aura_positive_effect" "Assault Cuirass"
         "dota_tooltip_modifier_assault_lua_aura_positive_effect_description" "Броня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\n Скорость атаки увеличена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		"DOTA_Tooltip_modifier_assault_lua_aura_negative_effect"				"Assault Cuirass"
+		"DOTA_Tooltip_modifier_assault_lua_aura_negative_effect_Description"	"Броня снижена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
         "dota_tooltip_ability_item_assault_lua2" "Forest Cuirass"
         "dota_tooltip_ability_item_assault_lua2_description" "<h1>Пассивная: Assault Aura</h1> Увеличивает броню союзных построек и существ на %aura_positive_armor%, а их скорость атаки — на %aura_attack_speed%. Снижает броню врагов на %aura_negative_armor%.<br><br>Радиус: %aura_radius%"
@@ -12007,6 +12007,8 @@
         "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Вампиризм увеличен до 200%"
         "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
         "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua_Description" "Магический урон увеличен на %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua"				"Veil of Discord"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua_Description"	"Восстановление маны союзников увеличено."
 
         "dota_tooltip_ability_item_satanic_lua2" "Forest Satanic"
         "dota_tooltip_ability_item_satanic_lua2_description" "<h1>Активное: Unholy Rage</h1> Увеличивает эффект вампиризма до %lifesteal_bonus%%% на %duration% сек.<br><br>Тип развеивания: <span class=\GameplayValues GameplayVariable\>нормальное</span> \n<h1>Пассивное: Lifesteal</h1>Каждая атака восстанавливает владельцу здоровье в размере %lifesteal_pct%%% от нанесённого урона."
