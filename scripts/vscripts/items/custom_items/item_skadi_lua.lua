@@ -1,19 +1,65 @@
-item_skadi_lua1 = item_skadi_lua1 or class({})
-item_skadi_lua2 = item_skadi_lua1 or class({})
-item_skadi_lua3 = item_skadi_lua1 or class({})
-item_skadi_lua4 = item_skadi_lua1 or class({})
-item_skadi_lua5 = item_skadi_lua1 or class({})
-item_skadi_lua6 = item_skadi_lua1 or class({})
-item_skadi_lua7 = item_skadi_lua1 or class({})
-item_skadi_lua8 = item_skadi_lua1 or class({})
+item_skadi_lua = class({})
+
+item_skadi_lua1 = item_skadi_lua
+item_skadi_lua2 = item_skadi_lua
+item_skadi_lua3 = item_skadi_lua
+item_skadi_lua4 = item_skadi_lua
+item_skadi_lua5 = item_skadi_lua
+item_skadi_lua6 = item_skadi_lua
+item_skadi_lua7 = item_skadi_lua
+item_skadi_lua8 = item_skadi_lua
+
+item_skadi_lua1_gem1 = item_skadi_lua
+item_skadi_lua2_gem1 = item_skadi_lua
+item_skadi_lua3_gem1 = item_skadi_lua
+item_skadi_lua4_gem1 = item_skadi_lua
+item_skadi_lua5_gem1 = item_skadi_lua
+item_skadi_lua6_gem1 = item_skadi_lua
+item_skadi_lua7_gem1 = item_skadi_lua
+item_skadi_lua8_gem1 = item_skadi_lua
+
+item_skadi_lua1_gem2 = item_skadi_lua
+item_skadi_lua2_gem2 = item_skadi_lua
+item_skadi_lua3_gem2 = item_skadi_lua
+item_skadi_lua4_gem2 = item_skadi_lua
+item_skadi_lua5_gem2 = item_skadi_lua
+item_skadi_lua6_gem2 = item_skadi_lua
+item_skadi_lua7_gem2 = item_skadi_lua
+item_skadi_lua8_gem2 = item_skadi_lua
+
+item_skadi_lua1_gem3 = item_skadi_lua
+item_skadi_lua2_gem3 = item_skadi_lua
+item_skadi_lua3_gem3 = item_skadi_lua
+item_skadi_lua4_gem3 = item_skadi_lua
+item_skadi_lua5_gem3 = item_skadi_lua
+item_skadi_lua6_gem3 = item_skadi_lua
+item_skadi_lua7_gem3 = item_skadi_lua
+item_skadi_lua8_gem3 = item_skadi_lua
+
+item_skadi_lua1_gem4 = item_skadi_lua
+item_skadi_lua2_gem4 = item_skadi_lua
+item_skadi_lua3_gem4 = item_skadi_lua
+item_skadi_lua4_gem4 = item_skadi_lua
+item_skadi_lua5_gem4 = item_skadi_lua
+item_skadi_lua6_gem4 = item_skadi_lua
+item_skadi_lua7_gem4 = item_skadi_lua
+item_skadi_lua8_gem4 = item_skadi_lua
+
+item_skadi_lua1_gem5 = item_skadi_lua
+item_skadi_lua2_gem5 = item_skadi_lua
+item_skadi_lua3_gem5 = item_skadi_lua
+item_skadi_lua4_gem5 = item_skadi_lua
+item_skadi_lua5_gem5 = item_skadi_lua
+item_skadi_lua6_gem5 = item_skadi_lua
+item_skadi_lua7_gem5 = item_skadi_lua
+item_skadi_lua8_gem5 = item_skadi_lua
 
 LinkLuaModifier("modifier_item_skadi_lua", 'items/custom_items/item_skadi_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_skadi_slow_lua", 'items/custom_items/item_skadi_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_item_skadi_lua = class({})
-modifier_item_skadi_slow_lua = class({})
 
-function item_skadi_lua1:GetIntrinsicModifierName()
+function item_skadi_lua:GetIntrinsicModifierName()
 	return "modifier_item_skadi_lua"
 end
 
@@ -34,9 +80,28 @@ function modifier_item_skadi_lua:RemoveOnDeath()
 end
 
 function modifier_item_skadi_lua:OnCreated()
+	self.parent = self:GetParent()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_item_skadi_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_item_skadi_lua:DeclareFunctions()
@@ -46,7 +111,7 @@ function modifier_item_skadi_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_MANA_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_EVENT_ON_ATTACK_LANDED
+		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
 	}
 end
 
@@ -70,36 +135,12 @@ function modifier_item_skadi_lua:GetModifierManaBonus()
 	return self.bonus_mana
 end
 
-function modifier_item_skadi_lua:OnAttackLanded(params)
-		local attacker = self:GetParent()
-		
-		if attacker ~= params.attacker then
-			return
-		end
-
-		if attacker:IsIllusion() then
-			return
-		end
-		
-		local target = params.target if target==nil then target = params.unit end
-			if target:GetTeamNumber()==self:GetParent():GetTeamNumber() then
-				return 0
-			end
-			local modifier = target:FindModifierByNameAndCaster("modifier_item_skadi_slow_lua", self:GetAbility():GetCaster())
-			if modifier==nil then
-				if not self:GetParent():PassivesDisabled() then
-
-					target:AddNewModifier(
-						attacker,
-						self:GetAbility(),
-						"modifier_item_skadi_slow_lua",
-						{ duration = 3 }
-					)
-			end
-	end
+function modifier_item_skadi_lua:GetModifierProcAttack_Feedback(params)
+	target:AddNewModifier(attacker,	self:GetAbility(), "modifier_item_skadi_slow_lua", { duration = 3 })
 end
 
 --------------------------------------------------------------------
+modifier_item_skadi_slow_lua = class({})
 
 function modifier_item_skadi_slow_lua:IsHidden()
 	return false

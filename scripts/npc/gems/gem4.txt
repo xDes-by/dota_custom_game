@@ -5,7 +5,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "1"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -30,7 +30,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua2"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "2"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -56,7 +56,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua3"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "3"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -81,7 +81,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua4"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "4"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -106,7 +106,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua5"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "5"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -131,7 +131,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua6"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "6"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -156,7 +156,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua7"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "7"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -181,7 +181,7 @@
         "BaseClass"                        "item_lua"
         "AbilityTextureName"             "gem4/item_assault_lua8"
         "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"                    "items/items_gems/item_assault_lua"
+        "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "8"
         "ItemPurchasable"               "0"
         "ItemCost"                        "5100"
@@ -207,7 +207,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
         "ItemPurchasable"               "0"
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua"
@@ -235,7 +235,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua2"
@@ -263,7 +263,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua3"
@@ -291,7 +291,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua4"
@@ -319,7 +319,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua5"
@@ -346,7 +346,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua6"
@@ -373,7 +373,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua7"
@@ -400,7 +400,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_ring_of_flux"
+		"ScriptFile"					"items/custom_items/item_ring_of_flux"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_ring_of_flux_lua8"
@@ -428,7 +428,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -454,7 +454,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua2"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -480,7 +480,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua3"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -506,7 +506,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua4"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -532,7 +532,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua5"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -558,7 +558,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua6"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -584,7 +584,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua7"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -609,7 +609,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_satanic_lua8"
-		"ScriptFile"					"items/items_gems/item_satanic"
+		"ScriptFile"					"items/custom_items/item_satanic"
 
 		"ItemCost" 						"5300"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -634,7 +634,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"1"
@@ -673,7 +673,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua2"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"2"
@@ -712,7 +712,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua3"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"3"
@@ -751,7 +751,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua4"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"4"
@@ -790,7 +790,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua5"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"5"
@@ -829,7 +829,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua6"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"6"
@@ -868,7 +868,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua7"
 		"MaxLevel"						"7"
 		"ItemBaseLevel"					"7"
@@ -907,7 +907,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_sheepstick_lua"
+		"ScriptFile"					"items/custom_items/item_sheepstick_lua"
 		"AbilityTextureName"			"gem4/item_sheepstick_lua8"
 		"MaxLevel"						"8"
 		"ItemBaseLevel"					"8"
@@ -963,7 +963,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		
 		"AbilityValues"
@@ -1009,7 +1009,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1054,7 +1054,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1099,7 +1099,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1144,7 +1144,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1189,7 +1189,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1234,7 +1234,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1278,7 +1278,7 @@
 		"AllowedInBackpack"				"0"
 		"ShouldBeSuggested"				"1"
 		"ItemDroppable"                 "1"
-		"ScriptFile"					"items/items_gems/item_bloodstone_lua"
+		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		
 		"AbilityValues"
 		{
@@ -1308,7 +1308,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityTextureName" 			"gem4/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
@@ -1330,7 +1330,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"2"
@@ -1352,7 +1352,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"3"
@@ -1374,7 +1374,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"4"
@@ -1396,7 +1396,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"		
+		"ScriptFile"					"items/custom_items/item_radiance_lua"		
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"5"
@@ -1418,7 +1418,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"6"
@@ -1440,7 +1440,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"7"
@@ -1461,7 +1461,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_radiance_lua"
+		"ScriptFile"					"items/custom_items/item_radiance_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityCastRange" 				"700"
 		"ItemBaseLevel"					"8"
@@ -1484,7 +1484,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem4/item_desolator_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1502,7 +1502,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_desolator_lua2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1520,7 +1520,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_desolator_lua3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1538,7 +1538,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_desolator_lua4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1556,7 +1556,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_desolator_lua5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1574,7 +1574,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_desolator_lua6"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1592,7 +1592,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_desolator_lua7"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1609,7 +1609,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_desolator.lua"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_desolator_lua8"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1629,7 +1629,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		
@@ -1650,7 +1650,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua2"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"2"
@@ -1670,7 +1670,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua3"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"3"
@@ -1690,7 +1690,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua4"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"4"
@@ -1710,7 +1710,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua5"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"5"
@@ -1730,7 +1730,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua6"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"6"
@@ -1750,7 +1750,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua7"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"7"
@@ -1769,7 +1769,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_butterfly_lua8"
-		"ScriptFile"					"items/items_gems/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		"ItemBaseLevel"					"8"
@@ -1792,7 +1792,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua2"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1822,7 +1822,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua2"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1851,7 +1851,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua3"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1880,7 +1880,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua4"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1909,7 +1909,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua5"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1938,7 +1938,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua6"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1967,7 +1967,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua7"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -1995,7 +1995,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_monkey_king_bar_lua8"
-		"ScriptFile"					"items/items_gems/item_monkey_king_bar_lua"
+		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -2030,7 +2030,7 @@
 		"AbilityCooldown"				"4.0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"1"
 		
 		"ItemBaseLevel"					"1"
@@ -2059,7 +2059,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua2"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"2"
 		
 		"AbilityCastRange"				"350"
@@ -2100,7 +2100,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua3"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"3"
 		
 		"AbilityCastRange"				"350"
@@ -2141,7 +2141,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua4"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"4"
 		
 		"AbilityCastRange"				"350"
@@ -2182,7 +2182,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua5"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"5"
 		
 		"AbilityCastRange"				"350"
@@ -2223,7 +2223,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua6"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"6"
 		
 		"AbilityCastRange"				"350"
@@ -2264,7 +2264,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua7"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"7"
 		
 		"AbilityCastRange"				"350"
@@ -2304,7 +2304,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_bfury_lua8"
-		"ScriptFile"					"items/items_gems/item_bfury_lua"
+		"ScriptFile"					"items/custom_items/item_bfury_lua"
 		"ItemBaseLevel"					"8"
 		
 		"AbilityCastRange"				"350"
@@ -2350,7 +2350,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2383,7 +2383,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2417,7 +2417,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2451,7 +2451,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2485,7 +2485,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2519,7 +2519,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2553,7 +2553,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2586,7 +2586,7 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"50"
-		"ScriptFile"					"items/items_gems/item_veil_of_discord_lua"
+		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
 		
@@ -2610,7 +2610,7 @@
 //=========================================
 "item_shivas_guard_lua1_gem4"
 	{
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2648,7 +2648,7 @@
 
 "item_shivas_guard_lua2_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2688,7 +2688,7 @@
 
 "item_shivas_guard_lua3_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2727,7 +2727,7 @@
 
 "item_shivas_guard_lua4_gem4"
 	{	       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2766,7 +2766,7 @@
 
 "item_shivas_guard_lua5_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2805,7 +2805,7 @@
 
 "item_shivas_guard_lua6_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2844,7 +2844,7 @@
 
 "item_shivas_guard_lua7_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2882,7 +2882,7 @@
 	}
 "item_shivas_guard_lua8_gem4"
 	{       
-		"ScriptFile"					"items/items_gems/item_shivas_guard_lua"
+		"ScriptFile"					"items/custom_items/item_shivas_guard_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -2927,7 +2927,7 @@
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
 		"ItemShopTags"					"g"
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityTextureName"	        "gem4/item_crimson_guard_lua"
@@ -2961,7 +2961,7 @@
 		"AbilityCastRange"				"1200"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"BaseClass"                   	 "item_lua"
         "ItemPurchasable"               "0"
 		
@@ -2989,7 +2989,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"3"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3020,7 +3020,7 @@
 		"AbilityTextureName"	        "gem4/item_crimson_guard_lua4"	
 		"BaseClass"						"item_lua"
 
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"4"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3052,7 +3052,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"5"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3083,7 +3083,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"6"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3111,7 +3111,7 @@
 "item_crimson_guard_lua7_gem4"
 	{
 		"AbilityTextureName"	        "gem4/item_crimson_guard_lua7"	
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"7"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3142,7 +3142,7 @@
 "item_crimson_guard_lua8_gem4"
 	{
 		"AbilityTextureName"	        "gem4/item_crimson_guard_lua8"	
-		"ScriptFile"					"items/items_gems/item_crimson_guard_lua"
+		"ScriptFile"					"items/custom_items/item_crimson_guard_lua"
 		"ItemBaseLevel"					"8"
 		"AbilityCooldown"				"40.0"
 		"AbilityCastRange"				"1200"
@@ -3179,7 +3179,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_heart_lua"
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"AbilityValues"
@@ -3199,7 +3199,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"			"gem4/item_heart_lua2"
@@ -3230,7 +3230,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"			"gem4/item_heart_lua3"
@@ -3261,7 +3261,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"			"gem4/item_heart_lua4"
@@ -3292,7 +3292,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"			"gem4/item_heart_lua5"
@@ -3323,7 +3323,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"			"gem4/item_heart_lua6"
@@ -3354,7 +3354,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"			"gem4/item_heart_lua7"
@@ -3384,7 +3384,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_heart_lua"
+		"ScriptFile"					"items/custom_items/item_heart_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"			"gem4/item_heart_lua8"
@@ -3418,7 +3418,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"AbilityValues"
@@ -3436,7 +3436,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 
@@ -3465,7 +3465,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua3"
 
@@ -3493,7 +3493,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua4"
 
@@ -3521,7 +3521,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua5"
 		"ItemCost"						"9500"
@@ -3548,7 +3548,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua6"
 
@@ -3576,7 +3576,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua7"
 
@@ -3603,7 +3603,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_greater_crit_lua"
+		"ScriptFile"					"items/custom_items/item_greater_crit_lua"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"			"gem4/item_greater_crit_lua8"
 
@@ -3634,7 +3634,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3664,7 +3664,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua2"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3694,7 +3694,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua3"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3724,7 +3724,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua4"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3754,7 +3754,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua5"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3784,7 +3784,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua6"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3814,7 +3814,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua7"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3843,7 +3843,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"	        "gem4/item_kaya_custom_lua8"
-		"ScriptFile"					"items/items_gems/item_kaya_custom"
+		"ScriptFile"					"items/custom_items/item_kaya_custom"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemPurchasable"				"0"
@@ -3871,7 +3871,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem4/item_kaya_lua"
@@ -3900,7 +3900,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_kaya_lua2"
@@ -3929,7 +3929,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_kaya_lua3"
@@ -3958,7 +3958,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_kaya_lua4"
@@ -3987,7 +3987,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_kaya_lua5"
@@ -4016,7 +4016,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_kaya_lua6"
@@ -4045,7 +4045,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_kaya_lua7"
@@ -4073,7 +4073,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_kaya_lua"
+		"ScriptFile"					"items/custom_items/item_kaya_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_kaya_lua8"
@@ -4105,7 +4105,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityTextureName"			"gem4/item_vladmir_lua"
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"ItemBaseLevel"					"1"
@@ -4125,7 +4125,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"			"gem4/item_vladmir_lua2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4155,7 +4155,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"			"gem4/item_vladmir_lua3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4185,7 +4185,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"			"gem4/item_vladmir_lua4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4215,7 +4215,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"			"gem4/item_vladmir_lua5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4245,7 +4245,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"			"gem4/item_vladmir_lua6"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4275,7 +4275,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"			"gem4/item_vladmir_lua7"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4304,7 +4304,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_vladmir_lua"
+		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"			"gem4/item_vladmir_lua8"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -4340,7 +4340,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"20.0"	  
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
@@ -4376,7 +4376,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"20.0"	 
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua2"
@@ -4421,7 +4421,7 @@
 		"AbilityCooldown"				"20.0"	 
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua3"
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4461,7 +4461,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"800"
 		"AbilityCooldown"				"20.0"	 
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua2"
@@ -4506,7 +4506,7 @@
 		"AbilityCooldown"				"20.0"	 
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua5"
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4548,7 +4548,7 @@
 		"AbilityCooldown"				"20.0"	 
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua6"
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4590,7 +4590,7 @@
 		"AbilityCooldown"				"20.0"	 
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua7"
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4631,7 +4631,7 @@
 		"AbilityCooldown"				"20.0"	 
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_ethereal_blade_lua8"
-		"ScriptFile"					"items/items_gems/item_ethereal_blade_lua"
+		"ScriptFile"					"items/custom_items/item_ethereal_blade_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4671,7 +4671,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4710,7 +4710,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4750,7 +4750,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4790,7 +4790,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4830,7 +4830,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4870,7 +4870,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4910,7 +4910,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4949,7 +4949,7 @@
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"1200"
-		"ScriptFile"					"items/items_gems/item_pipe_lua"
+		"ScriptFile"					"items/custom_items/item_pipe_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -4985,7 +4985,7 @@
 		"BaseClass"						"item_lua"
 		"ItemPurchasable"				"0"
 
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -5021,7 +5021,7 @@
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"180"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5053,7 +5053,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua3"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5086,7 +5086,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua4"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5118,7 +5118,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua5"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5150,7 +5150,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua6"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5182,7 +5182,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua7"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5213,7 +5213,7 @@
 		"AbilityCooldown"				"180"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_octarine_core_lua8"
-		"ScriptFile"					"items/items_gems/item_octarine_core_lua"
+		"ScriptFile"					"items/custom_items/item_octarine_core_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5246,7 +5246,7 @@
 		"ItemPurchasable"				"0"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5277,7 +5277,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "gem4/item_skadi_lua2"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5309,7 +5309,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "gem4/item_skadi_lua3"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5341,7 +5341,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "gem4/item_skadi_lua4"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5373,7 +5373,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "gem4/item_skadi_lua5"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5405,7 +5405,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "gem4/item_skadi_lua6"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5437,7 +5437,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "gem4/item_skadi_lua7"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 		
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5468,7 +5468,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "gem4/item_skadi_lua8"
-		"ScriptFile"					"items/items_gems/item_skadi_lua"
+		"ScriptFile"					"items/custom_items/item_skadi_lua"
 		
 		"ItemCost"						"9500"
 		"ItemStackable"					"0"
@@ -5506,7 +5506,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5552,7 +5552,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5598,7 +5598,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5644,7 +5644,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5690,7 +5690,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5736,7 +5736,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5782,7 +5782,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5827,7 +5827,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-		"ScriptFile"					"items/items_gems/item_mjollnir_lua"
+		"ScriptFile"					"items/custom_items/item_mjollnir_lua"
 
 		"AbilityManaCost"				"50"
 		"ItemCost"						"5600"
@@ -5873,7 +5873,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -5907,7 +5907,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua2"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -5941,7 +5941,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua3"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -5975,7 +5975,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua4"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -6009,7 +6009,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua5"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -6043,7 +6043,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua6"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -6077,7 +6077,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua7"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -6110,7 +6110,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_pudge_heart_lua8"
-		"ScriptFile"					"items/items_gems/item_pudge_heart.lua"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -6147,7 +6147,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6183,7 +6183,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua2"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 		
@@ -6219,7 +6219,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua3"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6255,7 +6255,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua4"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6291,7 +6291,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua5"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6327,7 +6327,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua6"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6364,7 +6364,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua7"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6399,7 +6399,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "gem4/item_mage_heart_lua8"
-		"ScriptFile"					"items/items_gems/item_mage_heart.lua"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -6430,7 +6430,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6459,7 +6459,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua2"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6488,7 +6488,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua3"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6517,7 +6517,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua4"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6546,7 +6546,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua5"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6575,7 +6575,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua6"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6604,7 +6604,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua7"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6632,7 +6632,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "gem4/item_agility_heart_lua8"
-		"ScriptFile"					"items/items_gems/item_agility_heart.lua"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6662,7 +6662,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6688,7 +6688,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua2"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6714,7 +6714,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua3"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6740,7 +6740,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua4"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6766,7 +6766,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua5"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6792,7 +6792,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua6"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6818,7 +6818,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua7"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6843,7 +6843,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_moon_shard_lua8"
-		"ScriptFile"					"items/items_gems/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6870,7 +6870,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6903,7 +6903,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua2"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6936,7 +6936,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6969,7 +6969,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua4"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7002,7 +7002,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua5"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7035,7 +7035,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua6"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7068,7 +7068,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua7"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7100,7 +7100,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem4/item_hood_sword_lua8"
-		"ScriptFile"					"items/items_gems/item_hood_sword.lua"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7131,7 +7131,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua1_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7175,7 +7175,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua2_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7219,7 +7219,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua3_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7263,7 +7263,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua4_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7307,7 +7307,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua5_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7351,7 +7351,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua6_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7395,7 +7395,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua7_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7438,7 +7438,7 @@
 	{
         "BaseClass"                     "item_lua"
         "AbilityTextureName"            "gem4/item_meteor_hammer_lua8_gem4"
-        "ScriptFile"                    "items/items_gems/item_meteor_hammer_lua"
+        "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"ItemPurchasable"				"0"
 		
@@ -7483,7 +7483,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua1_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7519,7 +7519,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua2_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7555,7 +7555,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua3_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7591,7 +7591,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua4_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7627,7 +7627,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua5_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7663,7 +7663,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua6_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7699,7 +7699,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua7_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
@@ -7735,7 +7735,7 @@
         "ItemPermanent"					"1"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"			"gem4/boots_of_bearing_lua8_gem4"
-        "ScriptFile"					"items/items_gems/boots_of_bearing"
+        "ScriptFile"					"items/custom_items/boots_of_bearing"
         "ItemCost" 						"4000"
 		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
