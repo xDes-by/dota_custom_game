@@ -2964,7 +2964,6 @@
         "dota_tooltip_ability_item_radiance_lua1_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
         "dota_tooltip_ability_item_radiance_lua1_bonus_damage" "+$damage"
         "dota_tooltip_modifier_item_radiance_lua1_debuff" "Burn Damage"
-        "dota_tooltip_modifier_item_radiance_lua1_debuff_description" "null"
 
         "dota_tooltip_ability_item_radiance_lua2" "Forest Radiance"
         "dota_tooltip_ability_item_radiance_lua2_description" "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
@@ -3079,7 +3078,6 @@
         "dota_tooltip_ability_item_radiance_lua1_gem2_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
         "dota_tooltip_ability_item_radiance_lua1_gem2_bonus_damage" "+$damage"
         "dota_tooltip_modifier_item_radiance_lua1_gem2_debuff" "Burn Damage"
-        "dota_tooltip_modifier_item_radiance_lua1_gem2_debuff_description" "null"
         "dota_tooltip_ability_item_radiance_lua1_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
        
         "dota_tooltip_ability_item_radiance_lua2_gem2" "Forest Radiance"
@@ -3135,7 +3133,6 @@
         "dota_tooltip_ability_item_radiance_lua1_gem3_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
         "dota_tooltip_ability_item_radiance_lua1_gem3_bonus_damage" "+$damage"
         "dota_tooltip_modifier_item_radiance_lua1_gem3_debuff" "Burn Damage"
-        "dota_tooltip_modifier_item_radiance_lua1_gem3_debuff_description" "null"
         "dota_tooltip_ability_item_radiance_lua1_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
        
         "dota_tooltip_ability_item_radiance_lua2_gem3" "Forest Radiance"
@@ -3191,7 +3188,6 @@
         "dota_tooltip_ability_item_radiance_lua1_gem4_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
         "dota_tooltip_ability_item_radiance_lua1_gem4_bonus_damage" "+$damage"
         "dota_tooltip_modifier_item_radiance_lua1_gem4_debuff" "Burn Damage"
-        "dota_tooltip_modifier_item_radiance_lua1_gem4_debuff_description" "null"
         "dota_tooltip_ability_item_radiance_lua1_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
 		
         "dota_tooltip_ability_item_radiance_lua2_gem4" "Forest Radiance"
@@ -3237,7 +3233,6 @@
         "dota_tooltip_ability_item_radiance_lua7_gem4" "Snow Radiance"
         "dota_tooltip_ability_item_radiance_lua7_gem4_description" "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_radiance_lua7_gem4_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
-        "dota_tooltip_ability_item_radiance_lua7_gem4_bonus_damage" "null"
         "dota_tooltip_modifier_item_radiance_lua7_gem4_debuff" "Burn Damage"
         "dota_tooltip_modifier_item_radiance_lua7_gem4_debuff_description" "Taking %aura_damage% damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
         "dota_tooltip_ability_item_radiance_lua7_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
@@ -3246,8 +3241,6 @@
         "dota_tooltip_ability_item_radiance_lua1_gem5_description" "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura1_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_radiance_lua1_gem5_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
         "dota_tooltip_ability_item_radiance_lua1_gem5_bonus_damage" "+$damage"
-        "dota_tooltip_modifier_item_radiance_lua1_gem5_debuff" "null"
-        "dota_tooltip_modifier_item_radiance_lua1_gem5_debuff_description" "null"
         "dota_tooltip_ability_item_radiance_lua1_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_radiance_lua2_gem5" "Forest Radiance"
@@ -5954,7 +5947,6 @@
         "dota_tooltip_ability_item_bfury_lua1_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_bonus_mana_regen" "+$mana_regen"
@@ -6028,7 +6020,6 @@
         "dota_tooltip_ability_item_bfury_lua1_gem1_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_gem1_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_gem1_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_gem1_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_gem1_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_gem1_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_gem1_bonus_mana_regen" "+$mana_regen"
@@ -6098,7 +6089,6 @@
         "dota_tooltip_ability_item_bfury_lua1_gem2_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_gem2_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_gem2_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_gem2_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_gem2_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_gem2_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_gem2_bonus_mana_regen" "+$mana_regen"
@@ -6168,7 +6158,6 @@
         "dota_tooltip_ability_item_bfury_lua1_gem3_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_gem3_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_gem3_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_gem3_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_gem3_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_gem3_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_gem3_bonus_mana_regen" "+$mana_regen"
@@ -6238,7 +6227,6 @@
         "dota_tooltip_ability_item_bfury_lua1_gem4_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_gem4_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_gem4_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_gem4_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_gem4_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_gem4_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_gem4_bonus_mana_regen" "+$mana_regen"
@@ -6308,7 +6296,6 @@
         "dota_tooltip_ability_item_bfury_lua1_gem5_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
         "dota_tooltip_ability_item_bfury_lua1_gem5_lore" "The bearer of this mighty axe gains the ability to cut down swaths of enemies at once."
         "dota_tooltip_ability_item_bfury_lua1_gem5_note0" "Cleave damage goes through spell immunity."
-        "dota_tooltip_ability_item_bfury_lua1_gem5_note1" "null"
         "dota_tooltip_ability_item_bfury_lua1_gem5_bonus_damage" "+$damage"
         "dota_tooltip_ability_item_bfury_lua1_gem5_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_bfury_lua1_gem5_bonus_mana_regen" "+$mana_regen"
@@ -12397,7 +12384,6 @@
         "dota_tooltip_ability_item_sheepstick_lua2_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua2_gem1_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua2_gem1_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua2_gem1_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua2_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
         
         "dota_tooltip_ability_item_sheepstick_lua3_gem1" "Village Scythe of Vyse"
@@ -12451,7 +12437,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem1_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_gem1_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_gem1_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua8_gem1_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua8_gem1_bonus_gem" "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
 
         "dota_tooltip_ability_item_sheepstick_lua1_gem2" "Scythe of Vyse"
@@ -12469,7 +12454,6 @@
         "dota_tooltip_ability_item_sheepstick_lua2_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua2_gem2_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua2_gem2_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua2_gem2_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua2_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
         
         "dota_tooltip_ability_item_sheepstick_lua3_gem2" "Village Scythe of Vyse"
@@ -12532,7 +12516,6 @@
         "dota_tooltip_ability_item_sheepstick_lua2_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua2_gem3_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua2_gem3_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua2_gem3_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua2_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
         
         "dota_tooltip_ability_item_sheepstick_lua3_gem3" "Village Scythe of Vyse"
@@ -12595,7 +12578,6 @@
         "dota_tooltip_ability_item_sheepstick_lua2_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua2_gem4_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua2_gem4_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua2_gem4_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua2_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
         
         "dota_tooltip_ability_item_sheepstick_lua3_gem4" "Village Scythe of Vyse"
@@ -12658,7 +12640,6 @@
         "dota_tooltip_ability_item_sheepstick_lua2_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua2_gem5_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua2_gem5_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua2_gem5_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua2_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         
         "dota_tooltip_ability_item_sheepstick_lua3_gem5" "Village Scythe of Vyse"
@@ -13754,7 +13735,6 @@
         "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_from_creep" "BONUS DAMAGE(CREEP):"
         "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_duration" "DURATION:"
         "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_duration_scepter" "SCEPTER DURATION:"
-        "dota_tooltip_ability_mars_atrophy_aura_lua_aghanim_description" "null"
 
         "dota_tooltip_ability_mars_bulwark_lua" "Bulwark"
         "dota_tooltip_ability_mars_bulwark_lua_description" "The hero blocks some of the physical damage from attacks inflicted on the front and sides with his shield."
@@ -15151,7 +15131,6 @@
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_bonus_damage" "BONUS PROC DAMAGE:"
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_agility_multiplier" "%AGILITY BONUS:"
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_agility_range" "AGILITY RADIUS:"
-        "dota_tooltip_ability_drow_ranger_marksmanship_lua_aghanim_description" "null"
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_split_count_scepter" "SCEPTER SPLIT COUNT:"
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_damage_reduction_scepter" "%SCEPTER DAMAGE REDUCTION:"
 
@@ -15435,7 +15414,6 @@
         "dota_tooltip_ability_lion_finger_of_death_lua_damage" "DMG:"
         "dota_tooltip_ability_lion_finger_of_death_lua_cooldown_scepter" "SCEPTER COOLDOWN:"
         "dota_tooltip_ability_lion_finger_of_death_lua_splash_radius_scepter" "SCEPTER AREA OF EFFECT:"
-        "dota_tooltip_ability_lion_finger_of_death_lua_aghanim_description" "null"
 
         "npc_dota_hero_lion_str6" "Demonic Past"
         "npc_dota_hero_lion_str6_description" "Finger of Death stuns for 3 seconds"
@@ -17398,7 +17376,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem2_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_gem2_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_gem2_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua8_gem2_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua8_gem2_bonus_gem" "%<font color='#006dff'>Spell amplification bonus</font>"
 
         ////////////////////
@@ -17639,7 +17616,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem3_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_gem3_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_gem3_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua8_gem3_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua8_gem3_bonus_gem" "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
 
         ////////////////////
@@ -17880,7 +17856,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem4_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_gem4_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_gem4_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua8_gem4_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua8_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font>"
 
         ////////////////////
@@ -18121,7 +18096,6 @@
         "dota_tooltip_ability_item_sheepstick_lua8_gem5_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_sheepstick_lua8_gem5_bonus_strength" "+$str"
         "dota_tooltip_ability_item_sheepstick_lua8_gem5_projectile_speed" "+ projectile speed"
-        "dota_tooltip_ability_item_sheepstick_lua8_gem5_description" "null"
         "dota_tooltip_ability_item_sheepstick_lua8_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
         "dota_tooltip_ability_item_shaker_boss_summon" "Summon"
         "dota_tooltip_ability_item_shaker_boss_summon_description" ""

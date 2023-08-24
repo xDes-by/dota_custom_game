@@ -17816,7 +17816,7 @@
         "dota_tooltip_ability_item_crimson_guard_lua8_gem1_bonus_health" "+$health"
         "dota_tooltip_ability_item_crimson_guard_lua8_gem1_bonus_health_regen" "+$hp_regen"
         "dota_tooltip_ability_item_crimson_guard_lua8_gem1_bonus_armor" "+$armor"
-        "dota_tooltip_ability_item_crimson_guard_lua8_gem1_bonus_gem" "null"
+        "dota_tooltip_ability_item_crimson_guard_lua8_gem1_bonus_gem" "%<font color='#da00ff'>Бонус физического и магического вампиризма</font>"
         "dota_tooltip_ability_item_crimson_guard_lua8_gem1_note0" "Эффекты нескольких способностей, блокирующих урон, не сочетаются."
 
         "dota_tooltip_ability_item_desolator_lua8_gem1" "Divine Desolator"

@@ -35,7 +35,7 @@
         "history_time" "时间"
         "history_level" "级别"
         "yest' u" "你"
-        "igrokov""球员"
+        "igrokov" "球员"
         "pet_level" "级别"
         "pet_tier" "层级"
         "pet_title" "宠物：射击场"
@@ -54,7 +54,7 @@
         "in" "是"
         "out" "没有"
         "history_mode" "模式"
-        "easy""涡轮"
+        "easy" "涡轮"
         "正常" "正常"
         "normal" "硬"
         "hard" "超"
@@ -12897,7 +12897,7 @@
         //Techies//
 
         "dota_tooltip_ability_techies_land_mines_lua" "鄰近礦山" 
-		"dota_tooltip_ability_techies_land_mines_lua_lore""Tater's nightmare!"
+		"dota_tooltip_ability_techies_land_mines_lua_lore" "Tater's nightmare!"
         "dota_tooltip_ability_techies_land_mines_lua_description" "設置為我的。如果敵人在 %activation_time% 秒內，地雷就會爆炸。距離它 %small_radius%。爆炸對整個觸發區域造成完全傷害。" 
         "dota_tooltip_ability_techies_land_mines_lua_damage" "損害：" 
         "dota_tooltip_ability_techies_land_mines_lua_small_radius" "半徑：" 
@@ -12925,8 +12925,7 @@
         "dota_tooltip_ability_techies_focused_detonate_lua_radius" "半徑：" 
         "dota_tooltip_ability_techies_remote_mines_self_detonate_lua" "精確引爆" 
         "dota_tooltip_ability_techies_remote_mines_self_detonate_lua_description" "引爆所有選定的 RC 地雷。" 
-		"dota_tooltip_ability_techies_remote_mines_self_detonate_lua_lore""Boom!"
-		"dota_tooltip_ability_techies_remote_mines_self_detonate_lua_loreBoom！" 
+		"dota_tooltip_ability_techies_remote_mines_self_detonate_lua_lore" "Boom!"
         "dota_tooltip_modifier_techies_stasis_trap_stunned" "暈眩陷阱" 
         "dota_tooltip_modifier_techies_stasis_trap_stunned_description" "你發現了一個工程師的靜止陷阱！" 
 
@@ -13265,20 +13264,20 @@
           "npc_dota_hero_sand_king_agi_last" "运气站在蝎子一边"
           "npc_dota_hero_sand_king_agi_last_description" "100% 大招几率"
 
-          "npc_dota_hero_sand_king_int6" "致命毒素"
-          "npc_dota_hero_sand_king_int6_description" "即使目标还活着，腐蚀也会造成伤害"
-          "npc_dota_hero_sand_king_int7" "更宽的圈子"
-          "npc_dota_hero_sand_king_int7_description" "+750 Clap AoE"
-          "npc_dota_hero_sand_king_int8" "风暴肆虐一次"
-          "npc_dota_hero_sand_king_int8_description" "沙尘暴伤害 + 25% 智力"
-          "npc_dota_hero_sand_king_int9" "幸运幸运幸运"
-          "npc_dota_hero_sand_king_int9_description" "最终几率 +5%"
-"npc_dota_hero_sand_king_int10" "沙王的诅咒"
-          "npc_dota_hero_sand_king_int10_description" "每次拍击造成的伤害 + 30%"
-          "npc_dota_hero_sand_king_int11" "魔法毒药"
-          "npc_dota_hero_sand_king_int11_description" "腐蚀伤害 + 100% 智力"
-"npc_dota_hero_sand_king_int_last" "斯汀"
-          "npc_dota_hero_sand_king_int_last_description" "Clap casts on all Caustic"
+        "npc_dota_hero_sand_king_int6" "致命毒素"
+        "npc_dota_hero_sand_king_int6_description" "即使目标还活着，腐蚀也会造成伤害"
+        "npc_dota_hero_sand_king_int7" "更宽的圈子"
+        "npc_dota_hero_sand_king_int7_description" "+750 Clap AoE"
+        "npc_dota_hero_sand_king_int8" "风暴肆虐一次"
+        "npc_dota_hero_sand_king_int8_description" "沙尘暴伤害 + 25% 智力"
+        "npc_dota_hero_sand_king_int9" "幸运幸运幸运"
+        "npc_dota_hero_sand_king_int9_description" "最终几率 +5%"
+        "npc_dota_hero_sand_king_int10" "沙王的诅咒"
+        "npc_dota_hero_sand_king_int10_description" "每次拍击造成的伤害 + 30%"
+        "npc_dota_hero_sand_king_int11" "魔法毒药"
+        "npc_dota_hero_sand_king_int11_description" "腐蚀伤害 + 100% 智力"
+        "npc_dota_hero_sand_king_int_last" "斯汀"
+        "npc_dota_hero_sand_king_int_last_description" "Clap casts on all Caustic"
 		  
         //Legion Commander//
 
@@ -13401,7 +13400,7 @@
           "npc_dota_hero_axe_agi8_description" "受到等于敏捷的额外伤害"
           "npc_dota_hero_axe_agi9" "势不可挡"
           "npc_dota_hero_axe_agi9_description" "英雄在激怒效果下受到穿刺伤害"
-          "npc_dota_hero_axe_agi10" 狂热
+          "npc_dota_hero_axe_agi10" "狂热"
           "npc_dota_hero_axe_agi10_description" "Berserker's Call 减少敌人的护甲"
           "npc_dota_hero_axe_agi11" "斗士"
           "npc_dota_hero_axe_agi11_description" "Counter Helix 从他的攻击中触发"
@@ -13415,7 +13414,7 @@
 "npc_dota_hero_axe_int8" "勇气"
           "npc_dota_hero_axe_int8_description" "-25% 冷却时间"
           "npc_dota_hero_axe_int9" "锯齿状伤口"
-          "npc_dota_hero_axe_int9_description""将 Counter Helix 的伤害类型从纯无增益更改为魔法增益"
+          "npc_dota_hero_axe_int9_description" "将 Counter Helix 的伤害类型从纯无增益更改为魔法增益"
 "npc_dota_hero_axe_int10" "愤怒"
           "npc_dota_hero_axe_int10_description" "激怒激活时免疫魔法"
           "npc_dota_hero_axe_int11" "硬度"
@@ -13442,7 +13441,7 @@
         "dota_tooltip_ability_centaur_repel_lua_duration" "期間：" 
         "dota_tooltip_ability_centaur_repel_lua_armor" "%減少基礎護甲：" 
         "dota_tooltip_ability_centaur_repel_lua_radius" "半徑：" 
-        "dota_tooltip_ability_special_bonus_unique_centaur_custom2" "+{s:value} 秒持續時間半人馬護盾" 
+        "dota_tooltip_ability_special_bonus_unique_centaur_custom2" "秒持續時間半人馬護盾" 
         "dota_tooltip_ability_special_bonus_unique_centaur_custom3" "550移動速度，穿過生物" 
 
         "dota_tooltip_ability_borrowed_time_datadriven" "借用時間" 
@@ -13678,7 +13677,7 @@
 
         "dota_tooltip_ability_bristleback_warpath_lua" "戰爭之路" 
         "dota_tooltip_ability_bristleback_warpath_lua_description" "鋼背獸每次施法時都會讓自己變得狂怒，從而提高他的移動速度和傷害。" 
-        "dota_tooltip_ability_bristleback_warpath_lua_lore" ""脾氣，脾氣，"他的母親總是責備他。但在戰鬥中，溫度可以派上用場。" 
+        "dota_tooltip_ability_bristleback_warpath_lua_lore" "脾氣，脾氣 他的母親總是責備他。但在戰鬥中，溫度可以派上用場。" 
         "dota_tooltip_ability_bristleback_warpath_lua_note0" "鋼背獸的幻象將獲得獎勵。" 
         "dota_tooltip_ability_bristleback_warpath_lua_note1" "物品不會觸發 Warpath。" 
         "dota_tooltip_ability_bristleback_warpath_lua_damage_per_stack" "每層傷害：" 
@@ -13689,7 +13688,6 @@
         "dota_tooltip_ability_bristleback_quill_spray_lua_zalp_description" "同時發射 10 次充能 Quill Spray" 
 
         //Modif//
-		//"dota_tooltip_modifier_npc_dota_hero_bristleback_agi7_description"" 
 
         "npc_dota_hero_bristleback_str6" "針進眼睛" 
         "npc_dota_hero_bristleback_str6_description" "在羽毛筆噴霧的效果下（如果羽毛筆噴霧被刺毛觸發，則無效）敵人有 25% 的時間會失手。" 
@@ -15574,7 +15572,7 @@
         "npc_dota_hero_windrunner_int_last" "箭花" 
         "npc_dota_hero_windrunner_int_last_description" "+50% 強力射擊中的 INT 傷害" 
 
-        //Zuus//
+        // //Zuus//
 
         "dota_tooltip_ability_zuus_nimbus" "雨雲" 
         "dota_tooltip_ability_zuus_nimbus_description" "在地圖上的任意位置製造風暴雲，自動對附近的敵人施放電弧閃電。" 
@@ -15762,7 +15760,7 @@
         "npc_dota_hero_Gyrocopter_agi7_description" "lvl 英雄 +5 火箭弹幕伤害"
         "npc_dota_hero_Gyrocopter_agi8" "瞄准射击"
         "npc_dota_hero_Gyrocopter_agi8_description" "15% 几率造成 200% + 英雄等级暴击"
-        "npc_dota_hero_Gyrocopter_agi9""弱点"
+        "npc_dota_hero_Gyrocopter_agi9" "弱点"
         "npc_dota_hero_Gyrocopter_agi9_description" "Flak Cannon 触发后移除 3 层护甲，持续 5 秒"
         "npc_dota_hero_Gyrocopter_agi10" "大规模攻击"
         "npc_dota_hero_Gyrocopter_agi10_description" "火箭弹幕 +5 火箭弹"
@@ -15788,7 +15786,7 @@
 		
 		//Ancient Apparition
 		
-		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_lua"
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_lua" "寒霜之足"
 		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_lua_Description" "对敌人施加冰霜法术，使他们冻结在原地，失去一些魔法抗性并随着时间的推移受到伤害。"
 		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_lua_damage" "每秒伤害："
 		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_lua_duration" "眩晕持续时间："
@@ -15817,14 +15815,14 @@
         "npc_dota_hero_ancient_apparition_str6_description" "冰雪漩涡拒绝敌人的健康再生"
         "npc_dota_hero_ancient_apparition_str7" "Frosty Freshness"
         "npc_dota_hero_ancient_apparition_str7_description" "Cold Feet + 100% strength to damage"
-        "npc_dota_hero_ancient_apparition_str8" "元素变化"。
+        "npc_dota_hero_ancient_apparition_str8" "元素变化。"
         "npc_dota_hero_ancient_apparition_str8_description" "寒冰之触--将伤害类型改为物理伤害并增加2倍伤害"
         "npc_dota_hero_ancient_apparition_str9" "战斗力强的"
         "npc_dota_hero_ancient_apparition_str9_description" "英雄从任何来源获得的伤害减少15%。"
         "npc_dota_hero_ancient_apparition_str10" "刷新领域"
         "npc_dota_hero_ancient_apparition_str10_description" "冷酷的脚步适用于700以内的所有人"
         "npc_dota_hero_ancient_apparition_str11" "Cold Feet Soul"
-        "npc_dota_hero_ancient_apparition_str11_description" "冷脚虾x2收缩
+        "npc_dota_hero_ancient_apparition_str11_description" "冷脚虾x2收缩"
         "npc_dota_hero_ancient_apparition_str_last" "Frost Matter Change"
         "npc_dota_hero_ancient_apparition_str_last_description" "Cold Feet reducing base armor instead of mag resist"
 		
@@ -15916,7 +15914,7 @@
           "npc_dota_hero_broodmother_agi_last" "杀手"
           "npc_dota_hero_broodmother_agi_last_description" "每层 x3 扩展伤害"
 
-          "npc_dota_hero_broodmother_int6""通过魔法"
+          "npc_dota_hero_broodmother_int6" "通过魔法"
           "npc_dota_hero_broodmother_int6_description" "毒药也会降低魔法抗性"
           "npc_dota_hero_broodmother_int7" "魔法的力量"
           "npc_dota_hero_broodmother_int7_description" "+ Silken Bola 伤害情报"
@@ -15938,8 +15936,8 @@
         "сharacter_change_description" "描述：" 
         "сharacter_change_change_hero" "可以換英雄。" 
         "сharacter_change_conditions" "條件：" 
-		"сharacter_change_condition_1""1. Total donation of 1000 crystals\n/Subscription"
-		"character_change_condition_11。共捐贈 1000 顆水晶\n/訂閱" 
+		"сharacter_change_condition_1" "1. Total donation of 1000 crystals\n/Subscription"
+		"character_change_condition_11" "共捐贈 1000 顆水晶\n/訂閱" 
         "сharacter_change_condition_2" "2.多人不能拿同一個英雄" 
         "сharacter_change_condition_3" "3. 更改僅在級別 1 可用。" 
         "сharacter_change_condition_4" "4. 一個角色只能更換一次。" 
@@ -16035,7 +16033,7 @@
 
         //Str//
 
-		"hp_per_level厚皮膚" 
+		"hp_per_level" "厚皮膚" 
         "hp_per_level_description" "每英雄等級 +50 生命值" 
         "hp_regen_level" "一片肉" 
         "hp_regen_level_description" "每英雄等級 +3 生命恢復" 
@@ -16342,7 +16340,7 @@
         "dota_tooltip_ability_item_radiance_lua8_gem1_bonus_damage" "+$傷害" 
         "dota_tooltip_modifier_item_radiance_lua8_gem1_debuff" "燒傷" 
         "dota_tooltip_modifier_item_radiance_lua8_gem1_debuff_description" "每秒受到 %aura_damage% 傷害，並錯過 %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% 的攻擊。" 
-		"dota_tooltip_ability_item_radiance_lua8_gem1_bonus_gem""%<font color='#da00ff'>物理和魔法吸血加成</font>"
+		"dota_tooltip_ability_item_radiance_lua8_gem1_bonus_gem" "%<font color='#da00ff'>物理和魔法吸血加成</font>"
 
         "dota_tooltip_ability_item_bloodstone_lua8_gem1" "雪血石" 
         "dota_tooltip_ability_item_bloodstone_lua8_gem1_description" "<h1>主動：血契</h1>在 %restore_duration% 秒內將 %mana_cost_percentage%%% 的最大法力轉化為生命恢復。\n<h1>被動：法力電池</h1>每次充能提供 %regen_per_charge% 的 MP 恢復和 %amp_per_charge%%% 法術增幅。附近擊殺提供 %kill_charges% 費用。死亡會使你失去 %death_charges% 次充能。從 %initial_charges_tooltip% 費用開始。" 
@@ -17054,7 +17052,7 @@
         "dota_tooltip_ability_item_radiance_lua8_gem4_bonus_damage" "+$傷害" 
         "dota_tooltip_modifier_item_radiance_lua8_gem4_debuff" "燒傷" 
         "dota_tooltip_modifier_item_radiance_lua8_gem4_debuff_description" "每秒受到 %aura_damage% 傷害，並錯過 %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% 的攻擊。" 
-		"dota_tooltip_ability_item_radiance_lua8_gem4_bonus_gem""<font color='#ff004c'>Base damage bonus</font> "
+		"dota_tooltip_ability_item_radiance_lua8_gem4_bonus_gem" "<font color='#ff004c'>Base damage bonus</font> "
 
         "dota_tooltip_ability_item_bloodstone_lua8_gem4" "雪血石" 
         "dota_tooltip_ability_item_bloodstone_lua8_gem4_description" "<h1>主動：血契</h1>在 %restore_duration% 秒內將 %mana_cost_percentage%%% 的最大法力轉化為生命恢復。\n<h1>被動：法力電池</h1>每次充能提供 %regen_per_charge% 的 MP 恢復和 %amp_per_charge%%% 法術增幅。附近擊殺提供 %kill_charges% 費用。死亡會使你失去 %death_charges% 次充能。從 %initial_charges_tooltip% 費用開始。" 
