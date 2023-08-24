@@ -7765,4 +7765,415 @@
 			"bonus_gem"         "0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
         }
 	}
+
+	"item_hurricane_pike1_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_1_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike2_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_2_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "2"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike3_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_3_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "3"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike4_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_4_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "4"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike5_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_5_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "5"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike6_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_6_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "6"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike7_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_7_gem5"
+		"ItemBaseLevel"                                     "7"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+	"item_hurricane_pike8_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5//hurricane_pike_8_gem5"
+		"AbilityCooldown" 									"0.1"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "8"
+
+		"AbilityValues"
+		{
+			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
+			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
+			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
+			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
+			"bonus_strength"                                "12 20 34 58 100 160 240 336"
+			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
+			"multishot_targets"								"1 1 1 1 2 2 2 2"
+			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_radius"								"250"
+			"multishot_chance"								"50"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade1_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade1_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "1"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade2_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade2_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "2"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade3_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade3_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "3"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade4_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade4_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "4"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade5_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade5_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "5"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade6_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade6_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "6"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade7_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade7_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "7"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+	"item_sabre_blade8_gem5"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"                                "gem5/sabre_blade8_gem5"
+		"AbilityCooldown" 									"8"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "8"
+
+		"AbilityValues"
+		{
+			"bonus_strength"                                "30 70 110 150 190 230 270 310"
+			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
+			"bonus_mana_regen"                             	"5 15 25 35 45 55 65 75"
+			"bonus_attack_speed"                             		"20 40 60 80 100 120"
+			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
+			"movement_slow"     							"100"
+			"slow_duration"     							"1"
+			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_gem" 		"0.3 0.6 0.9 1.2 1.5 1.8 2.1 2.4"
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 }

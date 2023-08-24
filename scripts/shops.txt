@@ -205,13 +205,14 @@
 		"item"		"item_relic"
 	}
 
-"custom"
+	"custom"
 	{		
 		"item"		"item_relic"
 	}
 
 	"pregame"
 	{
+		
 	}
 
 	"common_items"
