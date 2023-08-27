@@ -232,7 +232,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_9"
+					"UnitName"	"npc_8"
 					"abs"
 					{
 						"1"
@@ -292,7 +292,7 @@
 		}
 		"5"
 		{
-			"UnitName"	"npc_9"
+			"UnitName"	"npc_8"
 			// "unlock"
 			// {
 			// 	"1"

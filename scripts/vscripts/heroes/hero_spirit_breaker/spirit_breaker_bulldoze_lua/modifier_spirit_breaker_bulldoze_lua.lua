@@ -31,7 +31,12 @@ function modifier_spirit_breaker_bulldoze_lua:OnCreated( kv )
 	-- references
 	self.movespeed = self:GetAbility():GetSpecialValueFor( "movement_speed" )
 	self.resistance = self:GetAbility():GetSpecialValueFor( "status_resistance" )
-
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_str6") then
+		self.movement_bonus = self:GetCaster():GetLevel() * 5
+		if self.movement_bonus > 500 then 
+			self.movement_bonus = 500
+		end
+	end
 	if not IsServer() then return end
 
 	-- play effects
@@ -55,6 +60,9 @@ function modifier_spirit_breaker_bulldoze_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_STATUS_RESISTANCE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+		MODIFIER_PROPERTY_MOVESPEED_LIMIT,
 	}
 
 	return funcs
@@ -66,6 +74,18 @@ end
 
 function modifier_spirit_breaker_bulldoze_lua:GetModifierStatusResistance()
 	return self.resistance
+end
+
+function modifier_spirit_breaker_bulldoze_lua:GetModifierMoveSpeedBonus_Constant()
+	return self.movement_bonus
+end
+
+function modifier_spirit_breaker_bulldoze_lua:GetModifierMoveSpeed_Limit()
+	return 2000
+end
+
+function modifier_spirit_breaker_bulldoze_lua:GetModifierIgnoreMovespeedLimit()
+	return 1
 end
 
 --------------------------------------------------------------------------------

@@ -135,6 +135,12 @@ modifier_viper_nethertoxin_lua = class({
     end,
     GetEffectName           = function(self) return "particles/generic_gameplay/generic_break.vpcf" end,
     GetEffectAttachType     = function(self) return PATTACH_OVERHEAD_FOLLOW end,
+    DeclareFunctions        = function(self)
+        return {
+            MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+            MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+        }
+    end,
 })
 
 
@@ -143,6 +149,14 @@ modifier_viper_nethertoxin_lua = class({
 function modifier_viper_nethertoxin_lua:OnCreated()
     self.min_damage = self:GetAbility():GetSpecialValueFor("min_damage")
     self.max_damage = self:GetAbility():GetSpecialValueFor("max_damage")
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi10") then
+        self.min_damage = self.min_damage + self:GetCaster():GetAgility() * 0.4
+        self.max_damage = self.max_damage + self:GetCaster():GetAgility() * 1.0
+    end
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int10") then
+        self.min_damage = self.min_damage + self:GetCaster():GetIntellect() * 0.25
+        self.max_damage = self.max_damage + self:GetCaster():GetIntellect() * 0.6
+    end
     self.max_duration = self:GetAbility():GetSpecialValueFor("max_duration")
     self.duration = self:GetAbility():GetSpecialValueFor("duration")
     self.damage_mid_per_tick = (self.max_damage - self.min_damage) / (self.duration / 0.5)
@@ -180,4 +194,10 @@ function modifier_viper_nethertoxin_lua:OnIntervalThink()
     })
     EmitSoundOn("Hero_Viper.NetherToxin.Damage", self:GetParent())
 end
+end
+
+function modifier_viper_nethertoxin_lua:GetModifierDamageOutgoing_Percentage()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str9") then
+        return -20
+    end
 end

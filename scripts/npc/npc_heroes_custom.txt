@@ -1091,7 +1091,7 @@
 		"Ability1"					"death_prophet_crypt_swarm_bh"
 		"Ability2"					"death_prophet_ghastly_haunting"
 		"Ability3"					"death_prophet_spirit_siphon_bh"
-		"Ability4"					"death_prophet_occultism"
+		"Ability4"					"generic_hidden"
 		"Ability5"					"generic_hidden"
 		"Ability6"					"death_prophet_exorcism_bh"
 

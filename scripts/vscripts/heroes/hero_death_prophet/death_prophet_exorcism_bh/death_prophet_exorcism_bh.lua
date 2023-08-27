@@ -9,9 +9,14 @@ function death_prophet_exorcism_bh:OnSpellStart()
 	
 	caster:RemoveModifierByName("modifier_death_prophet_exorcism_bh")
 	caster:AddNewModifier( caster, self, "modifier_death_prophet_exorcism_bh", {duration = self:GetDuration()})
-	
+	-- if caster:FindAbilityByName("npc_dota_hero_death_prophet_int9") then
+	-- 	caster:AddNewModifier(caster, self, "modifier_death_prophet_exorcism_permanent_spirits", {})
+	-- end
 	caster:EmitSound("Hero_DeathProphet.Exorcism.Cast")
 	ParticleManager:FireParticle("particles/units/heroes/hero_death_prophet/death_prophet_spawn.vpcf", PATTACH_POINT_FOLLOW, caster)
+	if caster:FindAbilityByName("npc_dota_hero_death_prophet_str_last") then
+		caster:AddNewModifier(caster, self, "modifier_death_prophet_exorcism_bh_bkb", {duration = 20})
+	end
 end
 
 function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
@@ -20,7 +25,7 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 	local turnSpeed = 150
 	local give_up_distance = self:GetSpecialValueFor("give_up_distance")
 	local max_distance = self:GetSpecialValueFor("max_distance")
-	local damage = self:GetSpecialValueFor("average_damage") + caster:GetIntellect() * self:GetSpecialValueFor("int_dmg")
+	local damage = self:GetSpecialValueFor("average_damage")
 	if caster:FindAbilityByName("npc_dota_hero_death_prophet_int6") then
 		damage = damage + caster:GetIntellect() * 0.75
 	end
@@ -187,12 +192,13 @@ LinkLuaModifier( "modifier_death_prophet_exorcism_bh", "heroes/hero_death_prophe
 
 function modifier_death_prophet_exorcism_bh:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 	}
 end
 
-function modifier_death_prophet_exorcism_bh:GetModifierMoveSpeedBonus_Percentage()
+function modifier_death_prophet_exorcism_bh:GetModifierMoveSpeedBonus_Constant()
 	return self.movement_bonus
 end
 
@@ -200,15 +206,26 @@ function modifier_death_prophet_exorcism_bh:GetModifierHealthBonus()
 	return self.health_bonus
 end
 
+function modifier_death_prophet_exorcism_bh:GetModifierPreAttack_BonusDamage()
+	return self.dmg
+end
+
 
 function modifier_death_prophet_exorcism_bh:OnCreated()
 	self.spawnRate = self:GetAbility():GetSpecialValueFor("ghost_spawn_rate")
 	self.maxGhosts = self:GetAbility():GetSpecialValueFor("spirits")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int9") then
+		self.maxGhosts = self.maxGhosts * 1.25
+	end
 	self.seekRadius = self:GetAbility():GetSpecialValueFor("radius")
 	self.movement_bonus = self:GetAbility():GetSpecialValueFor("movement_bonus") - self:GetAbility():GetSpecialValueFor("movement_base")
 	self.health_bonus = 0
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str7") then
-		self.health_bonus = self:GetCaster():GetStrength() * 10
+		self.health_bonus = self:GetCaster():GetStrength() * 20
+	end
+	self.dmg = 0
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi9") then
+		self.dmg = self.dmg + (1000 / 15) * self:GetAbility():GetLevel() * self.maxGhosts
 	end
 	if IsServer() then
 		self:StartIntervalThink( self.spawnRate )
@@ -267,45 +284,71 @@ end
 modifier_death_prophet_exorcism_bh_talent = class({})
 LinkLuaModifier( "modifier_death_prophet_exorcism_bh_talent", "heroes/hero_death_prophet/death_prophet_exorcism_bh/death_prophet_exorcism_bh", LUA_MODIFIER_MOTION_NONE)
 
-function modifier_death_prophet_exorcism_bh_talent:OnCreated()
-	self.movement_base = self:GetAbility():GetSpecialValueFor("movement_base")
-end
-
-function modifier_death_prophet_exorcism_bh_talent:DeclareFunctions()
-	return {
-		MODIFIER_EVENT_ON_DEATH,
-		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-
-	}
-end
-
-function modifier_death_prophet_exorcism_bh_talent:OnDeath(params)
-	if params.attacker == self:GetParent() and self:GetParent():HasTalent("special_bonus_unique_death_prophet_exorcism_2") and not params.unit:IsMinion() then
-		local ghosts = 1
-		local roll = RollPercentage(50)
-		if params.unit:IsBoss() then
-			ghosts = 2
-		end
-		if roll or params.unit:IsBoss() then
-			for i = 1, ghosts do
-				self:GetAbility():CreateGhost( self:GetCaster(), self:GetAbility():GetSpecialValueFor("radius"), self:GetAbility():GetDuration() )
-			end
-		end
-	end
-end
-
 function modifier_death_prophet_exorcism_bh_talent:IsHidden()
 	return true
 end
-
 function modifier_death_prophet_exorcism_bh_talent:IsPurgable()
 	return false
 end
-
 function modifier_death_prophet_exorcism_bh_talent:RemoveOnDeath()
 	return false
 end
 
-function modifier_death_prophet_exorcism_bh_talent:GetModifierMoveSpeedBonus_Percentage()
-	return self.movement_base
+function modifier_death_prophet_exorcism_bh_talent:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+	}
 end
+
+function modifier_death_prophet_exorcism_bh_talent:GetModifierMoveSpeedBonus_Constant()
+	return self.movement_bonus
+end
+
+function modifier_death_prophet_exorcism_bh_talent:OnCreated()
+	self.movement_bonus = self:GetAbility():GetSpecialValueFor("movement_base")
+end
+
+
+
+modifier_death_prophet_exorcism_bh_bkb = class({})
+LinkLuaModifier( "modifier_death_prophet_exorcism_bh_bkb", "heroes/hero_death_prophet/death_prophet_exorcism_bh/death_prophet_exorcism_bh", LUA_MODIFIER_MOTION_NONE)
+
+function modifier_death_prophet_exorcism_bh_bkb:IsHidden()
+    return false
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:IsDebuff()
+    return false
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:IsPurgable()
+    return false
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:GetTexture()
+    return "item_black_king_bar"
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:GetEffectName()
+    return "particles/items_fx/black_king_bar_avatar.vpcf"
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:CheckState()
+    local state = {
+        [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    }
+    return state
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:GetPriority()
+    return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
+function modifier_death_prophet_exorcism_bh_bkb:GetAttributes()
+    return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+

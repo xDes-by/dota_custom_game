@@ -1,5 +1,6 @@
 static_link_lua = static_link_lua or class({})
 LinkLuaModifier("modifier_static_link_drain", "heroes/hero_razor/static_link_lua/static_link_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_static_link_hit", "heroes/hero_razor/static_link_lua/static_link_lua.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_static_link_lua", "heroes/hero_razor/static_link_lua/static_link_lua.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_static_link_lua_attribute", "heroes/hero_razor/static_link_lua/static_link_lua.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -29,6 +30,9 @@ function static_link_lua:OnSpellStart(target)
   caster:EmitSound(sound)
 
   target:AddNewModifier(caster, ability, "modifier_static_link_drain", {duration = drain_duration, interval = interval})
+  if caster:FindAbilityByName("npc_dota_hero_razor_agi9") then
+    target:AddNewModifier(caster, ability, "modifier_static_link_hit", {duration = drain_duration})
+  end
 end
 
 
@@ -112,10 +116,10 @@ end
 
 function modifier_static_link_lua:AddLinkDamage( kv )
   if IsServer() then
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi9") then
-      self:SetStackCount( self:GetStackCount() + kv.count * 2 )
-      return
-    end
+    -- if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi9") then
+    --   self:SetStackCount( self:GetStackCount() + kv.count * 2 )
+    --   return
+    -- end
     self:SetStackCount( self:GetStackCount() + kv.count )
   end
 end
@@ -289,4 +293,24 @@ end
 
 function modifier_static_link_drain:GetModifierPreAttack_BonusDamage()
   return -self:GetStackCount()
+end
+
+modifier_static_link_hit = class({
+  IsHidden                = function(self) return false end,
+  IsPurgable              = function(self) return false end,
+  IsDebuff                = function(self) return true end,
+})
+
+function modifier_static_link_hit:OnCreated( kv )
+  local interval = 2.5 - (2.5-0.3) / 15 * self:GetAbility():GetLevel()
+  self:StartIntervalThink(interval)
+end
+
+function modifier_static_link_hit:OnIntervalThink()
+  if not IsServer() then return end
+  if not self:GetParent():HasModifier("modifier_static_link_drain") then
+    self:Destroy()
+    return
+  end
+  self:GetCaster():PerformAttack(self:GetParent(), false, true, true, false, true, false, false)
 end

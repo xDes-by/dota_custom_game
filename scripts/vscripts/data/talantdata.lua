@@ -10908,7 +10908,7 @@ npc_dota_hero_broodmother = {
                         --------------------------------------------------------------------------------------------------------------UNIQUE        
                 
                         npc_dota_hero_razor_str6 = {
-                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/str/3.png", name = "npc_dota_hero_razor_str6", description = "",
+                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/str/1.png", name = "npc_dota_hero_razor_str6", description = "",
                             place = {"str 6"}
                         },
                     
@@ -10933,7 +10933,7 @@ npc_dota_hero_broodmother = {
                         },
                         
                         npc_dota_hero_razor_str11 = {
-                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/str/1.png", name = "npc_dota_hero_razor_str11", description = "",
+                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/str/3.png", name = "npc_dota_hero_razor_str11", description = "",
                             place = {"str 11"}
                         },
                 
@@ -10950,7 +10950,7 @@ npc_dota_hero_broodmother = {
                         },
                     
                         npc_dota_hero_razor_agi7 = {
-                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/agi/3.png", name = "npc_dota_hero_razor_agi7", description = "",
+                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/agi/0.png", name = "npc_dota_hero_razor_agi7", description = "",
                             place = {"agi 7"}
                         },
                         
@@ -10965,7 +10965,7 @@ npc_dota_hero_broodmother = {
                         },
                         
                         npc_dota_hero_razor_agi10 = {
-                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/agi/1.png", name = "npc_dota_hero_razor_agi10", description = "",
+                            url = "/images/custom_game/talants/img/npc_dota_hero_razor/agi/0.png", name = "npc_dota_hero_razor_agi10", description = "",
                             place = {"agi 10"}
                         },
                         
@@ -11132,7 +11132,7 @@ npc_dota_hero_death_prophet = {
     --------------------------------------------------------------------------------------------------------------UNIQUE        
 
     npc_dota_hero_death_prophet_str6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/str/3.png", name = "npc_dota_hero_death_prophet_str6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/str/1.png", name = "npc_dota_hero_death_prophet_str6", description = "",
         place = {"str 6"}
     },
 
@@ -11157,7 +11157,7 @@ npc_dota_hero_death_prophet = {
     },
     
     npc_dota_hero_death_prophet_str11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/str/1.png", name = "npc_dota_hero_death_prophet_str11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/str/3.png", name = "npc_dota_hero_death_prophet_str11", description = "",
         place = {"str 11"}
     },
 
@@ -11169,22 +11169,22 @@ npc_dota_hero_death_prophet = {
 ---     
 
     npc_dota_hero_death_prophet_agi6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/4.png", name = "npc_dota_hero_death_prophet_agi6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/0.png", name = "npc_dota_hero_death_prophet_agi6", description = "",
         place = {"agi 6"}
     },
 
     npc_dota_hero_death_prophet_agi7 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/3.png", name = "npc_dota_hero_death_prophet_agi7", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/1.png", name = "npc_dota_hero_death_prophet_agi7", description = "",
         place = {"agi 7"}
     },
     
     npc_dota_hero_death_prophet_agi8 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/2.png", name = "npc_dota_hero_death_prophet_agi8", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/4.png", name = "npc_dota_hero_death_prophet_agi8", description = "",
         place = {"agi 8"}
     },
         
     npc_dota_hero_death_prophet_agi9 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/2.png", name = "npc_dota_hero_death_prophet_agi9", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/4.png", name = "npc_dota_hero_death_prophet_agi9", description = "",
         place = {"agi 9"}
     },
     
@@ -11199,13 +11199,13 @@ npc_dota_hero_death_prophet = {
     },
 
     npc_dota_hero_death_prophet_agi_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/2.png", name = "npc_dota_hero_death_prophet_agi_last", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/agi/4.png", name = "npc_dota_hero_death_prophet_agi_last", description = "",
         place = {"agi 12"}
     },
         
 ---
     npc_dota_hero_death_prophet_int6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/4.png", name = "npc_dota_hero_death_prophet_int6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/1.png", name = "npc_dota_hero_death_prophet_int6", description = "",
         place = {"int 6"}
     },
     
@@ -11225,7 +11225,7 @@ npc_dota_hero_death_prophet = {
     },
     
     npc_dota_hero_death_prophet_int10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/3.png", name = "npc_dota_hero_death_prophet_int10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/2.png", name = "npc_dota_hero_death_prophet_int10", description = "",
         place = {"int 10"}
     },
         
@@ -11235,7 +11235,7 @@ npc_dota_hero_death_prophet = {
     },  
 
     npc_dota_hero_death_prophet_int_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/1.png", name = "npc_dota_hero_death_prophet_int_last", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_death_prophet/int/4.png", name = "npc_dota_hero_death_prophet_int_last", description = "",
         place = {"int 12"}
     },	
 
@@ -11356,12 +11356,12 @@ npc_dota_hero_viper = {
     --------------------------------------------------------------------------------------------------------------UNIQUE        
 
     npc_dota_hero_viper_str6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/4.png", name = "npc_dota_hero_viper_str6", description = "",
         place = {"str 6"}
     },
 
     npc_dota_hero_viper_str7 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/4.png", name = "npc_dota_hero_viper_str7", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str7", description = "",
         place = {"str 7"}
     },
     
@@ -11371,90 +11371,90 @@ npc_dota_hero_viper = {
     },
         
     npc_dota_hero_viper_str9 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/1.png", name = "npc_dota_hero_viper_str9", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/2.png", name = "npc_dota_hero_viper_str9", description = "",
         place = {"str 9"}
     },
     
     npc_dota_hero_viper_str10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/4.png", name = "npc_dota_hero_viper_str10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/1.png", name = "npc_dota_hero_viper_str10", description = "",
         place = {"str 10"}
     },
     
     npc_dota_hero_viper_str11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/1.png", name = "npc_dota_hero_viper_str11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str11", description = "",
         place = {"str 11"}
     },
 
     npc_dota_hero_viper_str_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/4.png", name = "npc_dota_hero_viper_str_last", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str_last", description = "",
         place = {"str 12"}
     },
         
 ---     
 
     npc_dota_hero_viper_agi6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/4.png", name = "npc_dota_hero_viper_agi6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png", name = "npc_dota_hero_viper_agi6", description = "",
         place = {"agi 6"}
     },
 
     npc_dota_hero_viper_agi7 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png", name = "npc_dota_hero_viper_agi7", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/0.png", name = "npc_dota_hero_viper_agi7", description = "",
         place = {"agi 7"}
     },
     
     npc_dota_hero_viper_agi8 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi8", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png", name = "npc_dota_hero_viper_agi8", description = "",
         place = {"agi 8"}
     },
         
     npc_dota_hero_viper_agi9 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi9", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png", name = "npc_dota_hero_viper_agi9", description = "",
         place = {"agi 9"}
     },
     
     npc_dota_hero_viper_agi10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png", name = "npc_dota_hero_viper_agi10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi10", description = "",
         place = {"agi 10"}
     },
     
     npc_dota_hero_viper_agi11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/4.png", name = "npc_dota_hero_viper_agi11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png", name = "npc_dota_hero_viper_agi11", description = "",
         place = {"agi 11"}
     },
 
     npc_dota_hero_viper_agi_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi_last", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/agi/0.png", name = "npc_dota_hero_viper_agi_last", description = "",
         place = {"agi 12"}
     },
         
 ---
     npc_dota_hero_viper_int6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/4.png", name = "npc_dota_hero_viper_int6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int6", description = "",
         place = {"int 6"}
     },
     
     npc_dota_hero_viper_int7 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/3.png", name = "npc_dota_hero_viper_int7", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/0.png", name = "npc_dota_hero_viper_int7", description = "",
         place = {"int 7"}
     },
     
     npc_dota_hero_viper_int8 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int8", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/0.png", name = "npc_dota_hero_viper_int8", description = "",
         place = {"int 8"}
     },
         
     npc_dota_hero_viper_int9 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/4.png", name = "npc_dota_hero_viper_int9", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int9", description = "",
         place = {"int 9"}
     },
     
     npc_dota_hero_viper_int10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/3.png", name = "npc_dota_hero_viper_int10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/2.png", name = "npc_dota_hero_viper_int10", description = "",
         place = {"int 10"}
     },
         
     npc_dota_hero_viper_int11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_viper/int/4.png", name = "npc_dota_hero_viper_int11", description = "",
         place = {"int 11"}
     },  
 
@@ -12028,7 +12028,7 @@ npc_dota_hero_riki = {
     --------------------------------------------------------------------------------------------------------------UNIQUE        
 
     npc_dota_hero_riki_str6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/0.png", name = "npc_dota_hero_riki_str6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str6", description = "",
         place = {"str 6"}
     },
 
@@ -12048,12 +12048,12 @@ npc_dota_hero_riki = {
     },
     
     npc_dota_hero_riki_str10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/2.png", name = "npc_dota_hero_riki_str10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/1.png", name = "npc_dota_hero_riki_str10", description = "",
         place = {"str 10"}
     },
     
     npc_dota_hero_riki_str11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/0.png", name = "npc_dota_hero_riki_str11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/1.png", name = "npc_dota_hero_riki_str11", description = "",
         place = {"str 11"}
     },
 
@@ -12070,7 +12070,7 @@ npc_dota_hero_riki = {
     },
 
     npc_dota_hero_riki_agi7 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/0.png", name = "npc_dota_hero_riki_agi7", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/3.png", name = "npc_dota_hero_riki_agi7", description = "",
         place = {"agi 7"}
     },
     
@@ -12090,7 +12090,7 @@ npc_dota_hero_riki = {
     },
     
     npc_dota_hero_riki_agi11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/0.png", name = "npc_dota_hero_riki_agi11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/2.png", name = "npc_dota_hero_riki_agi11", description = "",
         place = {"agi 11"}
     },
 
@@ -12101,7 +12101,7 @@ npc_dota_hero_riki = {
         
 ---
     npc_dota_hero_riki_int6 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/0.png", name = "npc_dota_hero_riki_int6", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int6", description = "",
         place = {"int 6"}
     },
     
@@ -12111,22 +12111,22 @@ npc_dota_hero_riki = {
     },
     
     npc_dota_hero_riki_int8 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/0.png", name = "npc_dota_hero_riki_int8", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int8", description = "",
         place = {"int 8"}
     },
         
     npc_dota_hero_riki_int9 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/0.png", name = "npc_dota_hero_riki_int9", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int9", description = "",
         place = {"int 9"}
     },
     
     npc_dota_hero_riki_int10 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/0.png", name = "npc_dota_hero_riki_int10", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int10", description = "",
         place = {"int 10"}
     },
         
     npc_dota_hero_riki_int11 = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/0.png", name = "npc_dota_hero_riki_int11", description = "",
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int11", description = "",
         place = {"int 11"}
     },  
 

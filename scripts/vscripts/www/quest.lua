@@ -384,7 +384,7 @@ function Quests:updateParticle(n)
 	for nPlayerID = 0, PlayerCount-1 do
 		local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
-		if not bot(nPlayerID) and connectState ~= DOTA_CONNECTION_STATE_ABANDONED and connectState ~= DOTA_CONNECTION_STATE_FAILED and connectState ~= DOTA_CONNECTION_STATE_UNKNOWN and PlayerResource:IsValidPlayer(nPlayerID) then
+		if connectState ~= DOTA_CONNECTION_STATE_ABANDONED and connectState ~= DOTA_CONNECTION_STATE_FAILED and connectState ~= DOTA_CONNECTION_STATE_UNKNOWN and PlayerResource:IsValidPlayer(nPlayerID) then
 			local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
 			local key
 
@@ -864,14 +864,16 @@ function Quests:createDropList()
 		if PlayerResource:IsValidPlayer(i) then
 			local steamID = PlayerResource:GetSteamAccountID(i)
 			local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-			for k1,v1 in pairs(player_info[tostring(steamID)]) do
-				for  k2,v2 in pairs(player_info[tostring(steamID)][k1]) do
-					if v2['active'] == 1 then
-						for k3,v3 in pairs(player_info[tostring(steamID)][k1][k2]['tasks']) do
-							if v3['active'] == 1 and v3['DotaName'] then
-								local name = v3['DotaName']
-								Quests.dropListArray[name].active = true
-								table.insert(Quests.dropListArray[name][i], {k1, k2, k3})
+			if player_info then
+				for k1,v1 in pairs(player_info[tostring(steamID)]) do
+					for  k2,v2 in pairs(player_info[tostring(steamID)][k1]) do
+						if v2['active'] == 1 then
+							for k3,v3 in pairs(player_info[tostring(steamID)][k1][k2]['tasks']) do
+								if v3['active'] == 1 and v3['DotaName'] then
+									local name = v3['DotaName']
+									Quests.dropListArray[name].active = true
+									table.insert(Quests.dropListArray[name][i], {k1, k2, k3})
+								end
 							end
 						end
 					end
@@ -905,20 +907,21 @@ function Quests:updateKillList()
 						if kill["use_type"] == "random" then
 							for i = 0, PlayerResource:GetPlayerCount() do
 								if PlayerResource:IsValidPlayer(i) then
-									--print('player id, isValidPlayer == true', i)
 									local steamID = PlayerResource:GetSteamAccountID(i)
 									local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-									local n = player_info[tostring(steamID)][tostring(k1)][tostring(k2)]["tasks"][tostring(k3)]["carr"]
-									local j = 1
-									while kill["units"][tostring(n)][tostring(j)] do
-										local name = kill["units"][tostring(n)][tostring(j)]
-										--print(name)
-										if player_info[tostring(steamID)][tostring(k1)][tostring(k2)]["tasks"][tostring(k3)]["active"] == 1 then
-											--print('valide')
-											Quests.unitsKillList[name].active = true
-											table.insert(Quests.unitsKillList[name][i], {k1, k2, k3})
+									if player_info then
+										local n = player_info[tostring(steamID)][tostring(k1)][tostring(k2)]["tasks"][tostring(k3)]["carr"]
+										local j = 1
+										while kill["units"][tostring(n)][tostring(j)] do
+											local name = kill["units"][tostring(n)][tostring(j)]
+											--print(name)
+											if player_info[tostring(steamID)][tostring(k1)][tostring(k2)]["tasks"][tostring(k3)]["active"] == 1 then
+												--print('valide')
+												Quests.unitsKillList[name].active = true
+												table.insert(Quests.unitsKillList[name][i], {k1, k2, k3})
+											end
+											j = j + 1
 										end
-										j = j + 1
 									end
 								end
 							end

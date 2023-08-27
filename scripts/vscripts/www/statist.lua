@@ -110,26 +110,28 @@ function statist:inventory_updated(PlayerID, time)
         -- print("timer")
         local lng = #sendata[PlayerID]["timer"] + 1
         local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
-        local connection = PlayerResource:GetConnectionState(PlayerID)
-        sendata[PlayerID]["in_game_time"] = GameRules:GetGameTime()
-        sendata[PlayerID]["timer"][lng] = {
-            in_game_time = GameRules:GetGameTime(),
-            level = hero:GetLevel(),
-            last_hits = hero:GetLastHits(),
-            dmg = {
-                -- damagecount = _G.damagecount[PlayerID],
-                -- physdamage = _G.physdamage[PlayerID],
-                -- magdamage = _G.magdamage[PlayerID],
-                -- puredamage = _G.puredamage[PlayerID],
-            },
-            items = {
+        if hero then
+            local connection = PlayerResource:GetConnectionState(PlayerID)
+            sendata[PlayerID]["in_game_time"] = GameRules:GetGameTime()
+            sendata[PlayerID]["timer"][lng] = {
+                in_game_time = GameRules:GetGameTime(),
+                level = hero:GetLevel(),
+                last_hits = hero:GetLastHits(),
+                dmg = {
+                    -- damagecount = _G.damagecount[PlayerID],
+                    -- physdamage = _G.physdamage[PlayerID],
+                    -- magdamage = _G.magdamage[PlayerID],
+                    -- puredamage = _G.puredamage[PlayerID],
+                },
+                items = {
 
-            },
-        }
-        sendata[PlayerID]["timer"][lng]["items"] = statist:GetAllItems(hero)
-        if connection == DOTA_CONNECTION_STATE_ABANDONED then
-            sendata[PlayerID]["status"] = "out"
-            return nil
+                },
+            }
+            sendata[PlayerID]["timer"][lng]["items"] = statist:GetAllItems(hero)
+            if connection == DOTA_CONNECTION_STATE_ABANDONED then
+                sendata[PlayerID]["status"] = "out"
+                return nil
+            end
         end
         statist:inventory_updated(PlayerID, time)
     end)

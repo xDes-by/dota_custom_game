@@ -21,7 +21,7 @@ function ChatCommands:IsAdmin(sid)
         -- Тестері
         487111321,
         111684601, --Андрей (deal with it)
-        98338509,
+        98338509, --- ICE
     }, sid)
 end
 

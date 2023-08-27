@@ -3,6 +3,8 @@ LinkLuaModifier("modifier_riki_smoke_screen_lua", "heroes/hero_riki/riki_smoke_s
 LinkLuaModifier("modifier_riki_smoke_screen_lua_aura_buff", "heroes/hero_riki/riki_smoke_screen_lua/modifier_riki_smoke_screen_lua_aura_buff", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_riki_smoke_screen_lua_buff", "heroes/hero_riki/riki_smoke_screen_lua/modifier_riki_smoke_screen_lua_aura_buff", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_imba_bloodthorn_attacker_crit", "heroes/hero_riki/riki_smoke_screen_lua/modifier_riki_smoke_screen_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_riki_smoke_screen_lua_aura_base_armor", "heroes/hero_riki/riki_smoke_screen_lua/modifier_riki_smoke_screen_lua_aura_base_armor", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_riki_smoke_screen_lua_base_armor", "heroes/hero_riki/riki_smoke_screen_lua/modifier_riki_smoke_screen_lua_aura_base_armor", LUA_MODIFIER_MOTION_NONE)
 
 riki_smoke_screen_lua					= riki_smoke_screen_lua or class({})
 
@@ -55,5 +57,8 @@ function riki_smoke_screen_lua:OnSpellStart()
 	CreateModifierThinker(self:GetCaster(), self, "modifier_riki_smoke_screen_lua_aura", {duration = self:GetSpecialValueFor("duration")}, self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi9") then
 		CreateModifierThinker(self:GetCaster(), self, "modifier_riki_smoke_screen_lua_aura_buff", {duration = self:GetSpecialValueFor("duration")}, self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str11") then
+		CreateModifierThinker(self:GetCaster(), self, "modifier_riki_smoke_screen_lua_aura_base_armor", {duration = self:GetSpecialValueFor("duration")}, self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
 	end
 end

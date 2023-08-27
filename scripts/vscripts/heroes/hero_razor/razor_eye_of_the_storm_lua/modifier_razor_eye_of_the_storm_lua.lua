@@ -177,10 +177,10 @@ function modifier_razor_eye_of_the_storm_lua:OnIntervalThink()
 		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi11") then
-		local min_value = 2
-		local max_value = 5
-		local d = min_value + self:GetAbility():GetLevel() * ((max_value - min_value) / 15)
-		damage = damage + (self.parent:GetStrength() + self.parent:GetIntellect() + self.parent: GetAgility()) * d / 100
+		damage = damage + (self.parent:GetStrength() + self.parent:GetIntellect() + self.parent:GetAgility()) / 3
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int9") then
+		damage = damage + self:GetCaster():GetIntellect()
 	end
 	self.damageTable.damage = damage
 	-- strike targets

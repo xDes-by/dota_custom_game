@@ -4,12 +4,6 @@ function modifier_magnataur_talent_int6:GetTexture()
     return "magnataur_skewer"
 end
 
-function modifier_magnataur_talent_int6:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
-	}
-end
-
 function modifier_magnataur_talent_int6:IsDebuff()
     return true
 end

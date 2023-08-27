@@ -28,6 +28,12 @@ function viper_poison_attack_lua:OnOrbImpact( params )
     EmitSoundOn( sound_cast, params.target )
 end
 
+function viper_poison_attack_lua:GetManaCost( level )
+    caster = self:GetCaster()
+    if caster:FindAbilityByName("npc_dota_hero_viper_int6") then return 0 end
+    return math.min(65000, caster:GetIntellect() / 10)
+end
+
 --------------------------------------------------------------------------------
 
 
@@ -69,7 +75,7 @@ function modifier_viper_poison_attack_lua:OnAttack( params )
     -- register attack if being cast and fully castable
     if self:ShouldLaunch( params.target ) then
         -- use mana and cd
-        self.ability:UseResources( true, false, true )
+        self.ability:UseResources(true, false, false, true)
 
         -- record the attack
         self.records[params.record] = true
@@ -197,7 +203,8 @@ modifier_viper_poison_attack_lua_slow = class({
     DeclareFunctions        = function(self)
         return {
             MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-            MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+            MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+            MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         }
     end,
     GetEffectName           = function(self) return "particles/units/heroes/hero_viper/viper_poison_debuff.vpcf" end,
@@ -212,7 +219,13 @@ function modifier_viper_poison_attack_lua_slow:OnCreated()
     self.movement_speed = self:GetAbility():GetSpecialValueFor("movement_speed") * (-1)
     self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance") * (-1)
     self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
-
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str10") then
+        self.max_stacks = self.max_stacks + 5
+    end
+    self.arrmor = 0
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
+        self.arrmor = self.magic_resistance * 3
+    end
     self:StartIntervalThink(1)
 end
 
@@ -221,21 +234,33 @@ function modifier_viper_poison_attack_lua_slow:OnRefresh()
     self.movement_speed = self:GetAbility():GetSpecialValueFor("movement_speed") * (-1)
     self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance") * (-1)
     self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
-
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str10") then
+        self.max_stacks = self.max_stacks + 5
+    end
     if self:GetStackCount() > self.max_stacks then
         self:SetStackCount(self.max_stacks)
+    end
+    self.arrmor = 0
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
+        self.arrmor = self.magic_resistance * 3
     end
 end
 
 if IsServer() then
 function modifier_viper_poison_attack_lua_slow:OnIntervalThink()
     local damage = self.damage * self:GetStackCount()
-
+    damage_type = self:GetAbility():GetAbilityDamageType()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi6") then
+        damage_type = DAMAGE_TYPE_PHYSICAL
+    end
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int9") then
+        damage = damage + self:GetCaster():GetIntellect() * 0.3
+    end
     ApplyDamage({
         victim = self:GetParent(),
         attacker = self:GetCaster(),
         damage = damage,
-        damage_type = self:GetAbility():GetAbilityDamageType(),
+        damage_type = damage_type,
         ability = self:GetAbility()
     })
 
@@ -245,3 +270,4 @@ end
 
 function modifier_viper_poison_attack_lua_slow:GetModifierMoveSpeedBonus_Percentage() return self.movement_speed * self:GetStackCount() end
 function modifier_viper_poison_attack_lua_slow:GetModifierMagicalResistanceBonus() return self.magic_resistance * self:GetStackCount() end
+function modifier_viper_poison_attack_lua_slow:GetModifierPhysicalArmorBonus() return self.arrmor * self:GetStackCount() end

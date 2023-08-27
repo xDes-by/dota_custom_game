@@ -1,5 +1,26 @@
 death_prophet_crypt_swarm_bh = class({})
 
+function death_prophet_crypt_swarm_bh:GetIntrinsicModifierName()
+	return "modifier_death_prophet_crypt_swarm_talent"
+end
+
+function death_prophet_crypt_swarm_bh:GetCooldown( level )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int11") then
+		return self.BaseClass.GetCooldown( self, level ) / 2
+	end
+	return self.BaseClass.GetCooldown( self, level )
+end
+
+function death_prophet_crypt_swarm_bh:GetManaCost(iLevel)
+    local caster = self:GetCaster()
+    if caster:FindAbilityByName("npc_dota_hero_death_prophet_int11") then
+        return 0
+    end
+    if caster then
+        return math.min(65000, caster:GetIntellect())
+    end
+end
+
 function death_prophet_crypt_swarm_bh:OnSpellStart()
 	local caster = self:GetCaster()
 	local position = self:GetCursorPosition()
@@ -67,6 +88,9 @@ function death_prophet_crypt_swarm_bh:OnProjectileHitHandle( target, position, i
         if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str9") then
             damage = damage + self:GetCaster():GetStrength() * 0.75
         end
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int8") then
+            damage = damage + self:GetCaster():GetIntellect() * 0.5
+        end
         ApplyDamage({
             victim = target,
             attacker = caster,
@@ -84,37 +108,26 @@ end
 modifier_death_prophet_crypt_swarm_talent = class({})
 LinkLuaModifier( "modifier_death_prophet_crypt_swarm_talent", "heroes/hero_death_prophet/death_prophet_crypt_swarm_bh/death_prophet_crypt_swarm_bh", LUA_MODIFIER_MOTION_NONE )
 
--- if IsServer() then
--- 	function modifier_death_prophet_crypt_swarm_talent:OnCreated()
--- 		self.tick = self:GetRemainingTime() / self:GetCaster():FindTalentValue("special_bonus_unique_death_prophet_crypt_swarm_1", "duration")
--- 		self.damage = self:GetSpecialValueFor("damage") / self:GetCaster():FindTalentValue("special_bonus_unique_death_prophet_crypt_swarm_1", "duration")
--- 		self.lifesteal = 1
--- 		if not self:GetParent():IsRoundNecessary() then
--- 			self.lifesteal = 0.25
--- 		end
--- 		self:StartIntervalThink(self.tick)
--- 	end
-	
--- 	function modifier_death_prophet_crypt_swarm_talent:OnRefresh()
--- 		if self.tick - self:GetRemainingTime() / self:GetCaster():FindTalentValue("special_bonus_unique_death_prophet_crypt_swarm_1", "duration") > 0.01 then
--- 			self.tick = self:GetRemainingTime() / self:GetCaster():FindTalentValue("special_bonus_unique_death_prophet_crypt_swarm_1", "duration")
--- 			self:StartIntervalThink( self.tick )
--- 		end
--- 		self.damage = self:GetSpecialValueFor("damage") / self:GetCaster():FindTalentValue("special_bonus_unique_death_prophet_crypt_swarm_1", "duration")
--- 		self.lifesteal = 1
--- 		if not self:GetParent():IsRoundNecessary() then
--- 			self.lifesteal = 0.25
--- 		end
--- 	end
-	
--- 	function modifier_death_prophet_crypt_swarm_talent:OnIntervalThink()
--- 		local caster = self:GetCaster()
--- 		local ability = self:GetAbility()
--- 		local damage = ability:DealDamage( caster, self:GetParent(), self.damage )
--- 		caster:HealEvent( damage * self.lifesteal, ability, caster )
--- 	end
--- end
+function modifier_death_prophet_crypt_swarm_talent:IsHidden()
+    return true
+end
+function modifier_death_prophet_crypt_swarm_talent:IsPurgable()
+    return false
+end
+function modifier_death_prophet_crypt_swarm_talent:RemoveOnDeath()
+    return false
+end
 
--- function modifier_death_prophet_crypt_swarm_talent:GetAttributes()
--- 	return MODIFIER_ATTRIBUTE_MULTIPLE
--- end
+function modifier_death_prophet_crypt_swarm_talent:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK,
+	}
+end
+
+function modifier_death_prophet_crypt_swarm_talent:OnAttack(keys)
+	if not IsServer() then return end
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi10") and self:GetParent() == keys.attacker and RollPseudoRandomPercentage(7, self:GetParent():entindex(), self:GetParent()) then
+        self:GetCaster():SetCursorCastTarget(keys.unit)
+        self:GetAbility():OnSpellStart()
+    end
+end

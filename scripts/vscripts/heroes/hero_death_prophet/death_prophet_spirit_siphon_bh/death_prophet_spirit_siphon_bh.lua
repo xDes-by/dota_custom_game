@@ -16,9 +16,9 @@ function death_prophet_spirit_siphon_bh:AbilityCharges()
 	return self:GetSpecialValueFor("max_charges")
 end
 
-function death_prophet_spirit_siphon_bh:GetIntrinsicModifierName()
-	return "modifier_death_prophet_spirit_siphon_bh_charges"
-end
+-- function death_prophet_spirit_siphon_bh:GetIntrinsicModifierName()
+-- 	return "modifier_death_prophet_spirit_siphon_bh_charges"
+-- end
 
 function death_prophet_spirit_siphon_bh:OnSpellStart()
 	local caster = self:GetCaster()
@@ -51,6 +51,9 @@ function modifier_death_prophet_spirit_siphon_bh_debuff:OnCreated()
 		local ability = self:GetAbility()
 		if caster:FindAbilityByName("npc_dota_hero_death_prophet_str11") then
 			self.damage = self.damage + caster:GetMaxHealth() * 0.03
+		end
+		if caster:FindAbilityByName("npc_dota_hero_death_prophet_int7") then
+			self.damage = self.damage + caster:GetIntellect() * 0.5
 		end
 		self.range = self:GetAbility():GetTrueCastRange() + self.ability:GetSpecialValueFor("siphon_buffer")
 		self.nFX = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )

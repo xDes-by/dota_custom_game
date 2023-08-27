@@ -24,11 +24,11 @@ function razor_plasma_field_lua:Spawn()
 	if not IsServer() then return end
 end
 
-function razor_plasma_field_lua:GetCooldown( level )
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int8") then
-		return self.BaseClass.GetCooldown( self, level ) * 0.5
-	end
-end
+-- function razor_plasma_field_lua:GetCooldown( level )
+-- 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int8") then
+-- 		return self.BaseClass.GetCooldown( self, level ) * 0.5
+-- 	end
+-- end
 
 --------------------------------------------------------------------------------
 -- Ability Start
@@ -134,14 +134,17 @@ function razor_plasma_field_lua:OnHit( enemy )
 	local distance = (enemy:GetOrigin()-caster:GetOrigin()):Length2D()
 	local pct = distance/radius
 	pct = math.min(pct,1)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_str9") then
+		pct = 1
+	end
 	local damage = damage_min + (damage_max-damage_min)*pct
 	local slow = slow_min + (slow_max-slow_min)*pct
 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_str11") then
-		health = self:GetCaster():GetHealth()
-		min = health * 0.01
-		max = health * 0.10
-		damage = damage + (health * 0.05 + (health * 0.20-health * 0.05)*pct)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_str6") then
+		damage = damage + self:GetCaster():GetStrength()*0.75*pct
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int8") then
+		damage = damage + self:GetCaster():GetIntellect()*0.50*pct
 	end
 
 	-- apply damage
