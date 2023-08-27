@@ -248,6 +248,7 @@ function FilterManager:MainModifyExperienceFilter( handle )
 end
 
 function FilterManager:MainModifyGoldFilter( handle )
+	print("filter")
 	local result = true
 	-- iterate over filters
 	for _,data in pairs(self.filters[9]) do

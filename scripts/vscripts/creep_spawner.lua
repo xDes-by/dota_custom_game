@@ -564,3 +564,27 @@ end
 function add_modifier_death2(unit)
 	unit:AddNewModifier(unit, nil, "modifier_unit_on_death2", {})
 end
+
+
+---------------------------------------------------------------------------------------------------
+--------------------Gold Creep
+---------------------------------------------------------------------------------------------------
+
+ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
+
+function creep_spawner:GoldCreeps(data)
+	local unit = EntIndexToHScript(data.entindex)
+	if RandomFloat(0, 100) < 0.1 and not unit:IsBoss() and unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+		unit:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
+	end
+end
+
+function CDOTA_BaseNPC:IsBoss()
+	return creep_spawner.BossesNames[self:GetUnitName()]
+end
+
+creep_spawner.BossesNames = {}
+
+for k,v in pairs(bosses) do
+	creep_spawner.BossesNames[v] = true
+end
