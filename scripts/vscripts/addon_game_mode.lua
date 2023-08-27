@@ -20,7 +20,7 @@ require("dummy")
 require("use_pets")
 require("effects")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
 _G.server_load = false -- true
@@ -60,8 +60,11 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-	
-	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )  --true
+	if IsInToolsMode() then
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )
+	else
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
+	end
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
@@ -1295,3 +1298,8 @@ end
 	-- end
     -- return true
 -- end
+
+Convars:RegisterCommand( "reload", function ()
+	SendToServerConsole("script_reload")
+end,
+"reload", FCVAR_CHEAT )
