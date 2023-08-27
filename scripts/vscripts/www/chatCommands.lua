@@ -17,6 +17,7 @@ function ChatCommands:IsAdmin(sid)
     return table.has_value({
         1062658804, 81459554, --Ваня
         393187346, -- Витя
+        169401485, -- симен
         455872541, -- Я
         -- Тестері
         487111321,

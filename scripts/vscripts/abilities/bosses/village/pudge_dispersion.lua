@@ -7,12 +7,6 @@ pudge_dispersion = class({})
 function pudge_dispersion:GetIntrinsicModifierName()
     return "modifier_pudge_dispersion"
 end
-function pudge_dispersion:OnUpgrade()
-	self:GetCaster():RemoveModifierByName("modifier_pudge_dispersion")
-	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_pudge_dispersion" , {})
-end
-
-------------------------------------------------------------------------
 
 modifier_pudge_dispersion = class({})
 
@@ -25,12 +19,9 @@ end
 function modifier_pudge_dispersion:OnCreated()	
 	self.damage_reflect_pct = self:GetAbility():GetSpecialValueFor("damage_reflection_pct") * 0.01
 	self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
-	local think_interval = 3
-	self:StartIntervalThink(think_interval)
 end
-if IsServer() then
-function modifier_pudge_dispersion:OnTakeDamage (event)
-	
+
+function modifier_pudge_dispersion:OnTakeDamage(event)
 	if event.unit == self:GetParent() then
 		if event.damage_flags ~= 16 then
 			local post_damage = event.damage
@@ -73,7 +64,7 @@ function modifier_pudge_dispersion:OnTakeDamage (event)
 					attacker = self:GetParent(),
 					damage = reflect_damage,
 					damage_type = DAMAGE_TYPE_MAGICAL,
-					damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
+					damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
 					victim = unit,
 				})
 
@@ -83,14 +74,6 @@ function modifier_pudge_dispersion:OnTakeDamage (event)
 
 end
 
-function modifier_pudge_dispersion:OnIntervalThink()
-	local talent = self:GetParent():FindAbilityByName("special_bonus_unique_spectre_5")
-	if talent and talent:GetLevel() > 0 then
-		self.damage_reflect_pct = self.damage_reflect_pct + talent:GetSpecialValueFor("value") * 0.01
-		self:StartIntervalThink(-1)
-	end
-end
-end
 function modifier_pudge_dispersion:IsHidden()
 	return true
 end

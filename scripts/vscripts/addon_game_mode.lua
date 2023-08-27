@@ -61,8 +61,11 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-	
-	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )  --true
+	if IsInToolsMode() then
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )
+	else
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
+	end
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
@@ -1296,3 +1299,8 @@ end
 	-- end
     -- return true
 -- end
+
+Convars:RegisterCommand( "reload", function ()
+	SendToServerConsole("script_reload")
+end,
+"reload", FCVAR_CHEAT )

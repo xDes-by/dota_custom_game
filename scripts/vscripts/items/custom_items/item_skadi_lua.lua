@@ -135,8 +135,8 @@ function modifier_item_skadi_lua:GetModifierManaBonus()
 	return self.bonus_mana
 end
 
-function modifier_item_skadi_lua:GetModifierProcAttack_Feedback(params)
-	target:AddNewModifier(attacker,	self:GetAbility(), "modifier_item_skadi_slow_lua", { duration = 3 })
+function modifier_item_skadi_lua:GetModifierProcAttack_Feedback(data)
+	data.target:AddNewModifier(attacker,	self:GetAbility(), "modifier_item_skadi_slow_lua", { duration = 3 })
 end
 
 --------------------------------------------------------------------
