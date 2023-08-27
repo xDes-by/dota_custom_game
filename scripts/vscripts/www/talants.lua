@@ -206,6 +206,19 @@ function talants:tickExperience(pid)
     end)
 end
 
+function talants:AddAbilityFiltered(hero, skillname, place)
+    if diff_wave.rating_scale == 0 and place == 12 then return end
+
+    ability = hero:AddAbility(skillname)
+    ability:SetLevel(1)
+end
+
+function talants:AddModifierFiltered(hero, skillname, place)
+    if diff_wave.rating_scale == 0 and place == 12 then return end
+
+    modifier = hero:AddNewModifier( hero, nil, skillname, {} )
+end
+
 function talants:selectTalantCheat(t)
     if not talants.testing[t.PlayerID] then return end
     if ChatCommands:IsAvailable("selectTalantCheat", t.PlayerID) == false then return end
@@ -243,9 +256,9 @@ function talants:selectTalantCheat(t)
         end
     end
     if t.i == "don" then
-        hero:AddNewModifier( hero, nil, skillname, {} )
+        talants:AddModifierFiltered(hero, skillname, t.j)
     elseif t.i ~= "don" then
-        hero:AddAbility(skillname):SetLevel(1)
+        talants:AddAbilityFiltered(hero, skillname, t.j)
     end
 end
 
@@ -531,7 +544,7 @@ function talants:addskill(nPlayerID, add)
                 if v == "don" then
                     ------------------------------------------     модифаеры
                     if add == true and RATING["rating"][nPlayerID+1]["patron"] == 1 then
-                        hero:AddNewModifier( hero, nil, skillname, {} )
+                        talants:AddModifierFiltered(hero, skillname, i)
                     elseif add == false then
                         hero:RemoveModifierByName( skillname )
                     end
@@ -539,7 +552,7 @@ function talants:addskill(nPlayerID, add)
                     ------------------------------------------     скилы
                     if add == true then
                         -- print(v,i,skillname)
-                        hero:AddAbility(skillname):SetLevel(1)
+                        talants:AddAbilityFiltered(hero, skillname, i)
                     elseif add == false then
                         hero:RemoveAbility( skillname )
                     end

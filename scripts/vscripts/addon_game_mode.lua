@@ -21,8 +21,9 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
+_G.cheatmode = false -- false
 _G.server_load = false -- true
 _G.spawnCreeps = false -- true
 
@@ -417,19 +418,19 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		-- creep_spawner:spawn_2023()
 	-- end)
 	if IsInToolsMode() then
-		Timers:CreateTimer(1,function()
-			hPlayerHero = PlayerResource:GetSelectedHeroEntity(0)
-			DebugCreateUnit( PlayerResource:GetPlayer(0), "npc_dota_hero_axe", DOTA_TEAM_GOODGUYS, false,
-			function( hEnemy )
-				hEnemy:SetControllableByPlayer( 0, false )
-				hEnemy:SetRespawnPosition( hPlayerHero:GetAbsOrigin() )
-				FindClearSpaceForUnit( hEnemy, hPlayerHero:GetAbsOrigin(), false )
-				hEnemy:Hold()
-				hEnemy:SetIdleAcquire( false )
-				hEnemy:SetAcquisitionRange( 0 )
-				-- self:BroadcastMsg( "#SpawnEnemy_Msg" )
-			end )
-		end)
+		-- Timers:CreateTimer(1,function()
+		-- 	hPlayerHero = PlayerResource:GetSelectedHeroEntity(0)
+		-- 	DebugCreateUnit( PlayerResource:GetPlayer(0), "npc_dota_hero_axe", DOTA_TEAM_GOODGUYS, false,
+		-- 	function( hEnemy )
+		-- 		hEnemy:SetControllableByPlayer( 0, false )
+		-- 		hEnemy:SetRespawnPosition( hPlayerHero:GetAbsOrigin() )
+		-- 		FindClearSpaceForUnit( hEnemy, hPlayerHero:GetAbsOrigin(), false )
+		-- 		hEnemy:Hold()
+		-- 		hEnemy:SetIdleAcquire( false )
+		-- 		hEnemy:SetAcquisitionRange( 0 )
+		-- 		-- self:BroadcastMsg( "#SpawnEnemy_Msg" )
+		-- 	end )
+		-- end)
 	end
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
