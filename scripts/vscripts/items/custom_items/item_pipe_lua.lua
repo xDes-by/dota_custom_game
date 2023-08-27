@@ -1,21 +1,68 @@
-item_pipe_lua1 = item_pipe_lua1 or class({})
-item_pipe_lua2 = item_pipe_lua1 or class({})
-item_pipe_lua3 = item_pipe_lua1 or class({})
-item_pipe_lua4 = item_pipe_lua1 or class({})
-item_pipe_lua5 = item_pipe_lua1 or class({})
-item_pipe_lua6 = item_pipe_lua1 or class({})
-item_pipe_lua7 = item_pipe_lua1 or class({})
-item_pipe_lua8 = item_pipe_lua1 or class({})
+item_pipe_lua = class({})
+
+item_pipe_lua1 = item_pipe_lua
+item_pipe_lua2 = item_pipe_lua
+item_pipe_lua3 = item_pipe_lua
+item_pipe_lua4 = item_pipe_lua
+item_pipe_lua5 = item_pipe_lua
+item_pipe_lua6 = item_pipe_lua
+item_pipe_lua7 = item_pipe_lua
+item_pipe_lua8 = item_pipe_lua
+
+item_pipe_lua1_gem1 = item_pipe_lua
+item_pipe_lua2_gem1 = item_pipe_lua
+item_pipe_lua3_gem1 = item_pipe_lua
+item_pipe_lua4_gem1 = item_pipe_lua
+item_pipe_lua5_gem1 = item_pipe_lua
+item_pipe_lua6_gem1 = item_pipe_lua
+item_pipe_lua7_gem1 = item_pipe_lua
+item_pipe_lua8_gem1 = item_pipe_lua
+
+item_pipe_lua1_gem2 = item_pipe_lua
+item_pipe_lua2_gem2 = item_pipe_lua
+item_pipe_lua3_gem2 = item_pipe_lua
+item_pipe_lua4_gem2 = item_pipe_lua
+item_pipe_lua5_gem2 = item_pipe_lua
+item_pipe_lua6_gem2 = item_pipe_lua
+item_pipe_lua7_gem2 = item_pipe_lua
+item_pipe_lua8_gem2 = item_pipe_lua
+
+item_pipe_lua1_gem3 = item_pipe_lua
+item_pipe_lua2_gem3 = item_pipe_lua
+item_pipe_lua3_gem3 = item_pipe_lua
+item_pipe_lua4_gem3 = item_pipe_lua
+item_pipe_lua5_gem3 = item_pipe_lua
+item_pipe_lua6_gem3 = item_pipe_lua
+item_pipe_lua7_gem3 = item_pipe_lua
+item_pipe_lua8_gem3 = item_pipe_lua
+
+item_pipe_lua1_gem4 = item_pipe_lua
+item_pipe_lua2_gem4 = item_pipe_lua
+item_pipe_lua3_gem4 = item_pipe_lua
+item_pipe_lua4_gem4 = item_pipe_lua
+item_pipe_lua5_gem4 = item_pipe_lua
+item_pipe_lua6_gem4 = item_pipe_lua
+item_pipe_lua7_gem4 = item_pipe_lua
+item_pipe_lua8_gem4 = item_pipe_lua
+
+item_pipe_lua1_gem5 = item_pipe_lua
+item_pipe_lua2_gem5 = item_pipe_lua
+item_pipe_lua3_gem5 = item_pipe_lua
+item_pipe_lua4_gem5 = item_pipe_lua
+item_pipe_lua5_gem5 = item_pipe_lua
+item_pipe_lua6_gem5 = item_pipe_lua
+item_pipe_lua7_gem5 = item_pipe_lua
+item_pipe_lua8_gem5 = item_pipe_lua
 
 LinkLuaModifier("modifier_item_pipe_lua", 'items/custom_items/item_pipe_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_pipe_aura_lua", 'items/custom_items/item_pipe_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_pipe_active_lua", 'items/custom_items/item_pipe_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-function item_pipe_lua1:GetIntrinsicModifierName()
+function item_pipe_lua:GetIntrinsicModifierName()
 	return "modifier_item_pipe_lua"
 end
 
-function item_pipe_lua1:OnSpellStart()
+function item_pipe_lua:OnSpellStart()
 	EmitSoundOn("DOTA_Item.Pipe.Activate", self:GetCaster())
 	local allys = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for _,units in pairs(allys) do
@@ -80,8 +127,28 @@ function modifier_item_pipe_lua:GetIntrinsicModifierName()
 end
 
 function modifier_item_pipe_lua:OnCreated()
+	self.parent = self:GetParent()
 	self.health_regen = self:GetAbility():GetSpecialValueFor("health_regen")
 	self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+
+end
+
+function modifier_item_pipe_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_item_pipe_lua:DeclareFunctions()

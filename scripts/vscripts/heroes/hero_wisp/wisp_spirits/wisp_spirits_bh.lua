@@ -7,14 +7,6 @@ LinkLuaModifier("modifier_wisp_spirits_bh_talent", "heroes/hero_wisp/wisp_spirit
 --so the the actual spirit particles are the default ones regardless
 --so i just made it a 50% of either the normal particles and immo particles
 
-function wisp_spirits_bh:IsStealable()
-    return false
-end
-
-function wisp_spirits_bh:IsHiddenWhenStolen()
-    return false
-end
-
 function wisp_spirits_bh:GetIntrinsicModifierName()
     return "modifier_wisp_spirits_bh"
 end
@@ -40,6 +32,7 @@ function wisp_spirits_bh:CreateSpiritWisp()
 end
 
 modifier_wisp_spirits_bh = class({})
+
 function modifier_wisp_spirits_bh:OnCreated(table)
 	if IsServer() then
 		EmitSoundOn("Hero_Wisp.Spirits.Loop", self:GetCaster())
@@ -128,7 +121,7 @@ function modifier_wisp_spirits_bh:GetAuraSearchTeam()
 end
 
 function modifier_wisp_spirits_bh:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_ALL
+    return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
 end
 
 function modifier_wisp_spirits_bh:GetModifierAura()
@@ -226,7 +219,7 @@ function modifier_wisp_spirits_bh_wisp:OnIntervalThink()
 
 	self.angle = self.angle - self.speed * FrameTime()
 
-	local enemies = caster:FindEnemyUnitsInRadius(parent:GetAbsOrigin(), self.collisionRadius)
+	local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(),self:GetParent():GetOrigin(),nil,self.collisionRadius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_NONE,0,false)
 	for _,enemy in pairs(enemies) do
 		if not self.hitUnits[enemy:entindex()] and enemy:IsMinion() then
 

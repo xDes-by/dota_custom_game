@@ -1,17 +1,64 @@
-item_bfury_lua1 = item_bfury_lua1 or class({})
-item_bfury_lua2 = item_bfury_lua1 or class({})
-item_bfury_lua3 = item_bfury_lua1 or class({})
-item_bfury_lua4 = item_bfury_lua1 or class({})
-item_bfury_lua5 = item_bfury_lua1 or class({})
-item_bfury_lua6 = item_bfury_lua1 or class({})
-item_bfury_lua7 = item_bfury_lua1 or class({})
-item_bfury_lua8 = item_bfury_lua1 or class({})
+item_bfury_lua = class({})
+
+item_bfury_lua1 = item_bfury_lua
+item_bfury_lua2 = item_bfury_lua
+item_bfury_lua3 = item_bfury_lua
+item_bfury_lua4 = item_bfury_lua
+item_bfury_lua5 = item_bfury_lua
+item_bfury_lua6 = item_bfury_lua
+item_bfury_lua7 = item_bfury_lua
+item_bfury_lua8 = item_bfury_lua
+
+item_bfury_lua1_gem1 = item_bfury_lua
+item_bfury_lua2_gem1 = item_bfury_lua
+item_bfury_lua3_gem1 = item_bfury_lua
+item_bfury_lua4_gem1 = item_bfury_lua
+item_bfury_lua5_gem1 = item_bfury_lua
+item_bfury_lua6_gem1 = item_bfury_lua
+item_bfury_lua7_gem1 = item_bfury_lua
+item_bfury_lua8_gem1 = item_bfury_lua
+
+item_bfury_lua1_gem2 = item_bfury_lua
+item_bfury_lua2_gem2 = item_bfury_lua
+item_bfury_lua3_gem2 = item_bfury_lua
+item_bfury_lua4_gem2 = item_bfury_lua
+item_bfury_lua5_gem2 = item_bfury_lua
+item_bfury_lua6_gem2 = item_bfury_lua
+item_bfury_lua7_gem2 = item_bfury_lua
+item_bfury_lua8_gem2 = item_bfury_lua
+
+item_bfury_lua1_gem3 = item_bfury_lua
+item_bfury_lua2_gem3 = item_bfury_lua
+item_bfury_lua3_gem3 = item_bfury_lua
+item_bfury_lua4_gem3 = item_bfury_lua
+item_bfury_lua5_gem3 = item_bfury_lua
+item_bfury_lua6_gem3 = item_bfury_lua
+item_bfury_lua7_gem3 = item_bfury_lua
+item_bfury_lua8_gem3 = item_bfury_lua
+
+item_bfury_lua1_gem4 = item_bfury_lua
+item_bfury_lua2_gem4 = item_bfury_lua
+item_bfury_lua3_gem4 = item_bfury_lua
+item_bfury_lua4_gem4 = item_bfury_lua
+item_bfury_lua5_gem4 = item_bfury_lua
+item_bfury_lua6_gem4 = item_bfury_lua
+item_bfury_lua7_gem4 = item_bfury_lua
+item_bfury_lua8_gem4 = item_bfury_lua
+
+item_bfury_lua1_gem5 = item_bfury_lua
+item_bfury_lua2_gem5 = item_bfury_lua
+item_bfury_lua3_gem5 = item_bfury_lua
+item_bfury_lua4_gem5 = item_bfury_lua
+item_bfury_lua5_gem5 = item_bfury_lua
+item_bfury_lua6_gem5 = item_bfury_lua
+item_bfury_lua7_gem5 = item_bfury_lua
+item_bfury_lua8_gem5 = item_bfury_lua
 
 LinkLuaModifier("modifier_item_bfury_lua", 'items/custom_items/item_bfury_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_item_bfury_lua = class({})
 
-function item_bfury_lua1:GetIntrinsicModifierName()
+function item_bfury_lua:GetIntrinsicModifierName()
 	return "modifier_item_bfury_lua"
 end
 
@@ -32,6 +79,7 @@ function modifier_item_bfury_lua:RemoveOnDeath()
 end
 
 function modifier_item_bfury_lua:OnCreated()
+	self.parent = self:GetParent()
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
@@ -39,6 +87,24 @@ function modifier_item_bfury_lua:OnCreated()
 	self.cleave_ending_width = self:GetAbility():GetSpecialValueFor("cleave_ending_width")
 	self.quelling_bonus = self:GetAbility():GetSpecialValueFor("quelling_bonus")
 	self.quelling_bonus_ranged = self:GetAbility():GetSpecialValueFor("quelling_bonus_ranged")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
+
+function modifier_item_bfury_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_item_bfury_lua:DeclareFunctions()

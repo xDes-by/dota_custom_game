@@ -1,35 +1,77 @@
-item_sheepstick_lua1 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua2 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua3 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua4 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua5 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua6 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua7 = item_sheepstick_lua1 or class({})
-item_sheepstick_lua8 = item_sheepstick_lua1 or class({})
+item_sheepstick_lua = class({})
+
+item_sheepstick_lua1 = item_sheepstick_lua
+item_sheepstick_lua2 = item_sheepstick_lua
+item_sheepstick_lua3 = item_sheepstick_lua
+item_sheepstick_lua4 = item_sheepstick_lua
+item_sheepstick_lua5 = item_sheepstick_lua
+item_sheepstick_lua6 = item_sheepstick_lua
+item_sheepstick_lua7 = item_sheepstick_lua
+item_sheepstick_lua8 = item_sheepstick_lua
+
+item_sheepstick_lua1_gem1 = item_sheepstick_lua
+item_sheepstick_lua2_gem1 = item_sheepstick_lua
+item_sheepstick_lua3_gem1 = item_sheepstick_lua
+item_sheepstick_lua4_gem1 = item_sheepstick_lua
+item_sheepstick_lua5_gem1 = item_sheepstick_lua
+item_sheepstick_lua6_gem1 = item_sheepstick_lua
+item_sheepstick_lua7_gem1 = item_sheepstick_lua
+item_sheepstick_lua8_gem1 = item_sheepstick_lua
+
+item_sheepstick_lua1_gem2 = item_sheepstick_lua
+item_sheepstick_lua2_gem2 = item_sheepstick_lua
+item_sheepstick_lua3_gem2 = item_sheepstick_lua
+item_sheepstick_lua4_gem2 = item_sheepstick_lua
+item_sheepstick_lua5_gem2 = item_sheepstick_lua
+item_sheepstick_lua6_gem2 = item_sheepstick_lua
+item_sheepstick_lua7_gem2 = item_sheepstick_lua
+item_sheepstick_lua8_gem2 = item_sheepstick_lua
+
+item_sheepstick_lua1_gem3 = item_sheepstick_lua
+item_sheepstick_lua2_gem3 = item_sheepstick_lua
+item_sheepstick_lua3_gem3 = item_sheepstick_lua
+item_sheepstick_lua4_gem3 = item_sheepstick_lua
+item_sheepstick_lua5_gem3 = item_sheepstick_lua
+item_sheepstick_lua6_gem3 = item_sheepstick_lua
+item_sheepstick_lua7_gem3 = item_sheepstick_lua
+item_sheepstick_lua8_gem3 = item_sheepstick_lua
+
+item_sheepstick_lua1_gem4 = item_sheepstick_lua
+item_sheepstick_lua2_gem4 = item_sheepstick_lua
+item_sheepstick_lua3_gem4 = item_sheepstick_lua
+item_sheepstick_lua4_gem4 = item_sheepstick_lua
+item_sheepstick_lua5_gem4 = item_sheepstick_lua
+item_sheepstick_lua6_gem4 = item_sheepstick_lua
+item_sheepstick_lua7_gem4 = item_sheepstick_lua
+item_sheepstick_lua8_gem4 = item_sheepstick_lua
+
+item_sheepstick_lua1_gem5 = item_sheepstick_lua
+item_sheepstick_lua2_gem5 = item_sheepstick_lua
+item_sheepstick_lua3_gem5 = item_sheepstick_lua
+item_sheepstick_lua4_gem5 = item_sheepstick_lua
+item_sheepstick_lua5_gem5 = item_sheepstick_lua
+item_sheepstick_lua6_gem5 = item_sheepstick_lua
+item_sheepstick_lua7_gem5 = item_sheepstick_lua
+item_sheepstick_lua8_gem5 = item_sheepstick_lua
 
 LinkLuaModifier( "modifier_sheepstick_lua_hex", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sheepstick_lua", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sheepstick_lua_ignore", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_sheepstick_lua_flame","items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE)
 
-function item_sheepstick_lua1:GetIntrinsicModifierName()
+function item_sheepstick_lua:GetIntrinsicModifierName()
 	return "modifier_sheepstick_lua"
 end
 
---------------------------------------------------------------------------------
--- Ability Start
-function item_sheepstick_lua1:OnSpellStart()
-	-- unit identifier
+function item_sheepstick_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 
-	-- cancel if linken
 	if target:TriggerSpellAbsorb( self ) then return end
 
-	-- load data
 	self.sheep_duration = self:GetSpecialValueFor("sheep_duration")
-	if target:FindModifierByName("modifier_sheepstick_lua_ignore") ==  nil 
-	then
+	if target:FindModifierByName("modifier_sheepstick_lua_ignore") ==  nil then
+
 		target:AddNewModifier(
 		caster, -- player source
 		self, -- ability source
@@ -37,21 +79,16 @@ function item_sheepstick_lua1:OnSpellStart()
 		{ duration = 10 } -- kv
 	)
 	
-	-- add modifier
 	target:AddNewModifier(
 		caster, -- player source
 		self, -- ability source
 		"modifier_sheepstick_lua_hex", -- modifier name
 		{ duration = self.sheep_duration } -- kv
 	)
-	
 
-	-- effects
-	local sound_cast = "Hero_Lion.Voodoo"
-	EmitSoundOn( sound_cast, caster )
-	else
-	return
-end
+		local sound_cast = "Hero_Lion.Voodoo"
+		EmitSoundOn( sound_cast, caster )
+	end
 end
 
 modifier_sheepstick_lua_ignore = class ({})
@@ -181,18 +218,30 @@ function modifier_sheepstick_lua:RemoveOnDeath()
 end
 
 function modifier_sheepstick_lua:OnCreated()
-	
+	self.parent = self:GetParent()
     self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
     self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
     self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 	self.projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed")
+	if not IsServer() then
+		return
+	end
+	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	end
+end
 
-	
-	
-	
-	
-
+function modifier_sheepstick_lua:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	if self.value then
+		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+	end
 end
 
 function modifier_sheepstick_lua:DeclareFunctions()
@@ -201,9 +250,8 @@ function modifier_sheepstick_lua:DeclareFunctions()
         MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 		MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
-
     }
 end
 
@@ -227,26 +275,10 @@ function modifier_sheepstick_lua:GetModifierProjectileSpeedBonus()
     return self.projectile_speed
 end
 
-
-function modifier_sheepstick_lua:OnAttackLanded(params)
-		local target = params.target 
-		local attacker = self:GetParent()
-        if attacker ~= params.attacker then
-            return
-        end
-        if attacker:IsIllusion() then
-            return
-        end
-			if target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil 
-				then
-			if not self:GetParent():PassivesDisabled() then
-				target:AddNewModifier(
-				self:GetAbility():GetCaster(),
-				self:GetAbility(),
-				"modifier_sheepstick_lua_flame",
-					{ duration = 3.1 }
-				)
-		end
+function modifier_sheepstick_lua:GetModifierProcAttack_Feedback(params)
+	if target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil then
+	if not self:GetParent():PassivesDisabled() then
+		target:AddNewModifier(self:GetAbility():GetCaster(), self:GetAbility(),	"modifier_sheepstick_lua_flame", { duration = 3.1 })
 	end
 end
 
