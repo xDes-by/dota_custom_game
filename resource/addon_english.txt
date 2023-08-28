@@ -359,6 +359,8 @@
         "treasurie3_spray15"               "Techies?"
         "treasurie3_spray16"               "Dark Willow"
         "gems_award" "500 Gems"
+        "dota_don_shop_error"               "You don't have enough crystals! You can find out how to get crystals in Discord!"
+        
         // Panorama
         //Talent TREE SHOP//
 
