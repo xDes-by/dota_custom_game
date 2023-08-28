@@ -1422,12 +1422,14 @@ function Quests:updateItems(id)
 									Quests:updateParticle()
 									if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] == player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch'] then
 										Quests:updateMinimap(id, {k1,k2,k3})
-										Quests:AutoComplete({
-											pid = id,
-											type = k1,
-											number = k2,
-											task = k3,
-										})
+										if Quests.auto[id] then
+											Quests:AutoComplete({
+												pid = id,
+												type = k1,
+												number = k2,
+												task = k3,
+											})
+										end
 									end
 								end
 							end

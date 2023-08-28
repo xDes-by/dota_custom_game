@@ -21,9 +21,8 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
+_G.cheatmode = true -- false
 _G.server_load = false -- true
 _G.spawnCreeps = false -- true
 
@@ -510,7 +509,14 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
 			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
 		end
-	end	
+	end
+	if IsInToolsMode() then
+		if npc:IsRealHero()  then
+			npc:RemoveAbility("spell_item_pet")
+			npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
+			CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+		end
+	end
 end
 
 function CheckCheatMode()
@@ -611,7 +617,7 @@ function full_win()
 	for nPlayerID = 0, DOTA_MAX_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
-			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.rating_scale > 0 then
+			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.wavedef ~= "Easy" then
 				DataBase:AddCoins(nPlayerID, 1)
 			end
 		end
@@ -823,7 +829,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 	
-	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:isCheatOn() then
+	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:IsCheatMode() then
 			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 					if PlayerResource:HasSelectedHero( nPlayerID ) then
@@ -851,13 +857,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
 		hRelay:Trigger(nil,nil)
-		if not DataBase:isCheatOn() then
+		if not DataBase:IsCheatMode() then
 			_G.kill_invoker = true
 			rating_win()
 		end
 	end
 	
-	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not GameRules:IsCheatMode() then
+	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
 		Timers:CreateTimer(3,function() 
 			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		end)

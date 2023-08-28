@@ -29,7 +29,7 @@ end
 
 function statist:GameEnd(t)
     if statist.gameend then return end
-    if DataBase:isCheatOn() then return end
+    if DataBase:IsCheatMode() then return end
     print(_G.kill_invoker)
     if _G.kill_invoker then
         sendata["game_result"] = "win"

@@ -114,7 +114,7 @@ function talants:OnPlayerReconnected(keys)
 end
 
 function talants:talant_shop(t)
-    -- if DataBase:isCheatOn() == true then
+    -- if DataBase:IsCheatMode() == true then
     --     return
     -- end
     local shop = CustomNetTables:GetTableValue("shopinfo", tostring(t.PlayerID))
@@ -125,6 +125,7 @@ function talants:talant_shop(t)
         shop["mmrpoints"] = tonumber(shop["mmrpoints"]) - talant_shop[tonumber(t.i)]["rait"]
         Shop.pShop[tonumber(t.PlayerID)]["mmrpoints"] = shop["mmrpoints"]
     else
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.PlayerID), "CreateIngameErrorMessage", {message="#dota_don_shop_error"})
         return
     end
     if tonumber(t.i) == 1 then
@@ -189,7 +190,7 @@ function talants:tickExperience(pid)
     CustomNetTables:SetTableValue("talants", tostring(pid), tab)
     Timers:CreateTimer(1, function()
         local connectState = PlayerResource:GetConnectionState(pid)	
-        if bot(pid) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:isCheatOn() then --  
+        if bot(pid) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:IsCheatMode() then --  
             return
         end
         
@@ -294,7 +295,7 @@ function talants:selectTalantButton(t)
             if boo >= tonumber(tab["cout"]) then
                 return
             end
-        elseif t.j == 1 and t.i == "don" and RATING["rating"][id+1]["patron"] ~= 1 and DataBase:isCheatOn() == false then
+        elseif t.j == 1 and t.i == "don" and RATING["rating"][id+1]["patron"] ~= 1 and DataBase:IsCheatMode() == false then
             return
         end
         if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
@@ -345,7 +346,7 @@ function talants:selectTalantButton(t)
         end
         CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( id ), "updatetab", { progress = progress[id] } )
     end
-    if not DataBase:isCheatOn() and progress[id]["cheat"] == nil and not talants.testing[id] then
+    if not DataBase:IsCheatMode() and progress[id]["cheat"] == nil and not talants.testing[id] then
         talants:sendServer({PlayerID = id, changename = arg, value = 1, changetype = "set", chartype = "int", win_lose = nil})
     end
 end
@@ -560,7 +561,6 @@ function talants:addskill(nPlayerID, add)
             end
         end
     end
-	
 end
 
 function talants:loadTree(PlayerID)
@@ -614,7 +614,7 @@ function talants:pickinfo(PlayerID,AutoLoad)
 	req:Send(function(res)
 		if res.StatusCode == 200 and res.Body ~= nil then
             progress[PlayerID] = json.decode(res.Body)
-            talants:fillTabel(PlayerID, DataBase:isCheatOn(), true)
+            talants:fillTabel(PlayerID, DataBase:IsCheatMode(), true)
             if AutoLoad then
                 talants:ChangeHeroLoadTree(PlayerID)
                 talants:addskill(PlayerID, true)
@@ -756,7 +756,7 @@ function talants:sendServer(tab)
 end
 
 function talants:BuyExp(t)
-    if not talants.testing[t.PlayerID] and DataBase:isCheatOn() == false then
+    if not talants.testing[t.PlayerID] and DataBase:IsCheatMode() == false then
         local arr = {
             sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
             heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),
@@ -811,10 +811,10 @@ function talants:BuyExp(t)
 end
 
 function talants:unset(t)
-    -- if DataBase:isCheatOn() == true then
+    -- if DataBase:IsCheatMode() == true then
     --     return
     -- end
-    if not talants.testing[t.PlayerID] and DataBase:isCheatOn() == false then
+    if not talants.testing[t.PlayerID] and DataBase:IsCheatMode() == false then
         local arr = {
             sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
             heroname = PlayerResource:GetSelectedHeroName( t.PlayerID ),

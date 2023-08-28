@@ -14,5 +14,7 @@ end
 
 function modifier_don8:OnCreated( kv )
 	if not IsServer() then return end
-self:GetCaster():SetPrimaryAttribute(2)
+	if self:GetCaster():GetPrimaryAttribute() < 3 then
+		self:GetCaster():SetPrimaryAttribute(2)
+	end
 end
