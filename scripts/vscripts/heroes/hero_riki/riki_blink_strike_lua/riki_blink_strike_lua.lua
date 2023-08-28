@@ -6,6 +6,7 @@
 LinkLuaModifier("modifier_static_link_lua_attribute", "heroes/hero_riki/riki_blink_strike_lua/riki_blink_strike_lua.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_blink_strike_lua_thinker", "heroes/hero_riki/riki_blink_strike_lua/modifier_blink_strike_lua_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_blink_strike_lua_cmd", "heroes/hero_riki/riki_blink_strike_lua/modifier_blink_strike_lua_cmd.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_blink_strike_lua_talent", "heroes/hero_riki/riki_blink_strike_lua/modifier_blink_strike_lua_talent.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_charges", "heroes/generic/modifier_generic_charges", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -94,8 +95,8 @@ function riki_blink_strike_lua:OnAbilityPhaseStart()
 			current_target = hTarget
 		end
 		self.trail_pfx = nil
-		self.trail_pfx = ParticleManager:CreateParticleForTeam("particles/hero/riki/blink_trail.vpcf", PATTACH_ABSORIGIN, hCaster, hCaster:GetTeamNumber())
-		ParticleManager:SetParticleControl(self.trail_pfx, 0, last_position+Vector(0,0,35))
+		-- self.trail_pfx = ParticleManager:CreateParticleForTeam("particles/hero/riki/blink_trail.vpcf", PATTACH_ABSORIGIN, hCaster, hCaster:GetTeamNumber())
+		-- ParticleManager:SetParticleControl(self.trail_pfx, 0, last_position+Vector(0,0,35))
 		Timers:CreateTimer(FrameTime(), function()
 			if self.trail_pfx then
 				-- To make sure its the same cast
@@ -230,6 +231,17 @@ function riki_blink_strike_lua:OnSpellStart()
 			-- 	end
 			-- end
 		end)
+		-- if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi11") and self:GetCaster():FindAbilityByName("riki_tricks_of_the_trade_lua"):GetLevel() > 0 then
+		-- 	tricks_of_the_trade = self:GetCaster():FindAbilityByName("riki_tricks_of_the_trade_lua")
+		-- 	tricks_of_the_trade:OnAbilityPhaseStart()
+		-- 	tricks_of_the_trade:OnSpellStart()
+		-- 	tricks_of_the_trade:OnAbilityPhaseInterrupted()
+		-- 	tricks_of_the_trade:SetChanneling(true)
+		-- end
+
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi11") then
+			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_blink_strike_lua_talent", {duration = 5})
+		end
 		self.tStoredTargets = nil
 		self.tMarkedTargets = nil
 		self.hTarget = nil
@@ -303,8 +315,8 @@ end
 
 riki_blink_strike_723_lua			= riki_blink_strike_lua
 
-function riki_blink_strike_723_lua:GetIntrinsicModifierName()
-	if self:GetName() == "riki_blink_strike_723_lua" then
-		return "modifier_generic_charges"
-	end
-end
+-- function riki_blink_strike_723_lua:GetIntrinsicModifierName()
+-- 	if self:GetName() == "riki_blink_strike_723_lua" then
+-- 		return "modifier_generic_charges"
+-- 	end
+-- end

@@ -34,10 +34,12 @@ end
 
 function modifier_riki_smoke_screen_lua_buff:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 	}
 end
 
 function modifier_riki_smoke_screen_lua_buff:GetModifierBonusStats_Agility()
 	return self.agi * self:GetStackCount() * self.interval
 end
+
+-- 

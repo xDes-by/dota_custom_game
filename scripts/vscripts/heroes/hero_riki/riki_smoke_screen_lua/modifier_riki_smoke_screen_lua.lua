@@ -57,7 +57,7 @@ function modifier_riki_smoke_screen_lua:GetModifierTurnRate_Percentage()
 end
 
 function modifier_riki_smoke_screen_lua:GetModifierMagicalResistanceBonus()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int8") then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int7") then
 		return -15
 	end
 end

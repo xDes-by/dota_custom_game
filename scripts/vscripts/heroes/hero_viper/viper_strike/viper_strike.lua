@@ -55,6 +55,19 @@ function viper_viper_strike_lua:OnSpellStart()
     EmitSoundOn("hero_viper.viperStrike", caster)
 end
 
+function viper_viper_strike_lua:GetManaCost()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
+        return 0
+    end
+    return math.min(65000, self:GetCaster():GetIntellect()*3)
+end
+
+function viper_viper_strike_lua:GetCooldown()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
+        return 5
+    end
+end
+
 function viper_viper_strike_lua:OnProjectileHit_ExtraData( target, location, ExtraData )
 
     ParticleManager:DestroyParticle(ExtraData.effect, false)
@@ -86,6 +99,7 @@ modifier_viper_viper_strike_lua = class({
         return {
             MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
             MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+            MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
         }
     end,
     GetEffectName           = function(self) return "particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf" end,
@@ -101,11 +115,16 @@ function modifier_viper_viper_strike_lua:OnCreated()
     self.damage = self:GetAbility():GetSpecialValueFor("damage")
     self.bonus_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
     self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
+        self.damage = self.damage + self:GetCaster():GetIntellect() * 1.5
+    end
     self.start_time = GameRules:GetGameTime()
     self.duration = self:GetDuration()
     self.ticks = 0
 
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str6") then
+        self.IncomingDamage = 20
+    end
     if not IsServer() then return end
 
     self:StartIntervalThink(1.0)
@@ -138,4 +157,7 @@ function modifier_viper_viper_strike_lua:GetModifierMoveSpeedBonus_Percentage()
 end
 function modifier_viper_viper_strike_lua:GetModifierAttackSpeedBonus_Constant()
     return self.bonus_attack_speed * ( 1 - ( GameRules:GetGameTime()-self.start_time )/self.duration )
+end
+function modifier_viper_viper_strike_lua:GetModifierIncomingDamage_Percentage()
+    return self.IncomingDamage
 end

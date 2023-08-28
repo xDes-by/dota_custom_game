@@ -118,17 +118,11 @@ function modifier_razor_unstable_current_bh:OnTakeDamage(params)
         local enemy_list = FindTargetEnemy(caster, caster:GetAbsOrigin(), radius)
 
         local damage = ability:GetSpecialValueFor("passive_area_damage")
-        if caster:FindAbilityByName("npc_dota_hero_razor_str6") then
-            local min_value = 0.25
-            local max_value = 0.75
-            local perc = min_value + ability:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * caster:GetStrength())
+        if caster:FindAbilityByName("npc_dota_hero_razor_str11") then
+            damage = damage + self:GetCaster():GetStrength() * 0.75
         end
         if caster:FindAbilityByName("npc_dota_hero_razor_int10") then
-            local min_value = 0.15
-            local max_value = 0.50
-            local perc = min_value + ability:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * caster:GetIntellect())
+            damage = damage + self:GetCaster():GetIntellect() * 0.5
         end
         
         if #enemy_list > 0 then

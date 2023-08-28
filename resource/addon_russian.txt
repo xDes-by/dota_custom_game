@@ -16490,7 +16490,7 @@
         "npc_dota_hero_silencer_int_last" "Удвоенный Урон"
         "npc_dota_hero_silencer_int_last_description" "Множитель урона от интеллекта в 2.5 раза больше."
 
-
+        //      necrolyte
         "dota_tooltip_ability_imba_necrolyte_death_pulse" "Death Pulse"
 		"dota_tooltip_ability_imba_necrolyte_death_pulse_base_heal" "ЛЕЧЕНИЕ:"
 		"dota_tooltip_ability_imba_necrolyte_death_pulse_damage" "УРОН:"
@@ -16693,52 +16693,52 @@
 
 
         "npc_dota_hero_razor_str6" "Эхо Тишины"
-        "npc_dota_hero_razor_str6_description" "+25%->75% силы в урон Storm Surge."
+        "npc_dota_hero_razor_str6_description" "75% силы в урон Plasma Field."  // +
         "npc_dota_hero_razor_str7" "Мгновенное Затишье"
-        "npc_dota_hero_razor_str7_description" "+1 цель Eye of the Storm."
+        "npc_dota_hero_razor_str7_description" "+1 цель Eye of the Storm."   // +
         "npc_dota_hero_razor_str8" "Мудрость Безгранична"
-        "npc_dota_hero_razor_str8_description" "Скорость Storm Surge х2\n Не имеет лимита скорости."
+        "npc_dota_hero_razor_str8_description" "Скорость Storm Surge х2"   // +
         "npc_dota_hero_razor_str9" "Проклятие Изнурения"
-        "npc_dota_hero_razor_str9_description" "Plasma Field всегда наносит максимальный урон."
+        "npc_dota_hero_razor_str9_description" "Plasma Field всегда наносит максимальный урон." // +
         "npc_dota_hero_razor_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_razor_str10_description" "Eye of the Storm без перезарядки."
+        "npc_dota_hero_razor_str10_description" "Eye of the Storm без перезарядки." // +
         "npc_dota_hero_razor_str11" "Щит Мудреца"
-        "npc_dota_hero_razor_str11_description" "10% от текущего здоровья в макс. урон Plasma Field."
+        "npc_dota_hero_razor_str11_description" "75% силы в урон Storm Surge."  // +
         "npc_dota_hero_razor_str_last" "Глобальный Гром"
-        "npc_dota_hero_razor_str_last_description" "-0.3 сек. интервал срабатывания Eye of the Storm"
+        "npc_dota_hero_razor_str_last_description" "-0.3 сек. интервал срабатывания Eye of the Storm"   // +
         
         "npc_dota_hero_razor_agi6" "Ближний Разум"
-        "npc_dota_hero_razor_agi6_description" "+60% урона от атак Eye of the Storm"
+        "npc_dota_hero_razor_agi6_description" "+60% урона от атак Eye of the Storm"    //  +
         "npc_dota_hero_razor_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_razor_agi7_description" "%"
         "npc_dota_hero_razor_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_razor_agi8_description" "Static link похищает по 1 всех атрибутов."
+        "npc_dota_hero_razor_agi8_description" "Static link похищает по 1 всех атрибутов."  //  +
         "npc_dota_hero_razor_agi8_tooltip" "За 5 секунд можно высосать 0.1->1.0 всех атрибутов. С одной цели можно высосать не более 1 атрибута."
         "npc_dota_hero_razor_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_razor_agi9_description" "Полученный урон Static link в 2 раза больше."
+        "npc_dota_hero_razor_agi9_description" "Герой атакует цели связки Static link, интервал 2.5->0.3 сек." // +
         "npc_dota_hero_razor_agi10" "Усиленное Проклятие"
         "npc_dota_hero_razor_agi10_description" "%"
         "npc_dota_hero_razor_agi11" "Аура Проклятия"
-        "npc_dota_hero_razor_agi11_description" "10%->35% суммы всех атрибутов в урон Eye of the Storm"
+        "npc_dota_hero_razor_agi11_description" "1/3 суммы всех атрибутов в урон Eye of the Storm"  // +
         "npc_dota_hero_razor_agi_last" "Всепроникающая Мудрость"
-        "npc_dota_hero_razor_agi_last_description" "Static link автоматически применяется с перезорядкой 5.0->1.5 сек."
+        "npc_dota_hero_razor_agi_last_description" "Static link автоматически применяется с перезорядкой 5.0->1.5 сек." // +
         "npc_dota_hero_razor_agi_last_tooltip" "Кража урона через такую связку на 40% медленней."
 		
         "npc_dota_hero_razor_int6" "Накопление Интеллекта"
-        "npc_dota_hero_razor_int6_description" "Тип урона Eye of the Storm меняется на магический."
-        "npc_dota_hero_razor_int6_tooltip" "Не работает процент от атак."
+        "npc_dota_hero_razor_int6_description" "Тип урона Eye of the Storm меняется на магический." // +
+        "npc_dota_hero_razor_int6_tooltip" "Не работает процент урона от атак."
         "npc_dota_hero_razor_int7" "Усиленная Мудрость"
-        "npc_dota_hero_razor_int7_description" "Перезарядка Storm Surge 1 сек."
+        "npc_dota_hero_razor_int7_description" "Перезарядка Storm Surge 1 сек." // +
         "npc_dota_hero_razor_int8" "Слово По Области"
-        "npc_dota_hero_razor_int8_description" "-50% Перезарядка Plasma Field."
+        "npc_dota_hero_razor_int8_description" "50% интеллекта в урон Plasma Field" //+
         "npc_dota_hero_razor_int9" "Стакующая Мудрость"
-        "npc_dota_hero_razor_int9_description" "+100% интеллекта в урон Eye of the Storm."
+        "npc_dota_hero_razor_int9_description" "+100% интеллекта в урон Eye of the Storm."  // +
         "npc_dota_hero_razor_int10" "Командная Работа"
-        "npc_dota_hero_razor_int10_description" "+15%->50% интеллекта в урон Storm Surge."
+        "npc_dota_hero_razor_int10_description" "50% интеллекта в урон Storm Surge."    //  +
         "npc_dota_hero_razor_int11" "Командная Работа"
-        "npc_dota_hero_razor_int11_description" "2 волна Plasma Field с задержкой 0.8 сек."
+        "npc_dota_hero_razor_int11_description" "2 волна Plasma Field с задержкой 0.8 сек."     // +
         "npc_dota_hero_razor_int_last" "Удвоенный Урон"
-        "npc_dota_hero_razor_int_last_description" "10% шанс использовать Plasma Field при атаке."
+        "npc_dota_hero_razor_int_last_description" "10% шанс использовать Plasma Field при атаке."  // +
 
 
         //DEATH PROPHET
@@ -16773,8 +16773,8 @@
 		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_spirits"							"ДУХОВ:"
 		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_heal_percent"						"%ВОССТ. ЗДОРОВЬЯ:"
 		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_average_damage"					"УРОН ДУХОВ:"
-		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_movement_bonus"						"%ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ПРИ АКТИВАЦИИ:"
-		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_movement_base"							"%ПАССИВНАЯ ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_movement_bonus"						"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ПРИ АКТИВАЦИИ:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_bh_movement_base"							"ПАССИВНАЯ ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
 
 		"DOTA_Tooltip_modifier_death_prophet_spirit_siphon_bh_charge_counter"  			"Зарядов Spirit Siphon"
 		"DOTA_Tooltip_modifier_death_prophet_spirit_siphon_bh_charge_counter_Description"  "Способность Spirit Siphon можно применить, если есть заряды."
@@ -16791,51 +16791,51 @@
 		"DOTA_Tooltip_modifier_death_prophet_crypt_swarm_slow"							"Замедление от Crypt Swarm"
 
         "npc_dota_hero_death_prophet_str6" "Эхо Тишины"
-        "npc_dota_hero_death_prophet_str6_description" "Crypt Swarm в 3 направления."
+        "npc_dota_hero_death_prophet_str6_description" "Crypt Swarm в 3 направления."   //  +
         "npc_dota_hero_death_prophet_str7" "Мгновенное Затишье"
-        "npc_dota_hero_death_prophet_str7_description" "Герой получает 10 здоровья за 1 силы, во время действия ультимейта."
+        "npc_dota_hero_death_prophet_str7_description" "Герой получает 20 здоровья за 1 силы, во время действия ультимейта."   //  +
         "npc_dota_hero_death_prophet_str8" "Мудрость Безгранична"
-        "npc_dota_hero_death_prophet_str8_description" "Spirit Siphon применяется на 2 цели"
+        "npc_dota_hero_death_prophet_str8_description" "Spirit Siphon применяется на 2 цели"   //  +
         "npc_dota_hero_death_prophet_str9" "Проклятие Изнурения"
-        "npc_dota_hero_death_prophet_str9_description" "75% силы в урон Crypt Swarm."
+        "npc_dota_hero_death_prophet_str9_description" "75% силы в урон Crypt Swarm."   //  +
         "npc_dota_hero_death_prophet_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_death_prophet_str10_description" "Каждый раз при возвращении духа к герою, восстанавливается 3% здоровья."
+        "npc_dota_hero_death_prophet_str10_description" "Каждый раз при возвращении духа к герою, восстанавливается 3% здоровья."   //  +
         "npc_dota_hero_death_prophet_str11" "Щит Мудреца"
-        "npc_dota_hero_death_prophet_str11_description" "Spirit Siphon наносит 3% макс. здоровья DP в секунду."
+        "npc_dota_hero_death_prophet_str11_description" "Spirit Siphon наносит 3% макс. здоровья DP в секунду."  //  +
         "npc_dota_hero_death_prophet_str_last" "Глобальный Гром"
-        "npc_dota_hero_death_prophet_str_last_description" "Бкб после активации ультимейта."
-        "npc_dota_hero_death_prophet_str_last_tooltip" "50% длительности"
+        "npc_dota_hero_death_prophet_str_last_description" "Бкб после активации ультимейта."  //  +
+        "npc_dota_hero_death_prophet_str_last_tooltip" "50% длительности ульты"
         
         "npc_dota_hero_death_prophet_agi6" "Ближний Разум"
-        "npc_dota_hero_death_prophet_agi6_description" "Атаки по целям под действием Сайлена наносят 200% урона."
+        "npc_dota_hero_death_prophet_agi6_description" "%" 
         "npc_dota_hero_death_prophet_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_death_prophet_agi7_description" "75% ловкости в урон Crypt Swarm."
+        "npc_dota_hero_death_prophet_agi7_description" "75% ловкости в урон Crypt Swarm."  //  +
         "npc_dota_hero_death_prophet_agi8" "Разделенная Мудрость"
         "npc_dota_hero_death_prophet_agi8_description" "50% ловкости в урон духов."
         "npc_dota_hero_death_prophet_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_death_prophet_agi9_description" "Герой получает 20->500 урона за каждого активного духа."
+        "npc_dota_hero_death_prophet_agi9_description" "Герой получает 1000 урона c руки, за каждого активного духа. На последнем уровне ультимейта"    //  +
         "npc_dota_hero_death_prophet_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_death_prophet_agi10_description" "Шанс применить Crypt Swarm с авто атаки, шанс 15%"
+        "npc_dota_hero_death_prophet_agi10_description" "Шанс применить Crypt Swarm с авто атаки, шанс 7%" //  +
         "npc_dota_hero_death_prophet_agi11" "Аура Проклятия"
-        "npc_dota_hero_death_prophet_agi11_description" "Духи наносят 70% урон в радиусе 150 вокруг цели."
+        "npc_dota_hero_death_prophet_agi11_description" "Духи наносят 70% урон в радиусе 150 вокруг цели."  //  +
         "npc_dota_hero_death_prophet_agi_last" "Всепроникающая Мудрость"
-        "npc_dota_hero_death_prophet_agi_last_description" "Атаки духов вызывают атаки героя."
+        "npc_dota_hero_death_prophet_agi_last_description" "Атаки духов вызывают атаки героя." //  +
 		
         "npc_dota_hero_death_prophet_int6" "Накопление Интеллекта"
-        "npc_dota_hero_death_prophet_int6_description" "+75% ителлекта в урон духов"
+        "npc_dota_hero_death_prophet_int6_description" "+75% ителлекта в урон духов"    //  +
         "npc_dota_hero_death_prophet_int7" "Усиленная Мудрость"
-        "npc_dota_hero_death_prophet_int7_description" "100% интеллекта в урон Spirit Siphon."
+        "npc_dota_hero_death_prophet_int7_description" "50% интеллекта в урон Spirit Siphon."    //  +
         "npc_dota_hero_death_prophet_int8" "Слово По Области"
-        "npc_dota_hero_death_prophet_int8_description" "50% интеллекта в урон Crypt Swarm."
+        "npc_dota_hero_death_prophet_int8_description" "50% интеллекта в урон Crypt Swarm."    //  +
         "npc_dota_hero_death_prophet_int9" "Стакующая Мудрость"
-        "npc_dota_hero_death_prophet_int9_description" "Вокруг героя всегда летает 25% духов."
+        "npc_dota_hero_death_prophet_int9_description" "+25% духов."    // +
         "npc_dota_hero_death_prophet_int10" "Командная Работа"
-        "npc_dota_hero_death_prophet_int10_description" "Silence наносит урон 150% интеллекта"
+        "npc_dota_hero_death_prophet_int10_description" "Silence наносит урон 150% интеллекта"    //  +
         "npc_dota_hero_death_prophet_int11" "Командная Работа"
-        "npc_dota_hero_death_prophet_int11_description" "-50% Перезарядка всех умений. Crypt Swarm не тратит ману."
+        "npc_dota_hero_death_prophet_int11_description" "-50% Перезарядка Crypt Swarm, не требует ману."    //  +
         "npc_dota_hero_death_prophet_int11_tooltip" "Урон наносится каждые 0.2 сек."
         "npc_dota_hero_death_prophet_int_last" "Удвоенный Урон"
-        "npc_dota_hero_death_prophet_int_last_description" "с шансом 5% Духи могут нанести критическую атаку 100% + интеллект"
+        "npc_dota_hero_death_prophet_int_last_description" "с шансом 5% Духи могут нанести критическую атаку 100% + интеллект"    //  +
 
         //VIPER
 		"DOTA_Tooltip_ability_viper_poison_attack_lua"										"Poison Attack"
@@ -16898,49 +16898,51 @@
 		"DOTA_Tooltip_modifier_viper_nethertoxin_lua_Description" 					"Пассивные способности отключены. Получает периодический урон."
 
         "npc_dota_hero_viper_str6" "Эхо Тишины"
-        "npc_dota_hero_viper_str6_description" "Удар гадюки увеличивает получаемый целью урон от всех источников на 20%"
+        "npc_dota_hero_viper_str6_description" "Ульта гадюки увеличивает получаемый целью урон от всех источников на 20%"   //  +
         "npc_dota_hero_viper_str7" "Мгновенное Затишье"
-        "npc_dota_hero_viper_str7_description" "Коррозионная кожа также дает броню, равную скорости атаки"
+        "npc_dota_hero_viper_str7_description" "Коррозионная кожа также дает броню, равную скорости атаки"      //  +
         "npc_dota_hero_viper_str8" "Мудрость Безгранична"
-        "npc_dota_hero_viper_str8_description" "Атаки по крипам с эффектом Corrosive Skin вызывают нанесение урона способности."
+        "npc_dota_hero_viper_str8_description" "Corrosive Skin увеличение области действия в 2 раза"    //  +
         "npc_dota_hero_viper_str9" "Проклятие Изнурения"
-        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает урон, наносимый целью, на 20%"
+        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает урон, наносимый целью, на 20%"  //  +
         "npc_dota_hero_viper_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_viper_str10_description" "Увеличить максимальное количество стаков атаки ядом на 5"
+        "npc_dota_hero_viper_str10_description" "Увеличить максимальное количество стаков атаки ядом на 5"      //  +
         "npc_dota_hero_viper_str11" "Щит Мудреца"
-        "npc_dota_hero_viper_str11_description" "100% силы в урон Corrosive Skin"
+        "npc_dota_hero_viper_str11_description" "50% силы в урон Corrosive Skin"    //  +
         "npc_dota_hero_viper_str_last" "Глобальный Гром"
-        "npc_dota_hero_viper_str_last_description" "Corrosive Skin может накапливаться на пораженных целях до 5 раз"
+        "npc_dota_hero_viper_str_last_description" "Corrosive Skin может накапливаться на пораженных целях до 5 раз"    //  +
+        "npc_dota_hero_viper_str_last_tooltip" "за каждый стак +50% урон и замедления, стаки накладываются с кд 1 сек."
         
         "npc_dota_hero_viper_agi6" "Ближний Разум"
-        "npc_dota_hero_viper_agi6_description" "Тип урона Poison attack меняется на физический."
+        "npc_dota_hero_viper_agi6_description" "Тип урона Poison attack меняется на физический."    //  +
         "npc_dota_hero_viper_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_viper_agi7_description" "%"
         "npc_dota_hero_viper_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_viper_agi8_description" "Добавляется активная способность Corrosive Skin. Накладывает максимальный эффект на всех врагов в области 900"
+        "npc_dota_hero_viper_agi8_description" "Добавляется активная способность Corrosive Skin. Накладывает максимальный эффект на всех врагов в области действия"     //  +
         "npc_dota_hero_viper_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_viper_agi9_description" "Снижение брони Poison attack"
+        "npc_dota_hero_viper_agi9_description" "Снижение брони Poison attack, х3 сопротивление магии"
         "npc_dota_hero_viper_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_viper_agi10_description" "+100% ловкости в макс. урон Nethertoxin"
+        "npc_dota_hero_viper_agi10_description" "+100% ловкости в макс. урон Nethertoxin"   //  +
         "npc_dota_hero_viper_agi11" "Аура Проклятия"
-        "npc_dota_hero_viper_agi11_description" "+50% базового урона в Corrosive Skin"
+        "npc_dota_hero_viper_agi11_description" "Атаки по крипам с эффектом Corrosive Skin вызывают нанесение урона способности."    //  +
+        "npc_dota_hero_viper_agi11_tooltip" "наносимый урон снижен до 50%"
         "npc_dota_hero_viper_agi_last" "Всепроникающая Мудрость"
         "npc_dota_hero_viper_agi_last_description" "%"
 		
         "npc_dota_hero_viper_int6" "Накопление Интеллекта"
-        "npc_dota_hero_viper_int6_description" "Poison attack не тратит ману."
+        "npc_dota_hero_viper_int6_description" "Poison attack не тратит ману."  //  +
         "npc_dota_hero_viper_int7" "Усиленная Мудрость"
-        "npc_dota_hero_viper_int7_description" "Увеличение радиуса, области действия"
+        "npc_dota_hero_viper_int7_description" "%"
         "npc_dota_hero_viper_int8" "Слово По Области"
-        "npc_dota_hero_viper_int8_description" "Corrosive Skin увеличение области действия до 900"
+        "npc_dota_hero_viper_int8_description" "%"
         "npc_dota_hero_viper_int9" "Стакующая Мудрость"
-        "npc_dota_hero_viper_int9_description" "+50% интеллекта в урон Poison attack"
+        "npc_dota_hero_viper_int9_description" "+30% интеллекта в урон Poison attack"   //  +
         "npc_dota_hero_viper_int10" "Командная Работа"
-        "npc_dota_hero_viper_int10_description" "+100% интеллекта в макс. урон Nethertoxin"
+        "npc_dota_hero_viper_int10_description" "+60% интеллекта в макс. урон Nethertoxin"  //  +
         "npc_dota_hero_viper_int11" "Командная Работа"
-        "npc_dota_hero_viper_int11_description" "Убирает замедление движения/атаки Viper strike, и coldown, наносит 100% урона от интеллекта."
+        "npc_dota_hero_viper_int11_description" "кд Viper strike 5 сек., наносит 150% урона от интеллекта в секунду."    //  +
         "npc_dota_hero_viper_int_last" "Удвоенный Урон"
-        "npc_dota_hero_viper_int_last_description" "Corrosive Skin накладывает стак Poison attack. Урон Poison attack +50% интеллект."
+        "npc_dota_hero_viper_int_last_description" "Стак Poison attack накладывается при нанесении урона от Corrosive Skin."    //  +
 
 
         // ----------------------------- spirit breaker
@@ -17263,19 +17265,16 @@
 		"dota_tooltip_ability_riki_blink_strike_723_lua" "Blink Strike"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_abilitycastrange" "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_bonus_damage" "ДОП. УРОН:"
-		"dota_tooltip_ability_riki_blink_strike_723_lua_charge_restore_time" "ВРЕМЯ ВОССТАНОВЛЕНИЯ ЗАРЯДА:"
-		"dota_tooltip_ability_riki_blink_strike_723_lua_description" "Teleports behind the target unit, striking for bonus damage if it is an enemy.\n<font color='#FF7800'>Shadowstruck:</font> If the target is an enemy, its turn rate is reduced by %turn_rate_slow_pct%%% for %duration% seconds.\n<font color='#FF7800'>Through the Ball Room:</font> If the target is out of reach, Blink Strike will attempt to use units on the way as platforms to jump off of in order to reach it. Maximum of %max_jumps% jumps."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_lore" "От проворного убийцы никому не сбежать."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_max_charges" "ЗАРЯДОВ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_note0" "Первая атака после применения этой способности будет нанесена со спины."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_note1" "Урон от способности наносится до следующей атаки."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_note2" "Эту способность можно применять на союзников, и они не получат урона."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_damage" "УРОН:"
-		"dota_tooltip_ability_riki_blink_strike_723_lua_description" "Герой телепортируется за спину цели и, если это враг, наносит ему урон.\n<font color='#FF7800'>Shadowstruck:</font> Если целью является враг, то скорость его поворота уменьшается на %duration% сек.\n<font color='#FF7800'>Through The Ball Room:</font> Если цель находится вне досягаемости, способность попытается использовать существ на пути в качестве платформ для прыжков, чтобы достичь цель."
+		"dota_tooltip_ability_riki_blink_strike_723_lua_description" "Герой телепортируется за спину цели и, если это враг, наносит ему урон."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_duration" "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_jump_range" "ДАЛЬНОСТЬ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_lore" "От проворного убийцы никому не сбежать."
-		"dota_tooltip_ability_riki_blink_strike_723_lua_max_jumps" "МАКСИМУМ СУЩЕСТВ ДЛЯ ПРЫЖКА:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_note0" "Всегда будет пытаться найти кратчайший путь."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_note1" "Во время прыжков Through the Ball Room, владелец неуязвим."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_turn_rate_slow_pct" "%ЗАМЕДЛЕНИЕ ПОВОРОТА:"
@@ -17288,22 +17287,18 @@
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_agility_damage_multiplier" "УРОН ЗА ЕДИНИЦУ ЛОВКОСТИ:"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_agility_damage_multiplier_smoke" "УРОН ЗА ЕДИНИЦУ ЛОВКОСТИ В ДЫМОВОЙ ЗАВЕСЕ:"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_description" "Герой уходит в тень, становясь невидимым. Каждая его атака со спины наносит дополнительный урон, который зависит от ловкости. Если атаковать врага, невидимость пропадёт."
-		"dota_tooltip_ability_riki_cloak_and_dagger_lua_fade_time" "ВРЕМЯ ДО НЕВИДИМОСТИ:"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_hp_regen" "ДОП. ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_lore" "Скрытный убийца считает, что в бою все средства хороши, и не стесняется бить в спину."
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_note0" "Только прерывание невидимости от Cloak and Dagger, даст дополнительный урон. Другие источники невидимости не дают такого эффекта."
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_note1" "Атакуя сзади внутри дымовой завесы, вы получите полный дополнительный урон."
-		"dota_tooltip_ability_riki_smoke_screen_lua" "Smoke Screen (До 7.23)"
 		"dota_tooltip_ability_riki_smoke_screen_lua" "Smoke Screen"
-		"dota_tooltip_ability_riki_smoke_screen_lua_description" "Throws down a smoke bomb, silencing enemies, and causing them to miss attacks.\n<font color='#FF7800'>Remnants of Smokescreen:</font> Also reeduces movement speed by %remnants_movespeed_slow%%%, and vision to %remnants_vision%.\n<font color='#FF7800'>Solid Fog:</font> Also reduces turn rate by %solid_turn_rate_slow%%%."
 		"dota_tooltip_ability_riki_smoke_screen_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
 		"dota_tooltip_ability_riki_smoke_screen_lua_lore" "Бесшумный убийца высоко ценит обычную дымовую завесу, сбивающую противников с толку, ведь в роковую ночь она спасла его от предателей."
 		"dota_tooltip_ability_riki_smoke_screen_lua_miss_rate" "%ШАНС ПРОМАХА:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_note0" "Не запрещает использовать предметы."
 		"dota_tooltip_ability_riki_smoke_screen_lua_radius" "РАДИУС:"
 		"dota_tooltip_ability_riki_smoke_screen_lua_area_of_effect" "РАДИУС:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_description" "Бросает дымовую бомбу, которая замедляет передвижение врагов, а также не позволяет им применять способности и заставляет их промахиваться почти всеми атаками.\n<font color='#FF7800'>Solid Fog:</font> Также замедляет скорость поворота и уменьшает дальность обзора врагам. Снижение обзора сильнее в центре облака."
-		"dota_tooltip_ability_riki_smoke_screen_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_description" "Бросает дымовую бомбу, которая замедляет передвижение врагов, а также не позволяет им применять способности и заставляет их промахиваться почти всеми атаками."
+
 		"dota_tooltip_ability_riki_smoke_screen_lua_lore" "Бесшумный убийца высоко ценит обычную дымовую завесу, сбивающую противников с толку, ведь в роковую ночь она спасла его от предателей."
 		"dota_tooltip_ability_riki_smoke_screen_lua_max_vision_reduction_pcnt" "%МАКС. СНИЖЕНИЕ ОБЗОРА:"
 		"dota_tooltip_ability_riki_smoke_screen_lua_miss_chance" "%ШАНС ПРОМАХА:"
@@ -17318,12 +17313,12 @@
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_damage_pct" "%УРОН ОТ АТАКИ:"
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_lore" "Скрытный убийца считает, что в бою все средства хороши, и не стесняется бить в спину."
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_note0" "Способность можно прервать командой передвижения."
-		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_scepter_description" "Увеличивает длительность, число атак и дальность применения. Позволяет спрятаться в союзного героя на время действия."
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_attack_interval" "ИНТЕРВАЛ МЕЖДУ АТАКАМИ:"
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_dmg_perc" "%УРОН АТАК:"
-		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_lore" "Скрытный убийца считает, что в бою все средства хороши, и не стесняется бить в спину."
-		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_scepter_description" "Увеличивает длительность до 9 сек. Позволяет спрятаться в союзного героя на время действия."
+		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_attack_count2" "МАКС.ЦЕЛЕЙ:"
 
+        "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify"              "Cloak and Dagger"
+        "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify_description"  "Урон от заклинаний увеличен на %MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE%%%"
 
         "npc_dota_hero_riki_str6" "Bulldoze"
         "npc_dota_hero_riki_str6_description" "Ультимейт делает героя невосприимчивым к атакам." // +
@@ -17334,43 +17329,43 @@
         "npc_dota_hero_riki_str9" "Проклятие Изнурения"
         "npc_dota_hero_riki_str9_description" "Оглушение на 2 сек. блинком." // +
         "npc_dota_hero_riki_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_riki_str10_description" "Атаки под эффектом тачки, всегда будут наноситься в спину." // +
+        "npc_dota_hero_riki_str10_description" "Атаки под эффектом тучки, всегда будут наноситься в спину." // +
         "npc_dota_hero_riki_str11" "Щит Мудреца"
-        "npc_dota_hero_riki_str11_description" "+50% базовой брони всем союзникам в Тучке"
+        "npc_dota_hero_riki_str11_description" "+50% базовой брони всем союзникам в Тучке" // +
         "npc_dota_hero_riki_str_last" "Глобальный Гром"
         "npc_dota_hero_riki_str_last_description" "7% шанс крит атаки 1250% в спину" // +
         
         "npc_dota_hero_riki_agi6" "Ближний Разум"
         "npc_dota_hero_riki_agi6_description" "Урон 3 скила +35%" // +
         "npc_dota_hero_riki_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_riki_agi7_description" "+30% Экстра ловкость во время 3 скила"
+        "npc_dota_hero_riki_agi7_description" "+60% Экстра ловкость во время 3 скила" // +
         "npc_dota_hero_riki_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_riki_agi8_description" "Урон за единицу ловкости на 50% больше" // +
+        "npc_dota_hero_riki_agi8_description" "Урон за единицу ловкости на 50% больше (Ульта)" // +
         "npc_dota_hero_riki_agi9" "Интеллектуальная Быстрота"
         "npc_dota_hero_riki_agi9_description" "Все союзники под эффектом Тучки получают по +10% ловкости в секунду" // +
         "npc_dota_hero_riki_agi10" "Усиленное Проклятие"
         "npc_dota_hero_riki_agi10_description" "Все атаки под тучкой имеют 100% шанс на 150% урит удар" // +
         "npc_dota_hero_riki_agi11" "Аура Проклятия"
-        "npc_dota_hero_riki_agi11_description" "Увеличение ловкости после применения блинка на 30%, длительность 3 сек."
+        "npc_dota_hero_riki_agi11_description" "+30% базового урона, после использования блинка, на 5 сек." // +
         "npc_dota_hero_riki_agi_last" "Всепроникающая Мудрость"
         "npc_dota_hero_riki_agi_last_description" "Число атак +время между атаками героя" // +
 		
         "npc_dota_hero_riki_int6" "Накопление Интеллекта"
-        "npc_dota_hero_riki_int6_description" "Снижение перезарядки 3 кнопки на 50%"
+        "npc_dota_hero_riki_int6_description" "Снижение перезарядки 3 кнопки на 50%" // +
         "npc_dota_hero_riki_int7" "Усиленная Мудрость"
-        "npc_dota_hero_riki_int7_description" "Ультимейт наносит урон от интеллекта. 20% от показателей, от ловкости" // +
+        "npc_dota_hero_riki_int7_description" "Тучка снижает сопротивление магии на 15%" // +
         "npc_dota_hero_riki_int8" "Слово По Области"
-        "npc_dota_hero_riki_int8_description" "Тучка снижает сопротивление магии на 15%" // +
+        "npc_dota_hero_riki_int8_description" "Макс. целей для атаки х2" // +
         "npc_dota_hero_riki_int9" "Стакующая Мудрость"
-        "npc_dota_hero_riki_int9_description" "2 заряда 3 кнопки"
+        "npc_dota_hero_riki_int9_description" "2 заряда на 3 скил" // +
         "npc_dota_hero_riki_int10" "Командная Работа"
-        "npc_dota_hero_riki_int10_description" "Увеличение значения магического усиления героя в 2.5 раза, в режиме 'инвиза' от ульты."
+        "npc_dota_hero_riki_int10_description" "Увеличение значения магического усиления героя в 2.5 раза, в режиме 'инвиза' от ульты." // +
         "npc_dota_hero_riki_int11" "Командная Работа"
-        "npc_dota_hero_riki_int11_description" "Радиус 3 скила в 2 раза больше"
+        "npc_dota_hero_riki_int11_description" "Радиус 3 скила +150" // +
         "npc_dota_hero_riki_int_last" "Удвоенный Урон"
         "npc_dota_hero_riki_int_last_description" "Урон Ультимейт становится магическим и его возможно усилить" // +
 
-
+        
 
         //Marci//
 

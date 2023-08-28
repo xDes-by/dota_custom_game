@@ -14,8 +14,7 @@
 	}
 	"npc_dota_hero_viper_str8"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_viper/other/hp"
+		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -46,8 +45,7 @@
 	}
 	"npc_dota_hero_viper_agi7"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_viper/other/dmg"
+		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

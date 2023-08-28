@@ -23,6 +23,13 @@ function modifier_riki_cloak_and_dagger_lua:OnIntervalThink()
 			self:GetParent():RemoveModifierByName("modifier_riki_cloak_and_dagger_lua_talent")
 		end
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int10") then
+		if self:GetAbility():IsFullyCastable() and not self:GetParent():HasModifier("modifier_riki_cloak_and_dagger_lua_talent_spell_amplify") then
+			self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_riki_cloak_and_dagger_lua_talent_spell_amplify", {})
+		elseif not self:GetAbility():IsFullyCastable() and self:GetParent():HasModifier("modifier_riki_cloak_and_dagger_lua_talent_spell_amplify") then
+			self:GetParent():RemoveModifierByName("modifier_riki_cloak_and_dagger_lua_talent_spell_amplify")
+		end
+	end
 end
 
 function modifier_riki_cloak_and_dagger_lua:DeclareFunctions()
@@ -93,7 +100,7 @@ function modifier_riki_cloak_and_dagger_lua:OnAttackLanded(keys)
 				SendOverheadEventMessage( nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, damage, nil )
 			end
 		end
-		self:GetAbility():UseResources(false, false, false, true)
+		self:GetAbility():StartCooldown(3.0)
 	end
 end
 
@@ -118,9 +125,6 @@ function modifier_riki_cloak_and_dagger_lua:CalculateDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str7") then
 		damage = damage + self:GetParent():GetStrength() * damage_multiplier * 0.5
 	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int7") then
-		damage = damage + self:GetParent():GetIntellect() * damage_multiplier * 0.2
-	end
 	return damage
 end
 
@@ -135,9 +139,33 @@ end
 function modifier_riki_cloak_and_dagger_lua_talent:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE,
 	}
 end
 
 function modifier_riki_cloak_and_dagger_lua_talent:GetModifierInvisibilityLevel()
 	return 1
+end
+
+modifier_riki_cloak_and_dagger_lua_talent_spell_amplify = modifier_riki_cloak_and_dagger_lua_talent_spell_amplify or class({})
+
+function modifier_riki_cloak_and_dagger_lua_talent_spell_amplify:OnCreated()
+	if IsServer() then
+		self:SetStackCount(self:GetCaster():GetSpellAmplification(false) * 100 * 1.5)
+	end	
+end
+
+
+function modifier_riki_cloak_and_dagger_lua_talent_spell_amplify:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE,
+	}
+end
+
+function modifier_riki_cloak_and_dagger_lua_talent_spell_amplify:GetModifierInvisibilityLevel()
+	return 1
+end
+function modifier_riki_cloak_and_dagger_lua_talent_spell_amplify:GetModifierSpellAmplify_PercentageUnique()
+	return self:GetStackCount()
 end

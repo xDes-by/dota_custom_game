@@ -11,7 +11,7 @@
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
         "FightRecapLevel"				"1"
         "MaxLevel"						"15"
-
+        "AbilityCastRange"		        "1400"
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityModifierSupportBonus"       "10"

@@ -1,5 +1,6 @@
 require("www/database2")
 require("www/quest")
+require("www/products")
 require("www/shop")
 require("www/talants")
 require("www/rating")

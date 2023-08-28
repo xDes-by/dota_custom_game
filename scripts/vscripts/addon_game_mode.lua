@@ -22,8 +22,8 @@ require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
-_G.server_load = true -- true
+_G.cheatmode = true -- false
+_G.server_load = false -- true
 _G.spawnCreeps = false -- true
 
 if CAddonAdvExGameMode == nil then
@@ -53,15 +53,18 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(10)
-
+	
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-	
-	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )  --true
+	if IsInToolsMode() then
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )
+	else
+		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
+	end
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
@@ -607,7 +610,7 @@ function full_win()
 	for nPlayerID = 0, DOTA_MAX_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
-			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else
+			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.rating_scale > 0 then
 				DataBase:AddCoins(nPlayerID, 1)
 			end
 		end
@@ -1295,3 +1298,8 @@ end
 	-- end
     -- return true
 -- end
+
+Convars:RegisterCommand( "reload", function ()
+	SendToServerConsole("script_reload")
+end,
+"reload", FCVAR_CHEAT )

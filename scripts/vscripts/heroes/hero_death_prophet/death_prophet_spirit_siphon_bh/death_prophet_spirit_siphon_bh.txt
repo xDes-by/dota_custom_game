@@ -17,7 +17,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_DeathProphet.SpiritSiphon.Cast"
-		"MaxLevel"						"7"
+		"MaxLevel"						"15"
 		
 		// Talents		
 		//-------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.1"
-
+		"AbilityCharges"				"4"
+		"AbilityChargeRestoreTime"		"45"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0"
@@ -49,7 +50,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"base_damage"					"10 25 40 55 70 85 100"
+				"base_damage"					"10 25 40 55 70 85 100 120 150 190 220 250 280 320 350"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"02"

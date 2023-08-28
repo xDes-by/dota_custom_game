@@ -9,13 +9,14 @@
 		"AbilityTextureName"			"riki_tricks_of_the_trade"
 		
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"FightRecapLevel"				"1"
 		"HasScepterUpgrade"				"1"
 		"MaxLevel"						"15"
+		"AbilityCastRange"				"400"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------		
 		"AbilityCastPoint"				"0.3"
@@ -27,7 +28,6 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75"		
-
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -78,7 +78,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"dmg_perc"				"28 31 34 37 40 43 46 49 52 55 58 61 64 67 70"
-			}				
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_count2"				"1 1 1 1 2 2 2 2 3 3 3 3 4 4 4"
+			}
 		}
 	}
 }

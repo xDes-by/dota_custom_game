@@ -50,16 +50,18 @@ function silencer_glaives_of_wisdom_lua:OnOrbFire( params )
 end
 
 function silencer_glaives_of_wisdom_lua:OnOrbImpact( params )
+	if params.target:IsBuilding() then return end
 	self:ApplyDamage( params.target, self:GetDamage() )
 	EmitSoundOn( "Hero_Silencer.GlaivesOfWisdom.Damage", params.target )
 end
 
 function silencer_glaives_of_wisdom_lua:GetDamage()
+	local eblan = 2.0
 	local damage = self:GetSpecialValueFor("damage")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_int_last") then
-		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100
+		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100 * eblan * 2.5
 	else
-		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100 * 2.5
+		damage = damage + self:GetCaster():GetIntellect() * self:GetSpecialValueFor("intellect_damage_pct") / 100 * eblan
 	end
 	return damage
 end

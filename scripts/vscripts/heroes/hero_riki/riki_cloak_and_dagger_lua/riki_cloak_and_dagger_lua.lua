@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_riki_cloak_and_dagger_lua", "heroes/hero_riki/riki_cloak_and_dagger_lua/modifier_riki_cloak_and_dagger_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_riki_cloak_and_dagger_lua_talent", "heroes/hero_riki/riki_cloak_and_dagger_lua/modifier_riki_cloak_and_dagger_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_riki_cloak_and_dagger_lua_talent_spell_amplify", "heroes/hero_riki/riki_cloak_and_dagger_lua/modifier_riki_cloak_and_dagger_lua", LUA_MODIFIER_MOTION_NONE)
 
 riki_cloak_and_dagger_lua		= riki_cloak_and_dagger_lua or class({})
 
