@@ -3,3 +3,4 @@
 panorama/*
 scripts/vscripts/addon_game_mode.lua
 rda_game.code-workspace
+scripts/vscripts/key.lua

@@ -116,8 +116,6 @@ function GameMode:newDropList(list)
 end
 
 function GameMode:OnEntityKilled( keys )
-	local bResult = xpcall(function()
-	--функция в которой может быть ошибка
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	local killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	local name = killedUnit:GetUnitName()
@@ -128,25 +126,6 @@ function GameMode:OnEntityKilled( keys )
 		RollItemDrop_diff(killedUnit)
 		RollQuestDrop(killedUnit, killerEntity)
 		-- RollBlueStone(killedUnit, killerEntity)
-	end
-	--функция в которой может быть ошибка
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	--дебаг
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
-	
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("дроп выпал")
-	else
-	print("ошибка роллдропа")
 	end
 end
 

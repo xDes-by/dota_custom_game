@@ -574,17 +574,49 @@ ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), cree
 
 function creep_spawner:GoldCreeps(data)
 	local unit = EntIndexToHScript(data.entindex)
-	if RandomFloat(0, 100) < 0.1 and not unit:IsBoss() and unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+	if RandomFloat(0, 100) < 0.1 and unit:CanTakeModifier() and unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 		unit:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
 	end
 end
 
-function CDOTA_BaseNPC:IsBoss()
-	return creep_spawner.BossesNames[self:GetUnitName()]
+function CDOTA_BaseNPC:CanTakeModifier()
+	return creep_spawner.ZoneUnitNames[self:GetUnitName()]
 end
 
-creep_spawner.BossesNames = {}
+creep_spawner.ZoneUnitNames = {
+	["forest_creep_mini_1"]=true,
+	["forest_creep_big_1"]=true,
+	["forest_creep_mini_2"]=true,
+	["forest_creep_big_2"]=true,
+	["forest_creep_mini_3"]=true,
+	["forest_creep_big_3"]=true,
+	["village_creep_1"]=true,
+	["village_creep_2"]=true,
+	["village_creep_3"]=true,
+	["mines_creep_1"]=true,
+	["mines_creep_2"]=true,
+	["mines_creep_3"]=true,
+	["dust_creep_1"]=true,
+	["dust_creep_2"]=true,
+	["dust_creep_3"]=true,
+	["dust_creep_4"]=true,
+	["dust_creep_5"]=true,
+	["dust_creep_6"]=true,
+	["cemetery_creep_1"]=true,
+	["cemetery_creep_2"]=true,
+	["cemetery_creep_3"]=true,
+	["cemetery_creep_4"]=true,
+	["swamp_creep_1"]=true,
+	["swamp_creep_2"]=true,
+	["swamp_creep_3"]=true,
+	["swamp_creep_4"]=true,
+	["snow_creep_1"]=true,
+	["snow_creep_2"]=true,
+	["snow_creep_3"]=true,
+	["snow_creep_4"]=true,
+	["last_creep_1"]=true,
+	["last_creep_2"]=true,
+	["last_creep_3"]=true,
+	["last_creep_4"]=true,
+}
 
-for k,v in pairs(bosses) do
-	creep_spawner.BossesNames[v] = true
-end

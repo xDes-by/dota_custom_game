@@ -64,8 +64,8 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
+	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
 	Timers:CreateTimer(120,function()
-		_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
 		if spawnCreeps then
 			Spawn_system()
 		end

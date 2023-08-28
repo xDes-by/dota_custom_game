@@ -179,6 +179,5 @@ function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
 	local killerEntity = EntIndexToHScript( data.entindex_attacker )
     if killerEntity == self.parent then
         local gold = killedUnit:GetGoldBounty() * self.shareable_gold
-        print(self.caster:ModifyGold(gold, true, DOTA_ModifyGold_SharedGold))
     end
 end

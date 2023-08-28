@@ -21,6 +21,7 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
+require("key")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
 _G.server_load = false -- true
@@ -65,6 +66,11 @@ function CAddonAdvExGameMode:InitGameMode()
 	else
 		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
 	end
+	GameModeEntity:SetSelectionGoldPenaltyEnabled(false)
+	GameRules:SetHeroSelectPenaltyTime(0)
+	GameRules:SetPostGameTime(60)
+	GameRules:SetHideBlacklistedHeroes(true)
+    GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered( true )
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
@@ -82,7 +88,8 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
 	
 	--------------------------------------------------------------------------------------------	
-	
+	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
+
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
@@ -193,8 +200,6 @@ _G.PlayerConection = {}
 
 function item_destroy()
 		Timers:CreateTimer(10, function()
-			local bResult = xpcall(function()
-			--функция в которой может быть ошибка
 			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 				if PlayerResource:HasSelectedHero( nPlayerID ) then
@@ -228,25 +233,6 @@ function item_destroy()
 					end
 				end
 			end
-			--функция в которой может быть ошибка
-			---------------------------------------------------------------------
-			---------------------------------------------------------------------
-			---------------------------------------------------------------------
-			--дебаг
-			end,
-			function(e)
-				print("-------------Error-------------")
-				print(e)
-				print("-------------Error-------------")
-			end)  
-			--дебаг
-			
-			--вызов вункции в которой может быть ошибка
-			if bResult then
-			--print("предметы успешно удален")
-			else
-			print("ошибка удаления предмет")
-			end		
 		return 181
     end)
 end
@@ -388,15 +374,29 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
     
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		loadscript()
+	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		local AllHeroPull = LoadKeyValues("scripts/npc/all_hero_pull.txt")
+		for iPlayerID=0, PlayerResource:GetPlayerCount() do
+			if PlayerResource:IsValidPlayer(iPlayerID) then
+				for k,v in pairs(AllHeroPull) do
+					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
+				end
+				--@dansoo0911:нужно превратить эти строки в функции которые будут возвращать тру или фолс
+				if IsMarciAvaliablee then
+					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
+				end
+				if IsSilenserAvaliablee then
+					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
+				end
+			end
+		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 			
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
-		if true then
-			if PlayerResource:HasSelectedHero(i) == false then
-				local player = PlayerResource:GetPlayer(i)
-				if player  then
-					player:MakeRandomHeroSelection()
-				end
+		if PlayerResource:HasSelectedHero(i) == false then
+			local player = PlayerResource:GetPlayer(i)
+			if player  then
+				player:MakeRandomHeroSelection()
 			end
 		end
 	end	 
@@ -419,21 +419,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	-- Timers:CreateTimer(3000, function()
 		-- creep_spawner:spawn_2023()
 	-- end)
-	if IsInToolsMode() then
-		Timers:CreateTimer(1,function()
-			hPlayerHero = PlayerResource:GetSelectedHeroEntity(0)
-			DebugCreateUnit( PlayerResource:GetPlayer(0), "npc_dota_hero_axe", DOTA_TEAM_GOODGUYS, false,
-			function( hEnemy )
-				hEnemy:SetControllableByPlayer( 0, false )
-				hEnemy:SetRespawnPosition( hPlayerHero:GetAbsOrigin() )
-				FindClearSpaceForUnit( hEnemy, hPlayerHero:GetAbsOrigin(), false )
-				hEnemy:Hold()
-				hEnemy:SetIdleAcquire( false )
-				hEnemy:SetAcquisitionRange( 0 )
-				-- self:BroadcastMsg( "#SpawnEnemy_Msg" )
-			end )
-		end)
-	end
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
 	creep_spawner:spawn_creeps_forest()	
@@ -695,24 +680,12 @@ function check_insane_lives()
 end
 
 function kill_all_creeps()
-local bResult = xpcall(function()
 	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
 		for _,unit in ipairs(enemies) do
 			if unit:HasModifier("modifier_unit_on_death") then
 				unit:ForceKill(false)		
 			end	
-		end
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	if bResult then
-		print("all ok")
-	else
-		print("error")
-	end		
+		end	
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -721,9 +694,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
-	
-	local bResult = xpcall(function()
-	
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
 			killedUnit:SetTimeUntilRespawn( 1.2 )
@@ -1206,26 +1176,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			break
 		end
 	end
-	
-	--функция в которой может быть ошибка
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	--дебаг
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
-	
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("юнит умер нормально")
-	else
-	print("ошибка при убийстве юнита")
-	end
 end
 
 function Add_bsa_hero()	
@@ -1303,3 +1253,14 @@ Convars:RegisterCommand( "reload", function ()
 	SendToServerConsole("script_reload")
 end,
 "reload", FCVAR_CHEAT )
+
+function OnEndMiniGame(eventIndex, data)
+	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+	CustomUI:DynamicHud_Destroy(data.PlayerID, "minigame_container")
+	local mod = hHero:FindModifierByName("modifier_cheack_afk")
+	mod.MinigameStarted = false
+	if mod.modifier then
+		mod.modifier:Destroy()
+		mod.modifier = nil
+	end
+end

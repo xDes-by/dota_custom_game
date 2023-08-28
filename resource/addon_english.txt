@@ -18908,8 +18908,8 @@
 
 
 
-
-
+        "npc_dota_hero_silencer_npedesc1"	"You can open this hero in our discord server"
+        "npc_dota_hero_marci_npedesc1"	"You can open this hero in our discord server"
 
 
 
