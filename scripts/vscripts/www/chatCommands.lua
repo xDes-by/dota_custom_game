@@ -55,7 +55,7 @@ function ChatCommands:IsAvailable(commandName, pid)
         return true
     end
     if self:IsTester(sid) then
-        if self[commandName .. "_access"] == true or DataBase:isCheatOn() == true then
+        if self[commandName .. "_access"] == true or DataBase:IsCheatMode() == true then
             return true
         end
     end

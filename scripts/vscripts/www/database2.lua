@@ -2,7 +2,7 @@ if DataBase == nil then
     _G.DataBase = class({})
 end
 
-function DataBase:isCheatOn()
+function DataBase:IsCheatMode()
 	if _G.cheatmode then
 		return false
 	end
@@ -239,7 +239,7 @@ function DataBase:startGame()
 end
 
 function DataBase:PointsChange(player, pEdit, isGameEnded)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	local hero = PlayerResource:GetSelectedHeroEntity( player )
 	
@@ -273,7 +273,7 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 end
 
 function DataBase:buyRequest(t)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	if currency == nil then
 		currency = "gems"
@@ -301,7 +301,7 @@ function DataBase:buyRequest(t)
 end
 
 function DataBase:CommentChange(t)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	local from = tonumber(t.PlayerID)
 	local to = tonumber(t.pid)
@@ -334,7 +334,7 @@ function DataBase:CommentChange(t)
 end
 
 function DataBase:EdditGems(t)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
@@ -460,7 +460,7 @@ end
 
 
 function DataBase:AddRating(pid, count)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(pid),
@@ -476,7 +476,7 @@ function DataBase:AddRating(pid, count)
 end
 
 function DataBase:AddFeed(pid, count)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	Shop.pShop[pid].feed = Shop.pShop[pid].feed + count
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
@@ -497,7 +497,7 @@ function DataBase:AddFeed(pid, count)
 end
 
 function DataBase:AddRP(pid, count)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	Shop.pShop[pid].mmrpoints = Shop.pShop[pid].mmrpoints + count
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
@@ -518,7 +518,7 @@ function DataBase:AddRP(pid, count)
 end
 
 function DataBase:AddCoins(pid, count)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	
 	Shop.pShop[pid].coins = Shop.pShop[pid].coins + count
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
@@ -539,7 +539,7 @@ function DataBase:AddCoins(pid, count)
 end
 
 function DataBase:OpenTreasure(arr)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	local req = CreateHTTPRequestScriptVM( "POST", DataBase.OpenTreasureLink )
 	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(arr))
 	req:Send(function(res)
@@ -552,7 +552,7 @@ function DataBase:OpenTreasure(arr)
 end
 
 function DataBase:SprayToggleActivate(t)
-	if DataBase:isCheatOn() then return end
+	if DataBase:IsCheatMode() then return end
 	requestData = {
 		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
 		sprayName = t.sprayName,

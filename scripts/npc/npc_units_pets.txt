@@ -317,6 +317,21 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
+"pet_rda_secret_1"
+    {
+		"vscripts"       			"items/pets/ai/item_pet_rda_secret_1.lua"
+		"BaseClass" 				"npc_dota_creature"
+		"Model" 					"models/courier/baby_rosh/babyroshan_alt.vmdl"
+		"Ability1"					"pet_ability"
+		"AttackCapabilities" 		"DOTA_UNIT_CAP_NO_ATTACK" 
+		"MovementCapabilities"   	"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"       		"550"
+		"AttackDamageType" 			"DAMAGE_TYPE_ArmorPhysical"
+		"StatusHealth" 				"1" 
+		"StatusMana" 				"1"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
+    }	
 "pet_rda_250_dmg_reduction"
     {
 		"vscripts"       			"items/pets/ai/item_pet_RDA_250_dmg_reduction.lua"

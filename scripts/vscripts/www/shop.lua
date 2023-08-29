@@ -338,7 +338,7 @@ function Shop:buyItem(t)
 	else
 		Shop.pShop[pid].coins = Shop.pShop[pid].coins - Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] * t.amountBuy
 	end
-	if DataBase:isCheatOn() == false then --
+	if DataBase:IsCheatMode() == false then --
 		local sql_name = {}
 		local give = {}
 		local currency = 'don'
@@ -426,7 +426,7 @@ function Shop:UpdatePetButton(t)
 			break
 		end
 	end
-	if not DataBase:isCheatOn() then
+	if not DataBase:IsCheatMode() then
 		DataBase:UpdatePet(t.pet.name, pid, count)
 	end
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
@@ -519,7 +519,6 @@ function Shop:OpenTreasure(t)
 	thisTreasure.now = thisTreasure.now - 1
 	thisTreasure.onStart = thisTreasure.onStart - 1
 	local itemPrize = awardList[RandomInt(1, #awardList)]
-	print(itemPrize.name)
 	while itemPrize.name == "gems_award" do
 		itemPrize = awardList[RandomInt(1, #awardList)]
 	end
@@ -629,7 +628,7 @@ function ChangeHero:OnGameRulesStateChange()
 						if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
 							heroData.trialCount[i] = -1
 						end
-						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:isCheatOn() or heroData.trialCount[i] > 0 then
+						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
 							heroData.available[i] = true
 						end
 						if heroName == "npc_dota_hero_marci" and RATING["rating"][i+1]["patron"] == 1 then

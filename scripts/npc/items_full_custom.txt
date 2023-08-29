@@ -155,7 +155,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -181,7 +181,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -207,7 +207,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -233,7 +233,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -260,7 +260,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -286,7 +286,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -312,7 +312,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}
@@ -337,7 +337,7 @@
 			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
 			"multishot_targets"								"1 1 1 1 2 2 2 2"
 			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"60 80 100 120 140 160 180 200"
+			"multishot_damage"								"15 20 25 30 35 40 45 50"
 			"multishot_radius"								"250"
 			"multishot_chance"								"50"
 		}

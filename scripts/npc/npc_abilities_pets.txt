@@ -711,5 +711,30 @@
 			}
 		}
 	}
+	//======================================================================================================================================
+	"spell_item_pet_rda_secret_1"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pets/atrib"
+		"ScriptFile"					"items/pets/item_pet_rda_secret_1"
+		// "ItemIsNeutralDrop"				"1"
+		// "ItemPurchasable"				"0"
+		// "AbilityCooldown"				"10.0"
+		// "ItemDroppable" 				"0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
+			}
+		}
+	}	
     //======================================================================================================================================
 }
