@@ -236,6 +236,7 @@ function modifier_wisp_spirits_bh_wisp:OnIntervalThink()
 				end
 
 				damage_type = DAMAGE_TYPE_PHYSICAL
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int11") then
 					damage_type = DAMAGE_TYPE_MAGICAL
         			damage_flags = DOTA_DAMAGE_FLAG_NONE
@@ -315,6 +316,7 @@ function modifier_wisp_spirits_bh_wisp:OnRemoved()
 				if enemy:IsAlive() then
 					enemy:Paralyze(self:GetAbility(), caster, slow)
 					damage_type = DAMAGE_TYPE_PHYSICAL
+					damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 					if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_int11") then
 						damage_type = DAMAGE_TYPE_MAGICAL
 						damage_flags = DOTA_DAMAGE_FLAG_NONE
