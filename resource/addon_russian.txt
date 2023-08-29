@@ -377,6 +377,20 @@
 
 
         "dota_don_shop_error"               "Вам не хватает кристаллов! О том, как получить кристаллы, вы можете узнать в Дискорде!"
+
+        "gs_diffic"                         "ВЫБОР СЛОЖНОСТИ"
+        "gs_easy"                           "TURBO"
+        "gs_normal"                         "NORMAL"
+        "gs_hard"                           "HARD"
+        "gs_ultra"                          "ULTRA"
+        "gs_insane"                         "INSANE"
+        "gs_hell"                           "HELL"
+
+        "gs_bonus"                          "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ"
+        "gs_ea"                             "здоровье и урон инвокера"
+        "gs_bg"                             "случайные способности у крипов"
+        "gs_xp"                             "опыт"
+        "gs_fr"                             "золото"
         // Panorama
 
         /////////////////

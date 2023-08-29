@@ -1,17 +1,13 @@
 "CustomHeroList"
 {
-<<<<<<< HEAD
-
-=======
-	"npc_dota_hero_riki"        				"0" // 100
-	"npc_dota_hero_razor"        				"0"	// 95
-	"npc_dota_hero_death_prophet"       	 	"0"	// 95
-    "npc_dota_hero_viper"        				"0"	// 95
-	"npc_dota_hero_spirit_breaker"        		"0" // 50
-    "npc_dota_hero_vengefulspirit"        		"0" // 80
-	"npc_dota_hero_dawnbreaker"        			"0" // 50
-	"npc_dota_hero_necrolyte"        			"0" // 30
->>>>>>> origin/main
+	"npc_dota_hero_riki"        				"1" // 100
+	"npc_dota_hero_razor"        				"1"	// 95
+	"npc_dota_hero_death_prophet"       	 	"1"	// 95
+    "npc_dota_hero_viper"        				"1"	// 95
+	"npc_dota_hero_spirit_breaker"        		"1" // 50
+    "npc_dota_hero_vengefulspirit"        		"1" // 80
+	"npc_dota_hero_dawnbreaker"        			"1" // 50
+	"npc_dota_hero_necrolyte"        			"1" // 30
 	
 	"npc_dota_hero_queenofpain"        			"1"
 	"npc_dota_hero_templar_assassin"        	"1"
