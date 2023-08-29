@@ -14,14 +14,13 @@ require('towershop')
 require('data/data')
 require('plugins')
 require('tp')
-require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-require("key")
+pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
 _G.server_load = false -- true
@@ -98,8 +97,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
-	FilterManager:Init()
+	-- ListenToGameEvent("dota_rune_activated_server", Dynamic_Wrap(CAddonAdvExGameMode, 'OnRunePickup'), self)
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
@@ -516,17 +514,24 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-function CAddonAdvExGameMode:BountyFilter( kv )
-	DeepPrintTable(kv)
-	for i = 0, PlayerResource:GetPlayerCount()-1 do
-		if PlayerResource:IsValidPlayer(i) then
-			local hero = PlayerResource:GetSelectedHeroEntity(i)
-			hero:ModifyGoldFiltered(500, true, 0)
-		end
+function CAddonAdvExGameMode:OnRunePickup(data)
+	local runs = {
+		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
+		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
+		[DOTA_RUNE_ILLUSION] = nil,
+		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_invis",
+		[DOTA_RUNE_REGENERATION] = "modifier_rune_regen",
+		[DOTA_RUNE_BOUNTY] = nil,
+		[DOTA_RUNE_ARCANE] = "modifier_rune_arcane",
+		[DOTA_RUNE_WATER] = nil,
+		[DOTA_RUNE_XP] = nil,
+		[DOTA_RUNE_SHIELD] = "modifier_rune_shield",
+	}
+	if runs[data.rune] ~= nil then
+		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+		hHero:FindModifierByName(runs[data.rune]):Destroy()
 	end
-    local hero = PlayerResource:GetSelectedHeroEntity(kv.player_id_const)
-    kv.gold_bounty = 0
-    return true
+	
 end
 
 function gg()

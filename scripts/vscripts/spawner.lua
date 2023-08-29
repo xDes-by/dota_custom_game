@@ -184,7 +184,10 @@ function Spawner:SpawnCreeps(name)
 			creep:SetBaseMaxHealth(set_health)
 			creep:SetHealth(set_health)	
 			creep:SetDeathXP(xp)
-							
+			
+			if RandomFloat(0, 100) < 0.1 then
+				creep:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
+			end
 			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_creep", nil)
 			add_modifier(creep)
@@ -208,6 +211,9 @@ function Spawner:SpawnCommandirs(name)
 			creep:SetHealth(set_health_commandir)		
 			creep:SetDeathXP(xp*2)
 
+			if RandomFloat(0, 100) < 0.1 then
+				creep:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
+			end
 			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave * 2)
 			creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave * 2)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_commandir", nil)
