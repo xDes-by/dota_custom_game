@@ -22,8 +22,8 @@ require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
-_G.server_load = true -- true
+_G.cheatmode = false -- false
+_G.server_load = false -- true
 _G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
@@ -497,9 +497,9 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 	end
 	if IsInToolsMode() then
 		if npc:IsRealHero()  then
-			npc:RemoveAbility("spell_item_pet")
-			npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
-			CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+			-- npc:RemoveAbility("spell_item_pet")
+			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
+			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
 		end
 	end
 end
