@@ -7773,6 +7773,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "1"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7799,6 +7800,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "2"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7825,6 +7827,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "3"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7851,6 +7854,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "4"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7877,6 +7881,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "5"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7903,6 +7908,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "6"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7927,6 +7933,7 @@
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "gem3//hurricane_pike_7_gem3"
 		"ItemBaseLevel"                                     "7"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7953,6 +7960,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "8"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7980,6 +7988,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "1"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8004,6 +8013,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "2"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8028,6 +8038,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "3"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8052,6 +8063,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "4"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8076,6 +8088,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "5"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8100,6 +8113,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "6"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8124,6 +8138,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "7"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8148,6 +8163,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "8"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
