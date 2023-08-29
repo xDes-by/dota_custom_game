@@ -21,9 +21,10 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
+
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
-_G.server_load = false -- true
+_G.cheatmode = true -- false
+_G.server_load = true -- true
 _G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
