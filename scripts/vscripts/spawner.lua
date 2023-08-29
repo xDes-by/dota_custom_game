@@ -100,10 +100,10 @@ function Spawn_system()
 			Quests:UpdateCounter("bonus", 15, 1, i, 1)
 		end
 		if wave ~= 0 and wave % 5 == 0 then 
-			Spawner:SpawnBosses()	
+			xpcall(Spawner:SpawnBosses(), function(e) GameRules:SendCustomMessage(e,0,0) end)
 			return line_time
 		else
-			Spawner:settings()																					
+			xpcall(Spawner:settings(), function(e) GameRules:SendCustomMessage(e,0,0) end)																					
 		  return line_time
 		end
 	end)
