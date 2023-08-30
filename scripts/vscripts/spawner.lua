@@ -171,7 +171,6 @@ end
 function Spawner:SpawnCreeps(name)   	
 	local barack = Entities:FindByName( nil, "badguys_creeps")  
 	if barack ~= nil then 		
-		creeps_line_notification() 
 		for i = 1, count_creeps do
 			local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
 			local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
@@ -189,6 +188,7 @@ function Spawner:SpawnCreeps(name)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_creep", nil)
 			add_modifier(creep)
 		end
+		creeps_line_notification() 
 	end
 end
 
@@ -236,7 +236,6 @@ function Spawner:SpawnBosses()
 			end
 		end
 
-		bosses_line_notification(name)  
 		local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
 		local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
 		FindClearSpaceForUnit(creep, point, false)
@@ -265,6 +264,7 @@ function Spawner:SpawnBosses()
 		creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave * 2)
 		creep:AddNewModifier(creep, nil, "modifier_hp_regen_boss", nil)
 		add_modifier(creep)
+		bosses_line_notification(name)  
 	end
 end
 
