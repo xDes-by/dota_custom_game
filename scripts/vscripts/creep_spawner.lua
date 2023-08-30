@@ -7,6 +7,8 @@ end
 LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_creep_antilag", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
+
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
 creeps_zone3 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
@@ -512,7 +514,12 @@ end
 
 function check_trigger_actiate()
 	local triggerName = thisEntity:GetName()
-	
+
+	if _G.kill_invoker then 
+		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
+		return
+	end
+
 	if _G.don_spawn_level == 0 then 
 		mini_creep = forest_mini[RandomInt(1,#forest_mini)]
 		big_creep = forest_big[RandomInt(1,#forest_big)]
@@ -564,3 +571,68 @@ end
 function add_modifier_death2(unit)
 	unit:AddNewModifier(unit, nil, "modifier_unit_on_death2", {})
 end
+
+
+---------------------------------------------------------------------------------------------------
+--------------------Gold Creep
+---------------------------------------------------------------------------------------------------
+
+-- ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
+ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), creep_spawner)	
+
+function creep_spawner:FixCreepLags(data)
+	local unit = EntIndexToHScript(data.entindex)
+	if unit:CanTakeModifier() then
+		unit:AddNewModifier(nil, nil, "modifier_creep_antilag", nil)
+	end
+end
+
+function creep_spawner:GoldCreeps(data)
+	local unit = EntIndexToHScript(data.entindex)
+	if RandomFloat(0, 100) < 0.1 and unit:CanTakeModifier() and unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+		unit:AddNewModifier(unit, nil, "modifier_gold_creep", nil)
+	end
+end
+
+function CDOTA_BaseNPC:CanTakeModifier()
+	return creep_spawner.ZoneUnitNames[self:GetUnitName()]
+end
+
+creep_spawner.ZoneUnitNames = {
+	["forest_creep_mini_1"]=true,
+	["forest_creep_big_1"]=true,
+	["forest_creep_mini_2"]=true,
+	["forest_creep_big_2"]=true,
+	["forest_creep_mini_3"]=true,
+	["forest_creep_big_3"]=true,
+	["village_creep_1"]=true,
+	["village_creep_2"]=true,
+	["village_creep_3"]=true,
+	["mines_creep_1"]=true,
+	["mines_creep_2"]=true,
+	["mines_creep_3"]=true,
+	["dust_creep_1"]=true,
+	["dust_creep_2"]=true,
+	["dust_creep_3"]=true,
+	["dust_creep_4"]=true,
+	["dust_creep_5"]=true,
+	["dust_creep_6"]=true,
+	["cemetery_creep_1"]=true,
+	["cemetery_creep_2"]=true,
+	["cemetery_creep_3"]=true,
+	["cemetery_creep_4"]=true,
+	["swamp_creep_1"]=true,
+	["swamp_creep_2"]=true,
+	["swamp_creep_3"]=true,
+	["swamp_creep_4"]=true,
+	["snow_creep_1"]=true,
+	["snow_creep_2"]=true,
+	["snow_creep_3"]=true,
+	["snow_creep_4"]=true,
+	["last_creep_1"]=true,
+	["last_creep_2"]=true,
+	["last_creep_3"]=true,
+	["last_creep_4"]=true,
+	["farm_zone_dragon"]=true,
+}
+
