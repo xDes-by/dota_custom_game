@@ -386,11 +386,19 @@
         "gs_insane"                         "INSANE"
         "gs_hell"                           "HELL"
 
-        "gs_bonus"                          "ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ"
-        "gs_ea"                             "здоровье и урон инвокера"
-        "gs_bg"                             "случайные способности у крипов"
-        "gs_xp"                             "опыт"
-        "gs_fr"                             "золото"
+        "gs_vote"                           "ГОЛОСОВАНИЕ"
+        "gs_easy_progress"                  "Turbo"
+        "gs_normal_progress"                  "Normal"
+        "gs_hard_progress"                  "Hard"
+        "gs_ultra_progress"                  "Ultra"
+        "gs_insane_progress"                  "Insane"
+        "gs_hell_progress"                  "Hell"
+
+        "gs_df_easy"                        "TURBO<br><br>Входящий урон 125%<br>Исходящий урон 75%<br>Здоровье 75%<br>Перезарядка 125%"
+        "gs_df_normal"                      "NORMAL<br><br>Входящий урон 100%<br>Исходящий урон 100%<br>Здоровье 100%<br>Перезарядка 100%"
+        "gs_df_hard"                        "HARD<br><br>Входящий урон 75%<br>Исходящий урон 100%<br>Здоровье 100%<br>Перезарядка 75%"
+        "gs_df_ultra"                       "ULTRA<br><br>Входящий урон 50%<br>Исходящий урон 150%<br>Здоровье 150%<br>Перезарядка 50%"
+        "gs_df_insane"                      "INSANE<br><br>Входящий урон 25%<br>Исходящий урон 200%<br>Здоровье 200%<br>Перезарядка 50%<br><br>Все игроки имеют по 5 жизней"
         // Panorama
 
         /////////////////

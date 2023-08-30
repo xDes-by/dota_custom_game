@@ -89,6 +89,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	--------------------------------------------------------------------------------------------	
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
+	
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
@@ -100,7 +101,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
 	FilterManager:Init()
-	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
 	effects:init()
@@ -137,6 +137,7 @@ end
 function CAddonAdvExGameMode:InventoryFilter(event)
 	DeepPrintTable(event)
 end
+
 
 function CAddonAdvExGameMode:OrderFilter(event)
     -- if event.order_type == DOTA_UNIT_ORDER_PATROL then
