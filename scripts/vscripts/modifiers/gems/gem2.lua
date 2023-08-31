@@ -13,16 +13,24 @@ function modifier_gem2:RemoveOnDeath()
 end
 
 function modifier_gem2:OnCreated(data)
-	self.stacks = 0
-	if data.value then
-		self.stacks = self.stacks + data.value
+	self.parent = self:GetParent()
+	self.lvlup = {10, 20, 40, 80, 160, 320, 640, 1280}
+	if not IsServer() then
+		return
 	end
+	self:SetHasCustomTransmitterData( true )
+	self:StartIntervalThink(1)
 end
 
-function modifier_gem2:OnRefresh(data)
-	if data.value then
-		self.stacks = self.stacks + data.value
+function modifier_gem2:OnIntervalThink()
+	self.stacks = 0 
+	for i=0,5 do
+		local item = self.parent:GetItemInSlot(i)
+		if item then
+			self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+		end
 	end
+	self:SendBuffRefreshToClients()
 end
 
 function modifier_gem2:DeclareFunctions()
@@ -33,4 +41,14 @@ end
 
 function modifier_gem2:GetModifierSpellAmplify_Percentage()
 	return self.stacks
+end
+
+function modifier_gem2:AddCustomTransmitterData()
+	return {
+		stacks = self.stacks,
+	}
+end
+
+function modifier_gem2:HandleCustomTransmitterData( data )
+	self.stacks = data.stacks
 end
