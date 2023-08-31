@@ -304,6 +304,7 @@ function Shop:giveItem(t)
 		end
 		Shop:ChangeHero(pid, Shop.pShop[pid][tonumber(categoryKey)][tonumber(productKey)].hero_name)
 	end
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "SetShopItemCount", {categoryKey = t.i, itemKey = t.n, count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'], itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname']} )
 	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
 	-- 	shopinfo = Shop.pShop[pid], 
 	-- 	updateCount = {
@@ -342,6 +343,7 @@ function Shop:buyItem(t)
 	else
 		Shop.pShop[pid].coins = Shop.pShop[pid].coins - Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] * t.amountBuy
 	end
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "SetShopItemCount", {categoryKey = t.i, itemKey = t.n, count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'], itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname']} )
 	if DataBase:IsCheatMode() == false then --
 		local sql_name = {}
 		local give = {}
@@ -411,6 +413,7 @@ function Shop:CustomShopStash_TakeItem(t)
 	end
 	if thisItem then
 		Shop:giveItem({PlayerID = t.PlayerID , i = thisItem.categoryKey, n = thisItem.itemKey})
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "SetShopItemCount", {categoryKey = thisItem.categoryKey, itemKey = thisItem.itemKey, count = thisItem.now-1, itemname = t.itemname} )
 	end
 end
 
