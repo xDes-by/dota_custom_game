@@ -11510,11 +11510,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon1"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11538,11 +11534,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon2"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11566,11 +11558,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon3"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11594,11 +11582,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon4"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11622,11 +11606,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon5"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11650,11 +11630,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon6"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11678,11 +11654,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon7"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11705,11 +11677,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon8"
-<<<<<<< HEAD
-		"ScriptFile"					"items/item_moon_shard"
-=======
 		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
->>>>>>> origin/main
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"

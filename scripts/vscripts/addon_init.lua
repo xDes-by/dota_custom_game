@@ -5,9 +5,7 @@ LinkLuaModifier("modifier_gem4", 'modifiers/gems/gem4', LUA_MODIFIER_MOTION_NONE
 LinkLuaModifier("modifier_gem5", 'modifiers/gems/gem5', LUA_MODIFIER_MOTION_NONE)
 
 
-<<<<<<< HEAD
 LinkLuaModifier("modifier_gold_creep", 'modifiers/modifier_gold_creep', LUA_MODIFIER_MOTION_NONE)
-=======
 LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
 
@@ -53,4 +51,3 @@ LinkLuaModifier( "modifier_health_mega", "modifiers/modifier_health_mega", LUA_M
 
 
 
->>>>>>> origin/main

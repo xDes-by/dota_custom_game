@@ -572,9 +572,6 @@ end
 --------------------Gold Creep
 ---------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
-=======
 -- ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
 ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), creep_spawner)	
 
@@ -584,16 +581,11 @@ function creep_spawner:FixCreepLags(data)
 		unit:AddNewModifier(nil, nil, "modifier_creep_antilag", nil)
 	end
 end
->>>>>>> origin/main
 
 function creep_spawner:GoldCreeps(data)
 	local unit = EntIndexToHScript(data.entindex)
 	if RandomFloat(0, 100) < 0.1 and unit:CanTakeModifier() and unit:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-<<<<<<< HEAD
-		unit:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
-=======
 		unit:AddNewModifier(unit, nil, "modifier_gold_creep", nil)
->>>>>>> origin/main
 	end
 end
 
@@ -636,9 +628,6 @@ creep_spawner.ZoneUnitNames = {
 	["last_creep_2"]=true,
 	["last_creep_3"]=true,
 	["last_creep_4"]=true,
-<<<<<<< HEAD
-=======
 	["farm_zone_dragon"]=true,
->>>>>>> origin/main
 }
 

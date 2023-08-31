@@ -648,6 +648,16 @@ function ChangeHero:OnGameRulesStateChange()
 	end
 end
 
+function ChangeHero:IsMarciAvailable_PickStage(PlayerID)
+	local marci = ChangeHero.heroes.npc_dota_hero_marci
+	return Shop.pShop[PlayerID].totaldonate >= marci.minimumTotal or DataBase:IsCheatMode() or marci.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID+1]["patron"] == 1
+end
+
+function ChangeHero:IsSilencerAvailable_PickStage(PlayerID)
+	local silencer = ChangeHero.heroes.npc_dota_hero_silencer
+	return Shop.pShop[PlayerID].totaldonate >= silencer.minimumTotal or DataBase:IsCheatMode() or silencer.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID+1]["silencer_date"] ~= nil
+end
+
 function ChangeHero:dota_player_gained_level(t)
 	local player = EntIndexToHScript( t.player )
 	local player_id = player:GetPlayerID()

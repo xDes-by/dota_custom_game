@@ -23,9 +23,9 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
-_G.server_load = true -- true
-_G.spawnCreeps = true -- true
+_G.cheatmode = true and IsInToolsMode() -- false
+_G.server_load = false -- true
+_G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -378,11 +378,10 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 				for k,v in pairs(AllHeroPull) do
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
 				end
-				--@dansoo0911:нужно превратить эти строки в функции которые будут возвращать тру или фолс
-				if IsMarciAvaliablee then
+				if ChangeHero:IsMarciAvailable_PickStage(iPlayerID) then
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
 				end
-				if IsSilenserAvaliablee then
+				if ChangeHero:IsSilencerAvailable_PickStage(iPlayerID) then
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
 				end
 			end
@@ -416,24 +415,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	-- Timers:CreateTimer(3000, function()
 		-- creep_spawner:spawn_2023()
 	-- end)
-<<<<<<< HEAD
-	if IsInToolsMode() then
-		Timers:CreateTimer(1,function()
-			hPlayerHero = PlayerResource:GetSelectedHeroEntity(0)
-			-- DebugCreateUnit( PlayerResource:GetPlayer(0), "npc_dota_hero_axe", DOTA_TEAM_GOODGUYS, false,
-			-- function( hEnemy )
-			-- 	hEnemy:SetControllableByPlayer( 0, false )
-			-- 	hEnemy:SetRespawnPosition( hPlayerHero:GetAbsOrigin() )
-			-- 	FindClearSpaceForUnit( hEnemy, hPlayerHero:GetAbsOrigin(), false )
-			-- 	hEnemy:Hold()
-			-- 	hEnemy:SetIdleAcquire( false )
-			-- 	hEnemy:SetAcquisitionRange( 0 )
-			-- 	-- self:BroadcastMsg( "#SpawnEnemy_Msg" )
-			-- end )
-		end)
-	end
-=======
->>>>>>> origin/main
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
 	creep_spawner:spawn_creeps_forest()	
@@ -505,19 +486,11 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end
 	end
 	if IsInToolsMode() then
-<<<<<<< HEAD
-		-- if npc:IsRealHero()  then
-		-- 	npc:RemoveAbility("spell_item_pet")
-		-- 	npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
-		-- 	CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
-		-- end
-=======
 		if npc:IsRealHero()  then
 			-- npc:RemoveAbility("spell_item_pet")
 			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
 			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
 		end
->>>>>>> origin/main
 	end
 end
 
