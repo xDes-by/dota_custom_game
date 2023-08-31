@@ -32,6 +32,10 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("AutoGetPetOprion",function(_, keys)
         Shop:AutoGetPetOprion(keys)
     end)
+	CustomGameEventManager:RegisterListener("CustomShopStash_TakeItem",function(_, keys)
+        Shop:CustomShopStash_TakeItem(keys)
+    end)
+	
 	Shop.Auto_Pet = {}
 	Shop.Change_Available = {}
 	Shop.sprayCategory = 4
@@ -394,11 +398,23 @@ function Shop:buyItem(t)
 	-- })
 end
 
+function Shop:CustomShopStash_TakeItem(t)
+	local thisItem = nil
+	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+		for itemKey, item in ipairs(category) do
+			if item.itemname and item.itemname == t.itemname then
+				thisItem = item
+				thisItem.categoryKey = categoryKey
+				thisItem.itemKey = itemKey
+			end
+		end
+	end
+	if thisItem then
+		Shop:giveItem({PlayerID = t.PlayerID , i = thisItem.categoryKey, n = thisItem.itemKey})
+	end
+end
 
 -- петы
-
-
-
 function GetLevel(exp)
 	local level = 10
 	local passed_exp = 0
