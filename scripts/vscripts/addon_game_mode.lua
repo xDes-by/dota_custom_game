@@ -21,6 +21,7 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
 _G.server_load = true -- true
