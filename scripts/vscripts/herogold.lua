@@ -14,8 +14,6 @@ function herogold:init()
 end
 
 function herogold:OnEntityKilled( keys )
-    local bResult = xpcall(function()
-	--функция в которой может быть ошибка
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
     local killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	local name = killedUnit:GetUnitName()
@@ -26,26 +24,7 @@ function herogold:OnEntityKilled( keys )
         local gold = creepArray[name]["BountyGoldMin"]
         gold = tonumber(gold)
         herogold:addGold(killerEntity:GetPlayerID(),gold)
-    end
-	--функция в которой может быть ошибка
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	--дебаг
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
-	
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("дроп выпал")
-	else
-	print("ошибка начисления голды")
-	end    
+    end    
 end
 
 function herogold:OnGameRulesStateChange()

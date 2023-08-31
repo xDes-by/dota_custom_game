@@ -193,8 +193,6 @@ _G.PlayerConection = {}
 
 function item_destroy()
 		Timers:CreateTimer(10, function()
-			local bResult = xpcall(function()
-			--функция в которой может быть ошибка
 			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 				if PlayerResource:HasSelectedHero( nPlayerID ) then
@@ -227,26 +225,7 @@ function item_destroy()
 						end
 					end
 				end
-			end
-			--функция в которой может быть ошибка
-			---------------------------------------------------------------------
-			---------------------------------------------------------------------
-			---------------------------------------------------------------------
-			--дебаг
-			end,
-			function(e)
-				print("-------------Error-------------")
-				print(e)
-				print("-------------Error-------------")
-			end)  
-			--дебаг
-			
-			--вызов вункции в которой может быть ошибка
-			if bResult then
-			--print("предметы успешно удален")
-			else
-			print("ошибка удаления предмет")
-			end		
+			end	
 		return 181
     end)
 end
@@ -669,24 +648,12 @@ function check_insane_lives()
 end
 
 function kill_all_creeps()
-local bResult = xpcall(function()
 	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		for _,unit in ipairs(enemies) do
-			if unit:HasModifier("modifier_unit_on_death") then
-				unit:ForceKill(false)		
-			end	
-		end
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	if bResult then
-		print("all ok")
-	else
-		print("error")
-	end		
+	for _,unit in ipairs(enemies) do
+		if unit:HasModifier("modifier_unit_on_death") then
+			unit:ForceKill(false)		
+		end	
+	end	
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -695,8 +662,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
-	
-	local bResult = xpcall(function()
 	
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
@@ -1179,26 +1144,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			end
 			break
 		end
-	end
-	
-	--функция в которой может быть ошибка
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	---------------------------------------------------------------------
-	--дебаг
-	end,
-	function(e)
-		print("-------------Error-------------")
-		print(e)
-		print("-------------Error-------------")
-	end)  
-	--дебаг
-	
-	--вызов вункции в которой может быть ошибка
-	if bResult then
-	--print("юнит умер нормально")
-	else
-	print("ошибка при убийстве юнита")
 	end
 end
 

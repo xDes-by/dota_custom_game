@@ -87,7 +87,7 @@ function modifier_item_kaya_custom:OnCreated( kv )
 	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
 	if self.value then
 		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value})
 	end
 end
 
@@ -97,7 +97,7 @@ function modifier_item_kaya_custom:OnDestroy()
 	end
 	if self.value then
 		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value * -1})
 	end
 end
 

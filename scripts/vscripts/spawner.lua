@@ -49,12 +49,14 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
-	Timers:CreateTimer(120,function()
-		_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-		if spawnCreeps then
-			Spawn_system()
-		end
-	end)
+	xpcall(function()
+		Timers:CreateTimer(120,function()
+			_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
+			if spawnCreeps then
+				Spawn_system()
+			end
+		end)
+	end, function(e) GameRules:SendCustomMessage("error spawn: " .. e,0,0) end)
 end
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,10 +87,10 @@ function Spawn_system()
 			Quests:UpdateCounter("bonus", 15, 1, i, 1)
 		end
 		if wave ~= 0 and wave % 5 == 0 then 
-			xpcall(Spawner:SpawnBosses(), function(e) GameRules:SendCustomMessage(e,0,0) end)
+			Spawner:SpawnBosses()
 			return line_time
 		else
-			xpcall(Spawner:settings(), function(e) GameRules:SendCustomMessage(e,0,0) end)																					
+			Spawner:settings()																				
 		  return line_time
 		end
 	end)

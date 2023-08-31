@@ -13,15 +13,21 @@ function modifier_gem3:RemoveOnDeath()
 end
 
 function modifier_gem3:OnCreated(data)
-	self.stacks = 0
-	if data.value then
-		self.stacks = self.stacks + data.value
+	self.parent = self:GetParent()
+	self.lvlup = {25, 50, 100, 200, 300, 400, 500, 600}
+	if not IsServer() then
+		return
 	end
+	self:StartIntervalThink(1)
 end
 
-function modifier_gem3:OnRefresh(data)
-	if data.value then
-		self.stacks = self.stacks + data.value
+function modifier_gem3:OnIntervalThink()
+	self.stacks = 0 
+	for i=0,5 do
+		local item = self.parent:GetItemInSlot(i)
+		if item then
+			self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+		end
 	end
 end
 
