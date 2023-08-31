@@ -1,12 +1,6 @@
 if Dummy == nil then
 	Dummy = class({})
 end
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_dummy_damage", "modifiers/modifier_dummy_damage", LUA_MODIFIER_MOTION_NONE )
 
 function Dummy:init()
     local point = Entities:FindByName(nil,"dummy_point"):GetAbsOrigin()

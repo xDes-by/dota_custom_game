@@ -1,20 +1,5 @@
 require("data/data")
 
-LinkLuaModifier( "modifier_attack_speed", "modifiers/modifier_attack_speed", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_spell_ampl_creep", "modifiers/modifier_spell_ampl_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_health", "modifiers/modifier_health", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_creep", "modifiers/modifier_hp_regen_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_commandir", "modifiers/modifier_hp_regen_commandir", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_boss", "modifiers/modifier_hp_regen_boss", LUA_MODIFIER_MOTION_NONE )
-
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
-LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
-
 if Spawner == nil then
 	Spawner = class({})
 end
@@ -100,10 +85,10 @@ function Spawn_system()
 			Quests:UpdateCounter("bonus", 15, 1, i, 1)
 		end
 		if wave ~= 0 and wave % 5 == 0 then 
-			Spawner:SpawnBosses()	
+			xpcall(Spawner:SpawnBosses(), function(e) GameRules:SendCustomMessage(e,0,0) end)
 			return line_time
 		else
-			Spawner:settings()																					
+			xpcall(Spawner:settings(), function(e) GameRules:SendCustomMessage(e,0,0) end)																					
 		  return line_time
 		end
 	end)
@@ -171,7 +156,6 @@ end
 function Spawner:SpawnCreeps(name)   	
 	local barack = Entities:FindByName( nil, "badguys_creeps")  
 	if barack ~= nil then 		
-		creeps_line_notification() 
 		for i = 1, count_creeps do
 			local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
 			local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
@@ -189,6 +173,7 @@ function Spawner:SpawnCreeps(name)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_creep", nil)
 			add_modifier(creep)
 		end
+		creeps_line_notification() 
 	end
 end
 
@@ -236,7 +221,6 @@ function Spawner:SpawnBosses()
 			end
 		end
 
-		bosses_line_notification(name)  
 		local point = _G.point_line_spawner + RandomVector(RandomInt(50, 250))
 		local creep = CreateUnitByName( name, point, true, nil, nil, DOTA_TEAM_BADGUYS )
 		FindClearSpaceForUnit(creep, point, false)
@@ -265,6 +249,7 @@ function Spawner:SpawnBosses()
 		creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave * 2)
 		creep:AddNewModifier(creep, nil, "modifier_hp_regen_boss", nil)
 		add_modifier(creep)
+		bosses_line_notification(name)  
 	end
 end
 

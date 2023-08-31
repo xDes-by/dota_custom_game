@@ -6661,7 +6661,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6687,7 +6687,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua2"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6713,7 +6713,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua3"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6739,7 +6739,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua4"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6765,7 +6765,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua5"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6791,7 +6791,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua6"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6817,7 +6817,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua7"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -6842,7 +6842,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "gem1/item_moon_shard_lua8"
-		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
+		"ScriptFile"					"items/custom_items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -7772,6 +7772,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "1"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7798,6 +7799,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "2"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7824,6 +7826,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "3"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7850,6 +7853,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "4"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7876,6 +7880,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "5"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7902,6 +7907,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "6"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7926,6 +7932,7 @@
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "gem1//hurricane_pike_7_gem1"
 		"ItemBaseLevel"                                     "7"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7952,6 +7959,7 @@
 		"AbilityCooldown" 									"0.1"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "8"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -7979,6 +7987,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "1"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8003,6 +8012,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "2"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8027,6 +8037,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "3"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8051,6 +8062,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "4"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8075,6 +8087,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "5"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8099,6 +8112,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "6"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8123,6 +8137,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "7"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{
@@ -8147,6 +8162,7 @@
 		"AbilityCooldown" 									"8"
 		"MaxUpgradeLevel"                                   "8"
 		"ItemBaseLevel"                                     "8"
+        "ItemPurchasable"               "0"
 
 		"AbilityValues"
 		{

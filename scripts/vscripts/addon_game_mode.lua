@@ -24,8 +24,8 @@ _G.key = GetDedicatedServerKeyV3("WAR")
 _G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true -- false
-_G.server_load = false -- true
-_G.spawnCreeps = false -- true
+_G.server_load = true -- true
+_G.spawnCreeps = true -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -366,10 +366,6 @@ for i=2,25 do
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-LinkLuaModifier("modifier_only_phys", "modifiers/modifier_only_phys", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_cheack_afk", "modifiers/modifier_cheack_afk", LUA_MODIFIER_MOTION_NONE)
-
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
     
@@ -420,6 +416,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	-- Timers:CreateTimer(3000, function()
 		-- creep_spawner:spawn_2023()
 	-- end)
+<<<<<<< HEAD
 	if IsInToolsMode() then
 		Timers:CreateTimer(1,function()
 			hPlayerHero = PlayerResource:GetSelectedHeroEntity(0)
@@ -435,6 +432,8 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 			-- end )
 		end)
 	end
+=======
+>>>>>>> origin/main
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
 	creep_spawner:spawn_creeps_forest()	
@@ -470,11 +469,6 @@ end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_base_passive", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_transformation", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_silent2", "modifiers/modifier_silent2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_gold_bank", "modifiers/modifier_gold_bank", LUA_MODIFIER_MOTION_NONE)
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
@@ -495,7 +489,6 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end	
 		
 		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
-			LinkLuaModifier( "modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE )
 			npc:AddNewModifier( npc, nil, "modifier_ban", {} )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
 		end
@@ -512,11 +505,19 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end
 	end
 	if IsInToolsMode() then
+<<<<<<< HEAD
 		-- if npc:IsRealHero()  then
 		-- 	npc:RemoveAbility("spell_item_pet")
 		-- 	npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
 		-- 	CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
 		-- end
+=======
+		if npc:IsRealHero()  then
+			-- npc:RemoveAbility("spell_item_pet")
+			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
+			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+		end
+>>>>>>> origin/main
 	end
 end
 
@@ -565,14 +566,6 @@ end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_health_voker", "modifiers/modifier_health_voker", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_spell_ampl_creep", "modifiers/modifier_spell_ampl_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_health_mega", "modifiers/modifier_health_mega", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
 
 _G.rating_wave = 0
 _G.mega_boss_bonus = 0

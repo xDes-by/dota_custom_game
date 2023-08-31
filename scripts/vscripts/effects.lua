@@ -79,7 +79,6 @@ function effects:HighFive(t)
 end
 
 
-LinkLuaModifier('modifier_high_five_custom_search', 'effects.lua', LUA_MODIFIER_MOTION_NONE)
 modifier_high_five_custom_search = class({})
 
 function modifier_high_five_custom_search:IsHidden()
@@ -118,8 +117,6 @@ function modifier_high_five_custom_search:OnIntervalThink()
 		end
 	end
 end	
-
-LinkLuaModifier( "modifier_dummy", "modifiers/modifier_dummy", LUA_MODIFIER_MOTION_NONE )
 
 function Start_Five(hero1, hero2)
 	local vPoint = (hero2:GetOrigin() + hero1:GetOrigin())/2

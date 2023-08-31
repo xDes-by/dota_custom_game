@@ -275,10 +275,11 @@ function modifier_sheepstick_lua:GetModifierProjectileSpeedBonus()
     return self.projectile_speed
 end
 
-function modifier_sheepstick_lua:GetModifierProcAttack_Feedback(params)
-	if target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil then
-	if not self:GetParent():PassivesDisabled() then
-		target:AddNewModifier(self:GetAbility():GetCaster(), self:GetAbility(),	"modifier_sheepstick_lua_flame", { duration = 3.1 })
+function modifier_sheepstick_lua:GetModifierProcAttack_Feedback(data)
+	if data.target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil then
+		if not self:GetParent():PassivesDisabled() then
+			data.target:AddNewModifier(self:GetAbility():GetCaster(), self:GetAbility(), "modifier_sheepstick_lua_flame", { duration = 3.1 })
+		end
 	end
 end
 
@@ -297,6 +298,9 @@ function modifier_sheepstick_lua_flame:IsPurgable()
 end
 
 function modifier_sheepstick_lua_flame:OnCreated()
+	if not IsServer() then
+		return
+	end
 	self:StartIntervalThink(1)
 end
 

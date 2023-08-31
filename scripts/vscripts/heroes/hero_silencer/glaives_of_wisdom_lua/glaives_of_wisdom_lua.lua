@@ -68,6 +68,7 @@ end
 
 function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 	local caster = self:GetCaster()
+	if caster == target then return end
 	local damageTable = {
 		victim = target,
 		attacker = caster,

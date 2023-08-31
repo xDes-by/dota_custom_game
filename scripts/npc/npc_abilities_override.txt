@@ -28,11 +28,11 @@
         "ItemAliases"					"tp;town portal scroll;teleport"
         "ItemStackable"					"1"
         "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-        "ItemPermanent"					"0"
-        "ItemInitialCharges"			"1"
-        //"SideShop"						"1"
-        "ItemPurchasable"				"1"
-        
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"9999"
+		"ItemHideCharges"				"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"        
         // Special	
         //-------------------------------------------------------------------------------------------------------------
         "AbilityValues"
