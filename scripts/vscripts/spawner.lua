@@ -1,20 +1,5 @@
 require("data/data")
 
-LinkLuaModifier( "modifier_attack_speed", "modifiers/modifier_attack_speed", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_spell_ampl_creep", "modifiers/modifier_spell_ampl_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_health", "modifiers/modifier_health", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_creep", "modifiers/modifier_hp_regen_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_commandir", "modifiers/modifier_hp_regen_commandir", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hp_regen_boss", "modifiers/modifier_hp_regen_boss", LUA_MODIFIER_MOTION_NONE )
-
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
-LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
-
 if Spawner == nil then
 	Spawner = class({})
 end
