@@ -479,6 +479,23 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
 		id_check(steamID) -----------------------------------------------
+		
+		for categoryKey, categoryValue in ipairs(Shop.pShop[playerID]) do
+			for itemKey, itemValue in ipairs(categoryValue) do
+				if itemValue.itemname and itemValue.itemname == "item_str" and itemValue.now > 0 then
+					npc:AddItemByName("item_str")
+				end
+				if itemValue.itemname and itemValue.itemname == "item_agi" and itemValue.now > 0 then
+					npc:AddItemByName("item_agi")
+				end
+				if itemValue.itemname and itemValue.itemname == "item_int" and itemValue.now > 0 then
+					npc:AddItemByName("item_int")
+				end
+				if itemValue.itemname and itemValue.itemname == "item_tree_gold" and itemValue.now > 0 then
+					npc:AddItemByName("item_tree_gold")
+				end
+			end
+		end
 	end
 	if diff_wave.wavedef == "Insane" then
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
