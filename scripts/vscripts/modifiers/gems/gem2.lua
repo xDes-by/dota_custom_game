@@ -27,8 +27,13 @@ function modifier_gem2:OnIntervalThink()
 	for i=0,5 do
 		local item = self.parent:GetItemInSlot(i)
 		if item then
-			self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+			if string.sub(item:GetAbilityName(),-4) == "gem2" then
+				self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+			end
 		end
+	end
+	if self.stacks == 0 then 
+		self:Destroy()
 	end
 	self:SendBuffRefreshToClients()
 end
