@@ -4,8 +4,6 @@ if creep_spawner == nil then
 	creep_spawner = class({})
 end
 
-LinkLuaModifier( "modifier_creep_antilag", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
-
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
 creeps_zone3 = {"mines_creep_1","mines_creep_2","mines_creep_3"}

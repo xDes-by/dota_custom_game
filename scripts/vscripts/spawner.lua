@@ -49,12 +49,6 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
-	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-	Timers:CreateTimer(120,function()
-		if spawnCreeps then
-			Spawn_system()
-		end
-	end)
 	xpcall(function()
 		Timers:CreateTimer(120,function()
 			_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
@@ -176,10 +170,7 @@ function Spawner:SpawnCreeps(name)
 			creep:SetBaseMaxHealth(set_health)
 			creep:SetHealth(set_health)	
 			creep:SetDeathXP(xp)
-			
-			if RandomFloat(0, 100) < 0.1 then
-				creep:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
-			end
+							
 			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_creep", nil)
 			add_modifier(creep)
@@ -204,9 +195,6 @@ function Spawner:SpawnCommandirs(name)
 			creep:SetHealth(set_health_commandir)		
 			creep:SetDeathXP(xp*2)
 
-			if RandomFloat(0, 100) < 0.1 then
-				creep:AddNewModifier(nil, nil, "modifier_gold_creep", nil)
-			end
 			creep:AddNewModifier(creep, nil, "modifier_attack_speed", nil):SetStackCount(wave * 2)
 			creep:AddNewModifier(creep, nil, "modifier_spell_ampl_creep", nil):SetStackCount(wave * 2)
 			creep:AddNewModifier(creep, nil, "modifier_hp_regen_commandir", nil)

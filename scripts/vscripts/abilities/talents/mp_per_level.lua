@@ -22,21 +22,30 @@ function modifier_mp_per_level:RemoveOnDeath()
 	return false
 end
 
-function modifier_mp_per_level:OnCreated()
+function modifier_mp_per_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.magic_damage_level = self:GetAbility():GetSpecialValueFor( "magic_damage_level" ) * self.caster:GetLevel()
+	local level = self.caster:GetLevel()
+	self.mp_per_level = self:GetAbility():GetSpecialValueFor( "mp_per_level" ) * level
+	self:StartIntervalThink(1)
 end
 
-function modifier_mp_per_level:OnRefresh()
-	self.magic_damage_level = self:GetAbility():GetSpecialValueFor( "magic_damage_level" ) * self.caster:GetLevel()	
+function modifier_mp_per_level:OnRefresh( kv )
+	self.caster = self:GetCaster()
+	local level = self.caster:GetLevel()
+	self.mp_per_level = self:GetAbility():GetSpecialValueFor( "mp_per_level" ) * level	
+end
+
+function modifier_mp_per_level:OnIntervalThink()
+self:OnRefresh()
 end
 
 function modifier_mp_per_level:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+	local funcs = {
+		MODIFIER_PROPERTY_EXTRA_MANA_BONUS,
 	}
+	return funcs
 end
 
-function modifier_mp_per_level:GetModifierSpellAmplify_Percentage()
-	return self.magic_damage_level
+function modifier_mp_per_level:GetModifierExtraManaBonus()
+	return self.mp_per_level
 end

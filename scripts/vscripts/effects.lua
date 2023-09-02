@@ -13,6 +13,7 @@ function effects:init()
 end
 
 function effects:CastSpray(t)
+	print("spray start")
 	local sprayName = t.sprayName
 	if not sprayName then
 		sprayName = Shop.spray[t.PlayerID]
@@ -60,6 +61,7 @@ function effects:CastSpray(t)
 end
 
 function effects:HighFive(t)
+	print("highfive start")
 	local tab = CustomNetTables:GetTableValue("highfive", tostring(t.PlayerID))
 	if tab then
 		if tab.highfive ~= nil then

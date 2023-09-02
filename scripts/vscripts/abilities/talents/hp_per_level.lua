@@ -22,20 +22,28 @@ function modifier_hp_per_level:RemoveOnDeath()
 	return false
 end
 
-function modifier_hp_per_level:OnCreated()
+function modifier_hp_per_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.hp_per_level = self:GetAbility():GetSpecialValueFor( "hp_per_level" ) * self.caster:GetLevel()
+	local level = self.caster:GetLevel()
+	self.hp_per_level = self:GetAbility():GetSpecialValueFor( "hp_per_level" ) * level
+	self:StartIntervalThink(1)
 end
 
-function modifier_hp_per_level:OnRefresh()
+function modifier_hp_per_level:OnRefresh( kv )
 	self.caster = self:GetCaster()
-	self.hp_per_level = self:GetAbility():GetSpecialValueFor( "hp_per_level" ) * self.caster:GetLevel()	
+	local level = self.caster:GetLevel()
+	self.hp_per_level = self:GetAbility():GetSpecialValueFor( "hp_per_level" ) * level	
+end
+
+function modifier_hp_per_level:OnIntervalThink()
+self:OnRefresh()
 end
 
 function modifier_hp_per_level:DeclareFunctions()
-	return {
+	local funcs = {
 		MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
 	}
+	return funcs
 end
 
 function modifier_hp_per_level:GetModifierExtraHealthBonus()

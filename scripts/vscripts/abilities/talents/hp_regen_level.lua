@@ -24,18 +24,26 @@ end
 
 function modifier_hp_regen_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.hp_regen_level = self:GetAbility():GetSpecialValueFor( "hp_regen_level" ) * self.caster:GetLevel()
+	local level = self.caster:GetLevel()
+	self.hp_regen_level = self:GetAbility():GetSpecialValueFor( "hp_regen_level" ) * level
+	self:StartIntervalThink(1)
 end
 
 function modifier_hp_regen_level:OnRefresh( kv )
 	self.caster = self:GetCaster()
-	self.hp_regen_level = self:GetAbility():GetSpecialValueFor( "hp_regen_level" ) * self.caster:GetLevel()	
+	local level = self.caster:GetLevel()
+	self.hp_regen_level = self:GetAbility():GetSpecialValueFor( "hp_regen_level" ) * level	
+end
+
+function modifier_hp_regen_level:OnIntervalThink()
+self:OnRefresh()
 end
 
 function modifier_hp_regen_level:DeclareFunctions()
-	return {
+	local funcs = {
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 	}
+	return funcs
 end
 
 function modifier_hp_regen_level:GetModifierConstantHealthRegen()

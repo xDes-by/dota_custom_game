@@ -1,290 +1,5 @@
 "DOTAAbilities"
 {
-"item_recipe_midas_lua1"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"1750"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua1"
-		"ItemRequirements"
-		{
-			"01"							"item_gloves;"
-		}
-	}
-
-"item_recipe_midas_lua2"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"5000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua2"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua1;item_forest_soul;"
-		}
-	}
-	
-"item_recipe_midas_lua3"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"10000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua3"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua2;item_village_soul;"
-		}
-	}	
-	
-"item_recipe_midas_lua4"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"20000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua4"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua3;item_mines_soul;"
-		}
-	}	
-	
-"item_recipe_midas_lua5"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"30000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua5"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua4;item_dust_soul;"
-		}
-	}	
-	
-"item_recipe_midas_lua6"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"40000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua6"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua5;item_swamp_soul;"
-		}
-	}		
-"item_recipe_midas_lua7"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"50000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua7"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua6;item_snow_soul;"
-		}
-	}	
-"item_recipe_midas_lua8"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"99999"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_midas_lua8"
-		"ItemRequirements"
-		{
-			"01"							"item_midas_lua7;item_divine_soul;"
-		}
-	}
-
-	"item_midas_lua1"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_1"
-		"AbilityCooldown" 									"80"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "1"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-	"item_midas_lua2"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_2"
-		"AbilityCooldown" 									"75"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "2"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-	"item_midas_lua3"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_3"
-		"AbilityCooldown" 									"70"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "3"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-	"item_midas_lua4"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_4"
-		"AbilityCooldown" 									"65"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "4"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-
-	"item_midas_lua5"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_5"
-		"AbilityCooldown" 									"60"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "5"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-	"item_midas_lua6"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_6"
-		"AbilityCooldown" 									"55"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "6"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-
-	"item_midas_lua7"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_7"
-		"AbilityCooldown" 									"50"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "7"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
-	"item_midas_lua8"
-	{
-		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_midas_lua"
-		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"                                "all/midas_lua_8"
-		"AbilityCooldown" 									"45"
-		"MaxUpgradeLevel"                                   "8"
-		"ItemBaseLevel"                                     "8"
-
-		"AbilityValues"
-		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
-		}
-	}
 
 "item_recipe_hurricane_pike1"
 	{
@@ -423,7 +138,7 @@
 	"item_hurricane_pike1"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_1"
 		"AbilityCooldown" 									"0.8"
@@ -449,7 +164,7 @@
 	"item_hurricane_pike2"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_2"
 		"AbilityCooldown" 									"0.7"
@@ -475,7 +190,7 @@
 	"item_hurricane_pike3"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_3"
 		"AbilityCooldown" 									"0.6"
@@ -501,7 +216,7 @@
 	"item_hurricane_pike4"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_4"
 		"AbilityCooldown" 									"0.5"
@@ -528,7 +243,7 @@
 	"item_hurricane_pike5"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_5"
 		"AbilityCooldown" 									"0.4"
@@ -554,7 +269,7 @@
 	"item_hurricane_pike6"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_6"
 		"AbilityCooldown" 									"0.3"
@@ -580,7 +295,7 @@
 	"item_hurricane_pike7"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_7"
 		"AbilityCooldown" 									"0.2"
@@ -605,7 +320,7 @@
 	"item_hurricane_pike8"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_hurricane_pike"
+		"ScriptFile"                                        "items/custom_items/item_hurricane_pike.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/hurricane_pike_8"
 		"AbilityCooldown" 									"0.1"
@@ -765,7 +480,7 @@
 "item_sabre_blade1"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade1"
 		"AbilityCooldown" 									"8"
@@ -788,7 +503,7 @@
 "item_sabre_blade2"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade2"
 		"AbilityCooldown" 									"7"
@@ -811,7 +526,7 @@
 "item_sabre_blade3"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade3"
 		"AbilityCooldown" 									"6"
@@ -834,7 +549,7 @@
 "item_sabre_blade4"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade4"
 		"AbilityCooldown" 									"5"
@@ -857,7 +572,7 @@
 "item_sabre_blade5"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade5"
 		"AbilityCooldown" 									"4"
@@ -880,7 +595,7 @@
 "item_sabre_blade6"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade6"
 		"AbilityCooldown" 									"3"
@@ -903,7 +618,7 @@
 "item_sabre_blade7"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade7"
 		"AbilityCooldown" 									"2"
@@ -926,7 +641,7 @@
 "item_sabre_blade8"
 	{
 		"BaseClass"                                         "item_lua"
-		"ScriptFile"                                        "items/custom_items/item_sabre_blade"
+		"ScriptFile"                                        "items/custom_items/item_sabre_blade.lua"
 		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"                                "all/sabre_blade8"
 		"AbilityCooldown" 									"1"
@@ -953,7 +668,7 @@
 "item_quest_necronomicon"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_quest_necronomicon"
+		"ScriptFile"					"items/item_quest_necronomicon.lua"
 		"AbilityTextureName" 			"item_necronomicon_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"60"
@@ -3793,7 +3508,7 @@
 "item_blight_stone_lua"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"AbilityTextureName"			"item_blight_stone"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -3812,7 +3527,7 @@
 "item_desolator_lua1"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "item_desolator"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3828,7 +3543,7 @@
 "item_desolator_lua2"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"2"
 		"AbilityTextureName"	        "all/desolator_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3844,7 +3559,7 @@
 "item_desolator_lua3"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"3"
 		"AbilityTextureName"	        "all/desolator_3"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3860,7 +3575,7 @@
 "item_desolator_lua4"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"4"
 		"AbilityTextureName"	        "all/desolator_4"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3876,7 +3591,7 @@
 "item_desolator_lua5"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"5"
 		"AbilityTextureName"	        "all/desolator_5"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3892,7 +3607,7 @@
 "item_desolator_lua6"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"6"
 		"AbilityTextureName"	        "all/desolator_6"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3908,7 +3623,7 @@
 "item_desolator_lua7"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"7"
 		"AbilityTextureName"	        "all/desolator_7"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -3923,7 +3638,7 @@
 "item_desolator_lua8"
 	{
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/custom_items/item_desolator"
+		"ScriptFile"					"items/custom_items/item_desolator.lua"
 		"ItemBaseLevel"					"8"
 		"AbilityTextureName"	        "all/desolator_8"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -10341,7 +10056,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge1"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10373,7 +10088,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge2"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10405,7 +10120,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge3"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10437,7 +10152,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge4"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10469,7 +10184,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge5"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10501,7 +10216,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge6"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10533,7 +10248,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge7"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10564,7 +10279,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/pudge_heart/pudge8"
-		"ScriptFile"					"items/custom_items/item_pudge_heart"
+		"ScriptFile"					"items/custom_items/item_pudge_heart.lua"
 		
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
@@ -10742,7 +10457,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage1"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10776,7 +10491,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage2"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 		
@@ -10810,7 +10525,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage3"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10844,7 +10559,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage4"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10878,7 +10593,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage5"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10912,7 +10627,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage6"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10947,7 +10662,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage7"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -10980,7 +10695,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName"	        "custom/mage_heart/mage8"
-		"ScriptFile"					"items/custom_items/item_mage_heart"
+		"ScriptFile"					"items/custom_items/item_mage_heart.lua"
 		
 		"AbilityCastRange"				"700"
 
@@ -11152,7 +10867,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility1"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11179,7 +10894,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility2"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11206,7 +10921,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility3"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11233,7 +10948,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility4"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11260,7 +10975,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility5"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11287,7 +11002,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility6"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11314,7 +11029,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility7"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11340,7 +11055,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"	        "custom/agility_heart/agility8"
-		"ScriptFile"					"items/custom_items/item_agility_heart"
+		"ScriptFile"					"items/custom_items/item_agility_heart.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11510,7 +11225,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/moon/moon1"
-		"ScriptFile"					"items/custom_items/item_moon_shard"
+		"ScriptFile"					"items/custom_items/item_moon_shard.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11847,7 +11562,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword1"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11878,7 +11593,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword2"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11909,7 +11624,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword3"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11940,7 +11655,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword4"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -11971,7 +11686,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword5"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -12002,7 +11717,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword6"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -12033,7 +11748,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword7"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"
@@ -12063,7 +11778,7 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	        "custom/hood_sword/hood_sword8"
-		"ScriptFile"					"items/custom_items/item_hood_sword"
+		"ScriptFile"					"items/custom_items/item_hood_sword.lua"
 		
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemDroppable"					"1"

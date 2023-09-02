@@ -24,19 +24,28 @@ end
 
 function modifier_magic_damage:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.manacost_level = self:GetAbility():GetSpecialValueFor( "manacost_level" ) * self.caster:GetLevel()
+	local level = self.caster:GetLevel()
+	self.magic_damage = self:GetAbility():GetSpecialValueFor( "magic_damage" ) * level
+	self:StartIntervalThink(1)
 end
 
 function modifier_magic_damage:OnRefresh( kv )
-	self.manacost_level = self:GetAbility():GetSpecialValueFor( "manacost_level" ) * self.caster:GetLevel()	
+	self.caster = self:GetCaster()
+	local level = self.caster:GetLevel()
+	self.magic_damage = self:GetAbility():GetSpecialValueFor( "magic_damage" ) * level	
+end
+
+function modifier_magic_damage:OnIntervalThink()
+self:OnRefresh()
 end
 
 function modifier_magic_damage:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
+	local funcs = {
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 	}
+	return funcs
 end
 
 function modifier_magic_damage:GetModifierSpellAmplify_Percentage()
-	return self.manacost_level
+	return self.magic_damage
 end

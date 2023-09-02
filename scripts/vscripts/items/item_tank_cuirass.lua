@@ -55,6 +55,7 @@ function modifier_item_tank_cuirass:GetModifierProcAttack_BonusDamage_Magical(da
 	ParticleManager:ReleaseParticleIndex(pfx)
 	data.attacker:Heal(data.damage * self.lifesteal, data.attacker)
 	local damage = self.bonus_primary * self:GetParent():GetBonusDamageFromPrimaryStat()
+	print(damage)
 	SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, data.target, damage, nil)
 	return damage
 end

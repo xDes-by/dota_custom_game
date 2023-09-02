@@ -14,13 +14,13 @@ require('towershop')
 require('data/data')
 require('plugins')
 require('tp')
+require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
 _G.server_load = true -- true
@@ -65,11 +65,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	else
 		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
 	end
-	GameModeEntity:SetSelectionGoldPenaltyEnabled(false)
-	GameRules:SetHeroSelectPenaltyTime(0)
-	GameRules:SetPostGameTime(60)
-	GameRules:SetHideBlacklistedHeroes(true)
-    GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered( true )
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
@@ -87,8 +82,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
 	
 	--------------------------------------------------------------------------------------------	
-	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
-
+	
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
@@ -97,7 +91,8 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	-- ListenToGameEvent("dota_rune_activated_server", Dynamic_Wrap(CAddonAdvExGameMode, 'OnRunePickup'), self)
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
+	FilterManager:Init()
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
@@ -230,7 +225,7 @@ function item_destroy()
 						end
 					end
 				end
-			end
+			end	
 		return 181
     end)
 end
@@ -368,29 +363,15 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
     
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		loadscript()
-	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
-		local AllHeroPull = LoadKeyValues("scripts/npc/all_hero_pull.txt")
-		for iPlayerID=0, PlayerResource:GetPlayerCount() do
-			if PlayerResource:IsValidPlayer(iPlayerID) then
-				for k,v in pairs(AllHeroPull) do
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
-				end
-				--@dansoo0911:нужно превратить эти строки в функции которые будут возвращать тру или фолс
-				if IsMarciAvaliablee then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
-				end
-				if IsSilenserAvaliablee then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
-				end
-			end
-		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 			
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
-		if PlayerResource:HasSelectedHero(i) == false then
-			local player = PlayerResource:GetPlayer(i)
-			if player  then
-				player:MakeRandomHeroSelection()
+		if true then
+			if PlayerResource:HasSelectedHero(i) == false then
+				local player = PlayerResource:GetPlayer(i)
+				if player  then
+					player:MakeRandomHeroSelection()
+				end
 			end
 		end
 	end	 
@@ -511,24 +492,17 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-function CAddonAdvExGameMode:OnRunePickup(data)
-	local runs = {
-		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
-		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
-		[DOTA_RUNE_ILLUSION] = nil,
-		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_invis",
-		[DOTA_RUNE_REGENERATION] = "modifier_rune_regen",
-		[DOTA_RUNE_BOUNTY] = nil,
-		[DOTA_RUNE_ARCANE] = "modifier_rune_arcane",
-		[DOTA_RUNE_WATER] = nil,
-		[DOTA_RUNE_XP] = nil,
-		[DOTA_RUNE_SHIELD] = "modifier_rune_shield",
-	}
-	if runs[data.rune] ~= nil then
-		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
-		hHero:FindModifierByName(runs[data.rune]):Destroy()
+function CAddonAdvExGameMode:BountyFilter( kv )
+	DeepPrintTable(kv)
+	for i = 0, PlayerResource:GetPlayerCount()-1 do
+		if PlayerResource:IsValidPlayer(i) then
+			local hero = PlayerResource:GetSelectedHeroEntity(i)
+			hero:ModifyGoldFiltered(500, true, 0)
+		end
 	end
-	
+    local hero = PlayerResource:GetSelectedHeroEntity(kv.player_id_const)
+    kv.gold_bounty = 0
+    return true
 end
 
 function gg()
@@ -688,6 +662,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
+	
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
 			killedUnit:SetTimeUntilRespawn( 1.2 )
@@ -1247,14 +1222,3 @@ Convars:RegisterCommand( "reload", function ()
 	SendToServerConsole("script_reload")
 end,
 "reload", FCVAR_CHEAT )
-
-function OnEndMiniGame(eventIndex, data)
-	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
-	CustomUI:DynamicHud_Destroy(data.PlayerID, "minigame_container")
-	local mod = hHero:FindModifierByName("modifier_cheack_afk")
-	mod.MinigameStarted = false
-	if mod.modifier then
-		mod.modifier:Destroy()
-		mod.modifier = nil
-	end
-end

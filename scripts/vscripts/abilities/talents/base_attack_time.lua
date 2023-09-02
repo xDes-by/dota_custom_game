@@ -24,11 +24,22 @@ end
 
 function modifier_base_attack_time:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.base_attack_time = self.caster:GetBaseAttackTime()
-	self.caster:SetBaseAttackTime(self.base_attack_time - self:GetAbility():GetSpecialValueFor("base_attack_time"))
 end
 
 function modifier_base_attack_time:OnRefresh( kv )
-	self.caster:SetBaseAttackTime(self.base_attack_time - self:GetAbility():GetSpecialValueFor("base_attack_time"))
 end
 
+function modifier_base_attack_time:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+	}
+	return funcs
+end
+
+function modifier_base_attack_time:GetModifierAttackSpeedBonus_Constant()
+	level = self.caster:GetLevel()
+	if level % 5 == 0 then
+		return level
+	end
+	return level - (math.fmod(level, 5))
+end

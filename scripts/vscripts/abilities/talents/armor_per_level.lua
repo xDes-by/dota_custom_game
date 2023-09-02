@@ -24,18 +24,26 @@ end
 
 function modifier_armor_per_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.armor_per_level = self:GetAbility():GetSpecialValueFor( "armor_per_level" ) * self.caster:GetLevel()
+	local level = self.caster:GetLevel()
+	self.armor_per_level = self:GetAbility():GetSpecialValueFor( "armor_per_level" ) * level
+	self:StartIntervalThink(1)
 end
 
 function modifier_armor_per_level:OnRefresh( kv )
 	self.caster = self:GetCaster()
-	self.armor_per_level = self:GetAbility():GetSpecialValueFor( "armor_per_level" ) * self.caster:GetLevel()	
+	local level = self.caster:GetLevel()
+	self.armor_per_level = self:GetAbility():GetSpecialValueFor( "armor_per_level" ) * level	
+end
+
+function modifier_armor_per_level:OnIntervalThink()
+self:OnRefresh()
 end
 
 function modifier_armor_per_level:DeclareFunctions()
-	return {
+	local funcs = {
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
+	return funcs
 end
 
 function modifier_armor_per_level:GetModifierPhysicalArmorBonus()
