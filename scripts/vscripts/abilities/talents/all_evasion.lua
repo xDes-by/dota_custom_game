@@ -22,28 +22,24 @@ function modifier_all_evasion:RemoveOnDeath()
 	return false
 end
 
-function modifier_all_evasion:OnCreated( kv )
+function modifier_all_evasion:OnCreated()
 	self.caster = self:GetCaster()
+	self.max_chance = self:GetAbility():GetSpecialValueFor("all_evasion")
 end
 
-function modifier_all_evasion:OnRefresh( kv )
+function modifier_all_evasion:OnRefresh()
+	self.max_chance = self:GetAbility():GetSpecialValueFor("all_evasion")
 end
 
 function modifier_all_evasion:DeclareFunctions()
-	local funcs	=	{
+	return {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
 	}
-
-	return funcs
 end
 
 function modifier_all_evasion:GetModifierIncomingDamage_Percentage()
-	local caster	=	self:GetCaster()
-	max_chance = 15 --self:GetAbility():GetSpecialValueFor( "all_evasion" )
-	
-	local r5 = RandomInt(1,100)
-	if r5 <= max_chance then
-		local backtrack_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", PATTACH_ABSORIGIN, caster)
+	if RandomInt(1,100) <= self.max_chance then
+		local backtrack_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", PATTACH_ABSORIGIN, self.caster)
 		ParticleManager:SetParticleControl(backtrack_fx, 0, caster:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(backtrack_fx)
 		return -100

@@ -33,10 +33,9 @@ function modifier_m_resist:OnRefresh( kv )
 end
 
 function modifier_m_resist:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 	}
-	return funcs
 end
 
 function modifier_m_resist:GetModifierMagicalResistanceBonus()
