@@ -4,9 +4,6 @@ if creep_spawner == nil then
 	creep_spawner = class({})
 end
 
-LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
-
 LinkLuaModifier( "modifier_creep_antilag", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
 
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
@@ -577,7 +574,7 @@ end
 --------------------Gold Creep
 ---------------------------------------------------------------------------------------------------
 
-ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
+-- ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
 ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), creep_spawner)	
 
 function creep_spawner:FixCreepLags(data)

@@ -22,9 +22,9 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true -- false
-_G.server_load = false -- true
-_G.spawnCreeps = false -- true
+_G.cheatmode = false -- false
+_G.server_load = true -- true
+_G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -363,10 +363,6 @@ for i=2,25 do
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-LinkLuaModifier("modifier_only_phys", "modifiers/modifier_only_phys", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_cheack_afk", "modifiers/modifier_cheack_afk", LUA_MODIFIER_MOTION_NONE)
-
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
     
@@ -452,11 +448,6 @@ end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_base_passive", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_transformation", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_silent2", "modifiers/modifier_silent2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_gold_bank", "modifiers/modifier_gold_bank", LUA_MODIFIER_MOTION_NONE)
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
@@ -477,7 +468,6 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end	
 		
 		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
-			LinkLuaModifier( "modifier_ban", "modifiers/modifier_ban", LUA_MODIFIER_MOTION_NONE )
 			npc:AddNewModifier( npc, nil, "modifier_ban", {} )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
 		end
@@ -492,7 +482,14 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
 			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
 		end
-	end	
+	end
+	if IsInToolsMode() then
+		if npc:IsRealHero()  then
+			-- npc:RemoveAbility("spell_item_pet")
+			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
+			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+		end
+	end
 end
 
 function CheckCheatMode()
@@ -547,14 +544,6 @@ end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier( "modifier_health_voker", "modifiers/modifier_health_voker", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_spell_ampl_creep", "modifiers/modifier_spell_ampl_creep", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_health_mega", "modifiers/modifier_health_mega", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
 
 _G.rating_wave = 0
 _G.mega_boss_bonus = 0
@@ -600,7 +589,7 @@ function full_win()
 	for nPlayerID = 0, DOTA_MAX_PLAYERS - 1 do
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
-			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.rating_scale > 0 then
+			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.wavedef ~= "Easy" then
 				DataBase:AddCoins(nPlayerID, 1)
 			end
 		end
@@ -686,11 +675,11 @@ end
 
 function kill_all_creeps()
 	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		for _,unit in ipairs(enemies) do
-			if unit:HasModifier("modifier_unit_on_death") then
-				unit:ForceKill(false)		
-			end	
+	for _,unit in ipairs(enemies) do
+		if unit:HasModifier("modifier_unit_on_death") then
+			unit:ForceKill(false)		
 		end	
+	end	
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -797,7 +786,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 	
-	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:isCheatOn() then
+	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:IsCheatMode() then
 			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 					if PlayerResource:HasSelectedHero( nPlayerID ) then
@@ -825,13 +814,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
 		hRelay:Trigger(nil,nil)
-		if not DataBase:isCheatOn() then
+		if not DataBase:IsCheatMode() then
 			_G.kill_invoker = true
 			rating_win()
 		end
 	end
 	
-	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not GameRules:IsCheatMode() then
+	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
 		Timers:CreateTimer(3,function() 
 			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		end)

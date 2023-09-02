@@ -1,5 +1,3 @@
-modifier_hide_zone_units = class({})
-
 LinkLuaModifier( "modifier_creep_antilag_aura", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_creep_antilag_phased", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
 

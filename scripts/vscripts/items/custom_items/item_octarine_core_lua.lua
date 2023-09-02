@@ -61,18 +61,28 @@ function item_octarine_core_lua:GetManaCost(iLevel)
 end
 
 function item_octarine_core_lua:OnSpellStart()
+	if not IsServer() then return end
 	local caster = self:GetCaster()
-    local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	local particle = ParticleManager:CreateParticle("particles/items2_fx/refresher.vpcf", PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true)
     ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOnLocationWithCaster(caster:GetOrigin(), "DOTA_Item.Refresher.Activate", caster)
-	for i = 0, 8 do 
+	
+	for i = 0, 23 do 
+		local current_ability = caster:GetAbilityByIndex(i)
+		if current_ability then
+			current_ability:EndCooldown()
+		end
+	end
+	for i = 0, 23 do 
 		local current_item = caster:GetItemInSlot(i)
 		local should_refresh = true
 		
-		if current_item and (string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster) or string.find(current_item:GetName(), "item_ex_machina") then
-			should_refresh = false
+		if current_item ~= nil then
+			if string.find(current_item:GetName(), "octarine_core") or current_item:GetPurchaser() ~= caster or string.find(current_item:GetName(), "item_ex_machina") then
+				should_refresh = false
+			end
 		end
 
 		if current_item and should_refresh then

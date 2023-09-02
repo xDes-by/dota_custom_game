@@ -54,9 +54,9 @@ item_moon_shard_lua6_gem5 = item_moon_shard_lua
 item_moon_shard_lua7_gem5 = item_moon_shard_lua
 item_moon_shard_lua8_gem5 = item_moon_shard_lua
 
-LinkLuaModifier("modifier_item_moon_shard_lua_passive", 'items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive", 'items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive_effect", 'items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_moon_shard_lua_passive", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive_effect", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
 
 function item_moon_shard_lua:GetIntrinsicModifierName()
 	return "modifier_item_moon_shard_lua_passive"

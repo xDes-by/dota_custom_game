@@ -82,8 +82,8 @@ function modifier_ability_npc_boss_plague_squirrel_totem:OnAttacked(data)
     if not IsServer() then return end
     if data.attacker:IsRealHero() and data.target == self:GetParent() then
         self:GetParent():SetHealth( self:GetParent():GetHealth() - 1 )
-        if self:GetParent():GetHealth() == 0 then 
-            self:GetParent():ForceKill(false)
+        if self:GetParent():GetHealth() <= 0 then 
+            UTIL_Remove(self:GetParent())
         end
     end
 end
