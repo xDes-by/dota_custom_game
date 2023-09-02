@@ -80,7 +80,7 @@ function modifier_item_moon_shard_lua_passive:OnCreated()
 	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
 	if self.value then
 		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value})
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
 	end
 end
 
@@ -90,7 +90,7 @@ function modifier_item_moon_shard_lua_passive:OnDestroy()
 	end
 	if self.value then
 		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value * -1})
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
 	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive") then
 		self:GetCaster():RemoveModifierByName("modifier_item_moon_shard_lua_passive_aura_positive")
