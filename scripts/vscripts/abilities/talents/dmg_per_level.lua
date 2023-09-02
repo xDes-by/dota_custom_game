@@ -24,26 +24,17 @@ end
 
 function modifier_dmg_per_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	local level = self.caster:GetLevel()
-	self.dmg_per_level = self:GetAbility():GetSpecialValueFor( "dmg_per_level" ) * level
-	self:StartIntervalThink(1)
+	self.dmg_per_level = self:GetAbility():GetSpecialValueFor( "dmg_per_level" ) * self.caster:GetLevel()
 end
 
 function modifier_dmg_per_level:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	local level = self.caster:GetLevel()
-	self.dmg_per_level = self:GetAbility():GetSpecialValueFor( "dmg_per_level" ) * level	
-end
-
-function modifier_dmg_per_level:OnIntervalThink()
-self:OnRefresh()
+	self.dmg_per_level = self:GetAbility():GetSpecialValueFor( "dmg_per_level" ) * self.caster:GetLevel()	
 end
 
 function modifier_dmg_per_level:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 	}
-	return funcs
 end
 
 function modifier_dmg_per_level:GetModifierBaseAttack_BonusDamage()

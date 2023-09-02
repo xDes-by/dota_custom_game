@@ -10,10 +10,28 @@ function Increase_str:GetAbilityTextureName()
 	return "modifier_Increase_str"
 end
 
+modifier_Increase_str = class({})
 
-if modifier_Increase_str == nil then 
-    modifier_Increase_str = class({})
+function modifier_Increase_str:IsHidden()
+	return false
 end
+
+function modifier_Increase_str:IsPurgable()
+    return false
+end
+ 
+function modifier_Increase_str:RemoveOnDeath()
+    return false
+end
+
+function modifier_Increase_str:OnCreated(kv)
+    self.str_per_creep = self:GetAbility():GetSpecialValueFor("str_per_creep")
+end
+
+function modifier_Increase_str:OnRefresh(kv)
+    self.str_per_creep = self:GetAbility():GetSpecialValueFor("str_per_creep")
+end
+
 
 function modifier_Increase_str:DeclareFunctions()
 	return {
@@ -31,22 +49,7 @@ function modifier_Increase_str:OnDeath(params)
 end
 
 function modifier_Increase_str:GetModifierBonusStats_Strength(params)
-    return math.floor(self:GetStackCount() / 5)
-end
-
-function modifier_Increase_str:IsHidden()
-	return false
-end
-
-function modifier_Increase_str:IsPurgable()
-    return false
-end
- 
-function modifier_Increase_str:RemoveOnDeath()
-    return false
-end
-
-function modifier_Increase_str:OnCreated(kv)
+    return math.floor(self:GetStackCount() * self.str_per_creep)
 end
 
 function IsMyKilledBadGuys(hero, params)

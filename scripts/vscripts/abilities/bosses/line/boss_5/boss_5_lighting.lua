@@ -52,7 +52,21 @@ function modifier_zuus_arc_lightning_lua_attack:OnAttackLanded( params )
 				})
 			end
 		end
-	end	
+	end
+		end,
+			function(e)
+				print("-------------Error-------------")
+				print(e)
+				print("-------------Error-------------")
+			end)  
+			--дебаг
+			
+			--вызов вункции в которой может быть ошибка
+			if bResult then
+			--print("all ok")
+			else
+			print("error")
+			end		
 end
 
 --------------------------------------
@@ -185,4 +199,18 @@ function modifier_zuus_arc_lightning_lua:OnIntervalThink()
 			self:Destroy()
 		end
 	end
+			end,
+			function(e)
+				print("-------------Error-------------")
+				print(e)
+				print("-------------Error-------------")
+			end)  
+			--дебаг
+			
+			--вызов вункции в которой может быть ошибка
+			if bResult then
+			--print("all ok")
+			else
+			print("error")
+			end		
 end

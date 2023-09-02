@@ -2,6 +2,10 @@ LinkLuaModifier("modifier_pulse", "abilities/bosses/mines/gaven_create_stone", L
 
 gaven_create_stone = class({})
 
+function gaven_create_stone:GetIntrinsicModifierName()
+	return "modifier_earthshaker_fissure_shard_pathing"
+end
+
 function gaven_create_stone:OnSpellStart()
 	if IsServer() then
 		for i = 1, 3 do

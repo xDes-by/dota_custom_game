@@ -5,18 +5,18 @@
 	"npc_dota_hero_death_prophet"       	 	"1"	// 95
     "npc_dota_hero_viper"        				"1"	// 95
 	"npc_dota_hero_spirit_breaker"        		"1"
-    "npc_dota_hero_vengefulspirit"        		"0"
-	"npc_dota_hero_dawnbreaker"        			"0"
-	"npc_dota_hero_necrolyte"        			"0"
+    "npc_dota_hero_vengefulspirit"        		"1"
+	"npc_dota_hero_dawnbreaker"        			"1"
+	"npc_dota_hero_necrolyte"        			"1"
 	
-	"npc_dota_hero_queenofpain"        			"0"
-	"npc_dota_hero_templar_assassin"        	"0"
-	"npc_dota_hero_monkey_king"        			"0"
-	"npc_dota_hero_dark_willow"        			"0"
-	"npc_dota_hero_witch_doctor"        		"0"
-	"npc_dota_hero_tiny"        				"0"
-	"npc_dota_hero_undying"        				"0"
-	"npc_dota_hero_leshrac"        				"0"
+	"npc_dota_hero_queenofpain"        			"1"
+	"npc_dota_hero_templar_assassin"        	"1"
+	"npc_dota_hero_monkey_king"        			"1"
+	"npc_dota_hero_dark_willow"        			"1"
+	"npc_dota_hero_witch_doctor"        		"1"
+	"npc_dota_hero_tiny"        				"1"
+	"npc_dota_hero_undying"        				"1"
+	"npc_dota_hero_leshrac"        				"1"
 	
 	
     "npc_dota_hero_axe"        					"1" //готов
@@ -63,7 +63,8 @@
 	"npc_dota_hero_broodmother"        			"1"
     "npc_dota_hero_huskar"        				"1"
 	"npc_dota_hero_magnataur"        			"1"
-	
+	"npc_dota_hero_silencer"                    "1"
+    "npc_dota_hero_marci"                       "1"
 	
 	
 	
@@ -147,6 +148,5 @@
     "npc_dota_hero_void_spirit"        "0"
     "npc_dota_hero_snapfire"        "0"
     "npc_dota_hero_hoodwink"        "0"
-    "npc_dota_hero_marci"        "0"
     "npc_dota_hero_muerta"        "0"
 }

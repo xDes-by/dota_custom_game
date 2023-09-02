@@ -24,26 +24,17 @@ end
 
 function modifier_mp_regen_level:OnCreated( kv )
 	self.caster = self:GetCaster()
-	local level = self.caster:GetLevel()
-	self.mp_regen_level = self:GetAbility():GetSpecialValueFor( "mp_regen_level" ) * level
-	self:StartIntervalThink(1)
+	self.mp_regen_level = self:GetAbility():GetSpecialValueFor( "mp_regen_level" ) * self.caster:GetLevel()
 end
 
 function modifier_mp_regen_level:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	local level = self.caster:GetLevel()
-	self.mp_regen_level = self:GetAbility():GetSpecialValueFor( "mp_regen_level" ) * level	
-end
-
-function modifier_mp_regen_level:OnIntervalThink()
-self:OnRefresh()
+	self.mp_regen_level = self:GetAbility():GetSpecialValueFor( "mp_regen_level" ) * self.caster:GetLevel()	
 end
 
 function modifier_mp_regen_level:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 	}
-	return funcs
 end
 
 function modifier_mp_regen_level:GetModifierConstantManaRegen()

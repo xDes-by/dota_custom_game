@@ -19774,7 +19774,8 @@
         "DOTA_Tooltip_modifier_ursa_lapki_effect_Description" "Каждая атака наносит больше урона."
 
 
-
+        "npc_dota_hero_silencer_npedesc1"	"Вы можете открыть этого героя в нашем дискорде"
+        "npc_dota_hero_marci_npedesc1"	"Вы можете открыть этого героя в нашем дискорде"
 
 
 

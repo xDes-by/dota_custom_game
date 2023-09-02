@@ -101,6 +101,7 @@ function modifier_item_mage_heart_passive:OnDestroy()
 		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
 end
+
 function modifier_item_mage_heart_passive:OnIntervalThink()		
 	local parent = self:GetParent()
 	local caster = self:GetCaster()

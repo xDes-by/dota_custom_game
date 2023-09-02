@@ -10,8 +10,26 @@ function Increase_agi:GetAbilityTextureName()
 	return "modifier_Increase_agi"
 end
 
-if modifier_Increase_agi == nil then 
-    modifier_Increase_agi = class({})
+modifier_Increase_agi = class({})
+
+function modifier_Increase_agi:IsHidden()
+	return false
+end
+
+function modifier_Increase_agi:IsPurgable()
+    return false
+end
+ 
+function modifier_Increase_agi:RemoveOnDeath()
+    return false
+end
+
+function modifier_Increase_agi:OnCreated(kv)
+    self.agi_per_creep = self:GetAbility():GetSpecialValueFor("agi_per_creep")
+end
+
+function modifier_Increase_agi:OnRefresh(kv)
+    self.agi_per_creep = self:GetAbility():GetSpecialValueFor("agi_per_creep")
 end
 
 function modifier_Increase_agi:DeclareFunctions()
@@ -30,22 +48,7 @@ function modifier_Increase_agi:OnDeath(params)
 end
 
 function modifier_Increase_agi:GetModifierBonusStats_Agility(params)
-    return math.floor(self:GetStackCount() / 5)
-end
-
-function modifier_Increase_agi:IsHidden()
-	return false
-end
-
-function modifier_Increase_agi:IsPurgable()
-    return false
-end
- 
-function modifier_Increase_agi:RemoveOnDeath()
-    return false
-end
-
-function modifier_Increase_agi:OnCreated(kv)
+    return math.floor(self:GetStackCount() * self.agi_per_creep)
 end
 
 function IsMyKilledBadGuys(hero, params)
