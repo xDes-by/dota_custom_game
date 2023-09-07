@@ -1,15 +1,3 @@
-movespeed = class({})
-
-LinkLuaModifier( "modifier_armor_curruption", "abilities/talents/ms", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_armor_curruption_talent", "abilities/talents/ms", LUA_MODIFIER_MOTION_NONE )
-
-function movespeed:GetIntrinsicModifierName()
-	return "modifier_armor_curruption"
-end
-
-----------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------
-
 modifier_armor_curruption = class({})
 
 function modifier_armor_curruption:IsHidden()
@@ -23,15 +11,15 @@ end
 function modifier_armor_curruption:RemoveOnDeath()
 	return false
 end
-
+modifier_armor_curruption.value = {0.1, 0.12, 0.14, 0.16, 0.18, 0.2}
 function modifier_armor_curruption:OnCreated( kv )
 	self.caster = self:GetCaster()
-	self.armor_curruption = self:GetAbility():GetSpecialValueFor( "armor_curruption" ) * -1
+	self.armor_curruption = self.value[self:GetStackCount()]
 end
 
 function modifier_armor_curruption:OnRefresh( kv )
 	self.caster = self:GetCaster()
-	self.armor_curruption = self:GetAbility():GetSpecialValueFor( "armor_curruption" ) * -1
+	self.armor_curruption = self.value[self:GetStackCount()]
 end
 
 function modifier_armor_curruption:DeclareFunctions()

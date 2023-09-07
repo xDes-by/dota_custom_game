@@ -145,3 +145,22 @@ point_last = {
 	[5] = {8733, 5434, 128},
 	[6] = {8199, 3375, 139},
 }
+
+PatroolWave = {
+	{"npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby",},
+	{"npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt",},
+	{"npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon",},
+	{"npc_patrool4_zoomby","npc_patrool4_zoomby","npc_patrool4_zoomby",},
+	{"npc_patrool5_necro"},
+}
+
+PatroolPoints = {
+	[0] = {},
+	[1] = {},
+	[2] = {},
+	[3] = {},
+	[4] = {},
+	[5] = {},
+	[6] = {},
+	[7] = {},
+}

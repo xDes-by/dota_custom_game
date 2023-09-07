@@ -34,7 +34,7 @@ rat = 0
 count_comandir = 5
 count_creeps = 25
 
-line_time = 120
+line_time = 60
 
 damage_creeps = 6
 health = 110
@@ -49,12 +49,6 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
-	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-	Timers:CreateTimer(120,function()
-		if spawnCreeps then
-			Spawn_system()
-		end
-	end)
 	xpcall(function()
 		Timers:CreateTimer(120,function()
 			_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
@@ -63,6 +57,11 @@ function Spawner:Init()
 			end
 		end)
 	end, function(e) GameRules:SendCustomMessage("error spawn: " .. e,0,0) end)
+
+	Timers:CreateTimer(RandomInt(120, 300),function()
+		CreatePatroolWave()
+		return RandomInt(120, 300)
+	end)
 end
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -332,4 +331,51 @@ function bosses_line_notification(creeps_name)
 	rating.wave_count = 0
 	rating.wave_need = 1
 	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
+end
+
+function CreatePatroolWave()
+	local gold = {[0] = 60,[1] = 150,[2] = 250,[3] = 400,[4] = 550,[5] = 650,[6] = 1000,[7] = 1500,[8] = 50}
+	local corners = {}
+	local towers = {"npc_dota_custom_tower", "npc_dota_custom_tower2", "npc_dota_custom_tower3", "npc_dota_goodguys_fort"}
+	local t = {}
+	for k,value in ipairs(towers) do
+		local tower = Entities:FindByName( nil, value)
+		if tower:IsAlive() then
+			table.insert(corners, tower)
+		end
+	end
+	local points = {}
+	for k,v in pairs(PatroolPoints) do
+		if k <= _G.don_spawn_level then
+			table.insert(points, v)
+		end
+	end
+	for k,name in pairs(PatroolWave) do
+		CreateUnitByNameAsync(name, points[RandomInt(1, #points)], true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
+			unit:SetMaxHealth(set_health)
+			unit:SetHealth(set_health)
+			unit:SetBaseDamageMin(set_damage)
+			unit:SetBaseDamageMin(set_damage)
+			unit:SetPhysicalArmorBaseValue(set_armor)
+			unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1, 1.4))
+			unit:SetMinimumGoldBounty(gold[_G.don_spawn_level} * RandomFloat(1, 1.4))
+			unit.corners = corners
+			unit.CornerID = 1
+			unit:SetContextThink( "Think", function()
+				MoveToNextCornerThink(unit, unit.CornerID)
+			end, 0.1 )
+		end)
+	end
+end
+
+function MoveToNextCornerThink(unit, CornerID)
+    if unit:IsNull() or not unit:IsAlive() then 
+		return 
+	end
+    if unit.corners[unit.CornerID + 1] and (unit.corners[unit.CornerID]:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D() < 100 then     
+		unit.CornerID = unit.CornerID + 1
+	end
+	if unit:GetAggroTarget() == nil or (unit:GetAggroTarget() and not unit:GetAggroTarget():IsAlive()) then
+		unit:MoveToPositionAggressive(point_corner)
+	end
 end

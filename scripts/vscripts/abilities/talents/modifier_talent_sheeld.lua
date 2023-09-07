@@ -1,44 +1,34 @@
-status = class({})
-LinkLuaModifier( "modifier_status", "abilities/talents/status", LUA_MODIFIER_MOTION_NONE )
+modifier_talent_sheeld = class({})
 
-function status:GetIntrinsicModifierName()
-	return "modifier_status"
-end
-
-----------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------
-
-modifier_status = class({})
-
-function modifier_status:IsHidden()
+function modifier_talent_sheeld:IsHidden()
 	return true
 end
 
-function modifier_status:IsPurgable()
+function modifier_talent_sheeld:IsPurgable()
 	return false
 end
 
-function modifier_status:RemoveOnDeath()
+function modifier_talent_sheeld:RemoveOnDeath()
 	return false
 end
-
-function modifier_status:OnCreated( kv )
+modifier_talent_sheeld.value = {7.5, 10, 12.5, 15, 17.5, 20}
+function modifier_talent_sheeld:OnCreated( kv )
 	self.caster = self:GetCaster()
 	self.IsBroken = false
-	self.sheeld_max = self:GetAbility():GetSpecialValueFor( "sheeld" ) * 0.01 * self.caster:GetMaxHealth()
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 30
 	self.current_sheeld_health = self.sheeld_max
 	self:SetStackCount(self.current_sheeld_health)
 	self:StartIntervalThink(0.03)
 end
 
-function modifier_status:OnRefresh( kv )
+function modifier_talent_sheeld:OnRefresh( kv )
 	self.caster = self:GetCaster()
-	self.sheeld_max = self:GetAbility():GetSpecialValueFor( "sheeld" ) * 0.01 * self.caster:GetMaxHealth()
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 30
 end
 
-function modifier_status:OnIntervalThink()
+function modifier_talent_sheeld:OnIntervalThink()
 	self.current_sheeld_health = self.current_sheeld_health + self.sheeld_regen
 	if self.current_sheeld_health > self.sheeld_max then
 		self.current_sheeld_health = self.sheeld_max
@@ -48,13 +38,13 @@ function modifier_status:OnIntervalThink()
 	self:SetStackCount(self.current_sheeld_health)
 end
 
-function modifier_status:DeclareFunctions()
+function modifier_talent_sheeld:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT
 	}
 end
 
-function modifier_status:GetModifierIncomingDamageConstant(data)
+function modifier_talent_sheeld:GetModifierIncomingDamageConstant(data)
 	if IsClient() then
 		return 0 
 	end

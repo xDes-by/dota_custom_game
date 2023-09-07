@@ -8384,3 +8384,5 @@
 
 //--------------------------------------- BOSS EARTHSHAKER -----------------------------------
 #base "../vscripts/bosses/EARTHSHAKER/models.txt"
+
+#base "../npc/npc_patrool_units.txt"

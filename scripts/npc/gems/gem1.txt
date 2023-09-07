@@ -8177,7 +8177,173 @@
 			"bonus_gem" 		"2 4 6 8 10 12 14 16"
 		}
 	}
+"item_midas_lua1_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_1_gem1"
+		"AbilityCooldown" 									"80"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "1"
+        "ItemPurchasable"               "0"
 
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+	"item_midas_lua2_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_2_gem1"
+		"AbilityCooldown" 									"75"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "2"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+	"item_midas_lua3_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_3_gem1"
+		"AbilityCooldown" 									"70"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "3"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+	"item_midas_lua4_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_4_gem1"
+		"AbilityCooldown" 									"65"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "4"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+
+	"item_midas_lua5_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_5_gem1"
+		"AbilityCooldown" 									"60"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "5"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+	"item_midas_lua6_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_6_gem1"
+		"AbilityCooldown" 									"55"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "6"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+
+	"item_midas_lua7_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_7_gem1"
+		"AbilityCooldown" 									"50"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "7"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
+	"item_midas_lua8_gem1"
+	{
+		"BaseClass"                                         "item_lua"
+		"ScriptFile"                                        "items/custom_items/item_midas_lua"
+		"AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"								"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"								"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"                                "gem1/midas_lua_8_gem1"
+		"AbilityCooldown" 									"45"
+		"MaxUpgradeLevel"                                   "8"
+		"ItemBaseLevel"                                     "8"
+        "ItemPurchasable"               "0"
+
+		"AbilityValues"
+		{
+			"attack_speed"									"40 60 80 100 120 140 160 180"
+			"shareble_gold"									"30"
+			"bonus_gem" 		"2 4 6 8 10 12 14 16"
+		}
+	}
 
 
 

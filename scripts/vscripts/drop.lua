@@ -273,7 +273,20 @@ function RollNeutralItemDrop(unit, killer)
 					end
 				end	
 			end
-			DropNeutralItemAtPositionForHero(item_name, unit:GetAbsOrigin(), killer, tier, false)
+			local item = DropNeutralItemAtPositionForHero(item_name, unit:GetAbsOrigin(), killer, tier, false)
+			if killer.LastNeutralTeerDroped == tier then
+				if killer:IsRealHero() then
+					PlayerResource:AddNeutralItemToStash(killer:GetPlayerID(), killer:GetTeamNumber(), item:GetContainedItem())
+				else
+					PlayerResource:AddNeutralItemToStash(killer:GetOwnerEntity():GetPlayerID(), killer:GetTeamNumber(), item:GetContainedItem())
+				end
+				UTIL_Remove(item)
+			end
+			if killer:IsRealHero() then
+				killer.LastNeutralTeerDroped = tier
+			else
+				killer:GetOwnerEntity().LastNeutralTeerDroped = tier
+			end
 		end
 	end
 end

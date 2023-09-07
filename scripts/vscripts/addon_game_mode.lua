@@ -97,7 +97,8 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	-- ListenToGameEvent("dota_rune_activated_server", Dynamic_Wrap(CAddonAdvExGameMode, 'OnRunePickup'), self)
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(CAddonAdvExGameMode, "BountyRunePickupFilter"), self)
+	ListenToGameEvent("dota_rune_activated_server", Dynamic_Wrap(CAddonAdvExGameMode, 'OnRunePickup'), self)
 	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
@@ -322,7 +323,7 @@ function LevelUp (eventInfo)
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
-	if level > 25 then
+	if level > 30 then
 		hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
 	end
  end
@@ -511,6 +512,26 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
+function CAddonAdvExGameMode:BountyRunePickupFilter(data)
+	if _G.kill_invoker then
+		data.gold =  9999
+		return true
+	end
+	local gold = {
+		[0] = 60,
+		[1] = 150,
+		[2] = 250,
+		[3] = 400,
+		[4] = 550,
+		[5] = 650,
+		[6] = 1000,
+		[7] = 1500,
+		[8] = 50,
+	}
+	data.gold = gold[_G.don_spawn_level] * 2
+	return true
+end
+
 function CAddonAdvExGameMode:OnRunePickup(data)
 	local runs = {
 		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
@@ -526,7 +547,7 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 	}
 	if runs[data.rune] ~= nil then
 		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
-		hHero:FindModifierByName(runs[data.rune]):Destroy()
+		hHero:RemoveModifierByName(runs[data.rune])
 	end
 	
 end
