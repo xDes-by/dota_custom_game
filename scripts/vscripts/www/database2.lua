@@ -36,7 +36,8 @@ function DataBase:init()
 	DataBase.AutoQuestLink = _G.host .. "/backend/api/auto-quest-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.OpenTreasureLink = _G.host .. "/backend/api/open-treasure?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.SprayToggleActivateLink = _G.host .. "/backend/api/spray-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	
+	DataBase.ActivateTrialPeriodPetLink = _G.host .. "/backend/api/activate-trial-period-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.GiveOutAllHotOfferItemsLink = _G.host .. "/backend/api/give-out-all-hot-offer-items?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
@@ -215,6 +216,7 @@ function DataBase:startGame()
 	req:SetHTTPRequestGetOrPostParameter('arr',arr)
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
+		print("DataBase:startGame()")
 		if res.StatusCode == 200 and res.Body ~= nil then
 			local obj = json.decode(res.Body)
 			
@@ -227,12 +229,12 @@ function DataBase:startGame()
 			}
 			_G.SHOP = obj.shop
 			Shop:createShop()
-			Timers:CreateTimer(0.1 ,function()
+			Timers:CreateTimer(0 ,function()
 				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 					rating:pickInit(t)
 					return nil
 				end
-				return 1
+				return 0.1
 			end)
 		end
 	end)
@@ -558,6 +560,39 @@ function DataBase:SprayToggleActivate(t)
 		sprayName = t.sprayName,
 	}
 	local req = CreateHTTPRequestScriptVM( "POST", DataBase.SprayToggleActivateLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:ActivateTrialPeriodPet(t)
+	if DataBase:IsCheatMode() then return end
+	requestData = {
+		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
+	}
+	local req = CreateHTTPRequestScriptVM( "POST", DataBase.ActivateTrialPeriodPetLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:GiveOutAllHotOfferItems(PlayerID, package_contents)
+	if DataBase:IsCheatMode() then return end
+	requestData = {
+		sid = PlayerResource:GetSteamAccountID(PlayerID),
+		package_contents = package_contents,
+	}
+	local req = CreateHTTPRequestScriptVM( "POST", DataBase.GiveOutAllHotOfferItemsLink )
 	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
 	req:Send(function(res)
 		print(res.StatusCode)

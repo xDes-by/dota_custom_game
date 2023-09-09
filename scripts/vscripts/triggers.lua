@@ -38,7 +38,9 @@ function teleport_in_donate(event)
 					if item.itemname and item.itemname == "item_ticket" then
 						if item.now > 0 then
 							item.now = item.now - 1
-							CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( unit:GetPlayerID() ), "SetShopItemCount", {categoryKey = categoryKey, itemKey = itemKey, count = item.now, itemname = "item_ticket"} )
+							CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( unit:GetPlayerID() ), "UpdateStore", {
+								{categoryKey = categoryKey, productKey = itemKey, itemname = "item_ticket", count = item.now},
+							})
 							pass = true
 						end
 						break

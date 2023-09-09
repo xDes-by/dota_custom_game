@@ -261,6 +261,7 @@
 
         "talant_examine_btn" "Learn"
 		"talant_button_examine" "Learn"
+        "talant_button_update" "Improve"
 
         "talant_nrom_exp_description" "Blue experience:"
 

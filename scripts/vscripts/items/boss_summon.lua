@@ -47,13 +47,14 @@ function item_boss_summon:OnSpellStart()
 				self:add_items(unit)	
 				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 				Rules:difficality_modifier(unit)
+				self.caster:AddNewModifier(self.caster, self, "modifier_item_boss_summon_cd", {duration = self:GetCooldown(self:GetLevel()) * self.caster:GetCooldownReduction()})
 				if self:GetCurrentCharges() > 1 then
 					self:SetCurrentCharges(self:GetCurrentCharges() - 1)
 				else
 					self.caster:RemoveItem(self)
 				end
 			end
-	end
+		end
 end
 
 function item_boss_summon:add_items(unit)	
@@ -123,3 +124,10 @@ function item_boss_summon:add_items(unit)
 		end
 	end	
 end
+
+
+LinkLuaModifier( "modifier_item_boss_summon_cd", "items/boss_summon", LUA_MODIFIER_MOTION_NONE )
+modifier_item_boss_summon_cd = class({})
+function modifier_item_boss_summon_cd:IsHidden() return true end
+function modifier_item_boss_summon_cd:IsDebuff() return false end
+function modifier_item_boss_summon_cd:IsPurgable() return false end

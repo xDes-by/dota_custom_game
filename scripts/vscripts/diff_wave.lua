@@ -5,12 +5,12 @@ end
 function diff_wave:init()
 	self.rating_scale = 1
 	self.info = {
-		Easy = {mmr_win = 0, mmr_lose = 0, respawn = 60, rp_win = 0},
-		Normal = {mmr_win = 10, mmr_lose = -10, respawn = 120, rp_win = 20},
-		Hard = {mmr_win = 20, mmr_lose = -20, respawn = 120, rp_win = 40},
-		Ultra = {mmr_win = 30, mmr_lose = -30, respawn = 120, rp_win = 60},
-		Insane = {mmr_win = 40, mmr_lose = -40, respawn = 120, rp_win = 80},
-		Hell = {mmr_win = 50, mmr_lose = -50, respawn = 120, rp_win = 100},
+		Easy = {mmr_win = 0, mmr_lose = 0, respawn = 60, rp_win = 0, talent_scale = 0.5},
+		Normal = {mmr_win = 10, mmr_lose = -10, respawn = 120, rp_win = 20, talent_scale = 1.0},
+		Hard = {mmr_win = 20, mmr_lose = -20, respawn = 120, rp_win = 40, talent_scale = 1.25},
+		Ultra = {mmr_win = 30, mmr_lose = -30, respawn = 120, rp_win = 60, talent_scale = 1.5},
+		Insane = {mmr_win = 40, mmr_lose = -40, respawn = 120, rp_win = 80, talent_scale = 1.75},
+		Hell = {mmr_win = 50, mmr_lose = -50, respawn = 120, rp_win = 100, talent_scale = 2.0},
 	}
 	self.difficultyVote = {}
 	CustomGameEventManager:RegisterListener("GameSettings",function(_, keys)
@@ -19,11 +19,26 @@ function diff_wave:init()
 	ListenToGameEvent("game_rules_state_change",function(_, keys)
         self:OnGameStateChanged(keys)
     end, self)
+	CustomGameEventManager:RegisterListener("GameSettingsInit",function(_, keys)
+        self:GameSettingsInit(keys)
+    end)
+	
 end
 
 function diff_wave:GameSettings(t)
 	self.difficultyVote[t.PlayerID] = t.mode
 	CustomNetTables:SetTableValue( "difficultyVote", tostring(t.PlayerID), self.difficultyVote )
+end
+
+function diff_wave:GameSettingsInit(t)
+	Timers:CreateTimer(0 ,function()
+		if not RATING then return 0.1 end
+		local maximum_passed_difficulty = 0
+		if RATING["rating"][t.PlayerID+1] and RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"] then
+			maximum_passed_difficulty = RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"]
+		end
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {maximum_passed_difficulty = maximum_passed_difficulty} )
+	end)
 end
 
 function diff_wave:OnGameStateChanged(t)
@@ -52,6 +67,7 @@ function diff_wave:OnGameStateChanged(t)
 				self.mmr_lose = self.info[mode].mmr_lose
 				self.respawn = self.info[mode].respawn
 				self.rp_win = self.info[mode].rp_win
+				self.talent_scale = self.info[mode].talent_scale
 			end
 		end
 	end

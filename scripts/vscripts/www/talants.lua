@@ -33,6 +33,31 @@ local lvls = {
     [28] = 18000,--441 000
     [29] = 18000,--459 000
     [30] = 18000,--477 000
+    [31] = 18000,
+    [32] = 18000,
+    [33] = 18000,
+    [34] = 18000,
+    [35] = 18000,
+    [36] = 18000,
+    [37] = 18000,
+    [38] = 18000,
+    [39] = 18000,
+    [40] = 18000,
+    [41] = 18000,
+    [42] = 18000,
+    [43] = 18000,
+    [44] = 18000,
+    [45] = 18000,
+    [46] = 18000,
+    [47] = 18000,
+    [48] = 18000,
+    [49] = 18000,
+    [50] = 18000,
+    [51] = 18000,
+    [52] = 18000,
+    [53] = 18000,
+    [54] = 18000,
+    [55] = 18000,
 }
 local talant_shop = {
     [1] = {
@@ -181,12 +206,7 @@ function talants:tickExperience(pid)
         end
     end
     --------------------------------------------------------------- опыт за сложности
-    if diff_wave.rating_scale == 0 then gave_exp = gave_exp * 0.5 end
-    if diff_wave.rating_scale == 1 then gave_exp = gave_exp * 1 end
-    if diff_wave.rating_scale == 2 then gave_exp = gave_exp * 1.25 end
-    if diff_wave.rating_scale == 3 then gave_exp = gave_exp * 1.50 end
-    if diff_wave.rating_scale == 4 then gave_exp = gave_exp * 1.75 end
-    tab["gave_exp"] = gave_exp
+    tab["gave_exp"] = gave_exp * diff_wave.talent_scale
     CustomNetTables:SetTableValue("talants", tostring(pid), tab)
     Timers:CreateTimer(1, function()
         local connectState = PlayerResource:GetConnectionState(pid)	
@@ -264,12 +284,19 @@ function talants:selectTalantCheat(t)
 end
 
 function talants:selectTalantButton(t)
-    local id = t.PlayerID
+    local PlayerID = t.PlayerID
     local arg = t.i .. t.j
+    print("TalantButton: ", arg)
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
-        local tab = CustomNetTables:GetTableValue("talants", tostring(id))
+        local tab = CustomNetTables:GetTableValue("talants", tostring(PlayerID))
+        if t.i == "don" and RATING["rating"][PlayerID+1]["patron"] ~= 1 and DataBase:IsCheatMode() == false then return end
 
-        if tonumber(tab[t.i .. t.j]) == 1 then return end
+        if t.codeCall then
+            if tonumber(tab[t.i .. t.j]) > 0 then return end
+        else
+            if t.j <= 5 and tonumber(tab[t.i .. t.j]) == 5 then return end
+            if t.j > 5 and tonumber(tab[t.i .. t.j]) == 1 then return end
+        end
 
         if t.j == 11 and tonumber(tab[t.i .. 8]) ~= 1 then talants:FastLearning(t) return end
 
@@ -279,37 +306,40 @@ function talants:selectTalantButton(t)
 
         if (t.j == 6 or t.j == 7 or t.j == 8) and (tonumber(tab[t.i .. 5]) ~= 1 and tonumber(tab[t.i .. 6]) ~= 1 and tonumber(tab[t.i .. 7]) ~= 1 and tonumber(tab[t.i .. 8]) ~= 1) then talants:FastLearning(t) return end
         
-        if t.j == 5 and tonumber(tab[t.i .. 4]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 5 and tonumber(tab[t.i .. 4]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 4 and tonumber(tab[t.i .. 3]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 4 and tonumber(tab[t.i .. 3]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 3 and tonumber(tab[t.i .. 2]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 3 and tonumber(tab[t.i .. 2]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 2 and tonumber(tab[t.i .. 1]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 2 and tonumber(tab[t.i .. 1]) == 0 then talants:FastLearning(t) return end
 
         if t.j == 1 and t.i ~= "don" then 
             local boo = 0
-            if tonumber(tab["int1"]) == 1 then boo = boo + 1 end
-            if tonumber(tab["str1"]) == 1 then boo = boo + 1 end
-            if tonumber(tab["agi1"]) == 1 then boo = boo + 1 end
+            if tonumber(tab["int1"]) > 0 and t.i ~= "int" then boo = boo + 1 end
+            if tonumber(tab["str1"]) > 0 and t.i ~= "str" then boo = boo + 1 end
+            if tonumber(tab["agi1"]) > 0 and t.i ~= "agi" then boo = boo + 1 end
+            print(tab["cout"]," ",boo)
             if boo >= tonumber(tab["cout"]) then
                 return
             end
-        elseif t.j == 1 and t.i == "don" and RATING["rating"][id+1]["patron"] ~= 1 and DataBase:IsCheatMode() == false then
-            return
         end
         if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
             tab["freedonpoints"] = tonumber(tab["freedonpoints"]) - 1
             tab[arg] = 1
         elseif t.i ~= "don" and tonumber(tab["freepoints"]) > 0 then
             tab["freepoints"] = tonumber(tab["freepoints"]) - 1
-            tab[arg] = 1
+            if t.j > 5 then
+                tab[arg] = 1
+            else
+                tab[arg] = tab[arg] + 1
+            end
         else
             return
         end
-        CustomNetTables:SetTableValue("talants", tostring(id), tab)
-        local heroName = PlayerResource:GetSelectedHeroName(id)
-		local hero = PlayerResource:GetSelectedHeroEntity(id)
+        CustomNetTables:SetTableValue("talants", tostring(PlayerID), tab)
+        local heroName = PlayerResource:GetSelectedHeroName(PlayerID)
+		local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
         local tree = talantlist[heroName]
         local skillname = nil
         for skill_key, skill_value in pairs(tree) do
@@ -334,19 +364,20 @@ function talants:selectTalantButton(t)
             ability = hero:AddAbility(skillname)
             ability:SetLevel(1)
         end
+        print("TalantButton: ", tab[arg])
     elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_HERO_SELECTION then
-        if t.i == "don" and tonumber(progress[id]["freedonpoints"]) > 0 then
-            progress[id]["freedonpoints"] = tonumber(progress[id]["freedonpoints"]) - 1
-            progress[id][arg] = 1
-        elseif t.i ~= "don" and tonumber(progress[id]["freepoints"]) > 0 then
-            progress[id]["freepoints"] = tonumber(progress[id]["freepoints"]) - 1
-            progress[id][arg] = 1
+        if t.i == "don" and tonumber(progress[PlayerID]["freedonpoints"]) > 0 then
+            progress[PlayerID]["freedonpoints"] = tonumber(progress[PlayerID]["freedonpoints"]) - 1
+            progress[PlayerID][arg] = 1
+        elseif t.i ~= "don" and tonumber(progress[PlayerID]["freepoints"]) > 0 then
+            progress[PlayerID]["freepoints"] = tonumber(progress[PlayerID]["freepoints"]) - 1
+            progress[PlayerID][arg] = 1
         else
             return
         end
-        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( id ), "updatetab", { progress = progress[id] } )
+        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( PlayerID ), "updatetab", { progress = progress[PlayerID] } )
     end
-    if not DataBase:IsCheatMode() and progress[id]["cheat"] == nil and not talants.testing[id] then
+    if not DataBase:IsCheatMode() and progress[PlayerID]["cheat"] == nil and not talants.testing[PlayerID] then
         talants:sendServer({PlayerID = id, changename = arg, value = 1, changetype = "set", chartype = "int", win_lose = nil})
     end
 end
@@ -381,28 +412,28 @@ function talants:FastLearning(t)
     
     if (t.i == 'don' and tab['freedonpoints'] >= levelNeed - branch_count) or (t.i ~= 'don' and tab['freepoints'] >= levelNeed - branch_count) then
         if t.j >= 2 and tab[t.i.."1"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 1})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 1, codeCall = true})
         end
         if t.j >= 3 and tab[t.i.."2"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 2})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 2, codeCall = true})
         end
         if t.j >= 4 and tab[t.i.."3"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 3})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 3, codeCall = true})
         end
         if t.j >= 5 and tab[t.i.."4"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 4})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 4, codeCall = true})
         end
         if t.j >= 6 and tab[t.i.."5"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 5})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 5, codeCall = true})
         end
         if t.j == 9 and tab[t.i.."6"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 6})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 6, codeCall = true})
         end
         if t.j == 10 and tab[t.i.."7"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 7})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 7, codeCall = true})
         end
         if t.j == 11 and tab[t.i.."8"] ~= 1 then
-            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 8})
+            talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 8, codeCall = true})
         end
         talants:selectTalantButton(t)
     end
@@ -418,6 +449,9 @@ end
 
 function talants:AddExperience(id, n)
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
+    if tonumber(tab["gameNormalExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
+        return
+    end
     -- print("don2=",tab["don2"])
     if tab["don2"] == 1 then
         n = n * 1.15
@@ -457,6 +491,9 @@ function talants:AddExperienceDonate(id, n)
     
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
     if RATING["rating"][id+1]["patron"] == nil or RATING["rating"][id+1]["patron"] == 0 then
+        return
+    end
+    if tonumber(tab["gameDonatExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
         return
     end
     if tab['don2'] == 1 then
@@ -637,15 +674,13 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         progress[PlayerID]["totaldonexp"] = 1500000
     end
     ------------------------------------------     вторая ветка, если куплена карточка
-    if Shop.pShop[PlayerID] and Shop.pShop[PlayerID][4] then
-        for k,v in pairs(Shop.pShop[PlayerID][4]) do
-            if v["hero"] and v["hero"] == heroname[PlayerID] and v["status"] == "active" then
+    progress[PlayerID]["cout"] = 1
+    for cKey, cValue in ipairs(Shop.pShop[PlayerID]) do
+		for itemKey, item in ipairs(cValue) do
+            if item.hero and item.hero == heroname[PlayerID] and item.now > 0 then
                 progress[PlayerID]["cout"] = 2
-                break
             end
         end
-    else
-        progress[PlayerID]["cout"] = 1
     end
     ------------------------------------------     выдача донатного опыта
     if RATING["rating"][PlayerID+1]["patron"] == "1" then
@@ -665,18 +700,19 @@ function talants:fillTabel(PlayerID, isCheat, isload)
     ----------------------------------------- выдача скил поинтов
     progress[PlayerID]["level"] = level
     freepoints = level
-    if level > 14 then
-        freepoints = 14
-        if level >= 30 then 
-            freepoints = 15
-        end
-    end
+    -- if level > 14 then
+    --     freepoints = 14
+    --     if level >= 30 then 
+    --         freepoints = 15
+    --     end
+    -- end
 
     for k,v in pairs({"int","str","agi"}) do
         for i = 1, 12 do
             arg = v .. i
-            if progress[PlayerID][arg] == 1 then
-                freepoints = freepoints -1
+            freepoints = freepoints - progress[PlayerID][arg]
+            if DataBase:IsCheatMode() == false and diff_wave.wavedef == "Easy" and i == 12 then
+                progress[PlayerID][arg] = 0
             end
         end
     end
@@ -704,6 +740,9 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         arg = "don" .. i
         if progress[PlayerID][arg] == 1 then
             freedonpoints = freedonpoints -1
+        end
+        if DataBase:IsCheatMode() == false and RATING["rating"][PlayerID+1]["patron"] ~= 1 then
+            progress[PlayerID][arg] = 0
         end
     end
     progress[PlayerID]["freedonpoints"] = freedonpoints
@@ -847,7 +886,7 @@ function talants:unset(t)
         end
     end
     progress[t.PlayerID] = tab
-    talants:fillTabel(t.PlayerID, false, false)
+    talants:fillTabel(t.PlayerID, DataBase:IsCheatMode(), false)
 end
 
 function talants:coutExp(expnow)

@@ -35,20 +35,33 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("CustomShopStash_TakeItem",function(_, keys)
         Shop:CustomShopStash_TakeItem(keys)
     end)
-	
+	CustomGameEventManager:RegisterListener("ActivateTrialPeriod_Pet",function(_, keys)
+        Shop:ActivateTrialPeriod_Pet(keys)
+    end)
+	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( Shop, "OnItemPickUp"), self)
 	Shop.Auto_Pet = {}
 	Shop.Change_Available = {}
 	Shop.sprayCategory = 4
 	Shop.spray = {}
+	Shop.stashItems = {"item_boss_summon","item_ticket","item_forever_ward","item_armor_aura","item_base_damage_aura","item_expiriance_aura","item_move_aura","item_attack_speed_aura","item_hp_aura"}
 end
 
 function Shop:GetPets(keys)
-	print("Shop:GetPets(keys)")
-	DeepPrintTable(keys)
+	if RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_ends" ] ~= nil then
+		Shop:ActivateTrialPeriod_Pet({
+			PlayerID = keys.PlayerID,
+			affordable_pet = {"pet_15", "pet_13", "pet_14"},
+		})
+	end
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "GetPets_Js", {
 		shop = Shop.pShop[keys.PlayerID],
 		exp = pets_exp,
-		auto_pet = Shop.Auto_Pet[keys.PlayerID]
+		auto_pet = Shop.Auto_Pet[keys.PlayerID],
+		pet_trial = {
+			available = RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_available" ],
+			ends = RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_ends" ],
+			affordable_pet = {"pet_15", "pet_13", "pet_14"},
+		},
 	} )
 end
 
@@ -82,6 +95,22 @@ function Shop:RefreshPet(PlayerID)
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( PlayerID ), "shop_refresh_pets", Shop.pShop[PlayerID] )
 end
 
+function Shop:ActivateTrialPeriod_Pet(t)
+	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+		for itemKey, item in ipairs(category) do
+			for _, trialPetName in pairs(t.affordable_pet) do
+				if item.name == trialPetName then
+					item.onStart = 13501
+					item.now = 13501
+				end
+			end
+		end
+	end
+	if RATING[ "rating" ][ t.PlayerID + 1 ][ "pet_trial_ends" ] == nil then
+		DataBase:ActivateTrialPeriodPet(t)
+	end
+end
+
 function Shop:OnGameRulesStateChange(keys)
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		Timers:CreateTimer(2, function() 
@@ -109,6 +138,31 @@ function Shop:OnGameRulesStateChange(keys)
 	end
 end
 
+function Shop:OnItemPickUp(keys)
+	if not table.has_value(Shop.stashItems, keys.itemname) then return end
+    local hero = PlayerResource:GetSelectedHeroEntity( keys.PlayerID )
+    local item = nil
+    for i = 0, 8 do
+        if hero:GetItemInSlot(i) then
+            if hero:GetItemInSlot(i):GetName() == keys.itemname and hero:GetName() == hero:GetItemInSlot(i):GetPurchaser():GetName() then
+                item = hero:GetItemInSlot(i)
+            end
+        end
+    end
+    if not item then return end
+	for categoryKey, category in ipairs(Shop.pShop[keys.PlayerID]) do
+		for itemKey, shopItem in ipairs(category) do
+			if shopItem.itemname and shopItem.itemname == keys.itemname then
+				shopItem.now = shopItem.now + item:GetCurrentCharges()
+				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "UpdateStore", {
+					{categoryKey = categoryKey, productKey = itemKey, itemname = shopItem.itemname, count = shopItem.now},
+				})
+				hero:RemoveItem(item)
+			end
+		end
+	end
+end
+
 function Shop:OnPlayerReconnected(keys)
 	local sid = PlayerResource:GetSteamAccountID(keys.PlayerID)
 	local req = CreateHTTPRequestScriptVM( "POST", DataBase.updatecoins  .. '&sid=' .. sid )
@@ -123,17 +177,9 @@ function Shop:OnPlayerReconnected(keys)
 		Timers:CreateTimer(2, function() 
 			local sid = PlayerResource:GetSteamAccountID( keys.PlayerID )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "initShop", Shop.pShop[keys.PlayerID] )
-			-- local selected = nil
-			-- for _,item in ipairs(Shop.pShop[keys.PlayerID][1]) do
-			-- 	if item.name == Shop.pet[keys.PlayerID] then
-			-- 		selected = item
-			-- 		break
-			-- 	end
-			-- end
 			Shop:GetPets(keys)
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {
 				can_change = Shop.Change_Available[keys.PlayerID],
-				-- selected = selected,
 			} )
 		end)
 	end
@@ -293,8 +339,9 @@ function Shop:giveItem(t)
 	else
 		local player = PlayerResource:GetSelectedHeroEntity(pid)
 		local spawnPoint = player:GetAbsOrigin()
-		local new_item = player:AddItemByName(Shop.pShop[pid][tonumber(categoryKey)][tonumber(productKey)].itemname)
-		if t.IsControlDown and new_item:IsCooldownReady() then
+		local itemname = Shop.pShop[pid][tonumber(categoryKey)][tonumber(productKey)].itemname
+		local new_item = player:AddItemByName(itemname)
+		if t.IsControlDown and new_item:IsCooldownReady() and not player:HasModifier("modifier_"..itemname.."_cd") then
 			player:SetCursorCastTarget(player)
 			new_item:UseResources(false, false, false, true)
 			new_item:OnSpellStart()
@@ -309,13 +356,9 @@ function Shop:giveItem(t)
 		end
 		Shop:ChangeHero(pid, Shop.pShop[pid][tonumber(categoryKey)][tonumber(productKey)].hero_name)
 	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "SetShopItemCount", {categoryKey = categoryKey, itemKey = productKey, count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'], itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname']} )
-	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
-	-- 	shopinfo = Shop.pShop[pid], 
-	-- 	updateCount = {
-	-- 		{categoryKey = categoryKey, productKey = productKey},
-	-- 	},
-	-- })
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "UpdateStore", {
+		{categoryKey = categoryKey, productKey = productKey, itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname'], count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now']},
+	})
 end
 
 function Shop:takeOffEffect(t)
@@ -333,7 +376,6 @@ function Shop:buyItem(t)
 	local i = tonumber(t.i)
 	local n = tonumber(t.n)
 	local shop_type = Shop.pShop[pid][i][n]["type"]
-	-- print('amountBuy=',t.amountBuy)
 	if t.currency == 1 and Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['rp'] and tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['rp'] * t.amountBuy) > tonumber(Shop.pShop[pid].mmrpoints) then
 		return
 	elseif t.currency == 0 and Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] and tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don']*t.amountBuy) > tonumber(Shop.pShop[pid].coins) then
@@ -348,7 +390,12 @@ function Shop:buyItem(t)
 	else
 		Shop.pShop[pid].coins = Shop.pShop[pid].coins - Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] * t.amountBuy
 	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "SetShopItemCount", {categoryKey = t.i, itemKey = t.n, count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'], itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname']} )
+	if Shop.pShop[pid][i][n].name == "hot_offer" then
+		Shop:GiveOutAllHotOfferItems(pid, Shop.pShop[pid][i][n])
+	end
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "UpdateStore", {
+		{categoryKey = t.i, productKey = t.n, itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname'], count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now']},
+	})
 	if DataBase:IsCheatMode() == false then --
 		local sql_name = {}
 		local give = {}
@@ -386,7 +433,6 @@ function Shop:buyItem(t)
 				CustomNetTables:SetTableValue("talants", tostring(pid), tab)
 			end
 		elseif shop_type == "gem" then
-			-- print(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["give"],' ',t.amountBuy,' ',Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["give"] * t.amountBuy)
 			Smithy:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
 		end
 		DataBase:buyRequest({PlayerID = t.PlayerID, name = sql_name, give = give, price = price, amount = t.amountBuy, currency = currency})
@@ -397,12 +443,34 @@ function Shop:buyItem(t)
 		shopinfo['mmrpoints'] = Shop.pShop[pid]["mmrpoints"]
 		CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
 	end
-	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
-	-- 	shopinfo = Shop.pShop[pid], 
-	-- 	updateCount = {
-	-- 		{categoryKey = i, productKey = n},
-	-- 	},
-	-- })
+end
+
+function Shop:GiveOutAllHotOfferItems(PlayerID, hotOfferItem)
+	local updateCount = {}
+	local DBItemsName = {}
+	for cKey, cValue in ipairs(Shop.pShop[PlayerID]) do
+		for itemKey, item in ipairs(cValue) do
+			for package_itemname, package_itemcount in pairs(hotOfferItem.package_contents) do
+				if item.itemname and item.itemname == package_itemname then
+					DBItemsName[item.name] = package_itemcount
+					if package_itemcount > 0 then
+						item.onStart = item.onStart + package_itemcount
+						item.now = item.now + package_itemcount
+					else
+						item.onStart = 1
+						item.now = 1
+					end
+					table.insert(updateCount, {
+						categoryKey = cKey, productKey = itemKey, itemname = item.itemname, count = item.now
+					})
+				end
+			end
+		end
+	end
+	if DataBase:IsCheatMode() == false then
+		DataBase:GiveOutAllHotOfferItems(PlayerID, DBItemsName)
+	end
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(PlayerID), "UpdateStore", updateCount)
 end
 
 function Shop:CustomShopStash_TakeItem(t)
@@ -481,7 +549,8 @@ function Shop:GetPet(t)
 			end
 		end
 	end
-	
+	if not pet or pet.now == 0 then return end
+
 	if Shop.pShop[pid][1][1].now == 0 and Shop.Change_Available[pid] == false then return end
 
 	if Shop.pet[pid] ~= nil then
@@ -583,11 +652,8 @@ function Shop:OpenTreasure(t)
 	DataBase:OpenTreasure(requestData)
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "ShowWheel", data )
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(t.PlayerID), "UpdateStore", {
-		shopinfo = Shop.pShop[t.PlayerID], 
-		updateCount = {
-			{categoryKey = thisTreasure.categoryKey, productKey = thisTreasure.productKey},
-			{categoryKey = itemPrize.categoryKey, productKey = itemPrize.productKey},
-		},
+		{categoryKey = thisTreasure.categoryKey, productKey = thisTreasure.productKey, itemname = "", count = thisTreasure.now},
+		{categoryKey = itemPrize.categoryKey, productKey = itemPrize.productKey, itemname = "", count = itemPrize.now},
 	})
 	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(t.PlayerID))
 	shopinfo['feed'] = Shop.pShop[t.PlayerID]["feed"]
@@ -614,7 +680,7 @@ if ChangeHero == nil then
 end
 
 function ChangeHero:init()
-	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
+	-- ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
 	ListenToGameEvent( 'dota_player_gained_level', Dynamic_Wrap( self, 'dota_player_gained_level'), self)
 	CustomGameEventManager:RegisterListener("ChangeHeroLua",function(_, keys)
         self:ChangeHeroLua(keys)

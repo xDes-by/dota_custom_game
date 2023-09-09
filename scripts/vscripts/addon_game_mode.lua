@@ -23,7 +23,7 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 _G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true and IsInToolsMode() -- false
+_G.cheatmode = false and IsInToolsMode() -- false
 _G.server_load = false -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
@@ -474,7 +474,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
 		end
 		
-		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)	
+		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
 		npc.bFirstSpawned = true
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
@@ -482,17 +482,13 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		for categoryKey, categoryValue in ipairs(Shop.pShop[playerID]) do
 			for itemKey, itemValue in ipairs(categoryValue) do
-				if itemValue.itemname and itemValue.itemname == "item_str" and itemValue.now > 0 then
-					npc:AddItemByName("item_str")
-				end
-				if itemValue.itemname and itemValue.itemname == "item_agi" and itemValue.now > 0 then
-					npc:AddItemByName("item_agi")
-				end
-				if itemValue.itemname and itemValue.itemname == "item_int" and itemValue.now > 0 then
-					npc:AddItemByName("item_int")
-				end
-				if itemValue.itemname and itemValue.itemname == "item_tree_gold" and itemValue.now > 0 then
-					npc:AddItemByName("item_tree_gold")
+				for _, itemname in pairs({"item_str", "item_agi", "item_int", "item_tree_gold"}) do
+					if itemValue.itemname and itemValue.itemname == itemname and itemValue.now > 0 then
+						npc:AddItemByName(itemname)
+						itemValue.now = 0
+						itemValue.status = "issued"
+						break
+					end
 				end
 			end
 		end

@@ -12348,7 +12348,7 @@
 		"ItemPurchasable" 				"0"
 	}
 	
-"item_forever_ward"
+	"item_forever_ward"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"				"1"
@@ -12357,6 +12357,7 @@
 		"ScriptFile"					"items/item_forever_ward"
 		"AbilityCastRange"				"500"
 		"ItemPurchasable" 				"0"
+		"AbilityCooldown"				"90"
 		"ItemStackable"					"1"
 		"ItemInitialCharges"			"1"
 	}	

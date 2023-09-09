@@ -389,111 +389,113 @@ function Quests:updateParticle(n)
 			local key
 
 			local k1 = 1
-			while player_info[tostring(steamID)]['main'][tostring(k1)] do
-				local v1 = player_info[tostring(steamID)]['main'][tostring(k1)]
-				--print("k1=", k1)
-				if v1["available"] == 0 and v1["active"] == 0 and v1["complete"] == 0 then
-					break
-				end
-				key = Quests:searchNpc(v1["UnitName"])
-				unit = Entities:FindByName( nil, v1["UnitName"])
-				if v1["complete"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-					Quests:deliteParticle(key, nPlayerID, "main", 10)
-				end
-				-- if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-				-- 	Quests:deliteParticle(key, nPlayerID, "main", 10)
-				-- end
-				--print("updateParticle_2")
-				if v1["available"] == 1 and v1["active"] == 0 then
-					if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "main", 11)
+			if player_info then
+				while player_info[tostring(steamID)]['main'][tostring(k1)] do
+					local v1 = player_info[tostring(steamID)]['main'][tostring(k1)]
+					--print("k1=", k1)
+					if v1["available"] == 0 and v1["active"] == 0 and v1["complete"] == 0 then
+						break
 					end
-					--print("updateParticle_4")
-					Quests:addParticle(Quests.has_quest_main, v1["UnitName"], key, nPlayerID, 12, "main")
-
-				elseif Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-					Quests:deliteParticle(key, nPlayerID, "main", 13)
-				end
-				for k2,v2 in pairs(v1['tasks']) do
-					key = Quests:searchNpc(v2["UnitName"])
-					if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "main", 14)
+					key = Quests:searchNpc(v1["UnitName"])
+					unit = Entities:FindByName( nil, v1["UnitName"])
+					if v1["complete"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+						Quests:deliteParticle(key, nPlayerID, "main", 10)
 					end
-					if v2['HowMuch'] == v2['have'] and v2['complete'] == 0 then
-						if Quests.npcArray[key]['particle'][nPlayerID] == false and v2['complete'] == 0 then
-							if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-								Quests:deliteParticle(key, nPlayerID, "main", 15)
-							end
-							--print("updateParticle_3")
-							if v1['tasks'][tostring(k2+1)] == nil then
-								Quests:addParticle(Quests.complite_quest_main, v2["UnitName"], key, nPlayerID, 16, "main")
-							else
-								Quests:addParticle(Quests.has_quest_main, v2["UnitName"], key, nPlayerID, 17, "main")
-							end
+					-- if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+					-- 	Quests:deliteParticle(key, nPlayerID, "main", 10)
+					-- end
+					--print("updateParticle_2")
+					if v1["available"] == 1 and v1["active"] == 0 then
+						if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "main", 11)
 						end
-					elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "main", 18)
-					end
-				end
-				k1 = k1 + 1
-			end
+						--print("updateParticle_4")
+						Quests:addParticle(Quests.has_quest_main, v1["UnitName"], key, nPlayerID, 12, "main")
 
-			local npc = {}
-			local k1 = 1
-			while player_info[tostring(steamID)]['bonus'][tostring(k1)] do
-				local v1 = player_info[tostring(steamID)]['bonus'][tostring(k1)]
-				key = Quests:searchNpc(v1["UnitName"])
-				unit = Entities:FindByName( nil, v1["UnitName"])
-				if v1["complete"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-					Quests:deliteParticle(key, nPlayerID, "bonus", 1)
-				end
-				if npc[v1["UnitName"]] == nil or npc[v1["UnitName"]][1] + npc[v1["UnitName"]][2] == 0 then
-					npc[v1["UnitName"]] = {
-						[1] = tonumber(v1["available"]), 
-						[2] = tonumber(v1["active"])
-					}
-				end
-				if v1["available"] == 1 and v1["active"] == 0 then
-					if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "bonus", 2)
+					elseif Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+						Quests:deliteParticle(key, nPlayerID, "main", 13)
 					end
-					Quests:addParticle(Quests.has_quest_bonus, v1["UnitName"], key, nPlayerID, 3, "bonus")
-				elseif v1["available"] == 0 and v1["active"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-					Quests:deliteParticle(key, nPlayerID, "bonus", 4)
-				elseif npc[v1["UnitName"]][1] + npc[v1["UnitName"]][2] == 0 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-					Quests:deliteParticle(key, nPlayerID, "bonus", 0)
-				end
-				for k2,v2 in pairs(v1['tasks']) do
-					key = Quests:searchNpc(v2["UnitName"])
-					if v2['complete'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "bonus", 5)
-					end
-					if v2['HowMuch'] == v2['have'] and v2['complete'] == 0 then
-						if Quests.npcArray[key]['particle'][nPlayerID] == false and v2['complete'] == 0 then
-							if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-								Quests:deliteParticle(key, nPlayerID, "bonus", 6)
-							end
-							if v1['tasks'][tostring(k2+1)] == nil then
-								Quests:addParticle(Quests.complite_quest_bonus, v2["UnitName"], key, nPlayerID, 7, "bonus")
-							else
-								Quests:addParticle(Quests.has_quest_bonus, v2["UnitName"], key, nPlayerID, 8, "bonus")
-							end
+					for k2,v2 in pairs(v1['tasks']) do
+						key = Quests:searchNpc(v2["UnitName"])
+						if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "main", 14)
 						end
-					elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "bonus", 9)
+						if v2['HowMuch'] == v2['have'] and v2['complete'] == 0 then
+							if Quests.npcArray[key]['particle'][nPlayerID] == false and v2['complete'] == 0 then
+								if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+									Quests:deliteParticle(key, nPlayerID, "main", 15)
+								end
+								--print("updateParticle_3")
+								if v1['tasks'][tostring(k2+1)] == nil then
+									Quests:addParticle(Quests.complite_quest_main, v2["UnitName"], key, nPlayerID, 16, "main")
+								else
+									Quests:addParticle(Quests.has_quest_main, v2["UnitName"], key, nPlayerID, 17, "main")
+								end
+							end
+						elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "main", 18)
+						end
 					end
+					k1 = k1 + 1
 				end
-				k1 = k1 + 1
-			end
 
-			for k1,v1 in pairs(player_info[tostring(steamID)]['exchanger']) do
-				key = Quests:searchNpc(v1["UnitName"])
-				unit = Entities:FindByName( nil, v1["UnitName"])
-				if v1["available"] == 1 then
-					if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
-						Quests:deliteParticle(key, nPlayerID, "main")
+				local npc = {}
+				local k1 = 1
+				while player_info[tostring(steamID)]['bonus'][tostring(k1)] do
+					local v1 = player_info[tostring(steamID)]['bonus'][tostring(k1)]
+					key = Quests:searchNpc(v1["UnitName"])
+					unit = Entities:FindByName( nil, v1["UnitName"])
+					if v1["complete"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+						Quests:deliteParticle(key, nPlayerID, "bonus", 1)
 					end
-					Quests:addParticle(Quests.has_quest_bonus, v1["UnitName"], key, nPlayerID)
+					if npc[v1["UnitName"]] == nil or npc[v1["UnitName"]][1] + npc[v1["UnitName"]][2] == 0 then
+						npc[v1["UnitName"]] = {
+							[1] = tonumber(v1["available"]), 
+							[2] = tonumber(v1["active"])
+						}
+					end
+					if v1["available"] == 1 and v1["active"] == 0 then
+						if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "bonus", 2)
+						end
+						Quests:addParticle(Quests.has_quest_bonus, v1["UnitName"], key, nPlayerID, 3, "bonus")
+					elseif v1["available"] == 0 and v1["active"] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+						Quests:deliteParticle(key, nPlayerID, "bonus", 4)
+					elseif npc[v1["UnitName"]][1] + npc[v1["UnitName"]][2] == 0 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+						Quests:deliteParticle(key, nPlayerID, "bonus", 0)
+					end
+					for k2,v2 in pairs(v1['tasks']) do
+						key = Quests:searchNpc(v2["UnitName"])
+						if v2['complete'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "bonus", 5)
+						end
+						if v2['HowMuch'] == v2['have'] and v2['complete'] == 0 then
+							if Quests.npcArray[key]['particle'][nPlayerID] == false and v2['complete'] == 0 then
+								if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+									Quests:deliteParticle(key, nPlayerID, "bonus", 6)
+								end
+								if v1['tasks'][tostring(k2+1)] == nil then
+									Quests:addParticle(Quests.complite_quest_bonus, v2["UnitName"], key, nPlayerID, 7, "bonus")
+								else
+									Quests:addParticle(Quests.has_quest_bonus, v2["UnitName"], key, nPlayerID, 8, "bonus")
+								end
+							end
+						elseif v2['HowMuch'] ~= v2['have'] and v2['active'] == 1 and Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "bonus", 9)
+						end
+					end
+					k1 = k1 + 1
+				end
+
+				for k1,v1 in pairs(player_info[tostring(steamID)]['exchanger']) do
+					key = Quests:searchNpc(v1["UnitName"])
+					unit = Entities:FindByName( nil, v1["UnitName"])
+					if v1["available"] == 1 then
+						if Quests.npcArray[key]['particle'][nPlayerID] ~= false then
+							Quests:deliteParticle(key, nPlayerID, "main")
+						end
+						Quests:addParticle(Quests.has_quest_bonus, v1["UnitName"], key, nPlayerID)
+					end
 				end
 			end
 		end
@@ -762,19 +764,22 @@ function Quests:acceptButton(t)
 			player_info[tostring(steamID)][tostring(t.type)][tostring(18)]["selectedItem"] = selectedItem
 		end
 		if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["close_all_after_end"] == 1 then
-			for i = 0, PlayerResource:GetPlayerCount() do
+			for i = 0, PlayerResource:GetPlayerCount()-1 do
 				if PlayerResource:IsValidPlayer(i) then
 					local sID = PlayerResource:GetSteamAccountID(i)
 					local player_info_local = CustomNetTables:GetTableValue("player_info", tostring(sID))
-					player_info_local[tostring(sID)][tostring(t.type)][tostring(t.number)]['complete'] = 1
-					player_info_local[tostring(sID)][tostring(t.type)][tostring(t.number)]['available'] = 0
-					CustomNetTables:SetTableValue("player_info",  tostring(sID), player_info_local)
+					if player_info_local then
+						player_info_local[tostring(sID)][tostring(t.type)][tostring(t.number)]['complete'] = 1
+						player_info_local[tostring(sID)][tostring(t.type)][tostring(t.number)]['available'] = 0
+						CustomNetTables:SetTableValue("player_info",  tostring(sID), player_info_local)
+					end
 				end
 			end
 		end
 		sound = true
 	end
 	CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
+	
 	if player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]["renewable"] == 1
 	and player_info[tostring(steamID)][tostring(t.type)][tostring(t.number)]['tasks'][tostring(t.task)] == nil then
 		Quests:renewableQuest(t.type, t.number, t.task, t.pid)
@@ -1069,14 +1074,6 @@ function Quests:giveReward(type, number, task, pid)
 	end
 	
 	--print('give revard')
-end
-
-function Quests:SetOneSoulMid(type, number, task, pid)
-	local steamID = PlayerResource:GetSteamAccountID(pid)
-	local itemName = player_info[tostring(steamID)][tostring(type)][tostring(number)]['selectedItem']
-	if itemName == "item_dragon_soul" or itemName == "item_dragon_soul_2" or itemName == "item_dragon_soul_3" then
-
-	end
 end
 
 function Quests.giveSelectedItem(type, number, task, pid)

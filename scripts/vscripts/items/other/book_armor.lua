@@ -22,7 +22,7 @@ function item_armor_aura:OnSpellStart()
 			"modifier_item_armor_aura", 
 			{duration = self.duration})
 		end
-		self.caster:AddNewModifier(self.caster, self, "modifier_item_armor_aura_cd", {duration = self:GetCooldown(self:GetLevel())})
+		self.caster:AddNewModifier(self.caster, self, "modifier_item_armor_aura_cd", {duration = self:GetCooldown(self:GetLevel()) * self.caster:GetCooldownReduction()})
 		self.caster:EmitSound("Item.TomeOfKnowledge")
 		self:SpendCharge()
 		local new_charges = self:GetCurrentCharges()

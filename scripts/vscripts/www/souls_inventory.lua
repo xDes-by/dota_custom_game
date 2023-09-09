@@ -51,7 +51,6 @@ function sInv:OnItemPickUp(keys)
     self[keys.itemname][keys.PlayerID] = self[keys.itemname][keys.PlayerID] + 1
     hero:RemoveItem(item)
     sInv:UpdateInventory(keys.PlayerID)
-    
 end
 
 function sInv:OnPlayerReconnected(t)

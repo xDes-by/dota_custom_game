@@ -89,6 +89,9 @@ function item_octarine_core_lua:OnSpellStart()
 			current_item:EndCooldown()
 		end
 	end
+	for _, modName in pairs({"modifier_item_forever_ward_cd","modifier_item_boss_summon_cd","modifier_item_armor_aura_cd","modifier_item_attack_speed_aura_cd","modifier_item_base_damage_aura_cd","modifier_item_expiriance_aura_cd","modifier_item_hp_aura_cd","modifier_item_move_aura_cd"}) do
+		caster:RemoveModifierByName(modName)
+	end
 end
 
 function item_octarine_core_lua:GetIntrinsicModifierName()
