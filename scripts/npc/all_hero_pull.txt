@@ -8,7 +8,6 @@
     "npc_dota_hero_vengefulspirit"        		"1"
 	"npc_dota_hero_dawnbreaker"        			"1"
 	"npc_dota_hero_necrolyte"        			"1"
-	
 	"npc_dota_hero_queenofpain"        			"1"
 	"npc_dota_hero_templar_assassin"        	"1"
 	"npc_dota_hero_monkey_king"        			"1"
@@ -17,8 +16,6 @@
 	"npc_dota_hero_tiny"        				"1"
 	"npc_dota_hero_undying"        				"1"
 	"npc_dota_hero_leshrac"        				"1"
-	
-	
     "npc_dota_hero_axe"        					"1"
     "npc_dota_hero_bristleback"        			"1"
     "npc_dota_hero_centaur"        				"1"	

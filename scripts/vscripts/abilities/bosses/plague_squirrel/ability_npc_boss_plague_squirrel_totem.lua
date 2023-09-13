@@ -51,6 +51,7 @@ end
 
 function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
     local npc = CreateUnitByName("npc_plague_squirrel", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber() )
+    npc:AddNewModifier(self:GetCaster(), self, "modifier_pips", {pips_count = 3})
 	npc:AddNewModifier(npc, nil, "modifier_kill", {duration = 5})
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_ability_npc_boss_plague_squirrel_hit", {})
 	
@@ -110,8 +111,6 @@ end
 
 function modifier_ability_npc_boss_plague_squirrel_hit:DeclareFunctions()
    return {
-       MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-       MODIFIER_EVENT_ON_ATTACKED,
        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 	   MODIFIER_EVENT_ON_ATTACK_LANDED
 }
@@ -136,21 +135,6 @@ function modifier_ability_npc_boss_plague_squirrel_hit:OnCreated()
 		self:GetParent():SetForceAttackTarget(enemy)
 	end	
 end
-
-function modifier_ability_npc_boss_plague_squirrel_hit:GetModifierIncomingDamage_Percentage(data)
-    return -100
-end
-
-function modifier_ability_npc_boss_plague_squirrel_hit:OnAttacked(data)
-    if not IsServer() then return end
-    if data.attacker:IsRealHero() and data.target == self:GetParent() then
-        self:GetParent():SetHealth( self:GetParent():GetHealth() - 1 )
-        if self:GetParent():GetHealth() == 0 then 
-            self:GetParent():ForceKill(false)
-        end
-    end
-end
-
 
 function modifier_ability_npc_boss_plague_squirrel_hit:OnAttackLanded(params)
     if not IsServer() then return end

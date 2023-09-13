@@ -726,8 +726,9 @@
 		"Level"						"100"
 		"ModelScale" 				"1.1"
         "IsAncient" 				"1"
-	
-		"Ability1"					""
+		"CanRespawn"				"1"
+		
+		"Ability1"					"instant_respawn"
         "Ability2" 					"drake_corrosive_skin"
         "Ability4" 					"black_dragon_splash_attack"
 
@@ -6605,7 +6606,7 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
 
-		"Ability1"					"penek"			
+		"Ability1"					"penek"
 		"Ability2"					"furion_sprout_lua"				
 		"Ability3"					"forest_seed"				
 		"Ability4"					"custom_forest"
@@ -6770,6 +6771,7 @@
 		"Ability5"					"manacost_spell"
 		"Ability6"					"rot_boss_lua"
 		"Ability7"					"boss_2_spray"
+		"Ability8"					"pudge_chaos_meteor_lua"
 
 		"ArmorPhysical"				"30"			
 		"MagicalResistance"         "20"
@@ -6846,7 +6848,9 @@
         "Ability2"					"wisp_spirits_datadriven"         
         "Ability3"					"gaven_create_stone"         
 		"Ability4"					"earth_spirit_boulder_smash"
-		"Ability5"					"manacost_spell"
+		"Ability5"					"npc_mines_boss_spawn_shaker"
+		"Ability6"					"npc_mines_boss_wawe"
+		"Ability7"					"manacost_spell"
 
         "ArmorPhysical"             "50"         
         "MagicalResistance"         "30"        
@@ -6969,7 +6973,62 @@
             }
         }
     }
-	
+	"npc_mine_earthshaker"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/earthshaker/earthshaker.vmdl"
+        "SoundSet"                  "Hero_Earthshaker"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+		"IsAncient"					"1"
+        
+        "Ability1"                  "earthshaker_enchant_totem"          
+        "Ability2"                  "earthshaker_aftershock"        
+		"Ability3"					"earthshaker_echo_slam"
+		"Ability4"					"manacost_spell"
+
+        "ArmorPhysical"             "40"
+        "MagicalResistance"         "100"      
+
+		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"500"
+		"AttackRate"				"0.65"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"175"
+
+        "RingRadius"                "70"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "0"
+        "MovementTurnRate"          "0"
+
+        "StatusHealth"              "10000"       
+        "StatusHealthRegen"         "50"       
+        "StatusMana"                "10000"           
+        "StatusManaRegen"           "10"         
+
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        "VisionDaytimeRange"        "1400"      
+        "VisionNighttimeRange"      "1400"      
+		"Creature"
+		{
+			"AttachWearables"
+			{
+			"Wearable1" {"ItemDef" "9730"}//("Totem of Tectonic Implications")
+			"Wearable2" {"ItemDef" "9738"}//head("Helm of Tectonic Implications")
+			"Wearable3" {"ItemDef" "9737"}//belt("Belt of Tectonic Implications")
+			"Wearable4" {"ItemDef" "9735"}//arms("Bracers of Tectonic Implications")
+			}			
+		}
+    }
 //========================================================================================================DUST========================================================================================================================================	
 
 "npc_dust_boss"	
@@ -6991,6 +7050,7 @@
         "Ability5"					"manacost_spell"
         "Ability6"					"nyx_leak"
         "Ability7"					"nyx_borrow"
+        "Ability7"					"nyx_assassin_vendetta"
 
         "ArmorPhysical"             "75"         
         "MagicalResistance"         "40"        
@@ -7068,6 +7128,7 @@
         "Ability4"					"ursa_lapki"
         "Ability5"					"anti_armor"
 		"Ability6"					"manacost_spell"
+		"Ability7"					"ability_npc_swamp_boss"
 
         "ArmorPhysical"             "150"       
         "MagicalResistance"         "50"        
@@ -7194,6 +7255,7 @@
 		"Ability4"					"custom_earth_splitter"
 		"Ability5"					"creature_summon"
 		"Ability6"					"manacost_spell"
+		"Ability7"					"ability_npc_snow_boss"
 
 		"ArmorPhysical"				"250"
 		"MagicalResistance"			"60"
@@ -7242,7 +7304,49 @@
 			}
 		}
 	}
+"npc_snow_boss_feeld_caster"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/crystal_maiden_persona/crystal_maiden_persona.vmdl"
+        "SoundSet"                  "n_creep_Ranged"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+		"IsAncient"					"1"
+        
+        "Ability1"                  "ability_npc_snow_boss_feeld_caster"          
 
+        "ArmorPhysical"             "40"         
+        "MagicalResistance"         "25"        
+
+		"AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"500"
+		"AttackRate"				"0.65"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"175"
+
+        "RingRadius"                "70"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed"             "0"
+        "MovementTurnRate"          "0"
+
+        "StatusHealth"              "10000"       
+        "StatusHealthRegen"         "50"       
+        "StatusMana"                "10000"           
+        "StatusManaRegen"           "10"         
+
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        "VisionDaytimeRange"        "1400"      
+        "VisionNighttimeRange"      "1400"      
+    }
  "npc_dota_creature_tusk"
     {
 		"vscripts"					"ai/ai_ping.lua"

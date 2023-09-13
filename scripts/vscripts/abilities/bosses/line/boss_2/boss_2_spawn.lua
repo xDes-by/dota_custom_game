@@ -34,12 +34,6 @@ function modifier_boss_2_spawn:OnIntervalThink()
 	end
 end
 
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
 function aura_dif(unit)
 	if wave.wavedef == "Easy" then
 		unit:AddNewModifier(unit, nil, "modifier_easy", {})

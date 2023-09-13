@@ -11,6 +11,8 @@ function Spawn( entityKeyValues )
 	NoTargetAbility = thisEntity:FindAbilityByName( "wisp_spirits_datadriven" )
 	PointAbility2 = thisEntity:FindAbilityByName( "split_earth_datadriven")
 	TargetAbility = thisEntity:FindAbilityByName( "earth_spirit_boulder_smash" )
+	NoTargetAbility4 = thisEntity:FindAbilityByName( "npc_mines_boss_spawn_shaker" )
+	NoTargetAbility3 = thisEntity:FindAbilityByName( "npc_mines_boss_wawe" )
   
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 end
@@ -83,7 +85,26 @@ function NeutralThink()
 			end
 			return 2
 		end
-		
+		if NoTargetAbility3 ~= nil and NoTargetAbility3:IsFullyCastable()  then
+            for _,unit in pairs(enemies) do
+				if unit then
+					NoTargetAbility3Cast(unit)
+					local earth =  {"earth_spirit_earthspi_stonecaller_06","earth_spirit_earthspi_stonecaller_02","earth_spirit_earthspi_stonecaller_09"}
+					thisEntity:EmitSound(earth[RandomInt(1, #earth)])
+				end
+			end
+			return 2
+		end
+		if NoTargetAbility4 ~= nil and NoTargetAbility4:IsFullyCastable()  then
+            for _,unit in pairs(enemies) do
+				if unit then
+					NoTargetAbility4Cast(unit)
+					local earth =  {"earth_spirit_earthspi_stonecaller_06","earth_spirit_earthspi_stonecaller_02","earth_spirit_earthspi_stonecaller_09"}
+					thisEntity:EmitSound(earth[RandomInt(1, #earth)])
+				end
+			end
+			return 2
+		end		
 		if NoTargetAbility ~= nil and NoTargetAbility:IsFullyCastable()  then
             for _,unit in pairs(enemies) do
 				if unit then
@@ -242,6 +263,25 @@ function NoTargetAbility2Cast(unit)
     return 1
 end
 
+function NoTargetAbility3Cast(unit)
+	ExecuteOrderFromTable({
+		  UnitIndex = thisEntity:entindex(),    --индекс кастера
+		  OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,    -- тип приказа
+		  AbilityIndex = NoTargetAbility3:entindex(), -- индекс способности
+		  Queue = false,
+	  })
+  return 1
+end
+
+function NoTargetAbility4Cast(unit)
+	ExecuteOrderFromTable({
+		  UnitIndex = thisEntity:entindex(),    --индекс кастера
+		  OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,    -- тип приказа
+		  AbilityIndex = NoTargetAbility4:entindex(), -- индекс способности
+		  Queue = false,
+	  })
+  return 1
+end
 -------------------------------------------------------------------------
 
 

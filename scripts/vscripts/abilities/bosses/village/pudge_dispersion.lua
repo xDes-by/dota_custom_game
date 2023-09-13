@@ -17,6 +17,9 @@ function modifier_pudge_dispersion:DeclareFunctions()
 	return funcs
 end
 function modifier_pudge_dispersion:OnCreated()	
+	if not IsServer() then
+		return
+	end
 	self.damage_reflect_pct = self:GetAbility():GetSpecialValueFor("damage_reflection_pct") * 0.01
 	self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
 end
@@ -71,7 +74,6 @@ function modifier_pudge_dispersion:OnTakeDamage(event)
 			end
 		end
 	end
-
 end
 
 function modifier_pudge_dispersion:IsHidden()

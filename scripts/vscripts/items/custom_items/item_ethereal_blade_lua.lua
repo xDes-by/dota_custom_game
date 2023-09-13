@@ -63,8 +63,14 @@ function item_ethereal_blade_lua:GetIntrinsicModifierName()
 end
 
 function item_ethereal_blade_lua:OnSpellStart()
-	self.caster		= self:GetCaster()
-	
+	self.caster = self:GetCaster()
+	local target = self:GetCursorTarget()
+	if self.caster:IsRealHero() and PlayerResource:IsDisableHelpSetForPlayerID(self.caster:GetPlayerOwnerID(), target:GetPlayerOwnerID()) then
+		self:GetAbility():EndCooldown()
+		self:GetAbility():RefundManaCost()
+		return
+	end
+
 	-- AbilitySpecials
 	self.blast_movement_slow		=	self:GetSpecialValueFor("blast_movement_slow")
 	self.duration					=	self:GetSpecialValueFor("duration")
@@ -74,12 +80,8 @@ function item_ethereal_blade_lua:OnSpellStart()
 	self.duration_ally				=	self:GetSpecialValueFor("duration_ally")
 	self.ethereal_damage_bonus		=	self:GetSpecialValueFor("ethereal_damage_bonus")
 	self.projectile_speed			=	self:GetSpecialValueFor("projectile_speed")
-	self.tooltip_range				=	800
 	
-	if not IsServer() then return end
-	
-	local target			= self:GetCursorTarget()
-	
+
 	-- Play the cast sound
 	self.caster:EmitSound("DOTA_Item.EtherealBlade.Activate")
 

@@ -81,7 +81,7 @@ end
 
 function respawn(amountTime, position, unit_name)
 	Timers:CreateTimer(amountTime, function()
-		if _G.kill_invoker == false or unit_name == "farm_zone_dragon" then
+		if _G.kill_invoker == false then
 			CreateUnitByNameAsync(unit_name, position, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
 				Rules:difficality_modifier(unit)
 				unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {

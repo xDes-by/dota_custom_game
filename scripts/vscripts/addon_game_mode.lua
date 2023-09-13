@@ -79,14 +79,16 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetUseCustomHeroLevels( true )
 	
 	--------------------------------------------------------------------------------------------
-	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.2)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 6)
+	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.05)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 0.1)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.3)
 	
 	--------------------------------------------------------------------------------------------	
+	--@dansoo0911:это листенер с панорамы если будешь искать
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
@@ -1264,10 +1266,10 @@ end
     -- return true
 -- end
 
-Convars:RegisterCommand( "reload", function ()
-	SendToServerConsole("script_reload")
+Convars:RegisterCommand( "upgrade", function ()
+
 end,
-"reload", FCVAR_CHEAT )
+"upgrade", FCVAR_CHEAT )
 
 function OnEndMiniGame(eventIndex, data)
 	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
@@ -1275,7 +1277,8 @@ function OnEndMiniGame(eventIndex, data)
 	local mod = hHero:FindModifierByName("modifier_cheack_afk")
 	mod.MinigameStarted = false
 	if mod.modifier then
-		mod.modifier:Destroy()
+		mod.modifier1:Destroy()
+		mod.modifier2:Destroy()
 		mod.modifier = nil
 	end
 end

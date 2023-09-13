@@ -27,31 +27,28 @@ function modifier_cheack_afk:OnCreated( kv )
 end
 
 function modifier_cheack_afk:OnIntervalThink()
+	if self.MinigameStarted then
+		return
+	end
+	if not self.MinigameStarted and _G.kill_invoker then
+		self:Destroy()
+		return
+	end
 	local pos = self.parent:GetOrigin()
 	local dist = (pos-self.currentpos):Length2D()
 	self.currentpos = pos
 	
 	if dist == 0 and not self.parent:IsAttacking() then 
 		if not self.timer then
-			-- self.timer = Timers:CreateTimer(300, function()
-			-- 	self.parent:EmitSound("Hero_Necrolyte.ReapersScythe.Cast")
-			-- 	local scythe_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_necrolyte/necrolyte_scythe_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
-			-- 	ParticleManager:SetParticleControlEnt(scythe_fx, 0, self.parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
-			-- 	ParticleManager:SetParticleControlEnt(scythe_fx, 1, self.parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.parent:GetAbsOrigin(), true)
-			-- 	ParticleManager:ReleaseParticleIndex(scythe_fx)
-		
-			-- 	self.parent:ForceKill(false)
-			-- end)
-			if self.MinigameStarted then
-				return
-			end
 			self.timer = Timers:CreateTimer(300, function()
-				self.modifier = self.parent:AddNewModifier(self.parent, nil, "modifier_stunned", {})
+				self.modifier1 = self.parent:AddNewModifier(self.parent, nil, "modifier_invulnerable", {})
+				self.modifier2 = self.parent:AddNewModifier(self.parent, nil, "modifier_stunned", {})
 				self.MinigameStarted = true
 				--@dansoo0911:добавить чтобы экспа капала в минус и раскидать папкам в контенете из архива вити все файлы
 				--это на 131 строку в minigame.js
 				--но вообще можешь куда угодно, тебе виднее
 				--GameEvents.SendCustomGameEventToServer( "EndMiniGame", {} );
+				ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
 				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
 			end)
 		end	
@@ -64,12 +61,20 @@ function modifier_cheack_afk:OnIntervalThink()
 end
 
 function modifier_cheack_afk:DeclareFunctions()
-    local funcs = {
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION
+    return {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION,
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
     }
-    return funcs
 end
 
 function modifier_cheack_afk:GetModifierMagicalResistanceDirectModification()
 	return -0.1 * self:GetParent():GetIntellect()
+end
+
+function modifier_cheack_afk:GetModifierConstantManaRegen()
+	return -0.045 * self:GetParent():GetIntellect()
+end
+
+function modifier_cheack_afk:OnPlayerReconnected(data)
+	CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
 end

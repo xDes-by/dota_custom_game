@@ -23,7 +23,7 @@ end
 modifier_greed_book_int = class({})
 
 function modifier_greed_book_int:IsHidden()
-    return false
+    return true
 end
 
 function modifier_greed_book_int:IsDebuff()

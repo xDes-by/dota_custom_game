@@ -6,12 +6,6 @@ LinkLuaModifier("modifier_boss_split_split_delay", "abilities/bosses/raid_boss2.
 LinkLuaModifier("modifier_boss_split_duration", "abilities/bosses/raid_boss2.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_invu", "abilities/bosses/raid_boss2.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier( "modifier_easy", "abilities/difficult/easy", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
-
 function boss_split:GetIntrinsicModifierName()
 	return "modifier_boss_split"
 end

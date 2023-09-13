@@ -5,3 +5,16 @@ scripts/vscripts/addon_game_mode.lua
 rda_game.code-workspace
 .gitignore
 scripts/vscripts/key.lua
+*.vmat_c
+*.vanim_c
+*.vmdl_c
+*.vmesh_c
+*.vagrp_c
+*.vxml_c
+*.vjs_c
+*.vcss_c
+*.vtex_c
+*.vpcf_c
+*.vsndevts_c
+*.vpk
+*.vsnd_c

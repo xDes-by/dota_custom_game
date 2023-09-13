@@ -37,6 +37,7 @@ LinkLuaModifier( "modifier_cheack_afk", "modifiers/modifier_cheack_afk", LUA_MOD
 -----------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_health_voker", "modifiers/modifier_health_voker", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_health_mega", "modifiers/modifier_health_mega", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pips", "modifiers/modifier_pips", LUA_MODIFIER_MOTION_NONE )
 
 
 

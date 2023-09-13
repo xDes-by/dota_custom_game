@@ -11,6 +11,7 @@ function Spawn( entityKeyValues )
 	NoTargetAbility2 = thisEntity:FindAbilityByName( "custom_nyx_skill" )
 	PointAbility2 = thisEntity:FindAbilityByName( "sand_king_burrowstrike_lua")
 	NoTargetAbility3 = thisEntity:FindAbilityByName( "nyx_borrow")
+	NoTargetAbility4 = thisEntity:FindAbilityByName( "nyx_assassin_vendetta" )
   
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 end

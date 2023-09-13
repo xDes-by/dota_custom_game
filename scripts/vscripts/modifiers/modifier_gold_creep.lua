@@ -50,7 +50,7 @@ function modifier_gold_creep:OnDestroy()
     end
     for iPlayerID=0,4 do
         if PlayerResource:IsValidPlayer(iPlayerID) then
-            PlayerResource:ModifyGold(iPlayerID, self.parent:GetGoldBounty(), true, DOTA_ModifyGold_SharedGold)
+            PlayerResource:ModifyGoldFiltered(iPlayerID, self.parent:GetGoldBounty(), true, DOTA_ModifyGold_SharedGold)
         end
     end
 end
@@ -96,4 +96,12 @@ function modifier_gold_creep:GetModifierIncomingDamage_Percentage()
 		ParticleManager:ReleaseParticleIndex(backtrack_fx)
 		return -100
 	end
+end
+
+function modifier_gold_creep:GetStatusEffectName()
+	return "particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
+end
+
+function modifier_gold_creep:StatusEffectPriority()
+	return MODIFIER_PRIORITY_SUPER_ULTRA
 end

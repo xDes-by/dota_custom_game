@@ -48,6 +48,53 @@
             }
         }
 	}
+    "npc_patrool1_zoomby_alt"
+	{
+		"Model"						"models/heroes/undying/undying.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_Undying"
+		"Level"						"99"
+		"ModelScale" 				"1.2"
+		
+		"Ability1"					"neutral_spell_immunity"
+		"Ability2"					""
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"100"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"0.8"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"				"150"
+
+		"RingRadius"				"60"
+		"HealthBarOffset"			"140"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		"StatusHealth"				"100"
+
+		"VisionDaytimeRange"		"1000"
+		"VisionNighttimeRange"		"1000"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    	"Creature"
+		{
+            "AttachWearables"
+			{
+			"Wearable1" {"ItemDef" "7960"}//armor("Armor of the Dirgeful Overlord")
+			"Wearable2" {"ItemDef" "7961"}//head("Crown of the Dirgeful Overlord")
+			"Wearable3" {"ItemDef" "7973"}//arms("Bracers of the Dirgeful Overlord")
+			}
+        }
+	}
     "npc_patrool2_zoomby"
 	{
 		"Model"						"models/heroes/undying/undying.vmdl"
@@ -56,7 +103,7 @@
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
-		"Ability1"					""
+		"Ability1"					"ability_npc_patrool2_zoomby_crit"
 		"Ability2"					""
 
 		"ArmorPhysical"				"0"
@@ -65,7 +112,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
-		"AttackRate"				"0.8"
+		"AttackRate"				"0.6"
 		"AttackAnimationPoint"		"0.1"
 		"AttackAcquisitionRange"	"700"
 		"AttackRange"				"150"
@@ -104,7 +151,7 @@
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
-		"Ability1"					""
+		"Ability1"					"ability_npc_patrool2_zoomby_alt_lifesteal"
 		"Ability2"					""
 
 		"ArmorPhysical"				"0"
@@ -122,7 +169,7 @@
 		"HealthBarOffset"			"140"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"350"
+		"MovementSpeed"				"300"
 
 		"StatusHealth"				"100"
 
@@ -152,7 +199,7 @@
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
-		"Ability1"					""
+		"Ability1"					"ability_npc_patrool3_siege"
 		"Ability2"					""
 
 		"ArmorPhysical"				"0"
@@ -170,7 +217,7 @@
 		"HealthBarOffset"			"140"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"600"
+		"MovementSpeed"				"250"
 
 		"StatusHealth"				"100"
 
@@ -192,9 +239,9 @@
 		"BaseClass"					"npc_dota_creature"
 		"SoundSet"					"Creep_Bad_Melee"
 		"Level"						"99"
-		"ModelScale" 				"1.2"
+		"ModelScale" 				"0.8"
 		
-		"Ability1"					""
+		"Ability1"					"ability_npc_patrool3_dragon"
 		"Ability2"					""
 
 		"ArmorPhysical"				"0"
@@ -236,7 +283,7 @@
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
-		"Ability1"					""
+		"Ability1"					"ability_npc_patrool4_zoomby"
 		"Ability2"					""
 
 		"ArmorPhysical"				"0"
@@ -276,11 +323,11 @@
             }
         }
 	}
-    "npc_patrool5_necro"
+    "npc_patrool4_tomb"
 	{
-		"Model"						"models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
+		"Model"						"models/heroes/undying/undying_tower.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"SoundSet"					"Creep_Good_Range"
+		"SoundSet"					"Undying_Tombstone"
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
@@ -290,14 +337,41 @@
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
-		"AttackRate"				"0.8"
-		"AttackAnimationPoint"		"0.1"
-		"AttackAcquisitionRange"	"700"
-		"AttackRange"				"150"
 
+		"HealthBarOffset"			"140"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"300"
+
+		"StatusHealth"				"20"
+	}
+    "npc_patrool5_necro"
+	{
+		"Model"						"models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"99"
+		"ModelScale" 				"1.2"
+		
+		"Ability1"					"ability_npc_patrool5_necro"
+		"Ability2"					"ability_npc_patrool5_necro_mine"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"2"
+		"AttackAnimationPoint"		"0.7"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"				"900"
+		"ProjectileModel"			"particles/items2_fx/necronomicon_archer_projectile.vpcf"
+		"BaseAttackSpeed"			"100"
+		"ProjectileSpeed"			"1000"
 		"RingRadius"				"60"
 		"HealthBarOffset"			"140"
 
@@ -326,8 +400,8 @@
 		"Level"						"99"
 		"ModelScale" 				"1.2"
 		
-		"Ability1"					""
-		"Ability2"					""
+		"Ability1"					"antimage_mana_break"
+		"Ability2"					"ability_npc_patrool5_summons"
 
 		"ArmorPhysical"				"0"
 		"MagicalResistance"			"0"
@@ -335,8 +409,9 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"0"
 		"AttackDamageMax"			"0"
-		"AttackRate"				"0.8"
-		"AttackAnimationPoint"		"0.1"
+		"AttackRate"				"0.6"
+		"BaseAttackSpeed"			"100"
+		"AttackAnimationPoint"		"0.56"
 		"AttackAcquisitionRange"	"700"
 		"AttackRange"				"150"
 
