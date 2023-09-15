@@ -2,24 +2,11 @@ LinkLuaModifier("modifier_enchantress_impetus_lua", "heroes/hero_enchantress/enc
 
 enchantress_impetus_lua = class({})
 
-function enchantress_impetus_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8") 
-	local level = self:GetLevel() / 2       
-	if abil ~= nil then 
-		local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-				return math.min(65000,((self:GetCaster():GetIntellect()/2) - (self:GetCaster():GetIntellect() * mp_loss)))
-			end	
-		return math.min(65000, (self:GetCaster():GetIntellect() / 2))
+function enchantress_impetus_lua:GetManaCost(iLevel)    
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int8")  ~= nil then 
+		return (100 + math.min(65000, self:GetCaster():GetIntellect() / 200)) / 2
 	end
-	-----------------------------------------------------------------------------------------------------------------------------
-	local ability = self:GetCaster():FindAbilityByName("enchantress_natures")
-	if ability:GetLevel() > 0 then
-		mp_loss = ability:GetSpecialValueFor("mana_cost") * 0.01
-		return math.min(65000,(self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss)))
-	end	
-	return math.min(65000, (self:GetCaster():GetIntellect() ))
+	return 100 + math.min(65000,self:GetCaster():GetIntellect() / 200)
 end
 
 function enchantress_impetus_lua:GetIntrinsicModifierName() 

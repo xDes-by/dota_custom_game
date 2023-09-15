@@ -13,10 +13,7 @@ end
 
 
 function wisp_relocate_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 100+ math.min(65000, self:GetCaster():GetIntellect() /100)
 end
 
 function wisp_relocate_lua:OnSpellStart()

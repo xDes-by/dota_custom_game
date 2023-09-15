@@ -174,7 +174,7 @@
         "dota_tooltip_ability_item_box_3_description" "Призывает нечисть. \n Нельзя установить на базе!"
 
         "quest_item_kletka_on" "Клетка"
-        "quest_item_kirka_gold" "Кирка"
+
 		
 		"other_49" "Вечный вард"
 		"dota_tooltip_ability_item_forever_ward" "Вечный вард"
@@ -893,8 +893,7 @@
         "dota_tooltip_ability_item_tree_plant_description" "Используйте чтобы посадить дерево."
 
         
-        "dota_tooltip_ability_item_kirka_gold" "Лопата"
-        "dota_tooltip_ability_item_kirka_gold_description" "<h1>Пассивная: Копать</h1> С шансом в 25% вы можете выкопать что-то стоящее"
+
         "dota_tooltip_ability_item_gold_brus" "Слиток Золота"
         "dota_tooltip_ability_item_gold_brus_description" "Дорогая штука! Используйте чтобы получить 5000 золота"
         "dota_tooltip_ability_item_key" "Ключ"
@@ -914,8 +913,9 @@
         "dota_tooltip_ability_item_dragon_soul_2" "Green Dragon Soul"
         "dota_tooltip_ability_item_dragon_soul_3" "Gold Dragon Soul"
 
-
-
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe" "Раскопки"
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "Время раскопок ограничено"
+        "dota_hud_error_cannot_cast_on_it" "Нельзя применять на это"
         ////////
         //PETS//===================================================================================================================================================================================================================================================
         ////////
@@ -1152,10 +1152,6 @@
 
         "quest_item_forest_soul" "Forest Soul"
         "quest_item_village_soul" "Village Soul"
-
-        "quest_item_book_of_strength_2" "Книга силы"
-        "quest_item_book_of_agility_2" "Книга ловкости"
-        "quest_item_book_of_intelligence_2" "Книга интеллекта"
 
         "quest_item_quest_moon" "Принеси мне Ожерелье Луны"
         "quest_box_1" "Убей монстров из коробки"
@@ -1478,27 +1474,6 @@
         "dota_tooltip_ability_item_cheese_lua_description" "Вкусный и питательный, съешь его и получишь бонус ко всем атрибутам +%all% * кол-во убитых рошанов."
         
         //Books//
-
-        "dota_tooltip_ability_item_book_of_strength" "Книга силы"
-        "dota_tooltip_ability_item_book_of_strength_description" "Использование прибавляет 3 единицы силы."
-        "dota_tooltip_modifier_book_of_strength" "Бонус Силы"
-        
-        "dota_tooltip_ability_item_book_of_agility" "Книга ловкости"
-        "dota_tooltip_ability_item_book_of_agility_description" "Использование прибавляет 3 единицы ловкости."
-        "dota_tooltip_modifier_book_of_agility" "Бонус Ловкости"
-        
-        "dota_tooltip_ability_item_book_of_intelligence" "Книга интеллекта"
-        "dota_tooltip_ability_item_book_of_intelligence_description" "Использование прибавляет 3 единицы интеллекта."
-        "dota_tooltip_modifier_book_of_intelligence" "Бонус Интеллекта"
-       
-        "dota_tooltip_ability_item_book_of_strength_2" "Том силы"
-        "dota_tooltip_ability_item_book_of_strength_2_description" "Использование прибавляет 30 единицы силы."
-       
-        "dota_tooltip_ability_item_book_of_agility_2" "Том ловкости"
-        "dota_tooltip_ability_item_book_of_agility_2_description" "Использование прибавляет 30 единицы ловкости."
-       
-        "dota_tooltip_ability_item_book_of_intelligence_2" "Том интеллекта"
-        "dota_tooltip_ability_item_book_of_intelligence_2_description" "Использование прибавляет 30 единицы интеллекта."
 
 		"dota_tooltip_ability_item_greed_str"               "Greed Book Of Strength"
         "dota_tooltip_ability_item_greed_str_description"   "<h1>Активное: Read</h1></h1>Использование прибавляет %bonus_stat% силы.<br><br><h1>Пассивная: Greed</h1> Предмет получает заряд каждые %cost% золота. "

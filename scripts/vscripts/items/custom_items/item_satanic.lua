@@ -115,7 +115,7 @@ function modifier_satanic_lua:OnAttackLanded( params )
 		return
 	end
 		local heal = params.damage * self.lifesteal_aura/100
-		self:GetParent():Heal( heal, self:GetAbility() )
+		self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
 		self:PlayEffects( self:GetParent() )
 	end
 end
@@ -164,7 +164,7 @@ function modifier_satanic_lua_active:OnAttackLanded( params )
 		return
 	end
 		local heal = params.damage * self.lifesteal_aura/100
-		self:GetParent():Heal( heal, self:GetAbility() )
+		self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
 		self:PlayEffects( self:GetParent() )
 	end
 end

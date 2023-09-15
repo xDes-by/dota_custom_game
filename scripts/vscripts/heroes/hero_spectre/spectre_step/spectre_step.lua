@@ -28,7 +28,7 @@ end
 
 function spectre_step:GetManaCost(iLevel)
     if self:GetCaster():FindAbilityByName("npc_dota_hero_spectre_int_last") then
-		return math.min(65000, self:GetCaster():GetIntellect()*3)
+		return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 	end
     return 0
 end

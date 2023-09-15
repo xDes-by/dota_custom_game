@@ -22,7 +22,7 @@ end
 
 function vengeful_spirit_command_aura:GetManaCost(iLevel)
     if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str10") then
-		return math.min(65000, self:GetCaster():GetIntellect()	)
+		return 100 + math.min(65000, self:GetCaster():GetIntellect() /100)
 	end
 	return 0
 end

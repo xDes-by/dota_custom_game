@@ -13,8 +13,7 @@ function techies_land_mines_lua:IsNetherWardStealable()	return false end
 function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("small_radius") end
 
 function techies_land_mines_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-        return math.min(65000, caster:GetIntellect())
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function techies_land_mines_lua:OnSpellStart()

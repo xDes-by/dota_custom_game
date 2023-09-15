@@ -5,7 +5,9 @@
     {
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
-
+        "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"
+        "DOTA_Tooltip_modifier_modifier_item_smithy_pickaxe" "Excavation"
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "Excavation time is limited"
         "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
 
@@ -176,7 +178,7 @@
         "dota_tooltip_ability_item_box_3_description" "Summons evil spirits. \n Can't be placed on base!"
 
         "quest_item_kletka_on" "Cage"
-        "quest_item_kirka_gold" "Pick"
+
 		
 		"other_49" "Forever Ward"
 		"dota_tooltip_ability_item_forever_ward" "Forever Ward"
@@ -893,8 +895,7 @@
         "dota_tooltip_ability_item_tree_plant_description" "Use to plant a Gold tree."
 
         
-        "dota_tooltip_ability_item_kirka_gold" "Shovel"
-        "dota_tooltip_ability_item_kirka_gold_description" "<h1> Passive: Digging </h1> With a 25% chance you can dig something worthwhile."
+
         "dota_tooltip_ability_item_gold_brus" "Gold bar"
         "dota_tooltip_ability_item_gold_brus_description" "Expensive Gold bar! Use to get 5000 gold"
         "dota_tooltip_ability_item_key" "Key"
@@ -1152,10 +1153,6 @@
 
         "quest_item_forest_soul" "Forest Soul"
         "quest_item_village_soul" "Village Soul"
-
-        "quest_item_book_of_strength_2" "Book of Strength"
-        "quest_item_book_of_agility_2" "Book of Agility"
-        "quest_item_book_of_intelligence_2" "Book of Intellect"
 
         "quest_item_quest_moon" "Bring the Moon Necklace"
         "quest_box_1" "Kill the box monsters"
@@ -1478,27 +1475,6 @@
         "dota_tooltip_ability_item_cheese_lua_description" "Delicious and nutritious, eat it and get a bonus to all attributes +%all% * number of roshans killed."
         
         //Books//
-
-        "dota_tooltip_ability_item_book_of_strength" "Book of Strength"
-        "dota_tooltip_ability_item_book_of_strength_description" "Consume to gain 3 Strength permanently."
-        "dota_tooltip_modifier_book_of_strength" "Bonus Strength"
-        
-        "dota_tooltip_ability_item_book_of_agility" "Book of Agility"
-        "dota_tooltip_ability_item_book_of_agility_description" "Consume to gain 3 Agility permanently."
-        "dota_tooltip_modifier_book_of_agility" "Bonus Agility"
-        
-        "dota_tooltip_ability_item_book_of_intelligence" "Book of Intelligence"
-        "dota_tooltip_ability_item_book_of_intelligence_description" "Consume to gain 3 Intelligence permanently."
-        "dota_tooltip_modifier_book_of_intelligence" "Bonus Intelligence"
-       
-        "dota_tooltip_ability_item_book_of_strength_2" "Tome of Strength"
-        "dota_tooltip_ability_item_book_of_strength_2_description" "Consume to gain 30 Strength permanently."
-       
-        "dota_tooltip_ability_item_book_of_agility_2" "Tome of Agility"
-        "dota_tooltip_ability_item_book_of_agility_2_description" "Consume to gain 30 Agility permanently."
-       
-        "dota_tooltip_ability_item_book_of_intelligence_2" "Tome of Intelligence"
-        "dota_tooltip_ability_item_book_of_intelligence_2_description" "Consume to gain 30 Intelligence permanently."
 
         "dota_tooltip_ability_item_greed_str"               "Greed Book Of Strength"
         "dota_tooltip_ability_item_greed_str_description"   "<h1>Active: Read</h1></h1>Use adds %bonus_stat% strength.<br><br><h1>Passive: Greed</h1> Item gets a charge every %cost% gold. "

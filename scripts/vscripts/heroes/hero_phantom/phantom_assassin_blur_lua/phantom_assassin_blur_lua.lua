@@ -8,7 +8,7 @@ end
 
 function phantom_assassin_blur_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_str_last") ~= nil	then 
-        return math.min(65000, self:GetCaster():GetIntellect())
+        return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
     end
 	return 0
 end

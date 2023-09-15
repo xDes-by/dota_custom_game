@@ -4,10 +4,7 @@ LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generi
 
 
 function phantom_assassin_phantom_strike_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function phantom_assassin_phantom_strike_lua:CastFilterResultTarget( hTarget )

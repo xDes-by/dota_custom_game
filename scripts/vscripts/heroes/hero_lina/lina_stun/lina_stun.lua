@@ -4,14 +4,10 @@ LinkLuaModifier("modifier_dummy_ability", "abilities/dummy", LUA_MODIFIER_MOTION
 lina_stun = class({})
 
 function lina_stun:GetManaCost(iLevel)
-if self:GetCaster():IsRealHero() then
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int7")	
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
-		end
-        return math.min(65000, self:GetCaster():GetIntellect())
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int7") ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-return 0	
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function lina_stun:OnSpellStart()

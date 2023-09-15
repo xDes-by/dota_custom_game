@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_ancient_apparition_cold_feet_lua_freeze", "heroes/hero
 ancient_apparition_cold_feet_lua = class({})
 
 function ancient_apparition_cold_feet_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function ancient_apparition_cold_feet_lua:GetAOERadius()

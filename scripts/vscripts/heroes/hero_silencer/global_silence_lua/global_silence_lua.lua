@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_silencer_global_silence_damage_lua", "heroes/hero_sil
 silencer_global_silence_lua = {}
 
 function silencer_global_silence_lua:GetManaCost(iLevel)
-    return math.min(65000, self:GetCaster():GetIntellect() * 3)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function silencer_global_silence_lua:OnSpellStart()

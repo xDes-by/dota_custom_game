@@ -37,7 +37,7 @@ function techies_remote_mines_lua:OnAbilityPhaseInterrupted()
 end
 
 function techies_remote_mines_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
 end
 
 

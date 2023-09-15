@@ -43,7 +43,7 @@ function terrorblade_conjure_image_lua:GetIntrinsicModifierName()
 end
 
 function terrorblade_conjure_image_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()	)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function terrorblade_conjure_image_lua:OnSpellStart()

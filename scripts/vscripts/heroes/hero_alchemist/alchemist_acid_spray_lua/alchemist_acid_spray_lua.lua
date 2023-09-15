@@ -7,7 +7,7 @@ function alchemist_acid_spray_lua:GetAOERadius()
 end
 
 function alchemist_acid_spray_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function alchemist_acid_spray_lua:GetAbilityDamageType()

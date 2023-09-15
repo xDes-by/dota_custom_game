@@ -7,9 +7,9 @@ modifier_zuus_arc_lightning_lua	= modifier_zuus_arc_lightning_lua or class({})
 
 function zuus_arc_lightning_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int10") ~= nil then 
-		return math.min(65000, self:GetCaster():GetIntellect()/2)
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function zuus_arc_lightning_lua:OnSpellStart()

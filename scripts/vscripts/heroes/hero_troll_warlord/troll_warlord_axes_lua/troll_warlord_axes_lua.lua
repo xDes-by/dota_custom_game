@@ -16,13 +16,10 @@ function troll_warlord_whirling_axes_ranged_lua:GetCooldown( nLevel )
 end
 
 function troll_warlord_whirling_axes_ranged_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8")
-	if abil ~= nil	then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8") ~= nil then 
 		return 0
 	end
-    if self:GetCaster() then
-        return math.min(65000, self:GetCaster():GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() /100)
 end
 
 function troll_warlord_whirling_axes_ranged_lua:OnUpgrade()
@@ -208,13 +205,10 @@ end
 -------------------------------------------
 
 function troll_warlord_whirling_axes_melee_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8")
-	if abil ~= nil	then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8") ~= nil then 
 		return 0
 	end
-    if self:GetCaster() then
-        return math.min(65000, self:GetCaster():GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() /100)
 end
 
 function troll_warlord_whirling_axes_melee_lua:GetCooldown( nLevel )

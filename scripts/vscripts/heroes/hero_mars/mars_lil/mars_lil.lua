@@ -4,10 +4,7 @@ LinkLuaModifier( "modifier_mars_lil_debuff", "heroes/hero_mars/mars_lil/modifier
 LinkLuaModifier( "modifier_mars_boost", "heroes/hero_mars/modifier_mars_boost", LUA_MODIFIER_MOTION_NONE )
 
 function mars_lil:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, caster:GetIntellect() / 100)
 end
 
 function mars_lil:OnSpellStart()

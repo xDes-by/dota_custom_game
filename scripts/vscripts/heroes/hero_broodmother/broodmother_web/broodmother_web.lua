@@ -15,10 +15,7 @@ function broodmother_web:GetCastRange( location , target)
 end
 
 function broodmother_web:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function broodmother_web:GetCooldown(level)

@@ -39,10 +39,7 @@ end
 
 
 function warlock_golem:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 

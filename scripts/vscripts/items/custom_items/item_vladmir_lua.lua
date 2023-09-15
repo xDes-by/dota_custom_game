@@ -173,7 +173,7 @@ function modifier_item_vladmir_aura_lua:GetModifierProcAttack_Feedback( params )
 		if params.target:GetTeamNumber()~=self:GetParent():GetTeamNumber() then
 			if (not params.target:IsBuilding()) and (not params.target:IsOther()) then
 				local heal = params.damage * self.lifesteal_aura/100
-				self:GetParent():Heal( heal, self:GetAbility() )
+				self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
 				self:PlayEffects( self:GetParent() )
 			end
 		end

@@ -4,12 +4,11 @@ function shaman_wards_custom:GetBehavior()
 	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
-function shaman_wards_custom:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect() * 1.5)
+function shaman_wards_custom:GetManaCost(iLevel)         
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")    ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect() / 200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 

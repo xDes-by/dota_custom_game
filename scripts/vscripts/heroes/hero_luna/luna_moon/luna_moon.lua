@@ -7,10 +7,7 @@ LinkLuaModifier("modifier_cd", "heroes/hero_luna/luna_moon/luna_moon", LUA_MODIF
 luna_moon = class({})
 
 function luna_moon:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function luna_moon:GetCooldown(level)

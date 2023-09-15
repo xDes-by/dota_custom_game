@@ -1,12 +1,10 @@
 drow_cross_lua = class({})
 
 function drow_cross_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    self.mana = caster:GetIntellect()
-    if caster then
-    local abil = caster:FindAbilityByName("npc_dota_hero_drow_ranger_int7")
+    self.mana = 100 + self:GetCaster():GetIntellect() / 100
+    local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_int7")
         if abil ~= nil    then 
-        	self.mana = caster:GetIntellect() / 2
+        	self.mana = self.mana / 2
 		end
         if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_int_last") ~= nil then
             self.mana = self.mana * 0.9

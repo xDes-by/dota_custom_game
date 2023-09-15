@@ -8,10 +8,7 @@ LinkLuaModifier( "modifier_sven_gods_strength_child_lua", "heroes/hero_sven/sven
 --------------------------------------------------------------------------------
 
 function sven_gods_strength_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
 end
 
 function sven_gods_strength_lua:OnSpellStart()

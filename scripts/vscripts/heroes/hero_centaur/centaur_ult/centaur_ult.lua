@@ -163,7 +163,7 @@ function modifier_imba_borrowed_time_buff_hot_caster:GetModifierIncomingDamage_P
 			local max_health = target:GetMaxHealth()
 			self:SetStackCount( self:GetStackCount() + math.floor(kv.damage / self.ratio) )
 		end
-		target:Heal(kv.damage, target)
+		target:HealWithParams(kv.damage, self:GetAbility(), false, false, self:GetCaster(), false)
 		return -9999999
 	end
 end

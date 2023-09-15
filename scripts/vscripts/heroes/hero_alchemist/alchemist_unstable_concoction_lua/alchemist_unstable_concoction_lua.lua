@@ -5,10 +5,7 @@ LinkLuaModifier( "modifier_alchemist_acid_spray_lua", "heroes/hero_alchemist/alc
 alchemist_unstable_concoction_lua = class({})
 
 function alchemist_unstable_concoction_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 

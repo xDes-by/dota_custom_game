@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_bloodseeker_bloodrage_lua_proc", "heroes/hero_bloodse
 bloodseeker_bloodrage_lua = class({})
 
 function bloodseeker_bloodrage_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function bloodseeker_bloodrage_lua:GetBehavior()

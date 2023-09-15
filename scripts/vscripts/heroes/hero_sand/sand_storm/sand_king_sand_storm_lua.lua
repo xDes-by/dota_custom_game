@@ -2,10 +2,7 @@ sand_king_sand_storm_lua = class({})
 LinkLuaModifier( "modifier_sand_king_sand_storm_lua", "heroes/hero_sand/sand_storm/modifier_sand_king_sand_storm_lua", LUA_MODIFIER_MOTION_NONE )
 
 function sand_king_sand_storm_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function sand_king_sand_storm_lua:OnSpellStart()

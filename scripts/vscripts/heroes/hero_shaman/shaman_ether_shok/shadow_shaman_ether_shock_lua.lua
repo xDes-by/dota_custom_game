@@ -2,12 +2,11 @@ LinkLuaModifier("modifier_shadow_shaman_ether_shock_lua_handler",  "heroes/hero_
 
 shadow_shaman_ether_shock_lua = class({})
 
-function shadow_shaman_ether_shock_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+function shadow_shaman_ether_shock_lua:GetManaCost(iLevel)          
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")  ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function shadow_shaman_ether_shock_lua:OnSpellStart()

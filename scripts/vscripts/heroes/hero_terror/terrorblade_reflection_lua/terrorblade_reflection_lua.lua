@@ -8,16 +8,15 @@ function terrorblade_reflection_lua:Precache( context )
 end
 
 function terrorblade_reflection_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function terrorblade_reflection_lua:GetCooldown( level )
 	local abil = self:GetCaster():FindAbilityByName("modifier_npc_dota_hero_terrorblade_int8") 
 	if abil ~= nil then
 		return self.BaseClass.GetCooldown(self, level) - self.BaseClass.GetCooldown(self, level) * 0.15
-	 else
-		return self.BaseClass.GetCooldown(self, level)
-	 end
+	end
+	return self.BaseClass.GetCooldown(self, level)
 end
 
 function terrorblade_reflection_lua:OnSpellStart()

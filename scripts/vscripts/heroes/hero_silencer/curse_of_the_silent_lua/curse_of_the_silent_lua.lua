@@ -25,7 +25,7 @@ function silencer_curse_of_the_silent_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
 		return 0
 	end
-    return math.min(65000, self:GetCaster():GetIntellect())
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function silencer_curse_of_the_silent_lua:GetCastRange()

@@ -17,14 +17,10 @@ function dazzle_shallow_grave_lua:GetAOERadius()
 end
 
 function dazzle_shallow_grave_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7")
-		if abil ~= nil	then 
-		  return math.min(65000, caster:GetIntellect()/2)
-		end
-        return math.min(65000, caster:GetIntellect())
-    end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7") ~= nil	then 
+		return 50 + math.min(65000, caster:GetIntellect()/200)
+	end
+    return 100 + math.min(65000, caster:GetIntellect()/ 100)
 end
 
 

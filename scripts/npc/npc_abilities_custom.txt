@@ -28,14 +28,16 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/instant_respawn"
 		"AbilityTextureName"			"backdoor_protection"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityValues"
-		{
-			"base_damage"				"1500"
-			"hp_percent"				"2"
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-"move_passive"
+	"tower_kill"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tower_kill"
+		"AbilityTextureName"			"backdoor_protection"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+	"move_passive"
     {
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "abilities/bosses/move_passive"

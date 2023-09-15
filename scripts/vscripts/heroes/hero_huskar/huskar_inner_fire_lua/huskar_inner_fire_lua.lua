@@ -26,10 +26,7 @@ function huskar_inner_fire_lua:GetAOERadius()
 end
 
 function huskar_inner_fire_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 function huskar_inner_fire_lua:GetIntrinsicModifierName()
 	return "modifier_huskar_inner_fire_lua"

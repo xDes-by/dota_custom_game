@@ -9,7 +9,7 @@ function medusa_poison_arrow_lua:GetIntrinsicModifierName()
 end
 
 function medusa_poison_arrow_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 40 + math.min(65000, self:GetCaster():GetIntellect()/200)
 end
 
 function medusa_poison_arrow_lua:GetProjectileName()

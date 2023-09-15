@@ -30,11 +30,10 @@ end
 
 
 function zuus_thundergods_wrath_lua:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int10")	
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()*1.5)
-		end
-        return math.min(65000, self:GetCaster():GetIntellect()*3)
+	if  self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int10")	 ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
+	end
+        return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 

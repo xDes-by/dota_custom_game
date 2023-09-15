@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_bloodseeker_blood_rite_lua_thinker", "heroes/hero_blo
 bloodseeker_blood_rite_lua = class({})
 
 function bloodseeker_blood_rite_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function bloodseeker_blood_rite_lua:GetAOERadius()

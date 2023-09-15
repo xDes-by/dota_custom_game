@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_meat_hook_lua", "heroes/hero_pudge/hook/hook_spell.lu
 pudge_meat_hook_lua = class({})
 
 function pudge_meat_hook_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()	)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function pudge_meat_hook_lua:OnSpellStart()

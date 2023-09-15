@@ -1,63 +1,6 @@
 "DOTAAbilities"
 {
 //==========================================================================================================================================================================================================================================================
-"item_lotus_orb"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"FightRecapLevel"				"1"
-		
-		"AbilityCooldown"				"15.0"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"175"
-
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3850"
-		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"ls;lotus orb"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ShouldBeSuggested"				"1"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"		"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"6.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"4.0"
-			}			
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"6"
-			}
-		}
-	}
-//==========================================================================================================================================================================================================================================================
 
 "item_clarity"
 	{
@@ -141,103 +84,29 @@
 		"AbilityTextureName"			"item_cheese"
 		"ItemPurchasable"				"0"
 		"ItemDroppable" 				"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"all"					"50"
-			}
+			"all"					"50"
 		}
 	}	
-	
+
+	"item_smithy_pickaxe"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"     
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest_kirka"
+		"ScriptFile"					"items/other/item_smithy_pickaxe"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable" 				"0"
+		"AbilityValues"
+		{
+
+		}
+	}	
 //============================================================================================================================================================================================================================================================	
-
-"item_book_of_strength_2"
-	{
-		"BaseClass"						"item_book_of_strength"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_str.vmdl"	
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_strength"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-	
-"item_book_of_agility_2"
-	{
-		"BaseClass"						"item_book_of_agility"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_agi.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_agility"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-
-
-"item_book_of_intelligence_2"
-	{
-		"BaseClass"						"item_book_of_intelligence"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_int.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_intelligence"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-
 
 "item_greed_str"
 	{
@@ -347,273 +216,6 @@
 
 //============================================================================================================================
 
-"item_up_ability_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive"
-			}
-		}
-	}
-	
-"item_up_ability_tower2"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive2"
-			}
-		}
-	}
-
-"item_up_ability_tower3"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive3"
-			}
-		}
-	}
-	
-"item_up_ability_tower4"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive4"
-			}
-		}
-	}
-	
-"item_up_hp_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/hp"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_hp"
-			}
-		}
-	}
-	
-"item_up_dmg_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/dmg"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_dmg"
-			}
-		}
-	}
-	
-"item_up_armor_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/armor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_armor"
-			}
-		}
-	}
-	
-"item_up_speed_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/speed"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_speed"
-			}
-		}
-	}
 //==========================================================================================================================================================================================================================================================
 //==========================================================================================================================================================================================================================================================
 "item_super_sphere"
@@ -863,13 +465,9 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_restore_pct"		"10"
-			}
+			"hp_restore_pct"		"10"
 		}
 	}
 
@@ -895,13 +493,9 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore_pct"		"10"
-			}
+			"mana_restore_pct"		"10"
 		}
 	}
 	
@@ -2419,19 +2013,6 @@
 		"ItemInitialCharges"			"1"
 	}	
 
-"item_kirka_gold"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"FightRecapLevel"				"1"
-		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"quest/Trusty_Shovel_icon"
-		"ScriptFile"					"items/kirka_gold"
-		"AbilityCastRange"				"300"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"100"
-		"ItemPurchasable" 				"0"
-	}
-	
 "item_duel_ticket"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"

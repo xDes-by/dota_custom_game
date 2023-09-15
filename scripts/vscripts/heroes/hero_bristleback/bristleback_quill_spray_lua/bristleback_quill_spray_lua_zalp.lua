@@ -9,7 +9,7 @@ end
 npc_dota_hero_bristleback_zalp = class({})
 
 function npc_dota_hero_bristleback_zalp:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 150 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function npc_dota_hero_bristleback_zalp:OnSpellStart()

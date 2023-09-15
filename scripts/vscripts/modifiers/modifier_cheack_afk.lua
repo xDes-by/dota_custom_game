@@ -72,7 +72,7 @@ function modifier_cheack_afk:GetModifierMagicalResistanceDirectModification()
 end
 
 function modifier_cheack_afk:GetModifierConstantManaRegen()
-	return -0.045 * self:GetParent():GetIntellect()
+	return -0.049 * self:GetParent():GetIntellect()
 end
 
 function modifier_cheack_afk:OnPlayerReconnected(data)

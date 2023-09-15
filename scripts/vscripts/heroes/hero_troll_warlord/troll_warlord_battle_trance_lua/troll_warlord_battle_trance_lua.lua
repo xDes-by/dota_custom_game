@@ -19,11 +19,10 @@ function troll_warlord_battle_trance_lua:GetCooldown( level )
 end
 
 function troll_warlord_battle_trance_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8")
-	if abil == nil	then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int8") == nil then 
 		return 0
 	end
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function troll_warlord_battle_trance_lua:OnSpellStart()

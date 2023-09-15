@@ -5,7 +5,9 @@
     {
         "language" "Chinese"
         "addon_game_name" "随机防御冒险"
-
+        "dota_hud_error_cannot_cast_on_it" "无法对其施放"
+        "DOTA_Tooltip_modifier_modifier_item_smithy_pickaxe" "发掘"
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "挖掘时间有限"
         "start_chat" "<font color='#00ff00'>欢迎大家来到 Squirrel World RPG</font> <font color='#ff0000'>为了提高服务器响应质量，写信到控制台：</font> <font color= '#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>恭喜！您完成了游戏！您可以安全离开游戏或尝试杀死瘟疫松鼠！</font>"
 
@@ -168,7 +170,7 @@
         "dota_tooltip_ability_item_box_3_description" "召喚惡靈。 \n不能放置在基地上！" 
 
         "quest_item_kletka_on" "籠" 
-        "quest_item_kirka_gold" "挑選" 
+
 		
 		"other_49" "永远的守卫"
 		"dota_tooltip_ability_item_forever_ward" "永远的守卫"
@@ -793,8 +795,7 @@
         "dota_tooltip_ability_item_tree_plant_description" "用於種植金樹。" 
 
 
-        "dota_tooltip_ability_item_kirka_gold" "鏟" 
-        "dota_tooltip_ability_item_kirka_gold_description" "<h1> 被動：挖掘 </h1> 有 25% 的機率可以挖掘有價值的東西。" 
+
         "dota_tooltip_ability_item_gold_brus" "金條" 
         "dota_tooltip_ability_item_gold_brus_description" "昂貴的金條！用於獲得 5000 金幣" 
         "dota_tooltip_ability_item_key" "鑰匙" 
@@ -1052,10 +1053,6 @@
 
         "quest_item_forest_soul" "森林之魂" 
         "quest_item_village_soul" "村魂" 
-
-        "quest_item_book_of_strength_2" "力量之書" 
-        "quest_item_book_of_agility_2" "敏捷之書" 
-        "quest_item_book_of_intelligence_2" "智力之書" 
 
         "quest_item_quest_moon" "帶上月亮項鍊" 
         "quest_box_1" "殺死盒子怪物" 
@@ -1375,26 +1372,6 @@
 		
         //Books//
 
-        "dota_tooltip_ability_item_book_of_strength" "力量之書" 
-        "dota_tooltip_ability_item_book_of_strength_description" "消耗永久獲得 3 點力量。" 
-        "dota_tooltip_modifier_book_of_strength" "獎金強度" 
-		
-        "dota_tooltip_ability_item_book_of_agility" "敏捷之書" 
-        "dota_tooltip_ability_item_book_of_agility_description" "消耗永久獲得 3 點敏捷。" 
-        "dota_tooltip_modifier_book_of_agility" "敏捷獎金" 
-		
-        "dota_tooltip_ability_item_book_of_intelligence" "智慧之書" 
-        "dota_tooltip_ability_item_book_of_intelligence_description" "消耗永久獲得 3 點智力。" 
-        "dota_tooltip_modifier_book_of_intelligence" "獎勵智力" 
-		
-        "dota_tooltip_ability_item_book_of_strength_2" "奪取力量" 
-        "dota_tooltip_ability_item_book_of_strength_2_description" "消耗可永久獲得 30 點力量。" 
-		
-        "dota_tooltip_ability_item_book_of_agility_2" "敏捷之書" 
-        "dota_tooltip_ability_item_book_of_agility_2_description" "消耗永久獲得 30 敏捷。" 
-		
-        "dota_tooltip_ability_item_book_of_intelligence_2" "採取情報" 
-        "dota_tooltip_ability_item_book_of_intelligence_2_description" "消耗永久獲得 30 點智力。" 
 
 		"dota_tooltip_ability_item_greed_str" "力量贪婪之书"
         "dota_tooltip_ability_item_greed_str_description" "<h1>主动：阅读</h1></h1>使用增加 %bonus_stat% 力量。<br><br><h1>被动：贪婪</h1>每 %cost% 金币，物品就会获得一次充能。"

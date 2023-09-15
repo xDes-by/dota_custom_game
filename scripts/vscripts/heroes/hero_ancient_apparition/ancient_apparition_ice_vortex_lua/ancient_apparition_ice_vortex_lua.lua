@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_ancient_apparition_ice_vortex_lua_aura_effect", "heroe
 ancient_apparition_ice_vortex_lua = class({})
 
 function ancient_apparition_ice_vortex_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function ancient_apparition_ice_vortex_lua:OnSpellStart()
