@@ -12,5 +12,6 @@
         "shop",
         "player_pets",
         "difficultyVote",
+        "forge",
     ]
 }

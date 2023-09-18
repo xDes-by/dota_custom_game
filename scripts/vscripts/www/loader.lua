@@ -8,6 +8,7 @@ require("www/smithy")
 require("www/statist")
 require("www/souls_inventory")
 require("www/chatCommands")
+require("www/forge")
 
 local point = Entities:FindByName( nil, 'check_pizdobol'):GetAbsOrigin() 
 local Unit = CreateUnitByName('npc_dummy_unit', point, true, nil, nil, DOTA_TEAM_BADGUYS)
