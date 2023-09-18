@@ -1,6 +1,6 @@
 "DOTAUnits"
 {	
-		"npc_dota_templar_assassin_psionic_trap"
+	"npc_dota_templar_assassin_psionic_trap"
 	{										
 		// General
 		//----------------------------------------------------------------
@@ -726,8 +726,9 @@
 		"Level"						"100"
 		"ModelScale" 				"1.1"
         "IsAncient" 				"1"
-	
-		"Ability1"					""
+		"CanRespawn"				"1"
+		
+		"Ability1"					"instant_respawn"
         "Ability2" 					"drake_corrosive_skin"
         "Ability4" 					"black_dragon_splash_attack"
 
@@ -2203,9 +2204,10 @@
 		"Level"						"99"
 		"ModelScale"				"1.5"
 		
-		"Ability1"					"ursa_lapki"			// Ability 1.
-		"Ability2"					"creature_split_shot"			// Ability 2.
-		"Ability3"					"special_bonus_truestrike"			// Ability 2.
+		"Ability1"					"ursa_lapki"
+		"Ability2"					"creature_split_shot"
+		"Ability3"					"special_bonus_truestrike"
+		"Ability4"					"tower_kill"
 
 		"ArmorPhysical"				"400"
 		"MagicalResistance"			"0"		// Magical protection.
@@ -2256,6 +2258,7 @@
 		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
+		"Ability4"					"tower_kill"
 
 		"ArmorPhysical"				"500"
 		"MagicalResistance"			"0"
@@ -2306,6 +2309,7 @@
 		"Ability1"					"ursa_lapki"			// Ability 1.
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
+		"Ability4"					"tower_kill"
 
 		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
@@ -2357,6 +2361,7 @@
 		"Ability2"					"creature_split_shot"			// Ability 2.
 		"Ability3"					"special_bonus_truestrike"			// Ability 2.
 		"Ability4"					"anti_armor"			// Ability 2.
+		"Ability5"					"tower_kill"
 
 		"ArmorPhysical"				"700"
 		"MagicalResistance"			"0"
@@ -2405,6 +2410,7 @@
 		
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
+		"Ability5"					"tower_kill"
 
 		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
@@ -2462,6 +2468,7 @@
 		
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
+		"Ability5"					"tower_kill"
 
 		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
@@ -2519,6 +2526,7 @@
 		
 		"Ability1"					""			// Ability 1.
 		"Ability2"					"spectre_dispersion"			// Ability 2.
+		"Ability5"					"tower_kill"
 
 		"ArmorPhysical"				"600"
 		"MagicalResistance"			"0"
@@ -2713,46 +2721,6 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
-	
-"npc_library"
-	{
-		"Model"						"models/buildings/building_racks_ranged_reference.vmdl"
-		"BaseClass"					"npc_dota_creature"
-		"SoundSet"					"Hero_Lycan"
-		"Level"						"99"
-		"ModelScale" 				"1.2"
-		
-		"Ability1"					"library"
-		"Ability2"					""
-
-		"ArmorPhysical"				"0"
-		"MagicalResistance"			"0"
-
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"0"
-		"AttackDamageMax"			"0"
-		"AttackRate"				"1"
-		"AttackAnimationPoint"		"1"
-		"AttackAcquisitionRange"	"700"
-		"AttackRange"				"150"
-
-		"RingRadius"				"60"
-		"HealthBarOffset"			"140"
-
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-		"MovementSpeed"				"0"
-
-		"StatusHealth"				"100"
-
-		"VisionDaytimeRange"		"1000"
-		"VisionNighttimeRange"		"1000"
-
-		"TeamName"					"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	}
-	
 //==================================================================================================================================================================================================
 
 "npc_skelets"
@@ -6605,7 +6573,7 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
 
-		"Ability1"					"penek"			
+		"Ability1"					"penek"
 		"Ability2"					"furion_sprout_lua"				
 		"Ability3"					"forest_seed"				
 		"Ability4"					"custom_forest"
@@ -6770,6 +6738,7 @@
 		"Ability5"					"manacost_spell"
 		"Ability6"					"rot_boss_lua"
 		"Ability7"					"boss_2_spray"
+		"Ability8"					"pudge_chaos_meteor_lua"
 
 		"ArmorPhysical"				"30"			
 		"MagicalResistance"         "20"
@@ -6846,7 +6815,9 @@
         "Ability2"					"wisp_spirits_datadriven"         
         "Ability3"					"gaven_create_stone"         
 		"Ability4"					"earth_spirit_boulder_smash"
-		"Ability5"					"manacost_spell"
+		"Ability5"					"npc_mines_boss_spawn_shaker"
+		"Ability6"					"npc_mines_boss_wawe"
+		"Ability7"					"manacost_spell"
 
         "ArmorPhysical"             "50"         
         "MagicalResistance"         "30"        
@@ -6969,7 +6940,62 @@
             }
         }
     }
-	
+	"npc_mine_earthshaker"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/earthshaker/earthshaker.vmdl"
+        "SoundSet"                  "Hero_Earthshaker"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+		"IsAncient"					"1"
+        
+        "Ability1"                  "earthshaker_enchant_totem"          
+        "Ability2"                  "earthshaker_aftershock"        
+		"Ability3"					"earthshaker_echo_slam"
+		"Ability4"					"manacost_spell"
+
+        "ArmorPhysical"             "40"
+        "MagicalResistance"         "100"      
+
+		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"500"
+		"AttackRate"				"0.65"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"175"
+
+        "RingRadius"                "70"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "0"
+        "MovementTurnRate"          "0"
+
+        "StatusHealth"              "10000"       
+        "StatusHealthRegen"         "50"       
+        "StatusMana"                "10000"           
+        "StatusManaRegen"           "10"         
+
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        "VisionDaytimeRange"        "1400"      
+        "VisionNighttimeRange"      "1400"      
+		"Creature"
+		{
+			"AttachWearables"
+			{
+			"Wearable1" {"ItemDef" "9730"}//("Totem of Tectonic Implications")
+			"Wearable2" {"ItemDef" "9738"}//head("Helm of Tectonic Implications")
+			"Wearable3" {"ItemDef" "9737"}//belt("Belt of Tectonic Implications")
+			"Wearable4" {"ItemDef" "9735"}//arms("Bracers of Tectonic Implications")
+			}			
+		}
+    }
 //========================================================================================================DUST========================================================================================================================================	
 
 "npc_dust_boss"	
@@ -6991,6 +7017,7 @@
         "Ability5"					"manacost_spell"
         "Ability6"					"nyx_leak"
         "Ability7"					"nyx_borrow"
+        "Ability7"					"nyx_assassin_vendetta"
 
         "ArmorPhysical"             "75"         
         "MagicalResistance"         "40"        
@@ -7068,6 +7095,7 @@
         "Ability4"					"ursa_lapki"
         "Ability5"					"anti_armor"
 		"Ability6"					"manacost_spell"
+		"Ability7"					"ability_npc_swamp_boss"
 
         "ArmorPhysical"             "150"       
         "MagicalResistance"         "50"        
@@ -7194,6 +7222,7 @@
 		"Ability4"					"custom_earth_splitter"
 		"Ability5"					"creature_summon"
 		"Ability6"					"manacost_spell"
+		"Ability7"					"ability_npc_snow_boss"
 
 		"ArmorPhysical"				"250"
 		"MagicalResistance"			"60"
@@ -7242,7 +7271,49 @@
 			}
 		}
 	}
+"npc_snow_boss_feeld_caster"
+    {
+        "BaseClass"                 "npc_dota_creature"
+        "Model"                     "models/heroes/crystal_maiden_persona/crystal_maiden_persona.vmdl"
+        "SoundSet"                  "n_creep_Ranged"
+        "ModelScale"                "1.5"
+        "Level"                     "1"
+		"IsAncient"					"1"
+        
+        "Ability1"                  "ability_npc_snow_boss_feeld_caster"          
 
+        "ArmorPhysical"             "40"         
+        "MagicalResistance"         "25"        
+
+		"AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"500"
+		"AttackRate"				"0.65"
+		"AttackAnimationPoint"		"0.1"
+		"AttackAcquisitionRange"	"900"
+		"AttackRange"				"175"
+
+        "RingRadius"                "70"
+        "HealthBarOffset"           "160"
+        "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed"             "0"
+        "MovementTurnRate"          "0"
+
+        "StatusHealth"              "10000"       
+        "StatusHealthRegen"         "50"       
+        "StatusMana"                "10000"           
+        "StatusManaRegen"           "10"         
+
+        "TeamName"                  "DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        
+        "VisionDaytimeRange"        "1400"      
+        "VisionNighttimeRange"      "1400"      
+    }
  "npc_dota_creature_tusk"
     {
 		"vscripts"					"ai/ai_ping.lua"
@@ -8019,7 +8090,7 @@
 	}
 
 
-"Babka"
+	"Babka"
 	{
 		"vscripts"					"ai/ai_babka"
 		"BaseClass"					"npc_dota_creature"
@@ -8259,128 +8330,20 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
-	
-"change_hero_marci"
-    {
-    // "vscripts"               "ai/ai_quest.lua"
-        "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
-    "IsAncient"          "1"
-    "ModelScale"        "1.5"
-        "HealthBarOffset"            "0"
-        "Model"           "models/heroes/marci/marci_base.vmdl"  // Model.
-        "SoundSet"          "Creep_Good_Range"          // Name of sound set.
-        "Level"           "5"
-        "UnitLabel"         "healing_ward"
-        "ArmorPhysical"       "0"     // Physical protection.
-        "MagicalResistance"       "0"     // Magical protection.
-        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
-        "AttackDamageMin"     "0"     // Damage range min.
-        "AttackDamageMax"     "0"     // Damage range max.
-        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"        "1"     // Speed of attack.
-        "AttackAnimationPoint"    "0.5"   // Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"  "800"   
-        "AttackRange"       "500"   
-        "ProjectileModel"     "" // Particle system model for projectile.
-        "ProjectileSpeed"     "900"   // Speed of projectile.
-        "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-        "AttributeBaseStrength"   "0"     // Base strength
-        "AttributeStrengthGain"   "0"     // Strength bonus per level.
-        "AttributeBaseIntelligence" "0"     // Base intelligence
-        "AttributeIntelligenceGain" "0"     // Intelligence bonus per level.
-        "AttributeBaseAgility"    "0"     // Base agility
-        "AttributeAgilityGain"    "0"     // Agility bonus per level.
-        "BountyXP"          "0"     // Experience earn.
-        "BountyGoldMin"       "0"     // Gold earned min.
-        "BountyGoldMax"       "0"     // Gold earned max.
-        "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
-        "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-        "MovementSpeed"       "450"   // Speed
-        "MovementTurnRate"      "1.0"   // Turning rate.
-        "FollowRange"       "250"   // Distance to keep when following
-        "StatusHealth"        "100"     
-        //"StatusHealthRegen"     "0"     
-        "StatusMana"        "0"     
-        //"StatusManaRegen"     "0"     
-        "TeamName"          "DOTA_TEAM_GOODGUYS"      // Team name.
-        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-        "VisionDaytimeRange"    "0"   // Range of vision during day light.
-        "VisionNighttimeRange"    "0"   // Range of vision at night time.
-		"Creature"
-		{  
-		"AttachWearables"
-		{
-			"Wearable1" {"ItemDef" "777"}
-			"Wearable2" {"ItemDef" "778"}
-			"Wearable3" {"ItemDef" "779"}
-			"Wearable4" {"ItemDef" "780"}
-		}
-		}
-    }
-  "change_hero_silencer"
-    {
-    // "vscripts"               "ai/ai_quest.lua"
-        "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
-    	"IsAncient"          "1"
-    	"ModelScale"        "1.0"
-        "HealthBarOffset"            "0"
-        "Model"           "models/heroes/silencer/silencer.vmdl"  // Model.
-        "SoundSet"          "Creep_Good_Range"          // Name of sound set.
-        "Level"           "5"
-        "UnitLabel"         "healing_ward"
-        "ArmorPhysical"       "0"     // Physical protection.
-        "MagicalResistance"       "0"     // Magical protection.
-        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"     // Type of attack - melee, ranged, etc.
-        "AttackDamageMin"     "0"     // Damage range min.
-        "AttackDamageMax"     "0"     // Damage range max.
-        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
-        "AttackRate"        "1"     // Speed of attack.
-		"AttackAnimationPoint"    "0.5"   // Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"  "800"   
-        "AttackRange"       "500"   
-        "ProjectileModel"     "" // Particle system model for projectile.
-        "ProjectileSpeed"     "900"   // Speed of projectile.
-        "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-        "AttributeBaseStrength"   "0"     // Base strength
-        "AttributeStrengthGain"   "0"     // Strength bonus per level.
-        "AttributeBaseIntelligence" "0"     // Base intelligence
-        "AttributeIntelligenceGain" "0"     // Intelligence bonus per level.
-        "AttributeBaseAgility"    "0"     // Base agility
-        "AttributeAgilityGain"    "0"     // Agility bonus per level.
-        "BountyXP"          "0"     // Experience earn.
-        "BountyGoldMin"       "0"     // Gold earned min.
-        "BountyGoldMax"       "0"     // Gold earned max.
-        "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
-        "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
-        "MovementSpeed"       "450"   // Speed
-        "MovementTurnRate"      "1.0"   // Turning rate.
-        "FollowRange"       "250"   // Distance to keep when following
-        "StatusHealth"        "100"     
-        //"StatusHealthRegen"     "0"     
-        "StatusMana"        "0"     
-        //"StatusManaRegen"     "0"     
-        "TeamName"          "DOTA_TEAM_GOODGUYS"      // Team name.
-        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
-        "VisionDaytimeRange"    "0"   // Range of vision during day light.
-        "VisionNighttimeRange"    "0"   // Range of vision at night time.
-		"Creature"
-		{  
-			"AttachWearables"
-			{
-					"1" { "ItemDef" "302" } // Silencer's Helmet
-					"2" { "ItemDef" "303" } // Silencer's Shoulders
-					"3" { "ItemDef" "304" } // Silencer's Robe
-					"4" { "ItemDef" "301" } // Silencer's Bracers
-					"5" { "ItemDef" "28" } // Silencer's Shield
-					"6" { "ItemDef" "27" } // Silencer's Weapon
-			}
-		}
+	"npc_smithy_mound"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/nerubian_assassin/mound.vmdl"
+		"ModelScale"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
 	}
 }
+
 #base "../npc/npc_units_pets.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_bus_rush_lua/npc_magnataur_bus_rush_lua.txt"
 
 //--------------------------------------- BOSS EARTHSHAKER -----------------------------------
 #base "../vscripts/bosses/EARTHSHAKER/models.txt"
+
+#base "../npc/npc_patrool_units.txt"

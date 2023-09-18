@@ -55,10 +55,7 @@ insane_drop = {
 }
 
 item_drop = {
-		-- {items = {"item_xdes_soul"}, chance = 100, units = {"raid_boss"}},
-		-- {items = {"item_lufigun_soul"}, chance = 100, units = {"raid_boss2"}},
-		-- {items = {"item_dota_boss_soul"}, chance = 100, units = {"raid_boss3"}},
-		-- {items = {"item_ice_soul"}, chance = 100, units = {"raid_boss4"}},
+		{items = {"item_raid_soul"}, chance = 100, units = {"raid_boss", "raid_boss2", "raid_boss3", "raid_boss4"}},
 		
 		{items = {"item_cheese_lua"}, chance = 100,  duration = 30, units = {"roshan_npc"}},
 		
@@ -273,7 +270,20 @@ function RollNeutralItemDrop(unit, killer)
 					end
 				end	
 			end
-			DropNeutralItemAtPositionForHero(item_name, unit:GetAbsOrigin(), killer, tier, false)
+			local item = DropNeutralItemAtPositionForHero(item_name, unit:GetAbsOrigin(), killer, tier, false)
+			if killer.LastNeutralTeerDroped == tier then
+				if killer:IsRealHero() then
+					PlayerResource:AddNeutralItemToStash(killer:GetPlayerID(), killer:GetTeamNumber(), item:GetContainedItem())
+				else
+					PlayerResource:AddNeutralItemToStash(killer:GetOwnerEntity():GetPlayerID(), killer:GetTeamNumber(), item:GetContainedItem())
+				end
+				UTIL_Remove(item)
+			end
+			if killer:IsRealHero() then
+				killer.LastNeutralTeerDroped = tier
+			else
+				killer:GetOwnerEntity().LastNeutralTeerDroped = tier
+			end
 		end
 	end
 end

@@ -26,7 +26,7 @@ end
 
 function viper_corrosive_skin_lua:GetManaCost()
     if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+        return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
     end
 end
 

@@ -8,10 +8,7 @@ LinkLuaModifier( "modifier_spectre_deafening_blast_burn_lua", "heroes/hero_spect
 spectre_deafening_blast_lua = class({})
 
 function spectre_deafening_blast_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function spectre_deafening_blast_lua:GetCastRange(level)

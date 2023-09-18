@@ -28,10 +28,7 @@ end
 warlock_ripping = class({})
 
 function warlock_ripping:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function warlock_ripping:CastFilterResultTarget( hTarget )

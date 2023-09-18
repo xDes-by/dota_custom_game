@@ -6,10 +6,7 @@ LinkLuaModifier( "modifier_axe_enrage_all_damage_lua_from_int_last", "heroes/her
 LinkLuaModifier( "modifier_axe_enrage_str_last", "heroes/hero_axe/axe_enrage_lua/modifier_axe_enrage_str_last", LUA_MODIFIER_MOTION_NONE )
 --------------------------------------------------------------------------------
 function axe_enrage_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function axe_enrage_lua:GetBehavior()

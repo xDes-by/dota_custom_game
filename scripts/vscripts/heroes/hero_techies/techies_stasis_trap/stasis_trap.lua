@@ -8,8 +8,7 @@ LinkLuaModifier("modifier_stasis_trap_root_pfx", "heroes/hero_techies/techies_st
 function techies_stasis_trap_lua:GetAOERadius() return self:GetSpecialValueFor("radius") end
 
 function techies_stasis_trap_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-        return math.min(65000, caster:GetIntellect())
+    return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function techies_stasis_trap_lua:OnSpellStart()

@@ -7,10 +7,7 @@ LinkLuaModifier("modifier_gyrocopter_call_down_lua_flame", "heroes/hero_gyrocopt
 gyrocopter_call_down_lua = gyrocopter_call_down_lua or class({})
 
 function gyrocopter_call_down_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function gyrocopter_call_down_lua:OnSpellStart()

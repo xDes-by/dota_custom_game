@@ -11,6 +11,7 @@ function Spawn( entityKeyValues )
 	PointAbility = thisEntity:FindAbilityByName( "mars_arena_of_blood_custom" )
 	PointAbility2 = thisEntity:FindAbilityByName( "pudge_meat_hook_custom" )
 	PointAbility3 = thisEntity:FindAbilityByName( "boss_2_spray" )
+	PointAbility4 = thisEntity:FindAbilityByName( "pudge_chaos_meteor_lua" )
   
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 end
@@ -116,6 +117,14 @@ function NeutralThink()
 					PointAbilityCast(unit)
 					local pudge =  {"pudge_pud_ability_hook_miss_04","pudge_pud_ability_hook_miss_06","pudge_pud_ability_hook_miss_08"}
 					thisEntity:EmitSound(pudge[RandomInt(1, #pudge)])
+				end
+			end
+		return 0.5
+	end	
+	if PointAbility4 ~= nil and PointAbility4:IsFullyCastable()  then
+				for _,unit in pairs(enemies) do
+					if unit then
+					PointAbility4Cast(unit)
 				end
 			end
 		return 0.5
@@ -234,6 +243,18 @@ ExecuteOrderFromTable({
 		Queue = false,
 	})
     return 1.5
+end
+
+function PointAbility4Cast(unit)
+local vTargetPos = unit:GetOrigin()
+ExecuteOrderFromTable({
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+		Position = vTargetPos,
+		AbilityIndex = PointAbility4:entindex(),
+		Queue = false,
+	})
+	return 1.5
 end
 
 function TargetAbilityCast(enemy)

@@ -6,10 +6,7 @@ LinkLuaModifier("modifier_medusa_stone_gaze_curse_applied_once_lua", "heroes/her
 medusa_stone_gaze_lua = class({})
 
 function medusa_stone_gaze_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 + math.min(65000, caster:GetIntellect() / 30)
 end
 
 function medusa_stone_gaze_lua:OnOwnerSpawned()

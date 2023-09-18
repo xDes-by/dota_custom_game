@@ -1,11 +1,10 @@
 lina_dragon_slave_lua = class({})
 
 function lina_dragon_slave_lua:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int7")	
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
-		end
-        return math.min(65000, self:GetCaster():GetIntellect())
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int7")	 ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
+	end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function lina_dragon_slave_lua:OnSpellStart()

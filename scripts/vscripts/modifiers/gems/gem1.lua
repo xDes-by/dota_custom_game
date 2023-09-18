@@ -13,15 +13,26 @@ function modifier_gem1:RemoveOnDeath()
 end
 
 function modifier_gem1:OnCreated(data)
-	self.stacks = 0
-	if data.value then
-		self.stacks = self.stacks + data.value
+	self.parent = self:GetParent()
+	self.lvlup = {2, 4, 6, 8, 10, 12, 14, 16}
+	if not IsServer() then
+		return
 	end
+	self:StartIntervalThink(1)
 end
 
-function modifier_gem1:OnRefresh(data)
-	if data.value then
-		self.stacks = self.stacks + data.value
+function modifier_gem1:OnIntervalThink()
+	self.stacks = 0 
+	for i=0,5 do
+		local item = self.parent:GetItemInSlot(i)
+		if item then
+			if string.sub(item:GetAbilityName(),-4) == "gem1" then
+				self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+			end
+		end
+	end
+	if self.stacks == 0 then 
+		self:Destroy()
 	end
 end
 
@@ -39,8 +50,8 @@ function modifier_gem1:OnTakeDamage( keys )
 			self.lifesteal_pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
 			ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
-			
-			keys.attacker:Heal(keys.damage * self.stacks * 0.01, keys.attacker)
+
+			keys.attacker:HealWithParams(keys.damage * self.stacks * 0.01, self:GetAbility(), true, true, keys.attacker, true)
 		-- Attack lifesteal handler
 		else 
 			if keys.damage_category == 1 then
@@ -49,7 +60,7 @@ function modifier_gem1:OnTakeDamage( keys )
 			ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
 			
-			keys.attacker:Heal(keys.damage * self.stacks * 0.01, keys.attacker)
+			keys.attacker:HealWithParams(keys.damage * self.stacks * 0.01, self:GetAbility(), true, true, keys.attacker, false)
 		end
 	end
 end

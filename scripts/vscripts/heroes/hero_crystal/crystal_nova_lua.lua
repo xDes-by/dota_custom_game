@@ -4,10 +4,7 @@ LinkLuaModifier( "modifier_crystal_nova_lua", "heroes/hero_crystal/crystal_nova_
 LinkLuaModifier( "modifier_manacost_nova_lua", "heroes/hero_crystal/crystal_nova_lua", LUA_MODIFIER_MOTION_NONE )
 
 function crystal_nova_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function crystal_nova_lua:GetIntrinsicModifierName()

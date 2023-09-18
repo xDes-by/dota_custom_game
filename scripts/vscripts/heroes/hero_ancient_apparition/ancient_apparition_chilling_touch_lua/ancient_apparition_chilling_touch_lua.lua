@@ -5,9 +5,9 @@ ancient_apparition_chilling_touch_lua = class({})
 
 function ancient_apparition_chilling_touch_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int11") ~= nil then 
-		return math.min(65000, self:GetCaster():GetIntellect()/8)
+		return 10 + math.min(65000, self:GetCaster():GetIntellect()/400)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 40 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function ancient_apparition_chilling_touch_lua:ProcsMagicStick()

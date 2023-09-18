@@ -9,10 +9,7 @@ LinkLuaModifier("modifier_wisp_tether_lua_agi_talant", "heroes/hero_wisp/wisp_te
 LinkLuaModifier("modifier_wisp_tether_lua_ally_attack", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
 
 function wisp_tether_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() /100)
 end
 
 function wisp_tether_lua:GetCastRange(vLocation, hTarget)

@@ -46,7 +46,7 @@ function modifier_nyx_borrow:GetModifierIncomingDamage_Percentage(kv)
 		ParticleManager:ReleaseParticleIndex(heal_particle)
 		local current_health = self:GetParent():GetHealth()
 		local max_health = self:GetParent():GetMaxHealth()
-		self:GetParent():Heal(kv.damage, self:GetParent())
+		self:GetParent():HealWithParams(kv.damage, self:GetAbility(), false, true, self:GetCaster(), false)
 		return -9999999
 	end
 end

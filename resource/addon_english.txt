@@ -5,7 +5,9 @@
     {
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
-
+        "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"
+        "DOTA_Tooltip_modifier_modifier_item_smithy_pickaxe" "Excavation"
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "Excavation time is limited"
         "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
 
@@ -176,7 +178,7 @@
         "dota_tooltip_ability_item_box_3_description" "Summons evil spirits. \n Can't be placed on base!"
 
         "quest_item_kletka_on" "Cage"
-        "quest_item_kirka_gold" "Pick"
+
 		
 		"other_49" "Forever Ward"
 		"dota_tooltip_ability_item_forever_ward" "Forever Ward"
@@ -894,8 +896,7 @@
         "dota_tooltip_ability_item_tree_plant_description" "Use to plant a Gold tree."
 
         
-        "dota_tooltip_ability_item_kirka_gold" "Shovel"
-        "dota_tooltip_ability_item_kirka_gold_description" "<h1> Passive: Digging </h1> With a 25% chance you can dig something worthwhile."
+
         "dota_tooltip_ability_item_gold_brus" "Gold bar"
         "dota_tooltip_ability_item_gold_brus_description" "Expensive Gold bar! Use to get 5000 gold"
         "dota_tooltip_ability_item_key" "Key"
@@ -1153,10 +1154,6 @@
 
         "quest_item_forest_soul" "Forest Soul"
         "quest_item_village_soul" "Village Soul"
-
-        "quest_item_book_of_strength_2" "Book of Strength"
-        "quest_item_book_of_agility_2" "Book of Agility"
-        "quest_item_book_of_intelligence_2" "Book of Intellect"
 
         "quest_item_quest_moon" "Bring the Moon Necklace"
         "quest_box_1" "Kill the box monsters"
@@ -1479,27 +1476,6 @@
         "dota_tooltip_ability_item_cheese_lua_description" "Delicious and nutritious, eat it and get a bonus to all attributes +%all% * number of roshans killed."
         
         //Books//
-
-        "dota_tooltip_ability_item_book_of_strength" "Book of Strength"
-        "dota_tooltip_ability_item_book_of_strength_description" "Consume to gain 3 Strength permanently."
-        "dota_tooltip_modifier_book_of_strength" "Bonus Strength"
-        
-        "dota_tooltip_ability_item_book_of_agility" "Book of Agility"
-        "dota_tooltip_ability_item_book_of_agility_description" "Consume to gain 3 Agility permanently."
-        "dota_tooltip_modifier_book_of_agility" "Bonus Agility"
-        
-        "dota_tooltip_ability_item_book_of_intelligence" "Book of Intelligence"
-        "dota_tooltip_ability_item_book_of_intelligence_description" "Consume to gain 3 Intelligence permanently."
-        "dota_tooltip_modifier_book_of_intelligence" "Bonus Intelligence"
-       
-        "dota_tooltip_ability_item_book_of_strength_2" "Tome of Strength"
-        "dota_tooltip_ability_item_book_of_strength_2_description" "Consume to gain 30 Strength permanently."
-       
-        "dota_tooltip_ability_item_book_of_agility_2" "Tome of Agility"
-        "dota_tooltip_ability_item_book_of_agility_2_description" "Consume to gain 30 Agility permanently."
-       
-        "dota_tooltip_ability_item_book_of_intelligence_2" "Tome of Intelligence"
-        "dota_tooltip_ability_item_book_of_intelligence_2_description" "Consume to gain 30 Intelligence permanently."
 
         "dota_tooltip_ability_item_greed_str"               "Greed Book Of Strength"
         "dota_tooltip_ability_item_greed_str_description"   "<h1>Active: Read</h1></h1>Use adds %bonus_stat% strength.<br><br><h1>Passive: Greed</h1> Item gets a charge every %cost% gold. "
@@ -18914,7 +18890,259 @@
         "npc_dota_hero_silencer_npedesc1"	"You can open this hero in our discord server"
         "npc_dota_hero_marci_npedesc1"	"You can open this hero in our discord server"
 
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1
+//----------------------------------------------------------------------------------------------------------------------------------------
+        "DOTA_Tooltip_ability_item_midas_lua1" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_attack_speed" "+$attack"
 
+        "DOTA_Tooltip_ability_item_midas_lua2" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua3" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua4" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua5" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua6" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua7" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_ability_item_midas_lua8" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_attack_speed" "+$attack"
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1_gem1
+//----------------------------------------------------------------------------------------------------------------------------------------
+        "DOTA_Tooltip_ability_item_midas_lua1_gem1" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua1_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua2_gem1" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua2_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua3_gem1" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua3_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua4_gem1" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua4_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua5_gem1" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua5_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua6_gem1" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua6_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua7_gem1" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua7_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua8_gem1" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_gem1_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_gem1_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua8_gem1_bonus_gem"         "%<font color='#da00ff'>Physical and magical lifesteal bonus</font>"
+
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1_gem2
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+        "DOTA_Tooltip_ability_item_midas_lua1_gem2" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua1_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua2_gem2" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua2_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua3_gem2" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua3_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua4_gem2" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua4_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua5_gem2" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua5_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua6_gem2" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua6_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua7_gem2" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua7_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua8_gem2" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_gem2_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_gem2_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua8_gem2_bonus_gem"         "%<font color='#006dff'>Spell amplification bonus</font>"
+
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1_gem3
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+        "DOTA_Tooltip_ability_item_midas_lua1_gem3" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua1_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua2_gem3" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_gem3_attack_speed" "+$attack"
+
+		"DOTA_Tooltip_ability_item_midas_lua2_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua3_gem3" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua3_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua4_gem3" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua4_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua5_gem3" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua5_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua6_gem3" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua6_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua7_gem3" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua7_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua8_gem3" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_gem3_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_gem3_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua8_gem3_bonus_gem"         "<font color='#ffca00'>Intelligence, Strength and Agility Bonus</font>"
+
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1_gem4
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+        "DOTA_Tooltip_ability_item_midas_lua1_gem4" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua1_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua2_gem4" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua2_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua3_gem4" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua3_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua4_gem4" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua4_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua5_gem4" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua5_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua6_gem4" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua6_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua7_gem4" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua7_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua8_gem4" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_gem4_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_gem4_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua8_gem4_bonus_gem"         "<font color='#ff004c'>Base damage bonus</font>"
+
+//----------------------------------------------------------------------------------------------------------------------------------------
+//---------------ability_item_midas_lua1_gem5
+//----------------------------------------------------------------------------------------------------------------------------------------
+
+        "DOTA_Tooltip_ability_item_midas_lua1_gem5" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua1_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua1_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua1_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua2_gem5" "Forest Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua2_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua2_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua2_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua3_gem5" "Village Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua3_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua3_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua3_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua4_gem5" "Mines Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua4_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua4_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua4_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua5_gem5" "Dust Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua5_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua5_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua5_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua6_gem5" "Swamp Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua6_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua6_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua6_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua7_gem5" "Snow Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua7_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua7_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua7_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
+
+        "DOTA_Tooltip_ability_item_midas_lua8_gem5" "Divine Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua8_gem5_description" "<h1>Active: Gold Transfer</h1> Link your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua8_gem5_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_midas_lua8_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
 
 

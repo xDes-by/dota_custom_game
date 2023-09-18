@@ -76,7 +76,7 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 					if not status then
 						print(err)
 						self:Remove()
-					elseif not err then -- if no errors then xpcall doesn't return to err; so ret gets shoved back
+					elseif not err then
 						self:Remove()
 						return nil
 					end

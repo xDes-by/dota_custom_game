@@ -9,11 +9,10 @@ function slark_shadow_dance_lua:GetIntrinsicModifierName()
 end
 
 function slark_shadow_dance_lua:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6")
-	if abil ~= nil	then 
-	return math.min(65000, self:GetCaster():GetIntellect()*1.5)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6") ~= nil	then 
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/ 60)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/30)
 end
 
 

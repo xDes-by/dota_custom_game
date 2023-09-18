@@ -19,28 +19,25 @@ end
 
 ------------------------------------------------------------------------------------
 
-function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/4)
+function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)          
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function shadow_fiend_shadowraze_b_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/4)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function shadow_fiend_shadowraze_c_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/4)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 --------------------------------------------------------------------------------

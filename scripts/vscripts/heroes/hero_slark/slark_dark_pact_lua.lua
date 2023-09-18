@@ -3,11 +3,10 @@ LinkLuaModifier( "modifier_slark_dark_pact_lua", "heroes/hero_slark/slark_dark_p
 
 
 function slark_dark_pact_lua:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6")
-	if abil ~= nil	then 
-	return math.min(65000, self:GetCaster():GetIntellect()/2)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6") ~= nil then 
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function slark_dark_pact_lua:OnSpellStart()

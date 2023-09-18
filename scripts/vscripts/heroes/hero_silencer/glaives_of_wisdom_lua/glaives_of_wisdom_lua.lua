@@ -14,11 +14,10 @@ end
 
 function silencer_glaives_of_wisdom_lua:GetManaCost(iLevel)
     local caster = self:GetCaster()
-	if caster:FindAbilityByName("npc_dota_hero_silencer_str8") then return 0 end
-	-- if caster:GetMana() <= caster:GetMaxMana() * 0.1 then
-	-- 	return math.min(65000, caster:GetIntellect() / 20)
-	-- end
-    return math.min(65000, caster:GetIntellect() / 10)
+	if caster:FindAbilityByName("npc_dota_hero_silencer_str8") then 
+		return 0 
+	end
+    return 30 + math.min(65000, caster:GetIntellect() / 250)
 end
 
 function silencer_glaives_of_wisdom_lua:CastFilterResultTarget( hTarget )

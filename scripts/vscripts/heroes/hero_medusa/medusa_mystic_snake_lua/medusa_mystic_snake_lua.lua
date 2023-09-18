@@ -20,7 +20,7 @@ function medusa_mystic_snake_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_int11") ~= nil then
 		return math.min(65000, self:GetCaster():GetMana() * 0.3	)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect()	)
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function medusa_mystic_snake_lua:GetCastRange(vLocation, hTarget)

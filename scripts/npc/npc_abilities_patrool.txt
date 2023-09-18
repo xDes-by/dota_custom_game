@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+    "ability_npc_patrool1_zoomby_slow"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool1_zoomby_slow"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"slow"                      "50"
+			"slow_as"                   "35"
+		}
+	}
+    "ability_npc_patrool2_zoomby_crit"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool2_zoomby_crit"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"crit"                      "200"
+			"crit_chance"               "25"
+		}
+	}
+    "ability_npc_patrool2_zoomby_alt_lifesteal"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool2_zoomby_alt_lifesteal"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"lifesteal"                 "5"
+			"bush_chance"               "10"
+		}
+	}
+    "ability_npc_patrool3_siege"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool3_siege"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"addition_damage"           "250"
+		}
+	}
+    "ability_npc_patrool3_dragon"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool3_dragon"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"chance"                    "15"
+			"attack_speed"              "300"
+		}
+	}
+    "ability_npc_patrool4_zoomby"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool4_zoomby"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityValues"
+		{
+
+		}
+	}
+    "ability_npc_patrool5_necro"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool5_necro"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+
+		}
+	}
+    "ability_npc_patrool5_summons"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lane_creeps/ability_npc_patrool5_summons"
+		"AbilityTextureName"			""
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+
+		}
+	}
+}

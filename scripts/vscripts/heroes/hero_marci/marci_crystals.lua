@@ -259,7 +259,7 @@ end
 marci_sidekick_lua = class({})
 
 function marci_sidekick_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 LinkLuaModifier( "modifier_marci_sidekick_lua", "heroes/hero_marci/marci_crystals", LUA_MODIFIER_MOTION_BOTH )
@@ -372,7 +372,7 @@ end
 marci_unleash_lua = class({})
 
 function marci_unleash_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect() * 3)
+	return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 

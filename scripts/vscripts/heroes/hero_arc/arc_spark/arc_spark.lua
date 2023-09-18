@@ -4,10 +4,10 @@ LinkLuaModifier( "modifier_arc_talent_int9", "heroes/hero_arc/arc_spark/modifier
 ark_spark_lua = class({})
 function ark_spark_lua:GetManaCost(iLevel)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_int8")
-		if abil ~= nil then
-		return math.min(65000, self:GetCaster():GetIntellect()/2)
-		else
-        return math.min(65000, self:GetCaster():GetIntellect()	)
+	if abil ~= nil then
+		return 50 + math.min(65000, self:GetCaster():GetIntellect() / 200)
+	else
+        return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 	end
 end
 

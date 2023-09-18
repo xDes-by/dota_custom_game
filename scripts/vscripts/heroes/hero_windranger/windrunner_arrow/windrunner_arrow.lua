@@ -4,22 +4,11 @@ LinkLuaModifier( "modifier_chek", "heroes/hero_windranger/windrunner_arrow/windr
 
 windrunner_arrow = class({})
 
-function windrunner_arrow:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")             
-	if abil ~= nil then 
-		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return math.min(65000, self:GetCaster():GetIntellect() *1.5 - (self:GetCaster():GetIntellect() * 2 * mp_loss))
-			end	
-		return math.min(65000, self:GetCaster():GetIntellect() * 1.5)
+function windrunner_arrow:GetManaCost(iLevel)         
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")  ~= nil then 
+		return 120 + math.min(65000, self:GetCaster():GetIntellect() / 45)
 	end
-		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return math.min(65000, self:GetCaster():GetIntellect() * 3 - (self:GetCaster():GetIntellect() * 4 * mp_loss))
-			end	
-				return math.min(65000, self:GetCaster():GetIntellect() * 3)
+	return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function windrunner_arrow:OnSpellStart()

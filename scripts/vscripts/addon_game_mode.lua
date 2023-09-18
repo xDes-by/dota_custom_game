@@ -14,7 +14,6 @@ require('towershop')
 require('data/data')
 require('plugins')
 require('tp')
-require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("use_pets")
@@ -80,14 +79,16 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetUseCustomHeroLevels( true )
 	
 	--------------------------------------------------------------------------------------------
-	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
+	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.2)
-	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 6)
+	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.0005)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED, 0.05)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 0.1)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
+	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.3)
 	
 	--------------------------------------------------------------------------------------------	
+	--@dansoo0911:это листенер с панорамы если будешь искать
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
 	
 
@@ -99,8 +100,9 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
-	GameRules:GetGameModeEntity():SetBountyRunePickupFilter( Dynamic_Wrap( CAddonAdvExGameMode, "BountyFilter" ), self )
-	FilterManager:Init()
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter(Dynamic_Wrap(CAddonAdvExGameMode, "BountyRunePickupFilter"), self)
+	ListenToGameEvent("dota_rune_activated_server", Dynamic_Wrap(CAddonAdvExGameMode, 'OnRunePickup'), self)
+	diff_wave:InitGameMode()
 	towershop:FillingNetTables()
 	damage:Init()
 	effects:init()
@@ -325,7 +327,7 @@ function LevelUp (eventInfo)
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
-	if level > 25 then
+	if level > 30 then
 		hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
 	end
  end
@@ -500,9 +502,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 	end
 	if IsInToolsMode() then
 		if npc:IsRealHero()  then
-			-- npc:RemoveAbility("spell_item_pet")
-			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
-			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+			npc:AddItemByName("item_satanic_custom")
 		end
 	end
 end
@@ -526,17 +526,44 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
-function CAddonAdvExGameMode:BountyFilter( kv )
-	DeepPrintTable(kv)
-	for i = 0, PlayerResource:GetPlayerCount()-1 do
-		if PlayerResource:IsValidPlayer(i) then
-			local hero = PlayerResource:GetSelectedHeroEntity(i)
-			hero:ModifyGoldFiltered(500, true, 0)
-		end
+function CAddonAdvExGameMode:BountyRunePickupFilter(data)
+	if _G.kill_invoker then
+		data.gold =  9999
+		return true
 	end
-    local hero = PlayerResource:GetSelectedHeroEntity(kv.player_id_const)
-    kv.gold_bounty = 0
-    return true
+	local gold = {
+		[0] = 60,
+		[1] = 150,
+		[2] = 250,
+		[3] = 400,
+		[4] = 550,
+		[5] = 650,
+		[6] = 1000,
+		[7] = 1500,
+		[8] = 50,
+	}
+	data.gold = gold[_G.don_spawn_level] * 2
+	return true
+end
+
+function CAddonAdvExGameMode:OnRunePickup(data)
+	local runs = {
+		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
+		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
+		[DOTA_RUNE_ILLUSION] = nil,
+		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_invis",
+		[DOTA_RUNE_REGENERATION] = "modifier_rune_regen",
+		[DOTA_RUNE_BOUNTY] = nil,
+		[DOTA_RUNE_ARCANE] = "modifier_rune_arcane",
+		[DOTA_RUNE_WATER] = nil,
+		[DOTA_RUNE_XP] = nil,
+		[DOTA_RUNE_SHIELD] = "modifier_rune_shield",
+	}
+	if runs[data.rune] ~= nil then
+		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+		hHero:RemoveModifierByName(runs[data.rune])
+	end
+	
 end
 
 function gg()
@@ -683,11 +710,11 @@ end
 
 function kill_all_creeps()
 	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		for _,unit in ipairs(enemies) do
-			if unit:HasModifier("modifier_unit_on_death") then
-				unit:ForceKill(false)		
-			end	
+	for _,unit in ipairs(enemies) do
+		if unit:HasModifier("modifier_unit_on_death") then
+			unit:ForceKill(false)		
 		end	
+	end	
 end
 
 function CAddonAdvExGameMode:OnEntityKilled( keys )
@@ -1251,10 +1278,10 @@ end
     -- return true
 -- end
 
-Convars:RegisterCommand( "reload", function ()
-	SendToServerConsole("script_reload")
+Convars:RegisterCommand( "upgrade", function ()
+
 end,
-"reload", FCVAR_CHEAT )
+"upgrade", FCVAR_CHEAT )
 
 function OnEndMiniGame(eventIndex, data)
 	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
@@ -1262,7 +1289,8 @@ function OnEndMiniGame(eventIndex, data)
 	local mod = hHero:FindModifierByName("modifier_cheack_afk")
 	mod.MinigameStarted = false
 	if mod.modifier then
-		mod.modifier:Destroy()
+		mod.modifier1:Destroy()
+		mod.modifier2:Destroy()
 		mod.modifier = nil
 	end
 end

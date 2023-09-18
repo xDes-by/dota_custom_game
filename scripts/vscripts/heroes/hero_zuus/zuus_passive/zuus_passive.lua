@@ -26,6 +26,9 @@ function modifier_zuus_passive_lua:RemoveOnDeath()
 end
 
 function modifier_zuus_passive_lua:OnCreated()	
+	if not IsServer() then
+		return
+	end
 	self:StartIntervalThink(self:GetAbility():GetCooldown(level))
 end
 

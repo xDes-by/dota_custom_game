@@ -1,12 +1,11 @@
 shaman_hex = class({})
 LinkLuaModifier( "modifier_thinker", "heroes/hero_shaman/shaman_hex/shaman_hex", LUA_MODIFIER_MOTION_NONE )
 
-function shaman_hex:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")             
-	if abil ~= nil then 
-        return math.min(65000, self:GetCaster():GetIntellect()/2)
+function shaman_hex:GetManaCost(iLevel)        
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int7")    ~= nil then 
+        return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function shaman_hex:OnSpellStart()

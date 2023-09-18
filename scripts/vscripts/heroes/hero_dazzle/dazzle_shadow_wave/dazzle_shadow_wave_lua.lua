@@ -3,14 +3,10 @@ LinkLuaModifier( "modifier_dazzle_shadow_wave_lua", "heroes/hero_dazzle/dazzle_s
 LinkLuaModifier( "modifier_grave_lua", "heroes/hero_dazzle/dazzle_shadow_wave/dazzle_shadow_wave_lua", LUA_MODIFIER_MOTION_NONE )
 
 function dazzle_shadow_wave_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7")
-		if abil ~= nil	then 
-		  return math.min(65000, caster:GetIntellect()/2)
-		end
-        return math.min(65000, caster:GetIntellect())
-    end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7") ~= nil	then 
+		return 50 + math.min(65000, caster:GetIntellect()/200)
+	end
+    return 100+math.min(65000, caster:GetIntellect()/100)
 end
 
 

@@ -26,7 +26,7 @@ function pudge_dismember_hero_lua:OnAbilityPhaseStart()
 end
 
 function pudge_dismember_hero_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect()*3)
+	return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 

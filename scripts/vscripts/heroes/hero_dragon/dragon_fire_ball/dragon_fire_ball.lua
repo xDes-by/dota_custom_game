@@ -2,10 +2,7 @@ dragon_fire_ball_lua = class({})
 LinkLuaModifier( "modifier_dragon_fire_ball_lua_thinker", "heroes/hero_dragon/dragon_fire_ball/modifier_dragon_fire_ball_lua_thinker", LUA_MODIFIER_MOTION_NONE )
 
 function dragon_fire_ball_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function dragon_fire_ball_lua:OnSpellStart()

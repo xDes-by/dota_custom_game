@@ -1,256 +1,5 @@
 "DOTAAbilities"
 {
-
-"item_recipe_blade_mail"					"REMOVED"
-"item_blade_mail"                 			"REMOVED"
-"item_recipe_helm_of_the_dominator"			"REMOVED"
-"item_helm_of_the_dominator" 				"REMOVED"
-"item_recipe_helm_of_the_overlord" 			"REMOVED"
-"item_helm_of_the_overlord" 				"REMOVED"
-"item_blink"								"REMOVED"
-"item_hand_of_midas"						"REMOVED"
-"item_force_staff"							"REMOVED"
-"item_recipe_force_staff"					"REMOVED"
-"item_recipe_hurricane_pike"				"REMOVED"
-"item_hurricane_pike"						"REMOVED"
-"item_recipe_travel_boots"					"REMOVED"
-"item_recipe_travel_boots_2"				"REMOVED"
-"item_travel_boots"							"REMOVED"
-"item_travel_boots_2"						"REMOVED"
-"item_shadow_amulet"						"REMOVED"
-"item_recipe_basher"						"REMOVED"
-"item_basher"								"REMOVED"
-"item_recipe_abyssal_blade"					"REMOVED"
-"item_abyssal_blade"						"REMOVED"
-"item_recipe_manta"							"REMOVED"
-"item_manta"								"REMOVED"
-"item_recipe_invis_sword"					"REMOVED"
-"item_invis_sword"							"REMOVED"
-"item_recipe_silver_edge"					"REMOVED"
-"item_silver_edge"							"REMOVED"
-"item_rapier"								"REMOVED"	
-"item_aghanims_shard"						"REMOVED"	
-"item_ultimate_scepter"						"REMOVED"	
-"item_ultimate_scepter_2"					"REMOVED"	
-"item_recipe_ultimate_scepter"				"REMOVED"	
-"item_super_blink"							"REMOVED"	
-"item_fallen_sky"							"REMOVED"	
-"item_overwhelming_blink"					"REMOVED"	
-"item_swift_blink"							"REMOVED"	
-"item_arcane_blink"							"REMOVED"	
-"item_recipe_arcane_blink"					"REMOVED"	
-"item_recipe_swift_blink"					"REMOVED"	
-"item_recipe_overwhelming_blink"			"REMOVED"
-"item_wind_waker"							"REMOVED"
-"item_recipe_wind_waker"					"REMOVED"
-"item_recipe_helm_of_the_dominator_2"		"REMOVED"
-"item_helm_of_the_dominator_2"				"REMOVED"
-"item_recipe_wraith_band"					"REMOVED"
-"item_recipe_bracer"						"REMOVED"
-"item_recipe_null_talisman"					"REMOVED"
-"item_smoke_of_deceit"						"REMOVED"
-"item_recipe_orchid"						"REMOVED"
-"item_orchid"								"REMOVED"
-"item_recipe_bloodthorn"					"REMOVED"
-"item_bloodthorn"							"REMOVED"
-"item_tome_of_knowledge"					"REMOVED"
-"item_sheepstick"							"REMOVED"
-"item_recipe_sheepstick"					"REMOVED"
-"item_gem"									"REMOVED"
-"item_branches"								"REMOVED"
-"item_recipe_desolator"						"REMOVED"
-"item_desolator"							"REMOVED"
-"item_blight_stone"							"REMOVED"
-"item_recipe_monkey_king_bar"				"REMOVED"
-"item_monkey_king_bar"						"REMOVED"
-"item_recipe_butterfly"						"REMOVED"
-"item_butterfly"							"REMOVED"
-"item_skadi"								"REMOVED"
-"item_recipe_skadi"							"REMOVED"
-"item_octarine_core"						"REMOVED"
-"item_recipe_octarine_core"					"REMOVED"
-"item_kaya"									"REMOVED"
-"item_recipe_kaya"							"REMOVED"
-"item_pipe"									"REMOVED"
-"item_recipe_pipe"							"REMOVED"
-"item_greater_crit"							"REMOVED"
-"item_recipe_greater_crit"					"REMOVED"
-"item_bloodstone"							"REMOVED"
-"item_recipe_bloodstone"					"REMOVED"
-"item_bfury"								"REMOVED"
-"item_recipe_bfury"							"REMOVED"
-"item_heart"								"REMOVED"
-"item_recipe_heart"							"REMOVED"
-"item_radiance"								"REMOVED"
-"item_recipe_radiance"						"REMOVED"
-"item_vladmir"								"REMOVED"
-"item_recipe_vladmir"						"REMOVED"
-"item_crimson_guard"						"REMOVED"
-"item_recipe_crimson_guard"					"REMOVED"
-"item_mjollnir"								"REMOVED"
-"item_recipe_mjollnir"						"REMOVED"
-"item_shivas_guard"							"REMOVED"
-"item_recipe_shivas_guard"					"REMOVED"
-"item_ethereal_blade"						"REMOVED"
-"item_recipe_ethereal_blade"				"REMOVED"
-"item_veil_of_discord"						"REMOVED"
-"item_recipe_veil_of_discord"				"REMOVED"
-//"item_recipe_satanic						"REMOVED"
-"item_satanic"								"REMOVED"
-"item_assault"								"REMOVED"
-"item_recipe_assault"						"REMOVED"
-"item_revenants_brooch" 					"REMOVED"
-"item_wraith_pact" 							"REMOVED"
-"item_recipe_meteor_hammer" 				"REMOVED"
-"item_meteor_hammer" 						"REMOVED"
-"item_boots_of_bearing"						"REMOVED"
-"item_recipe_boots_of_bearing"				"REMOVED"
-"item_refresher"							"REMOVED"
-"item_recipe_refresher"						"REMOVED"
-"item_recipe_nullifier"						"REMOVED"
-"item_nullifier"							"REMOVED"
-"item_recipe_harpoon"						"REMOVED"
-"item_harpoon"								"REMOVED"
-"item_harpoon"								"REMOVED"
-"item_diffusal_blade"						"REMOVED"
-"item_disperser"							"REMOVED"
-"item_dagon"								"REMOVED"
-"item_dagon_2"								"REMOVED"
-"item_dagon_3"								"REMOVED"
-"item_dagon_4"								"REMOVED"
-"item_dagon_5"								"REMOVED"
-"item_recipe_phylactery"					"REMOVED"
-
-
-//==========================================================================================================================================================================================================================================================
-
-
-	"item_recipe_grandmasters_glaive"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"653"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		"ItemPurchasable"				"0"
-		"IsObsolete"					"1"
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_grandmasters_glaive"
-		"ItemRequirements"
-		{
-			//"01"						"item_basher;item_kaya_lua1"
-			//"04"						"item_basher;item_sange"
-			//"06"						"item_basher;item_yasha"
-		}
-	}
-	
-		"item_recipe_kaya_and_sange"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"272"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_kaya_and_sange"
-		"ItemRequirements"
-		{
-			"01"						"item_sange;item_kaya_lua1"
-		}
-	}
-	
-		"item_recipe_yasha_and_kaya"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"274"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_yasha_and_kaya"
-		"ItemRequirements"
-		{
-			"01"						"item_kaya_lua1;item_yasha"
-		}
-	}
-
-
-//==========================================================================================================================================================================================================================================================
-"item_lotus_orb"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"FightRecapLevel"				"1"
-		
-		"AbilityCooldown"				"15.0"
-		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"175"
-
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3850"
-		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"ls;lotus orb"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ShouldBeSuggested"				"1"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"		"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"6.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"4.0"
-			}			
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"6"
-			}
-		}
-	}
 //==========================================================================================================================================================================================================================================================
 
 "item_clarity"
@@ -335,103 +84,29 @@
 		"AbilityTextureName"			"item_cheese"
 		"ItemPurchasable"				"0"
 		"ItemDroppable" 				"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"all"					"50"
-			}
+			"all"					"50"
 		}
 	}	
-	
+
+	"item_smithy_pickaxe"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"     
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest_kirka"
+		"ScriptFile"					"items/other/item_smithy_pickaxe"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable" 				"0"
+		"AbilityValues"
+		{
+
+		}
+	}	
 //============================================================================================================================================================================================================================================================	
-
-"item_book_of_strength_2"
-	{
-		"BaseClass"						"item_book_of_strength"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_str.vmdl"	
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_strength"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-	
-"item_book_of_agility_2"
-	{
-		"BaseClass"						"item_book_of_agility"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_agi.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_agility"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-
-
-"item_book_of_intelligence_2"
-	{
-		"BaseClass"						"item_book_of_intelligence"
-		"ItemCost"						"20000"
-		"Model"							"models/gameplay/attrib_tome_int.vmdl"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"IsTempestDoubleClonable"		"0"
-		"AbilityTextureName" 		    "tom_of_intelligence"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_stat"			"30"
-			}
-		}
-	}
-
 
 "item_greed_str"
 	{
@@ -537,312 +212,10 @@
 	
 //============================================================================================================================================================================================================================================================	
 
-"item_ultimate_scepter" 					{"ItemPurchasable" "0"}
-	
-	
-"item_black_king_bar"
-	{
-		"AbilityCooldown"				"30"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_level"				"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"model_scale"			"0"     // Percentage over model scale
-			}
-		}
-	}	
+"item_ultimate_scepter" 					{"ItemPurchasable" "0"}	
 
 //============================================================================================================================
 
-"item_up_ability_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive"
-			}
-		}
-	}
-	
-"item_up_ability_tower2"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive2"
-			}
-		}
-	}
-
-"item_up_ability_tower3"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive3"
-			}
-		}
-	}
-	
-"item_up_ability_tower4"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/abil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemSellable"					"0"
-		"AbilityCastRange"              "700"
-		"Model" 						"models/gameplay/attrib_tome_xp.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"add_ability_passive4"
-			}
-		}
-	}
-	
-"item_up_hp_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/hp"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_hp"
-			}
-		}
-	}
-	
-"item_up_dmg_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/dmg"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_dmg"
-			}
-		}
-	}
-	
-"item_up_armor_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/armor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_armor"
-			}
-		}
-	}
-	
-"item_up_speed_tower"
-	{
-		"BaseClass"             		"item_datadriven"
-		"AbilityTextureName"			"tower/speed"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
-		"ItemDroppable" 				"1"
-		"ItemPurchasable" 				"0"
-		"ItemCost"						"1000"
-		"ItemSellable"					"0"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"100"
-		"ItemInitialCharges"			"1"
-		"Model" 						"models/book.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1100"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/tower/up_ability.lua"
-				"Function"		"up_speed"
-			}
-		}
-	}
 //==========================================================================================================================================================================================================================================================
 //==========================================================================================================================================================================================================================================================
 "item_super_sphere"
@@ -877,65 +250,11 @@
 		"ItemPurchasable"				"0"
 		"ItemPermanent"					"1"
 	}
-
-"item_recipe_new_year_event"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"99999"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_new_year_event_summon"
-		"ItemRequirements"
-		{
-			"01"							"item_lufigun_soul;item_xdes_soul;item_dota_boss_soul;item_ice_soul"
-		}
-	}
-
-"item_lufigun_soul"
+"item_raid_soul"
 	{       
         "BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "soul/lufigun"
-		"ItemStackable"					"0"
-		"ItemKillable"                  "0"
-		"ItemSellable"                  "0"
-		"ItemDroppable"                 "1"
-		"ItemPurchasable"				"0"
-		"ItemPermanent"					"0"
-	}
-"item_xdes_soul"
-	{       
-        "BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "soul/xdes"
-		"ItemStackable"					"0"
-		"ItemKillable"                  "0"
-		"ItemSellable"                  "0"
-		"ItemDroppable"                 "1"
-		"ItemPurchasable"				"0"
-		"ItemPermanent"					"0"
-	}
-"item_dota_boss_soul"
-	{       
-        "BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "soul/dota_boss"
-		"ItemStackable"					"0"
-		"ItemKillable"                  "0"
-		"ItemSellable"                  "0"
-		"ItemDroppable"                 "1"
-		"ItemPurchasable"				"0"
-		"ItemPermanent"					"0"
-	}
-"item_ice_soul"
-	{       
-        "BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "soul/ice"
+		"AbilityTextureName"	        "soul/super_sphere"
 		"ItemStackable"					"0"
 		"ItemKillable"                  "0"
 		"ItemSellable"                  "0"
@@ -1146,13 +465,9 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_restore_pct"		"10"
-			}
+			"hp_restore_pct"		"10"
 		}
 	}
 
@@ -1178,13 +493,9 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore_pct"		"10"
-			}
+			"mana_restore_pct"		"10"
 		}
 	}
 	
@@ -2191,417 +1502,6 @@
 	
 //==================================================================================================================================================================
 //==========================================================================================================================================================================================================================================================
-"item_recipe_boots_of_bearing_lua"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"1700"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua"
-		"ItemRequirements"
-		{
-			"01"							"item_tranquil_boots;item_ancient_janggo"
-		}
-	}
-
-"item_recipe_boots_of_bearing_lua2"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"5000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua2"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua;item_forest_soul;"
-		}
-	}
-		"item_recipe_boots_of_bearing_lua3"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"10000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua3"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua2;item_village_soul;"
-		}
-	}
-			"item_recipe_boots_of_bearing_lua4"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"20000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua4"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua3;item_mines_soul;"
-		}
-	}
-			"item_recipe_boots_of_bearing_lua5"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"30000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua5"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua4;item_dust_soul;"
-		}
-	}
-			"item_recipe_boots_of_bearing_lua6"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"40000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua6"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua5;item_swamp_soul;"
-		}
-	}
-			"item_recipe_boots_of_bearing_lua7"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"50000"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua7"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua6;item_snow_soul;"
-		}
-	}
-	"item_recipe_boots_of_bearing_lua8"
-	{
-		"AbilityTextureName" 				"recipe"				
-		"Model"								"models/props_gameplay/recipe.vmdl"
-		"BaseClass"                     	"item_datadriven"
-		
-		"ItemCost"							"99999"	
-		"ItemShopTags"						"artifacts"
-		
-		"ItemRecipe"						"1"
-		"ItemResult"						"item_boots_of_bearing_lua8"
-		"ItemRequirements"
-		{
-			"01"							"item_boots_of_bearing_lua7;item_divine_soul;"
-		}
-	}
-	"item_boots_of_bearing_lua"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"1"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-    }
-	
-     "item_boots_of_bearing_lua2"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua2"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"2"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-	 
-     "item_boots_of_bearing_lua3"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua3"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"3"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-     "item_boots_of_bearing_lua4"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua4"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"4"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-     "item_boots_of_bearing_lua5"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua5"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"5"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440" 
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-     "item_boots_of_bearing_lua6"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua6"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"6"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440" 
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-     "item_boots_of_bearing_lua7"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua7"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"7"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-     }
-	 "item_boots_of_bearing_lua8"
-    {
-        "BaseClass"                     "item_lua"
-        "ItemPermanent"					"1"
-		"FightRecapLevel"				"1"
-        "AbilityTextureName"			"boots_of_bearing_lua8"
-        "ScriptFile"					"items/custom_items/boots_of_bearing"
-        "ItemCost" 						"4000"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
-		"ItemBaseLevel"					"8"
-		//"ItemRequiresCharges"			"1"
-		"ShouldBeSuggested"				"1"
-        "ItemDeclarations"                "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-        "AbilityValues"
-        {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35 40"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
-        }
-    }
 	"item_shaker_boss_summon"
 	{       
         "BaseClass"						"item_lua"
@@ -2615,9 +1515,623 @@
 		"ItemPurchasable"				"0"
 		"ItemPermanent"					"1"
 	}
+	
+"item_quest_line_dimand"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_dimand"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}	
+	
+"item_quest_line_head"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_head"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_head2"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_head2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_ice_asd1"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_ice_asd1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_ice_skull"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_ice_skull"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_klyk"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_klyk"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_mirow"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_mirow"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_pivo"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_pivo"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_rock"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_rock"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_sun"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_sun"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_book"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_book"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_boots"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_line_boots"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}	
+	
+"item_box_1"
+    {
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "FightRecapLevel"                "1"
+        "BaseClass"                        "item_lua"
+        "AbilityTextureName"            "box_1"
+        "ScriptFile"                    "items/box/box_1"
+        "AbilityCastRange"                "300"
+        "AbilityCooldown"                "15"
+        "AbilityManaCost"                "25"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
+    }
+	
+
+	"item_box_2"
+    {
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "FightRecapLevel"                "1"
+        "BaseClass"                        "item_lua"
+        "AbilityTextureName"            "box_2"
+        "ScriptFile"                    "items/box/box_2"
+        "AbilityCastRange"                "300"
+        "AbilityCooldown"                "30"
+        "AbilityManaCost"                "25"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
+    }
+
+	"item_box_3"
+    {
+        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "FightRecapLevel"                "1"
+        "BaseClass"                      "item_lua"
+        "AbilityTextureName"			"box_3"
+        "ScriptFile"                    "items/box/box_3"
+        "AbilityCastRange"                "300"
+        "AbilityCooldown"                "45"
+        "AbilityManaCost"                "25"
+        "ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"ItemShareability"  "ITEM_FULLY_SHAREABLE"
+    }
+	
+"item_quest_blue_ice"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/item_quest_blue_ice"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}	
+	
+	
+"item_zaglushka" 
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+		"ItemDroppable" 				"0"
+	}
+
+"item_quest_blue_stone"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/blue_stone"
+		"AbilityTextureName"			"quest/kartinka_5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackableMax"				"5"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attributes"		"10"
+			}
+		}
+		
+	}
+
+"item_quest_moon"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/kartinka_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_raindow_stone"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/kartinka_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+	
+"item_quest_furion_item"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/furion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_quest_maska"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/kartinka_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_eay"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/kartinka_4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+	
+"item_quest_line_helm"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest_line_helm"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+	
+"item_quest_line_koren"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest_line_koren"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+	"item_quest_line_ring"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest_line_ring"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_skull"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest_line_skull"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_quest_line_sword"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest_line_sword"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}
+
+"item_kletka_on"
+	{
+		"BaseClass"             		"item_datadriven"
+		"AbilityTextureName"			"quest/cage1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"ItemDroppable" 				"1"
+		"ItemPurchasable" 				"0"
+		"ItemSellable"					"0"
+		"AbilityCastRange"              "300"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/kletka"
+				"Function"		"catch"
+			}
+		}
+	}
+	
+"item_kletka_off"
+	{
+		"BaseClass"             		"item_datadriven"
+		"AbilityTextureName"			"quest/cage2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable" 				"1"
+		"ItemPurchasable" 				"0"
+		"ItemSellable"					"0"
+	}	
+
+"item_tree_plant"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest/tree"
+		"ScriptFile"					"items/tree"
+		"AbilityCastRange"				"300"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"100"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"10"
+		"ItemInitialCharges"			"10"
+		"ItemPurchasable" 				"0"
+	}
+
+"item_tree_gold"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest/gold_tree"
+		"ScriptFile"					"items/tree_gold"
+		"AbilityCastRange"				"300"
+		"AbilityManaCost"				"100"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_forever_ward"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"quest/forever_ward"
+		"ScriptFile"					"items/item_forever_ward"
+		"AbilityCastRange"				"500"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+	}	
+
+"item_duel_ticket"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"duel"
+		"ScriptFile"					"items/item_duel_ticket"
+		"AbilityCooldown"				"5"
+		"ItemPurchasable" 				"0"
+	}	
+	
+"item_raid_ticket"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"raid1"
+		"ItemCost" 						"20000"
+	}
+
+"item_raid_ticket2"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"raid2"
+		"ItemCost" 						"20000"
+	}	
+
+"item_raid_ticket3"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"raid3"
+		"ItemCost" 						"20000"
+	}	
+
+"item_raid_ticket4"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"raid4"
+		"ItemCost" 						"20000"
+	}		
+	
+"item_gold_brus"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"quest/gold"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/other/gold_brick"
+		"ItemCost"						"5000"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"99"
+		"ItemInitialCharges"			"1"
+		"ItemSellable"					"0"
+		"ItemPurchasable" 				"1"
+	}
+
+"item_key"
+	{
+		"Model"							"models/gameplay/prison_key.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/key"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"0"
+		"ItemPurchasable" 				"0"
+	}
+	
+"item_dragon_soul"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"line_soul"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"0"
+		"ItemPurchasable" 				"0"
+	}	
+	
+"item_dragon_soul_2"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"line_soul2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"0"
+		"ItemPurchasable" 				"0"
+	}	
+
+"item_dragon_soul_3"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"line_soul3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"0"
+		"ItemPurchasable" 				"0"
+	}	
+"item_quest_necronomicon"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_quest_necronomicon"
+		"AbilityTextureName" 			"item_necronomicon_3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"60"
+		"AbilitySharedCooldown"			"item_quest_necronomicon"
+		"ItemPurchasable"               "0"
+	}
 }
 
 #base "../npc/items_full_custom.txt"
+#base "../npc/items_custom_recipes.txt"
 #base "../npc/items_don.txt"
 #base "../npc/gems/gem1.txt"
 #base "../npc/gems/gem2.txt"

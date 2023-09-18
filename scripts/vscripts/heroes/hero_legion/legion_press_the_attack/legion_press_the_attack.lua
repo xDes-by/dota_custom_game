@@ -18,10 +18,7 @@ function legion_press_the_attack:GetAOERadius()
 end
 
 function legion_press_the_attack:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function legion_press_the_attack:GetBehavior()

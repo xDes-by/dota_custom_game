@@ -470,7 +470,23 @@
 		"AbilityCastPoint"       	"0.3"
 		"AbilityCooldown"       	"10"
 	}
-  
+
+"npc_mines_boss_spawn_shaker"
+	{
+		"BaseClass"          		"ability_lua"
+		"ScriptFile"				"abilities/bosses/mines/npc_mines_boss_spawn_shaker"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityCastRange"       	"1000"
+		"AbilityCooldown"       	"10"
+	} 
+"npc_mines_boss_wawe"
+	{
+		"BaseClass"          		"ability_lua"
+		"ScriptFile"				"abilities/bosses/mines/npc_mines_boss_wawe"
+		"AbilityBehavior"       	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityCastRange"       	"1000"
+		"AbilityCooldown"       	"10"
+	} 
 "earthshaker_fissure_datadriven"
 	{
 		"BaseClass"       			"earthshaker_fissure"

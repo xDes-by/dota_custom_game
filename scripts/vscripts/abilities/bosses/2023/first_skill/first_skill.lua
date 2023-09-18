@@ -52,7 +52,7 @@ if not IsServer() then return end
 	local all_units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetAbility().point, nil, self:GetAbility():GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
 	for _,unit in pairs(all_units) do
 		if unit:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
-			unit:Heal(unit:GetMaxHealth()/100 * regen, self:GetAbility())
+			unit:HealWithParams(unit:GetMaxHealth()/100 * regen, self:GetAbility(), true, true, self:GetCaster(), true)
 			SendOverheadEventMessage( unit:GetPlayerOwner(), OVERHEAD_ALERT_HEAL , unit, unit:GetMaxHealth()/100 * self:GetAbility():GetSpecialValueFor("regen"), nil )
 		else
 			local damageTable = {

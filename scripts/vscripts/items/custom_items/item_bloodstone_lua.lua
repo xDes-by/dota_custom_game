@@ -151,29 +151,15 @@ function modifier_item_bloodstone_lua:OnTakeDamage(keys)
 	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() then		
 		if self:GetParent():FindAllModifiersByName(self:GetName())[1] == self and keys.damage_category == 0 and keys.inflictor and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then
 		
-				all_cleaves = {"item_bloodstone_lua1","item_bloodstone_lua2","item_bloodstone_lua3","item_bloodstone_lua4","item_bloodstone_lua5","item_bloodstone_lua6","item_bloodstone_lua7",
-		"item_bloodstone_lua1_gem1","item_bloodstone_lua2_gem1","item_bloodstone_lua3_gem1","item_bloodstone_lua4_gem1","item_bloodstone_lua5_gem1","item_bloodstone_lua6_gem1","item_bloodstone_lua7_gem1",
-		"item_bloodstone_lua1_gem2","item_bloodstone_lua2_gem2","item_bloodstone_lua3_gem2","item_bloodstone_lua4_gem2","item_bloodstone_lua5_gem2","item_bloodstone_lua6_gem2","item_bloodstone_lua7_gem2",
-		"item_bloodstone_lua1_gem3","item_bloodstone_lua2_gem3","item_bloodstone_lua3_gem3","item_bloodstone_lua4_gem3","item_bloodstone_lua5_gem3","item_bloodstone_lua6_gem3","item_bloodstone_lua7_gem3",
-		"item_bloodstone_lua1_gem4","item_bloodstone_lua2_gem4","item_bloodstone_lua3_gem4","item_bloodstone_lua4_gem4","item_bloodstone_lua5_gem4","item_bloodstone_lua6_gem4","item_bloodstone_lua7_gem4",
-		"item_bloodstone_lua1_gem5","item_bloodstone_lua2_gem5","item_bloodstone_lua3_gem5","item_bloodstone_lua4_gem5","item_bloodstone_lua5_gem5","item_bloodstone_lua6_gem5","item_bloodstone_lua7_gem5",
-		"sven_bringer","sven_great_cleave_lua","item_pet_RDA_cleave","luna_moon_glaive_lua","npc_dota_hero_treant_agi11","npc_dota_hero_centaur_agi11",
-		"npc_dota_hero_mars_agi10","npc_dota_hero_phantom_assassin_agi11","npc_dota_hero_slark_agi9","bristleback_warpath_lua"}
-
-		for _,current_name in pairs(all_cleaves) do
-			if current_name == keys.inflictor:GetAbilityName() then
-				return end
-		end
 			-- Particle effect
 			self.lifesteal_pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
 			ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
-			
-			if keys.attacker:GetHealth() <= (keys.original_damage * (self.creep_lifesteal / 100)) and keys.inflictor and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-			keys.attacker:ForceKill(true)
-			else
-			keys.attacker:Heal(keys.original_damage * (self.creep_lifesteal / 100), self)
+			heal = keys.damage * (self.bonus_life / 100)
+			if heal > 2^30 then
+				heal = 2^30
 			end
+			keys.attacker:HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), true)
 		end
 	end
 end

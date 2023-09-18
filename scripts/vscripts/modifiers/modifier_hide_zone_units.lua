@@ -74,15 +74,16 @@ function modifier_creep_antilag_aura:OnCreated(params)
     if not IsServer() then return end
 
     local caster = self:GetAuraOwner()
+    if caster ~= nil then
+        if modifier_creep_antilag.count[caster:entindex()] == nil then
+            modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] or 1
+        else
+            modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] + 1
+        end
 
-    if modifier_creep_antilag.count[caster:entindex()] == nil then
-        modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] or 1
-    else
-        modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] + 1
-    end
-
-    if caster:HasModifier("modifier_creep_antilag_phased") then
-        caster:RemoveModifierByName("modifier_creep_antilag_phased")
+        if caster:HasModifier("modifier_creep_antilag_phased") then
+            caster:RemoveModifierByName("modifier_creep_antilag_phased")
+        end
     end
 end
 
@@ -90,12 +91,13 @@ function modifier_creep_antilag_aura:OnDestroy()
     if not IsServer() then return end
 
     local caster = self:GetAuraOwner()
+    if caster ~= nil then
+        if modifier_creep_antilag.count[caster:entindex()] ~= nil then
+            modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] - 1
 
-    if modifier_creep_antilag.count[caster:entindex()] ~= nil then
-        modifier_creep_antilag.count[caster:entindex()] = modifier_creep_antilag.count[caster:entindex()] - 1
-
-        if modifier_creep_antilag.count[caster:entindex()] < 1 then
-            caster:AddNewModifier(caster, nil, "modifier_creep_antilag_phased", {})
+            if modifier_creep_antilag.count[caster:entindex()] < 1 then
+                caster:AddNewModifier(caster, nil, "modifier_creep_antilag_phased", {})
+            end
         end
     end
 end

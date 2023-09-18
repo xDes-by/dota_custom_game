@@ -137,7 +137,11 @@ function modifier_item_kaya_custom:OnTakeDamage(keys)
 			self.lifesteal_pfx = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
 			ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
 			ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
-			keys.attacker:Heal(keys.damage * (self.bonus_life / 100), self)
+			heal = keys.damage * (self.bonus_life / 100)
+			if heal > 2^30 then
+				heal = 2^30
+			end
+			keys.attacker:HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), true)
 		end
 	end
 end

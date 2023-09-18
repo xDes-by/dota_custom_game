@@ -5,10 +5,7 @@ LinkLuaModifier( "modifier_armor_debuff", "heroes/hero_skeleton/other/armor_debu
 LinkLuaModifier( "modifier_skelet_resist", "heroes/hero_skeleton/other/modifier_skelet_resist", LUA_MODIFIER_MOTION_NONE )	
 
 function wraith_king_sceleton:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function wraith_king_sceleton:GetCooldown(level)

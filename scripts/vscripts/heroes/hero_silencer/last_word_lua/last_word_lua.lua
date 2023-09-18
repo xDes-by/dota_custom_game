@@ -4,7 +4,7 @@ LinkLuaModifier( "modifier_silencer_last_word_lua", "heroes/hero_silencer/last_w
 silencer_last_word_lua = {}
 
 function silencer_last_word_lua:GetManaCost(iLevel)
-    return math.min(65000, self:GetCaster():GetIntellect())
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function silencer_last_word_lua:OnSpellStart()

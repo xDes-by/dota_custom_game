@@ -6,14 +6,6 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/pets"
 		"ScriptFile"					"items/pets/pet"
-	//	"ItemIsNeutralDrop"				"1"
-	//	"ItemPurchasable"				"1"
-	//	"ItemCost"						"1000"
-	//	"AbilityCooldown"				"10.0"
-	//	"ItemDroppable" 				"1"
-	//	"ItemStackable"					"1"
-	//	"ItemStackableMax"				"100"
-	//	"ItemInitialCharges"			"1"
 		"AbilityValues"
 		{
 			"speed"					"700"
@@ -27,17 +19,9 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_1"
 		"ScriptFile"					"items/pets/pet_rda_simple_1"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"600 700 800 900 1000 1100 1200 1300 1400 1500"
-			}
+			"speed"					"600 700 800 900 1000 1100 1200 1300 1400 1500"
 		}
 	}
 	
@@ -47,17 +31,9 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_2"
 		"ScriptFile"					"items/pets/pet_rda_simple_2"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
 		}
 	}
 
@@ -67,17 +43,9 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/simple_3"
 		"ScriptFile"					"items/pets/pet_rda_simple_3"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
 		}
 	}
     //======================================================================================================================================
@@ -87,22 +55,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/greevil"
 		"ScriptFile"					"items/pets/pet_rda_gold"
-		//"ItemIsNeutralDrop"			"1"
-		//"ItemPurchasable"				"0"
-		//"AbilityCooldown"				"10.0"
-		//"ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"gold"					"5 6 7 8 9 10 11 12 13 14"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"gold"					"5 6 7 8 9 10 11 12 13 14"
 		}
 	}
 
@@ -112,22 +68,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Seekling"
 		"ScriptFile"					"items/pets/pet_rda_dmg"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg"					"18 20 22 24 26 28 30 32 34 36"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"dmg"					"18 20 22 24 26 28 30 32 34 36"
 		}
 	}
 	
@@ -137,22 +81,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Butch"
 		"ScriptFile"					"items/pets/pet_rda_hp"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hp"					"300 325 350 375 400 425 450 475 500 525"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"hp"					"300 325 350 375 400 425 450 475 500 525"
 		}
 	}
 
@@ -162,17 +94,9 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Arneyb"
 		"ScriptFile"					"items/pets/pet_rda_fast"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"3750 4000 4350 4750 5000 5300 5600 5900 6200 6500"
-			}
+			"speed"					"3750 4000 4350 4750 5000 5300 5600 5900 6200 6500"
 		}
 	}
 
@@ -182,52 +106,23 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Rex"
 		"ScriptFile"					"items/pets/pet_rda_cleave"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cleave_amount"				"30 35 40 45 55 60 65 70 75 80"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cleave_radius"				"550"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"cleave_amount"				"30 35 40 45 55 60 65 70 75 80"
+			"cleave_radius"				"550"
 		}
 	}
-	
 	"spell_item_pet_RDA_block"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/deathripper"
 		"ScriptFile"					"items/pets/pet_rda_block"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block"					"6 7 8 9 10 11 12 13 14 15"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"block"					"6 7 8 9 10 11 12 13 14 15"
 		}
 	}
 	
@@ -237,22 +132,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/amaterasu"
 		"ScriptFile"					"items/pets/pet_rda_all_dmg_amp"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dmg"					"10 11 12 13 14 15 16 17 18 19"
-			}
+			"speed"					"1600 1700 1800 1900 2000 2100 2200 2300 2400 2500"
+			"dmg"					"10 11 12 13 14 15 16 17 18 19"
 		}
 	}	
 	//======================================================================================================================================
@@ -262,22 +145,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Huntling"
 		"ScriptFile"					"items/pets/pet_rda_total_dmg"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"total_dmg"				"10 11 12 13 14 15 16 17 18 19"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"total_dmg"				"10 11 12 13 14 15 16 17 18 19"
 		}
 	}
 	
@@ -287,22 +158,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Axolotl"
 		"ScriptFile"					"items/pets/pet_rda_int"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int"					"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"int"					"1 2 3 4 5 6 7 8 9 10"
 		}
 	}
 
@@ -312,22 +171,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Dog"
 		"ScriptFile"					"items/pets/pet_rda_str"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"str"					"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"str"					"1 2 3 4 5 6 7 8 9 10"
 		}
 	}
 	
@@ -337,22 +184,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Gato"
 		"ScriptFile"					"items/pets/pet_rda_agi"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi"					"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"agi"					"1 2 3 4 5 6 7 8 9 10"
 		}
 	}
 
@@ -362,27 +197,11 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/Llama"
 		"ScriptFile"					"items/pets/pet_rda_heal"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal"					"100 125 150 175 200 225 250 275 300 325"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana"					"50 60 70 80 90 100 110 120 130 140"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"heal"					"100 125 150 175 200 225 250 275 300 325"
+			"mana"					"50 60 70 80 90 100 110 120 130 140"
 		}
 	}
     //======================================================================================================================================
@@ -392,11 +211,7 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/tegu"
 		"ScriptFile"					"items/pets/common/pet_rda_hp_com"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
 			"01"
 			{
@@ -417,11 +232,7 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/bearzky"
 		"ScriptFile"					"items/pets/common/pet_rda_dmg_com"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
 			"01"
 			{
@@ -442,11 +253,7 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/baekho"
 		"ScriptFile"					"items/pets/pet_rda_mana_regen"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
 			"01"
 			{
@@ -467,22 +274,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/goexp"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_gold_and_exp"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"goex"					"10 11 12 13 14 15 16 17 18 19"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"goex"					"10 11 12 13 14 15 16 17 18 19"
 		}
 	}	
 	"spell_item_pet_RDA_250_attribute_bonus"
@@ -491,22 +286,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/atrib"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_attribute_bonus"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
 		}
 	}	
 	"spell_item_pet_RDA_250_dmg_reduction"
@@ -515,22 +298,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/dmgr"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_dmg_reduction"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg_reduction"			"11 12 13 14 15 16 17 18 19 20"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"dmg_reduction"			"11 12 13 14 15 16 17 18 19 20"
 		}
 	}	
 	"spell_item_pet_RDA_250_regen"
@@ -539,22 +310,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/regen"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_regen"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"regen"					"2 2.25 2.50 2.75 3 3.25 3.50 3.75 4 4.25"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"regen"					"2 2.25 2.50 2.75 3 3.25 3.50 3.75 4 4.25"
 		}
 	}	
 	"spell_item_pet_RDA_250_bkb"
@@ -563,22 +322,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/bkb"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_bkb"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bkb"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"bkb"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
 		}
 	}	
 	"spell_item_pet_RDA_250_phys_dmg_reducrion"
@@ -587,22 +334,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/pdr"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_phys_dmg_reducrion"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dur"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"dur"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
 		}
 	}	
 	"spell_item_pet_RDA_250_pure_damage"
@@ -611,22 +346,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/pdmg"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_pure_damage"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pure_percent"					"7.5 10 12.5 15 17.5 20 22.5 25 27.5 30"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"pure_percent"					"7.5 10 12.5 15 17.5 20 22.5 25 27.5 30"
 		}
 	}	
 	"spell_item_pet_RDA_250_no_spell_phys_bonus"
@@ -635,27 +358,11 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/nosphbo"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_no_spell_phys_bonus"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spell_percent"					"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"phys_percent"					"110 120 130 140 150 160 170 180 190 200"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"spell_percent"					"100"
+			"phys_percent"					"110 120 130 140 150 160 170 180 190 200"
 		}
 	}	
 	"spell_item_pet_RDA_250_no_phys_spell_bonus"
@@ -664,27 +371,11 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/nophspebo"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_no_phys_spell_bonus"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"chance"					"11 12 13 14 15 16 17 18 19 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"phys_percent"					"100"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"chance"					"11 12 13 14 15 16 17 18 19 20"
+			"phys_percent"					"100"
 		}
 	}	
 	"spell_item_pet_RDA_250_minus_armor"
@@ -693,22 +384,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/armor"
 		"ScriptFile"					"items/pets/item_pet_RDA_250_minus_armor"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"minus_armor"			"0.15 0.3 0.45 0.6 0.75 0.9 1.05 1.2 1.35 1.5"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"minus_armor"			"0.15 0.3 0.45 0.6 0.75 0.9 1.05 1.2 1.35 1.5"
 		}
 	}
 	//======================================================================================================================================
@@ -718,22 +397,10 @@
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"pets/atrib"
 		"ScriptFile"					"items/pets/item_pet_rda_secret_1"
-		// "ItemIsNeutralDrop"				"1"
-		// "ItemPurchasable"				"0"
-		// "AbilityCooldown"				"10.0"
-		// "ItemDroppable" 				"0"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
 		}
 	}	
     //======================================================================================================================================

@@ -59,7 +59,7 @@ function viper_viper_strike_lua:GetManaCost()
     if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
         return 0
     end
-    return math.min(65000, self:GetCaster():GetIntellect()*3)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
 function viper_viper_strike_lua:GetCooldown()

@@ -24,8 +24,7 @@ function herogold:OnEntityKilled( keys )
         local gold = creepArray[name]["BountyGoldMin"]
         gold = tonumber(gold)
         herogold:addGold(killerEntity:GetPlayerID(),gold)
-    end
-
+    end    
 end
 
 function herogold:OnGameRulesStateChange()

@@ -12,10 +12,7 @@ function ability_class:GetCastRange(vLocation, hTarget)
 end
 
 function ability_class:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 if IsServer() then

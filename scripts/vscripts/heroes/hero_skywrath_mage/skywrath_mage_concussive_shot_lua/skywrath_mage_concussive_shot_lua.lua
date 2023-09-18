@@ -3,11 +3,10 @@ LinkLuaModifier( "modifier_skywrath_mage_concussive_shot_lua", "heroes/hero_skyw
 
 
 function skywrath_mage_concussive_shot_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10")	
-	if abil ~= nil then 
-		return math.min(65000, self:GetCaster():GetIntellect()/2)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10")	 ~= nil then 
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function skywrath_mage_concussive_shot_lua:OnSpellStart()

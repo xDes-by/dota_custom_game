@@ -328,7 +328,13 @@
 	"AbilityTextureName"            "spawn"
 	"ScriptFile"                    "abilities/bosses/snow/spider_die_spawn"
 }	
-
+"ability_npc_snow_boss"
+{
+	"BaseClass"                     "ability_lua"
+	"ScriptFile"                    "abilities/bosses/snow/ability_npc_snow_boss"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityCooldown"       		"20"
+}	
 	
 "creature_pinguin_wave"
   {

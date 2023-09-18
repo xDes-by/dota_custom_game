@@ -15,7 +15,7 @@ function terrorblade_metamorphosis_lua:Precache( context )
 end
 
 function terrorblade_metamorphosis_lua:GetManaCost(iLevel)
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100+ math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 

@@ -56,22 +56,11 @@ function ability_class:OnChannelFinish(bInterrupted)
 	end
 end
 
-function ability_class:GetManaCost(iLevel)
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")             
-	if abil ~= nil then 
-		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return math.min(65000, self:GetCaster():GetIntellect()/2 - (self:GetCaster():GetIntellect() * mp_loss))
-			end	
-			return math.min(65000, self:GetCaster():GetIntellect()/2)
+function ability_class:GetManaCost(iLevel)          
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")   ~= nil then 
+		return 75 + math.min(65000, self:GetCaster():GetIntellect()/125)
 	end
-		local ability = self:GetCaster():FindAbilityByName("windrunner_passive_lua")
-			if ability:GetLevel() > 0 then
-				mp_loss = ability:GetSpecialValueFor("mp_loss") * 0.01
-				 return math.min(65000, self:GetCaster():GetIntellect() - (self:GetCaster():GetIntellect() * 2 * mp_loss))
-			end	
-			return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 

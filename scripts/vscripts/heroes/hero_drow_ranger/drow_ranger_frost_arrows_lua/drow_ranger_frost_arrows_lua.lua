@@ -8,10 +8,7 @@ function drow_ranger_frost_arrows_lua:GetIntrinsicModifierName()
 end
 
 function drow_ranger_frost_arrows_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()/2)
-    end
+    return 40 + math.min(65000, self:GetCaster():GetIntellect() / 250)
 end
 
 function drow_ranger_frost_arrows_lua:OnSpellStart()

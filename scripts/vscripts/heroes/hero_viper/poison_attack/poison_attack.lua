@@ -29,9 +29,10 @@ function viper_poison_attack_lua:OnOrbImpact( params )
 end
 
 function viper_poison_attack_lua:GetManaCost( level )
-    caster = self:GetCaster()
-    if caster:FindAbilityByName("npc_dota_hero_viper_int6") then return 0 end
-    return math.min(65000, caster:GetIntellect() / 10)
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int6") then 
+        return 0 
+    end
+    return 40 + math.min(65000, caster:GetIntellect() / 250)
 end
 
 --------------------------------------------------------------------------------

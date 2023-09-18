@@ -5,10 +5,7 @@ LinkLuaModifier( "modifier_dragon_form_lua_frost", "heroes/hero_dragon/dragon_fo
 
 
 function dragon_form_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect()*3)
-    end
+    return 150 math.min(65000, self:GetCaster():GetIntellect()/30)
 end
 
 function dragon_form_lua:GetCooldown( level )

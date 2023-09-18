@@ -4,10 +4,7 @@ LinkLuaModifier("modifier_gyrocopter_rocket_barrage_lua", "heroes/hero_gyrocopte
 gyrocopter_rocket_barrage_lua = gyrocopter_rocket_barrage_lua or class({})
 
 function gyrocopter_rocket_barrage_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function gyrocopter_rocket_barrage_lua:OnSpellStart()

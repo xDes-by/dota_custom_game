@@ -10,11 +10,10 @@ function skywrath_mage_ancient_seal_lua:GetIntrinsicModifierName()
 end
 
 function skywrath_mage_ancient_seal_lua:GetManaCost(iLevel)
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10")	
-	if abil ~= nil then 
-		return math.min(65000, self:GetCaster():GetIntellect()/2)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int10") ~= nil then 
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-	return math.min(65000, self:GetCaster():GetIntellect())
+	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function skywrath_mage_ancient_seal_lua:IsHiddenWhenStolen()

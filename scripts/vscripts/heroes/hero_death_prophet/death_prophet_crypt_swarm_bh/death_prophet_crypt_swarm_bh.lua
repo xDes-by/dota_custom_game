@@ -12,13 +12,10 @@ function death_prophet_crypt_swarm_bh:GetCooldown( level )
 end
 
 function death_prophet_crypt_swarm_bh:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster:FindAbilityByName("npc_dota_hero_death_prophet_int11") then
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int11") then
         return 0
     end
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, caster:GetIntellect() / 100)
 end
 
 function death_prophet_crypt_swarm_bh:OnSpellStart()

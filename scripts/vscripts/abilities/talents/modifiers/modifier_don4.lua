@@ -13,11 +13,14 @@ function modifier_don4:RemoveOnDeath()
 end
 
 function modifier_don4:OnCreated( kv )
-self:StartIntervalThink(60)
+    self.parent = self:GetParent()
+	self:StartIntervalThink(60)
 end
 
 function modifier_don4:OnIntervalThink()
 	if IsServer() then
-	self:GetCaster():ModifyGold( self:GetCaster():GetGold()*0.1, true, 0 )
+        local g1 = self.parent:GetGold()
+        local g2 = self.parent:FindModifierByName("modifier_gold_bank"):GetStackCount()
+		self.parent:ModifyGoldFiltered(self.parent:GetPlayerOwner():GetPlayerID(), (g1 + g2) * 0.1, true, 0)
 	end
 end

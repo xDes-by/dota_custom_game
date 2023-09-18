@@ -145,3 +145,26 @@ point_last = {
 	[5] = {8733, 5434, 128},
 	[6] = {8199, 3375, 139},
 }
+
+PatroolWave = {
+	[0] = {"npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt",},
+	[1] = {"npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt","npc_patrool1_zoomby_alt",},
+	[2] = {"npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt",},
+	[3] = {"npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt","npc_patrool2_zoomby_alt",},
+	[4] = {"npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon",},
+	[5] = {"npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_siege","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon","npc_patrool3_dragon",},
+	[6] = {"npc_patrool4_zoomby","npc_patrool4_zoomby","npc_patrool4_zoomby",},
+	[7] = {"npc_patrool4_zoomby","npc_patrool4_zoomby","npc_patrool4_zoomby",},
+	[8] = {"npc_patrool5_necro","npc_patrool5_summons", "npc_patrool5_summons"},
+}
+
+PatroolPoints = {
+	[0] = {},
+	[1] = {},
+	[2] = {},
+	[3] = {},
+	[4] = {},
+	[5] = {},
+	[6] = {},
+	[7] = {},
+}

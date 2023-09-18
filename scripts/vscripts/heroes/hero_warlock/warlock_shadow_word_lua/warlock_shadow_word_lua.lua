@@ -14,10 +14,7 @@ function warlock_shadow_word_lua:GetAOERadius()
 end
 
 function warlock_shadow_word_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100+ math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
 function warlock_shadow_word_lua:GetBehavior()

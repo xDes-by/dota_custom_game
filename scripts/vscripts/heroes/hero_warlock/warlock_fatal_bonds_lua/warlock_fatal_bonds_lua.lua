@@ -6,10 +6,7 @@ function warlock_fatal_bonds_lua:IsHiddenWhenStolen()
 end
 
 function warlock_fatal_bonds_lua:GetManaCost(iLevel)
-    local caster = self:GetCaster()
-    if caster then
-        return math.min(65000, caster:GetIntellect())
-    end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function warlock_fatal_bonds_lua:OnSpellStart()

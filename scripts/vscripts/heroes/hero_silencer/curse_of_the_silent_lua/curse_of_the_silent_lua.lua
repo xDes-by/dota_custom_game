@@ -25,7 +25,7 @@ function silencer_curse_of_the_silent_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
 		return 0
 	end
-    return math.min(65000, self:GetCaster():GetIntellect())
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function silencer_curse_of_the_silent_lua:GetCastRange()
@@ -220,6 +220,19 @@ end
 
 function modifier_silencer_curse_of_the_silent_aura:IsPurgeException() 	
 	return false 
+end
+
+function modifier_silencer_curse_of_the_silent_aura:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self:StartIntervalThink(10)
+end
+
+function modifier_silencer_curse_of_the_silent_aura:OnIntervalThink()
+	if not self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
+		self:Destroy()
+	end
 end
 
 function modifier_silencer_curse_of_the_silent_aura:IsAura() 

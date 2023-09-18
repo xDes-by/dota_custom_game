@@ -151,8 +151,7 @@ function modifier_item_vladmir_aura_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
-		MODIFIER_EVENT_ON_TAKEDAMAGE
+		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
 	}
 end
 
@@ -173,28 +172,10 @@ function modifier_item_vladmir_aura_lua:GetModifierProcAttack_Feedback( params )
 		local pass = false
 		if params.target:GetTeamNumber()~=self:GetParent():GetTeamNumber() then
 			if (not params.target:IsBuilding()) and (not params.target:IsOther()) then
-				pass = true
+				local heal = params.damage * self.lifesteal_aura/100
+				self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
+				self:PlayEffects( self:GetParent() )
 			end
-		end
-
-		if pass then
-			self.attack_record = params.record
-		end
-	end
-end
-
-function modifier_item_vladmir_aura_lua:OnTakeDamage( params )
-	if IsServer() then
-		local pass = false
-		if self.attack_record and params.record == self.attack_record then
-			pass = true
-			self.attack_record = nil
-		end
-
-		if pass then
-			local heal = params.damage * self.lifesteal_aura/100
-			self:GetParent():Heal( heal, self:GetAbility() )
-			self:PlayEffects( self:GetParent() )
 		end
 	end
 end

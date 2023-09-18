@@ -4,6 +4,8 @@ if creep_spawner == nil then
 	creep_spawner = class({})
 end
 
+LinkLuaModifier( "modifier_creep_antilag", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
+
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
 creeps_zone3 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
@@ -505,6 +507,17 @@ _G.don_spawn_level = 0
 
 function donate_level()
 	_G.don_spawn_level = _G.don_spawn_level + 1
+
+	if _G.don_spawn_level == 7 then
+		local unit = CreateUnitByName("npc_smithy_mound", Vector(6184, -5388.937012, 192), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 300})
+		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
+			if PlayerResource:IsValidPlayer(iPlayerID) then
+				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+				hHero:AddItemByName("item_smithy_pickaxe")
+			end
+		end
+	end
 end
 
 function check_trigger_actiate()
