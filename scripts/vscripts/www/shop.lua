@@ -433,7 +433,7 @@ function Shop:buyItem(t)
 				CustomNetTables:SetTableValue("talants", tostring(pid), tab)
 			end
 		elseif shop_type == "gem" then
-			Smithy:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
+			Forge:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
 		end
 		DataBase:buyRequest({PlayerID = t.PlayerID, name = sql_name, give = give, price = price, amount = t.amountBuy, currency = currency})
 		

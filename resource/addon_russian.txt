@@ -410,11 +410,13 @@
         "hot_offer"                         "Всё в одном"
 
         "ui_custom_shop_upgrade_item_status_lable"              "Улучшить нечего"
-        "ui_custom_shop_upgrade_item_cost"                      "Стоимость улучшения"
+        "ui_custom_shop_upgrade_item_cost"                      "Стоимость улучшения:"
         "ui_custom_shop_upgrade_item_upgrade_button"            "Улучшить"
         "ui_custom_shop_upgrade_item_upgrade_button2"           "Вставить камни"
         "ui_custom_shop_upgrade_item_1"                         "Уровень предмета"
         "ui_custom_shop_upgrade_item_2"                         "Камни"
+
+        "ForgeButton_Label"                                     "Улучшить предметы"
         // Panorama
 
         /////////////////
@@ -5666,11 +5668,11 @@
 
         //Monkey King Bar//
 
-        "dota_tooltip_ability_item_monkey_king_bar_lua1" "Monkey King Bar"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_lore" "Могущественный посох, принадлежавший блистательному воину."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_monkey_king_bar_custom" "Monkey King Bar"
+        "dota_tooltip_ability_item_monkey_king_bar_custom_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
+        "dota_tooltip_ability_item_monkey_king_bar_custom_lore" "Могущественный посох, принадлежавший блистательному воину."
+        "dota_tooltip_ability_item_monkey_king_bar_custom_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_monkey_king_bar_custom_bonus_attack_speed" "+$attack"
 
         "dota_tooltip_ability_item_monkey_king_bar_lua2" "Forest Monkey King Bar"
         "dota_tooltip_ability_item_monkey_king_bar_lua2_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
@@ -12025,7 +12027,7 @@
         "dota_tooltip_ability_item_satanic_custom_damage_bonus" "+$damage"
 
 
-        
+
         "DOTA_Tooltip_modifier_satanic_lua_active" "Unholy Rage"
         "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Вампиризм увеличен до 200%"
         "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"

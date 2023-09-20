@@ -20,7 +20,6 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false and IsInToolsMode() -- false
 _G.server_load = false -- true
@@ -503,6 +502,8 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 	if IsInToolsMode() then
 		if npc:IsRealHero()  then
 			npc:AddItemByName("item_satanic_custom")
+			npc:AddItemByName("item_monkey_king_bar_custom")
+			
 		end
 	end
 end

@@ -6052,5 +6052,46 @@
 			"lifesteal_bonus"					"150 175 200 225 250 275 300 325"	
 		}
 	}
+
+	"item_recipe_monkey_king_bar_custom"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"0"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_monkey_king_bar_custom"
+		"ItemRequirements"
+		{
+			"01"							"item_demon_edge;item_javelin;item_blitz_knuckles"
+		}
+	}
+
+	"item_monkey_king_bar_custom"
+	{
+		"BaseClass"						    	"item_lua"
+		"ScriptFile"					    	"items/item_monkey_king_bar"
+		"AbilityTextureName"			    	"item_monkey_king_bar"
+		"AbilityBehavior"				    	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"			        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			        "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"		            "DAMAGE_TYPE_MAGICAL"
+		"MaxUpgradeLevel"						"8"
+		"ItemBaseLevel"							"1"
+
+		"IsDisabledInNormalShop"                "0"
+        //special
+        "AbilityValues"
+		{
+			"bonus_damage"						"40 60 90 135 200 300 460 680"
+            "bonus_attack_speed"	        	"45 68 101 152 230 340 510 770"
+            "bonus_chance"			        	"45"
+            "bonus_chance_damage"				"70 350 840 1540 2450 3570 4900 8400"	
+		}
+	}
 }
 

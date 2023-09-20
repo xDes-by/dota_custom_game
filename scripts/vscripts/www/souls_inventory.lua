@@ -35,6 +35,19 @@ function sInv:AddSoul(soul_name, pid)
     
 end
 
+function sInv:HasSoul(soul_name, pid)
+    if not self[soul_name] then return false end
+    if self[soul_name][pid] <= 0 then return false end
+    return true
+end
+
+function sInv:RemoveSoul(soul_name, pid)
+    if not self[soul_name] then return end
+    if self[soul_name][pid] <= 0 then return end
+    self[soul_name][pid] = self[soul_name][pid] - 1
+    sInv:UpdateInventory(pid)
+end
+
 function sInv:OnItemPickUp(keys)
     if not self[keys.itemname] then return end
     local hero = PlayerResource:GetSelectedHeroEntity( keys.PlayerID )
