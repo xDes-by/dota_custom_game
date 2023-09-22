@@ -72,13 +72,7 @@ function Forge:CreateOrUpdateUpgardeItemPanel(t)
     local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
     local item = hero:FindItemInInventory(t.itemname)
     local itemLevel = item:GetLevel()
-    for itemKey, itemData in pairs(self.PlayerItems[t.PlayerID]) do
-        if itemData.itemname == t.itemname then 
-            table.remove(self.PlayerItems[t.PlayerID], itemKey)
-            break
-        end
-    end
-    table.insert(self.PlayerItems[t.PlayerID], {
+    local data = {
         itemname = t.itemname,
         itemLevel = itemLevel,
         gold = upgradeCost[itemLevel].gold,
@@ -86,8 +80,18 @@ function Forge:CreateOrUpdateUpgardeItemPanel(t)
         max_gems = upgradeCost[itemLevel].max_gems,
         gemType = item.gemType or 0,
         gemsNumber = item.gemsNumber or 0,
-    })
-    DeepPrintTable(self.PlayerItems[t.PlayerID])
+    }
+    local insert = true
+    for itemKey, itemData in pairs(self.PlayerItems[t.PlayerID]) do
+        if itemData.itemname == t.itemname then 
+            insert = false
+            self.PlayerItems[t.PlayerID][itemKey] = data
+            break
+        end
+    end
+    if insert then
+        table.insert(self.PlayerItems[t.PlayerID], data)
+    end
     self:UpdateGemsTable(t.PlayerID)
     CustomNetTables:SetTableValue("forge", tostring(t.PlayerID), self.PlayerItems[t.PlayerID])
 end
