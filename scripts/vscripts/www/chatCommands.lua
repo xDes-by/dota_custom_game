@@ -81,7 +81,7 @@ function ChatCommands:OnChat(t)
         self:GiveSouls(pid, text)
         self:Box(pid, text)
         self:DropItemsNew(pid, text)
-        self:ChangeHero(pid, text)
+        self:TestTestTest(pid, text)
         Timers:CreateTimer(0.1 ,function()
             self:CreateInfo(text)
             self:Info(pid, text)
@@ -696,49 +696,15 @@ function ChatCommands:TestTalentsMessage(keyword)
     GameRules:SendCustomMessage(message,0,0)
 end
 ---------------------------------------------------------------------------------------------------
-function ChatCommands:ChangeHero(pid, text)
+-------------- TEST TEST TEST ---------------------------------------------------------------------
+function ChatCommands:TestTestTest(pid, text)
     if pid < 0 then
-        -- self:ChangeHeroMessage(keyword)
         return
     end
-    if text == "salo" then
-        DataBase:AddCoins(pid, 1)
-        local heroOld = PlayerResource:GetSelectedHeroName( pid )
-        local hero = PlayerResource:GetSelectedHeroEntity( pid )
-        GoldNow = hero:GetGold()
-        PlayerResource:ReplaceHeroWith(pid,"npc_dota_hero_silencer",0,0)
-        hero = PlayerResource:GetSelectedHeroEntity( pid )
-        hero:ModifyGoldFiltered(GoldNow, true, 0)
-        CustomGameEventManager:Send_ServerToAllClients( "talant_replace_hero", { PlayerID = pid, hero_name = heroOld} )
-        talants:pickinfo(pid,true)
-        Shop.pet[pid] = nil
-        if Shop.Auto_Pet[pid] then 
-            Shop:GetPet({
-                PlayerID = pid,
-                pet = {name = Shop.Auto_Pet[pid]},
-            })
-        else
-            Shop:GetPet({
-                PlayerID = pid,
-                pet = {name = "spell_item_pet"},
-            })
-        end
-        Shop.Change_Available[pid] = true
-        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {
-            can_change = Shop.Change_Available[pid]
-        } )
+    if text == "test" then
+        SendPlayerNotification:TutorialMessage(pid, "dota_tooltip_ability_item_raid_ticket3_description")
     end
 end
-function ChatCommands:ChangeHeroMessage(keyword)
-    local message = self:Font()
-    for i = 1, #keyword do
-        message = message .. keyword[i]
-        if i < #keyword then
-            message = message .. " / "
-        end
-    end
-    message = message .. "</font> Режим тестирования талантов"
-    GameRules:SendCustomMessage(message,0,0)
-end
+
 ---------------------------------------------------------------------------------------------------
 ChatCommands:init()

@@ -417,6 +417,9 @@
         "ui_custom_shop_upgrade_item_2"                         "Камни"
 
         "ForgeButton_Label"                                     "Улучшить предметы"
+        "TutorialDontShowAgainToggleLocalize"                   "Больше не показывать"
+        "TutorialDontShowAgainLabelLocalize"                    "Подсказки будут высвечиватся до первой победы"
+        "TutorialButtonLabelLocalize"                           "ЯСНО"
         // Panorama
 
         /////////////////
