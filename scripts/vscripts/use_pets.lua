@@ -14,7 +14,7 @@ function use_pets:UsePet(t)
 	print('UsePetLua')
 	local player = PlayerResource:GetPlayer(t.PlayerID)
 	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-	if hero:IsAlive() and not hero:HasModifier("modifier_silent") then
+	if hero:IsAlive() and not hero:IsSilenced() then
 		local tab = CustomNetTables:GetTableValue("player_pets", tostring(t.PlayerID))
 		if tab then
 			if tab.pet ~= nil then

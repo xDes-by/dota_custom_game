@@ -12,6 +12,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/bosses/swamp/ability_npc_swamp_boss"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"10"
 	}	
 
 "ward_bash"

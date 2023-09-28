@@ -28,6 +28,9 @@ function modifier_ursa_lapki:RemoveOnDeath( kv )
 end
 
 function modifier_ursa_lapki:OnCreated( kv )
+	if not IsServer() then
+		return
+	end
     self.hp_percent = self:GetAbility():GetSpecialValueFor("hp_percent")
     self.base_damage = self:GetAbility():GetSpecialValueFor("base_damage")
 end

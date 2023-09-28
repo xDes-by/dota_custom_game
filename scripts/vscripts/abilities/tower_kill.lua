@@ -1,12 +1,26 @@
 tower_kill = class({})
 
 function tower_kill:Spawn()
+    if not IsServer() then
+        return
+    end
     if self:GetCaster():GetUnitName() ~= "npc_dota_custom_tower_dire_1" then
         self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_bane_nightmare_invulnerable", {})
     end
 end
 
 function tower_kill:OnOwnerDied()
+    local unit = table.random(_G.Miniboses)
+    _G.Miniboses = table.remove_item(unit)
+    CreateUnitByNameAsync(unit, self:GetCaster():GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS, function(creep)
+        creep:SetBaseDamageMin(10000)
+        creep:SetBaseDamageMax(12000)
+        creep:SetPhysicalArmorBaseValue(1000)
+        creep:SetBaseMagicalResistanceValue(95)
+        creep:SetMaxHealth(300000)
+        creep:SetBaseMaxHealth(300000)
+        creep:SetHealth(300000)	
+    end)
     name = self:GetCaster():GetUnitName()
     if name == "npc_dota_custom_tower_dire_1" then
         local towers = Entities:FindAllByName("npc_dota_custom_tower_dire_1")

@@ -17,7 +17,7 @@ function npc_byorrocktar_spell2:OnSpellStart()
 	    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0,false)
         for _,unit in pairs(enemies) do
             ApplyDamage({victim = unit,
-            damage = self:GetSpecialValueFor("damage"),
+            damage = self:GetSpecialValueFor("damage") + unit:GetMaxHealth() * 0.05,
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage_flags = DOTA_DAMAGE_FLAG_NONE,
             attacker = self:GetCaster(),

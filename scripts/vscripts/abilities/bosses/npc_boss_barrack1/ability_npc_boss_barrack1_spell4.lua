@@ -12,7 +12,7 @@ function ability_npc_boss_barrack1_spell4:OnSpellStart()
         local pfx = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_end.vpcf", PATTACH_POINT, unit)
         ParticleManager:ReleaseParticleIndex(pfx)
         ApplyDamage({victim = unit,
-        damage = unit:GetMaxHealth()* damage_spell_persent,
+        damage = unit:GetMaxHealth()* damage_spell_persent * 2,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         attacker = self:GetCaster(),

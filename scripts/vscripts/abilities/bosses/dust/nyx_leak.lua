@@ -1,6 +1,8 @@
 LinkLuaModifier("modifier_nyx_leak", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nyx_leak_aura", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nyx_leak_delay", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nyx_boss_visual", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nyx_boss_debuff", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 
 nyx_leak = class({})
 
@@ -42,6 +44,23 @@ end
 
 function modifier_nyx_leak_aura:GetAuraSearchType()
 	return DOTA_UNIT_TARGET_HERO
+end
+
+function modifier_nyx_leak_aura:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_DEATH
+	}
+end
+
+function modifier_nyx_leak_aura:OnDeath(data)
+	if data.unit == self:GetCaster() then
+		local target = data.attacker:entindex()
+		local unit = CreateUnitByName("npc_dota_hero_nyx_assassin", data.unit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
+		unit:SetBaseMoveSpeed(5000)
+		unit:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_nyx_boss_visual", {duration = 120, target = target})
+	end
 end
 
 ---------------------------------------------
@@ -104,4 +123,136 @@ end
 function modifier_nyx_leak:OnDestroy()
 	if not IsServer() then return end
 	self.parent:StopSound("Imba.Hero_KeeperOfTheLight.ManaLeak.Target.FP")
+end
+
+modifier_nyx_boss_visual = class({})
+--Classifications template
+function modifier_nyx_boss_visual:IsHidden()
+	return true
+end
+
+function modifier_nyx_boss_visual:IsDebuff()
+	return true
+end
+
+function modifier_nyx_boss_visual:IsPurgable()
+	return false
+end
+
+function modifier_nyx_boss_visual:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_nyx_boss_visual:IsStunDebuff()
+	return false
+end
+
+function modifier_nyx_boss_visual:RemoveOnDeath()
+	return false
+end
+
+function modifier_nyx_boss_visual:DestroyOnExpire()
+	return false
+end
+
+function modifier_nyx_boss_visual:OnCreated(data)
+	if not IsServer() then
+		return
+	end
+	self.parent = self:GetParent()
+	self.target = EntIndexToHScript(data.target)
+	self.target:AddNewModifier(self.parent, nil, "modifier_nyx_boss_debuff", {duration = 120})
+	self.parent:AddNewModifier(self.parent, nil, "modifier_kill", {duration = 120})
+	local p = ParticleManager:CreateParticle("particles/econ/events/ti11/duel/dueling_glove_outcome_win.vpcf", PATTACH_POINT_FOLLOW, self.target)
+	ParticleManager:ReleaseParticleIndex(p)
+	self:StartIntervalThink(0.1)
+end
+
+function modifier_nyx_boss_visual:OnIntervalThink()
+	self.parent:MoveToPosition(self.target:GetAbsOrigin())
+end
+
+function modifier_nyx_boss_visual:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
+		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA
+	}
+end
+
+function modifier_nyx_boss_visual:GetVisualZDelta()
+	return 300
+end
+
+function modifier_nyx_boss_visual:GetModifierInvisibilityLevel()
+	return 1
+end
+
+function modifier_nyx_boss_visual:GetModifierProvidesFOWVision()
+	return 1
+end
+
+function modifier_nyx_boss_visual:CheckState()
+	return {
+		[MODIFIER_STATE_INVULNERABLE] = true,
+		[MODIFIER_STATE_INVISIBLE] = true,
+		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true
+	}
+end
+
+modifier_nyx_boss_debuff = class({})
+--Classifications template
+function modifier_nyx_boss_debuff:IsHidden()
+	return false
+end
+
+function modifier_nyx_boss_debuff:IsDebuff()
+	return true
+end
+
+function modifier_nyx_boss_debuff:IsPurgable()
+	return false
+end
+
+function modifier_nyx_boss_debuff:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_nyx_boss_debuff:IsStunDebuff()
+	return false
+end
+
+function modifier_nyx_boss_debuff:RemoveOnDeath()
+	return false
+end
+
+function modifier_nyx_boss_debuff:DestroyOnExpire()
+	return true
+end
+
+function modifier_nyx_boss_debuff:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_nyx_boss_debuff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE
+	}
+end
+
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Strength_Percentage()
+	return -10
+end
+
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Agility_Percentage()
+	return -10
+end
+
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Intellect_Percentage()
+	return -10
 end

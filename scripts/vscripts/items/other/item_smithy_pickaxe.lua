@@ -18,12 +18,17 @@ function item_smithy_pickaxe:GetCastRange(vLocation, hTarget)
     return 300
 end
 
+function item_smithy_pickaxe:GetCooldown(iLevel)
+    return self.ChannelTime
+end
+
 function item_smithy_pickaxe:GetChannelTime()
     return self.ChannelTime
 end
 
 function item_smithy_pickaxe:OnChannelFinish()
     self.mod:Destroy()
+    self:EndCooldown()
 end
 
 function item_smithy_pickaxe:OnSpellStart()
@@ -63,7 +68,7 @@ function modifier_item_smithy_pickaxe_pasive:RemoveOnDeath()
 end
 
 function modifier_item_smithy_pickaxe_pasive:DestroyOnExpire()
-    return false
+    return true
 end
 
 function modifier_item_smithy_pickaxe_pasive:OnCreated()
@@ -116,17 +121,18 @@ function modifier_item_smithy_pickaxe:OnCreated()
     if not IsServer() then
         return
     end
-    self:StartIntervalThink(RandomInt(5,10))
+    self:StartIntervalThink(5)
 end
 
 function modifier_item_smithy_pickaxe:OnIntervalThink()
-    if RandomInt(0, 100) < 25 then
-        self:StartIntervalThink(RandomInt(5,10))
-        return
-    end
     spawnPoint = self.parent:GetAbsOrigin()	
     local newItem = CreateItem( "item_gems_" .. tostring(RandomInt(1,5)), self.parent:GetPlayerOwner(), nil )
     local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
-    local dropRadius = RandomFloat( 50, 100 )
+    local dropRadius = RandomFloat( 50, 300 )
+    newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
+    
+    local newItem = CreateItem( "item_gems_" .. tostring(RandomInt(1,5)), self.parent:GetPlayerOwner(), nil )
+    local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
+    local dropRadius = RandomFloat( 50, 300 )
     newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
 end

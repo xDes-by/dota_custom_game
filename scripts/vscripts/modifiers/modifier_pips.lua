@@ -49,7 +49,7 @@ function modifier_pips:DeclareFunctions()
 end
 
 function modifier_pips:GetModifierHealthBarPips()
-    return self.pips_count
+    return math.min( self.pips_count, 20 )
 end
 
 function modifier_pips:OnAttackLanded(data)

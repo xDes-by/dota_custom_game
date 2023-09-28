@@ -47,7 +47,7 @@ if not IsServer() then return end
 			damage_table = {
 				attacker = keys.attacker,
 				damage = boom_damage,
-				damage_type = DAMAGE_TYPE_MAGICAL,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
 				damage_flags = flags
 			}
 			

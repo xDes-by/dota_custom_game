@@ -29,7 +29,12 @@ function modifier_armor_curruption:DeclareFunctions()
 end
 
 function modifier_armor_curruption:GetModifierProcAttack_Feedback(data)
-	data.target:AddNewModifier(self.caster, self.abi, "modifier_armor_curruption_talent", {duration = 3, armor_curruption = self.armor_curruption})
+	local m = data.target:FindModifierByName("modifier_armor_curruption_talent")
+	if m then
+		m:IncrementStackCount()
+	else
+		data.target:AddNewModifier(self.caster, self.abi, "modifier_armor_curruption_talent", {duration = 3, armor_curruption = self.armor_curruption})
+	end
 end
 
 modifier_armor_curruption_talent = class({})

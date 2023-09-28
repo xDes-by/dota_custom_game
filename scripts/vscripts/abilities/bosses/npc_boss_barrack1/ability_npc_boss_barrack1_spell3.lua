@@ -86,7 +86,7 @@ end
 
 function modifier_ability_npc_boss_barrack1_spell3_aura_effect:OnIntervalThink()
     ApplyDamage({victim = self:GetParent(),
-    damage = self.damage,
+    damage = self.damage * 5,
     damage_type = DAMAGE_TYPE_MAGICAL,
     damage_flags = DOTA_DAMAGE_FLAG_NONE,
     attacker = self:GetCaster(),

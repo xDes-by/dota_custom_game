@@ -168,3 +168,17 @@ PatroolPoints = {
 	[6] = {},
 	[7] = {},
 }
+
+_G.Miniboses = {
+	"npc_miniboss_darkseer", 
+	"npc_miniboss_enigma", 
+	"npc_miniboss_ursa", 
+	"npc_miniboss_void", 
+	"npc_miniboss_marci", 
+	"npc_miniboss_beast",
+	"npc_miniboss_muerta",
+	"npc_miniboss_titan",
+	"npc_miniboss_timber",
+	"npc_miniboss_nyx",
+	"npc_miniboss_lycan",
+}

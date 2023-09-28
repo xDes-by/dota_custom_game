@@ -11,7 +11,7 @@ function Spawn( entityKeyValues )
 	NoTargetAbility2 = thisEntity:FindAbilityByName( "custom_nyx_skill" )
 	PointAbility2 = thisEntity:FindAbilityByName( "sand_king_burrowstrike_lua")
 	NoTargetAbility3 = thisEntity:FindAbilityByName( "nyx_borrow")
-	NoTargetAbility4 = thisEntity:FindAbilityByName( "nyx_assassin_vendetta" )
+	NoTargetAbility4 = thisEntity:FindAbilityByName( "nyx_assassin_vendetta_custom" )
   
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 end
@@ -96,7 +96,18 @@ function NeutralThink()
 			return 2
 		end
 		
-		
+		if NoTargetAbility4 ~= nil and NoTargetAbility4:IsFullyCastable() then
+            for _,unit in pairs(enemies) do
+				if unit then
+					NoTargetAbility4Cast(unit)
+					thisEntity:MoveToTargetToAttack(unit)
+					local nyx =  {"nyx_assassin_nyx_attack_08","nyx_assassin_nyx_attack_07","nyx_assassin_nyx_attack_16"}
+					thisEntity:EmitSound(nyx[RandomInt(1, #nyx)])
+				end
+			end
+			return 2
+		end
+
 		if NoTargetAbility ~= nil and NoTargetAbility:IsFullyCastable()  then
             for _,unit in pairs(enemies) do
 				if unit then
@@ -252,6 +263,16 @@ function NoTargetAbility3Cast(unit)
             Queue = false,
         })
     return 1
+end
+
+function NoTargetAbility4Cast(unit)
+	ExecuteOrderFromTable({
+		  UnitIndex = thisEntity:entindex(),    --индекс кастера
+		  OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,    -- тип приказа
+		  AbilityIndex = NoTargetAbility4:entindex(), -- индекс способности
+		  Queue = false,
+	  })
+  return 1
 end
 ----------------------------------------------------------------------------------------------
 function SearchForItems()

@@ -20009,7 +20009,9 @@
         "DOTA_Tooltip_ability_item_midas_lua8_gem5_attack_speed" "+$attack"
 		"DOTA_Tooltip_ability_item_midas_lua8_gem5_bonus_gem"         "%<font color='#00ff0b'>Бонус восстановления здоровья и маны в секунду: </font>"
 
-
+        "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
+        "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Начинаем копать"
+       
 
 
 

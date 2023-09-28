@@ -23,7 +23,7 @@ _G.key = GetDedicatedServerKeyV3("WAR")
 pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false -- false
-_G.server_load = true -- true
+_G.server_load = true -- true\
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -52,22 +52,17 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetPreGameTime(2)
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
-	GameRules:SetPostGameTime(10)
+	GameRules:SetPostGameTime(60)
 	
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-	if IsInToolsMode() then
-		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( false )
-	else
-		GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( true )
-	end
+    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
+	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( not IsInToolsMode() )
 	GameModeEntity:SetSelectionGoldPenaltyEnabled(false)
 	GameRules:SetHeroSelectPenaltyTime(0)
-	GameRules:SetPostGameTime(60)
 	GameRules:SetHideBlacklistedHeroes(true)
     GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered( true )
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
@@ -325,10 +320,10 @@ function LevelUp (eventInfo)
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
-	if level > 30 then
+	if level == 17 or level == 19 or (level > 20 and level < 25) or level == 26 then
 		hero:SetAbilityPoints(hero:GetAbilityPoints() + 1)
 	end
- end
+end
 
 HERO_MAX_LEVEL = 300
 
@@ -337,31 +332,31 @@ XP_PER_LEVEL_TABLE[0] = 0
 XP_PER_LEVEL_TABLE[1] = 250
 for i=2,25 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250  
-  end
-  
-  for i=26,50 do
+end
+
+for i=26,50 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
-  end
-  
-  for i=51,75 do
+end
+
+for i=51,75 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
-  end
-  
-  for i=76,100 do
+end
+
+for i=76,100 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
-  end
-  
-  for i=101,150 do
+end
+
+for i=101,150 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
-  end
-  
-  for i=151,200 do
+end
+
+for i=151,200 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
-  end
-  
-  for i=201,299 do
+end
+
+for i=201,299 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
-  end
+end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -528,7 +523,6 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[5] = 650,
 		[6] = 1000,
 		[7] = 1500,
-		[8] = 50,
 	}
 	data.gold = gold[_G.don_spawn_level] * 2
 	return true

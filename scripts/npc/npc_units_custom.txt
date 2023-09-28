@@ -507,8 +507,8 @@
 		"MinimapIconSize"			"400"
 		"HealthBarOffset"			"400"
 		
-        "Ability1"                  "treant_overgrowth"
-        "Ability2"                  "tidehunter_ravage"
+        "Ability1"                  "treant_overgrowth_tron"
+        "Ability2"                  "tidehunter_ravage_tron"
 	    "Ability3"					""     
 
 		"ArmorPhysical"				"0"
@@ -6085,6 +6085,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 		
 	    "Ability1"					"ability_npc_boss_location8_spell1"
 	    "Ability2"					"ability_npc_boss_location8_spell2"     
@@ -6572,6 +6573,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"penek"
 		"Ability2"					"furion_sprout_lua"				
@@ -6730,6 +6732,7 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"		
 		"SoundSet"					"Hero_Pudge"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"pudge_meat_hook_custom"				
 		"Ability2"					"pudge_dismember_lua"
@@ -6810,6 +6813,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"split_earth_datadriven"         
         "Ability2"					"wisp_spirits_datadriven"         
@@ -7009,6 +7013,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"frostivus2018_spectre_active_dispersion"            
         "Ability2"					"custom_nyx_skill"         
@@ -7017,7 +7022,7 @@
         "Ability5"					"manacost_spell"
         "Ability6"					"nyx_leak"
         "Ability7"					"nyx_borrow"
-        "Ability7"					"nyx_assassin_vendetta"
+        "Ability7"					"nyx_assassin_vendetta_custom"
 
         "ArmorPhysical"             "75"         
         "MagicalResistance"         "40"        
@@ -7088,6 +7093,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
@@ -7215,6 +7221,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"tusk_snowball_meteor"			
 		"Ability2"					"custom_shifting_quake2"			
@@ -7375,6 +7382,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"custom_solar_flare"			
 	//	"Ability2"					"custom_pit"			
@@ -7454,6 +7462,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"penek"			
 		"Ability2"					"furion_sprout_lua"				
@@ -7531,6 +7540,7 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"		
 		"SoundSet"					"Hero_Pudge"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"pudge_meat_hook_custom"				
 		"Ability2"					"pudge_dismember_lua"
@@ -7608,6 +7618,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"split_earth_datadriven"         
         "Ability2"					"wisp_spirits_datadriven"         
@@ -7684,6 +7695,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"frostivus2018_spectre_active_dispersion"             
         "Ability2"					"custom_nyx_skill"         
@@ -7760,6 +7772,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
@@ -7839,6 +7852,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 
 		"Ability1"					"tusk_snowball_meteor"			
 		"Ability2"					"custom_shifting_quake2"			
@@ -7909,6 +7923,7 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
+        "ConsideredHero"            "1"
 		
 	    "Ability1"					"ability_npc_boss_location8_spell1"
 	    "Ability2"					"ability_npc_boss_location8_spell2"     
@@ -8333,14 +8348,23 @@
 	"npc_smithy_mound"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/nerubian_assassin/mound.vmdl"
-		"ModelScale"				"1"
+		"Model"						"models/items/winter_wyvern/spring2021_frost_thorn_back/spring2021_frost_thorn_back_crystal.vmdl"
+		"ModelScale"				"1.7"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+	}
+	"npc_mortimer_second_phase"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/snapfire/snapfire_customgame.vmdl"
+		"ModelScale"				"0.5"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 	}
 }
 
 #base "../npc/npc_units_pets.txt"
+#base "../npc/npc_units_miniboses.txt"
 #base "../vscripts/heroes/hero_magnataur/magnataur_bus_rush_lua/npc_magnataur_bus_rush_lua.txt"
 
 //--------------------------------------- BOSS EARTHSHAKER -----------------------------------

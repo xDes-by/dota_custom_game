@@ -90,7 +90,7 @@ function damage:OnEntityHurt(t)
 							end
 						end
 					end	
-				if victim and not victim:IsNull() and victim:IsRealHero() then
+				if victim and not victim:IsNull() and victim:IsRealHero() and victim:IsControllableByAnyPlayer() then
 					local hp = victim:GetHealth()
 					local dmg
 					t.entindex_killed = PlayerResource:GetSelectedHeroEntity(victim:GetPlayerID()):entindex()
