@@ -10,7 +10,7 @@ function item_gems_3:OnSpellStart()
 			if self:GetCaster():IsRealHero() then
 					self:GetCaster():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 					local pid = self:GetCaster():GetPlayerID()
-						Smithy:add_gems({PlayerID = pid, type = 3, value = RandomInt(40,80)})
+					Forge:add_gems({PlayerID = pid, type = 3, value = RandomInt(40,80)})
 				UTIL_Remove(self)	
 			end
 		end

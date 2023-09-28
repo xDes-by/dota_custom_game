@@ -20,10 +20,9 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false -- false
-_G.server_load = true -- true\
+_G.cheatmode = false and IsInToolsMode() -- false
+_G.server_load = false -- true\
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -47,7 +46,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(6000)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(2)
 	GameRules:SetShowcaseTime(1)
@@ -85,6 +84,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	--------------------------------------------------------------------------------------------	
 	--@dansoo0911:это листенер с панорамы если будешь искать
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
+	
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( CAddonAdvExGameMode, 'OnEntityKilled' ), self )
@@ -133,6 +133,7 @@ end
 function CAddonAdvExGameMode:InventoryFilter(event)
 	DeepPrintTable(event)
 end
+
 
 function CAddonAdvExGameMode:OrderFilter(event)
     -- if event.order_type == DOTA_UNIT_ORDER_PATROL then
@@ -373,11 +374,10 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 				for k,v in pairs(AllHeroPull) do
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
 				end
-				--@dansoo0911:нужно превратить эти строки в функции которые будут возвращать тру или фолс
-				if IsMarciAvaliablee then
+				if ChangeHero:IsMarciAvailable_PickStage(iPlayerID) then
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
 				end
-				if IsSilenserAvaliablee then
+				if ChangeHero:IsSilencerAvailable_PickStage(iPlayerID) then
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
 				end
 			end
@@ -470,11 +470,24 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
 		end
 		
-		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)	
+		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
 		npc.bFirstSpawned = true
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
 		id_check(steamID) -----------------------------------------------
+		
+		for categoryKey, categoryValue in ipairs(Shop.pShop[playerID]) do
+			for itemKey, itemValue in ipairs(categoryValue) do
+				for _, itemname in pairs({"item_str", "item_agi", "item_int", "item_tree_gold"}) do
+					if itemValue.itemname and itemValue.itemname == itemname and itemValue.now > 0 then
+						npc:AddItemByName(itemname)
+						itemValue.now = 0
+						itemValue.status = "issued"
+						break
+					end
+				end
+			end
+		end
 	end
 	if diff_wave.wavedef == "Insane" then
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
@@ -483,9 +496,9 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 	end
 	if IsInToolsMode() then
 		if npc:IsRealHero()  then
-			-- npc:RemoveAbility("spell_item_pet")
-			-- npc:AddAbility("spell_item_pet_rda_secret_1"):SetLevel(5)
-			-- CustomNetTables:SetTableValue("player_pets", "0", {pet = "spell_item_pet_rda_secret_1"})
+			npc:AddItemByName("item_satanic_custom")
+			npc:AddItemByName("item_monkey_king_bar_custom")
+			
 		end
 	end
 end

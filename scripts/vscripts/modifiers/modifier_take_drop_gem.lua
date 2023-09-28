@@ -56,7 +56,7 @@ if not IsServer() then return end
 								if item ~= nil then
 									self.parent:GetOwner():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 									local pid = self.parent:GetOwner():GetPlayerID()
-									Smithy:add_gems({PlayerID = pid, type = number, value = RandomInt(60,120)})	
+									Forge:add_gems({PlayerID = pid, type = number, value = RandomInt(60,120)})	
 									UTIL_RemoveImmediate(item)	
 								end
 							end
@@ -66,7 +66,7 @@ if not IsServer() then return end
 								if item ~= nil then
 									self.parent:GetOwner():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 									local pid = self.parent:GetOwner():GetPlayerID()
-									Smithy:add_gems({PlayerID = pid, type = number, value = RandomInt(40,80)})	
+									Forge:add_gems({PlayerID = pid, type = number, value = RandomInt(40,80)})	
 									UTIL_RemoveImmediate(item)	
 								end
 							end

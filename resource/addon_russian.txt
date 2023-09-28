@@ -259,6 +259,7 @@
 
         "talant_examine_btn" "Изучить"
         "talant_button_examine" "Изучить"
+        "talant_button_update" "Улучшить"
 
         "talant_nrom_exp_description" "Синий опыт:"
 
@@ -377,6 +378,48 @@
 
 
         "dota_don_shop_error"               "Вам не хватает кристаллов! О том, как получить кристаллы, вы можете узнать в Дискорде!"
+
+        "gs_diffic"                         "ВЫБОР СЛОЖНОСТИ"
+        "gs_easy"                           "TURBO"
+        "gs_normal"                         "NORMAL"
+        "gs_hard"                           "HARD"
+        "gs_ultra"                          "ULTRA"
+        "gs_insane"                         "INSANE"
+        "gs_hell"                           "HELL"
+
+        "gs_vote"                           "ГОЛОСОВАНИЕ"
+        "gs_easy_progress"                  "Turbo"
+        "gs_normal_progress"                  "Normal"
+        "gs_hard_progress"                  "Hard"
+        "gs_ultra_progress"                  "Ultra"
+        "gs_insane_progress"                  "Insane"
+        "gs_hell_progress"                  "Hell"
+
+        "gs_df_easy"                        "TURBO<br><br>Входящий урон 125%<br>Исходящий урон 75%<br>Здоровье 75%<br>Перезарядка 125%"
+        "gs_df_normal"                      "NORMAL<br><br>Входящий урон 100%<br>Исходящий урон 100%<br>Здоровье 100%<br>Перезарядка 100%"
+        "gs_df_hard"                        "HARD<br><br>Входящий урон 75%<br>Исходящий урон 100%<br>Здоровье 100%<br>Перезарядка 75%"
+        "gs_df_ultra"                       "ULTRA<br><br>Входящий урон 50%<br>Исходящий урон 150%<br>Здоровье 150%<br>Перезарядка 50%"
+        "gs_df_insane"                      "INSANE<br><br>Входящий урон 25%<br>Исходящий урон 200%<br>Здоровье 200%<br>Перезарядка 50%<br><br>Все игроки имеют по 5 жизней"
+        
+        "panorama_custon_stash_description"          "Инвентарь особых предметов:\nНажмите Ctrl для мгновенного применения"
+
+        "diff_lock"                         "Чтобы разблокировать этот уровень сложности, вы должны победить в предыдущем."
+        "pet_trial_available"               "Получить"
+
+        "hot_offer_tooltip"                 "Вы получите:<br><br>1. Книга силы<br>2. Книга интеллекта<br>3. Книга ловкости<br>4. Свиток брони 1шт<br>5. Свиток урона 1шт<br>6. Свиток опыта 1шт<br>7. Свиток передвижения 1шт<br>8. Свиток скорости 1шт<br>9. Свиток регенерации 1шт<br>10. Золотое дерево<br>11. Вечный вард 1шт<br> 12. Билет телепортации 3шт"
+        "hot_offer"                         "Всё в одном"
+
+        "ui_custom_shop_upgrade_item_status_lable"              "Улучшить нечего"
+        "ui_custom_shop_upgrade_item_cost"                      "Стоимость улучшения:"
+        "ui_custom_shop_upgrade_item_upgrade_button"            "Улучшить"
+        "ui_custom_shop_upgrade_item_upgrade_button2"           "Вставить камни"
+        "ui_custom_shop_upgrade_item_1"                         "Уровень предмета"
+        "ui_custom_shop_upgrade_item_2"                         "Камни"
+
+        "ForgeButton_Label"                                     "Улучшить предметы"
+        "TutorialDontShowAgainToggleLocalize"                   "Больше не показывать"
+        "TutorialDontShowAgainLabelLocalize"                    "Подсказки будут высвечиватся до первой победы"
+        "TutorialButtonLabelLocalize"                           "ЯСНО"
         // Panorama
 
         /////////////////
@@ -5628,11 +5671,11 @@
 
         //Monkey King Bar//
 
-        "dota_tooltip_ability_item_monkey_king_bar_lua1" "Monkey King Bar"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_lore" "Могущественный посох, принадлежавший блистательному воину."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_monkey_king_bar_custom" "Monkey King Bar"
+        "dota_tooltip_ability_item_monkey_king_bar_custom_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
+        "dota_tooltip_ability_item_monkey_king_bar_custom_lore" "Могущественный посох, принадлежавший блистательному воину."
+        "dota_tooltip_ability_item_monkey_king_bar_custom_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_monkey_king_bar_custom_bonus_attack_speed" "+$attack"
 
         "dota_tooltip_ability_item_monkey_king_bar_lua2" "Forest Monkey King Bar"
         "dota_tooltip_ability_item_monkey_king_bar_lua2_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
@@ -11975,11 +12018,19 @@
 
         //Satanic//
 
-        "dota_tooltip_ability_item_satanic_lua1" "Satanic"
-        "dota_tooltip_ability_item_satanic_lua1_description" "<h1>Активное: Unholy Rage</h1> Увеличивает эффект вампиризма до %lifesteal_bonus%%% на %duration% сек.<br><br>Тип развеивания: <span class=\GameplayValues GameplayVariable\>нормальное</span> \n<h1>Пассивное: Lifesteal</h1>Каждая атака восстанавливает владельцу здоровье в размере %lifesteal_pct%%% от нанесённого урона."
-        "dota_tooltip_ability_item_satanic_lua1_lore" "Колоссальная сила в обмен на вашу душу."
-        "dota_tooltip_ability_item_satanic_lua1_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua1_damage_bonus" "+$damage"
+
+        
+
+
+
+        "dota_tooltip_ability_item_satanic_custom" "Satanic"
+        "dota_tooltip_ability_item_satanic_custom_description" "<h1>Активное: Unholy Rage</h1> Увеличивает эффект вампиризма до %lifesteal_bonus%%% на %duration% сек.<br><br>Тип развеивания: <span class=\GameplayValues GameplayVariable\>нормальное</span> \n<h1>Пассивное: Lifesteal</h1>Каждая атака восстанавливает владельцу здоровье в размере %lifesteal_pct%%% от нанесённого урона."
+        "dota_tooltip_ability_item_satanic_custom_lore" "Колоссальная сила в обмен на вашу душу."
+        "dota_tooltip_ability_item_satanic_custom_strength_bonus" "+$str"
+        "dota_tooltip_ability_item_satanic_custom_damage_bonus" "+$damage"
+
+
+
         "DOTA_Tooltip_modifier_satanic_lua_active" "Unholy Rage"
         "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Вампиризм увеличен до 200%"
         "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
@@ -17450,7 +17501,7 @@
         //Str//
 
         "hp_per_level" "Толстая кожа"
-        "hp_per_level_description" "+50 здоровья за уровень героя"
+        "hp_per_level_description" "Здоровье за уровень героя"
         "hp_regen_level" "Кусок мяса"
         "hp_regen_level_description" "+3 к регенерации здоровья за уровень героя"
         "status" "Неотвратимость"

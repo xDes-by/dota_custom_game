@@ -311,7 +311,7 @@ function creeps_line_notification()
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = count_creeps + count_comandir
-	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
+	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
 end
 
 function bosses_line_notification(creeps_name)
@@ -328,7 +328,7 @@ function bosses_line_notification(creeps_name)
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = 1
-	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
+	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
 end
 
 function CreatePatroolWave()

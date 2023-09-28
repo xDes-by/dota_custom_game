@@ -1,4 +1,9 @@
 LinkLuaModifier( "modifier_item_base_damage_aura", "items/other/book_base_damage", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_base_damage_aura_cd", "items/other/book_base_damage", LUA_MODIFIER_MOTION_NONE )
+modifier_item_base_damage_aura_cd = class({})
+function modifier_item_base_damage_aura_cd:IsHidden() return true end
+function modifier_item_base_damage_aura_cd:IsDebuff() return false end
+function modifier_item_base_damage_aura_cd:IsPurgable() return false end
 
 item_base_damage_aura = class({})
 
@@ -7,6 +12,7 @@ function item_base_damage_aura:OnSpellStart()
 		self.caster = self:GetCaster()	
 		self.radius = self:GetSpecialValueFor( "radius" )
 		self.duration = self:GetSpecialValueFor( "duration" )
+		self.caster:AddNewModifier(self.caster, self, "modifier_item_base_damage_aura_cd", {duration = self:GetCooldown(self:GetLevel())* self.caster:GetCooldownReduction()})
 		local Heroes = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), self:GetCaster(), self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, 0, false )
 		for _,Hero in pairs( Heroes ) do
 		
