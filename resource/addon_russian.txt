@@ -426,7 +426,7 @@
         "DailyTaskDescription_Lable3"                            "Убить фуриона 0/5 <font color='green'>1/5</font>"
         "DailyTaskGetAward"                                     "Получить награду!"
         "DailyMainLabel"                                        "Ежедневные задания"
-        "DailyTitleTooltip"                                     "<b>Уникальные задания на каждый день.</b><br><br> За выполнение этих заданий вы получит награду <font color='gold'>5,10,10</font> шитков на свой аккаунт."
+        "DailyTitleTooltip"                                     "<b>Уникальные задания на каждый день.</b><br><br> За выполнение этих заданий вы получит награду <font color='gold'>5,10,10</font> щитков на свой аккаунт."
 
         "DailyTaskDescription_1"                                "Убить Хранителя Леса"
         "DailyTaskDescription_2"                                "Убить Вождя Разбойников"

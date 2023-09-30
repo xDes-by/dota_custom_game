@@ -17,7 +17,7 @@ function DailyQuests:SetTodayTasks(data)
     self.startDate = data.date
 end
 function DailyQuests:SetPlayerData(pid, data)
-    self.player[pid] = data.tasks
+    self.player[pid] = {data.tasks["1"],data.tasks["2"],data.tasks["3"]}
 end
 
 function DailyQuests:UpdateCounter(pid, index)
