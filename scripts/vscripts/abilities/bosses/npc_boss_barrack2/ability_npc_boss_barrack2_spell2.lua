@@ -66,7 +66,7 @@ end
 function ability_npc_boss_barrack2_spell2:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if table.type == "etherial" then
         ApplyDamage({victim = hTarget,
-        damage = self:GetSpecialValueFor("etherial_damage") * 0.01 * hTarget:GetMaxHealth() ,
+        damage = self:GetSpecialValueFor("etherial_damage") * 0.02 * hTarget:GetMaxHealth() ,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         attacker = self:GetCaster(),
@@ -75,7 +75,7 @@ function ability_npc_boss_barrack2_spell2:OnProjectileHit_ExtraData(hTarget, vLo
     end
     if table.type == "agi" then
         ApplyDamage({victim = hTarget,
-        damage = self:GetSpecialValueFor("agi_damage") * 0.01 * hTarget:GetMaxHealth() ,
+        damage = self:GetSpecialValueFor("agi_damage") * 0.02 * hTarget:GetMaxHealth() ,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         attacker = self:GetCaster(),
@@ -84,7 +84,7 @@ function ability_npc_boss_barrack2_spell2:OnProjectileHit_ExtraData(hTarget, vLo
     end
     if table.type == "str" then
         ApplyDamage({victim = hTarget,
-        damage = self:GetSpecialValueFor("str_damage") * 0.01 * hTarget:GetMaxHealth() ,
+        damage = self:GetSpecialValueFor("str_damage") * 0.02 * hTarget:GetMaxHealth() ,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         attacker = self:GetCaster(),

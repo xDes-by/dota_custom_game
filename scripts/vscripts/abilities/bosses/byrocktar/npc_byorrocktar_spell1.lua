@@ -95,7 +95,7 @@ end
 
 function npc_byorrocktar_spell1:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     ApplyDamage({victim = hTarget,
-    damage = self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()),
+    damage = self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 3,
     damage_type = DAMAGE_TYPE_PHYSICAL,
     damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
     attacker = self:GetCaster(),

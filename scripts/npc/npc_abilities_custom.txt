@@ -44,9 +44,10 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     }
 
-"treant_overgrowth"
+"treant_overgrowth_tron"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "BaseClass"                     "treant_overgrowth"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		
@@ -65,10 +66,11 @@
 		}
 	}
 	
-"tidehunter_ravage"
+"tidehunter_ravage_tron"
 	{
+        "BaseClass"                     "tidehunter_ravage"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
@@ -1747,6 +1749,7 @@
 #base "../vscripts/abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2.txt"
 #base "../vscripts/abilities/bosses/byrocktar/abilities_byrocktar.txt"
 #base "../vscripts/abilities/bosses/bara/abilities_bara.txt"
+#base "../vscripts/abilities/bosses/miniboses/abilities_miniboses.txt"
 #base "../vscripts/abilities/bosses/plague_squirrel/ability_npc_boss_plague_squirrel.txt"
 
 //=========================================================================================================================================================================================================================

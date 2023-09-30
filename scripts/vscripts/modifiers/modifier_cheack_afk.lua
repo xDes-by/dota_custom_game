@@ -31,14 +31,13 @@ function modifier_cheack_afk:OnIntervalThink()
 		return
 	end
 	if not self.MinigameStarted and _G.kill_invoker then
-		self:Destroy()
 		return
 	end
 	local pos = self.parent:GetOrigin()
 	local dist = (pos-self.currentpos):Length2D()
 	self.currentpos = pos
 	
-	if dist == 0 and not self.parent:IsAttacking() then 
+	if dist == 0 and not self.parent:IsAttacking() and not self.parent:IsChanneling() then 
 		if not self.timer then
 			self.timer = Timers:CreateTimer(300, function()
 				self.modifier1 = self.parent:AddNewModifier(self.parent, nil, "modifier_invulnerable", {})

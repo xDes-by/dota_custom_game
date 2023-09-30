@@ -146,7 +146,7 @@ function modifier_simply_motion:UpdateHorizontalMotion( me, dt )
 	   
 	        ApplyDamage({
 			victim = unit,
-			damage = unit:GetMaxHealth() * self:GetAbility():GetSpecialValueFor("damage")/100,
+			damage = unit:GetMaxHealth() * self:GetAbility():GetSpecialValueFor("damage")/100 * 3,
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 			attacker = self:GetCaster(),

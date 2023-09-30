@@ -49,14 +49,12 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
-	xpcall(function()
-		Timers:CreateTimer(120,function()
-			_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-			if spawnCreeps then
-				Spawn_system()
-			end
-		end)
-	end, function(e) GameRules:SendCustomMessage("error spawn: " .. e,0,0) end)
+	Timers:CreateTimer(120,function()
+		_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
+		if spawnCreeps then
+			Spawn_system()
+		end
+	end)
 
 	Timers:CreateTimer(RandomInt(120, 300),function()
 		CreatePatroolWave()
@@ -353,9 +351,11 @@ function CreatePatroolWave()
 			table.insert(points, v)
 		end
 	end
+	local r = points[RandomInt(1, #points)]
+	local pos = Vector(r[1], r[2], r[3])
 	if _G.kill_invoker then
-		for k,name in pairs(PatroolWave[9]) do
-			CreateUnitByNameAsync(name, points[RandomInt(1, #points)], true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
+		for k,name in pairs(PatroolWave[8]) do
+			CreateUnitByNameAsync(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
 				unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
 				unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
 				unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
@@ -373,7 +373,7 @@ function CreatePatroolWave()
 		end
 	else
 		for k,name in pairs(PatroolWave[_G.don_spawn_level]) do
-			CreateUnitByNameAsync(name, points[RandomInt(1, #points)], true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
+			CreateUnitByNameAsync(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
 				unit:SetMaxHealth(set_health)
 				unit:SetHealth(set_health)
 				unit:SetBaseDamageMin(set_damage)

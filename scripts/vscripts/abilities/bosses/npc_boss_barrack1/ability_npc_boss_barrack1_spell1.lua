@@ -140,7 +140,7 @@ end
 function modifier_ability_npc_boss_barrack1_spell1_carapase:OnTakeDamage(data)
     if data.unit == self:GetParent() then
         ApplyDamage({victim = data.attacker,
-        damage = data.damage * self.damage_multip,
+        damage = data.damage * self.damage_multip * 3,
         damage_type = data.damage_type,
         damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
         attacker = self:GetCaster(),

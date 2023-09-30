@@ -9,8 +9,8 @@ function Spawn( entityKeyValues )
 	
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 	
-	thisEntity.NoTarget_1 = thisEntity:FindAbilityByName( "treant_overgrowth" )
-	thisEntity.NoTarget_2 = thisEntity:FindAbilityByName( "tidehunter_ravage" )
+	thisEntity.NoTarget_1 = thisEntity:FindAbilityByName( "treant_overgrowth_tron" )
+	thisEntity.NoTarget_2 = thisEntity:FindAbilityByName( "tidehunter_ravage_tron" )
 end
 
 function NeutralThink()

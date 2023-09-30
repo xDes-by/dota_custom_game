@@ -6,7 +6,7 @@
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
         "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"
-        "DOTA_Tooltip_modifier_modifier_item_smithy_pickaxe" "Excavation"
+        "DOTA_Tooltip_modifier_item_smithy_pickaxe" "Excavation"
         "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "Excavation time is limited"
         "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
@@ -19180,7 +19180,8 @@
         "DOTA_Tooltip_ability_item_midas_lua8_gem5_attack_speed" "+$attack"
 		"DOTA_Tooltip_ability_item_midas_lua8_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-
+        "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
+        "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Start Dig"
 
     }
 }

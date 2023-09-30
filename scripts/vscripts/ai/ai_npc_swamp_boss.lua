@@ -8,6 +8,7 @@ function Spawn( entityKeyValues )    -- вызывается когда юнит
     
     NoTargetAbility = thisEntity:FindAbilityByName( "swamp_spawn" )
 	NoTargetAbility2 = thisEntity:FindAbilityByName( "lich_sinister_gaze_custom" )
+	NoTargetAbility3 = thisEntity:FindAbilityByName( "ability_npc_swamp_boss" )
 
     thisEntity:SetContextThink( "NecroLordThink", NecroLordThink, 0.5 )    -- поведение юнита каждую секунду
 end
@@ -61,7 +62,15 @@ function NecroLordThink()
 		SearchForItems()
 		thisEntity.bSearchedForItems = true
 		end
-	
+		if NoTargetAbility3 ~= nil and NoTargetAbility3:IsFullyCastable()  then    --если абилка существует и её можно использовать
+			for _,unit in pairs(enemies) do
+				if unit then
+				NoTargetAbilityCast3(unit)
+				local venom =  {"venomancer_venm_ability_nova_02","venomancer_venm_ability_nova_01","venomancer_venm_ability_nova_07"}
+				thisEntity:EmitSound(venom[RandomInt(1, #venom)])
+				end
+			end
+		end	
 	
 			if NoTargetAbility ~= nil and NoTargetAbility:IsFullyCastable()  then
 					NoTargetAbilityCast()
@@ -81,7 +90,6 @@ function NecroLordThink()
 				end
 			end
 		end
-		
 		if hp == 100 then
 			local venom =  {"venomancer_venm_attack_02","venomancer_venm_attack_11","venomancer_venm_move_16"}
 			thisEntity:EmitSound(venom[RandomInt(1, #venom)])
@@ -143,6 +151,17 @@ function NoTargetAbilityCast2(unit)
             Queue = false,
         })
     return 1
+end
+
+function NoTargetAbilityCast3(unit)
+	ExecuteOrderFromTable({
+		  UnitIndex = thisEntity:entindex(),    --индекс кастера
+		  OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,  
+		  TargetIndex = unit:entindex(),			-- тип приказа
+		  AbilityIndex = NoTargetAbility3:entindex(), -- индекс способности
+		  Queue = false,
+	  })
+  return 1
 end
 
 ---------------------------------------------------------------------------------

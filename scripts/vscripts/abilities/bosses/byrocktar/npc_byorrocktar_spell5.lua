@@ -56,7 +56,7 @@ function modifier_npc_byorrocktar_spell5_movetotarget:OnDestroy( kv )
 	    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0,false)
         for _,unit in pairs(enemies) do
             ApplyDamage({victim = unit,
-            damage =  self:GetAbility():GetSpecialValueFor("damage"),
+            damage =  self:GetAbility():GetSpecialValueFor("damage") * 3,
             damage_type = DAMAGE_TYPE_MAGICAL,
             damage_flags = DOTA_DAMAGE_FLAG_NONE,
             attacker = self:GetCaster(),
