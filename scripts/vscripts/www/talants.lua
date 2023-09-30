@@ -289,7 +289,7 @@ function talants:selectTalantButton(t)
     print("TalantButton: ", arg)
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
         local tab = CustomNetTables:GetTableValue("talants", tostring(PlayerID))
-        if t.i == "don" and RATING["rating"][PlayerID+1]["patron"] ~= 1 and DataBase:IsCheatMode() == false then return end
+        if t.i == "don" and RATING["rating"][PlayerID]["patron"] ~= 1 and DataBase:IsCheatMode() == false then return end
 
         if t.codeCall then
             if tonumber(tab[t.i .. t.j]) > 0 then return end
@@ -442,7 +442,7 @@ end
 function talants:giveExperienceFromQuest(id, n)
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
     talants:AddExperience(id, n)
-    if RATING["rating"][id+1]["patron"] == 1 then
+    if RATING["rating"][id]["patron"] == 1 then
         talants:AddExperienceDonate(id, n)
     end
 end
@@ -490,7 +490,7 @@ end
 function talants:AddExperienceDonate(id, n)
     
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
-    if RATING["rating"][id+1]["patron"] == nil or RATING["rating"][id+1]["patron"] == 0 then
+    if RATING["rating"][id]["patron"] == nil or RATING["rating"][id]["patron"] == 0 then
         return
     end
     if tonumber(tab["gameDonatExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
@@ -581,7 +581,7 @@ function talants:addskill(nPlayerID, add)
                 end
                 if v == "don" then
                     ------------------------------------------     модифаеры
-                    if add == true and RATING["rating"][nPlayerID+1]["patron"] == 1 then
+                    if add == true and RATING["rating"][nPlayerID]["patron"] == 1 then
                         talants:AddModifierFiltered(hero, skillname, i)
                     elseif add == false then
                         hero:RemoveModifierByName( skillname )
@@ -683,7 +683,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         end
     end
     ------------------------------------------     выдача донатного опыта
-    if RATING["rating"][PlayerID+1]["patron"] == "1" then
+    if RATING["rating"][PlayerID]["patron"] == "1" then
         progress[PlayerID]["donavailable"] = 1
     end
     ------------------------------------------     подсчет уровня

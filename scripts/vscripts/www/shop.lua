@@ -47,7 +47,7 @@ function Shop:init()
 end
 
 function Shop:GetPets(keys)
-	if RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_ends" ] ~= nil then
+	if RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ] ~= nil then
 		Shop:ActivateTrialPeriod_Pet({
 			PlayerID = keys.PlayerID,
 			affordable_pet = {"pet_15", "pet_13", "pet_14"},
@@ -58,8 +58,8 @@ function Shop:GetPets(keys)
 		exp = pets_exp,
 		auto_pet = Shop.Auto_Pet[keys.PlayerID],
 		pet_trial = {
-			available = RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_available" ],
-			ends = RATING[ "rating" ][ keys.PlayerID + 1 ][ "pet_trial_ends" ],
+			available = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_available" ],
+			ends = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ],
 			affordable_pet = {"pet_15", "pet_13", "pet_14"},
 		},
 	} )
@@ -106,7 +106,7 @@ function Shop:ActivateTrialPeriod_Pet(t)
 			end
 		end
 	end
-	if RATING[ "rating" ][ t.PlayerID + 1 ][ "pet_trial_ends" ] == nil then
+	if RATING[ "rating" ][ t.PlayerID ][ "pet_trial_ends" ] == nil then
 		DataBase:ActivateTrialPeriodPet(t)
 	end
 end
@@ -185,6 +185,93 @@ function Shop:OnPlayerReconnected(keys)
 	end
 end
 
+function Shop:PlayerSetup( pid )
+	local sid = PlayerResource:GetSteamAccountID(pid)
+	local arr = {}
+	for sKey, sValue in pairs(basicshop) do
+		if type(sValue) == 'table' then
+			arr[sKey] = {}
+			for oKey, oValue in pairs(sValue) do
+				arr[sKey][oKey] = {}
+				if type(oValue) == 'table' then
+
+					for pKey, pValue in pairs(oValue) do
+						arr[sKey][oKey][pKey] = pValue
+					end
+					
+					if _G.SHOP[pid][oValue.name] then
+						arr[sKey][oKey].onStart = tonumber(_G.SHOP[pid][oValue.name])
+						arr[sKey][oKey].now = tonumber(_G.SHOP[pid][oValue.name])
+						if arr[sKey][oKey].type == "consumabl" then
+							arr[sKey][oKey].status = 'consumabl'
+						elseif tonumber(_G.SHOP[pid][oValue.name]) > 0 then
+							if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
+								arr[sKey][oKey].status = 'active'
+							else
+								arr[sKey][oKey].status = 'taik'
+							end
+						else
+							arr[sKey][oKey].status = 'buy'
+						end
+					else
+						if arr[sKey][oKey].type == "hero_change" then
+							arr[sKey][oKey].onStart = 1
+							arr[sKey][oKey].now = 1
+							if _G.SHOP[pid]["totaldonate"] >= 2000 then
+								arr[sKey][oKey].status = 'shop_select'
+							else
+								arr[sKey][oKey].status = 'shop_lock'
+							end
+						else
+							arr[sKey][oKey].onStart = 0
+							arr[sKey][oKey].now = 0
+							if arr[sKey][oKey].type == "consumabl" then
+								arr[sKey][oKey].status = 'consumabl'
+							else
+								arr[sKey][oKey].status = 'buy'
+							end
+						end
+					end
+				elseif type(oValue) == 'string' then
+					arr[sKey][oKey] = oValue
+				end
+			end
+		end
+	end
+
+	if _G.SHOP[pid].coins then
+		arr.coins = _G.SHOP[pid].coins
+	else
+		arr.coins = 0
+	end
+	if _G.SHOP[pid].mmrpoints then
+		arr.mmrpoints = _G.SHOP[pid].mmrpoints
+	else
+		arr.mmrpoints = 0
+	end
+	if _G.SHOP[pid].totaldonate then
+		arr.totaldonate = _G.SHOP[pid].totaldonate
+	else
+		arr.totaldonate = 0
+	end
+	if _G.SHOP[pid].feed then
+		arr.feed = _G.SHOP[pid].feed
+	else
+		arr.feed = 0
+	end
+	
+	if _G.SHOP[pid].other_60 then
+		arr.ban = _G.SHOP[pid].other_60
+	else
+		arr.ban = 0
+	end
+	Shop.pShop[pid] = arr
+	CustomNetTables:SetTableValue("shopinfo", tostring(pid), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = _G.RATING[ 'rating' ][ pid ][ 'likes' ], reports = _G.RATING[ 'rating' ][ pid ][ 'reports' ]})
+
+	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
+	Shop.spray[pid] = _G.SHOP[pid].auto_spray
+	Shop.Change_Available[pid] = true
+end
 
 function Shop:createShop()
 
@@ -204,12 +291,12 @@ function Shop:createShop()
 									arr[sKey][oKey][pKey] = pValue
 								end
 								
-								if SHOP[i+1][oValue.name] then
-									arr[sKey][oKey].onStart = tonumber(SHOP[i+1][oValue.name])
-									arr[sKey][oKey].now = tonumber(SHOP[i+1][oValue.name])
+								if SHOP[i][oValue.name] then
+									arr[sKey][oKey].onStart = tonumber(SHOP[i][oValue.name])
+									arr[sKey][oKey].now = tonumber(SHOP[i][oValue.name])
 									if arr[sKey][oKey].type == "consumabl" then
 										arr[sKey][oKey].status = 'consumabl'
-									elseif tonumber(SHOP[i+1][oValue.name]) > 0 then
+									elseif tonumber(SHOP[i][oValue.name]) > 0 then
 										if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
 											arr[sKey][oKey].status = 'active'
 										else
@@ -222,7 +309,7 @@ function Shop:createShop()
 									if arr[sKey][oKey].type == "hero_change" then
 										arr[sKey][oKey].onStart = 1
 										arr[sKey][oKey].now = 1
-										if SHOP[i+1]["totaldonate"] >= 2000 then
+										if SHOP[i]["totaldonate"] >= 2000 then
 											arr[sKey][oKey].status = 'shop_select'
 										else
 											arr[sKey][oKey].status = 'shop_lock'
@@ -244,37 +331,37 @@ function Shop:createShop()
 					end
 				end
 			
-				if SHOP[i+1].coins then
-					arr.coins = SHOP[i+1].coins
+				if SHOP[i].coins then
+					arr.coins = SHOP[i].coins
 				else
 					arr.coins = 0
 				end
-				if SHOP[i+1].mmrpoints then
-					arr.mmrpoints = SHOP[i+1].mmrpoints
+				if SHOP[i].mmrpoints then
+					arr.mmrpoints = SHOP[i].mmrpoints
 				else
 					arr.mmrpoints = 0
 				end
-				if SHOP[i+1].totaldonate then
-					arr.totaldonate = SHOP[i+1].totaldonate
+				if SHOP[i].totaldonate then
+					arr.totaldonate = SHOP[i].totaldonate
 				else
 					arr.totaldonate = 0
 				end
-				if SHOP[i+1].feed then
-					arr.feed = SHOP[i+1].feed
+				if SHOP[i].feed then
+					arr.feed = SHOP[i].feed
 				else
 					arr.feed = 0
 				end
 				
-				if SHOP[i+1].other_60 then
-					arr.ban = SHOP[i+1].other_60
+				if SHOP[i].other_60 then
+					arr.ban = SHOP[i].other_60
 				else
 					arr.ban = 0
 				end
 				Shop.pShop[i] = arr
-				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i + 1 ][ 'likes' ], reports = RATING[ 'rating' ][ i + 1 ][ 'reports' ]})
+				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i ][ 'likes' ], reports = RATING[ 'rating' ][ i ][ 'reports' ]})
 
-				Shop.Auto_Pet[i] = SHOP[i+1].auto_pet
-				Shop.spray[i] = SHOP[i+1].auto_spray
+				Shop.Auto_Pet[i] = SHOP[i].auto_pet
+				Shop.spray[i] = SHOP[i].auto_spray
 				Shop.Change_Available[i] = true
 			end
 		end
@@ -714,18 +801,18 @@ function ChangeHero:OnGameRulesStateChange()
 				end
 				for i = 0 , PlayerResource:GetPlayerCount()-1 do
 					if PlayerResource:IsValidPlayer(i) then
-						heroData.trialCount[i] = RATING["rating"][i+1][heroData.trialName]
+						heroData.trialCount[i] = RATING["rating"][i][heroData.trialName]
 						if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
 							heroData.trialCount[i] = -1
 						end
 						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
 							heroData.available[i] = true
 						end
-						if heroName == "npc_dota_hero_marci" and RATING["rating"][i+1]["patron"] == 1 then
+						if heroName == "npc_dota_hero_marci" and RATING["rating"][i]["patron"] == 1 then
 							heroData.trialCount[i] = -1
 							heroData.available[i] = true
 						end
-						if heroName == "npc_dota_hero_silencer" and RATING["rating"][i+1]["silencer_date"] ~= nil then
+						if heroName == "npc_dota_hero_silencer" and RATING["rating"][i]["silencer_date"] ~= nil then
 							heroData.trialCount[i] = -1
 							heroData.available[i] = true
 						end
@@ -740,12 +827,12 @@ end
 
 function ChangeHero:IsMarciAvailable_PickStage(PlayerID)
 	local marci = ChangeHero.heroes.npc_dota_hero_marci
-	return Shop.pShop[PlayerID].totaldonate >= marci.minimumTotal or DataBase:IsCheatMode() or marci.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID+1]["patron"] == 1
+	return Shop.pShop[PlayerID].totaldonate >= marci.minimumTotal or DataBase:IsCheatMode() or marci.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["patron"] == 1
 end
 
 function ChangeHero:IsSilencerAvailable_PickStage(PlayerID)
 	local silencer = ChangeHero.heroes.npc_dota_hero_silencer
-	return Shop.pShop[PlayerID].totaldonate >= silencer.minimumTotal or DataBase:IsCheatMode() or silencer.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID+1]["silencer_date"] ~= nil
+	return Shop.pShop[PlayerID].totaldonate >= silencer.minimumTotal or DataBase:IsCheatMode() or silencer.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["silencer_date"] ~= nil
 end
 
 function ChangeHero:dota_player_gained_level(t)
@@ -760,7 +847,7 @@ end
 function ChangeHero:ChangeHeroLua(t)
 	if self.heroes[t.heroName].available[t.PlayerID] == false then return end
 	if Shop.pShop[t.PlayerID].totaldonate < self.heroes[t.heroName].minimumTotal then
-		self.heroes[t.heroName].trialCount[t.PlayerID] = RATING["rating"][t.PlayerID+1][self.heroes[t.heroName].trialName] - 1
+		self.heroes[t.heroName].trialCount[t.PlayerID] = RATING["rating"][t.PlayerID][self.heroes[t.heroName].trialName] - 1
 	end
 	self.heroes[t.heroName].selected[t.PlayerID] = true
 	for i = 0, 4 do

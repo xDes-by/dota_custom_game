@@ -168,3 +168,33 @@ PatroolPoints = {
 	[6] = {},
 	[7] = {},
 }
+
+dailyTasks = {
+	[1] = { event = "kill", target = {"npc_forest_boss", "npc_forest_boss_fake"}, count = 5},
+	[2] = { event = "kill", target = {"npc_village_boss", "npc_village_boss_fake"}, count = 5},
+	[3] = { event = "kill", target = {"npc_mines_boss", "npc_mines_boss_fake"}, count = 5},
+	[4] = { event = "kill", target = {"npc_dust_boss", "npc_dust_boss_fake"}, count = 5},
+	[5] = { event = "kill", target = {"npc_swamp_boss", "npc_swamp_boss_fake"}, count = 3},
+	[6] = { event = "kill", target = {"npc_snow_boss", "npc_snow_boss_fake"}, count = 3},
+	[7] = { event = "kill", target = {"raid_boss"}, count = 1},
+	[8] = { event = "kill", target = {"raid_boss2"}, count = 1},
+	[9] = { event = "kill", target = {"raid_boss3"}, count = 1},
+	[10] = { event = "kill", target = {"raid_boss4"}, count = 1},
+	[11] = { event = "kill", target = {"any"}, count = 1000},
+	[12] = { event = "kill", target = {"any"}, count = 2000},
+	[13] = { event = "kill", target = {"any"}, count = 3000},
+	[14] = { event = "kill", target = {"forest_creep_big_1","forest_creep_mini_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_big_3","forest_creep_mini_3"}, count = 500},
+	[15] = { event = "kill", target = {"village_creep_1","village_creep_2","village_creep_3"}, count = 500},
+	[16] = { event = "kill", target = {"mines_creep_1","mines_creep_2","mines_creep_3"}, count = 500},
+	[17] = { event = "kill", target = {"dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6"}, count = 500},
+	[18] = { event = "kill", target = {"cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4"}, count = 500},
+	[19] = { event = "kill", target = {"swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4"}, count = 500},
+	[20] = { event = "kill", target = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}, count = 500},
+	[21] = { event = "kill", target = {"last_creep_1","last_creep_2","last_creep_3","last_creep_4"}, count = 500},
+	[22] = { event = "kill", target = {"farm_zone_dragon"}, count = 100},
+	[23] = { event = "kill", target = bosses_names, count = 20, dont_save_unfinished_progress = true},
+	[24] = { event = "kill", target = bosses_names, count = 30, dont_save_unfinished_progress = true},
+	[25] = { event = "kill", target = {"roshan_npc"}, count = 3},
+
+	-- [25] = { event = "combine", target = {"roshan_npc"}, count = 3},
+}
