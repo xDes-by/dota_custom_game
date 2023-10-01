@@ -13,5 +13,6 @@
         "player_pets",
         "difficultyVote",
         "forge",
+        "Daily",
     ]
 }

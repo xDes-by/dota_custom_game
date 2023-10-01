@@ -624,21 +624,21 @@ function Quests:minimapEvent(t)
 end
 
 function Quests:AutoQuestToggleInit()
-	for i = 1, PlayerResource:GetPlayerCount() do
+	for i = 0, PlayerResource:GetPlayerCount()-1 do
 		local subscribe = false 
 		if RATING["rating"][i]["patron"] and RATING["rating"][i]["patron"] == 1 then
 			subscribe = true
 		end
-		if PlayerResource:IsValidPlayer(i-1) and RATING["rating"][i] and RATING["rating"][i]['auto_quest_trial'] ~= nil then
-			Quests.trialPeriodCount[i-1] = RATING["rating"][i]['auto_quest_trial']
+		if PlayerResource:IsValidPlayer(i) and RATING["rating"][i] and RATING["rating"][i]['auto_quest_trial'] ~= nil then
+			Quests.trialPeriodCount[i] = RATING["rating"][i]['auto_quest_trial']
 			if subscribe and RATING["rating"][i]['auto_quest'] and RATING["rating"][i]['auto_quest'] == 1 then
-				Quests.auto[i-1] = true
+				Quests.auto[i] = true
 			else
-				Quests.auto[i-1] = false
+				Quests.auto[i] = false
 			end
-			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(i-1),"change_auto_quest_toggle_state",{
-				toggle_state = Quests.auto[i-1], 
-				count = Quests.trialPeriodCount[i-1],
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(i),"change_auto_quest_toggle_state",{
+				toggle_state = Quests.auto[i], 
+				count = Quests.trialPeriodCount[i],
 				subscribe = subscribe,
 			})
 		end
@@ -647,11 +647,11 @@ end
 
 function Quests:auto_quest_toggle(t)
 	local subscribe = false 
-	if RATING["rating"][t.PlayerID+1]["patron"] and RATING["rating"][t.PlayerID+1]["patron"] == 1 then
+	if RATING["rating"][t.PlayerID]["patron"] and RATING["rating"][t.PlayerID]["patron"] == 1 then
 		subscribe = true
 	end
 	if subscribe == false and Quests.trialPeriodCount[t.PlayerID] > 0 then
-		Quests.trialPeriodCount[t.PlayerID] = RATING["rating"][t.PlayerID+1]['auto_quest_trial'] - 1
+		Quests.trialPeriodCount[t.PlayerID] = RATING["rating"][t.PlayerID]['auto_quest_trial'] - 1
 		Quests.auto[t.PlayerID] = t.toggle_state == 1
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.PlayerID),"change_auto_quest_toggle_state",{
 			toggle_state = Quests.auto[t.PlayerID], 

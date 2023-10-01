@@ -46,7 +46,7 @@ function Forge:OnGameStateChanged(t)
             for nPlayerID = 0, PlayerResource:GetPlayerCount()-1 do
                 gems[nPlayerID] = {}
                 for i = 1, 5 do
-                    gems[nPlayerID][i] = _G.SHOP[nPlayerID+1]['gem_'..i] or 0
+                    gems[nPlayerID][i] = _G.SHOP[nPlayerID]['gem_'..i] or 0
                 end
                 if PlayerResource:GetConnectionState(nPlayerID) == DOTA_CONNECTION_STATE_CONNECTED then
                     CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( nPlayerID ), "update_gems_js",  gems[nPlayerID])

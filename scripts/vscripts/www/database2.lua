@@ -10,8 +10,11 @@ function DataBase:IsCheatMode()
 end
 
 function DataBase:init()
+	-- https://random-defence-adventure.ru/backend/api2/game-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
 	DataBase.key = _G.key
 	DataBase.matchID = tostring(GameRules:Script_GetMatchID())
+	DataBase.gameSetupLink = _G.host .. "/backend/api2/game-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.playerSetupLink = _G.host .. "/backend/api2/player-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.start = _G.host .. "/backend/api/start?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.editPoints = _G.host .. "/backend/api/edit-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.buy = _G.host .. "/backend/api/buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -42,11 +45,23 @@ function DataBase:init()
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( self, 'OnEntityKilled' ), self )
-	DataBase:startGame()
-	DataBase.units = {}
+	-- DataBase:GameSetup()
+	-- for i = 0 , PlayerResource:GetPlayerCount()-1 do
+	--     if PlayerResource:IsValidPlayer(i) then
+	-- 		DataBase:PlayerSetup(i)
+	-- 	end
+	-- end
 end
 
 function DataBase:OnGameRulesStateChange()
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		DataBase:GameSetup()
+		for i = 0 , PlayerResource:GetPlayerCount()-1 do
+			if PlayerResource:IsValidPlayer(i) then
+				DataBase:PlayerSetup(i)
+			end
+		end
+	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		print('DOTA_GAMERULES_STATE_GAME_IN_PROGRESS')
 
@@ -201,41 +216,94 @@ function DataBase:Event2021Boss(PlayerID)
 	end)
 end
 
-function DataBase:startGame()
-	local arr = {}
-	for i = 0 , PlayerResource:GetPlayerCount() do
-	    if PlayerResource:IsValidPlayer(i) then
-			arr[i] = {
-				sid = PlayerResource:GetSteamAccountID(i),
-				name = PlayerResource:GetPlayerName(i),
-			}
-		end
-	end
-	arr = json.encode(arr)
-	local req = CreateHTTPRequestScriptVM( "POST", DataBase.start )
-	req:SetHTTPRequestGetOrPostParameter('arr',arr)
+function DataBase:GameSetup()
+	_G.RATING = {
+		rating = {},
+		history = {},
+	}
+	_G.SHOP = {}
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.gameSetupLink )
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
-		print("DataBase:startGame()")
+		print("GameSetup")
+		print("StatusCode: ", res.StatusCode)
+		print("Body: ", res.Body)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			local obj = json.decode(res.Body)
+			_G.RATING.top = obj.top
+			_G.RATING.bg = obj.bg
+			_G.RATING.seasons = obj.seasons
+			DailyQuests:SetTodayTasks(obj.daily)
+		end
+	end)
+
+
+
+	-- local arr = {}
+	-- for i = 0 , PlayerResource:GetPlayerCount() do
+	--     if PlayerResource:IsValidPlayer(i) then
+	-- 		arr[i] = {
+	-- 			sid = PlayerResource:GetSteamAccountID(i),
+	-- 			name = PlayerResource:GetPlayerName(i),
+	-- 		}
+	-- 	end
+	-- end
+	-- arr = json.encode(arr)
+	-- local req = CreateHTTPRequestScriptVM( "POST", DataBase.start )
+	-- req:SetHTTPRequestGetOrPostParameter('arr',arr)
+	-- req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+	-- req:Send(function(res)
+	-- 	if res.StatusCode == 200 and res.Body ~= nil then
+	-- 		local obj = json.decode(res.Body)
 			
-			_G.RATING = {
-				rating = obj.rating,
-				top = obj.top,
-				bg = obj.bg,
-				seasons = obj.seasons,
-				history = obj.history,
-			}
-			_G.SHOP = obj.shop
-			Shop:createShop()
-			Timers:CreateTimer(0 ,function()
-				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-					rating:pickInit(t)
-					return nil
-				end
-				return 0.1
-			end)
+			
+	-- 		_G.RATING = {
+	-- 			rating = obj.rating,
+	-- 			top = obj.top,
+	-- 			bg = obj.bg,
+	-- 			seasons = obj.seasons,
+	-- 			history = obj.history,
+	-- 		}
+	-- 		_G.SHOP = obj.shop
+	-- 		Shop:createShop()
+	-- 		Timers:CreateTimer(0 ,function()
+	-- 			if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+	-- 				rating:pickInit(t)
+	-- 				return nil
+	-- 			end
+	-- 			return 0.1
+	-- 		end)
+	-- 	end
+	-- end)
+end
+
+function DataBase:PlayerSetup( pid )
+	local data = json.encode({
+		sid = PlayerResource:GetSteamAccountID(pid),
+		name = PlayerResource:GetPlayerName(pid),
+	})
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.playerSetupLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',data)
+	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
+	req:Send(function(res)
+		print("PlayerSetup")
+		print("StatusCode: ", res.StatusCode)
+		print("Body: ", res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			local obj = json.decode(res.Body)
+			_G.RATING.rating[pid] = obj.rating
+			_G.RATING.history[pid] = obj.history
+			_G.SHOP[pid] = obj.shop
+			DailyQuests:SetPlayerData(pid, obj.daily)
+			Shop:PlayerSetup( pid )
+			-- Shop:createShop()
+			-- Timers:CreateTimer(0 ,function()
+			-- 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+			-- 		rating:pickInit(t)
+			-- 		return nil
+			-- 	end
+			-- 	return 0.1
+			-- end)
 		end
 	end)
 end
@@ -308,15 +376,15 @@ function DataBase:CommentChange(t)
 	local from = tonumber(t.PlayerID)
 	local to = tonumber(t.pid)
 	local type = t.type
-	if RATING and tonumber(RATING['rating'][from+1]['commens']) <= 0 then
+	if RATING and tonumber(RATING['rating'][from]['commens']) <= 0 then
 		return
 	end
 
-	RATING['rating'][from+1]['commens'] = tonumber(RATING['rating'][from+1]['commens']) - 1
+	RATING['rating'][from]['commens'] = tonumber(RATING['rating'][from]['commens']) - 1
 	if type == 'likes' then
-		RATING['rating'][to+1]['likes'] = tonumber(RATING['rating'][to+1]['likes']) + 1
+		RATING['rating'][to]['likes'] = tonumber(RATING['rating'][to]['likes']) + 1
 	elseif type == 'reports' then
-		RATING['rating'][to+1]['reports'] = tonumber(RATING['rating'][to+1]['reports']) + 1
+		RATING['rating'][to]['reports'] = tonumber(RATING['rating'][to]['reports']) + 1
 	end
 
 	local arr = {
@@ -399,7 +467,7 @@ function DataBase:TalentPunishment(t)
 		hero_name = tab["hero_name"],
 		PlayerID = PlayerResource:GetSteamAccountID(t.PlayerID),
 		change = t.change,
-		patron = RATING["rating"][t.PlayerID+1]["patron"],
+		patron = RATING["rating"][t.PlayerID]["patron"],
 	}
 	-- normal exp
 	tab["totalexp"] = tonumber(tab["totalexp"]) + t.change
@@ -407,7 +475,7 @@ function DataBase:TalentPunishment(t)
 		tab["totalexp"] = 0
 	end
 	-- donate exp
-	if RATING["rating"][t.PlayerID+1]["patron"] == 1 then
+	if RATING["rating"][t.PlayerID]["patron"] == 1 then
 		tab["totaldonexp"] = tonumber(tab["totaldonexp"]) + t.change
 		if tab["totaldonexp"] < 0 then
 			tab["totaldonexp"] = 0

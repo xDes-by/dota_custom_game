@@ -414,6 +414,40 @@
 
 
         "dota_don_shop_error"               "Вам не хватает кристаллов! О том, как получить кристаллы, вы можете узнать в Дискорде!"
+
+        "DailyTaskDescription_Lable1"                            "Убить боссов за 40 сек <font color='green'>0/4</font>"
+        "DailyTaskDescription_Lable2"                            "Убить драконов <font color='green'>148/1000</font>"
+        "DailyTaskDescription_Lable3"                            "Убить фуриона 0/5 <font color='green'>1/5</font>"
+        "DailyTaskGetAward"                                     "Получить награду!"
+        "DailyMainLabel"                                        "Ежедневные задания"
+        "DailyTitleTooltip"                                     "<b>Уникальные задания на каждый день.</b><br><br> За выполнение этих заданий вы получит награду <font color='gold'>5,10,10</font> щитков на свой аккаунт."
+
+        "DailyTaskDescription_1"                                "Убить Хранителя Леса"
+        "DailyTaskDescription_2"                                "Убить Вождя Разбойников"
+        "DailyTaskDescription_3"                                "Убить Каменного Идола"
+        "DailyTaskDescription_4"                                "Убить Царя Скарабея"
+        "DailyTaskDescription_5"                                "Убить Ядовитую Гидру"
+        "DailyTaskDescription_6"                                "Убить Большой Камушек"
+        "DailyTaskDescription_7"                                "Убить Хдеса"
+        "DailyTaskDescription_8"                                "Убить Луфи"
+        "DailyTaskDescription_9"                                "Убить Дота босса"
+        "DailyTaskDescription_10"                               "Убить Айса"
+        "DailyTaskDescription_11"                               "Убить крипов"
+        "DailyTaskDescription_12"                               "Убить крипов"
+        "DailyTaskDescription_13"                               "Убить крипов"
+        "DailyTaskDescription_14"                               "Убить крипов c 1 локации"
+        "DailyTaskDescription_15"                               "Убить крипов c 2 локации"
+        "DailyTaskDescription_16"                               "Убить крипов c 3 локации"
+        "DailyTaskDescription_17"                               "Убить крипов c 4 локации"
+        "DailyTaskDescription_18"                               "Убить крипов c 5 локации"
+        "DailyTaskDescription_19"                               "Убить крипов c 6 локации"
+        "DailyTaskDescription_20"                               "Убить крипов c 7 локации"
+        "DailyTaskDescription_21"                               "Убить крипов c 8 локации"
+        "DailyTaskDescription_22"                               "Убить Драконов"
+        "DailyTaskDescription_23"                               "Убить боссов на одну игру"
+        "DailyTaskDescription_24"                               "Убить боссов на одну игру"
+        "DailyTaskDescription_25"                               "Убить Рошана"
+
         // Panorama
 
         /////////////////
@@ -477,6 +511,26 @@
         "season_name_38"         "ИЮЛЬ"
         "season_name_39"         "АВГУСТ"
         "season_name_40"         "СЕНТЯБРЬ"
+        "season_name_41"         "ОКТЯБРЬ"
+        "season_name_42"         "НОЯБРЬ"
+        "season_name_43"         "ДЕКАБРЬ"
+        "season_name_44"         "ЯНВАРЬ"
+        "season_name_45"         "ФЕВРАЛЬ"
+        "season_name_46"         "МАРТ"
+        "season_name_47"         "АПРЕЛЬ"
+        "season_name_48"         "МАЙ"
+        "season_name_49"         "ИЮНЬ"
+        "season_name_50"         "ИЮЛЬ"
+        "season_name_51"         "АВГУСТ"
+        "season_name_52"         "СЕНТЯБРЬ"
+        "season_name_53"         "ОКТЯБРЬ"
+        "season_name_54"         "НОЯБРЬ"
+        "season_name_55"         "ДЕКАБРЬ"
+        "season_name_56"         "ЯНВАРЬ"
+        "season_name_57"         "ФЕВРАЛЬ"
+        "season_name_58"         "МАРТ"
+        "season_name_59"         "АПРЕЛЬ"
+        "season_name_60"         "МАЙ"
 
         ///////////////
         //Donate Shop//

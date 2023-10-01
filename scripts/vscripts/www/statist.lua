@@ -56,7 +56,7 @@ function statist:ShowState(gane, WinOrLose)
                 dmg = _G.physdamage[i] + _G.magdamage[i] + _G.puredamage[i],
                 gold = sendata[i]['gold'],
                 boss = sendata[i]['boss'],
-                rating = _G.RATING['rating'][i+1]['points'] + gane,
+                rating = _G.RATING['rating'][i]['points'] + gane,
                 hero_name = PlayerResource:GetSelectedHeroName( i ),
             }
         end

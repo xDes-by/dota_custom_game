@@ -22,8 +22,8 @@ require("effects")
 _G.key = GetDedicatedServerKeyV3("WAR")
 pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = false and IsInToolsMode() -- false
-_G.server_load = false -- true\
+_G.cheatmode = true and IsInToolsMode() -- false
+_G.server_load = false -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
