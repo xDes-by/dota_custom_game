@@ -1,64 +1,10 @@
 item_assault_lua = class({})
 
-item_assault_lua1 = item_assault_lua
-item_assault_lua2 = item_assault_lua
-item_assault_lua3 = item_assault_lua
-item_assault_lua4 = item_assault_lua
-item_assault_lua5 = item_assault_lua
-item_assault_lua6 = item_assault_lua
-item_assault_lua7 = item_assault_lua
-item_assault_lua8 = item_assault_lua
-
-item_assault_lua1_gem1 = item_assault_lua
-item_assault_lua2_gem1 = item_assault_lua
-item_assault_lua3_gem1 = item_assault_lua
-item_assault_lua4_gem1 = item_assault_lua
-item_assault_lua5_gem1 = item_assault_lua
-item_assault_lua6_gem1 = item_assault_lua
-item_assault_lua7_gem1 = item_assault_lua
-item_assault_lua8_gem1 = item_assault_lua
-
-item_assault_lua1_gem2 = item_assault_lua
-item_assault_lua2_gem2 = item_assault_lua
-item_assault_lua3_gem2 = item_assault_lua
-item_assault_lua4_gem2 = item_assault_lua
-item_assault_lua5_gem2 = item_assault_lua
-item_assault_lua6_gem2 = item_assault_lua
-item_assault_lua7_gem2 = item_assault_lua
-item_assault_lua8_gem2 = item_assault_lua
-
-item_assault_lua1_gem3 = item_assault_lua
-item_assault_lua2_gem3 = item_assault_lua
-item_assault_lua3_gem3 = item_assault_lua
-item_assault_lua4_gem3 = item_assault_lua
-item_assault_lua5_gem3 = item_assault_lua
-item_assault_lua6_gem3 = item_assault_lua
-item_assault_lua7_gem3 = item_assault_lua
-item_assault_lua8_gem3 = item_assault_lua
-
-item_assault_lua1_gem4 = item_assault_lua
-item_assault_lua2_gem4 = item_assault_lua
-item_assault_lua3_gem4 = item_assault_lua
-item_assault_lua4_gem4 = item_assault_lua
-item_assault_lua5_gem4 = item_assault_lua
-item_assault_lua6_gem4 = item_assault_lua
-item_assault_lua7_gem4 = item_assault_lua
-item_assault_lua8_gem4 = item_assault_lua
-
-item_assault_lua1_gem5 = item_assault_lua
-item_assault_lua2_gem5 = item_assault_lua
-item_assault_lua3_gem5 = item_assault_lua
-item_assault_lua4_gem5 = item_assault_lua
-item_assault_lua5_gem5 = item_assault_lua
-item_assault_lua6_gem5 = item_assault_lua
-item_assault_lua7_gem5 = item_assault_lua
-item_assault_lua8_gem5 = item_assault_lua
-
 LinkLuaModifier("modifier_assault_lua", "items/custom_items/item_assault_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_assault_lua_aura_positive_effect", "items/custom_items/item_assault_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_assault_lua_aura_negative_effect", "items/custom_items/item_assault_lua", LUA_MODIFIER_MOTION_NONE)
 
-function item_assault_lua1:GetIntrinsicModifierName()
+function item_assault_lua:GetIntrinsicModifierName()
 	return "modifier_assault_lua"
 end
 

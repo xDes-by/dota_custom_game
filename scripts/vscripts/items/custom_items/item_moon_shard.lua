@@ -1,59 +1,5 @@
 item_moon_shard_lua = class({})
 
-item_moon_shard_lua1 = item_moon_shard_lua
-item_moon_shard_lua2 = item_moon_shard_lua
-item_moon_shard_lua3 = item_moon_shard_lua
-item_moon_shard_lua4 = item_moon_shard_lua
-item_moon_shard_lua5 = item_moon_shard_lua
-item_moon_shard_lua6 = item_moon_shard_lua
-item_moon_shard_lua7 = item_moon_shard_lua
-item_moon_shard_lua8 = item_moon_shard_lua
-
-item_moon_shard_lua1_gem1 = item_moon_shard_lua
-item_moon_shard_lua2_gem1 = item_moon_shard_lua
-item_moon_shard_lua3_gem1 = item_moon_shard_lua
-item_moon_shard_lua4_gem1 = item_moon_shard_lua
-item_moon_shard_lua5_gem1 = item_moon_shard_lua
-item_moon_shard_lua6_gem1 = item_moon_shard_lua
-item_moon_shard_lua7_gem1 = item_moon_shard_lua
-item_moon_shard_lua8_gem1 = item_moon_shard_lua
-
-item_moon_shard_lua1_gem2 = item_moon_shard_lua
-item_moon_shard_lua2_gem2 = item_moon_shard_lua
-item_moon_shard_lua3_gem2 = item_moon_shard_lua
-item_moon_shard_lua4_gem2 = item_moon_shard_lua
-item_moon_shard_lua5_gem2 = item_moon_shard_lua
-item_moon_shard_lua6_gem2 = item_moon_shard_lua
-item_moon_shard_lua7_gem2 = item_moon_shard_lua
-item_moon_shard_lua8_gem2 = item_moon_shard_lua
-
-item_moon_shard_lua1_gem3 = item_moon_shard_lua
-item_moon_shard_lua2_gem3 = item_moon_shard_lua
-item_moon_shard_lua3_gem3 = item_moon_shard_lua
-item_moon_shard_lua4_gem3 = item_moon_shard_lua
-item_moon_shard_lua5_gem3 = item_moon_shard_lua
-item_moon_shard_lua6_gem3 = item_moon_shard_lua
-item_moon_shard_lua7_gem3 = item_moon_shard_lua
-item_moon_shard_lua8_gem3 = item_moon_shard_lua
-
-item_moon_shard_lua1_gem4 = item_moon_shard_lua
-item_moon_shard_lua2_gem4 = item_moon_shard_lua
-item_moon_shard_lua3_gem4 = item_moon_shard_lua
-item_moon_shard_lua4_gem4 = item_moon_shard_lua
-item_moon_shard_lua5_gem4 = item_moon_shard_lua
-item_moon_shard_lua6_gem4 = item_moon_shard_lua
-item_moon_shard_lua7_gem4 = item_moon_shard_lua
-item_moon_shard_lua8_gem4 = item_moon_shard_lua
-
-item_moon_shard_lua1_gem5 = item_moon_shard_lua
-item_moon_shard_lua2_gem5 = item_moon_shard_lua
-item_moon_shard_lua3_gem5 = item_moon_shard_lua
-item_moon_shard_lua4_gem5 = item_moon_shard_lua
-item_moon_shard_lua5_gem5 = item_moon_shard_lua
-item_moon_shard_lua6_gem5 = item_moon_shard_lua
-item_moon_shard_lua7_gem5 = item_moon_shard_lua
-item_moon_shard_lua8_gem5 = item_moon_shard_lua
-
 LinkLuaModifier("modifier_item_moon_shard_lua_passive", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive_effect", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)

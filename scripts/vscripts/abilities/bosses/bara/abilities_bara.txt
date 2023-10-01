@@ -1,4 +1,114 @@
 "DOTAAbilities"
 {
-    
+    "ability_npc_bara_boss_charge"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/bara/ability_npc_bara_boss_charge"
+		"AbilityTextureName"			"spirit_breaker_charge_of_darkness"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"movement_speed"		"1000"
+			"stun_duration"			"2.4"
+			"bash_radius"			"300"
+			"vision_radius"			"400"
+			"vision_duration"		"0.94"
+		}
+	}
+	"ability_npc_bara_boss_bash"
+	{
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/bara/ability_npc_bara_boss_bash"
+		"AbilityTextureName"			"spirit_breaker_greater_bash"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5 1.5 1.5 1.5"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"chance_pct"			"17"
+			"damage"				"1000"
+			"duration"				"1.8"
+			"knockback_duration"	"0.5"
+			"knockback_distance"	"162"
+			"knockback_height"		"50"
+			"bonus_movespeed_pct"	"17"
+			"movespeed_duration"	"3.0"
+		}
+	}
+"spirit_breaker_nether_strike_lua"
+	{
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"lua_abilities/spirit_breaker_nether_strike_lua/spirit_breaker_nether_strike_lua"
+		"AbilityTextureName"			"spirit_breaker_nether_strike"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.0"
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"500"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"				"100 175 250"
+			"fade_time"				"1.0 1.0 1.0"
+		}
+	}
 }

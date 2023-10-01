@@ -400,40 +400,41 @@ function ChatCommands:DropItems(pid, text, info)
     end
     local heroPoint = hero:GetAbsOrigin()
     local itemsList = {
-        {vector = Vector(heroPoint.x + 0, heroPoint.y + 275), name = "item_assault_lua8"},
-        {vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_sheepstick_lua8"},
-        {vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_satanic_lua8"},
-        {vector = Vector(heroPoint.x + -75, heroPoint.y + 225), name = "item_ring_of_flux_lua8"},
-        {vector = Vector(heroPoint.x + 75, heroPoint.y + 225), name = "item_bloodstone_lua8"},
+        {vector = Vector(heroPoint.x + 0, heroPoint.y + 275), name = "item_assault_lua"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_sheepstick_lua"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_satanic_lua"},
+        {vector = Vector(heroPoint.x + -75, heroPoint.y + 225), name = "item_ring_of_flux_lua"},
+        {vector = Vector(heroPoint.x + 75, heroPoint.y + 225), name = "item_bloodstone_lua"},
 
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + -150), name = "item_radiance_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + -75), name = "item_desolator_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 0), name = "item_butterfly_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 75), name = "item_monkey_king_bar_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 150), name = "item_bfury_lua8"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + -150), name = "item_radiance_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + -75), name = "item_desolator_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 0), name = "item_butterfly_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 75), name = "item_monkey_king_bar_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 150), name = "item_bfury_lua"},
 
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + -150), name = "item_veil_of_discord_lua8"},
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + -75), name = "item_shivas_guard_lua8"},
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + 0), name = "item_crimson_guard_lua8"},
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + 75), name = "item_heart_lua8"},
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + 150), name = "item_greater_crit_lua8"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + -150), name = "item_veil_of_discord_lua"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + -75), name = "item_shivas_guard_lua"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + 0), name = "item_crimson_guard_lua"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + 75), name = "item_heart_lua"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + 150), name = "item_greater_crit_lua"},
 
-        {vector = Vector(heroPoint.x + -137, heroPoint.y + -210), name = "item_kaya_custom_lua8"},
-        {vector = Vector(heroPoint.x + 137, heroPoint.y + -210), name = "item_ethereal_blade_lua8"},
-        {vector = Vector(heroPoint.x + -160, heroPoint.y + -260), name = "item_vladmir_lua8"},
-        {vector = Vector(heroPoint.x + 160, heroPoint.y + -260), name = "item_pipe_lua8"},
-        {vector = Vector(heroPoint.x + -137, heroPoint.y + -312), name = "item_octarine_core_lua8"},
-        {vector = Vector(heroPoint.x + 137, heroPoint.y + -312), name = "item_skadi_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + -335), name = "item_mjollnir_lua8"},
-        {vector = Vector(heroPoint.x + 100, heroPoint.y + -335), name = "item_pudge_heart_lua8"},
-        {vector = Vector(heroPoint.x + -62, heroPoint.y + -297), name = "item_mage_heart_lua8"},
-        {vector = Vector(heroPoint.x + 62, heroPoint.y + -297), name = "item_agility_heart_lua8"},
-        {vector = Vector(heroPoint.x + -25, heroPoint.y + -260), name = "item_moon_shard_lua8"},
-        {vector = Vector(heroPoint.x + 25, heroPoint.y + -260), name = "item_hood_sword_lua8"},
+        {vector = Vector(heroPoint.x + -137, heroPoint.y + -210), name = "item_kaya_custom_lua"},
+        {vector = Vector(heroPoint.x + 137, heroPoint.y + -210), name = "item_ethereal_blade_lua"},
+        {vector = Vector(heroPoint.x + -160, heroPoint.y + -260), name = "item_vladmir_lua"},
+        {vector = Vector(heroPoint.x + 160, heroPoint.y + -260), name = "item_pipe_lua"},
+        {vector = Vector(heroPoint.x + -137, heroPoint.y + -312), name = "item_octarine_core_lua"},
+        {vector = Vector(heroPoint.x + 137, heroPoint.y + -312), name = "item_skadi_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + -335), name = "item_mjollnir_lua"},
+        {vector = Vector(heroPoint.x + 100, heroPoint.y + -335), name = "item_pudge_heart_lua"},
+        {vector = Vector(heroPoint.x + -62, heroPoint.y + -297), name = "item_mage_heart_lua"},
+        {vector = Vector(heroPoint.x + 62, heroPoint.y + -297), name = "item_agility_heart_lua"},
+        {vector = Vector(heroPoint.x + -25, heroPoint.y + -260), name = "item_moon_shard_lua"},
+        {vector = Vector(heroPoint.x + 25, heroPoint.y + -260), name = "item_hood_sword_lua"},
     }
 
     for _, item in pairs(itemsList) do
         local newItem = CreateItem( item.name, owner, owner )
+        newItem:SetLevel(8)
         local drop = CreateItemOnPositionForLaunch( heroPoint, newItem )
         newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, item.vector )
         newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
@@ -478,36 +479,36 @@ function ChatCommands:DropItemsNew(pid, text, info)
     end
     local heroPoint = hero:GetAbsOrigin()
     local itemsList = {
-        {vector = Vector(heroPoint.x + -300, heroPoint.y + 300), name = "item_assault_lua8"},
-        {vector = Vector(heroPoint.x + -250, heroPoint.y + 300), name = "item_desolator_lua8"},
-        {vector = Vector(heroPoint.x + -200, heroPoint.y + 300), name = "item_butterfly_lua8"},
-        {vector = Vector(heroPoint.x + -300, heroPoint.y + 250), name = "item_monkey_king_bar_lua8"},
-        {vector = Vector(heroPoint.x + -250, heroPoint.y + 250), name = "item_vladmir_lua8"},
-        {vector = Vector(heroPoint.x + -200, heroPoint.y + 250), name = "item_hood_sword_lua8"},
-        {vector = Vector(heroPoint.x + -300, heroPoint.y + 200), name = "item_greater_crit_lua8"},
-        {vector = Vector(heroPoint.x + -250, heroPoint.y + 200), name = "item_moon_shard_lua8"},
-        {vector = Vector(heroPoint.x + -200, heroPoint.y + 200), name = "item_satanic_lua8"},
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 300), name = "item_assault_lua"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 300), name = "item_desolator_lua"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 300), name = "item_butterfly_lua"},
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 250), name = "item_monkey_king_bar_lua"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 250), name = "item_vladmir_lua"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 250), name = "item_hood_sword_lua"},
+        {vector = Vector(heroPoint.x + -300, heroPoint.y + 200), name = "item_greater_crit_lua"},
+        {vector = Vector(heroPoint.x + -250, heroPoint.y + 200), name = "item_moon_shard_lua"},
+        {vector = Vector(heroPoint.x + -200, heroPoint.y + 200), name = "item_satanic_lua"},
 
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 300), name = "item_kaya_custom_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 250), name = "item_bloodstone_lua8"},
-        {vector = Vector(heroPoint.x + -100, heroPoint.y + 200), name = "item_kaya_lua8"},
-        {vector = Vector(heroPoint.x + -50, heroPoint.y + 300), name = "item_sheepstick_lua8"},
-        {vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_veil_of_discord_lua8"},
-        {vector = Vector(heroPoint.x + -50, heroPoint.y + 200), name = "item_shivas_guard_lua8"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 300), name = "item_kaya_custom_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 250), name = "item_bloodstone_lua"},
+        {vector = Vector(heroPoint.x + -100, heroPoint.y + 200), name = "item_kaya_lua"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 300), name = "item_sheepstick_lua"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 250), name = "item_veil_of_discord_lua"},
+        {vector = Vector(heroPoint.x + -50, heroPoint.y + 200), name = "item_shivas_guard_lua"},
 
-        {vector = Vector(heroPoint.x + 50, heroPoint.y + 300), name = "item_pudge_heart_lua8"},
-        {vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_mage_heart_lua8"},
-        {vector = Vector(heroPoint.x + 50, heroPoint.y + 200), name = "item_agility_heart_lua8"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 300), name = "item_pudge_heart_lua"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 250), name = "item_mage_heart_lua"},
+        {vector = Vector(heroPoint.x + 50, heroPoint.y + 200), name = "item_agility_heart_lua"},
 
-        {vector = Vector(heroPoint.x + 150, heroPoint.y + 300), name = "item_heart_lua8"},
-        {vector = Vector(heroPoint.x + 200, heroPoint.y + 300), name = "item_crimson_guard_lua8"},
-        {vector = Vector(heroPoint.x + 250, heroPoint.y + 300), name = "item_octarine_core_lua8"},
-        {vector = Vector(heroPoint.x + 150, heroPoint.y + 250), name = "item_ring_of_flux_lua8"},
-        {vector = Vector(heroPoint.x + 200, heroPoint.y + 250), name = "item_meteor_hammer_lua8"},
-        {vector = Vector(heroPoint.x + 250, heroPoint.y + 250), name = "item_radiance_lua8"},
-        {vector = Vector(heroPoint.x + 150, heroPoint.y + 200), name = "item_ethereal_blade_lua8"},
-        {vector = Vector(heroPoint.x + 200, heroPoint.y + 200), name = "item_mjollnir_lua8"},
-        {vector = Vector(heroPoint.x + 250, heroPoint.y + 200), name = "item_bfury_lua8"},
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 300), name = "item_heart_lua"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 300), name = "item_crimson_guard_lua"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 300), name = "item_octarine_core_lua"},
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 250), name = "item_ring_of_flux_lua"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 250), name = "item_meteor_hammer_lua"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 250), name = "item_radiance_lua"},
+        {vector = Vector(heroPoint.x + 150, heroPoint.y + 200), name = "item_ethereal_blade_lua"},
+        {vector = Vector(heroPoint.x + 200, heroPoint.y + 200), name = "item_mjollnir_lua"},
+        {vector = Vector(heroPoint.x + 250, heroPoint.y + 200), name = "item_bfury_lua"},
 
         {vector = Vector(heroPoint.x + -50, heroPoint.y + 100), name = "item_tank_cuirass8"},
         {vector = Vector(heroPoint.x + 0, heroPoint.y + 100), name = "item_tank_crimson8"},
@@ -522,6 +523,7 @@ function ChatCommands:DropItemsNew(pid, text, info)
         for _, item in pairs(itemsList) do
             local newItem = CreateItem( item.name, owner, owner )
             if newItem then
+                newItem:SetLevel(8)
                 local drop = CreateItemOnPositionForLaunch( item.vector, newItem )
                 newItem:LaunchLootInitialHeight( false, 0, 150, 0.2, item.vector )
                 newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )

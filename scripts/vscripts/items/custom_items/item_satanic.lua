@@ -3,60 +3,6 @@ LinkLuaModifier("modifier_satanic_lua_active", "items/custom_items/item_satanic"
 
 item_satanic_lua = class({})
 
-item_satanic_lua1 = item_satanic_lua
-item_satanic_lua2 = item_satanic_lua
-item_satanic_lua3 = item_satanic_lua
-item_satanic_lua4 = item_satanic_lua
-item_satanic_lua5 = item_satanic_lua
-item_satanic_lua6 = item_satanic_lua
-item_satanic_lua7 = item_satanic_lua
-item_satanic_lua8 = item_satanic_lua
-
-item_satanic_lua1_gem1 = item_satanic_lua
-item_satanic_lua2_gem1 = item_satanic_lua
-item_satanic_lua3_gem1 = item_satanic_lua
-item_satanic_lua4_gem1 = item_satanic_lua
-item_satanic_lua5_gem1 = item_satanic_lua
-item_satanic_lua6_gem1 = item_satanic_lua
-item_satanic_lua7_gem1 = item_satanic_lua
-item_satanic_lua8_gem1 = item_satanic_lua
-
-item_satanic_lua1_gem2 = item_satanic_lua
-item_satanic_lua2_gem2 = item_satanic_lua
-item_satanic_lua3_gem2 = item_satanic_lua
-item_satanic_lua4_gem2 = item_satanic_lua
-item_satanic_lua5_gem2 = item_satanic_lua
-item_satanic_lua6_gem2 = item_satanic_lua
-item_satanic_lua7_gem2 = item_satanic_lua
-item_satanic_lua8_gem2 = item_satanic_lua
-
-item_satanic_lua1_gem3 = item_satanic_lua
-item_satanic_lua2_gem3 = item_satanic_lua
-item_satanic_lua3_gem3 = item_satanic_lua
-item_satanic_lua4_gem3 = item_satanic_lua
-item_satanic_lua5_gem3 = item_satanic_lua
-item_satanic_lua6_gem3 = item_satanic_lua
-item_satanic_lua7_gem3 = item_satanic_lua
-item_satanic_lua8_gem3 = item_satanic_lua
-
-item_satanic_lua1_gem4 = item_satanic_lua
-item_satanic_lua2_gem4 = item_satanic_lua
-item_satanic_lua3_gem4 = item_satanic_lua
-item_satanic_lua4_gem4 = item_satanic_lua
-item_satanic_lua5_gem4 = item_satanic_lua
-item_satanic_lua6_gem4 = item_satanic_lua
-item_satanic_lua7_gem4 = item_satanic_lua
-item_satanic_lua8_gem4 = item_satanic_lua
-
-item_satanic_lua1_gem5 = item_satanic_lua
-item_satanic_lua2_gem5 = item_satanic_lua
-item_satanic_lua3_gem5 = item_satanic_lua
-item_satanic_lua4_gem5 = item_satanic_lua
-item_satanic_lua5_gem5 = item_satanic_lua
-item_satanic_lua6_gem5 = item_satanic_lua
-item_satanic_lua7_gem5 = item_satanic_lua
-item_satanic_lua8_gem5 = item_satanic_lua
-
 function item_satanic_lua:GetIntrinsicModifierName()
 	return "modifier_satanic_lua"
 end

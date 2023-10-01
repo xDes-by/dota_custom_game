@@ -1,59 +1,5 @@
 item_midas_lua = class({})
 
-item_midas_lua1 = item_midas_lua
-item_midas_lua2 = item_midas_lua
-item_midas_lua3 = item_midas_lua
-item_midas_lua4 = item_midas_lua
-item_midas_lua5 = item_midas_lua
-item_midas_lua6 = item_midas_lua
-item_midas_lua7 = item_midas_lua
-item_midas_lua8 = item_midas_lua
-
-item_midas_lua1_gem1 = item_midas_lua
-item_midas_lua2_gem1 = item_midas_lua
-item_midas_lua3_gem1 = item_midas_lua
-item_midas_lua4_gem1 = item_midas_lua
-item_midas_lua5_gem1 = item_midas_lua
-item_midas_lua6_gem1 = item_midas_lua
-item_midas_lua7_gem1 = item_midas_lua
-item_midas_lua8_gem1 = item_midas_lua
-
-item_midas_lua1_gem2 = item_midas_lua
-item_midas_lua2_gem2 = item_midas_lua
-item_midas_lua3_gem2 = item_midas_lua
-item_midas_lua4_gem2 = item_midas_lua
-item_midas_lua5_gem2 = item_midas_lua
-item_midas_lua6_gem2 = item_midas_lua
-item_midas_lua7_gem2 = item_midas_lua
-item_midas_lua8_gem2 = item_midas_lua
-
-item_midas_lua1_gem3 = item_midas_lua
-item_midas_lua2_gem3 = item_midas_lua
-item_midas_lua3_gem3 = item_midas_lua
-item_midas_lua4_gem3 = item_midas_lua
-item_midas_lua5_gem3 = item_midas_lua
-item_midas_lua6_gem3 = item_midas_lua
-item_midas_lua7_gem3 = item_midas_lua
-item_midas_lua8_gem3 = item_midas_lua
-
-item_midas_lua1_gem4 = item_midas_lua
-item_midas_lua2_gem4 = item_midas_lua
-item_midas_lua3_gem4 = item_midas_lua
-item_midas_lua4_gem4 = item_midas_lua
-item_midas_lua5_gem4 = item_midas_lua
-item_midas_lua6_gem4 = item_midas_lua
-item_midas_lua7_gem4 = item_midas_lua
-item_midas_lua8_gem4 = item_midas_lua
-
-item_midas_lua1_gem5 = item_midas_lua
-item_midas_lua2_gem5 = item_midas_lua
-item_midas_lua3_gem5 = item_midas_lua
-item_midas_lua4_gem5 = item_midas_lua
-item_midas_lua5_gem5 = item_midas_lua
-item_midas_lua6_gem5 = item_midas_lua
-item_midas_lua7_gem5 = item_midas_lua
-item_midas_lua8_gem5 = item_midas_lua
-
 LinkLuaModifier("modifier_item_midas_lua", 'items/custom_items/item_midas_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_midas_lua_shareable_gold", 'items/custom_items/item_midas_lua.lua', LUA_MODIFIER_MOTION_NONE)
 

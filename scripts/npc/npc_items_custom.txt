@@ -553,7 +553,7 @@
 		"ItemResult"						"item_tank_cuirass"
 		"ItemRequirements"
 		{
-			"01"							"item_monkey_king_bar_lua1;item_dragon_soul"
+			"01"							"item_monkey_king_bar_lua;item_dragon_soul"
 		}
 	}
 	
@@ -867,7 +867,7 @@
 		"ItemResult"						"item_tank_crimson"
 		"ItemRequirements"
 		{
-			"01"							"item_veil_of_discord_lua1;item_dragon_soul_2"
+			"01"							"item_veil_of_discord_lua;item_dragon_soul_2"
 		}
 	}
 	
@@ -1187,7 +1187,7 @@
 		"ItemResult"						"item_tank_hell"
 		"ItemRequirements"
 		{
-			"01"							"item_radiance_lua1;item_dragon_soul_3"
+			"01"							"item_radiance_lua;item_dragon_soul_3"
 		}
 	}
 	

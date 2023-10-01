@@ -65,29 +65,29 @@
 			"DisableResistance"			"80.0"
 			"EquippedItems"
 			{
-				"item_greater_crit_lua8"
+				"item_greater_crit_lua"
 				{
-					"Item"					"item_greater_crit_lua8"
+					"Item"					"item_greater_crit_lua"
 				}
-				"item_greater_crit_lua8"
+				"item_greater_crit_lua"
 				{
-					"Item"					"item_greater_crit_lua8"
+					"Item"					"item_greater_crit_lua"
 				}
-				"item_greater_crit_lua8"
+				"item_greater_crit_lua"
 				{
-					"Item"					"item_greater_crit_lua8"
+					"Item"					"item_greater_crit_lua"
 				}
-				"item_moon_shard_lua8"
+				"item_moon_shard_lua"
 				{
-					"Item"					"item_moon_shard_lua5"
+					"Item"					"item_moon_shard_lua"
 				}
-				"item_monkey_king_bar_lua5"
+				"item_monkey_king_bar_lua"
 				{
-					"Item"					"item_monkey_king_bar_lua5"
+					"Item"					"item_monkey_king_bar_lua"
 				}
 				// "item_ethereal_blade"
 				// {
-				// 	"Item"					"item_ethereal_blade_lua1"
+				// 	"Item"					"item_ethereal_blade_lua"
 				// }
 			}
 		}

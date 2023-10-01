@@ -1,59 +1,5 @@
 item_radiance_lua = class({})
 
-item_radiance_lua1 = item_radiance_lua
-item_radiance_lua2 = item_radiance_lua
-item_radiance_lua3 = item_radiance_lua
-item_radiance_lua4 = item_radiance_lua
-item_radiance_lua5 = item_radiance_lua
-item_radiance_lua6 = item_radiance_lua
-item_radiance_lua7 = item_radiance_lua
-item_radiance_lua8 = item_radiance_lua
-
-item_radiance_lua1_gem1 = item_radiance_lua
-item_radiance_lua2_gem1 = item_radiance_lua
-item_radiance_lua3_gem1 = item_radiance_lua
-item_radiance_lua4_gem1 = item_radiance_lua
-item_radiance_lua5_gem1 = item_radiance_lua
-item_radiance_lua6_gem1 = item_radiance_lua
-item_radiance_lua7_gem1 = item_radiance_lua
-item_radiance_lua8_gem1 = item_radiance_lua
-
-item_radiance_lua1_gem2 = item_radiance_lua
-item_radiance_lua2_gem2 = item_radiance_lua
-item_radiance_lua3_gem2 = item_radiance_lua
-item_radiance_lua4_gem2 = item_radiance_lua
-item_radiance_lua5_gem2 = item_radiance_lua
-item_radiance_lua6_gem2 = item_radiance_lua
-item_radiance_lua7_gem2 = item_radiance_lua
-item_radiance_lua8_gem2 = item_radiance_lua
-
-item_radiance_lua1_gem3 = item_radiance_lua
-item_radiance_lua2_gem3 = item_radiance_lua
-item_radiance_lua3_gem3 = item_radiance_lua
-item_radiance_lua4_gem3 = item_radiance_lua
-item_radiance_lua5_gem3 = item_radiance_lua
-item_radiance_lua6_gem3 = item_radiance_lua
-item_radiance_lua7_gem3 = item_radiance_lua
-item_radiance_lua8_gem3 = item_radiance_lua
-
-item_radiance_lua1_gem4 = item_radiance_lua
-item_radiance_lua2_gem4 = item_radiance_lua
-item_radiance_lua3_gem4 = item_radiance_lua
-item_radiance_lua4_gem4 = item_radiance_lua
-item_radiance_lua5_gem4 = item_radiance_lua
-item_radiance_lua6_gem4 = item_radiance_lua
-item_radiance_lua7_gem4 = item_radiance_lua
-item_radiance_lua8_gem4 = item_radiance_lua
-
-item_radiance_lua1_gem5 = item_radiance_lua
-item_radiance_lua2_gem5 = item_radiance_lua
-item_radiance_lua3_gem5 = item_radiance_lua
-item_radiance_lua4_gem5 = item_radiance_lua
-item_radiance_lua5_gem5 = item_radiance_lua
-item_radiance_lua6_gem5 = item_radiance_lua
-item_radiance_lua7_gem5 = item_radiance_lua
-item_radiance_lua8_gem5 = item_radiance_lua
-
 LinkLuaModifier("modifier_item_radiance_lua", 'items/custom_items/item_radiance_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_radiance_burn_lua", 'items/custom_items/item_radiance_lua.lua', LUA_MODIFIER_MOTION_NONE)
 

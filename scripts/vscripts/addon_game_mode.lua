@@ -20,6 +20,7 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
+pcall(function() require("key") end)
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = false and IsInToolsMode() -- false
 _G.server_load = false -- true\
@@ -58,7 +59,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
-    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
+    GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( not IsInToolsMode() )
 	GameModeEntity:SetSelectionGoldPenaltyEnabled(false)
 	GameRules:SetHeroSelectPenaltyTime(0)
@@ -494,13 +495,13 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
 		end
 	end
-	if IsInToolsMode() then
-		if npc:IsRealHero()  then
-			npc:AddItemByName("item_satanic_custom")
-			npc:AddItemByName("item_monkey_king_bar_custom")
+	-- if IsInToolsMode() then
+	-- 	if npc:IsRealHero()  then
+	-- 		npc:AddItemByName("item_satanic_custom")
+	-- 		npc:AddItemByName("item_monkey_king_bar_custom")
 			
-		end
-	end
+	-- 	end
+	-- end
 end
 
 function CheckCheatMode()

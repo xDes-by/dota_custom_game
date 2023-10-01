@@ -1,59 +1,5 @@
 item_ethereal_blade_lua = class({})
 
-item_ethereal_blade_lua1 = item_ethereal_blade_lua
-item_ethereal_blade_lua2 = item_ethereal_blade_lua
-item_ethereal_blade_lua3 = item_ethereal_blade_lua
-item_ethereal_blade_lua4 = item_ethereal_blade_lua
-item_ethereal_blade_lua5 = item_ethereal_blade_lua
-item_ethereal_blade_lua6 = item_ethereal_blade_lua
-item_ethereal_blade_lua7 = item_ethereal_blade_lua
-item_ethereal_blade_lua8 = item_ethereal_blade_lua
-
-item_ethereal_blade_lua1_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua2_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua3_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua4_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua5_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua6_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua7_gem1 = item_ethereal_blade_lua
-item_ethereal_blade_lua8_gem1 = item_ethereal_blade_lua
-
-item_ethereal_blade_lua1_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua2_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua3_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua4_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua5_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua6_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua7_gem2 = item_ethereal_blade_lua
-item_ethereal_blade_lua8_gem2 = item_ethereal_blade_lua
-
-item_ethereal_blade_lua1_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua2_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua3_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua4_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua5_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua6_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua7_gem3 = item_ethereal_blade_lua
-item_ethereal_blade_lua8_gem3 = item_ethereal_blade_lua
-
-item_ethereal_blade_lua1_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua2_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua3_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua4_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua5_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua6_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua7_gem4 = item_ethereal_blade_lua
-item_ethereal_blade_lua8_gem4 = item_ethereal_blade_lua
-
-item_ethereal_blade_lua1_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua2_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua3_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua4_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua5_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua6_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua7_gem5 = item_ethereal_blade_lua
-item_ethereal_blade_lua8_gem5 = item_ethereal_blade_lua
-
 LinkLuaModifier("modifier_item_ethereal_blade_lua", 'items/custom_items/item_ethereal_blade_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ethereal_blade_ally", 'items/custom_items/item_ethereal_blade_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ethereal_blade_enemy", 'items/custom_items/item_ethereal_blade_lua.lua', LUA_MODIFIER_MOTION_NONE)
@@ -104,7 +50,7 @@ function item_ethereal_blade_lua:OnSpellStart()
 	ProjectileManager:CreateTrackingProjectile(projectile)
 end
 
-function item_ethereal_blade_lua1:OnProjectileHit(target, location)
+function item_ethereal_blade_lua:OnProjectileHit(target, location)
 	if not IsServer() then return end
 	if target and not target:IsMagicImmune() then
 		if target:TriggerSpellAbsorb(self) then return nil end
