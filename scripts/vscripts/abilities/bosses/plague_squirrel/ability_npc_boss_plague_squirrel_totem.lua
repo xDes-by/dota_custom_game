@@ -52,13 +52,7 @@ end
 function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
     local npc = CreateUnitByName("npc_plague_squirrel", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber() )
 	npc:AddNewModifier(npc, nil, "modifier_kill", {duration = 5})
-    npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_ability_npc_boss_plague_squirrel_hit", {})
-    npc:SetOwner(self:GetCaster())
-	npc:SetContextThink( "SelfDestroy", function(npc)
-        if not npc:GetOwner() or not npc:GetOwner():IsAlive() then
-            UTIL_Remove(npc)
-        end
-    end, 0.1 )	
+    npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_ability_npc_boss_plague_squirrel_hit", {})	
 	local all_units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
 	for _,unit in pairs(all_units) do
 		local damageTable = {
@@ -149,8 +143,11 @@ end
 function modifier_ability_npc_boss_plague_squirrel_hit:OnAttacked(data)
     if not IsServer() then return end
     if data.attacker:IsRealHero() and data.target == self:GetParent() then
-        self:GetParent():SetHealth( self:GetParent():GetHealth() - 1 )
-        if self:GetParent():GetHealth() == 0 then 
+        local h = self:GetParent():GetHealth() - 1
+        self:GetParent():SetHealth()
+        if h == 0 then 
+            self:GetParent():SetHealth(h)
+        else
             self:GetParent():ForceKill(false)
         end
     end
