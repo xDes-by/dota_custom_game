@@ -1,4 +1,18 @@
 return function(context)
+
+	PrecacheResource( "soundfile", "soundevents/game_sounds_boss_bara.vsndevts", context )
+
+
+
+
+
+
+
+
+
+
+
+
 	PrecacheResource( "soundfile", "soundevents/game_sounds_diretide2020.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/music/game_sounds_stingers_greevil.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_dungeon.vsndevts", context )

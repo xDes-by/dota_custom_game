@@ -1,59 +1,5 @@
 item_hurricane_pike = class({})
 
-item_hurricane_pike1 = item_hurricane_pike
-item_hurricane_pike2 = item_hurricane_pike
-item_hurricane_pike3 = item_hurricane_pike
-item_hurricane_pike4 = item_hurricane_pike
-item_hurricane_pike5 = item_hurricane_pike
-item_hurricane_pike6 = item_hurricane_pike
-item_hurricane_pike7 = item_hurricane_pike
-item_hurricane_pike8 = item_hurricane_pike
-
-item_hurricane_pike1_gem1 = item_hurricane_pike
-item_hurricane_pike2_gem1 = item_hurricane_pike
-item_hurricane_pike3_gem1 = item_hurricane_pike
-item_hurricane_pike4_gem1 = item_hurricane_pike
-item_hurricane_pike5_gem1 = item_hurricane_pike
-item_hurricane_pike6_gem1 = item_hurricane_pike
-item_hurricane_pike7_gem1 = item_hurricane_pike
-item_hurricane_pike8_gem1 = item_hurricane_pike
-
-item_hurricane_pike1_gem2 = item_hurricane_pike
-item_hurricane_pike2_gem2 = item_hurricane_pike
-item_hurricane_pike3_gem2 = item_hurricane_pike
-item_hurricane_pike4_gem2 = item_hurricane_pike
-item_hurricane_pike5_gem2 = item_hurricane_pike
-item_hurricane_pike6_gem2 = item_hurricane_pike
-item_hurricane_pike7_gem2 = item_hurricane_pike
-item_hurricane_pike8_gem2 = item_hurricane_pike
-
-item_hurricane_pike1_gem3 = item_hurricane_pike
-item_hurricane_pike2_gem3 = item_hurricane_pike
-item_hurricane_pike3_gem3 = item_hurricane_pike
-item_hurricane_pike4_gem3 = item_hurricane_pike
-item_hurricane_pike5_gem3 = item_hurricane_pike
-item_hurricane_pike6_gem3 = item_hurricane_pike
-item_hurricane_pike7_gem3 = item_hurricane_pike
-item_hurricane_pike8_gem3 = item_hurricane_pike
-
-item_hurricane_pike1_gem4 = item_hurricane_pike
-item_hurricane_pike2_gem4 = item_hurricane_pike
-item_hurricane_pike3_gem4 = item_hurricane_pike
-item_hurricane_pike4_gem4 = item_hurricane_pike
-item_hurricane_pike5_gem4 = item_hurricane_pike
-item_hurricane_pike6_gem4 = item_hurricane_pike
-item_hurricane_pike7_gem4 = item_hurricane_pike
-item_hurricane_pike8_gem4 = item_hurricane_pike
-
-item_hurricane_pike1_gem5 = item_hurricane_pike
-item_hurricane_pike2_gem5 = item_hurricane_pike
-item_hurricane_pike3_gem5 = item_hurricane_pike
-item_hurricane_pike4_gem5 = item_hurricane_pike
-item_hurricane_pike5_gem5 = item_hurricane_pike
-item_hurricane_pike6_gem5 = item_hurricane_pike
-item_hurricane_pike7_gem5 = item_hurricane_pike
-item_hurricane_pike8_gem5 = item_hurricane_pike
-
 LinkLuaModifier("modifier_hurricane_multishot", "items/custom_items/item_hurricane_pike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_custom_dragon_lance3_reduced_damage","items/custom_items/item_hurricane_pike", LUA_MODIFIER_MOTION_NONE)
 

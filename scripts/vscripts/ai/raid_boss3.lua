@@ -130,7 +130,7 @@ function SearchForItems()
 	for i = 0, 5 do
 		local item = thisEntity:GetItemInSlot( i )
 		if item then
-			if item:GetAbilityName() == "item_shivas_guard_lua1" then
+			if item:GetAbilityName() == "item_shivas_guard_lua" then
 				thisEntity.hBlademailAbility = item
 			end
 			if item:GetAbilityName() == "item_blink" then

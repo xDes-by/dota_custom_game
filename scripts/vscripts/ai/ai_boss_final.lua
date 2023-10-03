@@ -212,7 +212,7 @@ function NeutralThink()
 						if hp < 90 then
 							UseItem(thisEntity.ItemAbillaty[i], enemies[ math.random( 1, #enemies ) ])
 						end
-					elseif Item:GetAbilityName() == "item_ethereal_blade_lua1" then
+					elseif Item:GetAbilityName() == "item_ethereal_blade_lua" then
 						if hp < 90 then
 							UseItem(thisEntity.ItemAbillaty[i], enemies[ math.random( 1, #enemies ) ])
 						end

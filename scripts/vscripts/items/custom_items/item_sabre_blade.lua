@@ -1,59 +1,5 @@
 item_sabre_blade = class({})
 
-item_sabre_blade1 = item_sabre_blade
-item_sabre_blade2 = item_sabre_blade
-item_sabre_blade3 = item_sabre_blade
-item_sabre_blade4 = item_sabre_blade
-item_sabre_blade5 = item_sabre_blade
-item_sabre_blade6 = item_sabre_blade
-item_sabre_blade7 = item_sabre_blade
-item_sabre_blade8 = item_sabre_blade
-
-item_sabre_blade1_gem1 = item_sabre_blade
-item_sabre_blade2_gem1 = item_sabre_blade
-item_sabre_blade3_gem1 = item_sabre_blade
-item_sabre_blade4_gem1 = item_sabre_blade
-item_sabre_blade5_gem1 = item_sabre_blade
-item_sabre_blade6_gem1 = item_sabre_blade
-item_sabre_blade7_gem1 = item_sabre_blade
-item_sabre_blade8_gem1 = item_sabre_blade
-
-item_sabre_blade1_gem2 = item_sabre_blade
-item_sabre_blade2_gem2 = item_sabre_blade
-item_sabre_blade3_gem2 = item_sabre_blade
-item_sabre_blade4_gem2 = item_sabre_blade
-item_sabre_blade5_gem2 = item_sabre_blade
-item_sabre_blade6_gem2 = item_sabre_blade
-item_sabre_blade7_gem2 = item_sabre_blade
-item_sabre_blade8_gem2 = item_sabre_blade
-
-item_sabre_blade1_gem3 = item_sabre_blade
-item_sabre_blade2_gem3 = item_sabre_blade
-item_sabre_blade3_gem3 = item_sabre_blade
-item_sabre_blade4_gem3 = item_sabre_blade
-item_sabre_blade5_gem3 = item_sabre_blade
-item_sabre_blade6_gem3 = item_sabre_blade
-item_sabre_blade7_gem3 = item_sabre_blade
-item_sabre_blade8_gem3 = item_sabre_blade
-
-item_sabre_blade1_gem4 = item_sabre_blade
-item_sabre_blade2_gem4 = item_sabre_blade
-item_sabre_blade3_gem4 = item_sabre_blade
-item_sabre_blade4_gem4 = item_sabre_blade
-item_sabre_blade5_gem4 = item_sabre_blade
-item_sabre_blade6_gem4 = item_sabre_blade
-item_sabre_blade7_gem4 = item_sabre_blade
-item_sabre_blade8_gem4 = item_sabre_blade
-
-item_sabre_blade1_gem5 = item_sabre_blade
-item_sabre_blade2_gem5 = item_sabre_blade
-item_sabre_blade3_gem5 = item_sabre_blade
-item_sabre_blade4_gem5 = item_sabre_blade
-item_sabre_blade5_gem5 = item_sabre_blade
-item_sabre_blade6_gem5 = item_sabre_blade
-item_sabre_blade7_gem5 = item_sabre_blade
-item_sabre_blade8_gem5 = item_sabre_blade
-
 LinkLuaModifier("modifier_sabre_blade", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sabre_blade_doubleattack", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sabre_blade_doubleattack_debuff", "items/custom_items/item_sabre_blade.lua", LUA_MODIFIER_MOTION_NONE)
