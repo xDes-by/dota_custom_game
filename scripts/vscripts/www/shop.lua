@@ -271,6 +271,19 @@ function Shop:PlayerSetup( pid )
 	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray
 	Shop.Change_Available[pid] = true
+	Timers:CreateTimer(function()
+		if PlayerResource:GetPlayer(pid) == nil then
+			return nil
+		end
+		if PlayerResource:HasSelectedHero(pid) then
+			local heroName = PlayerResource:GetSelectedHeroName(pid)
+			talants:pickinfo(pid,false)
+			return nil
+		else
+		  --  print(PlayerResource:HasSelectedHero(i))
+		end
+		return 1.0
+	end)
 end
 
 function Shop:createShop()
@@ -575,6 +588,22 @@ function Shop:CustomShopStash_TakeItem(t)
 	if thisItem then
 		Shop:giveItem({PlayerID = t.PlayerID , i = thisItem.categoryKey, n = thisItem.itemKey, IsControlDown = t.IsControlDown == 1})
 	end
+end
+
+function Shop:AddRP(pid, value)
+	SendPlayerNotification:AddRPAlert(pid, value)
+	Shop.pShop[pid].mmrpoints = Shop.pShop[pid].mmrpoints + value
+	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
+	shopinfo.mmrpoints = Shop.pShop[pid].mmrpoints
+	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
+end
+
+function Shop:AddCoins(pid, value)
+	SendPlayerNotification:AddRPAlert(pid, value)
+	Shop.pShop[pid].coins = Shop.pShop[pid].coins + value
+	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
+	shopinfo.coins = Shop.pShop[pid].coins
+	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
 end
 
 -- петы

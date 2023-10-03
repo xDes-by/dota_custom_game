@@ -8,6 +8,9 @@ function DailyQuests:init()
     self.tasksForToday = {}
     ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
     ListenToGameEvent( "entity_killed", Dynamic_Wrap( self, "OnEntityKilled" ), self)
+    CustomGameEventManager:RegisterListener("GetDailyAwardButton",function(_, keys)
+        self:GetAwardButton(keys)
+    end)
 end
 
 function DailyQuests:SetTodayTasks(data)
@@ -17,10 +20,12 @@ function DailyQuests:SetTodayTasks(data)
     self.startDate = data.date
 end
 function DailyQuests:SetPlayerData(pid, data)
-    self.player[pid] = {data.tasks["1"],data.tasks["2"],data.tasks["3"]}
+    self.player[pid] = {data.tasks[1],data.tasks[2],data.tasks[3]}
 end
 
+
 function DailyQuests:UpdateCounter(pid, index)
+    if DataBase:IsCheatMode() then return end
     for _, data in pairs(self.player[pid]) do
         if data.index == index then
             if data.now >= data.count then return end
@@ -36,7 +41,9 @@ function DailyQuests:OnGameStateChanged(t)
         Timers:CreateTimer(1, function()
             for nPlayerID = 0, PlayerResource:GetPlayerCount()-1 do
                 for i = 1, self.tasksNumber do
-                    self.player[nPlayerID][i].count = dailyTasks[self.tasksForToday[i]].count
+                    for key, value in pairs(dailyTasks[self.tasksForToday[i]]) do
+                        self.player[nPlayerID][i][key] = value
+                    end
                 end
                 CustomNetTables:SetTableValue("Daily", tostring(nPlayerID), self.player[nPlayerID])
             end
@@ -70,6 +77,29 @@ function DailyQuests:OnEntityKilled(keys)
     end
 end
 
+function DailyQuests:GetAwardButton(t)
+    for _, data in pairs(self.player[t.PlayerID]) do
+        if data.index == t.index and data.now >= data.count then
+            local received = 0
+            for _, data2 in pairs(self.player[t.PlayerID]) do
+                if data2.received == true then 
+                    received = received + 1
+                end
+            end
+            local prize = 0
+            if received == 0 then
+                prize = 5
+            elseif received >= 1 and received <= 2 then
+                prize = 10
+            end
+            DataBase:DailyAward(t.PlayerID, t.index, prize, data.now)
+            Shop:AddRP(t.PlayerID, prize)
+            data.received = true
+            CustomNetTables:SetTableValue("Daily", tostring(t.PlayerID), self.player[t.PlayerID])
+            break
+        end
+    end
+end
 
 
 DailyQuests:init()
