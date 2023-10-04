@@ -57,6 +57,11 @@ function modifier_cheack_afk:OnIntervalThink()
 			self.timer = nil
 		end
 	end
+	if not self.parent:IsAlive() then
+		if self.parent:GetTimeUntilRespawn() > 11 then
+			hero:SetTimeUntilRespawn(10)
+		end
+	end
 end
 
 function modifier_cheack_afk:DeclareFunctions()

@@ -19,11 +19,10 @@ require("dummy")
 require("use_pets")
 require("effects")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
-pcall(function() require("key") end)
+_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true and IsInToolsMode() -- false
-_G.server_load = false -- true
+_G.server_load = not IsInToolsMode() -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -47,7 +46,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(6000)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(2)
 	GameRules:SetShowcaseTime(1)
@@ -384,7 +383,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 			end
 		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-			
+
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
 		if PlayerResource:HasSelectedHero(i) == false then
 			local player = PlayerResource:GetPlayer(i)
@@ -393,9 +392,14 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 			end
 		end
 	end	 
-
+	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+		SendToServerConsole("host_timescale 0.5")
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-	
+		--замедляем игру в 4 раза чтобы у сервера было больше времени на большой объем кода в начале
+		--это уберет большой пролаг на старте, но в первые несколько секунд игра будет замедлена
+		Timers:CreateTimer(1,function()
+			SendToServerConsole("host_timescale 1")
+		end)
 	local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 	hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 	EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	
@@ -451,6 +455,7 @@ end
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
 	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
+		npc.bFirstSpawned = true
 		local playerID = npc:GetPlayerID()
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
 		npc:AddItemByName("item_tpscroll")
@@ -472,7 +477,6 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end
 		
 		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
-		npc.bFirstSpawned = true
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
 		id_check(steamID) -----------------------------------------------

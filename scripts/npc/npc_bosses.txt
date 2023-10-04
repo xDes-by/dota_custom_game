@@ -727,7 +727,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"penek"			
 		"Ability2"					"furion_sprout_lua"				
@@ -805,7 +804,6 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"		
 		"SoundSet"					"Hero_Pudge"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"pudge_meat_hook_custom"				
 		"Ability2"					"pudge_dismember_lua"
@@ -883,7 +881,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"split_earth_datadriven"         
         "Ability2"					"wisp_spirits_datadriven"         
@@ -960,7 +957,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"frostivus2018_spectre_active_dispersion"             
         "Ability2"					"custom_nyx_skill"         
@@ -1037,7 +1033,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
@@ -1117,7 +1112,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"tusk_snowball_meteor"			
 		"Ability2"					"custom_shifting_quake2"			
@@ -1188,7 +1182,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 		
 	    "Ability1"					"ability_npc_boss_location8_spell1"
 	    "Ability2"					"ability_npc_boss_location8_spell2"     
@@ -1264,7 +1257,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"custom_solar_flare"			
 	//	"Ability2"					"custom_pit"			
@@ -1340,7 +1332,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"tusk_snowball_meteor"			
 		"Ability2"					"custom_shifting_quake2"			
@@ -1451,7 +1442,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"swamp_split_shot"         
         "Ability2"					"swamp_spawn"         
@@ -1576,7 +1566,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"frostivus2018_spectre_active_dispersion"            
         "Ability2"					"custom_nyx_skill"         
@@ -1653,7 +1642,6 @@
 		"IsAncient"					"1"
 		"CanRespawn"				"1"		
 		"SoundSet"					"Hero_Pudge"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"pudge_meat_hook_custom"				
 		"Ability2"					"pudge_dismember_lua"
@@ -1731,7 +1719,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
         "Ability1"					"split_earth_datadriven"         
         "Ability2"					"wisp_spirits_datadriven"         
@@ -1810,7 +1797,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 
 		"Ability1"					"penek"
 		"Ability2"					"furion_sprout_lua"				
@@ -2137,7 +2123,6 @@
 		"HasInventory"				"1"
 		"IsAncient"					"1"
 		"CanRespawn"				"1"
-        "ConsideredHero"            "1"
 		
 	    "Ability1"					"ability_npc_boss_location8_spell1"
 	    "Ability2"					"ability_npc_boss_location8_spell2"     
@@ -2440,23 +2425,25 @@
 		"HasInventory"				"1"
 		
 		"Ability1"					"ability_npc_bara_boss_charge"	
+		"Ability2"					"ability_npc_bara_boss_kabanchiki"	
 		"Ability3"					"ability_npc_bara_boss_bash"
-		"Ability4"					"spirit_breaker_nether_strike_lua"
-		"Ability5"					""
-		"Ability6"					""
+		"Ability4"					"ability_npc_bara_boss_nether_strike"
+		"Ability5"					"ability_npc_bara_boss_firestorm"
+		"Ability6"					"ability_npc_bara_boss_fire_shield"
 		"Ability7"					""
+		"Ability8"					"ai_bara_boss"
 
 		"ArmorPhysical"				"0"			
 		"MagicalResistance"			"0"	
 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"10"		
 		"AttackDamageMax"			"10"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.0"		
-		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"1200"		
-		"AttackRange"				"450"		
+		"AttackRate"				"2.5"		
+		"AttackAnimationPoint"		"0.6"		
+		"AttackAcquisitionRange"	"0"		
+		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
 
@@ -2470,10 +2457,10 @@
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10"		
+		"StatusHealth"				"10000"		
 		//"StatusHealthRegen"			"0.0"		
-		"StatusMana"				"0"			
-		"StatusManaRegen"			"0.0"		
+		"StatusMana"				"1000"			
+		"StatusManaRegen"			"1000.0"		
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
@@ -2487,12 +2474,34 @@
 		{	
 			"AttachWearables"//Echoes of Ultoria
 			{
-			"Wearable1" {"ItemDef" "13750"}//("Star of Ultoria")
-			"Wearable2" {"ItemDef" "13749"}//tail("Tail of Ultoria")
-			"Wearable3" {"ItemDef" "13748"}//shoulder("Mantle of Ultoria")
-			"Wearable4" {"ItemDef" "13747"}//head("Helm of Ultoria")
-			"Wearable5" {"ItemDef" "13746"}//belt("Belt of Ultoria")
-			"Wearable6" {"ItemDef" "13745"}//arms("Brace of Ultoria")
+				"Wearable1" {"ItemDef" "13750"}//("Star of Ultoria")
+				"Wearable2" {"ItemDef" "13749"}//tail("Tail of Ultoria")
+				"Wearable3" {"ItemDef" "13748"}//shoulder("Mantle of Ultoria")
+				"Wearable4" {"ItemDef" "13747"}//head("Helm of Ultoria")
+				"Wearable5" {"ItemDef" "13746"}//belt("Belt of Ultoria")
+				"Wearable6" {"ItemDef" "13745"}//arms("Brace of Ultoria")
+				"Wearable7" {"ItemDef" "106"}
+			}
+		}
+	}
+	"npc_bara_boss_kabanchik"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/spirit_breaker/spirit_breaker.vmdl"
+		"ModelScale"				"1"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"Creature"
+		{	
+			"AttachWearables"
+			{
+				"Wearable1" {"ItemDef" "106"}
+				"Wearable2" {"ItemDef" "111"}
+				"Wearable3" {"ItemDef" "112"}
+				"Wearable4" {"ItemDef" "113"}
+				"Wearable5" {"ItemDef" "114"}
+				"Wearable6" {"ItemDef" "115"}
+				"Wearable7" {"ItemDef" "116"}
 			}
 		}
 	}

@@ -18,8 +18,7 @@ function modifier_talent_sheeld:OnCreated( kv )
 	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 30
 	self.current_sheeld_health = self.sheeld_max
-	self:SetStackCount(self.current_sheeld_health)
-	self:StartIntervalThink(0.03)
+	self:StartIntervalThink(FrameTime())
 end
 
 function modifier_talent_sheeld:OnRefresh( kv )
@@ -32,10 +31,8 @@ function modifier_talent_sheeld:OnIntervalThink()
 	self.current_sheeld_health = self.current_sheeld_health + self.sheeld_regen
 	if self.current_sheeld_health > self.sheeld_max then
 		self.current_sheeld_health = self.sheeld_max
-		self:SetStackCount(self.current_sheeld_health)
 		self.IsBroken = false
 	end
-	self:SetStackCount(self.current_sheeld_health)
 end
 
 function modifier_talent_sheeld:DeclareFunctions()
@@ -45,20 +42,25 @@ function modifier_talent_sheeld:DeclareFunctions()
 end
 
 function modifier_talent_sheeld:GetModifierIncomingDamageConstant(data)
-	if IsClient() then
-		return 0 
+    if IsClient() then
+        if data.report_max then
+            return self.sheeld_max
+        else
+            return self.current_sheeld_health
+        end
+    end
+	if self.IsBroken then
+		return 0
 	end
-    if self.IsBroken self:GetStackCount() > 0 then
+    if not self.IsBroken and self.current_sheeld_health > 0 then
         local remain = self.current_sheeld_health - data.damage
         if remain > 0 then
             self.current_sheeld_health = self.current_sheeld_health - data.damage
-            self:SetStackCount(self.current_sheeld_health)
             return -data.damage
         else
 			self.IsBroken = true
             local p = data.damage - self.current_sheeld_health
             self.current_sheeld_health = 0
-            self:SetStackCount(self.current_sheeld_health)
             return -p
         end
     end	

@@ -1,12 +1,13 @@
 ability_npc_bara_boss_bash = class({})
 
 function ability_npc_bara_boss_bash:Spawn()
-    self:GetCaster().return_position = CreateModifierThinker(self:GetCaster(), self, "modifier_spirit_breaker_greater_bash_lua", {}, self:GetCaster():GetAbsOrigin(), DOTA_TEAM_GOODGUYS, false)
+	if not IsServer() then
+		return
+	end
 	EmitGlobalSound("Dota_Boss.bara_spawn")
 end
 
 function ability_npc_bara_boss_bash:OnOwnerDied()
-    UTIL_Remove(self:GetCaster().return_position)
 	EmitGlobalSound("Dota_Boss.bara_death")
 end
 
@@ -69,6 +70,12 @@ function modifier_spirit_breaker_greater_bash_lua:DeclareFunctions()
 	return funcs
 end
 
+function modifier_spirit_breaker_greater_bash_lua:CheckState()
+    return {
+        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    }   
+end
+
 function modifier_spirit_breaker_greater_bash_lua:GetModifierProcAttack_Feedback( params )
 	if not IsServer() then return end
 	if self.parent:PassivesDisabled() then return end
@@ -96,7 +103,7 @@ end
 
 --------------------------------------------------------------------------------
 -- Helper
-function modifier_spirit_breaker_greater_bash_lua:Bash( target, double )
+function modifier_spirit_breaker_greater_bash_lua:Bash( target, double, IsNetherStrike )
 	local direction = target:GetOrigin()-self.parent:GetOrigin()
 	direction.z = 0
 	direction = direction:Normalized()
@@ -124,19 +131,19 @@ function modifier_spirit_breaker_greater_bash_lua:Bash( target, double )
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self.ability
 	}
-	ApplyDamage(damageTable)
+	if not IsNetherStrike then
+		ApplyDamage(damageTable)
 
-	-- apply bonus damage
-	damageTable.damage = damage
-	ApplyDamage( damageTable )
-
-	-- play effects
-	self:PlayEffects( target, target:IsCreep() )
+		-- apply bonus damage
+		damageTable.damage = damage
+		ApplyDamage( damageTable )
+		self:PlayEffects( target, target:IsCreep(), IsNetherStrike )
+	end
 end
 
 --------------------------------------------------------------------------------
 -- Graphics & Animations
-function modifier_spirit_breaker_greater_bash_lua:PlayEffects( target, isCreep )
+function modifier_spirit_breaker_greater_bash_lua:PlayEffects( target, isCreep, IsNetherStrike )
 	local sound_cast = "Hero_Spirit_Breaker.GreaterBash"
 	if isCreep then
 		sound_cast = "Hero_Spirit_Breaker.GreaterBash.Creep"
@@ -147,5 +154,7 @@ function modifier_spirit_breaker_greater_bash_lua:PlayEffects( target, isCreep )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	-- Create Sound
-	EmitSoundOn( sound_cast, target )
+	if not IsNetherStrike then
+		EmitSoundOn( sound_cast, target )
+	end
 end

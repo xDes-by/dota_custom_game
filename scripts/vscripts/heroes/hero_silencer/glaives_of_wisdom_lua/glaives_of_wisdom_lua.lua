@@ -605,6 +605,7 @@ end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_silencer_glaives_of_wisdom_shild:OnCreated( kv )
+	self.max = self:GetCastCount()
 end
 
 function modifier_silencer_glaives_of_wisdom_shild:DeclareFunctions()
@@ -615,7 +616,13 @@ function modifier_silencer_glaives_of_wisdom_shild:DeclareFunctions()
 end
 
 function modifier_silencer_glaives_of_wisdom_shild:GetModifierIncomingDamageConstant( event )
-	if not IsServer() then return self:GetStackCount() end
+    if IsClient() then
+        if event.report_max then
+            return self.max
+        else
+            return self:GetStackCount()
+        end
+    end
 	local stackCount = self:GetStackCount()
     if self:GetParent():IsRealHero() then
         if stackCount >= event.damage then
