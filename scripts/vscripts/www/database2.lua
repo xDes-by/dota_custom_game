@@ -10,13 +10,14 @@ function DataBase:IsCheatMode()
 end
 
 function DataBase:init()
-	-- https://random-defence-adventure.ru/backend/api2/game-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
+	-- https://random-defence-adventure.ru/backend/api2/daily-award?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
 	DataBase.key = _G.key
 	DataBase.matchID = tostring(GameRules:Script_GetMatchID())
 	DataBase.gameSetupLink = _G.host .. "/backend/api2/game-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.playerSetupLink = _G.host .. "/backend/api2/player-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.DailyAwardLink = _G.host .. "/backend/api2/daily-award?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.start = _G.host .. "/backend/api/start?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	DataBase.editPoints = _G.host .. "/backend/api/edit-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.editPoints = _G.host .. "/backend/api2/edit-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.buy = _G.host .. "/backend/api/buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	--DataBase.controlUrl = _G.host .. "/control.php/?key=" .. DataBase.key
 	DataBase.comment = _G.host .. "/backend/api/comment?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -234,6 +235,13 @@ function DataBase:GameSetup()
 			_G.RATING.bg = obj.bg
 			_G.RATING.seasons = obj.seasons
 			DailyQuests:SetTodayTasks(obj.daily)
+			Timers:CreateTimer(0 ,function()
+				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+					rating:pickInit(t)
+					return nil
+				end
+				return 0.1
+			end)
 		end
 	end)
 
@@ -296,6 +304,7 @@ function DataBase:PlayerSetup( pid )
 			_G.SHOP[pid] = obj.shop
 			DailyQuests:SetPlayerData(pid, obj.daily)
 			Shop:PlayerSetup( pid )
+			
 			-- Shop:createShop()
 			-- Timers:CreateTimer(0 ,function()
 			-- 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
@@ -315,6 +324,13 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 	
 
 	local tab = CustomNetTables:GetTableValue("talants", tostring(player))
+	local daily_counters = {}
+	for i = 1, DailyQuests.tasksNumber do
+		table.insert(daily_counters, {
+			index = DailyQuests.player[player][i].index,
+			now = DailyQuests.player[player][i].now,
+		})
+	end
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(player),
 		pEdit = pEdit,
@@ -326,6 +342,7 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 		trial_period_count = Quests.trialPeriodCount[player],
 		hero_marci_trial = ChangeHero.heroes["npc_dota_hero_marci"].trialCount[player],
 		hero_silencer_trial = ChangeHero.heroes["npc_dota_hero_silencer"].trialCount[player],
+		daily_counters = daily_counters,
 	}
 	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[player] then
 		arr['gameDonatExp'] = 0
@@ -566,13 +583,10 @@ function DataBase:AddFeed(pid, count)
 	end)
 end
 
-function DataBase:AddRP(pid, count)
+function DataBase:AddRP(pid, count, db)
 	if DataBase:IsCheatMode() then return end
 	
-	Shop.pShop[pid].mmrpoints = Shop.pShop[pid].mmrpoints + count
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-	shopinfo.mmrpoints = Shop.pShop[pid].mmrpoints
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
+	Shop:AddRP(pid, count)
 
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(pid),
@@ -590,10 +604,7 @@ end
 function DataBase:AddCoins(pid, count)
 	if DataBase:IsCheatMode() then return end
 	
-	Shop.pShop[pid].coins = Shop.pShop[pid].coins + count
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-	shopinfo.coins = Shop.pShop[pid].coins
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
+	Shop:AddCoins(pid, count)
 
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(pid),
@@ -662,6 +673,26 @@ function DataBase:GiveOutAllHotOfferItems(PlayerID, package_contents)
 	}
 	local req = CreateHTTPRequestScriptVM( "POST", DataBase.GiveOutAllHotOfferItemsLink )
 	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:DailyAward(pid, index, prize, now)
+	if DataBase:IsCheatMode() then return end
+	local arr = {
+		sid = PlayerResource:GetSteamAccountID(pid),
+		index = index,
+		prize = prize,
+		now = now,
+	}
+	print(json.encode(arr))
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.DailyAwardLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(arr))
 	req:Send(function(res)
 		print(res.StatusCode)
 		print(res.Body)

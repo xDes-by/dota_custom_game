@@ -444,8 +444,8 @@
         "DailyTaskDescription_20"                               "Убить крипов c 7 локации"
         "DailyTaskDescription_21"                               "Убить крипов c 8 локации"
         "DailyTaskDescription_22"                               "Убить Драконов"
-        "DailyTaskDescription_23"                               "Убить боссов на одну игру"
-        "DailyTaskDescription_24"                               "Убить боссов на одну игру"
+        "DailyTaskDescription_23"                               "Убить боссов за одну игру"
+        "DailyTaskDescription_24"                               "Убить боссов за одну игру"
         "DailyTaskDescription_25"                               "Убить Рошана"
 
         // Panorama
