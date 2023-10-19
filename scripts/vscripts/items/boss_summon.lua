@@ -5,53 +5,44 @@ item_boss_summon = class({})
 --------------------------------------------------------------------------------
 _G.don_bosses_count = {}
 
-function item_boss_summon:OnSpellStart()
-		self.caster = self:GetCaster()	
-		local forest = Entities:FindByName( nil, "forest_dummy" )
-		local village = Entities:FindByName( nil, "village_dummy" )
-		local mines = Entities:FindByName( nil, "mines_dummy" )
-		local dust = Entities:FindByName( nil, "dust_dummy" )
-		local cemetery = Entities:FindByName( nil, "cemetery_dummy" )
-		local snow = Entities:FindByName( nil, "snow_dummy" )
-		
-		if _G.don_spawn_level == 0 then 
-			boss_spawn = "npc_forest_boss_fake"
-		end
-		if _G.don_spawn_level == 1 then 
-			boss_spawn = "npc_forest_boss_fake"
-		end
-		if _G.don_spawn_level == 2 then 
-			boss_spawn = "npc_village_boss_fake"
-		end
-		if _G.don_spawn_level == 3 then 
-			boss_spawn = "npc_mines_boss_fake"	
-		end
-		if _G.don_spawn_level == 4 then 
-			boss_spawn = "npc_dust_boss_fake"
-		end
-		if _G.don_spawn_level == 5 then  
-			boss_spawn = "npc_swamp_boss_fake"
-		end
-		if _G.don_spawn_level == 6 then  
-			boss_spawn = "npc_snow_boss_fake"
-		end
-		if _G.don_spawn_level >= 7 then  
-			boss_spawn = "npc_boss_location8_fake"
-		end
+local bossTable = {
+    [0] = "npc_forest_boss_fake",
+    [1] = "npc_forest_boss_fake",
+    [2] = "npc_village_boss_fake",
+    [3] = "npc_mines_boss_fake",
+    [4] = "npc_dust_boss_fake",
+    [5] = "npc_swamp_boss_fake",
+    [6] = "npc_snow_boss_fake",
+    [7] = "npc_boss_location8_fake"
+    -- [8] = "npc_boss_magma_fake"
+}
 
-		if boss_spawn ~= nil then
-			local point = Entities:FindByName( nil, "point_boss" ):GetAbsOrigin()
+local itemsTable = {
+    ["npc_forest_boss_fake"] = items_level_1,
+    ["npc_village_boss_fake"] = items_level_1,
+    ["npc_mines_boss_fake"] = items_level_2,
+    ["npc_dust_boss_fake"] = items_level_3,
+    ["npc_swamp_boss_fake"] = items_level_4,
+    ["npc_snow_boss_fake"] = items_level_5,
+    ["npc_boss_location8_fake"] = items_level_6
+    ["npc_boss_magma_fake"] = items_level_7  -- добавить items_level_7 в файл data
+}
+
+function item_boss_summon:OnSpellStart()
+		local boss_spawn = bossTable[_G.don_spawn_level]
+		if boss_spawn then
+			local point = Entities:FindByName(nil, "point_donate_creeps_"..self:GetCaster():GetPlayerID()):GetAbsOrigin()
 			if #_G.don_bosses_count < 5 then
-				local unit = CreateUnitByName( boss_spawn, point + RandomVector( RandomInt( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS )
+				local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
 				table.insert(_G.don_bosses_count, unit)
-				self:add_items(unit)	
-				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
+				self:add_items(unit)
+				unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
 				Rules:difficality_modifier(unit)
-				self.caster:AddNewModifier(self.caster, self, "modifier_item_boss_summon_cd", {duration = self:GetCooldown(self:GetLevel()) * self.caster:GetCooldownReduction()})
+	
 				if self:GetCurrentCharges() > 1 then
 					self:SetCurrentCharges(self:GetCurrentCharges() - 1)
 				else
-					self.caster:RemoveItem(self)
+					self:GetCaster():RemoveItem(self)
 				end
 			end
 		end

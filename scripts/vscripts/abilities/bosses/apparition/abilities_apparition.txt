@@ -1,0 +1,188 @@
+"DOTAAbilities"
+{
+    "ability_apparition_boss_vortex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ancient_apparition_ice_vortex"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Ancient_Apparition.IceVortexCast"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_ICE_VORTEX"
+		"AbilityCastRange"				"1500 1500 1500 1500"
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"0"
+			}
+			"radius"				
+			{
+				"value"			"300"
+			}
+			"drag_speed"	"70"
+			"movement_speed_pct"
+			{
+				"value"	"-25"
+			}
+			"spell_resist_pct"
+			{
+				"value"		"-200"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+			}
+			"vision_aoe"		
+			{
+				"value"		"200"
+			}
+			"vortex_duration"	
+			{
+				"value"					"12"
+			}	
+			"shard_dps"
+			{
+				"value"		"1200"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+		}
+	}
+	"ability_apparition_boss_split"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/apparition/ability_apparition_boss_split"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+    "ability_apparition_boss_chilling_touch"
+	{
+		"BaseClass"						"ancient_apparition_chilling_touch"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Ancient_Apparition.ChillingTouchCast"
+
+		"HasScepterUpgrade"			"1"
+
+		"AbilityValues"
+		{
+			
+			"damage"
+			{
+				"value"				"1000"
+			}
+			"slow"					"100"
+			"duration"				"1"
+			"attack_range_bonus"
+			{
+				"value"				"300"
+			}
+			"AbilityManaCost"
+			{
+				"value"										"0"
+			}
+			"AbilityCooldown"				
+			{
+				"value"			"0"
+			}
+		}
+	}
+    "ability_apparition_boss_blast"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/apparition/ability_apparition_boss_blast"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCooldown"				"30"
+		"AbilityValues"
+		{
+
+        }
+    }
+	"ability_npc_apparition_snowman"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/apparition/ability_npc_apparition_snowman"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+
+		}
+	}
+	"ability_npc_apparition_create_snowman"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/apparition/ability_npc_apparition_create_snowman"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"30"
+		"AbilityValues"
+		{
+
+		}
+	}
+	"ai_apparition_boss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/apparition/ai_apparition_boss"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityValues"
+		{
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

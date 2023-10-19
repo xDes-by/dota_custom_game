@@ -40,21 +40,30 @@ end
 
 function modifier_ai_bara_boss:OnCreated()
     if not IsServer() then return end
+    self.return_position = self:GetParent():GetAbsOrigin()
     self.abi1 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_charge")
     self.abi2 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_nether_strike")
     self.abi3 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_firestorm")
     self.abi4 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_kabanchiki")
     self.Phase = "AFK"
-    -- self:StartIntervalThink(5)
+    self:StartIntervalThink(5)
 end
 
 function modifier_ai_bara_boss:OnIntervalThink()
     if not IsServer() then return end
-    if self.Phase == "Figting_Spawn_pos" and self.focus_target and self.focus_target:IsAlive() then
+    if self.Phase == "Figting_Spawn_pos" and (self.focus_target or self.focus_target:IsAlive()) then
+        if self.abi3:IsFullyCastable() then
+            self:GetCaster():CastAbilityNoTarget(self.abi3, -1)
+            return
+        end
+        if self.abi4:IsFullyCastable() then
+            self:GetCaster():CastAbilityNoTarget(self.abi4, -1)
+            return
+        end
         return
     end
     local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
-    local IsOnSpawnPos = (self:GetCaster().return_position - self:GetCaster():GetAbsOrigin()):Length2D() < 200
+    local IsOnSpawnPos = (self.return_position - self:GetCaster():GetAbsOrigin()):Length2D() < 200
     if IsOnSpawnPos and #units > 0 and self.Phase ~= "Figting_Spawn_pos" then
         self.Phase = "Figting_Spawn_pos"
         self:GetCaster():CastAbilityNoTarget(self.abi4, -1)
@@ -79,10 +88,17 @@ function modifier_ai_bara_boss:OnIntervalThink()
     end
     if self.Phase == "AFK" then
         if not self.abi2:IsFullyCastable() then
-            local pID = RandomInt(0, PlayerResource:GetPlayerCount() - 1)
-            if PlayerResource:IsValidPlayerID(pID) then
-                local hTarget = PlayerResource:GetSelectedHeroEntity(pID)
-                self:GetCaster():CastAbilityOnTarget(hTarget, self.abi1, -1)
+            local ids = {}
+            for pID = 0, PlayerResource:GetPlayerCount() - 1 then
+                if PlayerResource:IsValidPlayerID(pID) then
+                    local hTarget = PlayerResource:GetSelectedHeroEntity(pID)
+                    if not hTarget:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+                        table.insert( ids, hTarget )
+                    end
+                end
+            end
+            if #ids > 0 then
+                self:GetCaster():CastAbilityOnTarget(table.ramdom(ids), self.abi1, -1)
                 self.Phase = "Charge"
                 self:StartIntervalThink(1)
             end

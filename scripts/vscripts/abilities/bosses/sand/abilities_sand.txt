@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+    "ability_sand_storm_boss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/sand/ability_sand_storm_boss"
+		"AbilityTextureName"			"sand_king_sand_storm"
+		"FightRecapLevel"				"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"particle"	"particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0"
+		"AbilityChannelTime"			"50"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+            "radius"		"800"
+            "damage"		"1"
+		}
+	}
+    "ability_burrowstrike_boss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/sand/ability_burrowstrike_boss"
+		"AbilityTextureName"			"sand_king_burrowstrike"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"particle"	"particles/units/heroes/hero_sandking/sandking_burrowstrike.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1300"
+		"AbilityCastPoint"				"0.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+            "burrow_width"		"150"
+            "burrow_duration"	"2.2"
+            "burrow_speed"		"2000"
+            "burrow_anim_time"	"0.52"
+            "tooltip_range"		"1300"
+            "duration"		    "5"
+            "delay"		        "0.5"
+		}
+	}
+	"ability_brambles_boss"
+	{
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/sand/ability_brambles_boss"
+		"AbilityTextureName"			"dark_willow_bramble_maze"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"spawn_delay"		"2"			
+			"duration"			"15"			
+		}
+	}
+	"ability_caustic_boss"
+	{
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/sand/ability_caustic_boss"
+		"AbilityTextureName"			"sand_king_caustic_finale"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"		"10"			
+			"duration"			"5"			
+		}
+	}
+	"ai_sand_boss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/sand/ai_sand_boss"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityValues"
+		{
+
+		}
+	}
+
+}

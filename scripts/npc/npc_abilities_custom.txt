@@ -1749,6 +1749,12 @@
 #base "../vscripts/abilities/bosses/npc_boss_barrack2/ability_npc_boss_barrack2.txt"
 #base "../vscripts/abilities/bosses/byrocktar/abilities_byrocktar.txt"
 #base "../vscripts/abilities/bosses/bara/abilities_bara.txt"
+#base "../vscripts/abilities/bosses/sand/abilities_sand.txt"
+#base "../vscripts/abilities/bosses/monkey/abilities_monkey.txt"
+#base "../vscripts/abilities/bosses/titan/abilities_titan.txt"
+#base "../vscripts/abilities/bosses/apparition/abilities_apparition.txt"
+#base "../vscripts/abilities/bosses/crystal/abilities_crystal.txt"
+#base "../vscripts/abilities/bosses/wolf_from_rpg/abilities_wolf_from_rpg.txt"
 #base "../vscripts/abilities/bosses/miniboses/abilities_miniboses.txt"
 #base "../vscripts/abilities/bosses/plague_squirrel/ability_npc_boss_plague_squirrel.txt"
 

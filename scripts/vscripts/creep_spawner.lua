@@ -189,9 +189,6 @@ function creep_spawner:add_items(unit)
 			end
 		end
 	end	
-
-	local mega = Entities:FindByName( nil, "npc_mega_boss")
-	mega:AddNewModifier( mega, nil, "modifier_invulnerable", { } )
 end
 
 function spawn_creeps_village()
@@ -520,48 +517,34 @@ function donate_level()
 	end
 end
 
-function check_trigger_actiate()
-	local triggerName = thisEntity:GetName()
 
+local creepDict = {
+    [0] = {mini = forest_mini, big = forest_big},
+    [1] = {mini = village_mini, big = village_big},
+    [2] = {mini = mines_mini, big = mines_big},
+    [3] = {mini = dust_mini, big = dust_big},
+    [4] = {mini = cemetery_mini, big = cemetery_big},
+    [5] = {mini = swamp_mini, big = swamp_big},
+    [6] = {mini = snow_mini, big = snow_big},
+    [7] = {mini = last_mini, big = last_big}
+    -- [8] = {mini = magma_mini, big = magma_big}   -- в файле data дописать крипов
+}
+
+function check_trigger_actiate()
 	if _G.kill_invoker then 
 		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
 		return
 	end
 
-	if _G.don_spawn_level == 0 then 
-		mini_creep = forest_mini[RandomInt(1,#forest_mini)]
-		big_creep = forest_big[RandomInt(1,#forest_big)]
-	end
-	if _G.don_spawn_level == 1 then 
-		mini_creep = village_mini[RandomInt(1,#village_mini)]
-		big_creep = village_big[RandomInt(1,#village_big)]
-	end
-	if _G.don_spawn_level == 2 then 
-		mini_creep = mines_mini[RandomInt(1,#mines_mini)]
-		big_creep = mines_big[RandomInt(1,#mines_big)]
-	end
-	if _G.don_spawn_level == 3 then 
-		mini_creep = dust_mini[RandomInt(1,#dust_mini)]
-		big_creep = dust_big[RandomInt(1,#dust_big)]
-	end
-	if _G.don_spawn_level == 4 then 
-		mini_creep = cemetery_mini[RandomInt(1,#cemetery_mini)]
-		big_creep = cemetery_big[RandomInt(1,#cemetery_big)]
-	end
-	if _G.don_spawn_level == 5 then  
-		mini_creep = swamp_mini[RandomInt(1,#swamp_mini)]
-		big_creep = swamp_big[RandomInt(1,#swamp_big)]
-	end
-	if _G.don_spawn_level == 6 then 
-		mini_creep = snow_mini[RandomInt(1,#snow_mini)]
-		big_creep = snow_big[RandomInt(1,#snow_big)]
-	end
-	if _G.don_spawn_level == 7 then 
-		mini_creep = last_mini[RandomInt(1,#last_mini)]
-		big_creep = last_big[RandomInt(1,#last_big)]
-	end
-	
-	spawn_creeps(triggerName, mini_creep, big_creep)
+    local triggerName = thisEntity:GetName()
+    local point = "point_donate_creeps_"..string.sub(triggerName, -1)
+
+    if creepDict[_G.don_spawn_level] then
+        local levelCreeps = creepDict[_G.don_spawn_level]
+        local mini_creep = levelCreeps.mini[RandomInt(1, #levelCreeps.mini)]
+        local big_creep = levelCreeps.big[RandomInt(1, #levelCreeps.big)]
+        spawn_creeps(point, mini_creep, big_creep)
+    end
 end
 
 function spawn_creeps(triggerName, mini_creep, big_creep)

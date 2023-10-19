@@ -5,6 +5,14 @@ LinkLuaModifier("modifier_kabanchiki_aura_effect", "abilities/bosses/bara/abilit
 LinkLuaModifier("modifier_bara_boss_danser", "abilities/bosses/bara/ability_npc_bara_boss_kabanchiki", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kabanchiki_inacive", "abilities/bosses/bara/ability_npc_bara_boss_kabanchiki", LUA_MODIFIER_MOTION_NONE)
 
+function ability_npc_bara_boss_kabanchiki:OnOwnerDied()
+    if self.kabanchiki ~= nil then
+        for i,unit in pairs(self.kabanchiki) do
+            UTIL_Remove(unit)
+        end
+    end
+end
+
 function ability_npc_bara_boss_kabanchiki:OnSpellStart()
     if self.kabanchiki == nil then
         self.kabanchiki = {}

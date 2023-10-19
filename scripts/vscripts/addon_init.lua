@@ -27,6 +27,7 @@ LinkLuaModifier('modifier_high_five_custom_search', 'effects.lua', LUA_MODIFIER_
 -----------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_base_passive", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_transformation", "modifiers/modifier_base", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_silent", "modifiers/modifier_silent", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_silent2", "modifiers/modifier_silent2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane_lives", "modifiers/modifier_insane_lives", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_gold_bank", "modifiers/modifier_gold_bank", LUA_MODIFIER_MOTION_NONE)
@@ -41,6 +42,9 @@ LinkLuaModifier( "modifier_pips", "modifiers/modifier_pips", LUA_MODIFIER_MOTION
 LinkLuaModifier( "modifier_generic_arc_lua", "heroes/generic/modifier_generic_arc_lua", LUA_MODIFIER_MOTION_BOTH )
 
 
+LinkLuaModifier( "modifier_animation", "libraries/modifiers/modifier_animation.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_animation_translate", "libraries/modifiers/modifier_animation_translate.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_animation_translate_permanent", "libraries/modifiers/modifier_animation_translate_permanent.lua", LUA_MODIFIER_MOTION_NONE )
 
 
 

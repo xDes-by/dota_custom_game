@@ -17,56 +17,48 @@ end
 
 -------------------------------------------------------------------------------------------------------------------------------------
 function teleport_in_donate(event)
-	local pass = false
-	local unit = event.activator  	
-	local Key = unit:FindItemInInventory( "item_ticket" )
-	if Key ~= nil then
-		local ticket_charges = Key:GetCurrentCharges()
-		local ostatok = ticket_charges - 1	
-			if ostatok >= 1 then
-				Key:SetCurrentCharges(ostatok)
-			else
-			unit:RemoveItem(Key)
-		end
-		pass = true
-	end
-	if Key == nil and unit:IsHero() and unit:GetPlayerID() then
-		local shop = Shop.pShop[unit:GetPlayerID()]
-		for categoryKey, category in pairs(shop) do
-			if type(category) == 'table' then
-				for itemKey, item in pairs(category) do
-					if item.itemname and item.itemname == "item_ticket" then
-						if item.now > 0 then
-							item.now = item.now - 1
-							CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( unit:GetPlayerID() ), "UpdateStore", {
-								{categoryKey = categoryKey, productKey = itemKey, itemname = "item_ticket", count = item.now},
-							})
-							pass = true
-						end
-						break
-					end
-				end
-			end
-		end
-	end
-	if pass == true then 
-	--if unit:GetUnitName() == "npc_dota_hero_treant" then return end
-		
-		ProjectileManager:ProjectileDodge(unit) 
-		ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, unit) 
-		unit:EmitSound("DOTA_Item.BlinkDagger.Activate")
-		local wws= "donate_pnt" 
-		local ent = Entities:FindByName( nil, wws) 
-		local point = ent:GetAbsOrigin() 
-		event.activator:SetAbsOrigin( point )
-		FindClearSpaceForUnit(event.activator, point, false)
-		event.activator:Stop() 
-		PlayerResource:SetCameraTarget(event.activator:GetPlayerOwnerID(), event.activator)
-		Timers:CreateTimer(0.1, function()
-			PlayerResource:SetCameraTarget(event.activator:GetPlayerOwnerID(), nil)
-			return nil
-		end)
-	end
+    local unit = event.activator
+    local pid = unit:GetPlayerID()
+    local Key = unit:FindItemInInventory("item_ticket")
+    local pass = false
+    if Key then
+        local ticket_charges = Key:GetCurrentCharges()
+        if ticket_charges > 1 then
+            Key:SetCurrentCharges(ticket_charges - 1)
+        else
+            unit:RemoveItem(Key)
+        end
+        pass = true
+    end
+    if not Key and unit:IsHero() and pid then
+        local shop = Shop.pShop[pid]
+        for categoryKey, category in pairs(shop) do
+            if type(category) == 'table' then
+                for itemKey, item in pairs(category) do
+                    if item.itemname and item.itemname == "item_ticket" and item.now > 0 then
+                        item.now = item.now - 1
+                        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(unit:GetPlayerID()), "SetShopItemCount", { categoryKey = categoryKey, itemKey = itemKey, count = item.now })
+                        pass = true
+                        break
+                    end
+                end
+            end
+        end
+    end
+    if pass then
+        ProjectileManager:ProjectileDodge(unit)
+        ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, unit)
+        unit:EmitSound("DOTA_Item.BlinkDagger.Activate")
+        local ent = Entities:FindByName(nil, 'donate_pnt_'..pid)
+        local point = ent:GetAbsOrigin()
+        FindClearSpaceForUnit(unit, point, false)
+        unit:Stop()
+        PlayerResource:SetCameraTarget(unit:GetPlayerOwnerID(), unit)
+        Timers:CreateTimer(0.1, function()
+            PlayerResource:SetCameraTarget(unit:GetPlayerOwnerID(), nil)
+            return nil
+        end)
+    end
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -88,14 +80,6 @@ function Checkpoint_OnStartTouch( trigger )
 		ParticleManager:SetParticleControlEnt( particleLeader2, PATTACH_OVERHEAD_FOLLOW, hBuilding, PATTACH_OVERHEAD_FOLLOW, "PATTACH_OVERHEAD_FOLLOW", hBuilding:GetAbsOrigin(), true )
 		hBuilding:Attribute_SetIntValue( "particleID", particleLeader2 )
 	end
-end
-
-
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-function un()
-	local unitu = Entities:FindByName( nil, "npc_mega_boss")
-	unitu:RemoveModifierByName("modifier_invulnerable")
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -162,8 +146,6 @@ end
 
 --------------------------------------------------------
 
-LinkLuaModifier( "modifier_silent", "modifiers/modifier_silent", LUA_MODIFIER_MOTION_NONE )
-
 function silent(event)
    local unit = event.activator
    unit:AddNewModifier( unit, self, "modifier_silent", {} )  
@@ -208,4 +190,20 @@ Timers:CreateTimer( "so", {
 		unit:SetAbsOrigin( point)
 		return 0.03
 	end})
+end
+
+function teleport_to_bosses(event)
+    local unit = event.activator
+	ProjectileManager:ProjectileDodge(unit)
+	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, unit)
+	unit:EmitSound("DOTA_Item.BlinkDagger.Activate")
+	local ent = Entities:FindByName(nil, 'teleport_point_5_bosses')
+	local point = ent:GetAbsOrigin()
+	FindClearSpaceForUnit(unit, point, false)
+	unit:Stop()
+	PlayerResource:SetCameraTarget(unit:GetPlayerOwnerID(), unit)
+	Timers:CreateTimer(0.1, function()
+		PlayerResource:SetCameraTarget(unit:GetPlayerOwnerID(), nil)
+		return nil
+	end)
 end

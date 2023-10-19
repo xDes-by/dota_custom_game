@@ -51,21 +51,14 @@ sheep:AddNewModifier( sheep, nil, "modifier_hide_on_minimap", { } )
 end
 
 function Rules:spawn_lina()
-t_lina = {"lina_point_1","lina_point_2","lina_point_3","lina_point_4","lina_point_5","lina_point_6","lina_point_7"}
-local ent = t_lina[RandomInt(1,#t_lina)]
-local point = Entities:FindByName(nil,ent):GetAbsOrigin()
-local lina = CreateUnitByName("lina", point, false, nil, nil, DOTA_TEAM_GOODGUYS)
-lina:AddNewModifier( lina, nil, "modifier_invulnerable", { } )
-lina:AddNewModifier( lina, nil, "modifier_hide_on_minimap", { } )
-
-
-t_key = {"key_point_1","key_point_2","key_point_3","key_point_4","key_point_5"}
-local ent = t_key[RandomInt(1,#t_key)]
-local point = Entities:FindByName(nil,ent):GetAbsOrigin()
-local newItem = CreateItem( "item_key", nil, nil )
-local drop = CreateItemOnPositionForLaunch( point, newItem )
-invulnerable()
-end	
+	t_lina = {"lina_point_1","lina_point_2","lina_point_3","lina_point_4","lina_point_5","lina_point_6","lina_point_7"}
+	local ent = t_lina[RandomInt(1,#t_lina)]
+	local point = Entities:FindByName(nil,ent):GetAbsOrigin()
+	local lina = CreateUnitByName("lina", point, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	lina:AddNewModifier( lina, nil, "modifier_invulnerable", { } )
+	lina:AddNewModifier( lina, nil, "modifier_hide_on_minimap", { } )
+	invulnerable()
+end
 
 
 function invulnerable()

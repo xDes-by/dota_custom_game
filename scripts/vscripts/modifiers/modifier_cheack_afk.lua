@@ -23,6 +23,9 @@ function modifier_cheack_afk:OnCreated( kv )
 	self.currentpos = self.parent:GetOrigin()
 	self.MinigameStarted = false
 	self.modifier = nil
+	if IsInToolsMode() or GameRules:IsCheatMode() then
+		return
+	end
 	self:StartIntervalThink(0.2)
 end
 
@@ -30,7 +33,16 @@ function modifier_cheack_afk:OnIntervalThink()
 	if self.MinigameStarted then
 		return
 	end
+	if not self.parent:IsAlive() then
+		if self.parent:GetTimeUntilRespawn() > 11 then
+			hero:SetTimeUntilRespawn(10)
+		end
+	end
 	if not self.MinigameStarted and _G.kill_invoker then
+		if self.timer then
+			Timers:RemoveTimer(self.timer)
+			self.timer = nil
+		end
 		return
 	end
 	local pos = self.parent:GetOrigin()
@@ -55,11 +67,6 @@ function modifier_cheack_afk:OnIntervalThink()
 		if self.timer then
 			Timers:RemoveTimer(self.timer)
 			self.timer = nil
-		end
-	end
-	if not self.parent:IsAlive() then
-		if self.parent:GetTimeUntilRespawn() > 11 then
-			hero:SetTimeUntilRespawn(10)
 		end
 	end
 end

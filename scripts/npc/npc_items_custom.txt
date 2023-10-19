@@ -2132,7 +2132,7 @@
 }
 
 #base "../npc/items_full_custom.txt"
-#base "../npc/items_custom_recipes.txt"
+// #base "../npc/items_custom_recipes.txt"
 #base "../npc/items_don.txt"
 #base "../npc/npc_abilities_pets.txt"
 #base "../npc/neutrals.txt"
