@@ -37,7 +37,7 @@ function statist:GameEnd(t)
         sendata["game_result"] = "lose"
     end
     print(sendata["game_result"])
-    sendata["rait"] = ((_G.rating_wave * diff_wave.rating_scale) + (_G.mega_boss_bonus * diff_wave.rating_scale))
+    -- sendata["rait"] = ((_G.rating_wave * diff_wave.rating_scale) + (_G.mega_boss_bonus * diff_wave.rating_scale))
     -- sendata["difficult"] = diff_wave.rating_scale
     sendata["difficult"] = diff_wave.rating_scale
     sendata["in_game_time"] = GameRules:GetGameTime()

@@ -3,6 +3,15 @@ item_crimson_guard_lua = class({})
 LinkLuaModifier("modifier_item_crimson_guard_lua", 'items/custom_items/item_crimson_guard_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_crimson_guard_active_lua", 'items/custom_items/item_crimson_guard_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_crimson_guard_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/crimson_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_crimson_guard_lua" .. level
+	end
+end
+
 function item_crimson_guard_lua:GetIntrinsicModifierName()
 	return "modifier_item_crimson_guard_lua"
 end
@@ -71,23 +80,18 @@ function modifier_item_crimson_guard_lua:OnCreated()
 	else
 		self.block_damage = self:GetAbility():GetSpecialValueFor("block_damage_melee")
 	end
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_crimson_guard_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
+function modifier_item_crimson_guard_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+
+	if self:GetParent():IsRangedAttacker() then
+		self.block_damage = self:GetAbility():GetSpecialValueFor("block_damage_ranged")
+	else
+		self.block_damage = self:GetAbility():GetSpecialValueFor("block_damage_melee")
 	end
 end
 

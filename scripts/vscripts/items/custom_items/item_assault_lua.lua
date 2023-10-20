@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_assault_lua", "items/custom_items/item_assault_lua", L
 LinkLuaModifier("modifier_assault_lua_aura_positive_effect", "items/custom_items/item_assault_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_assault_lua_aura_negative_effect", "items/custom_items/item_assault_lua", LUA_MODIFIER_MOTION_NONE)
 
+function item_assault_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/cuirass_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_assault_lua" .. level
+	end
+end
+
 function item_assault_lua:GetIntrinsicModifierName()
 	return "modifier_assault_lua"
 end
@@ -38,27 +47,22 @@ function modifier_assault_lua:OnCreated()
 		return
 	end
 	self:StartIntervalThink(0.2)
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+end
+
+function modifier_assault_lua:OnRefresh()
+	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
+	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
+
+	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
+	self.aura_positive_armor = self:GetAbility():GetSpecialValueFor("aura_positive_armor")
+	self.aura_negative_armor = self:GetAbility():GetSpecialValueFor("aura_negative_armor") * -1
 end
 
 function modifier_assault_lua:OnIntervalThink()
 	local enemies = FindUnitsInRadius( self.parent:GetTeamNumber(), self.parent:GetAbsOrigin(), nil, self.aura_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	for _,unit in pairs(enemies) do
 		unit:AddNewModifier(self.parent, self.abi, "modifier_assault_lua_aura_negative_effect", {aura_negative_armor = self.aura_negative_armor})
-	end
-end
-
-function modifier_assault_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
 end
 
@@ -108,6 +112,10 @@ end
 
 modifier_assault_lua_aura_positive_effect = class({})
 --Classifications template
+function modifier_assault_lua_aura_positive_effect:GetTexture()
+	return self:GetAbility():GetAbilityTextureName()
+end
+
 function modifier_assault_lua_aura_positive_effect:IsHidden()
 	return false
 end
@@ -175,6 +183,10 @@ end
 
 modifier_assault_lua_aura_negative_effect = class({})
 --Classifications template
+function modifier_assault_lua_aura_negative_effect:GetTexture()
+	return self:GetAbility():GetAbilityTextureName()
+end
+
 function modifier_assault_lua_aura_negative_effect:IsHidden()
 	return false
 end

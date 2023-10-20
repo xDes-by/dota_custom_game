@@ -42,16 +42,9 @@ function modifier_boss_split_split_delay:OnDestroy()
 		local storm_panda = CreateUnitByName("npc_raid_storm", RotatePosition(self:GetParent():GetAbsOrigin(), QAngle(0, 120, 0), self:GetParent():GetAbsOrigin() + self:GetParent():GetForwardVector() * 100), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())		
 		local fire_panda = CreateUnitByName("npc_raid_fire", RotatePosition(self:GetParent():GetAbsOrigin(), QAngle(0, -120, 0), self:GetParent():GetAbsOrigin() + self:GetParent():GetForwardVector() * 100), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
 		
-		earth_panda_count = 0
-			while earth_panda_count < 6 do
-					add_item = items_level_5[RandomInt(1,#items_level_5)]
-					while not fire_panda:HasItemInInventory(add_item) do
-					earth_panda_count = earth_panda_count + 1
-				earth_panda:AddItemByName(add_item)
-				fire_panda:AddItemByName(add_item)
-				storm_panda:AddItemByName(add_item)
-			end
-		end
+		earth_panda:add_items(5)
+		fire_panda:add_items(5)
+		storm_panda:add_items(5)
 
 		if diff_wave.wavedef == "Easy" then
 			earth_panda:AddNewModifier(unit, nil, "modifier_easy", {})

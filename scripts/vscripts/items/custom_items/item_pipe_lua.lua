@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_item_pipe_lua", 'items/custom_items/item_pipe_lua.lua'
 LinkLuaModifier("modifier_item_pipe_aura_lua", 'items/custom_items/item_pipe_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_pipe_active_lua", 'items/custom_items/item_pipe_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_pipe_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/pipe_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_pipe_lua" .. level
+	end
+end
+
 function item_pipe_lua:GetIntrinsicModifierName()
 	return "modifier_item_pipe_lua"
 end
@@ -30,26 +39,32 @@ function modifier_item_pipe_active_lua:OnCreated()
 	self:AddParticle(self.particle, false, false, -1, false, false)
 
 	self.barrier_block = self:GetAbility():GetSpecialValueFor("barrier_block")
+	self.barrier_max = self:GetAbility():GetSpecialValueFor("barrier_block")
 end
 
 function modifier_item_pipe_active_lua:DeclareFunctions()
-	return {MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT}
+	return {
+		MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT
+	}
 end
 
 function modifier_item_pipe_active_lua:GetModifierIncomingSpellDamageConstant(keys)
-		if keys.damage_type == DAMAGE_TYPE_MAGICAL then
-			if keys.original_damage >= self.barrier_block then
-				SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, self:GetParent(), self.barrier_block, nil)
-			
-				self:Destroy()
-				return self.barrier_block * (-1)
-			else
-				SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, self:GetParent(), keys.original_damage, nil)
-			
-				self.barrier_block = self.barrier_block - keys.original_damage
-				return keys.original_damage * (-1)
-			end
+	if IsClient() then
+		if keys.report_max then
+			return self.barrier_max
+		else
+			return self.barrier_block
 		end
+	end
+	if keys.damage_type == DAMAGE_TYPE_MAGICAL then
+		if keys.original_damage >= self.barrier_block then
+			self:Destroy()
+			return self.barrier_block * (-1)
+		else
+			self.barrier_block = self.barrier_block - keys.original_damage
+			return keys.original_damage * (-1)
+		end
+	end
 end
 
 ----------------------------------------------------------------------------------
@@ -76,25 +91,11 @@ function modifier_item_pipe_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.health_regen = self:GetAbility():GetSpecialValueFor("health_regen")
 	self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
-
 end
 
-function modifier_item_pipe_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_pipe_lua:OnRefresh()
+	self.health_regen = self:GetAbility():GetSpecialValueFor("health_regen")
+	self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance")
 end
 
 function modifier_item_pipe_lua:DeclareFunctions()
@@ -126,6 +127,11 @@ function modifier_item_pipe_lua:GetModifierAura()				return "modifier_item_pipe_
 modifier_item_pipe_aura_lua = class({})
 
 function modifier_item_pipe_aura_lua:OnCreated()
+	self.aura_health_regen = self:GetAbility():GetSpecialValueFor("aura_health_regen")
+	self.magic_resistance_aura = self:GetAbility():GetSpecialValueFor("magic_resistance_aura")
+end
+
+function modifier_item_pipe_aura_lua:OnRefresh()
 	self.aura_health_regen = self:GetAbility():GetSpecialValueFor("aura_health_regen")
 	self.magic_resistance_aura = self:GetAbility():GetSpecialValueFor("magic_resistance_aura")
 end

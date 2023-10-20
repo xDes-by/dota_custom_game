@@ -3,6 +3,15 @@ item_midas_lua = class({})
 LinkLuaModifier("modifier_item_midas_lua", 'items/custom_items/item_midas_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_midas_lua_shareable_gold", 'items/custom_items/item_midas_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_midas_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/vladmir_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_vladmir_lua" .. level
+	end
+end
+
 function item_midas_lua:GetIntrinsicModifierName()
     return "modifier_item_midas_lua"
 end
@@ -47,22 +56,17 @@ end
 function modifier_item_midas_lua:OnCreated()
     self.parent = self:GetParent()
     self.attack_speed = self:GetAbility():GetSpecialValueFor("attack_speed")
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_midas_lua:OnRemoved()
+function modifier_item_midas_lua:OnRefresh()
+    self.attack_speed = self:GetAbility():GetSpecialValueFor("attack_speed")
+end
+
+function modifier_item_midas_lua:OnDestroy()
+    if not IsServer() then
+        return
+    end
     self:GetAbility().mod:Destroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
 end
 
 function modifier_item_midas_lua:DeclareFunctions()
@@ -125,5 +129,6 @@ function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
 	local killerEntity = EntIndexToHScript( data.entindex_attacker )
     if killerEntity == self.parent then
         local gold = killedUnit:GetGoldBounty() * self.shareable_gold
+        killerEntity:ModifyGoldFiltered(killerEntity:GetPlayerOwnerID(), gold, true, DOTA_ModifyGold_SharedGold)
     end
 end

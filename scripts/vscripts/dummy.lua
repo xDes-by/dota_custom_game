@@ -6,10 +6,9 @@ function Dummy:init()
     local point = Entities:FindByName(nil,"dummy_point"):GetAbsOrigin()
 	self.Entity = CreateUnitByName( "npc_dota_hero_target_dummy", point, true, nil, nil, DOTA_TEAM_BADGUYS)
 	self.Entity:AddNewModifier(self.Entity, nil, "modifier_dummy_damage", {})
-	self.Entity:AddNewModifier(self.Entity, nil, "modifier_not_on_minimap", {})
 	
 	local angle = self.Entity:GetAngles()
-	local new_angle = RotateOrientation(angle, QAngle(0,180,0))
+	local new_angle = RotateOrientation(angle, QAngle(0,180,0)) * -1
 	self.Entity:SetAngles(new_angle[1], new_angle[2], new_angle[3])
 	
 	self.Entity:SetAbilityPoints( 0 )

@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_item_mjollnir_lua", 'items/custom_items/item_mjollnir_
 LinkLuaModifier("modifier_item_mjollnir_lua_strike", 'items/custom_items/item_mjollnir_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_mjollnir_lua_active", 'items/custom_items/item_mjollnir_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_mjollnir_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/mjolner" .. level
+	else
+		return "gem" .. self.GemType .. "/item_mjollnir_lua" .. level
+	end
+end
+
 function item_mjollnir_lua:GetIntrinsicModifierName()
 	return "modifier_item_mjollnir_lua"
 end
@@ -178,24 +187,16 @@ function modifier_item_mjollnir_lua:OnCreated()
 	self.chain_cooldown		= self:GetAbility():GetSpecialValueFor("chain_cooldown")
 
 	self:StartIntervalThink(0.2)
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_mjollnir_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_mjollnir_lua:OnRefresh()
+	self.bonus_damage		 = self:GetAbility():GetSpecialValueFor("bonus_damage")
+	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+	self.chain_chance	 	= self:GetAbility():GetSpecialValueFor("chain_chance")
+	self.chain_strikes	 	= self:GetAbility():GetSpecialValueFor("chain_strikes")
+	self.chain_damage	 	= self:GetAbility():GetSpecialValueFor("chain_damage")
+	self.chain_radius		= self:GetAbility():GetSpecialValueFor("chain_radius")
+	self.chain_cooldown		= self:GetAbility():GetSpecialValueFor("chain_cooldown")
 end
 
 function modifier_item_mjollnir_lua:DeclareFunctions()

@@ -1,6 +1,6 @@
 ability_npc_bara_boss_charge = class({})
 LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", "abilities/bosses/bara/ability_npc_bara_boss_charge", LUA_MODIFIER_MOTION_BOTH )
-LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua_debuff", "abilities/bosses/bara/ability_npc_bara_boss_charge_debuff", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua_debuff", "abilities/bosses/bara/ability_npc_bara_boss_charge", LUA_MODIFIER_MOTION_NONE )
 
 function ability_npc_bara_boss_charge:OnSpellStart()
 	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_spirit_breaker_charge_of_darkness_lua", {target = self:GetCursorTarget():entindex()})
@@ -26,11 +26,8 @@ end
 -- Initializations
 function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	self.parent = self:GetParent()
-	if RandomInt(1, 2) == 2 then
-		EmitSoundOn("bara_start_charge", self.parent)
-	else
-		EmitSoundOn("bara_start_charge_alt", self.parent)
-	end
+	EmitSoundOn("Dota_Boss.bara_start_charge", self.parent)
+
 	-- references
 	self.bonus_ms = self:GetAbility():GetSpecialValueFor( "movement_speed" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "bash_radius" )
@@ -66,8 +63,8 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	self:GetAbility():SetActivated( false )
 
 	-- play effects
-	local sound_cast = "Hero_Spirit_Breaker.ChargeOfDarkness"
-	EmitSoundOn( sound_cast, self.parent )
+	-- local sound_cast = "Hero_Spirit_Breaker.ChargeOfDarkness"
+	-- EmitSoundOn( sound_cast, self.parent )
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
@@ -244,4 +241,85 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+modifier_spirit_breaker_charge_of_darkness_lua_debuff = class({})
+
+--------------------------------------------------------------------------------
+-- Classifications
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:IsHidden()
+	return true
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:IsDebuff()
+	return true
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:IsPurgable()
+	return false
+end
+
+--------------------------------------------------------------------------------
+-- Initializations
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:OnCreated( kv )
+	if not IsServer() then return end
+	self:PlayEffects()
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:OnRefresh( kv )
+	
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:OnRemoved()
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:OnDestroy()
+end
+
+--------------------------------------------------------------------------------
+-- Modifier Effects
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+	}
+
+	return funcs
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:OnAttack( params )
+
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:GetModifierProvidesFOWVision()
+	return 1
+end
+
+--------------------------------------------------------------------------------
+-- Status Effects
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:CheckState()
+	local state = {
+		[MODIFIER_STATE_PROVIDES_VISION] = true,
+	}
+
+	return state
+end
+
+--------------------------------------------------------------------------------
+-- Graphics & Animations
+function modifier_spirit_breaker_charge_of_darkness_lua_debuff:PlayEffects()
+	-- Get Resources
+	local particle_cast = "particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf"
+
+	-- Create Particle
+	local effect_cast = ParticleManager:CreateParticleForTeam( particle_cast, PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster():GetTeamNumber() )
+
+	-- buff particle
+	self:AddParticle(
+		effect_cast,
+		false, -- bDestroyImmediately
+		false, -- bStatusEffect
+		-1, -- iPriority
+		false, -- bHeroEffect
+		false -- bOverheadEffect
+	)
 end

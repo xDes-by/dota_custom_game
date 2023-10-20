@@ -1,0 +1,164 @@
+"DOTAAbilities"
+{
+    "ability_crystal_boss_nova"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ability_crystal_boss_nova"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+		}
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+            "radius"			"425"
+            "movespeed_slow"	"-50"
+            "attackspeed_slow"	"-70"
+            "duration"			"4.5"
+            "vision_duration"	"6.0"
+            "nova_damage"			"100 150 200 250"
+		}
+	}
+    "ability_crystal_boss_freezing_field"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ability_crystal_boss_freezing_field"
+		"AbilityTextureName"			"crystal_maiden_freezing_field"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"10"
+		"AbilityDuration"				"10.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+            "radius"			"835"
+            "explosion_radius"	"300"
+            "explosion_interval"	"0.1"
+            "movespeed_slow"	"-30"
+            "attack_slow"	"-30"
+            "slow_duration"		"1.0"
+            "explosion_min_dist"	"195"
+            "explosion_max_dist"	"785"
+            "damage"			"250"
+            "duration_tooltip"	"10"
+            "scepter_delay"	"2.5"
+		}
+	}
+	"ability_crystal_boss_mana_leak"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ability_crystal_boss_mana_leak"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+
+		}
+	}
+	"ability_crystal_boss_frost_bite"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ability_crystal_boss_frost_bite"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCooldown"				"30"
+
+		"AbilityValues"
+		{
+
+		}
+	}
+	"ability_crystal_boss_create_spire"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ability_crystal_boss_create_spire"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCooldown"				"20"
+
+		"AbilityValues"
+		{
+
+		}
+	}
+	"ai_crystal_boss"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/crystal/ai_crystal_boss"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityValues"
+		{
+
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

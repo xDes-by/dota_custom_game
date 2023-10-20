@@ -3,6 +3,14 @@ LinkLuaModifier("modifier_item_meteor_hammer_lua_burn", 'items/custom_items/item
 
 item_meteor_hammer_lua = class({})
 
+function item_meteor_hammer_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/item_meteor_hammer_lua" .. level
+	else
+		return "gem" .. self.GemType .. "/item_meteor_hammer_lua" .. level
+	end
+end
 
 function item_meteor_hammer_lua:GetIntrinsicModifierName()
 	return "modifier_item_meteor_hammer_lua"
@@ -152,17 +160,14 @@ function modifier_item_meteor_hammer_lua_burn:OnCreated()
 		self.burn_dps	= self.burn_dps_buildings
 	end
 	
-	self.damageTable				= {
-										victim 			= self.parent,
-										damage 			= self.burn_dps,
-										damage_type		= DAMAGE_TYPE_MAGICAL,
-										damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
-										attacker 		= self.caster,
-										ability 		= self.ability
-									}
-	
-	if not IsServer() then return end
-
+	self.damageTable = {
+		victim 			= self.parent,
+		damage 			= self.burn_dps,
+		damage_type		= DAMAGE_TYPE_MAGICAL,
+		damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
+		attacker 		= self.caster,
+		ability 		= self.ability
+	}
 	self:StartIntervalThink(self.burn_interval)
 end
 
@@ -189,35 +194,24 @@ function modifier_item_meteor_hammer_lua:OnCreated()
 	self.bonus_agility			=	self.ability:GetSpecialValueFor("bonus_all_stats")
 	self.bonus_health_regen			=	self.ability:GetSpecialValueFor("bonus_health_regen")
 	self.bonus_mana_regen			=	self.ability:GetSpecialValueFor("bonus_mana_regen")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_meteor_hammer_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_meteor_hammer_lua:OnRefresh()
+	self.bonus_strength				=	self.ability:GetSpecialValueFor("bonus_all_stats")
+	self.bonus_intellect			=	self.ability:GetSpecialValueFor("bonus_all_stats")
+	self.bonus_agility			=	self.ability:GetSpecialValueFor("bonus_all_stats")
+	self.bonus_health_regen			=	self.ability:GetSpecialValueFor("bonus_health_regen")
+	self.bonus_mana_regen			=	self.ability:GetSpecialValueFor("bonus_mana_regen")
 end
 
 function modifier_item_meteor_hammer_lua:DeclareFunctions()
-    local decFuncs = {
+    return {
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     }
-    return decFuncs
 end
 
 function modifier_item_meteor_hammer_lua:GetModifierBonusStats_Strength()

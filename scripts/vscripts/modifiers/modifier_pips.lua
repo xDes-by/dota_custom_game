@@ -34,7 +34,7 @@ function modifier_pips:OnCreated(data)
     if not IsServer() then
         return
     end
-    self.pips_count = data.pips_count
+    self.pips_count = data.pips_count or 1
     self.parent:SetMaxHealth(self.pips_count)
     self.parent:SetHealth(self.pips_count)
     self:SetHasCustomTransmitterData( true )

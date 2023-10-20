@@ -2,6 +2,15 @@ item_heart_lua = class({})
 
 LinkLuaModifier("modifier_item_heart_lua", 'items/custom_items/item_heart_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_heart_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/heart_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_heart_lua" .. level
+	end
+end
+
 function item_heart_lua:GetIntrinsicModifierName()
 	return "modifier_item_heart_lua"
 end
@@ -30,24 +39,13 @@ function modifier_item_heart_lua:OnCreated()
 	self.health_regen_pct = self:GetAbility():GetSpecialValueFor("health_regen_pct")
 	self.hp_regen_amp = self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_heart_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_heart_lua:OnRefresh()
+	self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+	self.health_regen_pct = self:GetAbility():GetSpecialValueFor("health_regen_pct")
+	self.hp_regen_amp = self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
 function modifier_item_heart_lua:DeclareFunctions()

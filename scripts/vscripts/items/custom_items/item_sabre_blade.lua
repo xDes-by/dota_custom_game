@@ -7,6 +7,15 @@ LinkLuaModifier("modifier_sabre_blade_illusion_modifier", "items/custom_items/it
 
 LinkLuaModifier("modifier_movement_speed_uba", "modifiers/modifier_movement_speed_uba.lua", LUA_MODIFIER_MOTION_NONE)
 
+function item_sabre_blade:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/sabre_blade" .. level
+	else
+		return "gem" .. self.GemType .. "/sabre_blade" .. level .. "_gem" .. self.GemType
+    end
+end
+
 function item_sabre_blade:GetIntrinsicModifierName()
     return "modifier_sabre_blade"
 end
@@ -27,27 +36,22 @@ end
 
 function modifier_sabre_blade:OnCreated()
     self.parent = self:GetParent()
-    self.cooldown = 6
     self.slow = self:GetAbility():GetSpecialValueFor("slow_duration")
-    self.hits = 0
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+    self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+    self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+    self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+    self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+    self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
-function modifier_sabre_blade:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_sabre_blade:OnRefresh()
+    self.parent = self:GetParent()
+    self.slow = self:GetAbility():GetSpecialValueFor("slow_duration")
+    self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+    self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+    self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+    self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+    self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_sabre_blade:DeclareFunctions()
@@ -62,63 +66,41 @@ function modifier_sabre_blade:DeclareFunctions()
 end
 
 function modifier_sabre_blade:OnAttack(event)
-    if not IsServer() then return end
-    local attacker = event.attacker
-    local victim = event.target
-    
-    if self:GetCaster() ~= attacker then return end
-    if event.inflictor ~= nil then return end
-
-    local ability = self:GetAbility()
-
+    if self:GetCaster() ~= event.attacker then 
+        return 
+    end
     if attacker:IsRealHero() then
-        -- if self.hits >= 3 then
-        --     attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
-        --     self.hits = 0
-        -- else
-        --     self.hits = self.hits + 1
-        -- end
-
-        if not ability:IsFullyCastable() then return end
-        attacker:AddNewModifier(attacker, self:GetAbility(), "modifier_sabre_blade_doubleattack", {
-            enemyEntIndex = victim:GetEntityIndex(),
-            duration = 0.5,
-        })
-        victim:AddNewModifier(victim, self:GetAbility(), "modifier_sabre_blade_doubleattack_debuff", { duration = self.slow })
-
-        ability:UseResources(false, false, false, true)
-
-        Timers:CreateTimer(ability:GetCooldownTimeRemaining(), function()
-            attacker:RemoveModifierByName("modifier_sabre_blade_doubleattack")
-            self.hits = 0
-        end)
+        if not self:GetAbility():IsFullyCastable() then return end
+        event.attacker:AddNewModifier(attacker, self:GetAbility(), "modifier_sabre_blade_doubleattack", {enemyEntIndex = victim:GetEntityIndex(), duration = 0.5,})
+        event.target:AddNewModifier(victim, self:GetAbility(), "modifier_sabre_blade_doubleattack_debuff", { duration = self.slow })
+        self:GetAbility():UseResources(false, false, false, true)
     end
 end
 
 function modifier_sabre_blade:GetModifierBonusStats_Strength()
-    return self:GetAbility():GetSpecialValueFor("bonus_strength")
+    return self.bonus_strength
 end
 
 function modifier_sabre_blade:GetModifierBonusStats_Intellect()
-    return self:GetAbility():GetSpecialValueFor("bonus_intellect")
+    return self.bonus_intellect
 end
 
 function modifier_sabre_blade:GetModifierConstantManaRegen()
-    return self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+    return self.bonus_mana_regen
 end
 
 function modifier_sabre_blade:GetModifierPreAttack_BonusDamage()
-    return self:GetAbility():GetSpecialValueFor("bonus_damage")
+    return self.bonus_damage
 end
 
 function modifier_sabre_blade:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+    return self.bonus_attack_speed
 end
 
 -----------------------------------
 
-
 modifier_sabre_blade_doubleattack = class({})
+
 function modifier_sabre_blade_doubleattack:IsHidden()
 	return true
 end
@@ -131,16 +113,13 @@ function modifier_sabre_blade_doubleattack:OnCreated()
 end
 
 function modifier_sabre_blade_doubleattack:DeclareFunctions()
-    local funcs = {
+    return {
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK
     }
-    return funcs
 end
 
-
 function modifier_sabre_blade_doubleattack:OnAttack(keys)
-	if not IsServer() then return end
 	if keys.attacker ~= self:GetParent() then return end
 	local damage = keys.attacker:GetAverageTrueAttackDamage(nil)
 	
@@ -156,14 +135,9 @@ function modifier_sabre_blade_doubleattack:OnAttack(keys)
 	})
 end
 
-function modifier_sabre_blade_doubleattack:GetModifierAttackSpeed_Limit()
-    return 1
-end
-
 function modifier_sabre_blade_doubleattack:GetModifierAttackSpeedBonus_Constant()
     return 1450
 end
-------------
 
 modifier_sabre_blade_doubleattack_debuff = class({})
 
@@ -176,10 +150,9 @@ function modifier_sabre_blade_doubleattack_debuff:IsPurgable()
 end
 
 function modifier_sabre_blade_doubleattack_debuff:DeclareFunctions()
-    local funcs = {
+    return {
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     }
-    return funcs
 end
 
 function modifier_sabre_blade_doubleattack_debuff:GetModifierMoveSpeedBonus_Percentage()

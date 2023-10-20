@@ -2,6 +2,15 @@ item_greater_crit_lua = class({})
 
 LinkLuaModifier("modifier_item_greater_crit_lua", 'items/custom_items/item_greater_crit_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_greater_crit_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/greater_crit" .. level
+	else
+		return "gem" .. self.GemType .. "/item_greater_crit_lua" .. level
+	end
+end
+
 function item_greater_crit_lua:GetIntrinsicModifierName()
 	return "modifier_item_greater_crit_lua"
 end
@@ -26,24 +35,11 @@ function modifier_item_greater_crit_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.crit_multiplier = self:GetAbility():GetSpecialValueFor("crit_multiplier")
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_greater_crit_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_greater_crit_lua:OnRefresh()	
+	self.crit_multiplier = self:GetAbility():GetSpecialValueFor("crit_multiplier")
+	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_greater_crit_lua:DeclareFunctions()

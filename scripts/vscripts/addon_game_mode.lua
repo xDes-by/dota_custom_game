@@ -21,10 +21,10 @@ require("dummy")
 require("use_pets")
 require("effects")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.cheatmode = true and IsInToolsMode() -- false
-_G.server_load = false -- true
+_G.devmode = true and IsInToolsMode() -- false
+_G.server_load = not IsInToolsMode() -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -46,11 +46,16 @@ end
 function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
-	GameRules:SetUseUniversalShopMode(true)
+	GameModeEntity:SetUseDefaultDOTARuneSpawnLogic(true)
+	GameModeEntity:SetBountyRuneSpawnInterval(60)
+	GameModeEntity:SetPowerRuneSpawnInterval(5*60)
+	GameModeEntity:SetXPRuneSpawnInterval(3*60)
+	GameModeEntity:SetRuneEnabled(DOTA_RUNE_ILLUSION, false)
+	GameModeEntity:SetRuneEnabled(DOTA_RUNE_SHIELD, false)
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(6000)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(0)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
-	GameRules:SetPreGameTime(2)
+	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(60)
@@ -385,7 +390,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 			end
 		end
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-			
+
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
 		if PlayerResource:HasSelectedHero(i) == false then
 			local player = PlayerResource:GetPlayer(i)
@@ -394,9 +399,14 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 			end
 		end
 	end	 
-
+	elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+		SendToServerConsole("host_timescale 0.5")
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-	
+		--замедляем игру в 4 раза чтобы у сервера было больше времени на большой объем кода в начале
+		--это уберет большой пролаг на старте, но в первые несколько секунд игра будет замедлена
+		Timers:CreateTimer(1,function()
+			SendToServerConsole("host_timescale 1")
+		end)
 	local hBuilding = Entities:FindByName( nil, "checkpoint00_building" )
 	hBuilding:SetTeam( DOTA_TEAM_GOODGUYS )
 	EmitGlobalSound( "DOTA_Item.Refresher.Activate" ) 	
@@ -452,6 +462,7 @@ end
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
 	npc = EntIndexToHScript(data.entindex)	
 	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
+		npc.bFirstSpawned = true
 		local playerID = npc:GetPlayerID()
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
 		npc:AddItemByName("item_tpscroll")
@@ -473,7 +484,6 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		end
 		
 		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
-		npc.bFirstSpawned = true
 		
 		steamID = PlayerResource:GetSteamAccountID(playerID)
 		id_check(steamID) -----------------------------------------------
@@ -525,8 +535,9 @@ end
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 function CAddonAdvExGameMode:BountyRunePickupFilter(data)
+	local players = PlayerResource:GetNumConnectedHumanPlayers()
 	if _G.kill_invoker then
-		data.gold =  9999
+		data.gold_bounty =  10000
 		return true
 	end
 	local gold = {
@@ -538,8 +549,9 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[5] = 650,
 		[6] = 1000,
 		[7] = 1500,
+		[7] = 4500,
 	}
-	data.gold = gold[_G.don_spawn_level] * 2
+	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / (players or 1)
 	return true
 end
 
@@ -547,14 +559,14 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 	local runs = {
 		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
 		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
-		[DOTA_RUNE_ILLUSION] = nil,
+		-- [DOTA_RUNE_ILLUSION] = nil,
 		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_invis",
 		[DOTA_RUNE_REGENERATION] = "modifier_rune_regen",
 		[DOTA_RUNE_BOUNTY] = nil,
 		[DOTA_RUNE_ARCANE] = "modifier_rune_arcane",
 		[DOTA_RUNE_WATER] = nil,
 		[DOTA_RUNE_XP] = nil,
-		[DOTA_RUNE_SHIELD] = "modifier_rune_shield",
+		-- [DOTA_RUNE_SHIELD] = "modifier_rune_shield",
 	}
 	if runs[data.rune] ~= nil then
 		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
@@ -726,13 +738,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		else
 			killedUnit:SetTimeUntilRespawn( 10 )
 		end
-		-----------------------------------------------
-		Timers:CreateTimer(0.1, function()
-			if killedUnit:GetTimeUntilRespawn() > 11 then
-				killedUnit:SetTimeUntilRespawn(10)
-			end
-		end)
-		-----------------------------------------------
 		if diff_wave.wavedef == "Insane" then
 			local mod = killedUnit:FindModifierByName("modifier_insane_lives")
 			if mod ~= nil then
@@ -876,7 +881,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			add_item = items_level_inv[RandomInt(1,#items_level_inv)]
 				while not invoker:HasItemInInventory(add_item) do
 				inv_item = inv_item + 1
-				invoker:AddItemByName(add_item)
+				invoker:AddItemByName(add_item):SetLevel(10)
 			end
 		end
 		
@@ -1104,29 +1109,6 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			snow:RespawnUnit()
 		 end)
 	end	
-	
-	if killedUnit:GetUnitName() == "npc_mega_boss"  then
-	add_feed(killerEntity_playerID)
-	local doom =  {"doom_bringer_doom_death_04","doom_bringer_doom_death_10","doom_bringer_doom_death_11","doom_bringer_doom_death_02","doom_bringer_doom_death_01"}
-	killedUnit:EmitSound(doom[RandomInt(1, #doom)])	
-	_G.mega_boss_bonus = mega_boss_bonus + 1
-	local mega = killedUnit
-		 Timers:CreateTimer(60, function()
-			local ent = Entities:FindByName( nil, "mega_boss_point")
-			local point = ent:GetAbsOrigin()
-			FindClearSpaceForUnit(mega, point, false)
-			mega:Stop()
-			mega:RespawnUnit()			
-			mega:SetBaseDamageMin(mega:GetBaseDamageMin() * (mega_boss_bonus+1))
-			mega:SetBaseDamageMax(mega:GetBaseDamageMax() * (mega_boss_bonus+1))
-			mega:SetPhysicalArmorBaseValue(mega:GetPhysicalArmorBaseValue() * (mega_boss_bonus+1))
-			mega:SetBaseMagicalResistanceValue(mega:GetBaseMagicalResistanceValue() * (mega_boss_bonus+1))
-			mega:SetMaxHealth(mega:GetMaxHealth() * (mega_boss_bonus+1))
-			mega:SetBaseMaxHealth(mega:GetBaseMaxHealth() * (mega_boss_bonus+1))
-			mega:SetHealth(mega:GetMaxHealth()* (mega_boss_bonus+1))		
-			set_max_stats(mega) 
-		end)
-	end
 	
 	if killedUnit:GetUnitName() == "roshan_npc"  then
 	_G.rsh = rsh + 1

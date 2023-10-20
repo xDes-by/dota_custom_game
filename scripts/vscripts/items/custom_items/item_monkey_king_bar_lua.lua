@@ -2,6 +2,15 @@ item_monkey_king_bar_lua = class({})
 
 LinkLuaModifier("modifier_item_monkey_king_bar_passive", 'items/custom_items/item_monkey_king_bar_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_monkey_king_bar_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/mkb_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_monkey_king_bar_lua" .. level
+	end
+end
+
 function item_monkey_king_bar_lua:GetIntrinsicModifierName()
 	return "modifier_item_monkey_king_bar_passive"
 end
@@ -30,29 +39,15 @@ function modifier_item_monkey_king_bar_passive:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE 
 end
 
-
 function modifier_item_monkey_king_bar_passive:OnCreated()
-	self.pierce_proc 			= false
-	self.pierce_records			= {}
 	self.parent = self:GetParent()
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+	self.bonus_chance = self:GetAbility():GetSpecialValueFor("bonus_chance")
+	self.bonus_chance_damage = self:GetAbility():GetSpecialValueFor("bonus_chance_damage")
 end
 
-function modifier_item_monkey_king_bar_passive:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_monkey_king_bar_passive:OnRefresh()
+	self.bonus_chance = self:GetAbility():GetSpecialValueFor("bonus_chance")
+	self.bonus_chance_damage = self:GetAbility():GetSpecialValueFor("bonus_chance_damage")
 end
 
 function modifier_item_monkey_king_bar_passive:DeclareFunctions()
@@ -74,48 +69,15 @@ function modifier_item_monkey_king_bar_passive:GetModifierAttackSpeedBonus_Const
 end
 
 function modifier_item_monkey_king_bar_passive:GetModifierProcAttack_BonusDamage_Magical(keys)
-	for _, record in pairs(self.pierce_records) do	
-		if record == keys.record then
-			table.remove(self.pierce_records, _)
-
-			if not self:GetParent():IsIllusion() and not keys.target:IsBuilding() then
-				self:GetParent():EmitSound("DOTA_Item.MKB.proc")
-				SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, self:GetAbility():GetSpecialValueFor("bonus_chance_damage"), nil)
-				
-				return self:GetAbility():GetSpecialValueFor("bonus_chance_damage")
-			end
-		end
+	if not self:GetParent():IsIllusion() and not keys.target:IsBuilding() and RollPercentage(self.bonus_chance) then
+		SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, self.bonus_chance_damage, nil)
+		self:GetParent():EmitSound("DOTA_Item.MKB.proc")
+		return self.bonus_chance_damage
 	end
 end
-
-function modifier_item_monkey_king_bar_passive:OnAttackRecord(keys)
-	if keys.attacker == self:GetParent() then
-		if self.pierce_proc then
-			table.insert(self.pierce_records, keys.record)
-			self.pierce_proc = false
-		end
-	
-		if (not keys.target:IsMagicImmune() or self:GetName() == "modifier_item_monkey_king_bar_passive") and RollPseudoRandom(self:GetAbility():GetSpecialValueFor("bonus_chance"), self) then
-			self.pierce_proc = true
-		end
-	end
-end
-
 
 function modifier_item_monkey_king_bar_passive:CheckState()
-	local state = {}
-	
-	if self.pierce_proc then
-		state = {[MODIFIER_STATE_CANNOT_MISS] = true}
-	end
-
-	return state
+	return {
+		[MODIFIER_STATE_CANNOT_MISS] = true
+	}
 end
-
-
- function RollPseudoRandom(base_chance, entity)
- local ran = RandomInt(1,100)
- if base_chance >= ran then return true
- else return false
- end
- end

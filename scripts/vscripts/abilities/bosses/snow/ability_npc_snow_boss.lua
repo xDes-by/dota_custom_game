@@ -229,10 +229,17 @@ function modifier_tiny_phase1:DestroyOnExpire()
 end
 
 function modifier_tiny_phase1:OnCreated()
-    self:GetAbility().modifier1:Destroy()
-    self:GetAbility().modifier2:Destroy()
     if not IsServer() then
         return
+    end
+    if self:GetAbility().modifier1 then
+        self:GetAbility().modifier1:Destroy()
+    end
+    if self:GetAbility().modifier2 then
+        self:GetAbility().modifier2:Destroy()
+    end
+    if self:GetAbility().modifier3 then
+        self:GetAbility().modifier3:Destroy()
     end
     self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", {duration = 5})
     self:Destroy()
@@ -273,9 +280,15 @@ function modifier_tiny_phase2:OnCreated()
     if not IsServer() then
         return
     end
-    self:GetAbility().modifier1:Destroy()
-    self:GetAbility().modifier2:Destroy()
-    self:GetAbility().modifier3:Destroy()
+    if self:GetAbility().modifier1 then
+        self:GetAbility().modifier1:Destroy()
+    end
+    if self:GetAbility().modifier2 then
+        self:GetAbility().modifier2:Destroy()
+    end
+    if self:GetAbility().modifier3 then
+        self:GetAbility().modifier3:Destroy()
+    end
     self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_invulnerable", {duration = 3})
 
     self.counter = 0
@@ -364,9 +377,15 @@ function modifier_tiny_phase3:OnCreated()
     if not IsServer() then
         return
     end
-    self:GetAbility().modifier1:Destroy()
-    self:GetAbility().modifier2:Destroy()
-    self:GetAbility().modifier3:Destroy()
+    if self:GetAbility().modifier1 then
+        self:GetAbility().modifier1:Destroy()
+    end
+    if self:GetAbility().modifier2 then
+        self:GetAbility().modifier2:Destroy()
+    end
+    if self:GetAbility().modifier3 then
+        self:GetAbility().modifier3:Destroy()
+    end
     self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_invulnerable", {duration = 3})
     self.counter = 0
     self:StartIntervalThink(0.2)
@@ -503,8 +522,15 @@ function modifier_tiny_phase4:OnCreated()
     if not IsServer() then
         return
     end
-    self:GetAbility().modifier1:Destroy()
-    self:GetAbility().modifier2:Destroy()
+    if self:GetAbility().modifier1 then
+        self:GetAbility().modifier1:Destroy()
+    end
+    if self:GetAbility().modifier2 then
+        self:GetAbility().modifier2:Destroy()
+    end
+    if self:GetAbility().modifier3 then
+        self:GetAbility().modifier3:Destroy()
+    end
     self.damage = self:GetParent():GetMaxHealth() * FrameTime()
     self.pos = self:GetCaster():GetAbsOrigin() + RandomVector(500)
     local unit = CreateUnitByName("npc_dota_lich_ice_spire", self.pos, true, nil, nil, DOTA_TEAM_BADGUYS)

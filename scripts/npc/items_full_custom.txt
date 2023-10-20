@@ -3,13 +3,13 @@
 	"item_boots_of_bearing_lua"
     {
         "BaseClass"                     "item_lua"
-        "AbilityTextureName"			"all/boots_of_bearing"
+        "AbilityTextureName"			"all/boots_of_bearing_lua1"
         "ScriptFile"					"items/custom_items/boots_of_bearing"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"ItemInitialCharges"			"0"
-		"ItemDisplayCharges"			"1"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4275"
         "AbilityValues"
         {
             "aura_movement_speed"    "20 25 30 35 40 45 50 55"
@@ -33,10 +33,11 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"            "all/midas_lua_1"
+		"AbilityTextureName"            "item_hand_of_midas"
 		"AbilityCooldown" 				"80"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"2200"
 		"AbilityValues"
 		{
 			"attack_speed"									"40 60 80 100 120 140 160 180"
@@ -52,6 +53,7 @@
 		"AbilityCooldown" 				"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4450"
 		"AbilityValues"
 		{
 			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
@@ -76,6 +78,7 @@
 		"AbilityCooldown" 				"8"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"2500"
 		"AbilityValues"
 		{
 			"bonus_strength"                                "30 70 110 150 190 230 270 310"
@@ -93,7 +96,7 @@
         "BaseClass"                     "item_lua"
         "ScriptFile"                    "items/custom_items/item_meteor_hammer_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityTextureName"			"all/item_meteor_hammer_lua"
+		"AbilityTextureName"			"all/item_meteor_hammer_lua1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityChannelTime"			"2.5"
 		"ItemBaseLevel"                	"1"
@@ -101,6 +104,7 @@
 		"AbilityCooldown"				"24"
 		"AbilityManaCost"				"100"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"2400"
 		"AbilityValues"
 		{
             "bonus_all_stats"		"8 16 32 64 128 256 512 768"
@@ -127,6 +131,7 @@
         "ScriptFile"                    "items/custom_items/item_assault_lua"
         "ItemBaseLevel"                    "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5125"
         "AbilityValues"
         {
 			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
@@ -153,6 +158,7 @@
 		"AbilityCooldown"				"25"
 		"AbilityManaCost"				"250"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5550"
 		"AbilityValues"
 		{
 			"bonus_strength"		"10 15 25 50 75 150 300 450"
@@ -176,6 +182,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCooldown"				"25"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5050"
 		"AbilityValues"
 		{
 			"damage_bonus"					"55 100 200 400 800 1600 3200 6400"
@@ -194,6 +201,7 @@
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "all/ring1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"6275"
 		"AbilityValues"
 		{
 			"cast_range"            "350"
@@ -214,12 +222,13 @@
 		"AbilityTextureName" 			"item_bloodstone"
 		"ScriptFile"					"items/custom_items/item_bloodstone_lua"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4400"
 		"AbilityValues"
 		{
 			"bonus_health"			"425 700 1000 2000 4000 8000 16000 32000"
 			"bonus_mana"			"100 150 250 350 500 650 800 1000"
 			"bonus_intellect"			"16 24 48 80 120 256 512 758"
-			"mana_regen_multiplier"		"100"
+			"mana_regen_multiplier"		"5 10 15 20 25 30 35 40"
 			"spell_amp"				"16 24 48 80 120 256 512 758"
 			"spell_lifesteal_amp"			"30"
 			"hero_lifesteal"		"4 7 10 13 16 19 22 25"
@@ -243,6 +252,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4700"
 		"AbilityValues"
 		{
 			"bonus_damage"			"60 100 200 400 800 1600 3200 6400"
@@ -261,6 +271,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"300"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"300"
 		"AbilityValues"
 		{
             "armor_reduction"		"2"
@@ -275,6 +286,7 @@
 		"AbilityTextureName"	        "item_desolator"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"3500"
 		"AbilityValues"
 		{
 			"bonus_damage"			"50 120 360 1080 2160 4320 8500 12750"
@@ -287,10 +299,11 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_butterfly"
-		"ScriptFile"					"items/custom_items/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4975"
 		"AbilityValues"
 		{
 			"bonus_agility"			"30 60 120 180 240 360 480 960"
@@ -308,6 +321,7 @@
 		"AbilityTextureName"	        "item_monkey_king_bar"
 		"ScriptFile"					"items/custom_items/item_monkey_king_bar_lua"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4900"
 		"AbilityValues"
 		{
 			"bonus_damage"			"42 80 240 720 1500 3000 6000 12000"  
@@ -330,6 +344,7 @@
 		"AbilityCooldown"				"4.0"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4100"
 		"AbilityValues"
 		{
 			"bonus_damage"			"55 70 140 280 560 1120 2240 4480"
@@ -357,6 +372,7 @@
 		"AbilityManaCost"				"50"
 		"ScriptFile"					"items/custom_items/item_veil_of_discord_lua"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"1525"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"4 8 16 32 64 128 256 512"
@@ -379,6 +395,7 @@
 		"AbilityTextureName" 			"item_shivas_guard"	
 		"MaxUpgradeLevel"				"8"
 		"ItemBaseLevel"					"1"
+		"ItemCost"						"4850"
 		"AbilityValues"
 		{
 			"bonus_intellect"		"30 50 100 150 250 500 750 1250"
@@ -404,6 +421,7 @@
 		"AbilityCastRange"				"1200"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"3725"
 		"AbilityValues"
 		{
 			"bonus_health"			"500 1000 2000 4000 8000 16000 32000 64000"
@@ -429,6 +447,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5100"
 		"AbilityValues"
 		{
 			"bonus_strength"		"40 70 100 150 250 500 750 1250"
@@ -448,6 +467,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5100"
 		"AbilityValues"
 		{
 			"bonus_damage"			"70 140 280 560 1120 2240 4480 9000"
@@ -464,6 +484,7 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4200"
         "AbilityValues"
         {
 			"bonus_dmg"					"0.1 0.15 0.2 0.25 0.3 0.4 0.5"
@@ -481,6 +502,7 @@
 		"ItemBaseLevel"					"1"
 		"AbilityTextureName"	        "item_kaya"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"2100"
 		"AbilityValues"
 		{
 			"bonus_intellect"			"16 32 64 128 256 512 768 1024"
@@ -493,11 +515,12 @@
 	"item_vladmir_lua"
 	{
 		"BaseClass"						"item_lua"
-		"AbilityTextureName"			"item_vladmir"
+		"AbilityTextureName"			"all/vladmir_1"
 		"ScriptFile"					"items/custom_items/item_vladmir_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"2450"
 		"AbilityValues"
 		{
 			"armor_aura"			"3 6 10 20 40 80 160 320"
@@ -521,6 +544,7 @@
 		"AbilityTextureName"	        "item_ethereal_blade"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4650"
 		"AbilityValues"
 		{
 			"bonus_agility"			"40 70 100 150 250 500 750 1250"
@@ -547,6 +571,7 @@
 		"AbilityCastRange"				"1200"
 		"ScriptFile"					"items/custom_items/item_pipe_lua"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"3375"
 		"AbilityValues"
 		{
 			"health_regen"			"6 12 24 48 96 192 384 700"
@@ -574,6 +599,7 @@
 		"AbilityCooldown"				"180"
 		"MaxUpgradeLevel"				"8"
 		"AbilitySharedCooldown"			"item_octarine_core_lua"
+		"ItemCost"						"4600"
 		"AbilityValues"
 		{
 			"bonus_cooldown"		"25 26 27 28 29 30 31 32"
@@ -592,6 +618,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ScriptFile"					"items/custom_items/item_skadi_lua"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5300"
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"25 50 100 200 300 400 500 600"
@@ -617,6 +644,7 @@
 		"AbilityManaCost"				"50"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"5500"
 		"AbilityValues"
 		{
 			"bonus_damage"			"24 70 140 280 560 1120 2240 4480"
@@ -643,13 +671,14 @@
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"	        "custom/pudge_heart/pudge1"
+		"AbilityTextureName"	        "all/pudge1"
 		"ScriptFile"					"items/custom_items/item_pudge_heart"
 		"AbilityCooldown"				"60.0"
 		"AbilityManaCost"				"250"
 		"AbilityCastRange"				"200"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"8400"
 		"AbilityValues"
 		{
 			"bonus_str"				"50 100 200 400 800 1200 1600 2000"
@@ -665,11 +694,12 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"	        "custom/mage_heart/mage1"
+		"AbilityTextureName"	        "all/mage1"
 		"ScriptFile"					"items/custom_items/item_mage_heart"
 		"AbilityCastRange"				"700"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"8400"
 		"AbilityValues"
 		{
 			"bonus_int"				"50 100 200 400 800 1200 1600 2000"
@@ -684,11 +714,12 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"	        "custom/agility_heart/agility1"
+		"AbilityTextureName"	        "all/agility1"
 		"ScriptFile"					"items/custom_items/item_agility_heart"
 		"AbilityCooldown"				"30.0"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"8400"
 		"AbilityValues"
 		{
 			"bonus_agi"				"50 100 200 400 800 1200 1600 2000"
@@ -702,10 +733,11 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "custom/moon/moon1"
+		"AbilityTextureName"	        "all/moon1"
 		"ScriptFile"					"items/custom_items/item_moon_shard"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"4000"
 		"AbilityValues"
 		{
 			"bonus_as"				"140 180 220 260 300 340 380 420"
@@ -718,10 +750,11 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "custom/hood_sword/hood_sword1"
+		"AbilityTextureName"	        "all/hood_sword1"
 		"ScriptFile"					"items/custom_items/item_hood_sword"
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"8"
+		"ItemCost"						"6700"
 		"AbilityValues"
 		{
 			"bonus_magic_resist"	"25 30 35 40 45 50 55 60"

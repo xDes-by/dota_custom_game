@@ -201,8 +201,8 @@ function modifier_ability_npc_boss_location8_secont_phase:OnTakeDamage(data)
     if data.unit ~= self:GetParent() then
         return
     end
-    -- if not self.secon_phase and self:GetParent():GetHealth() <= self:GetParent():GetMaxHealth() / 2 then
-        -- self.secon_phase = true
+    if not self.secon_phase and self:GetParent():GetHealth() <= self:GetParent():GetMaxHealth() / 2 then
+        self.secon_phase = true
         local pos = self:GetCaster():GetAbsOrigin()
 
         local direction_1 = RotatePosition(Vector(0,0,0), QAngle(0,30,0), self:GetCaster():GetForwardVector() * -1)
@@ -223,7 +223,7 @@ function modifier_ability_npc_boss_location8_secont_phase:OnTakeDamage(data)
                 ability:StartCooldown(5)
             end
         end
-    -- end
+    end
 end
 
 modifier_snap_second_phase = class({})

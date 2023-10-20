@@ -15,7 +15,7 @@ creeps_zone6 = {"swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4"}
 creeps_zone7 = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}
 creeps_zone8 = {"last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
 bosses = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dota_gaven_stone","npc_dust_boss","npc_swamp_boss","medusa_ward","npc_snow_boss","npc_dota_creature_tusk",
-"npc_mega_boss","npc_dota_custom_tower_dire_1","npc_dota_custom_tower_dire_2","npc_dota_custom_tower_dire_3","npc_dota_custom_tower_dire_4","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel"}
+"npc_mega_boss","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel"}
 
 function add_modifier_death(unit, unitname)
 	unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
@@ -113,7 +113,7 @@ function creep_spawner:bosses()
 		for _,t in ipairs(bosses) do
 			if t and t == unit:GetUnitName() then 
 				Rules:difficality_modifier(unit)
-				creep_spawner:add_items(unit)
+				unit:add_items()
 				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 			end
 		end			
@@ -122,76 +122,39 @@ function creep_spawner:bosses()
 	local newItem = CreateItem( "item_points_big", nil, nil )
 	local drop = CreateItemOnPositionForLaunch( points, newItem )
 end
-	
-function creep_spawner:add_items(unit)	
-	if unit:GetUnitName() == "npc_forest_boss" or unit:GetUnitName() == "npc_village_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_1[RandomInt(1,#items_level_1)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
+
+local creep_name_TO_item_level = {
+	["npc_forest_boss"] = 1,
+	["npc_village_boss"] = 1,
+	["npc_mines_boss"] = 2,
+	["npc_dust_boss"] = 3,
+	["npc_swamp_boss"] = 4,
+	["npc_snow_boss"] = 5,
+	["raid_boss"] = 5,
+	["raid_boss2"] = 5,
+	["raid_boss3"] = 5,
+	["raid_boss4"] = 5,
+	["npc_boss_location8"] = 6,
+	["npc_mega_boss"] = 6,
+	["npc_boss_plague_squirrel"] = 6,
+}
+
+function CDOTA_BaseNPC:add_items(level)
+	local name = self:GetUnitName()
+	if not level then
+		level = creep_name_TO_item_level[name]
+	end
+	local empty_slots = 0
+	for i=0,5 do
+		if self:GetItemInSlot(i) == nil then
+			empty_slots = empty_slots + 1
 		end
 	end
-	
-	if unit:GetUnitName() == "npc_mines_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_2[RandomInt(1,#items_level_2)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
+	local names = table.random_some(avaliable_creeps_items, empty_slots)
+	for _,item_name in pairs(names) do
+		local item = self:AddItemByName(item_name)
+		item:SetLevel(level)
 	end
-
-	if unit:GetUnitName() == "npc_dust_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_3[RandomInt(1,#items_level_3)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
-
-	if unit:GetUnitName() == "npc_swamp_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_4[RandomInt(1,#items_level_4)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
-
-	if unit:GetUnitName() == "npc_snow_boss" or unit:GetUnitName() == "raid_boss" or unit:GetUnitName() == "raid_boss2" or unit:GetUnitName() == "raid_boss3" or unit:GetUnitName() == "raid_boss4" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_5[RandomInt(1,#items_level_5)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
-
-	if unit:GetUnitName() == "npc_boss_location8" or unit:GetUnitName() == "npc_mega_boss" or unit:GetUnitName() == "npc_boss_plague_squirrel" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_6[RandomInt(1,#items_level_6)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end	
-
-	local mega = Entities:FindByName( nil, "npc_mega_boss")
-	mega:AddNewModifier( mega, nil, "modifier_invulnerable", { } )
 end
 
 function spawn_creeps_village()
@@ -520,48 +483,34 @@ function donate_level()
 	end
 end
 
-function check_trigger_actiate()
-	local triggerName = thisEntity:GetName()
 
+local creepDict = {
+    [0] = {mini = forest_mini, big = forest_big},
+    [1] = {mini = village_mini, big = village_big},
+    [2] = {mini = mines_mini, big = mines_big},
+    [3] = {mini = dust_mini, big = dust_big},
+    [4] = {mini = cemetery_mini, big = cemetery_big},
+    [5] = {mini = swamp_mini, big = swamp_big},
+    [6] = {mini = snow_mini, big = snow_big},
+    [7] = {mini = last_mini, big = last_big}
+    -- [8] = {mini = magma_mini, big = magma_big}   -- в файле data дописать крипов
+}
+
+function check_trigger_actiate()
 	if _G.kill_invoker then 
 		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
 		return
 	end
 
-	if _G.don_spawn_level == 0 then 
-		mini_creep = forest_mini[RandomInt(1,#forest_mini)]
-		big_creep = forest_big[RandomInt(1,#forest_big)]
-	end
-	if _G.don_spawn_level == 1 then 
-		mini_creep = village_mini[RandomInt(1,#village_mini)]
-		big_creep = village_big[RandomInt(1,#village_big)]
-	end
-	if _G.don_spawn_level == 2 then 
-		mini_creep = mines_mini[RandomInt(1,#mines_mini)]
-		big_creep = mines_big[RandomInt(1,#mines_big)]
-	end
-	if _G.don_spawn_level == 3 then 
-		mini_creep = dust_mini[RandomInt(1,#dust_mini)]
-		big_creep = dust_big[RandomInt(1,#dust_big)]
-	end
-	if _G.don_spawn_level == 4 then 
-		mini_creep = cemetery_mini[RandomInt(1,#cemetery_mini)]
-		big_creep = cemetery_big[RandomInt(1,#cemetery_big)]
-	end
-	if _G.don_spawn_level == 5 then  
-		mini_creep = swamp_mini[RandomInt(1,#swamp_mini)]
-		big_creep = swamp_big[RandomInt(1,#swamp_big)]
-	end
-	if _G.don_spawn_level == 6 then 
-		mini_creep = snow_mini[RandomInt(1,#snow_mini)]
-		big_creep = snow_big[RandomInt(1,#snow_big)]
-	end
-	if _G.don_spawn_level == 7 then 
-		mini_creep = last_mini[RandomInt(1,#last_mini)]
-		big_creep = last_big[RandomInt(1,#last_big)]
-	end
-	
-	spawn_creeps(triggerName, mini_creep, big_creep)
+    local triggerName = thisEntity:GetName()
+    local point = "point_donate_creeps_"..string.sub(triggerName, -1)
+
+    if creepDict[_G.don_spawn_level] then
+        local levelCreeps = creepDict[_G.don_spawn_level]
+        local mini_creep = levelCreeps.mini[RandomInt(1, #levelCreeps.mini)]
+        local big_creep = levelCreeps.big[RandomInt(1, #levelCreeps.big)]
+        spawn_creeps(point, mini_creep, big_creep)
+    end
 end
 
 function spawn_creeps(triggerName, mini_creep, big_creep)

@@ -3,11 +3,20 @@ item_skadi_lua = class({})
 LinkLuaModifier("modifier_item_skadi_lua", 'items/custom_items/item_skadi_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_skadi_slow_lua", 'items/custom_items/item_skadi_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-modifier_item_skadi_lua = class({})
+function item_skadi_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/skadix_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_skadi_lua" .. level
+	end
+end
 
 function item_skadi_lua:GetIntrinsicModifierName()
 	return "modifier_item_skadi_lua"
 end
+
+modifier_item_skadi_lua = class({})
 
 function modifier_item_skadi_lua:IsHidden()
 	return true
@@ -30,24 +39,13 @@ function modifier_item_skadi_lua:OnCreated()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_skadi_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_skadi_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
 function modifier_item_skadi_lua:DeclareFunctions()

@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_item_shivas_guard_lua", 'items/custom_items/item_shiva
 LinkLuaModifier("modifier_item_shivas_guard_aura_lua", 'items/custom_items/item_shivas_guard_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_shivas_guard_slow_lua", 'items/custom_items/item_shivas_guard_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_shivas_guard_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/shivas_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_shivas_guard_lua" .. level
+	end
+end
+
 function item_shivas_guard_lua:GetIntrinsicModifierName()
 	return "modifier_item_shivas_guard_lua"
 end
@@ -127,24 +136,12 @@ function modifier_item_shivas_guard_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_shivas_guard_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_shivas_guard_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_shivas_guard_lua:DeclareFunctions()

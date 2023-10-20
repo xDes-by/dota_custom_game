@@ -3,6 +3,15 @@ item_hurricane_pike = class({})
 LinkLuaModifier("modifier_hurricane_multishot", "items/custom_items/item_hurricane_pike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_custom_dragon_lance3_reduced_damage","items/custom_items/item_hurricane_pike", LUA_MODIFIER_MOTION_NONE)
 
+function item_hurricane_pike:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/hurricane_pike_" .. level
+	else
+		return "gem" .. self.GemType .. "/hurricane_pike_" .. level .. "_gem" .. self.GemType
+	end
+end
+
 function item_hurricane_pike:GetIntrinsicModifierName()
     return "modifier_hurricane_multishot"
 end
@@ -25,24 +34,15 @@ function modifier_hurricane_multishot:OnCreated()
     self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
     self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
     self.base_attack_range = self:GetAbility():GetSpecialValueFor("base_attack_range")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_hurricane_multishot:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_hurricane_multishot:OnRefresh()
+    self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+    self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+    self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+    self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+    self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
+    self.base_attack_range = self:GetAbility():GetSpecialValueFor("base_attack_range")
 end
 
 function modifier_hurricane_multishot:DeclareFunctions()

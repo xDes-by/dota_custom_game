@@ -3,6 +3,15 @@ item_hood_sword_lua = class({})
 LinkLuaModifier("modifier_item_hood_sword_passive", 'items/custom_items/item_hood_sword.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_hood_sword_passive_debuff", 'items/custom_items/item_hood_sword.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_hood_sword_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/hood_sword" .. level
+	else
+		return "gem" .. self.GemType .. "/item_hood_sword_lua" .. level
+	end
+end
+
 function item_hood_sword_lua:GetIntrinsicModifierName()
 	return "modifier_item_hood_sword_passive"
 end
@@ -23,7 +32,7 @@ function modifier_item_hood_sword_passive:IsPurgable()
 	return false
 end
 
-function modifier_item_hood_sword_passive:OnCreated( kv )
+function modifier_item_hood_sword_passive:OnCreated()
 	self.parent = self:GetParent()
     self.bonus_magic_resist = self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
     self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
@@ -36,28 +45,24 @@ function modifier_item_hood_sword_passive:OnCreated( kv )
 	self.magic_debuff = self:GetAbility():GetSpecialValueFor("magic_debuff")
     self.phis_debuff = self:GetAbility():GetSpecialValueFor("phis_debuff")
     self.duration = self:GetAbility():GetSpecialValueFor("duration")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_hood_sword_passive:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_hood_sword_passive:OnRefresh()
+    self.bonus_magic_resist = self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
+    self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
+    self.bonus_str = self:GetAbility():GetSpecialValueFor("bonus_str")
+    self.bonus_dmg = self:GetAbility():GetSpecialValueFor("bonus_dmg")
+    self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+    self.bonus_status = self:GetAbility():GetSpecialValueFor("bonus_status")
+    self.bonus_amp_hp = self:GetAbility():GetSpecialValueFor("bonus_amp_hp")
+   
+	self.magic_debuff = self:GetAbility():GetSpecialValueFor("magic_debuff")
+    self.phis_debuff = self:GetAbility():GetSpecialValueFor("phis_debuff")
+    self.duration = self:GetAbility():GetSpecialValueFor("duration")
 end
 
 function modifier_item_hood_sword_passive:DeclareFunctions()
-	local funcs = {    
+	return {    
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,		
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,    
@@ -67,7 +72,6 @@ function modifier_item_hood_sword_passive:DeclareFunctions()
 		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
-	return funcs
 end
 
 function modifier_item_hood_sword_passive:GetModifierMagicalResistanceBonus( params )
@@ -130,12 +134,11 @@ function modifier_item_hood_sword_passive_debuff:GetAttributes()
 end
 
 function modifier_item_hood_sword_passive_debuff:DeclareFunctions()
-	local funcs = {    
+	return {    
 		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_MAGICDAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_ATTRIBUTE_NONE
 	}
-	return funcs
 end
 
 function modifier_item_hood_sword_passive_debuff:GetModifierDamageOutgoing_Percentage( params )

@@ -3,6 +3,15 @@ item_bloodstone_lua = class({})
 LinkLuaModifier("modifier_item_bloodstone_lua", 'items/custom_items/item_bloodstone_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_blodstone_active_lua", 'items/custom_items/item_bloodstone_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_bloodstone_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/bloodstone_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_bloodstone_lua" .. level
+	end
+end
+
 function item_bloodstone_lua:GetIntrinsicModifierName()
 	return "modifier_item_bloodstone_lua"
 end
@@ -41,25 +50,17 @@ function modifier_item_bloodstone_lua:OnCreated()
 	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
 	self.creep_lifesteal= self:GetAbility():GetSpecialValueFor("creep_lifesteal")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_bloodstone_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_bloodstone_lua:OnRefresh()
+	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+	self.mana_regen_multiplier = self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+	self.spell_amp = self:GetAbility():GetSpecialValueFor("spell_amp")
+	self.creep_lifesteal= self:GetAbility():GetSpecialValueFor("creep_lifesteal")
 end
+
 function modifier_item_bloodstone_lua:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_HEALTH_BONUS,
@@ -69,7 +70,6 @@ function modifier_item_bloodstone_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 
 		MODIFIER_EVENT_ON_TAKEDAMAGE
-
 	}
 end
 

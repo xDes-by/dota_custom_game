@@ -14,6 +14,12 @@ function modifier_dummy_damage:DeclareFunctions()
 	}
 end
 
+function modifier_dummy_damage:CheckState()
+	return {
+		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+	}
+end
+
 _G.PlayerDamagePhys = {}
 _G.PlayerDamageMag = {}
 _G.PlayerDamagePure = {}

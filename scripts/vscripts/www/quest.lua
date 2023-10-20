@@ -1174,10 +1174,10 @@ function Quests:OnEntityKilled( keys )
 				local unit = CreateUnitByName("npc_quest_dragon", killedUnit:GetOrigin(), false, nil, nil, DOTA_TEAM_BADGUYS)
 				b1 = 0
 				while b1 < 6 do
-					add_item = items_level_5[RandomInt(1,#items_level_5)]
+					add_item = avaliable_creeps_items[RandomInt(1,#avaliable_creeps_items)]
 					while not unit:HasItemInInventory(add_item) do
 						b1 = b1 + 1
-						unit:AddItemByName(add_item)
+						unit:AddItemByName(add_item):SetLevel(5)
 					end
 				end
 				if diff_wave.wavedef == "Easy" then
