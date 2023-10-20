@@ -879,7 +879,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			add_item = items_level_inv[RandomInt(1,#items_level_inv)]
 				while not invoker:HasItemInInventory(add_item) do
 				inv_item = inv_item + 1
-				invoker:AddItemByName(add_item)
+				invoker:AddItemByName(add_item):SetLevel(10)
 			end
 		end
 		

@@ -17,8 +17,9 @@
 			"item"		"item_desolator_lua"
 			"item"		"item_agility_heart_lua"
 			"item"		"item_hood_sword_lua"
-			"item"		"item_sabre_blade1"
-			"item"		"item_hurricane_pike1"
+			"item"		"item_sabre_blade"
+			"item"		"item_hurricane_pike"
+			"item"		"item_butterfly_lua"
 		}
 		
 		"MAGICAL CARRY ITEMS"

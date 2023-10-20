@@ -228,7 +228,7 @@
 			"bonus_health"			"425 700 1000 2000 4000 8000 16000 32000"
 			"bonus_mana"			"100 150 250 350 500 650 800 1000"
 			"bonus_intellect"			"16 24 48 80 120 256 512 758"
-			"mana_regen_multiplier"		"100"
+			"mana_regen_multiplier"		"5 10 15 20 25 30 35 40"
 			"spell_amp"				"16 24 48 80 120 256 512 758"
 			"spell_lifesteal_amp"			"30"
 			"hero_lifesteal"		"4 7 10 13 16 19 22 25"
@@ -299,7 +299,7 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_butterfly"
-		"ScriptFile"					"items/custom_items/item_butterfly_lua"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"MaxUpgradeLevel"				"8"
