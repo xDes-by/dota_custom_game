@@ -1,9 +1,17 @@
 item_sheepstick_lua = class({})
 
-LinkLuaModifier( "modifier_sheepstick_lua_hex", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sheepstick_lua", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sheepstick_lua_ignore", "items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier("modifier_sheepstick_lua_flame","items/custom_items/item_sheepstick_lua", LUA_MODIFIER_MOTION_NONE)
+
+function item_sheepstick_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/hex_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_sheepstick_lua" .. level
+	end
+end
 
 function item_sheepstick_lua:GetIntrinsicModifierName()
 	return "modifier_sheepstick_lua"
@@ -12,28 +20,11 @@ end
 function item_sheepstick_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-
-	if target:TriggerSpellAbsorb( self ) then return end
-
-	self.sheep_duration = self:GetSpecialValueFor("sheep_duration")
-	if target:FindModifierByName("modifier_sheepstick_lua_ignore") ==  nil then
-
-		target:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_sheepstick_lua_ignore", -- modifier name
-		{ duration = 10 } -- kv
-	)
-	
-	target:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_sheepstick_lua_hex", -- modifier name
-		{ duration = self.sheep_duration } -- kv
-	)
-
-		local sound_cast = "Hero_Lion.Voodoo"
-		EmitSoundOn( sound_cast, caster )
+	sheep_duration = self:GetSpecialValueFor("sheep_duration")
+	if not target:FindModifierByName("modifier_sheepstick_lua_ignore") then
+		target:AddNewModifier(caster, self, "modifier_sheepstick_lua_ignore", { duration = 10 })
+		target:AddNewModifier(caster, self, "modifier_hexxed", { duration = sheep_duration })
+		EmitSoundOn( "Hero_Lion.Voodoo", caster )
 	end
 end
 
@@ -49,100 +40,6 @@ end
 
 function modifier_sheepstick_lua_ignore:IsPurgable()
 	return false
-end
-
-modifier_sheepstick_lua_hex = class({})
-
-
---------------------------------------------------------------------------------
--- Classifications
-function modifier_sheepstick_lua_hex:IsHidden()
-	return false
-end
-
-function modifier_sheepstick_lua_hex:IsDebuff()
-	return true
-end
-
-function modifier_sheepstick_lua_hex:IsPurgable()
-	return true
-end
-
---------------------------------------------------------------------------------
--- Initializations
-function modifier_sheepstick_lua_hex:OnCreated( kv )
-	-- references
-	self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor( "sheep_movement_speed" )
-	self.model = "models/props_gameplay/frog.vmdl"
-
-	if IsServer() then
-		-- play effects
-		self:PlayEffects( true )
-
-	end
-end
-
-function modifier_sheepstick_lua_hex:OnRefresh( kv )
-	-- references
-	self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor( "sheep_movement_speed" )
-	if IsServer() then
-		-- play effects
-		self:PlayEffects( true )
-	end
-end
-
-function modifier_sheepstick_lua_hex:OnDestroy( kv )
-	if IsServer() then
-		-- play effects
-		self:PlayEffects( false )
-	end
-end
-
---------------------------------------------------------------------------------
--- Modifier Effects
-function modifier_sheepstick_lua_hex:DeclareFunctions()
-	return 
-	{
-		MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
-		MODIFIER_PROPERTY_MODEL_CHANGE,
-	}
-
-	
-end
-
-function modifier_sheepstick_lua_hex:GetModifierMoveSpeedOverride()
-	return self.sheep_movement_speed
-end
-function modifier_sheepstick_lua_hex:GetModifierModelChange()
-	return self.model
-end
-
---------------------------------------------------------------------------------
--- Status Effects
-
-function modifier_sheepstick_lua_hex:CheckState()
-	return 
-	{
-	[MODIFIER_STATE_HEXED] = true,
-	[MODIFIER_STATE_DISARMED] = true,
-	[MODIFIER_STATE_SILENCED] = true,
-	[MODIFIER_STATE_MUTED] = true,
-	}
-
-end
-
---------------------------------------------------------------------------------
--- Graphics & Animations
-function modifier_sheepstick_lua_hex:PlayEffects( bStart )
-	local sound_cast = "Hero_Lion.Hex.Target"
-	local particle_cast = "particles/units/heroes/hero_lion/lion_spell_voodoo.vpcf"
-
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN, self:GetParent() )
-	ParticleManager:ReleaseParticleIndex( effect_cast )
-
-	if bStart then
-		EmitSoundOn( sound_cast, self:GetParent() )
-	end
 end
 
 -----------------------------------------------------------------------------------------
@@ -170,24 +67,15 @@ function modifier_sheepstick_lua:OnCreated()
     self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 	self.projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_sheepstick_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_sheepstick_lua:OnRefresh()
+	self.parent = self:GetParent()
+    self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+    self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
+    self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
+	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	self.projectile_speed = self:GetAbility():GetSpecialValueFor("projectile_speed")
 end
 
 function modifier_sheepstick_lua:DeclareFunctions()

@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_item_moon_shard_lua_passive", 'items/custom_items/item
 LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive_effect", 'items/custom_items/item_moon_shard.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_moon_shard_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/moon" .. level
+	else
+		return "gem" .. self.GemType .. "/item_moon_shard_lua" .. level
+	end
+end
+
 function item_moon_shard_lua:GetIntrinsicModifierName()
 	return "modifier_item_moon_shard_lua_passive"
 end
@@ -16,27 +25,32 @@ function modifier_item_moon_shard_lua_passive:GetAttributes()	return MODIFIER_AT
 function modifier_item_moon_shard_lua_passive:OnCreated()
 	self.parent = self:GetParent()
 	self.bonus_as = self:GetAbility():GetSpecialValueFor("bonus_as")
-	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive_aura_positive") then
-		if not IsServer() then return end
-		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_moon_shard_lua_passive_aura_positive", {})
-	end
 	if not IsServer() then
 		return
 	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
+	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive_aura_positive") then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_moon_shard_lua_passive_aura_positive", {})
+	end
+end
+
+function modifier_item_moon_shard_lua_passive:OnRefresh()
+	self.parent = self:GetParent()
+	self.bonus_as = self:GetAbility():GetSpecialValueFor("bonus_as")
+	if not IsServer() then
+		return
+	end
+	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive") then
+		self:GetCaster():RemoveModifierByName("modifier_item_moon_shard_lua_passive_aura_positive")
+		self:GetCaster():RemoveModifierByName("modifier_item_moon_shard_lua_passive_aura_positive_effect")
+	end
+	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive_aura_positive") then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_item_moon_shard_lua_passive_aura_positive", {})
 	end
 end
 
 function modifier_item_moon_shard_lua_passive:OnDestroy()
 	if not IsServer() then 
 		return 
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
 	if not self:GetCaster():HasModifier("modifier_item_moon_shard_lua_passive") then
 		self:GetCaster():RemoveModifierByName("modifier_item_moon_shard_lua_passive_aura_positive")
@@ -56,7 +70,6 @@ function modifier_item_moon_shard_lua_passive:GetModifierAttackSpeedBonus_Consta
 		return self.bonus_as
 
 end
---end
 
 modifier_item_moon_shard_lua_passive_aura_positive = class({})
 function modifier_item_moon_shard_lua_passive_aura_positive:IsHidden()		return true end

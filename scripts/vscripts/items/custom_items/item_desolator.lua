@@ -44,6 +44,15 @@ item_desolator_lua = class({})
 
 LinkLuaModifier( "modifier_item_desolator_lua", "items/custom_items/item_desolator.lua", LUA_MODIFIER_MOTION_NONE )
 
+function item_desolator_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/desolator_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_desolator_lua" .. level
+	end
+end
+
 function item_desolator_lua:GetIntrinsicModifierName()
 	return "modifier_item_desolator_lua" 
 end
@@ -70,24 +79,11 @@ function modifier_item_desolator_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	self.corruption_armor = self:GetAbility():GetSpecialValueFor("corruption_armor")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_desolator_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_desolator_lua:OnRefresh()
+	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+	self.corruption_armor = self:GetAbility():GetSpecialValueFor("corruption_armor")
 end
 
 function modifier_item_desolator_lua:DeclareFunctions()

@@ -3,6 +3,15 @@ LinkLuaModifier("modifier_satanic_lua_active", "items/custom_items/item_satanic"
 
 item_satanic_lua = class({})
 
+function item_satanic_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/satanic" .. level
+	else
+		return "gem" .. self.GemType .. "/item_satanic_lua" .. level
+	end
+end
+
 function item_satanic_lua:GetIntrinsicModifierName()
 	return "modifier_satanic_lua"
 end
@@ -26,24 +35,15 @@ function modifier_satanic_lua:GetAttributes() return MODIFIER_ATTRIBUTE_MULTIPLE
 function modifier_satanic_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_pct")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+	self.damage_bonus = self:GetAbility():GetSpecialValueFor("damage_bonus")
+	self.strength_bonus = self:GetAbility():GetSpecialValueFor("strength_bonus")
 end
 
-function modifier_satanic_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_satanic_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_pct")
+	self.damage_bonus = self:GetAbility():GetSpecialValueFor("damage_bonus")
+	self.strength_bonus = self:GetAbility():GetSpecialValueFor("strength_bonus")
 end
 
 function modifier_satanic_lua:DeclareFunctions()
@@ -55,15 +55,12 @@ function modifier_satanic_lua:DeclareFunctions()
 end
 
 function modifier_satanic_lua:OnAttackLanded( params )
-	if IsServer() then
-	local attacker = self:GetParent()	
-	if attacker ~= params.attacker then
+	if self:GetParent() ~= params.attacker then
 		return
 	end
-		local heal = params.damage * self.lifesteal_aura/100
-		self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
-		self:PlayEffects( self:GetParent() )
-	end
+	local heal = params.damage * self.lifesteal_aura/100
+	self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
+	self:PlayEffects( self:GetParent() )
 end
 
 function modifier_satanic_lua:PlayEffects( target )
@@ -74,27 +71,27 @@ function modifier_satanic_lua:PlayEffects( target )
 end
 
 function modifier_satanic_lua:GetModifierPreAttack_BonusDamage()
-	if self:GetAbility() then
-		return self:GetAbility():GetSpecialValueFor("damage_bonus")
-	end
+	return self.damage_bonus
 end
 
 function modifier_satanic_lua:GetModifierBonusStats_Strength()
-	if self:GetAbility() then
-		return self:GetAbility():GetSpecialValueFor("strength_bonus")
-	end
+	return self.strength_bonus
 end
 
 ------------------------------------------------------------------------------------------------------
 
-modifier_satanic_lua_active = modifier_satanic_lua_active or class({})
+modifier_satanic_lua_active = class({})
 
 function modifier_satanic_lua_active:GetEffectName()
 	return "particles/items2_fx/satanic_buff.vpcf"
 end
 
 function modifier_satanic_lua_active:OnCreated()
-self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_bonus")
+	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_bonus")
+end
+
+function modifier_satanic_lua_active:OnRefresh()
+	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_bonus")
 end
 
 function modifier_satanic_lua_active:DeclareFunctions()
@@ -103,16 +100,13 @@ function modifier_satanic_lua_active:DeclareFunctions()
 	}
 end
 
-function modifier_satanic_lua_active:OnAttackLanded( params )
-	if IsServer() then
-	local attacker = self:GetParent()	
-	if attacker ~= params.attacker then
+function modifier_satanic_lua_active:OnAttackLanded( params )	
+	if self:GetParent() ~= params.attacker then
 		return
 	end
-		local heal = params.damage * self.lifesteal_aura/100
-		self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
-		self:PlayEffects( self:GetParent() )
-	end
+	local heal = params.damage * self.lifesteal_aura/100
+	self:GetParent():HealWithParams(heal, self:GetAbility(), true, true, self:GetParent(), false)
+	self:PlayEffects( self:GetParent() )
 end
 
 function modifier_satanic_lua_active:PlayEffects( target )

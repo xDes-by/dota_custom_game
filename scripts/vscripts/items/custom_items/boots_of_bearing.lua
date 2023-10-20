@@ -12,6 +12,15 @@ modifier_boots_of_bearing_lua_aura_positive_effect = class({})
 modifier_boots_of_bearing_lua_yaskorost = class ({})
 modifier_boots_of_bearing_lua_active = class ({})
 
+function item_boots_of_bearing_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/boots_of_bearing_lua" .. level
+	else
+		return "gem" .. self.GemType .. "/boots_of_bearing_lua" .. level .. "_gem" .. self.GemType
+	end
+end
+
 function item_boots_of_bearing_lua:GetIntrinsicModifierName()
     return "modifier_boots_of_bearing_lua"
 end
@@ -30,24 +39,31 @@ end
 
 function modifier_boots_of_bearing_lua:OnCreated()
     self.parent = self:GetParent()
+    self.bonus_str = self:GetAbility():GetSpecialValueFor("bonus_str")
+    self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
+    self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+    self.bonus_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
     if not IsServer() then
         return 
     end
     self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_boots_of_bearing_lua_speed_aura",nil)
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+end
+
+function modifier_boots_of_bearing_lua:OnRefresh()
+    self.bonus_str = self:GetAbility():GetSpecialValueFor("bonus_str")
+    self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
+    self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+    self.bonus_movement_speed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+    if not IsServer() then
+        return 
+    end
+    self:GetParent():RemoveModifierByName("modifier_boots_of_bearing_lua_speed_aura")
+    self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_boots_of_bearing_lua_speed_aura",nil)
 end
 
 function modifier_boots_of_bearing_lua:OnDestroy()
 	if not IsServer() then
 		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
 	end
     self:GetParent():RemoveModifierByName("modifier_boots_of_bearing_lua_speed_aura")
 end
@@ -71,19 +87,19 @@ function modifier_boots_of_bearing_lua:OnDeath(data)
 end
 
 function modifier_boots_of_bearing_lua:GetModifierBonusStats_Strength()
-    return self:GetAbility():GetSpecialValueFor("bonus_str")
+    return self.bonus_str
 end
 
 function modifier_boots_of_bearing_lua:GetModifierBonusStats_Intellect()
-    return self:GetAbility():GetSpecialValueFor("bonus_int")
+    return self.bonus_int
 end
 
 function modifier_boots_of_bearing_lua:GetModifierConstantHealthRegen()
-    return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+    return self.bonus_health_regen
 end
 
 function modifier_boots_of_bearing_lua:GetModifierMoveSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+    return self.bonus_movement_speed
 end
 
 function modifier_boots_of_bearing_lua_speed_aura:IsHidden() return true end
@@ -125,9 +141,9 @@ end
 
 
 function modifier_boots_of_bearing_lua_yaskorost:DeclareFunctions()
-return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
-}
+    return {
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+    }
 end
 
 function modifier_boots_of_bearing_lua_yaskorost:GetModifierMoveSpeedBonus_Constant()
@@ -154,14 +170,7 @@ function modifier_boots_of_bearing_lua_active:GetModifierAttackSpeedBonus_Consta
 end
 
 function modifier_boots_of_bearing_lua_active:OnCreated()
-    if IsServer() then
-        if not self:GetAbility() then self:Destroy() end
-    end
-
-    -- Ability properties
-    self.particle_buff = "particles/items_fx/drum_of_endurance_buff.vpcf"
-    -- Apply particle effects
-    local particle_buff_fx = ParticleManager:CreateParticle(self.particle_buff, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle_buff_fx = ParticleManager:CreateParticle("particles/items_fx/drum_of_endurance_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
     ParticleManager:SetParticleControl(particle_buff_fx, 0, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(particle_buff_fx, 1, Vector(0,0,0))
     self:AddParticle(particle_buff_fx, false, false, -1, false, false)

@@ -5,6 +5,15 @@ LinkLuaModifier("modifier_item_vladmir_aura_lua", 'items/custom_items/item_vladm
 
 modifier_item_vladmir_lua = class({})
 
+function item_vladmir_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/vladmir_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_vladmir_lua" .. level
+	end
+end
+
 function item_vladmir_lua:GetIntrinsicModifierName()
 	return "modifier_item_vladmir_lua"
 end
@@ -14,17 +23,11 @@ function modifier_item_vladmir_lua:IsPurgable() return false end
 function modifier_item_vladmir_lua:RemoveOnDeath() return false end
 
 function modifier_item_vladmir_lua:OnCreated()
-	self.armor_aura = self:GetAbility():GetSpecialValueFor("armor_aura")
-	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
-	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
-	self.damage_aura = self:GetAbility():GetSpecialValueFor("damage_aura")
 	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
 function modifier_item_vladmir_lua:GetAuraRadius()
-	if self:GetAbility() then
-		return self:GetAbility():GetSpecialValueFor("aura_radius")
-	end
+	return self.aura_radius
 end
 
 function modifier_item_vladmir_lua:GetAuraSearchTeam()
@@ -69,25 +72,14 @@ function modifier_item_vladmir_aura_lua:OnCreated()
 	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
 	self.damage_aura = self:GetAbility():GetSpecialValueFor("damage_aura")
-	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_vladmir_aura_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_vladmir_aura_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.armor_aura = self:GetAbility():GetSpecialValueFor("armor_aura")
+	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
+	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
+	self.damage_aura = self:GetAbility():GetSpecialValueFor("damage_aura")
 end
 
 function modifier_item_vladmir_aura_lua:DeclareFunctions()

@@ -7,8 +7,21 @@ function item_radiance_lua:GetIntrinsicModifierName()
 	return "modifier_item_radiance_lua"
 end
 
-function item_radiance_lua:OnOwnerDied()
-	self:ToggleAbility()
+function item_radiance_lua:GetAbilityTextureName()
+	if not self:GetToggleState() then
+		return "radiance_inactive_png"
+	end
+	
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/rad_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_radiance_lua" .. level
+	end
+end
+
+function item_radiance_lua:ResetToggleOnRespawn()
+	return true
 end
 
 function item_radiance_lua:OnToggle()
@@ -39,28 +52,23 @@ end
 
 function modifier_item_radiance_lua:OnCreated()
 	self.parent = self:GetParent()
-	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 	if not IsServer() then
 		return
 	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
+	self.particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+end
+
+function modifier_item_radiance_lua:OnRefresh()
+	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_radiance_lua:OnDestroy()
-	ParticleManager:DestroyParticle(self.particle, false)
-	ParticleManager:ReleaseParticleIndex(self.particle)
 	if not IsServer() then
 		return
 	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+	ParticleManager:DestroyParticle(self.particle, false)
+	ParticleManager:ReleaseParticleIndex(self.particle)
 end
 
 function modifier_item_radiance_lua:DeclareFunctions()
@@ -102,7 +110,10 @@ end
 modifier_item_radiance_burn_lua = class({})
 
 function modifier_item_radiance_burn_lua:OnCreated()
-if not self:GetAbility() then self:Destroy() return end
+	if not self:GetAbility() then 
+		self:Destroy() 
+		return 
+	end
 	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage")
 	self.blind = self:GetAbility():GetSpecialValueFor("blind_pct")
 	if self.particle == nil then
@@ -115,7 +126,7 @@ if not self:GetAbility() then self:Destroy() return end
 end
 
 function modifier_item_radiance_burn_lua:OnDestroy()
-		if self.particle ~= nil then
+	if self.particle ~= nil then
 		ParticleManager:DestroyParticle(self.particle, false)
 		ParticleManager:ReleaseParticleIndex(self.particle)
 		self.particle = nil
@@ -134,7 +145,9 @@ end
 ------------------------------------------------
 
 function modifier_item_radiance_burn_lua:DeclareFunctions()
-	return {MODIFIER_PROPERTY_MISS_PERCENTAGE}
+	return {
+		MODIFIER_PROPERTY_MISS_PERCENTAGE
+	}
 end
 
 function modifier_item_radiance_burn_lua:GetModifierMiss_Percentage()

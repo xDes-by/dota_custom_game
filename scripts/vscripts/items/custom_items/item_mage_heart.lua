@@ -3,6 +3,15 @@ item_mage_heart_lua = class({})
 LinkLuaModifier("modifier_item_mage_heart_passive", 'items/custom_items/item_mage_heart.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_mage_heart", 'items/custom_items/item_mage_heart.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_mage_heart_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/mage" .. level
+	else
+		return "gem" .. self.GemType .. "/item_mage_heart_lua" .. level
+	end
+end
+
 function item_mage_heart_lua:GetIntrinsicModifierName()
 	return "modifier_item_mage_heart_passive"
 end
@@ -23,7 +32,7 @@ function modifier_item_mage_heart_passive:DestroyOnExpire()
 	return false
 end
 
-function modifier_item_mage_heart_passive:OnCreated( kv )
+function modifier_item_mage_heart_passive:OnCreated()
 	self.parent = self:GetParent()
     self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
     self.tick = self:GetAbility():GetSpecialValueFor("tick")
@@ -31,21 +40,11 @@ function modifier_item_mage_heart_passive:OnCreated( kv )
 		return
 	end
 	self:StartIntervalThink(self.tick)
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_mage_heart_passive:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_mage_heart_passive:OnRefresh()
+    self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
+    self.tick = self:GetAbility():GetSpecialValueFor("tick")
 end
 
 function modifier_item_mage_heart_passive:OnIntervalThink()		

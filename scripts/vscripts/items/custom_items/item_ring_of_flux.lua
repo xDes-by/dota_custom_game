@@ -2,6 +2,15 @@ item_ring_of_flux_lua = class({})
 
 LinkLuaModifier( "modifier_item_ring_of_flux_lua", "items/custom_items/item_ring_of_flux", LUA_MODIFIER_MOTION_NONE )
 
+function item_ring_of_flux_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/ring" .. level
+	else
+		return "gem" .. self.GemType .. "/item_ring_of_flux_lua" .. level
+	end
+end
+
 function item_ring_of_flux_lua:GetIntrinsicModifierName()
 	return "modifier_item_ring_of_flux_lua"
 end
@@ -28,27 +37,17 @@ function modifier_item_ring_of_flux_lua:OnCreated( kv )
 	self.spell_amp = self:GetAbility():GetSpecialValueFor( "spell_amp" )
 	self.mana = self:GetAbility():GetSpecialValueFor( "mana" )
 	self.manacostred = self:GetAbility():GetSpecialValueFor( "manacostred")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_ring_of_flux_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_ring_of_flux_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.caster = self:GetCaster()
+	self.cast_range = self:GetAbility():GetSpecialValueFor( "cast_range" )
+	self.mana_back_chance = self:GetAbility():GetSpecialValueFor( "mana_back_chance" )
+	self.spell_amp = self:GetAbility():GetSpecialValueFor( "spell_amp" )
+	self.mana = self:GetAbility():GetSpecialValueFor( "mana" )
+	self.manacostred = self:GetAbility():GetSpecialValueFor( "manacostred")
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_ring_of_flux_lua:DeclareFunctions()
 	return	{
@@ -60,39 +59,29 @@ function modifier_item_ring_of_flux_lua:DeclareFunctions()
 	}
 end
 
---------------------------------------------------------------------------------
-
-function modifier_item_ring_of_flux_lua:GetModifierManaBonus( params )
+function modifier_item_ring_of_flux_lua:GetModifierManaBonus()
 	return self.mana
 end
 
-function modifier_item_ring_of_flux_lua:GetModifierSpellAmplify_Percentage( params )
+function modifier_item_ring_of_flux_lua:GetModifierSpellAmplify_Percentage()
 	return self.spell_amp
 end
 
-function modifier_item_ring_of_flux_lua:GetModifierCastRangeBonus( params )
+function modifier_item_ring_of_flux_lua:GetModifierCastRangeBonus()
 	return self.cast_range
 end
 
-function modifier_item_ring_of_flux_lua:GetModifierPercentageManacost( params )
+function modifier_item_ring_of_flux_lua:GetModifierPercentageManacost()
 	return self.manacostred
 end
 
 function modifier_item_ring_of_flux_lua:OnSpentMana(keys)
 	if keys.unit == self:GetParent() and not keys.ability:IsToggle() and not keys.ability:IsItem() and self:GetParent().GetMaxMana then
-		self:RollForProc()
+		if RollPercentage(self.mana_back_chance ) then
+			self.proc_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+			ParticleManager:SetParticleControlEnt(self.proc_particle, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
+			ParticleManager:ReleaseParticleIndex(self.proc_particle)
+			keys.ability:RefundManaCost()
+		end
 	end
 end
-
-function modifier_item_ring_of_flux_lua:RollForProc()
-	chance = self:GetAbility():GetSpecialValueFor( "mana_back_chance" )
-	local ran = RandomInt(1,100)
-		if ran <= chance then
-		self.proc_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_essence_effect.vpcf", PATTACH_ABSORIGIN, self:GetParent())
-		ParticleManager:SetParticleControlEnt(self.proc_particle, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)
-		ParticleManager:ReleaseParticleIndex(self.proc_particle)
-	
-		self:GetParent():GiveMana(self:GetParent():GetMaxMana() * self:GetAbility():GetSpecialValueFor( "mana_back" ) * 0.01)
-	end
-end
-

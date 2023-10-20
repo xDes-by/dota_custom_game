@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+    "item_recipe_kaya_and_sange"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"0"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_kaya_and_sange"
+		"ItemRequirements"
+		{
+			"01"							"item_kaya_lua;item_sange"
+		}
+	}
+
+    "item_recipe_yasha_and_kaya"
+	{
+		"AbilityTextureName" 				"recipe"				
+		"Model"								"models/props_gameplay/recipe.vmdl"
+		"BaseClass"                     	"item_datadriven"
+		
+		"ItemCost"							"0"	
+		"ItemShopTags"						"artifacts"
+		
+		"ItemRecipe"						"1"
+		"ItemResult"						"item_yasha_and_kaya"
+		"ItemRequirements"
+		{
+			"01"							"item_kaya_lua;item_yasha"
+		}
+	}
+}

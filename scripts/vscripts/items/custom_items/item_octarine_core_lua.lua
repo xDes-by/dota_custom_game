@@ -2,6 +2,15 @@ item_octarine_core_lua = class({})
 
 LinkLuaModifier("modifier_item_octarine_core_lua", 'items/custom_items/item_octarine_core_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_octarine_core_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/octarin_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_octarine_core_lua" .. level
+	end
+end
+
 function item_octarine_core_lua:GetManaCost(iLevel)
 	return self:GetCaster():GetMaxMana()/2
 end
@@ -69,24 +78,14 @@ function modifier_item_octarine_core_lua:OnCreated()
 	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
 	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_octarine_core_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_octarine_core_lua:OnRefresh()
+	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
+	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	self.bonus_cooldown = self:GetAbility():GetSpecialValueFor("bonus_cooldown")
+	self.cast_range_bonus = self:GetAbility():GetSpecialValueFor("cast_range_bonus")
 end
 
 function modifier_item_octarine_core_lua:DeclareFunctions()

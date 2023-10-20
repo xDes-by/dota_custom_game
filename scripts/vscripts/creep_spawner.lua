@@ -113,7 +113,7 @@ function creep_spawner:bosses()
 		for _,t in ipairs(bosses) do
 			if t and t == unit:GetUnitName() then 
 				Rules:difficality_modifier(unit)
-				creep_spawner:add_items(unit)
+				unit:add_items()
 				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
 			end
 		end			
@@ -122,73 +122,38 @@ function creep_spawner:bosses()
 	local newItem = CreateItem( "item_points_big", nil, nil )
 	local drop = CreateItemOnPositionForLaunch( points, newItem )
 end
-	
-function creep_spawner:add_items(unit)	
-	if unit:GetUnitName() == "npc_forest_boss" or unit:GetUnitName() == "npc_village_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_1[RandomInt(1,#items_level_1)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
-	
-	if unit:GetUnitName() == "npc_mines_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_2[RandomInt(1,#items_level_2)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
 
-	if unit:GetUnitName() == "npc_dust_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_3[RandomInt(1,#items_level_3)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
+local creep_name_TO_item_level = {
+	["npc_forest_boss"] = 1,
+	["npc_village_boss"] = 1,
+	["npc_mines_boss"] = 2,
+	["npc_dust_boss"] = 3,
+	["npc_swamp_boss"] = 4,
+	["npc_snow_boss"] = 5,
+	["raid_boss"] = 5,
+	["raid_boss2"] = 5,
+	["raid_boss3"] = 5,
+	["raid_boss4"] = 5,
+	["npc_boss_location8"] = 6,
+	["npc_mega_boss"] = 6,
+	["npc_boss_plague_squirrel"] = 6,
+}
+
+function CDOTA_BaseNPC:add_items(level)
+	local name = self:GetUnitName()
+	if not level then
+		level = creep_name_TO_item_level[name]
+	end
+	local empty_slots = 0
+	for i=0,5 do
+		if self:GetItemInSlot(i) == nil then
+			empty_slots = empty_slots + 1
 		end
 	end
-
-	if unit:GetUnitName() == "npc_swamp_boss" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_4[RandomInt(1,#items_level_4)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
+	local names = table.random_some(avaliable_creeps_items, empty_slots)
+	for _,item_name in pairs(names) do
+		local item = self:AddItemByName("item_name"):SetLevel(level)
 	end
-
-	if unit:GetUnitName() == "npc_snow_boss" or unit:GetUnitName() == "raid_boss" or unit:GetUnitName() == "raid_boss2" or unit:GetUnitName() == "raid_boss3" or unit:GetUnitName() == "raid_boss4" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_5[RandomInt(1,#items_level_5)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end
-
-	if unit:GetUnitName() == "npc_boss_location8" or unit:GetUnitName() == "npc_mega_boss" or unit:GetUnitName() == "npc_boss_plague_squirrel" then
-		b1 = 0
-		while b1 < 5 do
-			add_item = items_level_6[RandomInt(1,#items_level_6)]
-			while not unit:HasItemInInventory(add_item) do
-				b1 = b1 + 1
-				unit:AddItemByName(add_item)
-			end
-		end
-	end	
 end
 
 function spawn_creeps_village()

@@ -48,5 +48,12 @@
 			"item"		"item_moon_shard_lua"
 			"item"		"item_boots_of_bearing_lua"
 		}
+		"TELEPORTS"
+		{
+			"item"		"item_raid_ticket"
+			"item"		"item_raid_ticket2"
+			"item"		"item_raid_ticket3"
+			"item"		"item_raid_ticket4"
+		}
 	}
 }

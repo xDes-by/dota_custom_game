@@ -4,34 +4,30 @@ LinkLuaModifier("modifier_item_veil_of_discord_lua", 'items/custom_items/item_ve
 LinkLuaModifier("modifier_item_veil_of_discord_active_lua", 'items/custom_items/item_veil_of_discord_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_veil_of_discord_aura_lua", 'items/custom_items/item_veil_of_discord_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_veil_of_discord_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/veil_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_veil_of_discord_lua" .. level
+	end
+end
+
 function item_veil_of_discord_lua:GetIntrinsicModifierName()
 	return "modifier_item_veil_of_discord_lua"
 end
 
 function item_veil_of_discord_lua:OnSpellStart()
-	local target_loc = self:GetCursorPosition()
-	local particle = "particles/items2_fx/veil_of_discord.vpcf"
-
-	self:GetCaster():EmitSound("DOTA_Item.VeilofDiscord.Activate")
-
-	local particle_fx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN, self:GetCaster())
-	ParticleManager:SetParticleControl(particle_fx, 0, target_loc)
-	ParticleManager:SetParticleControl(particle_fx, 1, Vector(self:GetSpecialValueFor("debuff_radius"), 1, 1))
-	ParticleManager:ReleaseParticleIndex(particle_fx)
-
-	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),
-		target_loc,
-		nil,
-		self:GetSpecialValueFor("debuff_radius"),
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-		0,
-		FIND_ANY_ORDER,
-		false)
-
+	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCursorPosition(), nil, self:GetSpecialValueFor("debuff_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, FIND_ANY_ORDER, false)
 	for _,enemy in pairs(enemies) do
 		enemy:AddNewModifier(self:GetCaster(), self, "modifier_item_veil_of_discord_active_lua", {duration = self:GetSpecialValueFor("resist_debuff_duration")})
-	end
+	end	
+
+	local particle_fx = ParticleManager:CreateParticle("particles/items2_fx/veil_of_discord.vpcf", PATTACH_ABSORIGIN, self:GetCaster())
+	ParticleManager:SetParticleControl(particle_fx, 0, self:GetCursorPosition())
+	ParticleManager:SetParticleControl(particle_fx, 1, Vector(self:GetSpecialValueFor("debuff_radius"), 1, 1))
+	ParticleManager:ReleaseParticleIndex(particle_fx)
+	self:GetCaster():EmitSound("DOTA_Item.VeilofDiscord.Activate")
 end
 -----------------------------------------------------------------------------------
 modifier_item_veil_of_discord_active_lua = class({})
@@ -71,24 +67,11 @@ function modifier_item_veil_of_discord_lua:IsPurgable() return false end
 function modifier_item_veil_of_discord_lua:OnCreated()
 	self.parent = self:GetParent()
 	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_veil_of_discord_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_veil_of_discord_lua:OnRefresh()
+	self.parent = self:GetParent()
+	self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_veil_of_discord_lua:DeclareFunctions()
@@ -149,6 +132,10 @@ function modifier_item_veil_of_discord_aura_lua:RemoveOnDeath() return false end
 function modifier_item_veil_of_discord_aura_lua:IsAuraActiveOnDeath() return false end
 
 function modifier_item_veil_of_discord_aura_lua:OnCreated()
+	self.aura_mana_regen = self:GetAbility():GetSpecialValueFor("aura_mana_regen")
+end
+
+function modifier_item_veil_of_discord_aura_lua:OnRefresh()
 	self.aura_mana_regen = self:GetAbility():GetSpecialValueFor("aura_mana_regen")
 end
 

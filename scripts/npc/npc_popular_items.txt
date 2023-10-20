@@ -7,6 +7,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_axe"
@@ -16,6 +17,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_bane"
@@ -25,6 +27,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_bloodseeker"
@@ -34,6 +37,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_crystal_maiden"
@@ -43,6 +47,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_drow_ranger"
@@ -52,6 +57,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_earthshaker"
@@ -61,6 +67,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_juggernaut"
@@ -70,6 +77,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_mirana"
@@ -79,6 +87,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_morphling"
@@ -88,6 +97,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_nevermore"
@@ -97,6 +107,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_phantom_lancer"
@@ -106,6 +117,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_puck"
@@ -115,6 +127,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_pudge"
@@ -124,6 +137,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_razor"
@@ -133,6 +147,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_sand_king"
@@ -142,6 +157,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_storm_spirit"
@@ -151,6 +167,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_sven"
@@ -160,6 +177,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_tiny"
@@ -169,6 +187,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_vengefulspirit"
@@ -178,6 +197,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_windrunner"
@@ -187,6 +207,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_zuus"
@@ -196,6 +217,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_kunkka"
@@ -205,6 +227,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_lina"
@@ -214,6 +237,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_lion"
@@ -223,6 +247,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_shadow_shaman"
@@ -232,6 +257,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_slardar"
@@ -241,6 +267,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_tidehunter"
@@ -250,6 +277,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_witch_doctor"
@@ -259,6 +287,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_lich"
@@ -268,6 +297,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_riki"
@@ -277,6 +307,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_enigma"
@@ -286,6 +317,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_tinker"
@@ -295,6 +327,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_sniper"
@@ -304,6 +337,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_necrolyte"
@@ -313,6 +347,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_warlock"
@@ -322,6 +357,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_beastmaster"
@@ -331,6 +367,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_queenofpain"
@@ -340,6 +377,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_venomancer"
@@ -349,6 +387,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_faceless_void"
@@ -358,6 +397,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_skeleton_king"
@@ -367,6 +407,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_death_prophet"
@@ -376,6 +417,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_phantom_assassin"
@@ -385,6 +427,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_pugna"
@@ -394,6 +437,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_templar_assassin"
@@ -403,6 +447,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_viper"
@@ -412,6 +457,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_luna"
@@ -421,6 +467,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_dragon_knight"
@@ -430,6 +477,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_dazzle"
@@ -439,6 +487,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_rattletrap"
@@ -448,6 +497,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_leshrac"
@@ -457,6 +507,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_furion"
@@ -466,6 +517,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_life_stealer"
@@ -475,6 +527,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_dark_seer"
@@ -484,6 +537,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_clinkz"
@@ -493,6 +547,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_omniknight"
@@ -502,6 +557,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_enchantress"
@@ -511,6 +567,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_huskar"
@@ -520,6 +577,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_night_stalker"
@@ -529,6 +587,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_broodmother"
@@ -538,6 +597,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_bounty_hunter"
@@ -547,6 +607,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_weaver"
@@ -556,6 +617,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_jakiro"
@@ -565,6 +627,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_batrider"
@@ -574,6 +637,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_chen"
@@ -583,6 +647,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_spectre"
@@ -592,6 +657,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_ancient_apparition"
@@ -601,6 +667,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_doom_bringer"
@@ -610,6 +677,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_ursa"
@@ -619,6 +687,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_spirit_breaker"
@@ -628,6 +697,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_gyrocopter"
@@ -637,6 +707,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_alchemist"
@@ -646,6 +717,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_invoker"
@@ -655,6 +727,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_silencer"
@@ -664,6 +737,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_obsidian_destroyer"
@@ -673,6 +747,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_lycan"
@@ -682,6 +757,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_brewmaster"
@@ -691,6 +767,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_shadow_demon"
@@ -700,6 +777,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_lone_druid"
@@ -709,6 +787,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_chaos_knight"
@@ -718,6 +797,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_meepo"
@@ -727,6 +807,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_treant"
@@ -736,6 +817,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_ogre_magi"
@@ -745,6 +827,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_undying"
@@ -754,6 +837,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_rubick"
@@ -763,6 +847,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_disruptor"
@@ -772,6 +857,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_nyx_assassin"
@@ -781,6 +867,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_naga_siren"
@@ -790,6 +877,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_keeper_of_the_light"
@@ -799,6 +887,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_wisp"
@@ -808,6 +897,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_visage"
@@ -817,6 +907,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_slark"
@@ -826,6 +917,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_medusa"
@@ -835,6 +927,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_troll_warlord"
@@ -844,6 +937,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_centaur"
@@ -853,6 +947,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_magnataur"
@@ -862,6 +957,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_shredder"
@@ -871,6 +967,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_bristleback"
@@ -880,6 +977,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_tusk"
@@ -889,6 +987,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_skywrath_mage"
@@ -898,6 +997,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_abaddon"
@@ -907,6 +1007,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_elder_titan"
@@ -916,6 +1017,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_legion_commander"
@@ -925,6 +1027,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_techies"
@@ -934,6 +1037,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_ember_spirit"
@@ -943,6 +1047,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_earth_spirit"
@@ -952,6 +1057,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_abyssal_underlord"
@@ -961,6 +1067,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_terrorblade"
@@ -970,6 +1077,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_phoenix"
@@ -979,6 +1087,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_oracle"
@@ -988,6 +1097,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_winter_wyvern"
@@ -997,6 +1107,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_arc_warden"
@@ -1006,6 +1117,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_monkey_king"
@@ -1015,6 +1127,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_dark_willow"
@@ -1024,6 +1137,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 	"npc_dota_hero_pangolier"
@@ -1033,6 +1147,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 
@@ -1043,6 +1158,7 @@
 			"item_greed_str" "1"
 			"item_greed_agi" "1"
 			"item_greed_int" "1"
+			"item_weird_potion" "1"
 		}
 	}
 }

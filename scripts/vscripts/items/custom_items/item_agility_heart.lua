@@ -3,6 +3,15 @@ item_agility_heart_lua = class({})
 LinkLuaModifier("modifier_item_agility_heart_passive", 'items/custom_items/item_agility_heart.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_agility_heart_hast", 'items/custom_items/item_agility_heart.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_agility_heart_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/agility" .. level
+	else
+		return "gem" .. self.GemType .. "/item_agility_heart_lua" .. level
+	end
+end
+
 function item_agility_heart_lua:GetIntrinsicModifierName()
 	return "modifier_item_agility_heart_passive"
 end
@@ -37,28 +46,15 @@ function modifier_item_agility_heart_passive:RemoveOnDeath()
 	return false
 end
 
-function modifier_item_agility_heart_passive:OnCreated( kv )
+function modifier_item_agility_heart_passive:OnCreated()
 	self.parent = self:GetParent()
     self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
     self.bonus_dmg = self:GetAbility():GetSpecialValueFor("bonus_dmg")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_agility_heart_passive:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_agility_heart_passive:OnRefresh()
+    self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
+    self.bonus_dmg = self:GetAbility():GetSpecialValueFor("bonus_dmg")
 end
 
 function modifier_item_agility_heart_passive:DeclareFunctions()

@@ -2,6 +2,15 @@ item_kaya_custom_lua = class({})
 
 LinkLuaModifier( "modifier_item_kaya_custom", "items/custom_items/item_kaya_custom", LUA_MODIFIER_MOTION_NONE )
 
+function item_kaya_custom_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/magic_staff_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_kaya_custom_lua" .. level
+	end
+end
+
 function item_kaya_custom_lua:GetIntrinsicModifierName()
 	return "modifier_item_kaya_custom"
 end
@@ -20,34 +29,20 @@ function modifier_item_kaya_custom:IsPurgable()
 	return false
 end
 
-function modifier_item_kaya_custom:OnCreated( kv )
+function modifier_item_kaya_custom:OnCreated()
 	self.parent = self:GetParent()
 	self.bonus_dmg = self:GetAbility():GetSpecialValueFor( "bonus_dmg" )
 	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
 	self.bonus_life = self:GetAbility():GetSpecialValueFor( "bonus_life" )
 	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
-	self.particle_name = "particles/items3_fx/octarine_core_lifesteal.vpcf"
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_kaya_custom:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_kaya_custom:OnRefresh()
+	self.bonus_dmg = self:GetAbility():GetSpecialValueFor( "bonus_dmg" )
+	self.bonus_manaregen = self:GetAbility():GetSpecialValueFor( "mana_regen" )
+	self.bonus_life = self:GetAbility():GetSpecialValueFor( "bonus_life" )
+	self.bonus_int = self:GetAbility():GetSpecialValueFor( "bonus_int" )
 end
-
---------------------------------------------------------------------------------
 
 function modifier_item_kaya_custom:DeclareFunctions()
 	return	{
@@ -58,10 +53,7 @@ function modifier_item_kaya_custom:DeclareFunctions()
 	}
 end
 
---------------------------------------------------------------------------------
-
 function modifier_item_kaya_custom:GetModifierSpellAmplify_Percentage( params )
-
 	local intellect = self:GetCaster():GetIntellect()
 	local truedmg = intellect * self.bonus_dmg
 	return truedmg

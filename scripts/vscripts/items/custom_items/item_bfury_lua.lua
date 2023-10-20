@@ -2,11 +2,20 @@ item_bfury_lua = class({})
 
 LinkLuaModifier("modifier_item_bfury_lua", 'items/custom_items/item_bfury_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
-modifier_item_bfury_lua = class({})
+function item_bfury_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/fury_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_bfury_lua" .. level
+	end
+end
 
 function item_bfury_lua:GetIntrinsicModifierName()
 	return "modifier_item_bfury_lua"
 end
+
+modifier_item_bfury_lua = class({})
 
 function modifier_item_bfury_lua:IsHidden()
 	return true
@@ -33,24 +42,16 @@ function modifier_item_bfury_lua:OnCreated()
 	self.cleave_ending_width = self:GetAbility():GetSpecialValueFor("cleave_ending_width")
 	self.quelling_bonus = self:GetAbility():GetSpecialValueFor("quelling_bonus")
 	self.quelling_bonus_ranged = self:GetAbility():GetSpecialValueFor("quelling_bonus_ranged")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_bfury_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_bfury_lua:OnRefresh()
+	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
+	self.bonus_health_regen = self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+	self.bonus_mana_regen = self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+	self.cleave_damage_percent = self:GetAbility():GetSpecialValueFor("cleave_damage_percent")
+	self.cleave_ending_width = self:GetAbility():GetSpecialValueFor("cleave_ending_width")
+	self.quelling_bonus = self:GetAbility():GetSpecialValueFor("quelling_bonus")
+	self.quelling_bonus_ranged = self:GetAbility():GetSpecialValueFor("quelling_bonus_ranged")
 end
 
 function modifier_item_bfury_lua:DeclareFunctions()

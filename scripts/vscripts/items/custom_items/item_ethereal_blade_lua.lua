@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_item_ethereal_blade_lua", 'items/custom_items/item_eth
 LinkLuaModifier("modifier_item_ethereal_blade_ally", 'items/custom_items/item_ethereal_blade_lua.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ethereal_blade_enemy", 'items/custom_items/item_ethereal_blade_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
+function item_ethereal_blade_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if not self.GemType then
+		return "all/ethereal_" .. level
+	else
+		return "gem" .. self.GemType .. "/item_ethereal_blade_lua" .. level
+	end
+end
+
 function item_ethereal_blade_lua:GetIntrinsicModifierName()
 	return "modifier_item_ethereal_blade_lua"
 end
@@ -193,24 +202,12 @@ function modifier_item_ethereal_blade_lua:OnCreated()
 	self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
 	self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
 	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value})
-	end
 end
 
-function modifier_item_ethereal_blade_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {value = self.value * -1})
-	end
+function modifier_item_ethereal_blade_lua:OnRefresh()
+	self.bonus_strength = self:GetAbility():GetSpecialValueFor("bonus_strength")
+	self.bonus_agility = self:GetAbility():GetSpecialValueFor("bonus_agility")
+	self.bonus_intellect = self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
 function modifier_item_ethereal_blade_lua:DeclareFunctions()
@@ -218,8 +215,6 @@ function modifier_item_ethereal_blade_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
-		
-		
 	}
 end
 
