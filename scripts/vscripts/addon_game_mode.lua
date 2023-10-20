@@ -12,6 +12,8 @@ require("spawner")
 require("rules")
 require('towershop')
 require('data/data')
+require("data/talantdata")
+require("data/battlePassData")
 require('plugins')
 require('tp')
 require("damage")
@@ -20,7 +22,6 @@ require("use_pets")
 require("effects")
 
 _G.key = GetDedicatedServerKeyV3("WAR")
-_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"
 _G.host = "https://random-defence-adventure.ru"
 _G.cheatmode = true and IsInToolsMode() -- false
 _G.server_load = false -- true

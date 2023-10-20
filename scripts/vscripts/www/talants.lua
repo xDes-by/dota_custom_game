@@ -83,8 +83,6 @@ local talant_shop = {
     },
 }
 
-require("data/talantdata")
-
 if talants == nil then
 	_G.talants = class({})
 end
@@ -741,7 +739,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         if progress[PlayerID][arg] == 1 then
             freedonpoints = freedonpoints -1
         end
-        if DataBase:IsCheatMode() == false and RATING["rating"][PlayerID+1]["patron"] ~= 1 then
+        if DataBase:IsCheatMode() == false and RATING["rating"][PlayerID]["patron"] ~= 1 then
             progress[PlayerID][arg] = 0
         end
     end

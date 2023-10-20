@@ -107,7 +107,7 @@ end
 function modifier_dawnbreaker_starbreaker_lua:CheckState()
 	local state = {
 		[MODIFIER_STATE_DISARMED] = true,
-		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+		-- [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
 	}
 
 	return state
