@@ -2841,7 +2841,7 @@
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"Ability1"					""	
 	}
-	"npc_mega_boss"
+	"npc_cemetery_boss"
 	{
 		// General
 		//
@@ -2936,15 +2936,15 @@
 		"ArmorPhysical"				"0"			
 		"MagicalResistance"			"0"	
 
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"10"		
 		"AttackDamageMax"			"10"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.7"		
 		"AttackAnimationPoint"		"0.6"		
 		"AttackAcquisitionRange"	"0"		
-		"AttackRange"				"250"		
-		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"AttackRange"				"600"		
+		"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
 
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"		
@@ -2990,8 +2990,147 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"	
 	}
+	"npc_mega_boss"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"       			"ai/npc_mega_boss.lua"
+		"Model"						"models/heroes/antimage_female/antimage_female.vmdl"
+		"ModelScale"				"1.8"
+		"Level"						"200"	
+		"IsAncient"					"1"
+		"HasInventory"				"1"
+        "ConsideredHero"            "1"
+		
+		"Ability1"					"mega_boss_mana_break"	
+		"Ability2"					"mega_boss_counterspell"	
+		"Ability3"					"mega_boss_mana_overload"
+		"Ability4"					"mega_boss_doppelwalk"
+		"Ability5"					"mega_boss_mana_void"
+		"Ability6"					"mega_boss_phantom_edge"
+		"Ability7"					"mega_boss_moon_glaive"
+		"Ability8"					"mega_boss_blur"
+		"Ability9"					"mega_boss_emp_lua"
+		"Ability10"					"mega_boss_rupture"
+		"Ability11"					"mega_boss_mana_remove"
 
+		"ArmorPhysical"				"0"			
+		"MagicalResistance"			"0"	
 
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"		
+		"AttackDamageMax"			"10"		
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.7"		
+		"AttackAnimationPoint"		"0.6"		
+		"AttackAcquisitionRange"	"0"		
+		"AttackRange"				"250"		
+		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"ProjectileSpeed"			"900"		
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"		
+		"HealthBarOffset"			"130"
+		"RingRadius"				"50"
+		
+		"BountyXP"					"500"
+	
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"430"		
+		"MovementTurnRate"			"0.5"		
+
+		"StatusHealth"				"10000"		
+		"StatusHealthRegen"			"1000000"		
+		"StatusMana"				"1000"			
+		"StatusManaRegen"			"1000.0"		
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"Creature"
+		{	
+			"AttachWearables"
+			{
+                "Wearable1" { "ItemDef" "715" }
+                "Wearable2" { "ItemDef" "716" }
+                "Wearable3" { "ItemDef" "714" }
+                "Wearable4" { "ItemDef" "708" }
+			}
+		}
+	}
+	"npc_boss_magma"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"       			"ai/npc_mini_bosses.lua"
+		"Model"						"models/heroes/doom/doom.vmdl"
+		"ModelScale"				"1"
+		"Level"						"200"	
+		"IsAncient"					"1"
+		"HasInventory"				"1"
+		
+		"Ability1"					"creature_fire_breath"	
+		"Ability2"					"magma_boss_damage_aura"	
+		"Ability3"					"magma_boss_pit"
+		"Ability4"					"magma_boss_stun"
+		"Ability5"					"magma_boss_damage_reduction_aura"
+		"Ability6"					"magma_boss_channeling_doom"
+		"Ability7"					"magma_boss_channeling_meteors"
+		"Ability8"					""
+
+		"ArmorPhysical"				"0"			
+		"MagicalResistance"			"0"	
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"10"		
+		"AttackDamageMax"			"10"		
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.7"		
+		"AttackAnimationPoint"		"0.6"		
+		"AttackAcquisitionRange"	"0"		
+		"AttackRange"				"250"		
+		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		"ProjectileSpeed"			"900"		
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"		
+		"HealthBarOffset"			"130"
+		"RingRadius"				"50"
+		
+		"BountyXP"					"500"
+	
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"430"		
+		"MovementTurnRate"			"0.5"		
+
+		"StatusHealth"				"10000"		
+		"StatusHealthRegen"			"1000000"		
+		"StatusMana"				"1000"			
+		"StatusManaRegen"			"1000.0"		
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"			
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1200"
+
+		"Creature"
+		{	
+			"AttachWearables"
+			{
+				"Wearable1" {"ItemDef" "12276"}
+				"Wearable2" {"ItemDef" "22273"}
+				"Wearable3" {"ItemDef" "12274"}
+				"Wearable4" {"ItemDef" "12273"}
+				"Wearable5" {"ItemDef" "12272"}
+				"Wearable6" {"ItemDef" "12271"}
+				"Wearable7" {"ItemDef" "12270"}
+			}
+		}
+	}
 
 
 

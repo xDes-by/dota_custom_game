@@ -22,6 +22,9 @@ snow_big = {"snow_creep_3","snow_creep_4"}
 last_mini = {"last_creep_1","last_creep_2"}
 last_big = {"last_creep_3","last_creep_4"}
 
+magma_mini = {"last_creep_1","last_creep_2"}
+magma_big = {"last_creep_3","last_creep_4"}
+
 scroll_item_lvl_1 = {"item_up_ability_tower"}
 scroll_item_lvl_2 = {"item_up_ability_tower2"}
 scroll_item_lvl_3 = {"item_up_ability_tower3"}
@@ -161,18 +164,11 @@ PatroolWave = {
 	[6] = {"npc_patrool4_zoomby","npc_patrool4_zoomby","npc_patrool4_zoomby",},
 	[7] = {"npc_patrool4_zoomby","npc_patrool4_zoomby","npc_patrool4_zoomby",},
 	[8] = {"npc_patrool5_necro","npc_patrool5_summons", "npc_patrool5_summons"},
+	[9] = {"npc_patrool5_necro","npc_patrool5_summons", "npc_patrool5_summons"},
+	[10] = {"npc_patrool5_necro","npc_patrool5_summons", "npc_patrool5_summons"},
 }
 
-PatroolPoints = {
-	[0] = {},
-	[1] = {},
-	[2] = {},
-	[3] = {},
-	[4] = {},
-	[5] = {},
-	[6] = {},
-	[7] = {},
-}
+PatroolPoints = {point_forest,point_village,point_mines,point_dust,point_cemetery,point_swamp,point_snow,point_last,point_magma}
 
 dailyTasks = {
 	[1] = { event = "kill", target = {"npc_forest_boss", "npc_forest_boss_fake"}, count = 5},

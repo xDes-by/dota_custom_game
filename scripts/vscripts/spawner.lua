@@ -49,8 +49,11 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
+	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
+	if not _G.point_line_spawner then
+		_G.point_line_spawner = Vector( -1292, -9245,0)
+	end
 	Timers:CreateTimer(120,function()
-		_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
 		if spawnCreeps then
 			Spawn_system()
 		end
@@ -58,7 +61,7 @@ function Spawner:Init()
 
 	Timers:CreateTimer(RandomInt(120, 300),function()
 		CreatePatroolWave()
-		return RandomInt(120, 300)
+		return RandomInt(120,300)
 	end)
 end
 
@@ -333,61 +336,50 @@ end
 
 function CreatePatroolWave()
 	if _G.don_spawn_level == 0 then
-		return
+		-- return
 	end
 	local gold = {[0] = 60,[1] = 150,[2] = 250,[3] = 400,[4] = 550,[5] = 650,[6] = 1000,[7] = 1500,[8] = 50}
-	local corners = {}
-	local towers = {"npc_dota_custom_tower", "npc_dota_custom_tower2", "npc_dota_custom_tower3", "npc_dota_goodguys_fort"}
-	local t = {}
-	for k,value in ipairs(towers) do
-		local tower = Entities:FindByName(nil, value)
-		if tower:IsAlive() then
-			table.insert(corners, tower)
-		end
-	end
+	local corners = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(-1376, -3935,0), nil, 99999, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 	local points = {}
-	for k,v in pairs(PatroolPoints) do
-		if k <= _G.don_spawn_level then
-			table.insert(points, v)
-		end
+	for i=0,(_G.don_spawn_level + 1) do
+		table.insert(points, PatroolPoints[i])
 	end
 	local r = points[RandomInt(1, #points)]
-	local pos = Vector(r[1], r[2], r[3])
+	local rand = r[RandomInt(1, #r)]
+	local pos = Vector(rand[1], rand[2], rand[3])
 	if _G.kill_invoker then
-		for k,name in pairs(PatroolWave[8]) do
-			CreateUnitByNameAsync(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
-				unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
-				unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
-				unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-				unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-				unit:SetPhysicalArmorBaseValue(set_armor)
-				unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
-				unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-				unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-				unit.corners = corners
-				unit.CornerID = 1
-				unit:SetContextThink( "Think", function()
-					MoveToNextCornerThink(unit, unit.CornerID)
-				end, 0.1 )
-			end)
+		for k,name in pairs(PatroolWave[10]) do
+			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
+			unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
+			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+			unit:SetPhysicalArmorBaseValue(set_armor)
+			unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
+			unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+			unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+			unit.corners = corners
+			unit.CornerID = 1
+			unit:SetContextThink( "Think", function()
+				MoveToNextCornerThink(unit, unit.CornerID)
+			end, 0.1 )
 		end
 	else
 		for k,name in pairs(PatroolWave[_G.don_spawn_level]) do
-			CreateUnitByNameAsync(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
-				unit:SetMaxHealth(set_health)
-				unit:SetHealth(set_health)
-				unit:SetBaseDamageMin(set_damage)
-				unit:SetBaseDamageMin(set_damage)
-				unit:SetPhysicalArmorBaseValue(set_armor)
-				unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
-				unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1, 1.4))
-				unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1, 1.4))
-				unit.corners = corners
-				unit.CornerID = 1
-				unit:SetContextThink( "Think", function()
-					MoveToNextCornerThink(unit, unit.CornerID)
-				end, 0.1 )
-			end)
+			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:SetMaxHealth(set_health)
+			unit:SetHealth(set_health)
+			unit:SetBaseDamageMin(set_damage)
+			unit:SetBaseDamageMin(set_damage)
+			unit:SetPhysicalArmorBaseValue(set_armor)
+			unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
+			unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1, 1.4))
+			unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1, 1.4))
+			unit.corners = corners
+			unit.CornerID = 1
+			unit:SetContextThink( "Think", function()
+				MoveToNextCornerThink(unit, unit.CornerID)
+			end, 0.1 )
 		end
 	end
 end
@@ -396,10 +388,13 @@ function MoveToNextCornerThink(unit, CornerID)
     if unit:IsNull() or not unit:IsAlive() then 
 		return 
 	end
-    if unit.corners[unit.CornerID + 1] and (unit.corners[unit.CornerID]:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D() < 100 then     
-		unit.CornerID = unit.CornerID + 1
+    if unit.corners[unit.CornerID + 1] then
+		if not unit.corners[unit.CornerID]:IsAlive() or not unit.corners[unit.CornerID]:IsAttackImmune() then     
+			unit.CornerID = unit.CornerID + 1
+		end
 	end
 	if unit:GetAggroTarget() == nil or (unit:GetAggroTarget() and not unit:GetAggroTarget():IsAlive()) then
+		point_corner = unit.corners[unit.CornerID]:GetAbsOrigin()
 		unit:MoveToPositionAggressive(point_corner)
 	end
 end

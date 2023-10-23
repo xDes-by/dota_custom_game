@@ -4,7 +4,7 @@
     "Tokens"
     {
         "language" "russian"
-        "addon_game_name" "Random Defense Adventure"
+        "addon_game_name" "Squirrel World RPG"
 
         "start_chat" "<font color='#00ff00'>Ребята, добро пожаловать в Squirrel World RPG</font> <font color='#ff0000'>Для улучшения качества отклика сервера, напишите в консоль:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Можете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
@@ -1624,68 +1624,68 @@
           
 //METEOR HAMMER//
 
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1"                           "Meteor Hammer"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_Description"               "<h1>Активное: Meteor Hammer</h1> ПРЕРЫВАЕМАЯ — призывает метеорит, который после небольшой задержки бьёт по области радиусом %impact_radius%. Удар наносит урон вражеским существам и постройкам, оглушает их на %stun_duration% секунд и поджигает, нанося периодический урон в течение %burn_duration% секунд.<BR><BR>Урон постройкам при ударе: %impact_damage_buildings% <BR>Периодический урон постройкам: %burn_dps_buildings% <BR><BR>Урон существам при ударе: %impact_damage_units% <BR>Периодический урон существам: %burn_dps_units% <BR><BR>Время применения: %max_duration% сек.<BR>Задержка после применения: %land_time% сек."    
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_lore"                      "Этот зачарованный молот сковали из металла, который обнаружили в руинах деревни, уничтоженной великим звездопадом."    
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_bonus_all_stats"           "БОНУС КО ВСЕМ АТРИБУТАМ:"  
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_bonus_health_regen"        "ДОПОЛНИТЕЛЬНАЯ РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
-        "DOTA_Tooltip_ability_item_meteor_hammer_lua1_bonus_mana_regen"          "ДОПОЛНИТЕЛЬНАЯ РЕГЕНЕРАЦИЯ МАНЫ:"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua"                           "Meteor Hammer"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_Description"               "<h1>Активное: Meteor Hammer</h1> ПРЕРЫВАЕМАЯ — призывает метеорит, который после небольшой задержки бьёт по области радиусом %impact_radius%. Удар наносит урон вражеским существам и постройкам, оглушает их на %stun_duration% секунд и поджигает, нанося периодический урон в течение %burn_duration% секунд.<BR><BR>Урон постройкам при ударе: %impact_damage_buildings% <BR>Периодический урон постройкам: %burn_dps_buildings% <BR><BR>Урон существам при ударе: %impact_damage_units% <BR>Периодический урон существам: %burn_dps_units% <BR><BR>Время применения: %max_duration% сек.<BR>Задержка после применения: %land_time% сек."    
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_lore"                      "Этот зачарованный молот сковали из металла, который обнаружили в руинах деревни, уничтоженной великим звездопадом."    
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_all_stats"           "БОНУС КО ВСЕМ АТРИБУТАМ:"  
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_health_regen"        "ДОПОЛНИТЕЛЬНАЯ РЕГЕНЕРАЦИЯ ЗДОРОВЬЯ:"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_mana_regen"          "ДОПОЛНИТЕЛЬНАЯ РЕГЕНЕРАЦИЯ МАНЫ:"
 
         "DOTA_Tooltip_modifier_item_meteor_hammer_lua_burn"                      "Горение от Meteor Hammer"
         "DOTA_Tooltip_modifier_item_meteor_hammer_lua_burn_Description"          "Получает %burn_dps_units% урона раз в %burn_interval% сек."
      
 //Ring of Flux//
 
-        "dota_tooltip_ability_item_ring_of_flux_lua1" "Ring of Flux"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_description" "<h1>Пассивная: Flux</h1>Каждое применение способности может восстановить долю от максимального запаса маны."
-        "dota_tooltip_ability_item_ring_of_flux_lua1_cast_range" "+$cast_range"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_spell_amp" "%+к урону от заклинаний"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_mana_back_chance" "%ШАНС:"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_mana_back" "%ВОССТАНОВЛЕНИЕ МАНЫ:"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_mana" "БОНУС МАНЫ:"
-        "dota_tooltip_ability_item_ring_of_flux_lua1_manacostred"  "%СНИЖЕНИЕ ЗАТРАТ МАНЫ:"
+        "dota_tooltip_ability_item_ring_of_flux_lua" "Ring of Flux"
+        "dota_tooltip_ability_item_ring_of_flux_lua_description" "<h1>Пассивная: Flux</h1>Каждое применение способности может восстановить долю от максимального запаса маны."
+        "dota_tooltip_ability_item_ring_of_flux_lua_cast_range" "+$cast_range"
+        "dota_tooltip_ability_item_ring_of_flux_lua_spell_amp" "%+к урону от заклинаний"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana_back_chance" "%ШАНС:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana_back" "%ВОССТАНОВЛЕНИЕ МАНЫ:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana" "БОНУС МАНЫ:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_manacostred"  "%СНИЖЕНИЕ ЗАТРАТ МАНЫ:"
 
 //Radiance//
 
-        "dota_tooltip_ability_item_radiance_lua1" "Radiance"
-        "dota_tooltip_ability_item_radiance_lua1_description" "<h1>Переключаемая: Burn</h1> Если включена, каждую секунду наносит противникам %aura_damage% магического урона и ослепляет их, вынуждая промахиваться в %blind_pct%%% случаев. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_radiance_lua1_lore" "Божественный меч, окружающий владельца ярким сиянием, которое обращает в пепел всех врагов вокруг."
-        "dota_tooltip_ability_item_radiance_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_modifier_item_radiance_lua1_debuff" "Burn Damage"
-        "dota_tooltip_modifier_item_radiance_lua1_debuff_description" "Получает 60 урона в секунду и промахивается в %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% случаев."
+        "dota_tooltip_ability_item_radiance_lua" "Radiance"
+        "dota_tooltip_ability_item_radiance_lua_description" "<h1>Переключаемая: Burn</h1> Если включена, каждую секунду наносит противникам %aura_damage% магического урона и ослепляет их, вынуждая промахиваться в %blind_pct%%% случаев. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_radiance_lua_lore" "Божественный меч, окружающий владельца ярким сиянием, которое обращает в пепел всех врагов вокруг."
+        "dota_tooltip_ability_item_radiance_lua_bonus_damage" "+$damage"
+        "dota_tooltip_modifier_item_radiance_lua_debuff" "Burn Damage"
+        "dota_tooltip_modifier_item_radiance_lua_debuff_description" "Получает 60 урона в секунду и промахивается в %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% случаев."
 
 //Bloodstone//
         
-        "dota_tooltip_ability_item_bloodstone_lua1" "Bloodstone"
-        "dota_tooltip_ability_item_bloodstone_lua1_description" "<h1>Активная: Bloodpact</h1> Превращает %mana_cost_percentage%%% от максимального запаса маны в здоровье в течение %restore_duration% сек."
-        "dota_tooltip_ability_item_bloodstone_lua1_lore" "Багрянец этого камня легко приметить даже в разгаре битвы: он будто бы наделяет владельца безграничными жизненными и духовными силами."
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_mana" "+$mana"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_health_regen" "+$hp_regen"
-        "dota_tooltip_ability_item_bloodstone_lua1_spell_amp" "%+к урону от заклинаний"
-        "dota_tooltip_ability_item_bloodstone_lua1_hero_lifesteal" "%+к вампиризму заклинаниями (от героев)"
-        "dota_tooltip_ability_item_bloodstone_lua1_creep_lifesteal" "%+к вампиризму заклинаниями (от крипов)"
-        "dota_tooltip_ability_item_bloodstone_lua1_mana_regen_multiplier" "%+к усилению восстановления маны"
-        "dota_tooltip_ability_item_bloodstone_lua1_spell_lifesteal_amp" "%+к усилению вампиризма от заклинаний"
+        "dota_tooltip_ability_item_bloodstone_lua" "Bloodstone"
+        "dota_tooltip_ability_item_bloodstone_lua_description" "<h1>Активная: Bloodpact</h1> Превращает %mana_cost_percentage%%% от максимального запаса маны в здоровье в течение %restore_duration% сек."
+        "dota_tooltip_ability_item_bloodstone_lua_lore" "Багрянец этого камня легко приметить даже в разгаре битвы: он будто бы наделяет владельца безграничными жизненными и духовными силами."
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_mana" "+$mana"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_bloodstone_lua_spell_amp" "%+к урону от заклинаний"
+        "dota_tooltip_ability_item_bloodstone_lua_hero_lifesteal" "%+к вампиризму заклинаниями (от героев)"
+        "dota_tooltip_ability_item_bloodstone_lua_creep_lifesteal" "%+к вампиризму заклинаниями (от крипов)"
+        "dota_tooltip_ability_item_bloodstone_lua_mana_regen_multiplier" "%+к усилению восстановления маны"
+        "dota_tooltip_ability_item_bloodstone_lua_spell_lifesteal_amp" "%+к усилению вампиризма от заклинаний"
         "DOTA_Tooltip_modifier_item_blodstone_active_lua" "Bloodpact"
         "DOTA_Tooltip_modifier_item_blodstone_active_lua_Description" "Восстанавливает %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% здоровья в секунду."
        
 //Assault Cuirass//
 
-        "dota_tooltip_ability_item_assault_lua1" "Assault Cuirass"
-        "dota_tooltip_ability_item_assault_lua1_description" "<h1>Пассивная: Assault Aura</h1> Увеличивает броню союзных построек и существ на %aura_positive_armor%, а их скорость атаки — на %aura_attack_speed%. Снижает броню врагов на %aura_negative_armor%.<br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_assault_lua1_lore" "Этот жуткий доспех, выкованный в кузнях нижних пределов, способен укрепить и ускорить целую армию."
-        "dota_tooltip_ability_item_assault_lua1_bonus_attack_speed" "+$attack"
-        "dota_tooltip_ability_item_assault_lua1_bonus_armor" "+$armor"
-        "dota_tooltip_modifier_item_assault_lua1_negative_armor" "Assault Cuirass"
-        "dota_tooltip_modifier_item_assault_lua1_negative_armor_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-        "dota_tooltip_modifier_item_assault_lua1_positive" "Assault Cuirass"
-        "dota_tooltip_modifier_item_assault_lua1_positive_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
-        "dota_tooltip_modifier_item_assault_lua1_positive_buildings" "Assault Cuirass"
-        "dota_tooltip_modifier_item_assault_lua1_positive_buildings_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-        "dota_tooltip_modifier_item_assault_lua1_negative_buildings_aura" "Assault Cuirass"
-        "dota_tooltip_modifier_item_assault_lua1_negative_buildings_aura_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_ability_item_assault_lua" "Assault Cuirass"
+        "dota_tooltip_ability_item_assault_lua_description" "<h1>Пассивная: Assault Aura</h1> Увеличивает броню союзных построек и существ на %aura_positive_armor%, а их скорость атаки — на %aura_attack_speed%. Снижает броню врагов на %aura_negative_armor%.<br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_assault_lua_lore" "Этот жуткий доспех, выкованный в кузнях нижних пределов, способен укрепить и ускорить целую армию."
+        "dota_tooltip_ability_item_assault_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_assault_lua_bonus_armor" "+$armor"
+        "dota_tooltip_modifier_item_assault_lua_negative_armor" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_negative_armor_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_item_assault_lua_positive" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_positive_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+        "dota_tooltip_modifier_item_assault_lua_positive_buildings" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_positive_buildings_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_item_assault_lua_negative_buildings_aura" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_negative_buildings_aura_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
         "dota_tooltip_modifier_assault_lua_aura_positive_effect" "Assault Cuirass"
         "dota_tooltip_modifier_assault_lua_aura_positive_effect_description" "Броня увеличена на %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\n Скорость атаки увеличена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 		"DOTA_Tooltip_modifier_assault_lua_aura_negative_effect"				"Assault Cuirass"
@@ -1693,218 +1693,218 @@
 
 //Crimson Guard//
 
-        "dota_tooltip_ability_item_crimson_guard_lua1" "Crimson Guard"
-        "dota_tooltip_ability_item_crimson_guard_lua1_description" "<h1>Активируемая: Guard</h1> На %duration% сек. даёт героям и постройкам поблизости шанс в %block_chance_active%%% заблокировать %block_damage_melee_active% урона от каждой атаки. <br><br>Способность действует на одно и то же существо не чаще, чем раз в %tooltip_reapply_time% секунд.<br><br>Радиус: %bonus_aoe_radius%\n<h1>Пассивная: Damage Block</h1> С вероятностью в %block_chance%%% блокирует %block_damage_melee% урона, если владелец — герой ближнего боя, или %block_damage_ranged% урона, если герой дальнего боя."
-        "dota_tooltip_ability_item_crimson_guard_lua1_lore" "Кираса, изначально выкованная для защиты от ужасающего Годня."
-        "dota_tooltip_ability_item_crimson_guard_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_crimson_guard_lua1_bonus_health_regen" "+$hp_regen"
-        "dota_tooltip_ability_item_crimson_guard_lua1_bonus_armor" "+$armor"
-        "dota_tooltip_ability_item_crimson_guard_lua1_note0" "Эффекты нескольких способностей, блокирующих урон, не сочетаются."
+        "dota_tooltip_ability_item_crimson_guard_lua" "Crimson Guard"
+        "dota_tooltip_ability_item_crimson_guard_lua_description" "<h1>Активируемая: Guard</h1> На %duration% сек. даёт героям и постройкам поблизости шанс в %block_chance_active%%% заблокировать %block_damage_melee_active% урона от каждой атаки. <br><br>Способность действует на одно и то же существо не чаще, чем раз в %tooltip_reapply_time% секунд.<br><br>Радиус: %bonus_aoe_radius%\n<h1>Пассивная: Damage Block</h1> С вероятностью в %block_chance%%% блокирует %block_damage_melee% урона, если владелец — герой ближнего боя, или %block_damage_ranged% урона, если герой дальнего боя."
+        "dota_tooltip_ability_item_crimson_guard_lua_lore" "Кираса, изначально выкованная для защиты от ужасающего Годня."
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_armor" "+$armor"
+        "dota_tooltip_ability_item_crimson_guard_lua_note0" "Эффекты нескольких способностей, блокирующих урон, не сочетаются."
         "DOTA_Tooltip_modifier_item_crimson_guard_active_lua " "Guard"
         "DOTA_Tooltip_modifier_item_crimson_guard_active_lua_Description " "Имеет шанс в 100%% заблокировать %dMODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK% урона от атак"
 
 //Desolator//
 
-        "dota_tooltip_ability_item_desolator_lua1" "Desolator"
-        "dota_tooltip_ability_item_desolator_lua1_description" "<h1>Пассивная: Corruption</h1> Атаки снижают броню цели на %corruption_armor%. Эффект длится %corruption_duration% сек."
-        "dota_tooltip_ability_item_desolator_lua1_lore" "Этим нечистым оружием пытали политических преступников."
-        "dota_tooltip_ability_item_desolator_lua1_note0" "Снижение брони действует на постройки."
-        "dota_tooltip_ability_item_desolator_lua1_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_desolator_lua" "Desolator"
+        "dota_tooltip_ability_item_desolator_lua_description" "<h1>Пассивная: Corruption</h1> Атаки снижают броню цели на %corruption_armor%. Эффект длится %corruption_duration% сек."
+        "dota_tooltip_ability_item_desolator_lua_lore" "Этим нечистым оружием пытали политических преступников."
+        "dota_tooltip_ability_item_desolator_lua_note0" "Снижение брони действует на постройки."
+        "dota_tooltip_ability_item_desolator_lua_bonus_damage" "+$damage"
 
 //Shivas Gurard//
 
-        "dota_tooltip_ability_item_shivas_guard_lua1" "Shivas Guard"
-        "dota_tooltip_ability_item_shivas_guard_lua1_description" "<h1>Активная: Arctic Blast</h1> Выпускает морозную волну, которая наносит противникам %blast_damage% магического урона и на %blast_debuff_duration% сек. снижает их скорость передвижения на %blast_movement_speed%%%.<br><br>Радиус: %blast_radius%\n<h1>Пассивная: Freezing Aura</h1>Снижает скорость атаки противников на %aura_attack_speed%, а их лечение, восстановление здоровья и вампиризм — на %hp_regen_degen_aura%%%.<br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_shivas_guard_lua1_lore" "Говорят, когда-то этот артефакт принадлежал богине, и он не теряет былого могущества по сей день."
-        "dota_tooltip_ability_item_shivas_guard_lua1_note0" "Волна распространяется со скоростью в %blast_speed% до максимального размера в %blast_radius%."
-        "dota_tooltip_ability_item_shivas_guard_lua1_note1" "Морозная волна следует за владельцем."
-        "dota_tooltip_ability_item_shivas_guard_lua1_note2" "Эффект от нескольких Freezing Aura не складывается."
-        "dota_tooltip_ability_item_shivas_guard_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_shivas_guard_lua1_bonus_armor" "+$armor"
+        "dota_tooltip_ability_item_shivas_guard_lua" "Shivas Guard"
+        "dota_tooltip_ability_item_shivas_guard_lua_description" "<h1>Активная: Arctic Blast</h1> Выпускает морозную волну, которая наносит противникам %blast_damage% магического урона и на %blast_debuff_duration% сек. снижает их скорость передвижения на %blast_movement_speed%%%.<br><br>Радиус: %blast_radius%\n<h1>Пассивная: Freezing Aura</h1>Снижает скорость атаки противников на %aura_attack_speed%, а их лечение, восстановление здоровья и вампиризм — на %hp_regen_degen_aura%%%.<br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_shivas_guard_lua_lore" "Говорят, когда-то этот артефакт принадлежал богине, и он не теряет былого могущества по сей день."
+        "dota_tooltip_ability_item_shivas_guard_lua_note0" "Волна распространяется со скоростью в %blast_speed% до максимального размера в %blast_radius%."
+        "dota_tooltip_ability_item_shivas_guard_lua_note1" "Морозная волна следует за владельцем."
+        "dota_tooltip_ability_item_shivas_guard_lua_note2" "Эффект от нескольких Freezing Aura не складывается."
+        "dota_tooltip_ability_item_shivas_guard_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_shivas_guard_lua_bonus_armor" "+$armor"
 
 //Monkey King Bar//
 
-        "dota_tooltip_ability_item_monkey_king_bar_lua1" "Monkey King Bar"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_lore" "Могущественный посох, принадлежавший блистательному воину."
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_monkey_king_bar_lua1_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_monkey_king_bar_lua" "Monkey King Bar"
+        "dota_tooltip_ability_item_monkey_king_bar_lua_description" "<h1>Пассивная: Pierce</h1> Каждая атака может с вероятностью в %bonus_chance%%% пройти сквозь уклонение и нанести %bonus_chance_damage% дополнительного магического урона."
+        "dota_tooltip_ability_item_monkey_king_bar_lua_lore" "Могущественный посох, принадлежавший блистательному воину."
+        "dota_tooltip_ability_item_monkey_king_bar_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_monkey_king_bar_lua_bonus_attack_speed" "+$attack"
 
 //Fury//
 		
-        "dota_tooltip_ability_item_bfury_lua1" "Fury"
-        "dota_tooltip_ability_item_bfury_lua1_description" "<h1>Активная: Chop Tree</h1> Срубает выбранное дерево.<br><br>Дальность применения: %abilitycastrange%\n<h1>Пассивная: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %quelling_bonus% для героев ближнего боя и на %quelling_bonus_ranged% — для дальнего. \n<h1>Пассивная: Cleave</h1> Атаки героя прорубают жертву, нанося врагам в радиусе %cleave_distance% вокруг неё физический урон (только в ближнем бою).<br><br> Прорубающий урон: %cleave_damage_percent_creep%%% <br> <font color='#b000cf'> Работая в связке с Desolator снижает броню не основных целей на 50% от показателей Desolator</font>"
-        "dota_tooltip_ability_item_bfury_lua1_lore" "Владелец этого могучего топора может выкашивать врагов целыми рядами."
-        "dota_tooltip_ability_item_bfury_lua1_note0" "Прорубающий урон проходит сквозь невосприимчивость к магии."
-        "dota_tooltip_ability_item_bfury_lua1_note1" "Каждый предмет или способность, дарующие прорубающую атаку, наносят урон отдельно друг от друга."
-        "dota_tooltip_ability_item_bfury_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_bfury_lua1_bonus_health_regen" "+$hp_regen"
-        "dota_tooltip_ability_item_bfury_lua1_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_bfury_lua" "Fury"
+        "dota_tooltip_ability_item_bfury_lua_description" "<h1>Активная: Chop Tree</h1> Срубает выбранное дерево.<br><br>Дальность применения: %abilitycastrange%\n<h1>Пассивная: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %quelling_bonus% для героев ближнего боя и на %quelling_bonus_ranged% — для дальнего. \n<h1>Пассивная: Cleave</h1> Атаки героя прорубают жертву, нанося врагам в радиусе %cleave_distance% вокруг неё физический урон (только в ближнем бою).<br><br> Прорубающий урон: %cleave_damage_percent_creep%%% <br> <font color='#b000cf'> Работая в связке с Desolator снижает броню не основных целей на 50% от показателей Desolator</font>"
+        "dota_tooltip_ability_item_bfury_lua_lore" "Владелец этого могучего топора может выкашивать врагов целыми рядами."
+        "dota_tooltip_ability_item_bfury_lua_note0" "Прорубающий урон проходит сквозь невосприимчивость к магии."
+        "dota_tooltip_ability_item_bfury_lua_note1" "Каждый предмет или способность, дарующие прорубающую атаку, наносят урон отдельно друг от друга."
+        "dota_tooltip_ability_item_bfury_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_bfury_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_bfury_lua_bonus_mana_regen" "+$mana_regen"
 
 //Heart//
 		
-        "dota_tooltip_ability_item_heart_lua1" "Heart"
-        "dota_tooltip_ability_item_heart_lua1_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
-        "dota_tooltip_ability_item_heart_lua1_bonus_strength" "+$str"
-        "dota_tooltip_ability_item_heart_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_heart_lua1_health_regen_pct" "%+макс. здоровья в секунду"
+        "dota_tooltip_ability_item_heart_lua" "Heart"
+        "dota_tooltip_ability_item_heart_lua_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
+        "dota_tooltip_ability_item_heart_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_heart_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_heart_lua_health_regen_pct" "%+макс. здоровья в секунду"
 
 //Butterfly//
         
-        "dota_tooltip_ability_item_butterfly_lua1" "Butterfly"
-        "dota_tooltip_ability_item_butterfly_lua1_note0" "Складывается по закону убывающей полезности с другими источниками уклонения."
-        "dota_tooltip_ability_item_butterfly_lua1_lore" "Этот клинок могут обуздать лишь самые могучие и опытные воины, но владельцу он даёт невероятное проворство в бою."
-        "dota_tooltip_ability_item_butterfly_lua1_bonus_agility" "+$agi"
-        "dota_tooltip_ability_item_butterfly_lua1_bonus_evasion" "%+$evasion"
-        "dota_tooltip_ability_item_butterfly_lua1_bonus_attack_speed" "+$attack"
-        "dota_tooltip_ability_item_butterfly_lua1_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_butterfly_lua" "Butterfly"
+        "dota_tooltip_ability_item_butterfly_lua_note0" "Складывается по закону убывающей полезности с другими источниками уклонения."
+        "dota_tooltip_ability_item_butterfly_lua_lore" "Этот клинок могут обуздать лишь самые могучие и опытные воины, но владельцу он даёт невероятное проворство в бою."
+        "dota_tooltip_ability_item_butterfly_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_evasion" "%+$evasion"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_damage" "+$damage"
       
 //Veil of Discord//
 
-        "dota_tooltip_ability_item_veil_of_discord_lua1" "Veil of Discord"
-        "dota_tooltip_ability_item_veil_of_discord_lua1_description" "<h1>Активная: Magic Weakness</h1> Ослабляет врагов в области радиусом %debuff_radius%, отчего они получают на %spell_amp%%% больше урона от заклинаний.<br><br>Дальность применения: %abilitycastrange%<br>Длительность: %resist_debuff_duration% сек. \n\n <h1>Пассивная: Basilius Aura</h1> Увеличивает восстановление маны союзников на %aura_mana_regen%.<br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_veil_of_discord_lua1_lore" "Головной убор испорченных магов."
-        "dota_tooltip_ability_item_veil_of_discord_lua1_bonus_all_stats" "+$all"
+        "dota_tooltip_ability_item_veil_of_discord_lua" "Veil of Discord"
+        "dota_tooltip_ability_item_veil_of_discord_lua_description" "<h1>Активная: Magic Weakness</h1> Ослабляет врагов в области радиусом %debuff_radius%, отчего они получают на %spell_amp%%% больше урона от заклинаний.<br><br>Дальность применения: %abilitycastrange%<br>Длительность: %resist_debuff_duration% сек. \n\n <h1>Пассивная: Basilius Aura</h1> Увеличивает восстановление маны союзников на %aura_mana_regen%.<br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_veil_of_discord_lua_lore" "Головной убор испорченных магов."
+        "dota_tooltip_ability_item_veil_of_discord_lua_bonus_all_stats" "+$all"
 
 //Daedalus//
 
-        "dota_tooltip_ability_item_greater_crit_lua1" "Daedalus"
-        "dota_tooltip_ability_item_greater_crit_lua1_description" "<h1>Пассивная: Critical Strike</h1> Каждая атака может с вероятностью в %crit_chance%%% нанести %crit_multiplier%%% урона."
-        "dota_tooltip_ability_item_greater_crit_lua1_note0" "Постройкам дополнительный урон не наносится."
-        "dota_tooltip_ability_item_greater_crit_lua1_lore" "Оружие невероятной мощи, с которым нелегко управиться даже самому сильному воину."
-        "dota_tooltip_ability_item_greater_crit_lua1_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_greater_crit_lua" "Daedalus"
+        "dota_tooltip_ability_item_greater_crit_lua_description" "<h1>Пассивная: Critical Strike</h1> Каждая атака может с вероятностью в %crit_chance%%% нанести %crit_multiplier%%% урона."
+        "dota_tooltip_ability_item_greater_crit_lua_note0" "Постройкам дополнительный урон не наносится."
+        "dota_tooltip_ability_item_greater_crit_lua_lore" "Оружие невероятной мощи, с которым нелегко управиться даже самому сильному воину."
+        "dota_tooltip_ability_item_greater_crit_lua_bonus_damage" "+$damage"
 
 //Kaya//
 
-        "dota_tooltip_ability_item_kaya_lua1" "Kaya"
-        "dota_tooltip_ability_item_kaya_lua1_lore" "Посох прославленной волшебницы, пропавший много тысячелетий назад."
-        "dota_tooltip_ability_item_kaya_lua1_note0" "Эффекты от нескольких таких предметов не складываются."
-        "dota_tooltip_ability_item_kaya_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_kaya_lua1_spell_amp" "%+к урону от заклинаний"
-        "dota_tooltip_ability_item_kaya_lua1_mana_regen_multiplier" "%+к усилению восстановления маны"
-        "dota_tooltip_ability_item_kaya_lua1_spell_lifesteal_amp" "%+к усилению вампиризма от заклинаний"
+        "dota_tooltip_ability_item_kaya_lua" "Kaya"
+        "dota_tooltip_ability_item_kaya_lua_lore" "Посох прославленной волшебницы, пропавший много тысячелетий назад."
+        "dota_tooltip_ability_item_kaya_lua_note0" "Эффекты от нескольких таких предметов не складываются."
+        "dota_tooltip_ability_item_kaya_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_kaya_lua_spell_amp" "%+к урону от заклинаний"
+        "dota_tooltip_ability_item_kaya_lua_mana_regen_multiplier" "%+к усилению восстановления маны"
+        "dota_tooltip_ability_item_kaya_lua_spell_lifesteal_amp" "%+к усилению вампиризма от заклинаний"
 
 //Magic Staff//
 
-        "dota_tooltip_ability_item_kaya_custom_lua1" "Magic Staff"
-        "dota_tooltip_ability_item_kaya_custom_lua1_note0" "Эффекты от нескольких таких предметов не складываются."
-        "dota_tooltip_ability_item_kaya_custom_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_kaya_custom_lua1_bonus_dmg" "%+к урону от магии за ед интеллекта:"
-        "dota_tooltip_ability_item_kaya_custom_lua1_bonus_life" "%+к вампиризму от заклинаний"
-        "dota_tooltip_ability_item_kaya_custom_lua1_bonus_int" "+$int"
-        "dota_tooltip_ability_item_kaya_custom_lua1_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_kaya_custom_lua" "Magic Staff"
+        "dota_tooltip_ability_item_kaya_custom_lua_note0" "Эффекты от нескольких таких предметов не складываются."
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_dmg" "%+к урону от магии за ед интеллекта:"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_life" "%+к вампиризму от заклинаний"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_int" "+$int"
+        "dota_tooltip_ability_item_kaya_custom_lua_mana_regen" "+$mana_regen"
 
 //Vladmir//
 
-        "dota_tooltip_ability_item_vladmir_lua1" "Vladmir"
-        "dota_tooltip_ability_item_vladmir_lua1_description" "<h1>Пассивная: Vladmir's Aura</h1>Увеличивает вампиризм союзников на %lifesteal_aura%%%, их урон на %damage_aura%%% броню на %armor_aura% и восстановление маны на %mana_regen_aura%. <br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_vladmir_lua1_lore" "Жуткая маска, проклятая злобой павшего вампира."
+        "dota_tooltip_ability_item_vladmir_lua" "Vladmir"
+        "dota_tooltip_ability_item_vladmir_lua_description" "<h1>Пассивная: Vladmir's Aura</h1>Увеличивает вампиризм союзников на %lifesteal_aura%%%, их урон на %damage_aura%%% броню на %armor_aura% и восстановление маны на %mana_regen_aura%. <br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_vladmir_lua_lore" "Жуткая маска, проклятая злобой павшего вампира."
 
 //Etherial Blade//
 
-        "dota_tooltip_ability_item_ethereal_blade_lua1" "Ethereal Blade"
-        "dota_tooltip_ability_item_ethereal_blade_lua1_description" "<h1>Активная: Ether Blast</h1> Придаёт цели бесплотную форму, которая полностью защищает от физического урона, но не позволяет атаковать и увеличивает получаемый магический урон на %ethereal_damage_bonus%%%. Действует %duration_ally% сек. на союзников и %duration% сек. на врагов.<br><br>Также замедляет вражескую цель на %blast_movement_slow%%% и наносит ей магический урон в размере %blast_agility_multiplier% * ваш основной атрибут + %blast_damage_base%.<br><br>Дальность применения: %abilitycastrange%"
-        "dota_tooltip_ability_item_ethereal_blade_lua1_note0" "Имеет общее время перезарядки с Ghost Scepter."
-        "dota_tooltip_ability_item_ethereal_blade_lua1_note1" "Существа в призрачной форме получают на 40% больше магического урона."
-        "dota_tooltip_ability_item_ethereal_blade_lua1_note2" "Длится на секунду больше на союзниках и на себе."
-        "dota_tooltip_ability_item_ethereal_blade_lua1_note3" "Использование Town Portal Scroll или Boots of Travel не развеивает бесплотную форму."
-        "dota_tooltip_ability_item_ethereal_blade_lua1_bonus_agility" "+$agi"
-        "dota_tooltip_ability_item_ethereal_blade_lua1_bonus_strength" "+$str"
-        "dota_tooltip_ability_item_ethereal_blade_lua1_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_ethereal_blade_lua" "Ethereal Blade"
+        "dota_tooltip_ability_item_ethereal_blade_lua_description" "<h1>Активная: Ether Blast</h1> Придаёт цели бесплотную форму, которая полностью защищает от физического урона, но не позволяет атаковать и увеличивает получаемый магический урон на %ethereal_damage_bonus%%%. Действует %duration_ally% сек. на союзников и %duration% сек. на врагов.<br><br>Также замедляет вражескую цель на %blast_movement_slow%%% и наносит ей магический урон в размере %blast_agility_multiplier% * ваш основной атрибут + %blast_damage_base%.<br><br>Дальность применения: %abilitycastrange%"
+        "dota_tooltip_ability_item_ethereal_blade_lua_note0" "Имеет общее время перезарядки с Ghost Scepter."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note1" "Существа в призрачной форме получают на 40% больше магического урона."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note2" "Длится на секунду больше на союзниках и на себе."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note3" "Использование Town Portal Scroll или Boots of Travel не развеивает бесплотную форму."
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_intellect" "+$int"
 
         "DOTA_Tooltip_modifier_item_ethereal_blade_ally" "Ether Blast"
         "DOTA_Tooltip_modifier_item_ethereal_blade_ally_Description" "Находится в бесплотном облике. Получает увеличенный на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% магический урон, не может атаковать или быть целью атаки."
 
 //Pipe//
 
-        "dota_tooltip_ability_item_pipe_lua1" "Pipe"
-        "dota_tooltip_ability_item_pipe_lua1_description" "<h1>Активная: Barrier</h1>Создаёт на владельце и окружающих его союзниках барьер, блокирующий %barrier_block% магического урона. Действует %barrier_duration% сек.<br><br>Радиус: %barrier_radius%\n<h1>Пассивная: Insight Aura</h1>Действует на союзников вокруг. Увеличивает их восстановление здоровья на %aura_health_regen% и сопротивление магии на %magic_resistance_aura%%%.<br><br>Радиус: %aura_radius%"
-        "dota_tooltip_ability_item_pipe_lua1_lore" "Могущественный артефакт таинственного происхождения. Он создаёт барьеры, защищающие от магических сил."
-        "dota_tooltip_ability_item_pipe_lua1_note0" "Эффект от нескольких Barrier не складывается."
-        "dota_tooltip_ability_item_pipe_lua1_note1" "Сочетается по закону убывающей полезности с другими источниками сопротивления магии."
-        "dota_tooltip_ability_item_pipe_lua1_health_regen" "+$hp_regen"
-        "dota_tooltip_ability_item_pipe_lua1_magic_resistance" "%+$spell_resist"
+        "dota_tooltip_ability_item_pipe_lua" "Pipe"
+        "dota_tooltip_ability_item_pipe_lua_description" "<h1>Активная: Barrier</h1>Создаёт на владельце и окружающих его союзниках барьер, блокирующий %barrier_block% магического урона. Действует %barrier_duration% сек.<br><br>Радиус: %barrier_radius%\n<h1>Пассивная: Insight Aura</h1>Действует на союзников вокруг. Увеличивает их восстановление здоровья на %aura_health_regen% и сопротивление магии на %magic_resistance_aura%%%.<br><br>Радиус: %aura_radius%"
+        "dota_tooltip_ability_item_pipe_lua_lore" "Могущественный артефакт таинственного происхождения. Он создаёт барьеры, защищающие от магических сил."
+        "dota_tooltip_ability_item_pipe_lua_note0" "Эффект от нескольких Barrier не складывается."
+        "dota_tooltip_ability_item_pipe_lua_note1" "Сочетается по закону убывающей полезности с другими источниками сопротивления магии."
+        "dota_tooltip_ability_item_pipe_lua_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_pipe_lua_magic_resistance" "%+$spell_resist"
 
         "dota_tooltip_modifier_item_pipe_aura_lua" "Insight Aura"
         "dota_tooltip_modifier_item_pipe_aura_lua_description" "Восстанавливает %fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% здоровья в секунду. Сопротивление магии увеличено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 //Skadi//
 
-        "dota_tooltip_ability_item_skadi_lua1" "Skadi"
-        "dota_tooltip_ability_item_skadi_lua1_description" "<h1>Пассивная: Cold Attack</h1> Каждая атака на %cold_duration% сек. замедляет передвижение и атаку цели, а также уменьшает её лечение, восстановление здоровья, вампиризм и вампиризм способностями на %heal_reduction%%%. Замедление зависит от типа атаки жертвы: у существ дальнего боя замедляет передвижение на %cold_slow_ranged%%%, атаку — на %cold_slow_ranged%. У существ ближнего боя замедляет передвижение на %cold_slow_melee%%%, атаку — на %cold_slow_melee%."
-        "dota_tooltip_ability_item_skadi_lua1_lore" "Невероятно редкий артефакт, охраняемый лазурными драконами."
-        "dota_tooltip_ability_item_skadi_lua1_bonus_all_stats" "+$all"
-        "dota_tooltip_ability_item_skadi_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_skadi_lua1_bonus_mana" "+$mana"
+        "dota_tooltip_ability_item_skadi_lua" "Skadi"
+        "dota_tooltip_ability_item_skadi_lua_description" "<h1>Пассивная: Cold Attack</h1> Каждая атака на %cold_duration% сек. замедляет передвижение и атаку цели, а также уменьшает её лечение, восстановление здоровья, вампиризм и вампиризм способностями на %heal_reduction%%%. Замедление зависит от типа атаки жертвы: у существ дальнего боя замедляет передвижение на %cold_slow_ranged%%%, атаку — на %cold_slow_ranged%. У существ ближнего боя замедляет передвижение на %cold_slow_melee%%%, атаку — на %cold_slow_melee%."
+        "dota_tooltip_ability_item_skadi_lua_lore" "Невероятно редкий артефакт, охраняемый лазурными драконами."
+        "dota_tooltip_ability_item_skadi_lua_bonus_all_stats" "+$all"
+        "dota_tooltip_ability_item_skadi_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_skadi_lua_bonus_mana" "+$mana"
 
 //Octarine Core//
         
-        "dota_tooltip_ability_item_octarine_core_lua1" "Octarine Core"
-        "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
-        "dota_tooltip_ability_item_octarine_core_lua1_cast_range_bonus" "+$cast_range"
-        "dota_tooltip_ability_item_octarine_core_lua1_bonus_mana_regen" "+$mana_regen"
-        "dota_tooltip_ability_item_octarine_core_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_octarine_core_lua1_bonus_mana" "+$mana"
-        "dota_tooltip_ability_item_octarine_core_lua1_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
+        "dota_tooltip_ability_item_octarine_core_lua" "Octarine Core"
+        "dota_tooltip_ability_item_octarine_core_lua_description" "<h1>Использование: Reset</h1> Сбрасывает перезарядку всех предметов и способностей. \n <h1>Пассивная: Cooldown Reduction</h1>Уменьшает перезарядку всех предметов и способностей на %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua_cast_range_bonus" "+$cast_range"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_mana" "+$mana"
+        "dota_tooltip_ability_item_octarine_core_lua_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
 //Mjollnir//
 
-        "dota_tooltip_ability_item_mjollnir_lua1" "Mjollnir"
-        "dota_tooltip_ability_item_mjollnir_lua1_description" "<h1>Активная: Static Charge</h1> На %static_duration% сек. окружает выбранное существо заряженным щитом, который с вероятностью в %static_chance%%% может нанести %static_damage% магического урона атакующему врагу и %static_strikes% другим.<br><br>Дальность применения: %abilitycastrange%\n<h1>Пассивная: Chain Lightning</h1> Каждая атака с вероятностью в %chain_chance%%% может создать разряд цепной молнии, которая %chain_strikes% раз перескочит между случайными врагами в радиусе %chain_radius%, нанося каждому по %chain_damage% магического урона. От атаки с цепной молнией нельзя уклониться."
-        "dota_tooltip_ability_item_mjollnir_lua1_lore" "Магический молот Тора, выкованный для него гномами по имени Брок и Эйтри."
-        "dota_tooltip_ability_item_mjollnir_lua1_note0" "Срабатывает не чаще, чем раз в секунду."
-        "dota_tooltip_ability_item_mjollnir_lua1_note1" "Молнии от способности Static Charge наносят магический урон целям на расстоянии до %static_seconary_radius% вокруг существа, на котором находится щит."
-        "dota_tooltip_ability_item_mjollnir_lua1_note2" "Молнии от Static Charge не срабатывают на невидимых или скрытых в тумане войны героев."
-        "dota_tooltip_ability_item_mjollnir_lua1_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_mjollnir_lua1_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_mjollnir_lua" "Mjollnir"
+        "dota_tooltip_ability_item_mjollnir_lua_description" "<h1>Активная: Static Charge</h1> На %static_duration% сек. окружает выбранное существо заряженным щитом, который с вероятностью в %static_chance%%% может нанести %static_damage% магического урона атакующему врагу и %static_strikes% другим.<br><br>Дальность применения: %abilitycastrange%\n<h1>Пассивная: Chain Lightning</h1> Каждая атака с вероятностью в %chain_chance%%% может создать разряд цепной молнии, которая %chain_strikes% раз перескочит между случайными врагами в радиусе %chain_radius%, нанося каждому по %chain_damage% магического урона. От атаки с цепной молнией нельзя уклониться."
+        "dota_tooltip_ability_item_mjollnir_lua_lore" "Магический молот Тора, выкованный для него гномами по имени Брок и Эйтри."
+        "dota_tooltip_ability_item_mjollnir_lua_note0" "Срабатывает не чаще, чем раз в секунду."
+        "dota_tooltip_ability_item_mjollnir_lua_note1" "Молнии от способности Static Charge наносят магический урон целям на расстоянии до %static_seconary_radius% вокруг существа, на котором находится щит."
+        "dota_tooltip_ability_item_mjollnir_lua_note2" "Молнии от Static Charge не срабатывают на невидимых или скрытых в тумане войны героев."
+        "dota_tooltip_ability_item_mjollnir_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_mjollnir_lua_bonus_attack_speed" "+$attack"
         "DOTA_Tooltip_modifier_item_mjollnir_active" "Mjollnir Static Charge"
         "DOTA_Tooltip_modifier_item_mjollnir_active_Description" "Когда это существо атакуют, есть шанс в %dMODIFIER_PROPERTY_TOOLTIP%%%, что атакующий и %dMODIFIER_PROPERTY_TOOLTIP% соседних с ним врага будут поражены молнией."
 
 //Pudge Heart//
 
-        "dota_tooltip_ability_item_pudge_heart_lua1" "Pudge Heart"
-        "dota_tooltip_ability_item_pudge_heart_lua1_description" "<h1>Активная: Срать</h1> Герой тратя %damage%%% своего максимального здоровья отрыгивает нанося урон равный своей силе всем врагам в радиусе %radius%."
-        "dota_tooltip_ability_item_pudge_heart_lua1_bonus_str" "+$str"
+        "dota_tooltip_ability_item_pudge_heart_lua" "Pudge Heart"
+        "dota_tooltip_ability_item_pudge_heart_lua_description" "<h1>Активная: Срать</h1> Герой тратя %damage%%% своего максимального здоровья отрыгивает нанося урон равный своей силе всем врагам в радиусе %radius%."
+        "dota_tooltip_ability_item_pudge_heart_lua_bonus_str" "+$str"
 
 //Mage Heart//
 
-        "dota_tooltip_ability_item_mage_heart_lua1" "Mage Heart"
-        "dota_tooltip_ability_item_mage_heart_lua1_description" "<h1>Пассивная: Бласт</h1> Каждые %tick% секунд %count% случайных врагов в радиусе %radius% получают магический урон равный 50% интеллекта владельца."
-        "dota_tooltip_ability_item_mage_heart_lua1_bonus_int" "+$int"
+        "dota_tooltip_ability_item_mage_heart_lua" "Mage Heart"
+        "dota_tooltip_ability_item_mage_heart_lua_description" "<h1>Пассивная: Бласт</h1> Каждые %tick% секунд %count% случайных врагов в радиусе %radius% получают магический урон равный 50% интеллекта владельца."
+        "dota_tooltip_ability_item_mage_heart_lua_bonus_int" "+$int"
 
 //Assasin Heart//
 
-        "dota_tooltip_ability_item_agility_heart_lua1" "Assassin Heart"
-        "dota_tooltip_ability_item_agility_heart_lua1_description" "<h1>Активная: Крит</h1> В течении %duration% секунд ваши атаки будут наносить %bonus_ms%%% критического урона."
-        "dota_tooltip_ability_item_agility_heart_lua1_bonus_agi" "+$agi"
-        "dota_tooltip_ability_item_agility_heart_lua1_bonus_dmg" "+к базовому урону"
+        "dota_tooltip_ability_item_agility_heart_lua" "Assassin Heart"
+        "dota_tooltip_ability_item_agility_heart_lua_description" "<h1>Активная: Крит</h1> В течении %duration% секунд ваши атаки будут наносить %bonus_ms%%% критического урона."
+        "dota_tooltip_ability_item_agility_heart_lua_bonus_agi" "+$agi"
+        "dota_tooltip_ability_item_agility_heart_lua_bonus_dmg" "+к базовому урону"
 
 //Moon Eyea//
 
-        "dota_tooltip_ability_item_moon_shard_lua1" "Moon Eyea"
-        "dota_tooltip_ability_item_moon_shard_lua1_description" "<h1>Пассивная:</h1> Увеличивает скорость атаки владельца и всех союзников на карте. Нельзя применить."
-        "dota_tooltip_ability_item_moon_shard_lua1_bonus_as" "+к скорости атаки себе"
-        "dota_tooltip_ability_item_moon_shard_lua1_aura_as_ally" "+к скорости атаки союзникам"
+        "dota_tooltip_ability_item_moon_shard_lua" "Moon Eyea"
+        "dota_tooltip_ability_item_moon_shard_lua_description" "<h1>Пассивная:</h1> Увеличивает скорость атаки владельца и всех союзников на карте. Нельзя применить."
+        "dota_tooltip_ability_item_moon_shard_lua_bonus_as" "+к скорости атаки себе"
+        "dota_tooltip_ability_item_moon_shard_lua_aura_as_ally" "+к скорости атаки союзникам"
 
 //Hood Sword//
 
-        "dota_tooltip_ability_item_hood_sword_lua1" "Hood Sword"
-        "dota_tooltip_ability_item_hood_sword_lua1_description" "<h1>Пассивная: Slayer</h1>Атакуемые вами враги наносят на %magic_debuff%%% меньше урона заклинаниями и на %phis_debuff%%% меньше урона автоатакой. Действует %duration% сек."
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_magic_resist" "%+$spell_resist"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_agi" "+$agi"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_str" "+$str"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_dmg" "+к базовому урону"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_attack_speed" "+$attack"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_status" "+$status_resist"
-        "dota_tooltip_ability_item_hood_sword_lua1_bonus_amp_hp" "%+к здоровью от восстановления и вампиризма"
+        "dota_tooltip_ability_item_hood_sword_lua" "Hood Sword"
+        "dota_tooltip_ability_item_hood_sword_lua_description" "<h1>Пассивная: Slayer</h1>Атакуемые вами враги наносят на %magic_debuff%%% меньше урона заклинаниями и на %phis_debuff%%% меньше урона автоатакой. Действует %duration% сек."
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_magic_resist" "%+$spell_resist"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_agi" "+$agi"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_str" "+$str"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_dmg" "+к базовому урону"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_status" "+$status_resist"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_amp_hp" "%+к здоровью от восстановления и вампиризма"
 
 //Satanic//
 
-        "dota_tooltip_ability_item_satanic_lua1" "Satanic"
-        "dota_tooltip_ability_item_satanic_lua1_description" "<h1>Активное: Unholy Rage</h1> Увеличивает эффект вампиризма до %lifesteal_bonus%%% на %duration% сек.<br><br>Тип развеивания: <span class=\GameplayValues GameplayVariable\>нормальное</span> \n<h1>Пассивное: Lifesteal</h1>Каждая атака восстанавливает владельцу здоровье в размере %lifesteal_pct%%% от нанесённого урона."
-        "dota_tooltip_ability_item_satanic_lua1_lore" "Колоссальная сила в обмен на вашу душу."
-        "dota_tooltip_ability_item_satanic_lua1_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua1_damage_bonus" "+$damage"
+        "dota_tooltip_ability_item_satanic_lua" "Satanic"
+        "dota_tooltip_ability_item_satanic_lua_description" "<h1>Активное: Unholy Rage</h1> Увеличивает эффект вампиризма до %lifesteal_bonus%%% на %duration% сек.<br><br>Тип развеивания: <span class=\GameplayValues GameplayVariable\>нормальное</span> \n<h1>Пассивное: Lifesteal</h1>Каждая атака восстанавливает владельцу здоровье в размере %lifesteal_pct%%% от нанесённого урона."
+        "dota_tooltip_ability_item_satanic_lua_lore" "Колоссальная сила в обмен на вашу душу."
+        "dota_tooltip_ability_item_satanic_lua_strength_bonus" "+$str"
+        "dota_tooltip_ability_item_satanic_lua_damage_bonus" "+$damage"
         "DOTA_Tooltip_modifier_satanic_lua_active" "Unholy Rage"
         "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Вампиризм увеличен до 200%"
         "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
@@ -1921,14 +1921,14 @@
 		
 //Scythe of Vyse//
 
-        "dota_tooltip_ability_item_sheepstick_lua1" "Scythe of Vyse"
-        "dota_tooltip_ability_item_sheepstick_lua1_bonus_agility" "+$agi"
-        "dota_tooltip_ability_item_sheepstick_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_sheepstick_lua1_bonus_mana_regen" "+$mana_regen"
-        "dota_tooltip_ability_item_sheepstick_lua1_bonus_mana_regen" "+$mana_regen"
-        "dota_tooltip_ability_item_sheepstick_lua1_bonus_strength" "+$str"
-        "dota_tooltip_ability_item_sheepstick_lua1_projectile_speed" "+ к скорости снарядов"
-        "dota_tooltip_ability_item_sheepstick_lua1_description" "<h1>Активная: Hex</h1> Превращает цель в безобидную зверушку на %sheep_duration% сек. Жертва не может атаковать, применять способности или использовать предметы, а её базовая скорость падает до 140. Нельзя применить на одно и то же существо чаще чем раз в 10 секунд. \n <h1>Пассивное: Witch Blade</h1>Следующая атака отравит жертву на %duration% сек. и каждую секунду будет наносить ей урон, равный интеллекту владельца, помноженному на %intellect_dmg%. Не обновляется."
+        "dota_tooltip_ability_item_sheepstick_lua" "Scythe of Vyse"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_sheepstick_lua_projectile_speed" "+ к скорости снарядов"
+        "dota_tooltip_ability_item_sheepstick_lua_description" "<h1>Активная: Hex</h1> Превращает цель в безобидную зверушку на %sheep_duration% сек. Жертва не может атаковать, применять способности или использовать предметы, а её базовая скорость падает до 140. Нельзя применить на одно и то же существо чаще чем раз в 10 секунд. \n <h1>Пассивное: Witch Blade</h1>Следующая атака отравит жертву на %duration% сек. и каждую секунду будет наносить ей урон, равный интеллекту владельца, помноженному на %intellect_dmg%. Не обновляется."
         
 //Spectral Scythe//
 
@@ -1976,11 +1976,11 @@
         "DOTA_Tooltip_ability_item_sabre_blade1_bonus_damage" "+$damage"
         "DOTA_Tooltip_ability_item_sabre_blade1_bonus_attack_speed" "+$attack"
 		
-//ability_item_midas_lua1
+//ability_item_midas_lua
 
-        "DOTA_Tooltip_ability_item_midas_lua1" "Hand of Midas"
-        "DOTA_Tooltip_ability_item_midas_lua1_description" "<h1>Активное: Gold Transfer</h1>Свяжите ваше золото с союзником и получайте до %shareble_gold%%% его золота."
-        "DOTA_Tooltip_ability_item_midas_lua1_attack_speed" "+$attack"
+        "DOTA_Tooltip_ability_item_midas_lua" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua_description" "<h1>Активное: Gold Transfer</h1>Свяжите ваше золото с союзником и получайте до %shareble_gold%%% его золота."
+        "DOTA_Tooltip_ability_item_midas_lua_attack_speed" "+$attack"
 
 
         //////////
@@ -2002,28 +2002,6 @@
         //////////
         //Heroes//
 		//////////
-
-        "dota_tooltip_ability_infinite_str" "Infinite Strength"
-        "dota_tooltip_ability_infinite_str_description" "С каждым убитым врагом вы копите силу."
-        "dota_tooltip_ability_infinite_str_bonus_str" "СИЛЫ ЗА СТАК:"
-
-        "dota_tooltip_ability_infinite_agi" "Infinite Agility"
-        "dota_tooltip_ability_infinite_agi_description" "С каждым убитым врагом вы копите ловкость."
-        "dota_tooltip_ability_infinite_agi_bonus_agi" "ЛОВКОСТЬ ЗА СТАК:"
-
-        "dota_tooltip_ability_infinite_int" "Infinite Intellect"
-        "dota_tooltip_ability_infinite_int_description" "С каждым убитым врагом вы копите интеллект."
-        "dota_tooltip_ability_infinite_int_bonus_int" "ИНТЕЛЛЕКТ ЗА СТАК:"
-
-        "dota_tooltip_ability_infinite_all" "Infinite All"
-        "dota_tooltip_ability_infinite_all_description" "С каждым убитым врагом вы увеличиваете свои атрибуты."
-        "dota_tooltip_ability_infinite_all_bonus" "СИЛЫ/ЛОВКОСТИ/ИНТЕЛЛЕКТА ЗА СТАК:"
-
-        "dota_tooltip_ability_infinite_all2" "Infinite All"
-        "dota_tooltip_ability_infinite_all2_description" "С каждым убитым врагом вы увеличиваете свои атрибуты."
-        "dota_tooltip_ability_infinite_all2_bonus" "СИЛЫ/ЛОВКОСТИ/ИНТЕЛЛЕКТА ЗА СТАК:"
-
-        "dota_tooltip_modifier_modifier_infinite_all2_collector" "Стаков"
 
         "dota_tooltip_modifier_increase_int" "Стаков интеллекта"
         "dota_tooltip_modifier_increase_str" "Стаков силы"
