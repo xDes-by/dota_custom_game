@@ -304,7 +304,7 @@ function DataBase:PlayerSetup( pid )
 			_G.SHOP[pid] = obj.shop
 			DailyQuests:SetPlayerData(pid, obj.daily)
 			Shop:PlayerSetup( pid )
-			
+			BattlePass:SetPlayerData(pid, obj)
 			-- Shop:createShop()
 			-- Timers:CreateTimer(0 ,function()
 			-- 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then

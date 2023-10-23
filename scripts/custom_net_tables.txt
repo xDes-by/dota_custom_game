@@ -14,5 +14,6 @@
         "difficultyVote",
         "forge",
         "Daily",
+	"BattlePass",
     ]
 }
