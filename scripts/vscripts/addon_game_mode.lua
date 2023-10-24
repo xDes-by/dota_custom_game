@@ -680,6 +680,21 @@ function add_soul(boss)
 					unit:ModifyGoldFiltered( 4000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
 				end
+				if boss == "npc_cemetery_boss" then
+					sInv:AddSoul("item_cemetery_soul", nPlayerID)
+					unit:ModifyGoldFiltered( 4000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
+				end
+				if boss == "npc_boss_magma" then
+					sInv:AddSoul("item_magma_soul", nPlayerID)
+					unit:ModifyGoldFiltered( 4000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
+				end
+				if boss == "npc_mega_boss" then
+					sInv:AddSoul("item_antimage_soul", nPlayerID)
+					unit:ModifyGoldFiltered( 4000, true, 0 )
+					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
+				end
 			end
 		end
 	end

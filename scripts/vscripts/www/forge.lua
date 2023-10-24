@@ -18,7 +18,10 @@ local upgradeCost = {
     [5] = { gold = 40000, soul = "item_swamp_soul", max_gems = 5000},
     [6] = { gold = 50000, soul = "item_snow_soul", max_gems = 6000},
     [7] = { gold = 99999, soul = "item_divine_soul", max_gems = 7000},
-    [8] = {                                         max_gems = 8000},
+    [8] = { gold = 99999, soul = "item_cemetery_soul", max_gems = 8000},
+    [9] = { gold = 99999, soul = "item_magma_soul", max_gems = 9000},
+    [10] = { gold = 99999, soul = "item_antimage_soul", max_gems = 10000},
+    [11] = {                                         max_gems = 11000},
 }
 local gems = {
 
@@ -41,6 +44,7 @@ function Forge:init()
     CustomGameEventManager:RegisterListener("UpdgradeGemsButton",function(_, keys)
         self:UpdgradeGemsButton(keys)
     end)
+    self.levelMax = 11
 end
 
 function Forge:OnGameStateChanged(t)
@@ -105,7 +109,7 @@ function Forge:UpdgradeButton(t)
     local item = hero:FindItemInInventory(t.itemname)
     local itemLevel = item:GetLevel()
     local soul = upgradeCost[itemLevel].soul
-    if itemLevel < 8 and (sInv:HasSoul(soul, t.PlayerID) or hero:FindItemInInventory(soul)) then 
+    if itemLevel < self.levelMax and (sInv:HasSoul(soul, t.PlayerID) or hero:FindItemInInventory(soul)) then 
         if hero:GetGold() >= upgradeCost[itemLevel].gold then
             hero:ModifyGoldFiltered(-upgradeCost[itemLevel].gold, true, 0)
             if hero:FindItemInInventory(soul) then
