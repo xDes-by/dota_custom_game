@@ -534,82 +534,31 @@ function Quests:addParticle(url, name, key, nPlayerID, n, t)
 end
 
 function Quests:createNPC()
-	
-	--local blacksmith = CreateUnitByName("blacksmith", Entities:FindByName(nil,"blacksmith"):GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
-    --blacksmith:SetAngles(0,300,0)
-    --blacksmith:AddNewModifier(blacksmith,nil,"modifier_shopkeeper",{})
-	--blacksmith:SetUnitName(tostring(Quests.npcName .. i))
---	local blacksmith2 = CreateUnitByName("Smithy_1", Vector(-404, -10435, 640), false, nil, nil, DOTA_TEAM_GOODGUYS)
---	local blacksmith3 = CreateUnitByName("Smithy_2", Vector(-10975, 2231, 256), false, nil, nil, DOTA_TEAM_GOODGUYS)
---	blacksmith2:AddNewModifier(blacksmith2,nil,"modifier_quest",{})
---	blacksmith3:AddNewModifier(blacksmith3,nil,"modifier_quest",{})
-	
-
-	for i = 1, Quests.npcMaxNumber do
-		local blacksmith = CreateUnitByName("blacksmith", Entities:FindByName(nil, Quests.pointName .. i):GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
-		--blacksmith:SetUnitName(tostring(Quests.npcName .. i))
-		----print(blacksmith:GetUnitName())
-		--unit:SetAngles(0,300,0)
-    	blacksmith:AddNewModifier(blacksmith,nil,"modifier_quest",{})
-		blacksmith.ParticleInfo = {}
-		--unit:SetUnitName(tostring(Quests.npcName .. i))
-
-		
-		
-		
-		--local unit = Entities:FindByName( nil, Quests.npcName .. i)
-		
-		--local blacksmith = CreateUnitByName("blacksmith" , Entities:FindByName( nil, Quests.npcName .. i):GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
-
-		--blacksmith:SetAngles(0,300,0)
-		--[[
-		unit:SetUnitName(tostring(Quests.npcName .. i))
-		--print(unit:GetUnitName())
-		unit:AddNewModifier(unit,nil,"modifier_quest",{})
-		----print(Entities:FindByName( nil, blacksmith))
-		]]
-		--local particleLeader = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_has_quest.vpcf", PATTACH_OVERHEAD_FOLLOW, unit )
-		--local particleLeader = ParticleManager:CreateParticle( "particles/quest/marker_complite_quest_bonus.vpcf", PATTACH_OVERHEAD_FOLLOW, unit )
-		--local particleLeader = ParticleManager:CreateParticleForPlayer( "particles/quest/marker_complite_quest_bonus.vpcf", PATTACH_OVERHEAD_FOLLOW, unit ,PlayerResource:GetPlayer(0))
-		--ParticleManager:SetParticleControlEnt( particleLeader, PATTACH_OVERHEAD_FOLLOW, unit, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", unit:GetAbsOrigin(), true )
-		
-		--ParticleManager:SetParticleControl(particleLeader, 0, Vector(Point.x+200 , Point.y+200, Point.z+200))
-		--[[
-		Timers:CreateTimer(2, function() 
-			ParticleManager:DestroyParticle( particleLeader, false )
-			ParticleManager:ReleaseParticleIndex( particleLeader )
-		end)
-		]]
-		--local spawnLocation2 = unit:GetAbsOrigin()
-		--local hero = PlayerResource:GetPlayer(0)
-		--hero = hero:GetAssignedHero()
-		----print('hero_2:',hero)
-        --MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), spawnLocation2.x, spawnLocation2.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 60)
-		local quest = {}
-		quest['name'] = Quests.npcName .. i 
-		quest['unit'] = blacksmith
-		quest['particle'] = {}
-		for nPlayerID = 0, 4 do
-			quest['particle'][nPlayerID] = false
-		end
-		table.insert(Quests.npcArray, quest)
-	end
-	
-	--CustomGameEventManager:Send_ServerToAllClients( "load_npc", quests_array)
-	local index_name = {}
-	for i = 1, Quests.npcMaxNumber do
-		index_name[i] = {
-			name = Quests.npcArray[i]["name"],
-			index = Quests.npcArray[i]["unit"]:entindex()
-		}
-	end
-	--print(index_name[1]["name"])
-	CustomGameEventManager:Send_ServerToAllClients( "npcInfo", {
-		list = index_name,
-		mode = diff_wave.rating_scale
-	})
-	
-	Timers:CreateTimer(2, function() Quests:updateParticle()  end)
+	-- for i = 1, Quests.npcMaxNumber do
+	-- 	local blacksmith = CreateUnitByName("blacksmith", Entities:FindByName(nil, Quests.pointName .. i):GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
+    -- 	blacksmith:AddNewModifier(blacksmith,nil,"modifier_quest",{})
+	-- 	blacksmith.ParticleInfo = {}
+	-- 	local quest = {}
+	-- 	quest['name'] = Quests.npcName .. i 
+	-- 	quest['unit'] = blacksmith
+	-- 	quest['particle'] = {}
+	-- 	for nPlayerID = 0, 4 do
+	-- 		quest['particle'][nPlayerID] = false
+	-- 	end
+	-- 	table.insert(Quests.npcArray, quest)
+	-- end
+	-- local index_name = {}
+	-- for i = 1, Quests.npcMaxNumber do
+	-- 	index_name[i] = {
+	-- 		name = Quests.npcArray[i]["name"],
+	-- 		index = Quests.npcArray[i]["unit"]:entindex()
+	-- 	}
+	-- end
+	-- CustomGameEventManager:Send_ServerToAllClients( "npcInfo", {
+	-- 	list = index_name,
+	-- 	mode = diff_wave.rating_scale
+	-- })
+	-- Timers:CreateTimer(2, function() Quests:updateParticle()  end)
 end
 
 

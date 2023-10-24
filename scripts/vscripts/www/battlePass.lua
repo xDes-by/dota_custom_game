@@ -1,7 +1,6 @@
 if BattlePass == nil then
     _G.BattlePass = class({})
 end
-
 function BattlePass:init()
     CustomGameEventManager:RegisterListener("GetAllReward",function(_, keys)
         self:GetAllReward(keys)
@@ -19,8 +18,14 @@ function BattlePass:init()
         days = battlePassDailyRewards
     }
     self.ExpToLevelUp = battlePassLevelExperience
-    CustomNetTables:SetTableValue('BattlePass', "reward", self.reward)
-    CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", self.ExpToLevelUp)
+    ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
+end
+
+function BattlePass:OnGameRulesStateChange()
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+        CustomNetTables:SetTableValue('BattlePass', "reward", self.reward)
+        CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", self.ExpToLevelUp)
+    end
 end
 
 function BattlePass:SetPlayerData(pid, obj)
@@ -165,5 +170,4 @@ function BattlePass:GivePremium(t)
         premium = self.premium[t.PlayerID],
     })
 end
-
 BattlePass:init()
