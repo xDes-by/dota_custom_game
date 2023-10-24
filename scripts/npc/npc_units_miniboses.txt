@@ -2,13 +2,14 @@
 {
     "npc_miniboss_darkseer"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/dark_seer/dark_seer.vmdl"	// Model.
 		"SoundSet"					"Hero_DarkSeer"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"dark_seer_vacuum_miniboss"         
         "Ability2"					"dark_seer_ion_shell_miniboss"         
@@ -90,13 +91,14 @@
     }
     "npc_miniboss_enigma"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/enigma/enigma.vmdl"	// Model.
 		"SoundSet"					"Hero_Enigma"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"enigma_black_hole_miniboss"         
         "Ability2"					"witch_doctor_paralyzing_cask_miniboss"         
@@ -177,13 +179,14 @@
     }
     "npc_miniboss_ursa"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/ursa/ursa.vmdl"	// Model.
 		"SoundSet"					"Hero_Ursa"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"ursa_earthshock_miniboss"         
         "Ability2"					"ursa_fury_swipes_miniboss"         
@@ -264,13 +267,14 @@
     }
     "npc_miniboss_void"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/faceless_void/faceless_void.vmdl"	// Model.
 		"SoundSet"					"Hero_FacelessVoid"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"faceless_void_time_lock_miniboss"         
         "Ability2"					"faceless_void_chronosphere_miniboss"         
@@ -359,13 +363,14 @@
     }
     "npc_miniboss_marci"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/marci/marci_base.vmdl"	// Model.
 		"SoundSet"					"Hero_Marci"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"marci_unleash_miniboss"         
         "Ability2"					"slardar_bash_miniboss"         
@@ -446,13 +451,14 @@
     }
     "npc_miniboss_beast"	
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/beastmaster/beastmaster.vmdl"	// Model.
 		"SoundSet"					"Hero_Beastmaster"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"beastmaster_call_of_the_wild_hawk"         
         "Ability2"					"beastmaster_inner_beast_miniboss"         
@@ -536,13 +542,14 @@
     }
     "npc_miniboss_muerta"
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/muerta/muerta_base.vmdl"	// Model.
 		"SoundSet"					"Hero_Muerta"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"muerta_gunslinger_miniboss"         
         "Ability2"					"muerta_pierce_the_veil_miniboss"         
@@ -624,13 +631,14 @@
     }
     "npc_miniboss_titan"
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/elder_titan/elder_titan.vmdl"	// Model.
 		"SoundSet"					"Hero_ElderTitan"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					""         
         "Ability2"					""         
@@ -712,13 +720,14 @@
     }
     "npc_miniboss_timber"
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/shredder/shredder.vmdl"	// Model.
 		"SoundSet"					"Hero_Shredder"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"shredder_flamethrower_miniboss"         
         "Ability2"					"riki_smoke_screen_miniboss"         
@@ -801,13 +810,14 @@
     }
     "npc_miniboss_nyx"
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"	// Model.
 		"SoundSet"					"Hero_NyxAssassin"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"nyx_assassin_burrow_miniboss"         
         "Ability2"					"nyx_assassin_unburrow_miniboss"         
@@ -888,13 +898,14 @@
     }
     "npc_miniboss_lycan"
 	{
+		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"BaseClass"                 "npc_dota_creature" // Class of entity of link to.
 		"Model"						"models/heroes/lycan/lycan.vmdl"	// Model.
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
 		"IsAncient"					"1"
-        "ConsideredHero"            "1"
+        "ConsideredHero"            "0"
 
         "Ability1"					"lycan_shapeshift_miniboss"         
         "Ability2"					"lycan_howl_miniboss"         

@@ -1,0 +1,207 @@
+"DOTAAbilities"
+{
+    "magma_boss_damage_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_damage_aura"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"damage" "3000"
+		}
+	}
+    "magma_boss_pit"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_pit"
+		"AbilityTextureName"			"underlord_pit_of_malice"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
+			"particle"	"particles/units/heroes/heroes_underlord/underlord_pitofmalice_pre.vpcf"
+			"particle"	"particles/units/heroes/heroes_underlord/underlord_pitofmalice.vpcf"
+			"particle"	"particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.45"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"						"400"
+			"pit_duration"					"12.0"
+			"pit_interval"					"4"
+			"pit_damage"					"0"
+			"ensnare_duration"				"2"
+
+			"wave_duration"					"7.0"
+			"wave_count"					"6"
+			"wave_damage"					"25 40 55 70"
+			"wave_interval"					"1.0"
+			"burn_damage"					"1 2 3 4"
+			"burn_interval"					"1.0"
+			"burn_duration"					"2.0"
+			"first_wave_delay"				"0.0"
+			"building_damage"				"33"
+		}
+	}
+ 	"magma_boss_stun"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_stun"
+		"AbilityTextureName"			""
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"600"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"stun_duration"			"5"
+		}
+	}
+    "magma_boss_damage_reduction_aura"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_damage_reduction_aura"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"damage" "20"
+		}
+	}
+	"magma_boss_channeling_doom"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_channeling_doom"
+		"AbilityTextureName"			"doom_doom"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"12"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"doom_duration"	"2"
+			"duration"	"5"
+			"radius"	"700"
+		}
+	}
+	"magma_boss_channeling_meteors"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/magma/magma_boss_channeling_meteors"
+		"AbilityTextureName"			"doom_doom"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"3"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"doom_duration"	"2"
+			"duration"	"5"
+			"radius"	"700"
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

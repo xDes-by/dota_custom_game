@@ -1,4 +1,3 @@
-boss_8_ability = {"ability_npc_boss_location8_spell1","ability_npc_boss_location8_spell2","ability_npc_boss_location8_spell3","ability_npc_boss_location8_spell4"}
 require("data/data")
 
 function Spawn( entityKeyValues )
@@ -9,7 +8,16 @@ function Spawn( entityKeyValues )
     if thisEntity == nil then
         return
     end
-	
+	thisEntity.abilities_table = {}
+	for i=0,24 do
+		local abi = thisEntity:GetAbilityByIndex(i)
+		if abi then
+			table.insert( thisEntity.abilities_table, abi )
+		end
+	end
+	thisEntity:AddNewModifier(thisEntity, nil, "modifier_invulnerable", {})
+	thisEntity:AddNewModifier(thisEntity, nil, "modifier_item_aghanims_shard", {})
+	thisEntity:AddNewModifier(thisEntity, nil, "modifier_item_ultimate_scepter", {})
     thisEntity:SetContextThink( "NeutralThink", NeutralThink, 1 )
 end
 
@@ -28,7 +36,11 @@ function NeutralThink()
 	if thisEntity:IsChanneling() then  
         return 1 
     end
-	
+
+	if thisEntity:HasModifier("modifier_invulnerable") then  
+        return 1 
+    end
+
 	if not thisEntity.bInitialized then
 	thisEntity.vInitialSpawnPos  = Vector(2085,692,128)
         thisEntity.fMaxDist = thisEntity:GetAcquisitionRange()
@@ -45,9 +57,8 @@ function NeutralThink()
 	end 
 	
 	if #enemies > 0 then
-	enemy = enemies[1]
-		for _, T in ipairs(boss_8_ability) do
-			local Spell = thisEntity:FindAbilityByName(T)
+		enemy = enemies[1]
+		for _,Spell in ipairs(thisEntity.abilities_table) do
 			if Spell then
 				local Behavior = Spell:GetBehaviorInt()
 				if bit.band( Behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
@@ -72,7 +83,7 @@ function NeutralThink()
 					Spell.Behavior = "passive"
 				end
 			end
-		end	
+		end
 		if thisEntity.ItemAbility and thisEntity.ItemAbility:IsFullyCastable() then
 			return UseItem()
 		end	

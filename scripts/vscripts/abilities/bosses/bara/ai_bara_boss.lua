@@ -89,7 +89,7 @@ function modifier_ai_bara_boss:OnIntervalThink()
     if self.Phase == "AFK" then
         if not self.abi2:IsFullyCastable() then
             local ids = {}
-            for pID = 0, PlayerResource:GetPlayerCount() - 1 then
+            for pID = 0, PlayerResource:GetPlayerCount() - 1 do
                 if PlayerResource:IsValidPlayerID(pID) then
                     local hTarget = PlayerResource:GetSelectedHeroEntity(pID)
                     if not hTarget:IsInRangeOfShop(DOTA_SHOP_HOME, true) then

@@ -492,8 +492,8 @@ local creepDict = {
     [4] = {mini = cemetery_mini, big = cemetery_big},
     [5] = {mini = swamp_mini, big = swamp_big},
     [6] = {mini = snow_mini, big = snow_big},
-    [7] = {mini = last_mini, big = last_big}
-    -- [8] = {mini = magma_mini, big = magma_big}   -- в файле data дописать крипов
+    [7] = {mini = last_mini, big = last_big},
+    [8] = {mini = magma_mini, big = magma_big}   -- в файле data дописать крипов
 }
 
 function check_trigger_actiate()
@@ -534,7 +534,7 @@ end
 --------------------Gold Creep
 ---------------------------------------------------------------------------------------------------
 
--- ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
+ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
 ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), creep_spawner)	
 
 function creep_spawner:FixCreepLags(data)
