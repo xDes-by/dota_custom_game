@@ -13096,8 +13096,8 @@
         "npc_dota_hero_alchemist_str10_description" "+3%/1.5% regeneration of health and mana during Chemical Rage"
         "npc_dota_hero_alchemist_str11" "Caustic Acids"
         "npc_dota_hero_alchemist_str11_description" "Enemies in Acid Spray miss in 25% of cases"
-        "npc_dota_hero_alchemist_str_last" "Corrosion"
-        "npc_dota_hero_alchemist_str_last_description" "Acid Spray reduces armor 5 times more."
+        "npc_dota_hero_alchemist_str12" "Corrosion"
+        "npc_dota_hero_alchemist_str12_description" "Acid Spray reduces armor 5 times more."
 
         "npc_dota_hero_alchemist_agi6" "Stronger and stronger"
         "npc_dota_hero_alchemist_agi6_description" "+5 damage per level"
@@ -13111,8 +13111,8 @@
         "npc_dota_hero_alchemist_agi10_description" "During Chemical Rage the hero receives a bonus to damage equal to the hero's dexterity"
         "npc_dota_hero_alchemist_agi11" "Critical Hit"
         "npc_dota_hero_alchemist_agi11_description" "During Chemical Rage, every 3rd hit is 200% Crit"
-        "npc_dota_hero_alchemist_agi_last" "The Money Power"
-        "npc_dota_hero_alchemist_agi_last_description" "For every 10 gold have, the hero takes 1 base damage"
+        "npc_dota_hero_alchemist_agi12" "The Money Power"
+        "npc_dota_hero_alchemist_agi12_description" "For every 10 gold have, the hero takes 1 base damage"
 
         "npc_dota_hero_alchemist_int6" "Almost like a magician"
         "npc_dota_hero_alchemist_int6_description" "25% Cooldwon Reduction"
@@ -13126,8 +13126,8 @@
         "npc_dota_hero_alchemist_int10_description" "Throws 3 times Unstable Concoction"
         "npc_dota_hero_alchemist_int11" "Poison Blast"
         "npc_dota_hero_alchemist_int11_description" "Unstable Concoction applies Acid Spray to the explosion site"
-        "npc_dota_hero_alchemist_int_last" "A Penny Each"
-        "npc_dota_hero_alchemist_int_last_description" "Greevil's Greed works on allies by 50%"
+        "npc_dota_hero_alchemist_int12" "A Penny Each"
+        "npc_dota_hero_alchemist_int12_description" "Greevil's Greed works on allies by 50%"
 
         //Techies//
 
@@ -13177,8 +13177,8 @@
         "npc_dota_hero_techies_str10_description" "+10% armor and ladder resistance reduction"
         "npc_dota_hero_techies_str11" "Big BOOM"
         "npc_dota_hero_techies_str11_description" "Land Mines Explosion Radius +300"
-        "npc_dota_hero_techies_str_last" "Doublet"
-        "npc_dota_hero_techies_str_last_description" "Sets 2 Land Mines at once"
+        "npc_dota_hero_techies_str12" "Doublet"
+        "npc_dota_hero_techies_str12_description" "Sets 2 Land Mines at once"
 
         "npc_dota_hero_techies_agi6" "A surge of explosive rage"
         "npc_dota_hero_techies_agi6_description" "+5 damage per level"
@@ -13192,8 +13192,8 @@
         "npc_dota_hero_techies_agi10_description" "Land Mines can move at 25 speed"
         "npc_dota_hero_techies_agi11" "Nuclear boom"
         "npc_dota_hero_techies_agi11_description" "x2 Land Mines base damage"
-        "npc_dota_hero_techies_agi_last" "Mines Blast"
-        "npc_dota_hero_techies_agi_last_description" "5% chance to plant Land Mines on attack"
+        "npc_dota_hero_techies_agi12" "Mines Blast"
+        "npc_dota_hero_techies_agi12_description" "5% chance to plant Land Mines on attack"
 
         "npc_dota_hero_techies_int6" "Mina wisely"
         "npc_dota_hero_techies_int6_description" "Land Mines Damage + Hero Intellect"
@@ -13207,8 +13207,8 @@
         "npc_dota_hero_techies_int10_description" "x2 damage Remote Mines"
         "npc_dota_hero_techies_int11" "Removal of restrictions"
         "npc_dota_hero_techies_int11_description" "+240s Remote Mines duration"
-        "npc_dota_hero_techies_int_last" "Nuclear warhead"
-        "npc_dota_hero_techies_int_last_description" "5% chance to not lose Suicide stacks on death"
+        "npc_dota_hero_techies_int12" "Nuclear warhead"
+        "npc_dota_hero_techies_int12_description" "5% chance to not lose Suicide stacks on death"
 
         //Troll Warlord//
 
@@ -13255,8 +13255,8 @@
         "npc_dota_hero_troll_warlord_str10_description" "+1 armor per 15 creeps killed"
         "npc_dota_hero_troll_warlord_str11" "Cursed Axes"
         "npc_dota_hero_troll_warlord_str11_description" "Axes reduces all enemy damage dealt by 15%"
-        "npc_dota_hero_troll_warlord_str_last" "Come on"
-        "npc_dota_hero_troll_warlord_str_last_description" "25% chance that when receiving a fatal hijack, the hero will not die, but recover 25% of his max health"
+        "npc_dota_hero_troll_warlord_str12" "Come on"
+        "npc_dota_hero_troll_warlord_str12_description" "25% chance that when receiving a fatal hijack, the hero will not die, but recover 25% of his max health"
 
         "npc_dota_hero_troll_warlord_agi6" "Fanaticism"
         "npc_dota_hero_troll_warlord_agi6_description" "+5 damage per level"
@@ -13270,8 +13270,8 @@
         "npc_dota_hero_troll_warlord_agi10_description" "-2 hits for Fervor procs"
         "npc_dota_hero_troll_warlord_agi11" "Like Medusa"
         "npc_dota_hero_troll_warlord_agi11_description" "In ranged form, attacks an additional target (all orb effects work)"
-        "npc_dota_hero_troll_warlord_agi_last" "Through the armor"
-        "npc_dota_hero_troll_warlord_agi_last_description" "Fervor Procs reduces the target's armor by 1 per stack for 5 seconds"
+        "npc_dota_hero_troll_warlord_agi12" "Through the armor"
+        "npc_dota_hero_troll_warlord_agi12_description" "Fervor Procs reduces the target's armor by 1 per stack for 5 seconds"
 
         "npc_dota_hero_troll_warlord_int6" "2 in 1"
         "npc_dota_hero_troll_warlord_int6_description" "Whirling Axes are always available and do not depend on the hero's attack type"
@@ -13285,8 +13285,8 @@
         "npc_dota_hero_troll_warlord_int10_description" "Fervor triggering reduces target's magic res by 0.2 per stack for 5 seconds"
         "npc_dota_hero_troll_warlord_int11" "Full control"
         "npc_dota_hero_troll_warlord_int11_description" "During Battle Trance, the hero can be controlled"
-        "npc_dota_hero_troll_warlord_int_last" "Plus Ultra!"
-        "npc_dota_hero_troll_warlord_int_last_description" "Battle Trance affect all allies on map"
+        "npc_dota_hero_troll_warlord_int12" "Plus Ultra!"
+        "npc_dota_hero_troll_warlord_int12_description" "Battle Trance affect all allies on map"
 
         //CRISTAL MAIDEN//
 
@@ -13324,8 +13324,8 @@
         "npc_dota_hero_crystal_maiden_str10_description" "25% lifesteal"
         "npc_dota_hero_crystal_maiden_str11" "Critical damage"
         "npc_dota_hero_crystal_maiden_str11_description" "Freezing field deals STR damage"
-        "npc_dota_hero_crystal_maiden_str_last" "Powerful tide"
-        "npc_dota_hero_crystal_maiden_str_last_description" "Mana Aura Efficiency x2"
+        "npc_dota_hero_crystal_maiden_str12" "Powerful tide"
+        "npc_dota_hero_crystal_maiden_str12_description" "Mana Aura Efficiency x2"
         
         "npc_dota_hero_crystal_maiden_agi6" "Ice Shield"
         "npc_dota_hero_crystal_maiden_agi6_description" "Reduces incoming damage from Slow Aura by 20%"
@@ -13339,8 +13339,8 @@
         "npc_dota_hero_crystal_maiden_agi10_description" "x2 Crystal Slow Aura slow"
         "npc_dota_hero_crystal_maiden_agi11" "Because of the mountains"
         "npc_dota_hero_crystal_maiden_agi11_description" "200 attack range"
-        "npc_dota_hero_crystal_maiden_agi_last" "Icy Flash"
-        "npc_dota_hero_crystal_maiden_agi_last_description" "Crystal Nova procs from auto attack by 10% chance"
+        "npc_dota_hero_crystal_maiden_agi12" "Icy Flash"
+        "npc_dota_hero_crystal_maiden_agi12_description" "Crystal Nova procs from auto attack by 10% chance"
 
         "npc_dota_hero_crystal_maiden_int6" "Frost touch"
         "npc_dota_hero_crystal_maiden_int6_description" "Freezing field deals 50% of INT as damage"
@@ -13354,8 +13354,8 @@
         "npc_dota_hero_crystal_maiden_int10_description" "-50% mana cost"
         "npc_dota_hero_crystal_maiden_int11" "Fast freeze"
         "npc_dota_hero_crystal_maiden_int11_description" "Crystal Nova deals intelligence damage"
-        "npc_dota_hero_crystal_maiden_int_last" "Endless Winter"
-        "npc_dota_hero_crystal_maiden_int_last_description" "x2 Freezing Field damage"
+        "npc_dota_hero_crystal_maiden_int12" "Endless Winter"
+        "npc_dota_hero_crystal_maiden_int12_description" "x2 Freezing Field damage"
 
         //Pudge//
 
@@ -13410,8 +13410,8 @@
         "npc_dota_hero_pudge_str10_description" "Rot skill +0.2 strength damage"
         "npc_dota_hero_pudge_str11" "The Greedy Sting"
         "npc_dota_hero_pudge_str11_description" "Dismember x2 STR damage"
-        "npc_dota_hero_pudge_str_last" "Meat Boss"
-        "npc_dota_hero_pudge_str_last_description" "Killing a boss gives 100 STR"
+        "npc_dota_hero_pudge_str12" "Meat Boss"
+        "npc_dota_hero_pudge_str12_description" "Killing a boss gives 100 STR"
         
         "npc_dota_hero_pudge_agi6" "Dexterous Meat"
         "npc_dota_hero_pudge_agi6_description" "Flesh heap gives AGI instead of STR"
@@ -13425,8 +13425,8 @@
         "npc_dota_hero_pudge_agi10_description" "Hook deals bonus damage equal to base damage"
         "npc_dota_hero_pudge_agi11" "Speed Stuffing"
         "npc_dota_hero_pudge_agi11_description" "-0.1 base attack speed"
-        "npc_dota_hero_pudge_agi_last" "Juicy Meat God Epiphany "
-        "npc_dota_hero_pudge_agi_last_description" "Dismember is cast on in a 400 radius around the target"
+        "npc_dota_hero_pudge_agi12" "Juicy Meat God Epiphany "
+        "npc_dota_hero_pudge_agi12_description" "Dismember is cast on in a 400 radius around the target"
 
         "npc_dota_hero_pudge_int6" "Temporal Displacement"
         "npc_dota_hero_pudge_int6_description" "-50% Cd"
@@ -13440,8 +13440,8 @@
         "npc_dota_hero_pudge_int10_description" "Flesh heap gives intelligence"
         "npc_dota_hero_pudge_int11" "Meat Epiphany."
         "npc_dota_hero_pudge_int11_description" "Hook Changes from pure damage to magic amplification"
-        "npc_dota_hero_pudge_int_last" "Meat penetration dirty hook "
-        "npc_dota_hero_pudge_int_last_description" "The attacker can become infected with the plague and spread Rot around him"
+        "npc_dota_hero_pudge_int12" "Meat penetration dirty hook "
+        "npc_dota_hero_pudge_int12_description" "The attacker can become infected with the plague and spread Rot around him"
 
         //Sand King//
 
@@ -13482,8 +13482,8 @@
          "npc_dota_hero_sand_king_str10_description" "+10 hp regen per level"
          "npc_dota_hero_sand_king_str11" "Power of Strength"
          "npc_dota_hero_sand_king_str11_description" "Trembling Waves damage + 75% strength"
-         "npc_dota_hero_sand_king_str_last" "Scorpion's True Strength"
-         "npc_dota_hero_sand_king_str_last_description" "Trembling Waves Strength Damage + 2.0"
+         "npc_dota_hero_sand_king_str12" "Scorpion's True Strength"
+         "npc_dota_hero_sand_king_str12_description" "Trembling Waves Strength Damage + 2.0"
 
          "npc_dota_hero_sand_king_agi6" "Born in the Sands"
          "npc_dota_hero_sand_king_agi6_description" "+5 damage per level"
@@ -13497,8 +13497,8 @@
          "npc_dota_hero_sand_king_agi10_description" "Gain 80% evasion in Sand Storm"
          "npc_dota_hero_sand_king_agi11" "Storm within a storm"
          "npc_dota_hero_sand_king_agi11_description" "In Sand Storm, gains an attack speed bonus equal to 5*hero level"
-         "npc_dota_hero_sand_king_agi_last" "Luck is on the side of the scorpion"
-         "npc_dota_hero_sand_king_agi_last_description" "100% ult chance"
+         "npc_dota_hero_sand_king_agi12" "Luck is on the side of the scorpion"
+         "npc_dota_hero_sand_king_agi12_description" "100% ult chance"
 
          "npc_dota_hero_sand_king_int6" "Deadly Toxin"
          "npc_dota_hero_sand_king_int6_description" "Caustic will deal damage even if the target is alive"
@@ -13512,8 +13512,8 @@
          "npc_dota_hero_sand_king_int10_description" "Incoming damage per Clap + 30%"
          "npc_dota_hero_sand_king_int11" "Magic Poison"
          "npc_dota_hero_sand_king_int11_description" "Caustic damage + 100% intelligence"
-"npc_dota_hero_sand_king_int_last" "Sting"
-         "npc_dota_hero_sand_king_int_last_description" "Clap casts on all Caustic"
+"npc_dota_hero_sand_king_int12" "Sting"
+         "npc_dota_hero_sand_king_int12_description" "Clap casts on all Caustic"
 
         //Legion Commander//
 
@@ -13557,8 +13557,8 @@
         "npc_dota_hero_legion_commander_str10_description" "Press the attack in the radius 350"
         "npc_dota_hero_legion_commander_str11" "God's Power"
         "npc_dota_hero_legion_commander_str11_description" "Press the attack gives spell immune"
-        "npc_dota_hero_legion_commander_str_last" "Time = Damage"
-        "npc_dota_hero_legion_commander_str_last_description" "ultimate damage x4"
+        "npc_dota_hero_legion_commander_str12" "Time = Damage"
+        "npc_dota_hero_legion_commander_str12_description" "ultimate damage x4"
 
         "npc_dota_hero_legion_commander_agi6" "The rush of power"
         "npc_dota_hero_legion_commander_agi6_description" "Ultimate give 2 more damage"
@@ -13572,8 +13572,8 @@
         "npc_dota_hero_legion_commander_agi10_description" "Moment of Courage works from own attacks"
         "npc_dota_hero_legion_commander_agi11" "sharp instinct"
         "npc_dota_hero_legion_commander_agi11_description" "+50% to Moment of Courage chance"
-        "npc_dota_hero_legion_commander_agi_last" "Attack all at once."
-        "npc_dota_hero_legion_commander_agi_last_description" "- 0.5 seconds delay Moment of Courage"
+        "npc_dota_hero_legion_commander_agi12" "Attack all at once."
+        "npc_dota_hero_legion_commander_agi12_description" "- 0.5 seconds delay Moment of Courage"
 
         "npc_dota_hero_legion_commander_int6" "The Strategic Approach"
         "npc_dota_hero_legion_commander_int6_description" "Press the attack works global on the map"
@@ -13587,8 +13587,8 @@
         "npc_dota_hero_legion_commander_int10_description" "Overwhelming Odds deal damage from Intelligence"
         "npc_dota_hero_legion_commander_int11" "Supreme commander"
         "npc_dota_hero_legion_commander_int11_description" "When you attack, you have a 5% chance to trigger Overwhelming Odds"
-        "npc_dota_hero_legion_commander_int_last" "God's Punishment."
-        "npc_dota_hero_legion_commander_int_last_description" "Ultimaeus gives base damage"
+        "npc_dota_hero_legion_commander_int12" "God's Punishment."
+        "npc_dota_hero_legion_commander_int12_description" "Ultimaeus gives base damage"
 
         //Axe//
 
@@ -13633,8 +13633,8 @@
         "npc_dota_hero_axe_str10_description" "At the last level of Strong Skin, the hero gains 100% status resistance and 99% magic resistance."
         "npc_dota_hero_axe_str11" "Fury"
         "npc_dota_hero_axe_str11_description" "The hero gains x2 strength bonus from Enrage."
-        "npc_dota_hero_axe_str_last" "God's Rage"
-        "npc_dota_hero_axe_str_last_description" "Increases Counter Helix's pure damage by 0.2% of the hero's maximum health (up to 2000 maximum)."
+        "npc_dota_hero_axe_str12" "God's Rage"
+        "npc_dota_hero_axe_str12_description" "Increases Counter Helix's pure damage by 0.2% of the hero's maximum health (up to 2000 maximum)."
 
         "npc_dota_hero_axe_agi6" "Extended Fury"
         "npc_dota_hero_axe_agi6_description" "Under the effect of Enrage, the hero's damage is doubled"
@@ -13648,8 +13648,8 @@
         "npc_dota_hero_axe_agi10_description" "Increases Counter Helix's magic damage by 100% of the hero's agility"
         "npc_dota_hero_axe_agi11" "Taunter"
         "npc_dota_hero_axe_agi11_description" "Counter Helix triggers from its own attacks"
-        "npc_dota_hero_axe_agi_last" "Mark of Blood"
-        "npc_dota_hero_axe_agi_last_description" "The hero will deal 1 attack to all targets damaged by the Counter Helix ability. (Works only with pure damage)"
+        "npc_dota_hero_axe_agi12" "Mark of Blood"
+        "npc_dota_hero_axe_agi12_description" "The hero will deal 1 attack to all targets damaged by the Counter Helix ability. (Works only with pure damage)"
 
         "npc_dota_hero_axe_int6" "Whirlwind"
         "npc_dota_hero_axe_int6_description" "+15% chance for Counter Helix to trigger"
@@ -13663,8 +13663,8 @@
         "npc_dota_hero_axe_int10_description" "Axe is invulnerable to magic damage while Enrage is active"
         "npc_dota_hero_axe_int11" "Divine Wrath"
         "npc_dota_hero_axe_int11_description" "Increases the pure damage of Counter Helix by 30 per level of the ability"
-        "npc_dota_hero_axe_int_last" "Annihilation"
-        "npc_dota_hero_axe_int_last_description" "While Enrage is active, Axe deals 100% additional magic damage with his auto-attacks"
+        "npc_dota_hero_axe_int12" "Annihilation"
+        "npc_dota_hero_axe_int12_description" "While Enrage is active, Axe deals 100% additional magic damage with his auto-attacks"
 
         //Centaur//
 
@@ -13706,8 +13706,8 @@
         "npc_dota_hero_centaur_str10_description" "During borrowed time gain 10 Health points per creep killed."
         "npc_dota_hero_centaur_str11" "Strength of strength"
         "npc_dota_hero_centaur_str11_description" "+50% STR damage at Return"
-        "npc_dota_hero_centaur_str_last" "Great Return Power"
-        "npc_dota_hero_centaur_str_last_description" "+100% STR damage at Return"
+        "npc_dota_hero_centaur_str12" "Great Return Power"
+        "npc_dota_hero_centaur_str12_description" "+100% STR damage at Return"
 
         "npc_dota_hero_centaur_agi6" "Light Armor"
         "npc_dota_hero_centaur_agi6_description" "Return Now is using AGI instead"
@@ -13721,8 +13721,8 @@
         "npc_dota_hero_centaur_agi10_description" "Borrowed time grants maximum movement speed and the ability to phase through monsters while dealing damage equal to your AGI as well"
         "npc_dota_hero_centaur_agi11" "Great Ax"
         "npc_dota_hero_centaur_agi11_description" "Now centaur has 50% cleave damage."
-        "npc_dota_hero_centaur_agi_last" "Eternal Buffalo Armor"
-        "npc_dota_hero_centaur_agi_last_description" "Centaur Sheeld duration x2"
+        "npc_dota_hero_centaur_agi12" "Eternal Buffalo Armor"
+        "npc_dota_hero_centaur_agi12_description" "Centaur Sheeld duration x2"
 
         "npc_dota_hero_centaur_int6" "Enchanted Armor"
         "npc_dota_hero_centaur_int6_description" "Return deals pure damage instead but cannot be amplified."
@@ -13736,8 +13736,8 @@
         "npc_dota_hero_centaur_int10_description" "Return becomes an aura"
         "npc_dota_hero_centaur_int11" "Wise Hoof"
         "npc_dota_hero_centaur_int11_description" "Hoof stomp deals additional damage from INT as bonus"
-        "npc_dota_hero_centaur_int_last" "That's the secret of strength."
-        "npc_dota_hero_centaur_int_last_description" "return performance x2."
+        "npc_dota_hero_centaur_int12" "That's the secret of strength."
+        "npc_dota_hero_centaur_int12_description" "return performance x2."
 
         //Mars//
 
@@ -13786,8 +13786,8 @@
         "npc_dota_hero_mars_str10_description" "+3% health regen from Bulwark"
         "npc_dota_hero_mars_str11" "Father's help"
         "npc_dota_hero_mars_str11_description" "Ultimate reduces enemy armor by 10"
-        "npc_dota_hero_mars_str_last" "God of regeneration."
-        "npc_dota_hero_mars_str_last_description" "5% Health Regeneration in Bulwark "
+        "npc_dota_hero_mars_str12" "God of regeneration."
+        "npc_dota_hero_mars_str12_description" "5% Health Regeneration in Bulwark "
 
         "npc_dota_hero_mars_agi6" "Enlightened"
         "npc_dota_hero_mars_agi6_description" "+5 damage from ultimate"
@@ -13801,8 +13801,8 @@
         "npc_dota_hero_mars_agi10_description" "Mars gain 25% cleave"
         "npc_dota_hero_mars_agi11" "Speed ​​is strength"
         "npc_dota_hero_mars_agi11_description" "+5 Spear of mars attacks"
-        "npc_dota_hero_mars_agi_last" "God of destruction defense"
-        "npc_dota_hero_mars_agi_last_description" "-3 armor with mars spear"
+        "npc_dota_hero_mars_agi12" "God of destruction defense"
+        "npc_dota_hero_mars_agi12_description" "-3 armor with mars spear"
 
         "npc_dota_hero_mars_int6" "Cursed Weapon"
         "npc_dota_hero_mars_int6_description" "Spear of mars now also decreases magic resistance on enemies"
@@ -13816,8 +13816,8 @@
         "npc_dota_hero_mars_int10_description" "Gods rebuke gains ability to stun enemies for 3 seconds"
         "npc_dota_hero_mars_int11" "This is ..."
         "npc_dota_hero_mars_int11_description" "Every time you use Mars Spear you have 50% to instantly refresh it"
-        "npc_dota_hero_mars_int_last" "Divine Luck."
-        "npc_dota_hero_mars_int_last_description" "During mars spear, 10% chance of gods rebuke"
+        "npc_dota_hero_mars_int12" "Divine Luck."
+        "npc_dota_hero_mars_int12_description" "During mars spear, 10% chance of gods rebuke"
 
         //Magnus//
 
@@ -13896,8 +13896,8 @@
         "npc_dota_hero_magnataur_str10_description" "After casting Bus Rush, the hero gains a buff providing 2 armor per hero level for 7 seconds"
         "npc_dota_hero_magnataur_str11" "Stunning Strike"
         "npc_dota_hero_magnataur_str11_description" "Targets of Bus Rush will be stunned for 1.5 seconds"
-        "npc_dota_hero_magnataur_str_last" "Magic Shield"
-        "npc_dota_hero_magnataur_str_last_description" "After casting Reverse Polarity, the hero gains a buff reducing all incoming damage by 25% for 30 seconds"
+        "npc_dota_hero_magnataur_str12" "Magic Shield"
+        "npc_dota_hero_magnataur_str12_description" "After casting Reverse Polarity, the hero gains a buff reducing all incoming damage by 25% for 30 seconds"
 
         "npc_dota_hero_magnataur_agi6" "Critical Smasher"
         "npc_dota_hero_magnataur_agi6_description" "After using Reverse Polarity, the hero gains a buff granting a 80% chance of 200% critical attack; buff duration equals stun duration"
@@ -13911,8 +13911,8 @@
         "npc_dota_hero_magnataur_agi10_description" "Empower effects are 50% stronger"
         "npc_dota_hero_magnataur_agi11" "Explosive Power"
         "npc_dota_hero_magnataur_agi11_description" "While under the effect of Empower, the hero gains 1 base damage per point of agility"
-        "npc_dota_hero_magnataur_agi_last" "Power in Items"
-        "npc_dota_hero_magnataur_agi_last_description" "Empower also increases damage from items"
+        "npc_dota_hero_magnataur_agi12" "Power in Items"
+        "npc_dota_hero_magnataur_agi12_description" "Empower also increases damage from items"
 
         "npc_dota_hero_magnataur_int6" "Improved Bus Rush"
         "npc_dota_hero_magnataur_int6_description" "Bus Rush damage +10%\nApplies a debuff increasing magical damage taken by enemies by 10% for 10 seconds"
@@ -13926,8 +13926,8 @@
         "npc_dota_hero_magnataur_int10_description" "Releases 1 Shockwave wave every 3 seconds"
         "npc_dota_hero_magnataur_int11" "Powerful Wave Strike"
         "npc_dota_hero_magnataur_int11_description" "+50% base Shockwave damage\n+ 10% intelligence in damage"
-        "npc_dota_hero_magnataur_int_last" "Empower: Mind and Energy"
-        "npc_dota_hero_magnataur_int_last_description" "Empower increases intelligence and mana regeneration by 5% per ability level"
+        "npc_dota_hero_magnataur_int12" "Empower: Mind and Energy"
+        "npc_dota_hero_magnataur_int12_description" "Empower increases intelligence and mana regeneration by 5% per ability level"
 
         //Sven//
 
@@ -13974,8 +13974,8 @@
         "npc_dota_hero_sven_str10_description" "During ultimate you take 25% damage less"
         "npc_dota_hero_sven_str11" "Power of Siberia"
         "npc_dota_hero_sven_str11_description" "Warcry has doubled buff effect"
-        "npc_dota_hero_sven_str_last" "Warrior's Fury"
-        "npc_dota_hero_sven_str_last_description" "+100% strength in ultimates"
+        "npc_dota_hero_sven_str12" "Warrior's Fury"
+        "npc_dota_hero_sven_str12_description" "+100% strength in ultimates"
 
         "npc_dota_hero_sven_agi6" "Bloody footprints"
         "npc_dota_hero_sven_agi6_description" "Gain +1 damage per creep killed"
@@ -13989,8 +13989,8 @@
         "npc_dota_hero_sven_agi10_description" "150% damage from GDS"
         "npc_dota_hero_sven_agi11" "Tears of Fury"
         "npc_dota_hero_sven_agi11_description" "Warcry gives attack speed equal to 10x movement speed bonus"
-        "npc_dota_hero_sven_agi_last" "Pierces through whole hordes"
-        "npc_dota_hero_sven_agi_last_description" "Plus 200% damage in Cleave"
+        "npc_dota_hero_sven_agi12" "Pierces through whole hordes"
+        "npc_dota_hero_sven_agi12_description" "Plus 200% damage in Cleave"
 
         "npc_dota_hero_sven_int6" "Almost a magician"
         "npc_dota_hero_sven_int6_description" "During the duration of ultimate, nearby enemies loses 25% of their magic resistance within 700 radius."
@@ -14004,8 +14004,8 @@
         "npc_dota_hero_sven_int10_description" "Ultimate now affects allies"
         "npc_dota_hero_sven_int11" "Mind Power"
         "npc_dota_hero_sven_int11_description" "Activating Gods Strength deals damage equal to Intelligence * 5 to all enemies within 700 radius"
-        "npc_dota_hero_sven_int_last" "How many of you are ready to fight me?"
-        "npc_dota_hero_sven_int_last_description" "+400% damage in ultimates."
+        "npc_dota_hero_sven_int12" "How many of you are ready to fight me?"
+        "npc_dota_hero_sven_int12_description" "+400% damage in ultimates."
         
         //BristleBack//
         
@@ -14055,8 +14055,8 @@
         "npc_dota_hero_bristleback_str10_description" "Damage reduction from the sides is the same as from the back."
         "npc_dota_hero_bristleback_str11" "Small and Armored"
         "npc_dota_hero_bristleback_str11_description" "Ultimate gives bonus armor equal to movement speed bonus"
-        "npc_dota_hero_bristleback_str_last" "Survivor"
-        "npc_dota_hero_bristleback_str_last_description" "Bristleback Power x5"
+        "npc_dota_hero_bristleback_str12" "Survivor"
+        "npc_dota_hero_bristleback_str12_description" "Bristleback Power x5"
 
         "npc_dota_hero_bristleback_agi6" "Healthy and Fast"
         "npc_dota_hero_bristleback_agi6_description" "Bristleback Power gives attack speed equal to HP regen."
@@ -14070,8 +14070,8 @@
         "npc_dota_hero_bristleback_agi10_description" "Applies a Quill Spray after killing a creep."
         "npc_dota_hero_bristleback_agi11" "Only strength"
         "npc_dota_hero_bristleback_agi11_description" "Ultimate Bonuses Now are doubled"
-        "npc_dota_hero_bristleback_agi_last" "Manifestation of unstoppable strength"
-        "npc_dota_hero_bristleback_agi_last_description" "ultimates performance x10"
+        "npc_dota_hero_bristleback_agi12" "Manifestation of unstoppable strength"
+        "npc_dota_hero_bristleback_agi12_description" "ultimates performance x10"
 
         "npc_dota_hero_bristleback_int6" "Clean"
         "npc_dota_hero_bristleback_int6_description" "Now when being attacked from the back enemies takes pure non amplifiable damage equal to the base damage of quill spray."
@@ -14085,8 +14085,8 @@
         "npc_dota_hero_bristleback_int10_description" "Quill Spray: Now has max damage equal to your INT."
         "npc_dota_hero_bristleback_int11" "Magician Courses"
         "npc_dota_hero_bristleback_int11_description" "Quill Spray damage is 500, but the damage type is magical."
-        "npc_dota_hero_bristleback_int_last" "Very prickly."
-        "npc_dota_hero_bristleback_int_last_description" "Quill Spray damage x3"
+        "npc_dota_hero_bristleback_int12" "Very prickly."
+        "npc_dota_hero_bristleback_int12_description" "Quill Spray damage x3"
 
         //IO//
 
@@ -14125,8 +14125,8 @@
         "npc_dota_hero_wisp_str10_description" "HP loss from Owercharge is 2 times less"
         "npc_dota_hero_wisp_str11" "Alien from the worlds"
         "npc_dota_hero_wisp_str11_description" "Relocate now deals IO health damage"
-        "npc_dota_hero_wisp_str_last" "Spiritual savior."
-        "npc_dota_hero_wisp_str_last_description" "New ability: INFEST"
+        "npc_dota_hero_wisp_str12" "Spiritual savior."
+        "npc_dota_hero_wisp_str12_description" "New ability: INFEST"
 
         "npc_dota_hero_wisp_agi6" "Unimaginable Power"
         "npc_dota_hero_wisp_agi6_description" "Spirits bonus +100% base hero damage."
@@ -14140,8 +14140,8 @@
         "npc_dota_hero_wisp_agi10_description" "Binding range +1500"
         "npc_dota_hero_wisp_agi11" "Call of the Universe"
         "npc_dota_hero_wisp_agi11_description" "Owercharge attack speed bonus doubled"
-        "npc_dota_hero_wisp_agi_last" "The long-awaited reunion."
-        "npc_dota_hero_wisp_agi_last_description" "Wisp attacks with the target"
+        "npc_dota_hero_wisp_agi12" "The long-awaited reunion."
+        "npc_dota_hero_wisp_agi12_description" "Wisp attacks with the target"
 
         "npc_dota_hero_wisp_int6" "Force warp"
         "npc_dota_hero_wisp_int6_description" "Relocate deals damage equal to INT"
@@ -14155,8 +14155,8 @@
         "npc_dota_hero_wisp_int10_description" "Relocate now has 5 seconds cooldown"
         "npc_dota_hero_wisp_int11" "Spiritual Absorption"
         "npc_dota_hero_wisp_int11_description" "Spirits now deal magic damage"
-        "npc_dota_hero_wisp_int_last" "Infinite Spirits Cycle."
-        "npc_dota_hero_wisp_int_last_description" "+50% int to dmg Stirits"
+        "npc_dota_hero_wisp_int12" "Infinite Spirits Cycle."
+        "npc_dota_hero_wisp_int12_description" "+50% int to dmg Stirits"
 
         //Dragon Knight//
     
@@ -14202,8 +14202,8 @@
         "npc_dota_hero_dragon_knight_str10_description" "Dragon Blood also grants 25% magic resistance."
         "npc_dota_hero_dragon_knight_str11" "Miracle - scales"
         "npc_dota_hero_dragon_knight_str11_description" "Dragon Blood x2 effect"
-        "npc_dota_hero_dragon_knight_str_last" "True Dragon Blood"
-        "npc_dota_hero_dragon_knight_str_last_description" "Dragon Blood indicators x3 "
+        "npc_dota_hero_dragon_knight_str12" "True Dragon Blood"
+        "npc_dota_hero_dragon_knight_str12_description" "Dragon Blood indicators x3 "
 
         "npc_dota_hero_dragon_knight_agi6" "Strength of the green dragon"
         "npc_dota_hero_dragon_knight_agi6_description" "Gain 5 attack speed per hero level."
@@ -14217,8 +14217,8 @@
         "npc_dota_hero_dragon_knight_agi10_description" "Gain 25% life steal"
         "npc_dota_hero_dragon_knight_agi11" "Merge"
         "npc_dota_hero_dragon_knight_agi11_description" "Dragon Form now lasts 180 seconds."
-        "npc_dota_hero_dragon_knight_agi_last" "Dragon Sizzle"
-        "npc_dota_hero_dragon_knight_agi_last_description" "Dragon Sword effect works on all targets in the form"
+        "npc_dota_hero_dragon_knight_agi12" "Dragon Sizzle"
+        "npc_dota_hero_dragon_knight_agi12_description" "Dragon Sword effect works on all targets in the form"
 
         "npc_dota_hero_dragon_knight_int6" "Power of the Emerald Dragons"
         "npc_dota_hero_dragon_knight_int6_description" "Gain 25% cooldown reduction"
@@ -14232,8 +14232,8 @@
         "npc_dota_hero_dragon_knight_int10_description" "x2 Dragon Sword magic resist reduction effect"
         "npc_dota_hero_dragon_knight_int11" "Ragged Mouth"
         "npc_dota_hero_dragon_knight_int11_description" "Fire Ball duration +4sec"
-        "npc_dota_hero_dragon_knight_int_last" "The dragon warrior"
-        "npc_dota_hero_dragon_knight_int_last_description" "Fire Ball duration +7sec"
+        "npc_dota_hero_dragon_knight_int12" "The dragon warrior"
+        "npc_dota_hero_dragon_knight_int12_description" "Fire Ball duration +7sec"
 
         //Skeleton King//
 
@@ -14278,8 +14278,8 @@
         "npc_dota_hero_skeleton_king_str10_description" "Reincarnation summons skeletons"
         "npc_dota_hero_skeleton_king_str11" "Bloodlust"
         "npc_dota_hero_skeleton_king_str11_description" "Lifesteal becomes an aura"
-        "npc_dota_hero_skeleton_king_str_last" "Risen King in Fury"
-        "npc_dota_hero_skeleton_king_str_last_description" "Increase outgoing damage by 3 times for 5 seconds after reincarnation."
+        "npc_dota_hero_skeleton_king_str12" "Risen King in Fury"
+        "npc_dota_hero_skeleton_king_str12_description" "Increase outgoing damage by 3 times for 5 seconds after reincarnation."
         
         "npc_dota_hero_skeleton_king_agi6" "Royal order"
         "npc_dota_hero_skeleton_king_agi6_description" "Deals bonus damage equal to AGI."
@@ -14293,8 +14293,8 @@
         "npc_dota_hero_skeleton_king_agi10_description" "Summon an extra skeleton"
         "npc_dota_hero_skeleton_king_agi11" "Curse of the King"
         "npc_dota_hero_skeleton_king_agi11_description" "Skeletons reduce enemies’ armor by 5"
-        "npc_dota_hero_skeleton_king_agi_last" "King transfers half his power to his warriors."
-        "npc_dota_hero_skeleton_king_agi_last_description" "Skeletal Damage x2"
+        "npc_dota_hero_skeleton_king_agi12" "King transfers half his power to his warriors."
+        "npc_dota_hero_skeleton_king_agi12_description" "Skeletal Damage x2"
 
         "npc_dota_hero_skeleton_king_int6" "On a Zhiguli"
         "npc_dota_hero_skeleton_king_int6_description" "Reduce skeleton cooldown by 50%"
@@ -14308,8 +14308,8 @@
         "npc_dota_hero_skeleton_king_int10_description" "+1 extra skeleton from tombstone"
         "npc_dota_hero_skeleton_king_int11" "Sidekick with a tower"
         "npc_dota_hero_skeleton_king_int11_description" "Skeleton now deal bonus damage equal to INT."
-        "npc_dota_hero_skeleton_king_int_last" "1 chance per million"
-        "npc_dota_hero_skeleton_king_int_last_description" "With a 5% chance calls two skeletons when attacking"
+        "npc_dota_hero_skeleton_king_int12" "1 chance per million"
+        "npc_dota_hero_skeleton_king_int12_description" "With a 5% chance calls two skeletons when attacking"
 
         //Treant//
       
@@ -14350,8 +14350,8 @@
         "npc_dota_hero_treant_str10_description" "Contagion damage equals hero strength"
         "npc_dota_hero_treant_str11" "Powerlessness before nature"
         "npc_dota_hero_treant_str11_description" "Natures's grasp imposes a disarming effect for 3 seconds"
-        "npc_dota_hero_treant_str_last" "A violent extraction of the power of nature"
-        "npc_dota_hero_treant_str_last_description" "-15 seconds to cooldown Tree ability."
+        "npc_dota_hero_treant_str12" "A violent extraction of the power of nature"
+        "npc_dota_hero_treant_str12_description" "-15 seconds to cooldown Tree ability."
         
 		"npc_dota_hero_treant_agi6" "Rapid Growth"
         "npc_dota_hero_treant_agi6_description" "Tree deals twice as much damage"
@@ -14365,8 +14365,8 @@
         "npc_dota_hero_treant_agi10_description" "Natures's wall additionally deals damage based on agility"
         "npc_dota_hero_treant_agi11" "Ivy"
         "npc_dota_hero_treant_agi11_description" "Piercing damage 100%"
-        "npc_dota_hero_treant_agi_last" "Grape bush"
-        "npc_dota_hero_treant_agi_last_description" "10% call Nature's Grasp with auto-attack"
+        "npc_dota_hero_treant_agi12" "Grape bush"
+        "npc_dota_hero_treant_agi12_description" "10% call Nature's Grasp with auto-attack"
      
 		"npc_dota_hero_treant_int6" "Forest Veil of Knowledge"
         "npc_dota_hero_treant_int6_description" "Natures's grasp deals damage equal to the hero's intellect"
@@ -14380,8 +14380,8 @@
         "npc_dota_hero_treant_int10_description" "Recharge Natures's wall -60 seconds"
         "npc_dota_hero_treant_int11" "Squirrel Shots"
         "npc_dota_hero_treant_int11_description" "Natures's wall shoots twice as often"
-        "npc_dota_hero_treant_int_last" "Nature Has Heard My Call"
-        "npc_dota_hero_treant_int_last_description" "Natures' wall +100% intelligence damage"
+        "npc_dota_hero_treant_int12" "Nature Has Heard My Call"
+        "npc_dota_hero_treant_int12_description" "Natures' wall +100% intelligence damage"
 		
 		 //SLARK//
 
@@ -14422,8 +14422,8 @@
         "npc_dota_hero_slark_str10_description" "Dark pact's damage is 50% of current health."
         "npc_dota_hero_slark_str11" "Layer by Layer"
         "npc_dota_hero_slark_str11_description" "Each 15 stacks of essence shift grants 1 armor"
-        "npc_dota_hero_slark_str_last" "I take everything you have."
-        "npc_dota_hero_slark_str_last_description" "Essence Shift gives all attributes per stack."
+        "npc_dota_hero_slark_str12" "I take everything you have."
+        "npc_dota_hero_slark_str12_description" "Essence Shift gives all attributes per stack."
 
         "npc_dota_hero_slark_agi6" "Luck"
         "npc_dota_hero_slark_agi6_description" "Essence shift has extra +15% proc chance"
@@ -14437,8 +14437,8 @@
         "npc_dota_hero_slark_agi10_description" "Essens shift does not loses stacks on death"
         "npc_dota_hero_slark_agi11" "New sharpening"
         "npc_dota_hero_slark_agi11_description" "-0.1 base attack speed"
-        "npc_dota_hero_slark_agi_last" "True Thief in Law"
-        "npc_dota_hero_slark_agi_last_description" "chance of hurricane dexterity + 30%"
+        "npc_dota_hero_slark_agi12" "True Thief in Law"
+        "npc_dota_hero_slark_agi12_description" "chance of hurricane dexterity + 30%"
 
         "npc_dota_hero_slark_int6" "Thrift"
         "npc_dota_hero_slark_int6_description" "Reduces all mana cost of abilities by 50%"
@@ -14452,8 +14452,8 @@
         "npc_dota_hero_slark_int10_description" "Dark Pact now can be amplified by spell amplify"
         "npc_dota_hero_slark_int11" "Intellectual"
         "npc_dota_hero_slark_int11_description" "Essence shift grants 50% INT"
-        "npc_dota_hero_slark_int_last" "Toad Luck"
-        "npc_dota_hero_slark_int_last_description" "10% chance from attack to cast Dark Pact"
+        "npc_dota_hero_slark_int12" "Toad Luck"
+        "npc_dota_hero_slark_int12_description" "10% chance from attack to cast Dark Pact"
 
         //Shadow Fiend//
 
@@ -14504,8 +14504,8 @@
         "npc_dota_hero_nevermore_str10_description" "Presence of the Dark Lord gives armor equal to the max bonus"
         "npc_dota_hero_nevermore_str11" "Hearty Marinade"
         "npc_dota_hero_nevermore_str11_description" "Presence of the dark lord grants magic resistance equal to max bonus"
-        "npc_dota_hero_nevermore_str_last" "Requiem of Souls."
-        "npc_dota_hero_nevermore_str_last_description" "- 60 Seconds Requiem of Souls"
+        "npc_dota_hero_nevermore_str12" "Requiem of Souls."
+        "npc_dota_hero_nevermore_str12_description" "- 60 Seconds Requiem of Souls"
 
         "npc_dota_hero_nevermore_agi6" "Such is evil"
         "npc_dota_hero_nevermore_agi6_description" "Presence of the dark lord armor reduction increased by 50%"
@@ -14519,8 +14519,8 @@
         "npc_dota_hero_nevermore_agi10_description" "Souls grants 2x damage now"
         "npc_dota_hero_nevermore_agi11" "Thrift"
         "npc_dota_hero_nevermore_agi11_description" "Decrease souls lost in case of death by another 10%"
-        "npc_dota_hero_nevermore_agi_last" "Forked Horror"
-        "npc_dota_hero_nevermore_agi_last_description" "Nevermore attacks 2 targets at the same time"
+        "npc_dota_hero_nevermore_agi12" "Forked Horror"
+        "npc_dota_hero_nevermore_agi12_description" "Nevermore attacks 2 targets at the same time"
 
         "npc_dota_hero_nevermore_int6" "Soul of the Master of Magic"
         "npc_dota_hero_nevermore_int6_description" "Shadowraze deals 2 damage per soul."
@@ -14534,8 +14534,8 @@
         "npc_dota_hero_nevermore_int10_description" "Shadowraze are triggered at full range."
         "npc_dota_hero_nevermore_int11" "Show collection"
         "npc_dota_hero_nevermore_int11_description" "Requiem of souls now work in a 360* angle (in all directions)"
-        "npc_dota_hero_nevermore_int_last" "Demonic Essence Power"
-        "npc_dota_hero_nevermore_int_last_description" "x3 damage per soul in shadowraze"
+        "npc_dota_hero_nevermore_int12" "Demonic Essence Power"
+        "npc_dota_hero_nevermore_int12_description" "x3 damage per soul in shadowraze"
 
         //Tinker// Мой любимы герой. После хускара конечно же.
 
@@ -14579,8 +14579,8 @@
         "npc_dota_hero_tinker_str10_description" "Additional 100% to turrets armor."
         "npc_dota_hero_tinker_str11" "Nanomachines"
         "npc_dota_hero_tinker_str11_description" "Wall’s now regenerate 2% of health."
-        "npc_dota_hero_tinker_str_last" "All Hidden Potential"
-        "npc_dota_hero_tinker_str_last_description" "Turrets and walls within 800 radius of the hero get +50% to damage, +50% to base armor +1% regen hp."
+        "npc_dota_hero_tinker_str12" "All Hidden Potential"
+        "npc_dota_hero_tinker_str12_description" "Turrets and walls within 800 radius of the hero get +50% to damage, +50% to base armor +1% regen hp."
         
         "npc_dota_hero_tinker_agi6" "Ambush"
         "npc_dota_hero_tinker_agi6_description" "Increase maximum turrets count by 1"
@@ -14594,8 +14594,8 @@
         "npc_dota_hero_tinker_agi10_description" "Gain Bonus base damage from AGI"
         "npc_dota_hero_tinker_agi11" "Armor-piercing load"
         "npc_dota_hero_tinker_agi11_description" "Turrets also reduce armor by 5 to attacked targets"
-        "npc_dota_hero_tinker_agi_last" "Those are some guns!"
-        "npc_dota_hero_tinker_agi_last_description" "Plus 200% damage from the turret."
+        "npc_dota_hero_tinker_agi12" "Those are some guns!"
+        "npc_dota_hero_tinker_agi12_description" "Plus 200% damage from the turret."
         
         "npc_dota_hero_tinker_int6" "Miracle coverage"
         "npc_dota_hero_tinker_int6_description" "Walls are now magic immune"
@@ -14609,8 +14609,8 @@
         "npc_dota_hero_tinker_int10_description" "Towers receive multishot"
         "npc_dota_hero_tinker_int11" "Completed"
         "npc_dota_hero_tinker_int11_description" "х2 Damage and Attack speed from Upgrade"
-        "npc_dota_hero_tinker_int_last" "double reinforcement."
-        "npc_dota_hero_tinker_int_last_description" "x2 tower stats when upgrading"
+        "npc_dota_hero_tinker_int12" "double reinforcement."
+        "npc_dota_hero_tinker_int12_description" "x2 tower stats when upgrading"
 
         //Terrorblade//
 
@@ -14653,8 +14653,8 @@
         "npc_dota_hero_terrorblade_str10_description" "Gain +50% strength while affected by Metamorphosis"
         "npc_dota_hero_terrorblade_str11" "Demon scales"
         "npc_dota_hero_terrorblade_str11_description" "Gain 1 armor for each 1% of health missing"
-        "npc_dota_hero_terrorblade_str_last" "Blood Demon Power Awakening"
-        "npc_dota_hero_terrorblade_str_last_description" "Metamorphosis gives +100% strength and 2.5% HP damage."
+        "npc_dota_hero_terrorblade_str12" "Blood Demon Power Awakening"
+        "npc_dota_hero_terrorblade_str12_description" "Metamorphosis gives +100% strength and 2.5% HP damage."
 
         "npc_dota_hero_terrorblade_agi6" "Twin"
         "npc_dota_hero_terrorblade_agi6_description" "Reflection and Conjure Image damage x2"
@@ -14668,8 +14668,8 @@
         "npc_dota_hero_terrorblade_agi10_description" "Splitshot in Metamorphosis"
         "npc_dota_hero_terrorblade_agi11" "True Form"
         "npc_dota_hero_terrorblade_agi11_description" "Reduces cooldown on metamorphosis by 60 seconds"
-        "npc_dota_hero_terrorblade_agi_last" "Illusory World."
-        "npc_dota_hero_terrorblade_agi_last_description" "5% chance to cause an illusion from an attack"
+        "npc_dota_hero_terrorblade_agi12" "Illusory World."
+        "npc_dota_hero_terrorblade_agi12_description" "5% chance to cause an illusion from an attack"
 
         "npc_dota_hero_terrorblade_int6" "Demonic Footfall"
         "npc_dota_hero_terrorblade_int6_description" "Every 3 second reflection triggers on a random target."
@@ -14683,8 +14683,8 @@
         "npc_dota_hero_terrorblade_int10_description" "Conjure image deals pure damage equal to INT"
         "npc_dota_hero_terrorblade_int11" "Desolate"
         "npc_dota_hero_terrorblade_int11_description" "Sunder deals 2x damage while under metamorphosis effect"
-        "npc_dota_hero_terrorblade_int_last" "True manifestation of demonic blood."
-        "npc_dota_hero_terrorblade_int_last_description" "Infinite Metamorphosis and base damage x5"
+        "npc_dota_hero_terrorblade_int12" "True manifestation of demonic blood."
+        "npc_dota_hero_terrorblade_int12_description" "Infinite Metamorphosis and base damage x5"
 
         //Phantom Assasin//
 
@@ -14726,8 +14726,8 @@
         "npc_dota_hero_phantom_assassin_str10_description" "During Phantom Strike Buff gains 2x bonus to all stats "
         "npc_dota_hero_phantom_assassin_str11" "Hidden"
         "npc_dota_hero_phantom_assassin_str11_description" "Blur becomes an aura with 25% effect"
-        "npc_dota_hero_phantom_assassin_str_last" "Magical Invulnerability."
-        "npc_dota_hero_phantom_assassin_str_last_description" "Blur becomes active, cooldown 30 seconds, gives bkb for 3 seconds during activation."
+        "npc_dota_hero_phantom_assassin_str12" "Magical Invulnerability."
+        "npc_dota_hero_phantom_assassin_str12_description" "Blur becomes active, cooldown 30 seconds, gives bkb for 3 seconds during activation."
 
         "npc_dota_hero_phantom_assassin_agi6" "Twisted"
         "npc_dota_hero_phantom_assassin_agi6_description" "Shifting Daggers damage is equal to AGI"
@@ -14741,8 +14741,8 @@
         "npc_dota_hero_phantom_assassin_agi10_description" "Increases Coup De Grace chance by 10% "
         "npc_dota_hero_phantom_assassin_agi11" "Sweeping Strikes"
         "npc_dota_hero_phantom_assassin_agi11_description" "Grants your hero 25% cleave"
-        "npc_dota_hero_phantom_assassin_agi_last" "Critical Chance of Critical Attack"
-        "npc_dota_hero_phantom_assassin_agi_last_description" "+35% to Ultimates Chance"
+        "npc_dota_hero_phantom_assassin_agi12" "Critical Chance of Critical Attack"
+        "npc_dota_hero_phantom_assassin_agi12_description" "+35% to Ultimates Chance"
 
         "npc_dota_hero_phantom_assassin_int6" "Right on target"
         "npc_dota_hero_phantom_assassin_int6_description" "Fires two additional daggers from the Shifting Dagger."
@@ -14756,8 +14756,8 @@
         "npc_dota_hero_phantom_assassin_int10_description" "25% chance to instantly recharge Phantom Strike"
         "npc_dota_hero_phantom_assassin_int11" "Out of the thicket of the forest"
         "npc_dota_hero_phantom_assassin_int11_description" "25% chance to instantly recharge Shifting Dagger"
-        "npc_dota_hero_phantom_assassin_int_last" "Throwing Blessing"
-        "npc_dota_hero_phantom_assassin_int_last_description" "x2 Damage for Shifting Dagger"
+        "npc_dota_hero_phantom_assassin_int12" "Throwing Blessing"
+        "npc_dota_hero_phantom_assassin_int12_description" "x2 Damage for Shifting Dagger"
 
         //Sniper//
 
@@ -14805,8 +14805,8 @@
         "npc_dota_hero_sniper_str10_description" "Grenades damage now equal to STR"
 		"npc_dota_hero_sniper_str11" "MLRS"
         "npc_dota_hero_sniper_str11_description" "HIMARS attacks twice as fast"
-        "npc_dota_hero_sniper_str_last" "And items have a limit to the vice of rage."
-        "npc_dota_hero_sniper_str_last_description" "M142 HIMARS damage x3"
+        "npc_dota_hero_sniper_str12" "And items have a limit to the vice of rage."
+        "npc_dota_hero_sniper_str12_description" "M142 HIMARS damage x3"
 
         "npc_dota_hero_sniper_agi6" "Steady Hand"
         "npc_dota_hero_sniper_agi6_description" "Adds 350 attack range as bonus"
@@ -14820,9 +14820,9 @@
         "npc_dota_hero_sniper_agi10_description" "Shrapnel deals damage equal to hero base damage also now."
         "npc_dota_hero_sniper_agi11" "All forces"
         "npc_dota_hero_sniper_agi11_description" "The damage of ultimate depends on both base and bonus damage."
-        "npc_dota_hero_sniper_agi_last" "Long-awaited return."
-        "npc_dota_hero_sniper_agi_last_description" "Ultimates will be boosted by magical items"
-        "npc_dota_hero_sniper_agi_last_tooltip" "Boost has been reduced. This ability is only empowered by 10% of the character's value."
+        "npc_dota_hero_sniper_agi12" "Long-awaited return."
+        "npc_dota_hero_sniper_agi12_description" "Ultimates will be boosted by magical items"
+        "npc_dota_hero_sniper_agi12_tooltip" "Boost has been reduced. This ability is only empowered by 10% of the character's value."
 
         "npc_dota_hero_sniper_int6" "Exact calculation"
         "npc_dota_hero_sniper_int6_description" "The grenade deals additional damage from the summ of all Attributes divided by 3"
@@ -14836,8 +14836,8 @@
         "npc_dota_hero_sniper_int10_description" "Shrapnel deals additional damage from the sum of all attributes / 3"
         "npc_dota_hero_sniper_int11" "Two in one"
         "npc_dota_hero_sniper_int11_description" "Grenades now applies shrapnel on hit"
-        "npc_dota_hero_sniper_int_last" "Magic Hail"
-        "npc_dota_hero_sniper_int_last_description" "100% Intelligence Damage to Shrapnel"
+        "npc_dota_hero_sniper_int12" "Magic Hail"
+        "npc_dota_hero_sniper_int12_description" "100% Intelligence Damage to Shrapnel"
 
         //Who//
         "dota_tooltip_ability_special_bonus_unique_sniper_custom2" "Adds AGI to Grenade Damage"
@@ -14880,8 +14880,8 @@
         "npc_dota_hero_juggernaut_str10_description" "After casting OMNISLASH gains bonus of +100 armor and +50 magic resistance for 15 second"
         "npc_dota_hero_juggernaut_str11" "Faithful katana"
         "npc_dota_hero_juggernaut_str11_description" "Gain magic resistance equal to half the attack speed of shard blad."
-        "npc_dota_hero_juggernaut_str_last" "Samurai Prayers."
-        "npc_dota_hero_juggernaut_str_last_description" "35% chance that Omnislash will overcharge immediately."
+        "npc_dota_hero_juggernaut_str12" "Samurai Prayers."
+        "npc_dota_hero_juggernaut_str12_description" "35% chance that Omnislash will overcharge immediately."
 
         "npc_dota_hero_juggernaut_agi6" "Jagernat"
         "npc_dota_hero_juggernaut_agi6_description" "Blade requiem's deals damage equal to Juggernaut’s base damage"
@@ -14895,8 +14895,8 @@
         "npc_dota_hero_juggernaut_agi10_description" "+1 sec duration Omnislash"
         "npc_dota_hero_juggernaut_agi11" "Hard training"
         "npc_dota_hero_juggernaut_agi11_description" "Increase crit chance on blade dance by 17%"
-        "npc_dota_hero_juggernaut_agi_last" "Awakening of the god of the katana."
-        "npc_dota_hero_juggernaut_agi_last_description" "Sharp Blade max stack number + 10. Damage per stack x15"
+        "npc_dota_hero_juggernaut_agi12" "Awakening of the god of the katana."
+        "npc_dota_hero_juggernaut_agi12_description" "Sharp Blade max stack number + 10. Damage per stack x15"
 
         "npc_dota_hero_juggernaut_int6" "Blade strength"
         "npc_dota_hero_juggernaut_int6_description" "Blade requiem gains damage equal to INT"
@@ -14910,8 +14910,8 @@
         "npc_dota_hero_juggernaut_int10_description" "-5 second Blade Requiem cooldown"
         "npc_dota_hero_juggernaut_int11" "Inevitability"
         "npc_dota_hero_juggernaut_int11_description" "Omnislash now triggers Blade requiem"
-        "npc_dota_hero_juggernaut_int_last" "Souls of fallen samurai tear back"
-        "npc_dota_hero_juggernaut_int_last_description" "Blade dance has 10% chance of triggering Blade Requiem when you attack"
+        "npc_dota_hero_juggernaut_int12" "Souls of fallen samurai tear back"
+        "npc_dota_hero_juggernaut_int12_description" "Blade dance has 10% chance of triggering Blade Requiem when you attack"
 
         //Arc Warden//
 
@@ -14955,8 +14955,8 @@
         "npc_dota_hero_arc_warden_str10_description" "Magnetic Field makes allies inside it take no physical damage."
         "npc_dota_hero_arc_warden_str11" "Defense Matrix - Health"
         "npc_dota_hero_arc_warden_str11_description" "Flux grants allies 10% health regeneration."
-        "npc_dota_hero_arc_warden_str_last" "Try to penetrate me and my allies."
-        "npc_dota_hero_arc_warden_str_last_description" "+5 seconds of magnetism duration"
+        "npc_dota_hero_arc_warden_str12" "Try to penetrate me and my allies."
+        "npc_dota_hero_arc_warden_str12_description" "+5 seconds of magnetism duration"
 
         "npc_dota_hero_arc_warden_agi6" "Steady Hand"
         "npc_dota_hero_arc_warden_agi6_description" "Gains 350 bonus attack range"
@@ -14970,8 +14970,8 @@
         "npc_dota_hero_arc_warden_agi10_description" "Magnetic Field grants bonus damage equal to Arc Warden's AGI."
         "npc_dota_hero_arc_warden_agi11" "Absorption"
         "npc_dota_hero_arc_warden_agi11_description" "Gains 1 damage per creep killed"
-        "npc_dota_hero_arc_warden_agi_last" "Gliminate Attack."
-        "npc_dota_hero_arc_warden_agi_last_description" "minus 0.3 seconds in Gliminate Attack."
+        "npc_dota_hero_arc_warden_agi12" "Gliminate Attack."
+        "npc_dota_hero_arc_warden_agi12_description" "minus 0.3 seconds in Gliminate Attack."
 
         "npc_dota_hero_arc_warden_int6" "Warden matrix - fusion"
         "npc_dota_hero_arc_warden_int6_description" "Allies do not take any magical damage while under the effect of Magnetic Field."
@@ -14985,8 +14985,8 @@
         "npc_dota_hero_arc_warden_int10_description" "Spark has bonus damage from Arc Warden's INT"
         "npc_dota_hero_arc_warden_int11" "The power of sparks"
         "npc_dota_hero_arc_warden_int11_description" "Create spark when use hero abilities; Spark that was created by spark skill deals 2x more damage."
-        "npc_dota_hero_arc_warden_int_last" "Spark Luck"
-        "npc_dota_hero_arc_warden_int_last_description" "Spark's chance of falling out of an attack is 10%"
+        "npc_dota_hero_arc_warden_int12" "Spark Luck"
+        "npc_dota_hero_arc_warden_int12_description" "Spark's chance of falling out of an attack is 10%"
 
         //Spectre//
 
@@ -15035,8 +15035,8 @@
         "npc_dota_hero_spectre_str10_description" "Reflect 100% of the damage received. Damage type Pure, unreinforced. Damage counts after armor reduction, but not Dispersion."
         "npc_dota_hero_spectre_str11" "Physical Form"
         "npc_dota_hero_spectre_str11_description" "100% power to Dark Wave damage.\n\n\nDark Wave +1000."
-        "npc_dota_hero_spectre_str_last" "True Spectral Reflection"
-        "npc_dota_hero_spectre_str_last_description" "+35% damage reduction Dispersion."
+        "npc_dota_hero_spectre_str12" "True Spectral Reflection"
+        "npc_dota_hero_spectre_str12_description" "+35% damage reduction Dispersion."
 
         "npc_dota_hero_spectre_agi6" "Matter Shredding"
         "npc_dota_hero_spectre_agi6_description" "Damage from the main attribute Spectral Step +1.0"
@@ -15051,8 +15051,8 @@
         "npc_dota_hero_spectre_agi10_tooltip" "Becomes an aura. The attack interval is equal to the time between the hero's attacks +0.1s."
         "npc_dota_hero_spectre_agi11" "Internal Energy"
         "npc_dota_hero_spectre_agi11_description" "Desolate applies to all enemies around the attack target, damage is 75%."
-        "npc_dota_hero_spectre_agi_last" "Chopping up an entire universe."
-        "npc_dota_hero_spectre_agi_last_description" "Desolate damage from base +50%."
+        "npc_dota_hero_spectre_agi12" "Chopping up an entire universe."
+        "npc_dota_hero_spectre_agi12_description" "Desolate damage from base +50%."
 
         "npc_dota_hero_spectre_int6" "Magic Power"
         "npc_dota_hero_spectre_int6_description" "Increase Spectral Step radius by 100."
@@ -15067,9 +15067,9 @@
         "npc_dota_hero_spectre_int10_description" "50% reduction in Dark Wave cooldown."
         "npc_dota_hero_spectre_int11" "Transformation"
         "npc_dota_hero_spectre_int11_description" "35% intelligence to damage Desolate."
-        "npc_dota_hero_spectre_int_last" "Spectral Illusion Theater"
-        "npc_dota_hero_spectre_int_last_description" "Adds an active ability to Spectral Step. Increases the damage of all abilities by 2x."
-        "npc_dota_hero_spectre_int_last_tooltip" "Duration 7s, cooldown 60s."
+        "npc_dota_hero_spectre_int12" "Spectral Illusion Theater"
+        "npc_dota_hero_spectre_int12_description" "Adds an active ability to Spectral Step. Increases the damage of all abilities by 2x."
+        "npc_dota_hero_spectre_int12_tooltip" "Duration 7s, cooldown 60s."
         //Luna//
 
         "dota_tooltip_ability_luna_starfall" "Starfall"
@@ -15107,8 +15107,8 @@
         "npc_dota_hero_luna_str10_description" "+18% to lunar blessing"
         "npc_dota_hero_luna_str11" "Hunted Beast"
         "npc_dota_hero_luna_str11_description" "25% Lifesteal"
-        "npc_dota_hero_luna_str_last" "Visible and True Motion of Celestial Bodies"
-        "npc_dota_hero_luna_str_last_description" "100% increased base attributes for allies with Lunar Blessing"
+        "npc_dota_hero_luna_str12" "Visible and True Motion of Celestial Bodies"
+        "npc_dota_hero_luna_str12_description" "100% increased base attributes for allies with Lunar Blessing"
 
         "npc_dota_hero_luna_agi6" "You couldn't think of it better"
         "npc_dota_hero_luna_agi6_description" "Gains +1 damage per creep killed"
@@ -15122,8 +15122,8 @@
         "npc_dota_hero_luna_agi10_description" "Moon glaives have 5 extra bounces."
         "npc_dota_hero_luna_agi11" "Mad Moon Power"
         "npc_dota_hero_luna_agi11_description" "Lunar blessing also grants base damage equal to luna AGI as bonus"
-        "npc_dota_hero_luna_agi_last" "Even a whole horde."
-        "npc_dota_hero_luna_agi_last_description" "Damage from Moon Glaives rebounds +100% "
+        "npc_dota_hero_luna_agi12" "Even a whole horde."
+        "npc_dota_hero_luna_agi12_description" "Damage from Moon Glaives rebounds +100% "
         
         "npc_dota_hero_luna_int6" "Superiority"
         "npc_dota_hero_luna_int6_description" "Starfall deals bonus damage equal to 50% of INT"
@@ -15137,8 +15137,8 @@
         "npc_dota_hero_luna_int10_description" "Ultimate interval is 2 times less"
         "npc_dota_hero_luna_int11" "Lunacy"
         "npc_dota_hero_luna_int11_description" "Ultimate duration increased by 5 seconds"
-        "npc_dota_hero_luna_int_last" "Starfall."
-        "npc_dota_hero_luna_int_last_description" "Beam Hits all enemies in the radius."
+        "npc_dota_hero_luna_int12" "Starfall."
+        "npc_dota_hero_luna_int12_description" "Beam Hits all enemies in the radius."
 
         //Drow Ranger//
 
@@ -15178,8 +15178,8 @@
         "npc_dota_hero_drow_ranger_str10_description" "Speed aura is now global"
         "npc_dota_hero_drow_ranger_str11" "Bloodlust"
         "npc_dota_hero_drow_ranger_str11_description" "Gains 20% Lifesteal"
-        "npc_dota_hero_drow_ranger_str_last" "Strongest Archer"
-        "npc_dota_hero_drow_ranger_str_last_description" "Marksmanship stats x2"
+        "npc_dota_hero_drow_ranger_str12" "Strongest Archer"
+        "npc_dota_hero_drow_ranger_str12_description" "Marksmanship stats x2"
 
         "npc_dota_hero_drow_ranger_agi6" "Steady Hand"
         "npc_dota_hero_drow_ranger_agi6_description" "+350 attack range"
@@ -15193,8 +15193,8 @@
         "npc_dota_hero_drow_ranger_agi10_description" "Targets with Frost Arrows effect takes 25% more physical damage."
         "npc_dota_hero_drow_ranger_agi11" "Retribution"
         "npc_dota_hero_drow_ranger_agi11_description" "Grants Aghanim's Scepter effect to hero."
-        "npc_dota_hero_drow_ranger_agi_last" "Stronger Together"
-        "npc_dota_hero_drow_ranger_agi_last_description" "The aura of Marksmanship goes global"
+        "npc_dota_hero_drow_ranger_agi12" "Stronger Together"
+        "npc_dota_hero_drow_ranger_agi12_description" "The aura of Marksmanship goes global"
 
         "npc_dota_hero_drow_ranger_int6" "Smart by a half"
         "npc_dota_hero_drow_ranger_int6_description" "Takes additional damage equal to INT"
@@ -15208,8 +15208,8 @@
         "npc_dota_hero_drow_ranger_int10_description" "Increase multishot arrow number by 4"
         "npc_dota_hero_drow_ranger_int11" "Magic Arrows"
         "npc_dota_hero_drow_ranger_int11_description" "Changes multishot damage from physical non amplifiable to magical amplifiable."
-        "npc_dota_hero_drow_ranger_int_last" "Well? Shall we shoot?"
-        "npc_dota_hero_drow_ranger_int_last_description" "-10 percent manacost and removes the 0.1 Multishot delay (as before)."
+        "npc_dota_hero_drow_ranger_int12" "Well? Shall we shoot?"
+        "npc_dota_hero_drow_ranger_int12_description" "-10 percent manacost and removes the 0.1 Multishot delay (as before)."
 
         //Medusa//
 
@@ -15244,8 +15244,8 @@
         "npc_dota_hero_medusa_str10_description" "Attacks from Split Shot slow targets by 100ms"
         "npc_dota_hero_medusa_str11" "Even Stronger"
         "npc_dota_hero_medusa_str11_description" "Mana Shield absorbs 2x damage per mana point"
-        "npc_dota_hero_medusa_str_last" "Divine Protection"
-        "npc_dota_hero_medusa_str_last_description" "Damage blocked by Mana Shield ability is reduced by armor and magic resistance."
+        "npc_dota_hero_medusa_str12" "Divine Protection"
+        "npc_dota_hero_medusa_str12_description" "Damage blocked by Mana Shield ability is reduced by armor and magic resistance."
         "npc_dota_hero_medusa_agi6" "True Aim"
         
         "npc_dota_hero_medusa_agi6_description" "Split Shot effect deals double damage if only one target is near Medusa"
@@ -15259,8 +15259,8 @@
         "npc_dota_hero_medusa_agi10_description" "Always 100% damage from Split Shot"
         "npc_dota_hero_medusa_agi11" "Righteousness"
         "npc_dota_hero_medusa_agi11_description" "Split Shot targets are affected by modifiers"
-        "npc_dota_hero_medusa_agi_last" "Serpent Strike"
-        "npc_dota_hero_medusa_agi_last_description" "Mystic Snake also deals physical damage equal to five times Medusa's damage.\n(Not amplified)"
+        "npc_dota_hero_medusa_agi12" "Serpent Strike"
+        "npc_dota_hero_medusa_agi12_description" "Mystic Snake also deals physical damage equal to five times Medusa's damage.\n(Not amplified)"
 
         "npc_dota_hero_medusa_int6" "Double Snake Release"
         "npc_dota_hero_medusa_int6_description" "Mystic Snake releases 2 snakes"
@@ -15274,8 +15274,8 @@
         "npc_dota_hero_medusa_int10_description" "Base damage of Mystic Snake is increased by the hero's intelligence."
         "npc_dota_hero_medusa_int11" "Mystical Amplification"
         "npc_dota_hero_medusa_int11_description" "Mystic Snake mana cost is 30% of the hero's current mana amount."
-        "npc_dota_hero_medusa_int_last" "Most Venomous Venom"
-        "npc_dota_hero_medusa_int_last_description" "Poison duration increased by 2 seconds"
+        "npc_dota_hero_medusa_int12" "Most Venomous Venom"
+        "npc_dota_hero_medusa_int12_description" "Poison duration increased by 2 seconds"
 
         //Enchantress//
 
@@ -15317,8 +15317,8 @@
         "npc_dota_hero_enchantress_str10_description" "Nature’s forces also grant magic resistance equal to the mana cost reduction bonus."
         "npc_dota_hero_enchantress_str11" "Forest Harmony"
         "npc_dota_hero_enchantress_str11_description" "Nature’s attendants grants 50% magic resistance while active."
-        "npc_dota_hero_enchantress_str_last" "Together we are stronger."
-        "npc_dota_hero_enchantress_str_last_description" "Nature's Forsces becomes an aura."
+        "npc_dota_hero_enchantress_str12" "Together we are stronger."
+        "npc_dota_hero_enchantress_str12_description" "Nature's Forsces becomes an aura."
 
         "npc_dota_hero_enchantress_agi6" "By roots"
         "npc_dota_hero_enchantress_agi6_description" "Gain bonus damage equal to enchantress AGI."
@@ -15332,8 +15332,8 @@
         "npc_dota_hero_enchantress_agi10_description" "Gain 5 attack speed per hero level."
         "npc_dota_hero_enchantress_agi11" "Flood"
         "npc_dota_hero_enchantress_agi11_description" "Increase impetus damage by 25%"
-        "npc_dota_hero_enchantress_agi_last" "Tragic Destruction"
-        "npc_dota_hero_enchantress_agi_last_description" "-0.1 second of Multishot cd"
+        "npc_dota_hero_enchantress_agi12" "Tragic Destruction"
+        "npc_dota_hero_enchantress_agi12_description" "-0.1 second of Multishot cd"
 
         "npc_dota_hero_enchantress_int6" "Little Helpers"
         "npc_dota_hero_enchantress_int6_description" "Multishot attacks all targets around it."
@@ -15347,8 +15347,8 @@
         "npc_dota_hero_enchantress_int10_description" "When Nature's Attendants is active enemies take damage equal to bonus from health regeneration (not amplified)"
         "npc_dota_hero_enchantress_int11" "Magic Robe"
         "npc_dota_hero_enchantress_int11_description" "Nature's forces makes your attacks apply effect that reduces enemies magic resistance by 15% for 2 seconds"
-        "npc_dota_hero_enchantress_int_last" "Spears of the Goddess"
-        "npc_dota_hero_enchantress_int_last_description" "30% intelligence to Impetus damage"
+        "npc_dota_hero_enchantress_int12" "Spears of the Goddess"
+        "npc_dota_hero_enchantress_int12_description" "30% intelligence to Impetus damage"
 
         //Lina//
 
@@ -15387,8 +15387,8 @@
         "npc_dota_hero_lina_str10_description" "Fiery soul grant effect that enemies which attacking Lina are ignited taking 0,5 Lina’s str damage per second.."
         "npc_dota_hero_lina_str11" "Burnt"
         "npc_dota_hero_lina_str11_description" "Laguna blade's deals additional damage equal to Lina’s health."
-        "npc_dota_hero_lina_str_last" "Lionheart."
-        "npc_dota_hero_lina_str_last_description" "Plus 3.5 STR to Fiery soul, only works if Fiery soul is learned."
+        "npc_dota_hero_lina_str12" "Lionheart."
+        "npc_dota_hero_lina_str12_description" "Plus 3.5 STR to Fiery soul, only works if Fiery soul is learned."
 
         "npc_dota_hero_lina_agi6" "Spirit of Fire"
         "npc_dota_hero_lina_agi6_description" "Gain 1 damage per creep killed"
@@ -15402,8 +15402,8 @@
         "npc_dota_hero_lina_agi10_description" "Increase fiery soul maximum stacks by 4"
         "npc_dota_hero_lina_agi11" "Internally warm"
         "npc_dota_hero_lina_agi11_description" "AGI also grants base damage"
-        "npc_dota_hero_lina_agi_last" "Progenitor Ray"
-        "npc_dota_hero_lina_agi_last_description" "Laguna Blade has 5% chance to be cast from attacking."
+        "npc_dota_hero_lina_agi12" "Progenitor Ray"
+        "npc_dota_hero_lina_agi12_description" "Laguna Blade has 5% chance to be cast from attacking."
 
         "npc_dota_hero_lina_int6" "Explosions of fire"
         "npc_dota_hero_lina_int6_description" "+3 Light Strike Array explosions"
@@ -15417,8 +15417,8 @@
         "npc_dota_hero_lina_int10_description" "Dragon slave casts in 3 directions"
         "npc_dota_hero_lina_int11" "Explosive character"
         "npc_dota_hero_lina_int11_description" "Light strike array gains damage bonus equal of Lina’s INT"
-        "npc_dota_hero_lina_int_last" "Fire Breakthrough"
-        "npc_dota_hero_lina_int_last_description" "Chance to trigger Dragon Slave is 25% of attacks."
+        "npc_dota_hero_lina_int12" "Fire Breakthrough"
+        "npc_dota_hero_lina_int12_description" "Chance to trigger Dragon Slave is 25% of attacks."
 
         //Lion//
 
@@ -15459,8 +15459,8 @@
         "npc_dota_hero_lion_str10_description" "Gain 10 health per soul."
         "npc_dota_hero_lion_str11" "Mental Protection"
         "npc_dota_hero_lion_str11_description" "For every 15 souls gain 1 armor"
-        "npc_dota_hero_lion_str_last" "Punishment from above."
-        "npc_dota_hero_lion_str_last_description" "-20 seconds of Finger of Death cooldown"
+        "npc_dota_hero_lion_str12" "Punishment from above."
+        "npc_dota_hero_lion_str12_description" "-20 seconds of Finger of Death cooldown"
 
         "npc_dota_hero_lion_agi6" "Absorption"
         "npc_dota_hero_lion_agi6_description" "Every creep killed gain 1 damage"
@@ -15474,8 +15474,8 @@
         "npc_dota_hero_lion_agi10_description" "Gain bonus damage equal to the number of souls."
         "npc_dota_hero_lion_agi11" "Demonic Hand"
         "npc_dota_hero_lion_agi11_description" "Gain 5 attack speed per hero level."
-        "npc_dota_hero_lion_agi_last" "Miner Lion"
-        "npc_dota_hero_lion_agi_last_description" "5% of Earth Spike triggers from the attack "
+        "npc_dota_hero_lion_agi12" "Miner Lion"
+        "npc_dota_hero_lion_agi12_description" "5% of Earth Spike triggers from the attack "
 
         "npc_dota_hero_lion_int6" "Demonologist Powers"
         "npc_dota_hero_lion_int6_description" "Earth spike is now casts to all 3 directions"
@@ -15489,8 +15489,8 @@
         "npc_dota_hero_lion_int10_description" "Gains 1 soul extra per creep killed"
         "npc_dota_hero_lion_int11" "Curse of Fury"
         "npc_dota_hero_lion_int11_description" "Mana drain reduces enemies’ magic resistance by 20%."
-        "npc_dota_hero_lion_int_last" "Furious Soul Snatcher"
-        "npc_dota_hero_lion_int_last_description" "+2 souls per creep"
+        "npc_dota_hero_lion_int12" "Furious Soul Snatcher"
+        "npc_dota_hero_lion_int12_description" "+2 souls per creep"
 
         //Dazzle//
 
@@ -15531,8 +15531,8 @@
         "npc_dota_hero_dazzle_str10_description" "Shadow wave damage is now equal to Dazzle's STR"
         "npc_dota_hero_dazzle_str11" "Unseen power"
         "npc_dota_hero_dazzle_str11_description" "Poison Touch deals damage equal to 2% of dazzle's health."
-        "npc_dota_hero_dazzle_str_last" "Poison Poison."
-        "npc_dota_hero_dazzle_str_last_description" "5% of a hero's health in poison touch"
+        "npc_dota_hero_dazzle_str12" "Poison Poison."
+        "npc_dota_hero_dazzle_str12_description" "5% of a hero's health in poison touch"
 
         "npc_dota_hero_dazzle_agi6" "Priests' Power"
         "npc_dota_hero_dazzle_agi6_description" "Gain 1 damage per creep killed."
@@ -15546,8 +15546,8 @@
         "npc_dota_hero_dazzle_agi10_description" "Poison touch reduces enemy damage by 20%."
         "npc_dota_hero_dazzle_agi11" "Lost Mind"
         "npc_dota_hero_dazzle_agi11_description" "Now you can attack 2 targets at the same time"
-        "npc_dota_hero_dazzle_agi_last" "Splitshot"
-        "npc_dota_hero_dazzle_agi_last_description" "additional 8 split-shot targets if Lost Mind's splitshot is learned"
+        "npc_dota_hero_dazzle_agi12" "Splitshot"
+        "npc_dota_hero_dazzle_agi12_description" "additional 8 split-shot targets if Lost Mind's splitshot is learned"
 
         "npc_dota_hero_dazzle_int6" "Help the world of Nottle"
         "npc_dota_hero_dazzle_int6_description" "Poison touch deals magic damage"
@@ -15561,8 +15561,8 @@
         "npc_dota_hero_dazzle_int10_description" "Shadow Wave deals damage equal to hero's base damage"
         "npc_dota_hero_dazzle_int11" "Cult Elder"
         "npc_dota_hero_dazzle_int11_description" "Shadow wave also applies poison Touch"
-        "npc_dota_hero_dazzle_int_last" "Bad Juju Bad Juju"
-        "npc_dota_hero_dazzle_int_last_description" "Plus 1900% magic damage in Bad Juju at last level. "
+        "npc_dota_hero_dazzle_int12" "Bad Juju Bad Juju"
+        "npc_dota_hero_dazzle_int12_description" "Plus 1900% magic damage in Bad Juju at last level. "
 
         //Pugna//
 
@@ -15608,8 +15608,8 @@
         "npc_dota_hero_pugna_str10_description" "-0.7s to Life Drain Target Finder"
         "npc_dota_hero_pugna_str11" "Lifeos"
         "npc_dota_hero_pugna_str11_description" "Enemies affected by Life Drain are slowed by 50% and take 25% more magic damage"
-        "npc_dota_hero_pugna_str_last" "The Abyss answered me."
-        "npc_dota_hero_pugna_str_last_description" "+50% Intel damage to Nether Ward."
+        "npc_dota_hero_pugna_str12" "The Abyss answered me."
+        "npc_dota_hero_pugna_str12_description" "+50% Intel damage to Nether Ward."
 
         "npc_dota_hero_pugna_agi6" "Rotten Armor"
         "npc_dota_hero_pugna_agi6_description" "Nether Blast reduces armor by 20% for 2 seconds"
@@ -15623,8 +15623,8 @@
         "npc_dota_hero_pugna_agi10_description" "Decrepify gives 5 attack speed per level"
         "npc_dota_hero_pugna_agi11" "Foul Speaker"
         "npc_dota_hero_pugna_agi11_description" "Nether ward deals damage equal to pugna's AGI"
-        "npc_dota_hero_pugna_agi_last" "Nether Ward Blast"
-        "npc_dota_hero_pugna_agi_last_description" "+10% Nether Blast chance to trigger on attacks"
+        "npc_dota_hero_pugna_agi12" "Nether Ward Blast"
+        "npc_dota_hero_pugna_agi12_description" "+10% Nether Blast chance to trigger on attacks"
 
         "npc_dota_hero_pugna_int6" "Filth Spill"
         "npc_dota_hero_pugna_int6_description" "Increases Nether ward targets limit per hit by 5"
@@ -15638,8 +15638,8 @@
         "npc_dota_hero_pugna_int10_description" "Reduces attack interval on nether ward by 1 secondl"
         "npc_dota_hero_pugna_int11" "Void Explosions"
         "npc_dota_hero_pugna_int11_description" "Applies 3 additional nether blasts with each cast"
-        "npc_dota_hero_pugna_int_last" "Suck everything and more"
-        "npc_dota_hero_pugna_int_last_description" "x2 Life Drain damage"
+        "npc_dota_hero_pugna_int12" "Suck everything and more"
+        "npc_dota_hero_pugna_int12_description" "x2 Life Drain damage"
 
         //SkywrathMage//
 
@@ -15680,8 +15680,8 @@
         "npc_dota_hero_skywrath_mage_str10_description" "Ancient Seal also reduces the target's base armor."
         "npc_dota_hero_skywrath_mage_str11" "Abyssal Link"
         "npc_dota_hero_skywrath_mage_str11_description" "+ 50% spell lifesteal"
-        "npc_dota_hero_skywrath_mage_str_last" "Silence at the Addition."
-        "npc_dota_hero_skywrath_mage_str_last_description" "Ancient Seal causes Mystic Flare to be casted"
+        "npc_dota_hero_skywrath_mage_str12" "Silence at the Addition."
+        "npc_dota_hero_skywrath_mage_str12_description" "Ancient Seal causes Mystic Flare to be casted"
 
         "npc_dota_hero_skywrath_mage_agi6" "Sleep Powers"
         "npc_dota_hero_skywrath_mage_agi6_description" "Ancient Seal applies root"
@@ -15695,8 +15695,8 @@
         "npc_dota_hero_skywrath_mage_agi10_description" "This hero has a 5% chance of triggering Concussive Shot on attack."
         "npc_dota_hero_skywrath_mage_agi11" "Filth"
         "npc_dota_hero_skywrath_mage_agi11_description" "x2 agility gives a bonus to base damage"
-        "npc_dota_hero_skywrath_mage_agi_last" "Great Mage Power"
-        "npc_dota_hero_skywrath_mage_agi_last_description" "+25% Chance on attack of casting flying Arcane Bolt"
+        "npc_dota_hero_skywrath_mage_agi12" "Great Mage Power"
+        "npc_dota_hero_skywrath_mage_agi12_description" "+25% Chance on attack of casting flying Arcane Bolt"
 
         "npc_dota_hero_skywrath_mage_int6" "Filth Spill"
         "npc_dota_hero_skywrath_mage_int6_description" "x2 bonus attributes for Arcane Bolt"
@@ -15710,8 +15710,8 @@
         "npc_dota_hero_skywrath_mage_int10_description" "-50% CD in total and -50% mana cost of skills"
         "npc_dota_hero_skywrath_mage_int11" "Void Explosions"
         "npc_dota_hero_skywrath_mage_int11_description" "Mystic Flare applies 3 more random targets in a small area"
-        "npc_dota_hero_skywrath_mage_int_last" "Eternal Wisdom"
-        "npc_dota_hero_skywrath_mage_int_last_description" "gains 0.5 intelligence for each use of the ability"
+        "npc_dota_hero_skywrath_mage_int12" "Eternal Wisdom"
+        "npc_dota_hero_skywrath_mage_int12_description" "gains 0.5 intelligence for each use of the ability"
 
         //Shadow Shaman//
 
@@ -15752,8 +15752,8 @@
         "npc_dota_hero_shadow_shaman_str10_description" "Adds +5 armor per serpent ward near you"
         "npc_dota_hero_shadow_shaman_str11" "Magic Entanglement"
         "npc_dota_hero_shadow_shaman_str11_description" "Enemies in the shackles take 15% more damage."
-        "npc_dota_hero_shadow_shaman_str_last" "Attack my chickens."
-        "npc_dota_hero_shadow_shaman_str_last_description" "Plus 20% to the chance to summon a chicken when attacking. Does not work without the talent to summon chickens from the attack."
+        "npc_dota_hero_shadow_shaman_str12" "Attack my chickens."
+        "npc_dota_hero_shadow_shaman_str12_description" "Plus 20% to the chance to summon a chicken when attacking. Does not work without the talent to summon chickens from the attack."
        
         "npc_dota_hero_shadow_shaman_agi6" "Animal Agility"
         "npc_dota_hero_shadow_shaman_agi6_description" "Chickens now use AGI as damage"
@@ -15767,8 +15767,8 @@
         "npc_dota_hero_shadow_shaman_agi10_description" "Has 5% chance to summon a serpent ward on attack"
         "npc_dota_hero_shadow_shaman_agi11" "Rate of Fire"
         "npc_dota_hero_shadow_shaman_agi11_description" "Serpent wards now have 2x attack speed"
-        "npc_dota_hero_shadow_shaman_agi_last" "Snakes rise with renewed vigor"
-        "npc_dota_hero_shadow_shaman_agi_last_description" "Snakes have a 15% chance of doing 325% critical damage."
+        "npc_dota_hero_shadow_shaman_agi12" "Snakes rise with renewed vigor"
+        "npc_dota_hero_shadow_shaman_agi12_description" "Snakes have a 15% chance of doing 325% critical damage."
        
         "npc_dota_hero_shadow_shaman_int6" "Ball Lightning"
         "npc_dota_hero_shadow_shaman_int6_description" "Ether shock damage is equal to shadow shaman's INT"
@@ -15782,8 +15782,8 @@
         "npc_dota_hero_shadow_shaman_int10_description" "Increase Serpent wards count from ultimate by 5"
         "npc_dota_hero_shadow_shaman_int11" "Chains of Magic"
         "npc_dota_hero_shadow_shaman_int11_description" "Reduces magic resistance for all enemies affected by shackles by 50%"
-        "npc_dota_hero_shadow_shaman_int_last" "Chickens have gained intelligence and want to overthrow this planet."
-        "npc_dota_hero_shadow_shaman_int_last_description" "Chickens take 50% damage from INT."
+        "npc_dota_hero_shadow_shaman_int12" "Chickens have gained intelligence and want to overthrow this planet."
+        "npc_dota_hero_shadow_shaman_int12_description" "Chickens take 50% damage from INT."
 
         //Warlock//
 
@@ -15824,8 +15824,8 @@
         "npc_dota_hero_warlock_str10_description" "Chaotic offering golem’s stats are doubled"
         "npc_dota_hero_warlock_str11" "Healing Charm"
         "npc_dota_hero_warlock_str11_description" "Shadow Word is now AOE ability"
-        "npc_dota_hero_warlock_str_last" "Golems are smarter and stronger."
-        "npc_dota_hero_warlock_str_last_description" "+150% of Golem stats for Golems with Ripping the Flesh"
+        "npc_dota_hero_warlock_str12" "Golems are smarter and stronger."
+        "npc_dota_hero_warlock_str12_description" "+150% of Golem stats for Golems with Ripping the Flesh"
         
         "npc_dota_hero_warlock_agi6" "Soul of the golem is strength"
         "npc_dota_hero_warlock_agi6_description" "Golem’s damage is increased by 300% while reducing its armor by 50%"
@@ -15839,8 +15839,8 @@
         "npc_dota_hero_warlock_agi10_description" "Grants 75% cleave to golems"
         "npc_dota_hero_warlock_agi11" "High Demonologist"
         "npc_dota_hero_warlock_agi11_description" "Chaotic offering summons two golems now"
-        "npc_dota_hero_warlock_agi_last" "Golem Uprising"
-        "npc_dota_hero_warlock_agi_last_description" "Summons + 3 Golems with Ultimates"
+        "npc_dota_hero_warlock_agi12" "Golem Uprising"
+        "npc_dota_hero_warlock_agi12_description" "Summons + 3 Golems with Ultimates"
         
         "npc_dota_hero_warlock_int6" "Restraint"
         "npc_dota_hero_warlock_int6_description" "Fatal bonds now slow enemies down as well"
@@ -15854,8 +15854,8 @@
         "npc_dota_hero_warlock_int10_description" "Ripping the flesh can now be cast on the commander creeps."
         "npc_dota_hero_warlock_int11" "Chain reaction"
         "npc_dota_hero_warlock_int11_description" "Increase fatal bonds distributed damage by 6%."
-        "npc_dota_hero_warlock_int_last" "Unholy Connection in all its glory."
-        "npc_dota_hero_warlock_int_last_description" "Fatal Bonds stats x2"
+        "npc_dota_hero_warlock_int12" "Unholy Connection in all its glory."
+        "npc_dota_hero_warlock_int12_description" "Fatal Bonds stats x2"
 
         //WindRunner//
 
@@ -15898,8 +15898,8 @@
         "npc_dota_hero_windrunner_str10_description" "If Windranger health is lower than 30%, powershot deals 3x times damage"
         "npc_dota_hero_windrunner_str11" "Forest feeling"
         "npc_dota_hero_windrunner_str11_description" "Gain 1000 HP for every boss you killed"
-        "npc_dota_hero_windrunner_str_last" "We boast, we live."
-        "npc_dota_hero_windrunner_str_last_description" "100% Lifestyle by Powershot"
+        "npc_dota_hero_windrunner_str12" "We boast, we live."
+        "npc_dota_hero_windrunner_str12_description" "100% Lifestyle by Powershot"
         
         "npc_dota_hero_windrunner_agi6" "Rate of Fire"
         "npc_dota_hero_windrunner_agi6_description" "Magic shots now grant 2x times attack speed"
@@ -15913,8 +15913,8 @@
         "npc_dota_hero_windrunner_agi10_description" "Every attack has a 25% chance to cast power shot, while having Magic shots learned"
         "npc_dota_hero_windrunner_agi11" "Years of Training."
         "npc_dota_hero_windrunner_agi11_description" "+100 damage per boss"
-        "npc_dota_hero_windrunner_agi_last" "Arrows of True Magic"
-        "npc_dota_hero_windrunner_agi_last_description" "Plus 35% chance of triggering from Powershot, only works if a talent is taken for triggering from Powershot"
+        "npc_dota_hero_windrunner_agi12" "Arrows of True Magic"
+        "npc_dota_hero_windrunner_agi12_description" "Plus 35% chance of triggering from Powershot, only works if a talent is taken for triggering from Powershot"
         
         "npc_dota_hero_windrunner_int6" "Magic Storm"
         "npc_dota_hero_windrunner_int6_description" "Powershot now also reduces magic resistance by 25% for 2 seconds."
@@ -15928,8 +15928,8 @@
         "npc_dota_hero_windrunner_int10_description" "Focus Fire: has extra 6 seconds duration"
         "npc_dota_hero_windrunner_int11" "Winter monsoons"
         "npc_dota_hero_windrunner_int11_description" "Powershot now casts 3 arrows in 3 directions"
-        "npc_dota_hero_windrunner_int_last" "Arrow Blossom"
-        "npc_dota_hero_windrunner_int_last_description" "+50% to INT damage in a powershot"
+        "npc_dota_hero_windrunner_int12" "Arrow Blossom"
+        "npc_dota_hero_windrunner_int12_description" "+50% to INT damage in a powershot"
 
         //Zuus//
 
@@ -15963,8 +15963,8 @@
         "npc_dota_hero_zuus_str10_description" "Gains 2 HP and 1 MP regeneration per enemy killed"
         "npc_dota_hero_zuus_str11" "Father of the Gods"
         "npc_dota_hero_zuus_str11_description" "Thundergod's Wrath deals damage from enemies max health"
-        "npc_dota_hero_zuus_str_last" "Divine Punishment"
-        "npc_dota_hero_zuus_str_last_description" "Grants three Ultimates charges."
+        "npc_dota_hero_zuus_str12" "Divine Punishment"
+        "npc_dota_hero_zuus_str12_description" "Grants three Ultimates charges."
 
         "npc_dota_hero_zuus_agi6" "Mortal Encirclement"
         "npc_dota_hero_zuus_agi6_description" "Static Field reduces armor by 10 for 1 second."
@@ -15978,8 +15978,8 @@
         "npc_dota_hero_zuus_agi10_description" "25% Lifesteal"
         "npc_dota_hero_zuus_agi11" "Senile Agility"
         "npc_dota_hero_zuus_agi11_description" "All abilities deal damage from Zeus' AGI."
-        "npc_dota_hero_zuus_agi_last" "Ball Lightning."
-        "npc_dota_hero_zuus_agi_last_description" "arc is applied in the area of 300 around the target"
+        "npc_dota_hero_zuus_agi12" "Ball Lightning."
+        "npc_dota_hero_zuus_agi12_description" "arc is applied in the area of 300 around the target"
 
         "npc_dota_hero_zuus_int6" "From heaven"
         "npc_dota_hero_zuus_int6_description" "Static Field triggers Arc Lightning and resets its cooldown."
@@ -15993,8 +15993,8 @@
         "npc_dota_hero_zuus_int10_description" "Manacost is reduced by 50%"
         "npc_dota_hero_zuus_int11" "Feeling beautiful"
         "npc_dota_hero_zuus_int11_description" "+0,1 int to Static Field damage"
-        "npc_dota_hero_zuus_int_last" "The lightning punishment of heaven."
-        "npc_dota_hero_zuus_int_last_description" "+1 int to Static Field damage."
+        "npc_dota_hero_zuus_int12" "The lightning punishment of heaven."
+        "npc_dota_hero_zuus_int12_description" "+1 int to Static Field damage."
 		
         //Bloodseeker//
 		
@@ -16037,8 +16037,8 @@
         "npc_dota_hero_bloodseeker_str10_description" "20% chance to get a Thirst stack for 120 seconds."
         "npc_dota_hero_bloodseeker_str11" "Magic Fortitude"
         "npc_dota_hero_bloodseeker_str11_description" "Bloodrage +25% Magic Resistance"
-        "npc_dota_hero_bloodseeker_str_last" "All Power"
-        "npc_dota_hero_bloodseeker_str_last_description" "Blood Mist gains 150% strength to damage"
+        "npc_dota_hero_bloodseeker_str12" "All Power"
+        "npc_dota_hero_bloodseeker_str12_description" "Blood Mist gains 150% strength to damage"
 
         "npc_dota_hero_bloodseeker_agi6" "Nimble Strike"
         "npc_dota_hero_bloodseeker_agi6_description" "Dexterity bonus from Thirst is twice as much."
@@ -16052,8 +16052,8 @@
         "npc_dota_hero_bloodseeker_agi10_description" "Enemies affected by Blood Rite take 25% more damage from the hero"
         "npc_dota_hero_bloodseeker_agi11" "Old Age Agility"
         "npc_dota_hero_bloodseeker_agi11_description" "When affected by Bloodrage, 10% chance to ignore target's base armor when attacking"
-        "npc_dota_hero_bloodseeker_agi_last" "Blood Rite Infusion"
-        "npc_dota_hero_bloodseeker_agi_last_description" "10% chance to cast Blood Rite on attack"
+        "npc_dota_hero_bloodseeker_agi12" "Blood Rite Infusion"
+        "npc_dota_hero_bloodseeker_agi12_description" "10% chance to cast Blood Rite on attack"
 
         "npc_dota_hero_bloodseeker_int6" "Almost Mage"
         "npc_dota_hero_bloodseeker_int6_description" "Thirst gives intelligence equal to dexterity."
@@ -16067,8 +16067,8 @@
         "npc_dota_hero_bloodseeker_int10_description" "When the Bloodrage ability is activated, the Blood Rite ability is applied under the Bloodrage target."
         "npc_dota_hero_bloodseeker_int11" "All Magic"
         "npc_dota_hero_bloodseeker_int11_description" "Blood Mist gains 75% intelligence damage"
-        "npc_dota_hero_bloodseeker_int_last" "Intellectual Spell Amplification"
-        "npc_dota_hero_bloodseeker_int_last_description" "Increase spell damage by 0.5% per point of intelligence"
+        "npc_dota_hero_bloodseeker_int12" "Intellectual Spell Amplification"
+        "npc_dota_hero_bloodseeker_int12_description" "Increase spell damage by 0.5% per point of intelligence"
 
         //Gyrocopter//
 
@@ -16110,8 +16110,8 @@
         "npc_dota_hero_Gyrocopter_str10_description" "Homing Missile Triggered on attack, 2% chance"
         "npc_dota_hero_Gyrocopter_str11" "Chemical weapons"
         "npc_dota_hero_Gyrocopter_str11_description" "Call Down burns the enemy causing 50% damage to the first missile within 5 seconds"
-        "npc_dota_hero_Gyrocopter_str_last" "Nuclear explosion"
-        "npc_dota_hero_Gyrocopter_str_last_description" "Call Down releases 10 missiles around itself"
+        "npc_dota_hero_Gyrocopter_str12" "Nuclear explosion"
+        "npc_dota_hero_Gyrocopter_str12_description" "Call Down releases 10 missiles around itself"
 
         "npc_dota_hero_Gyrocopter_agi6_description" "+200 to Flak Cannon radius"
         "npc_dota_hero_Gyrocopter_agi7" "Binoculars"
@@ -16124,8 +16124,8 @@
         "npc_dota_hero_Gyrocopter_agi10_description" "Rocket Barrage +5 rockets"
         "npc_dota_hero_Gyrocopter_agi11" "Training paid off"
         "npc_dota_hero_Gyrocopter_agi11_description" "Call Down and Homing Missile receive 100% Dexterity Damage Bonus"
-        "npc_dota_hero_Gyrocopter_agi_last" "Tuning"
-        "npc_dota_hero_Gyrocopter_agi_last_description" "Adds 2 automatic cannons attacking every second"
+        "npc_dota_hero_Gyrocopter_agi12" "Tuning"
+        "npc_dota_hero_Gyrocopter_agi12_description" "Adds 2 automatic cannons attacking every second"
 
         "npc_dota_hero_Gyrocopter_int6" "Weak point 2.0"
         "npc_dota_hero_Gyrocopter_int6_description" "Flak Cannon removes 5 magic resistas for triggering for 5 seconds"
@@ -16139,8 +16139,8 @@
         "npc_dota_hero_Gyrocopter_int10_description" "If Intelligence is greater than the other stats, then it doubles the damage of all skills."
         "npc_dota_hero_Gyrocopter_int11" "Fire to kill"
         "npc_dota_hero_Gyrocopter_int11_description" "Launches 3 Homing Missile"
-        "npc_dota_hero_Gyrocopter_int_last" "New technologies"
-        "npc_dota_hero_Gyrocopter_int_last_description" "Flak Cannon additionally deals magic damage equal to intelligence"
+        "npc_dota_hero_Gyrocopter_int12" "New technologies"
+        "npc_dota_hero_Gyrocopter_int12_description" "Flak Cannon additionally deals magic damage equal to intelligence"
 		
 		//Ancient Apparition
 		
@@ -16181,8 +16181,8 @@
         "npc_dota_hero_ancient_apparition_str10_description" "Cold Feet applied to everyone around in radius 700"
         "npc_dota_hero_ancient_apparition_str11" "Cold Feet Soul"
         "npc_dota_hero_ancient_apparition_str11_description" "Cold Feet coercion reduction x2"
-        "npc_dota_hero_ancient_apparition_str_last" "Frost Matter Change"
-        "npc_dota_hero_ancient_apparition_str_last_description" "Cold Feet reduces base armor instead of mag resist"
+        "npc_dota_hero_ancient_apparition_str12" "Frost Matter Change"
+        "npc_dota_hero_ancient_apparition_str12_description" "Cold Feet reduces base armor instead of mag resist"
 		
         "npc_dota_hero_ancient_apparition_agi6" "Ice Shard of Soul"
         "npc_dota_hero_ancient_apparition_agi6_description" "each enemy killed by Ice Blast restores the hero's health equal to the remaining hepa of the one killed"
@@ -16196,8 +16196,8 @@
         "npc_dota_hero_ancient_apparition_agi10_description" "Chilling Touch bounces to 1 more target within 250"
         "npc_dota_hero_ancient_apparition_agi11" "Critical Cold"
         "npc_dota_hero_ancient_apparition_agi11_description" "Chilling Touch with a 15% chance can deal 250% critical damage"
-        "npc_dota_hero_ancient_apparition_agi_last" "Chilling Touch"
-        "npc_dota_hero_ancient_apparition_agi_last_description" "+0.1 agility to Chilling Touch damage"
+        "npc_dota_hero_ancient_apparition_agi12" "Chilling Touch"
+        "npc_dota_hero_ancient_apparition_agi12_description" "+0.1 agility to Chilling Touch damage"
 		
         "npc_dota_hero_ancient_apparition_int6" "frozen bones"
         "npc_dota_hero_ancient_apparition_int6_description" "enemies under the Ice Blast effect take periodic damage = 100% intelligence per sec"
@@ -16211,8 +16211,8 @@
         "npc_dota_hero_ancient_apparition_int10_description" "Ice Blast acts on ancient"
         "npc_dota_hero_ancient_apparition_int11" "Cold Breeze"
         "npc_dota_hero_ancient_apparition_int11_description" "Chilling Touch -75%% manacost"
-        "npc_dota_hero_ancient_apparition_int_last" "Very Cold"
-        "npc_dota_hero_ancient_apparition_int_last_description" "Ice Blast HP х2"
+        "npc_dota_hero_ancient_apparition_int12" "Very Cold"
+        "npc_dota_hero_ancient_apparition_int12_description" "Ice Blast HP х2"
 
         //Huskar
 
@@ -16252,8 +16252,8 @@
         "npc_dota_hero_huskar_str10_description" "Health regeneration from Berserker's Blood is doubled."
         "npc_dota_hero_huskar_str11" "Unyielding Fury"
         "npc_dota_hero_huskar_str11_description" "Berserker's Blood gains an active ability that grants Spell Immunity for 3 seconds. Cooldown: 30 seconds."
-        "npc_dota_hero_huskar_str_last" "Burning Curse"
-        "npc_dota_hero_huskar_str_last_description" "When receiving physical damage, apply a Burning Spear stack to the attacker."
+        "npc_dota_hero_huskar_str12" "Burning Curse"
+        "npc_dota_hero_huskar_str12_description" "When receiving physical damage, apply a Burning Spear stack to the attacker."
 
         "npc_dota_hero_huskar_agi6" "Swift Furious Assault"
         "npc_dota_hero_huskar_agi6_description" "Attack speed from Berserker's Blood is increased by 120."
@@ -16268,9 +16268,9 @@
         "npc_dota_hero_huskar_agi10_description" "Berserker's Blood increases base damage. Maximum increase is 100%."
         "npc_dota_hero_huskar_agi11" "Sharp Flames"
         "npc_dota_hero_huskar_agi11_description" "10% of agility is added to Burning Spear damage."
-        "npc_dota_hero_huskar_agi_last" "Infernal Slaughter"
-        "npc_dota_hero_huskar_agi_last_description" "25% hero attack damage as Burning Spear damage.\n The damage type changes to physical."
-        "npc_dota_hero_huskar_agi_last_tooltip" "Not amplified"
+        "npc_dota_hero_huskar_agi12" "Infernal Slaughter"
+        "npc_dota_hero_huskar_agi12_description" "25% hero attack damage as Burning Spear damage.\n The damage type changes to physical."
+        "npc_dota_hero_huskar_agi12_tooltip" "Not amplified"
 
         "npc_dota_hero_huskar_int6" "Intellectual Flame"
         "npc_dota_hero_huskar_int6_description" "Inner Fire damage is increased by 100% of intelligence."
@@ -16284,8 +16284,8 @@
         "npc_dota_hero_huskar_int10_description" "The first application of Burning Spear imposes 7 stacks."
         "npc_dota_hero_huskar_int11" "Magical Radiance"
         "npc_dota_hero_huskar_int11_description" "10% of intelligence is added to Burning Spear damage."
-        "npc_dota_hero_huskar_int_last" "Redemptive Fire"
-        "npc_dota_hero_huskar_int_last_description" "Final damage of Burning Spear is increased by 40%."
+        "npc_dota_hero_huskar_int12" "Redemptive Fire"
+        "npc_dota_hero_huskar_int12_description" "Final damage of Burning Spear is increased by 40%."
 		
 			//============================================================================================BROODMOTHER=============================================================================================
 		
@@ -16328,9 +16328,9 @@
          "npc_dota_hero_broodmother_str10_tooltip" "10% of the damage dealt by the ability on cast. 10% damage per second."
          "npc_dota_hero_broodmother_str11" "Density"
          "npc_dota_hero_broodmother_str11_description" "Each stack of Insatiable Hunger health stolen grants 1 armor and 1% magic resistance"
-         "npc_dota_hero_broodmother_str_last" "Obesity"
-         "npc_dota_hero_broodmother_str_last_description" "1% HP regen per 500 Extension stacks"
-         "npc_dota_hero_broodmother_str_last_tooltip" "Hero gains 0.002% regen per stack"
+         "npc_dota_hero_broodmother_str12" "Obesity"
+         "npc_dota_hero_broodmother_str12_description" "1% HP regen per 500 Extension stacks"
+         "npc_dota_hero_broodmother_str12_tooltip" "Hero gains 0.002% regen per stack"
 
          "npc_dota_hero_broodmother_agi6" "Sharp Threads"
          "npc_dota_hero_broodmother_agi6_description" "100% Agility to Silken Bola Damage"
@@ -16345,8 +16345,8 @@
          "npc_dota_hero_broodmother_agi10_tooltip" "The first level of the ability is 20, and the last is 80. The value increases as the ability levels."
          "npc_dota_hero_broodmother_agi11" "Through Armor"
          "npc_dota_hero_broodmother_agi11_description" "x3 Poison armor reduction"
-         "npc_dota_hero_broodmother_agi_last" "Killer"
-         "npc_dota_hero_broodmother_agi_last_description" "x2 Extension damage per stack"
+         "npc_dota_hero_broodmother_agi12" "Killer"
+         "npc_dota_hero_broodmother_agi12_description" "x2 Extension damage per stack"
 
          "npc_dota_hero_broodmother_int6" "Through Magic"
          "npc_dota_hero_broodmother_int6_description" "Poison reduces magic resistance by 2 per stack"
@@ -16360,8 +16360,8 @@
          "npc_dota_hero_broodmother_int10_description" "Silken Bola cooldown -75%, adds auto cast, radius increased by 150."
          "npc_dota_hero_broodmother_int11" "Magic Radiance"
          "npc_dota_hero_broodmother_int11_description" "+10% Spell Amplification per 100 Extension stacks"
-         "npc_dota_hero_broodmother_int_last" "Atonement"
-         "npc_dota_hero_broodmother_int_last_description" "every stack of Extension +1 to all attributes"
+         "npc_dota_hero_broodmother_int12" "Atonement"
+         "npc_dota_hero_broodmother_int12_description" "every stack of Extension +1 to all attributes"
 	
         // Silencer
 
@@ -16406,9 +16406,9 @@
         "npc_dota_hero_silencer_str10_tooltip" "Damage per tick remains the same<br>( Damage per second x2 )"
         "npc_dota_hero_silencer_str11" "Shield of the Sage"
         "npc_dota_hero_silencer_str11_description" "Attacks from Glaives of Wisdom give the hero a shield equal to the damage."
-        "npc_dota_hero_silencer_str_last" "Global Thunder"
-        "npc_dota_hero_silencer_str_last_description" "Global Silence deals damage, from 100% to 200% of intellect"
-        "npc_dota_hero_silencer_str_last_tooltip" "At the first level 100%, and at the last 200%. The value grows as the ability is leveled up<br><br>Glaives of Wisdom stack is only obtained for every 3rd killed creep."
+        "npc_dota_hero_silencer_str12" "Global Thunder"
+        "npc_dota_hero_silencer_str12_description" "Global Silence deals damage, from 100% to 200% of intellect"
+        "npc_dota_hero_silencer_str12_tooltip" "At the first level 100%, and at the last 200%. The value grows as the ability is leveled up<br><br>Glaives of Wisdom stack is only obtained for every 3rd killed creep."
 
         "npc_dota_hero_silencer_agi6" "Close Mind"
         "npc_dota_hero_silencer_agi6_description" "Attack type changes to melee, attack range 300"
@@ -16422,9 +16422,9 @@
         "npc_dota_hero_silencer_agi10_description" "Arcane Curse damage +50% of intellect."
         "npc_dota_hero_silencer_agi11" "Aura of Curse"
         "npc_dota_hero_silencer_agi11_description" "Arcane Curse becomes an aura"
-        "npc_dota_hero_silencer_agi_last" "Pervasive Wisdom"
-        "npc_dota_hero_silencer_agi_last_description"  "Any damage dealt applies Glaives of Wisdom, 150% damage"
-        "npc_dota_hero_silencer_agi_last_tooltip"  "Does not work with hero's auto attack damage. Works with damage from items and abilities."
+        "npc_dota_hero_silencer_agi12" "Pervasive Wisdom"
+        "npc_dota_hero_silencer_agi12_description"  "Any damage dealt applies Glaives of Wisdom, 150% damage"
+        "npc_dota_hero_silencer_agi12_tooltip"  "Does not work with hero's auto attack damage. Works with damage from items and abilities."
         
         "npc_dota_hero_silencer_int6" "Accumulation of Intellect"
         "npc_dota_hero_silencer_int6_description" "Gives intellect on attack for 120 seconds"
@@ -16438,8 +16438,8 @@
         "npc_dota_hero_silencer_int10_description" "If allies kill a creep within 800 radius of you, you get a stack. If there are no allies within a 1000 radius of you, there is a 10% chance to get 2 stacks on creep kill."
         "npc_dota_hero_silencer_int11" "Doubled Word"
         "npc_dota_hero_silencer_int11_description" "Last Word damage is doubled"
-        "npc_dota_hero_silencer_int_last" "Doubled Damage"
-        "npc_dota_hero_silencer_int_last_description" "Intelligence damage multiplier is 2.5 times greater."
+        "npc_dota_hero_silencer_int12" "Doubled Damage"
+        "npc_dota_hero_silencer_int12_description" "Intelligence damage multiplier is 2.5 times greater."
 
 
         		//VIPER
@@ -16607,8 +16607,8 @@
         "npc_dota_hero_marci_str10_description" "Marci gains bonus STR equal to souls of darkness"
         "npc_dota_hero_marci_str11" "Penance"
         "npc_dota_hero_marci_str11_description" "Marci takes bonus damage equal to 3x the sum of attributes"
-        "npc_dota_hero_marci_str_last" "Fragmentariness"
-        "npc_dota_hero_marci_str_last_description" "After reaching level 50, the Marci gains 5 times more souls"
+        "npc_dota_hero_marci_str12" "Fragmentariness"
+        "npc_dota_hero_marci_str12_description" "After reaching level 50, the Marci gains 5 times more souls"
 
         "npc_dota_hero_marci_agi6" "Cleracity"
         "npc_dota_hero_marci_agi6_description" "Each soul gained increases base agility by 1"
@@ -16622,8 +16622,8 @@
         "npc_dota_hero_marci_agi10_description" "Unleash grants bonus attack speed equal to level"
         "npc_dota_hero_marci_agi11" "Foot speed"
         "npc_dota_hero_marci_agi11_description" "Reduces delay between bursts by another 0.5"
-        "npc_dota_hero_marci_agi_last" "Absolute Fury"
-        "npc_dota_hero_marci_agi_last_description" "Unleash 100% status resistance and magic immunity"
+        "npc_dota_hero_marci_agi12" "Absolute Fury"
+        "npc_dota_hero_marci_agi12_description" "Unleash 100% status resistance and magic immunity"
 
         "npc_dota_hero_marci_int6" "Unleash magic"
         "npc_dota_hero_marci_int6_description" "Shards of Night grant bonus ability damage"
@@ -16637,8 +16637,8 @@
         "npc_dota_hero_marci_int10_description" "Ultimate duration increased by 6 seconds"
         "npc_dota_hero_marci_int11" "Protection"
         "npc_dota_hero_marci_int11_description" "35% chance Rebound stomp deals double damage, reduces rebound cooldown by 1 second"
-        "npc_dota_hero_marci_int_last" "Illumination"
-        "npc_dota_hero_marci_int_last_description" "Ripple deals additional damage equal to Intellect, if such a talent is learned the ripple damage is doubled"
+        "npc_dota_hero_marci_int12" "Illumination"
+        "npc_dota_hero_marci_int12_description" "Ripple deals additional damage equal to Intellect, if such a talent is learned the ripple damage is doubled"
 
         //////////////////
         //Common talents//
@@ -16712,8 +16712,8 @@
         "modifier_don10_description" "Each attack Now deals 5% of your BASE damage as PURE damage."
         "modifier_don11" "Terrible Power"
         "modifier_don11_description" "Grants Passive ability Multicast"
-        "modifier_don_last" "Divine Bite"
-        "modifier_don_last_description" "+5 attributes per level"
+        "modifier_don12" "Divine Bite"
+        "modifier_don12_description" "+5 attributes per level"
         
 //======================================================================================================================================
 

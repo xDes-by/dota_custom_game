@@ -229,11 +229,6 @@ end
 
 function talants:AddModifierFiltered(hero, skillname, place, level)
     if diff_wave.rating_scale == 0 and place == 12 then return end
-    table.print({
-        modifier = skillname,
-        stacks = level,
-        j = place
-    })
     modifier = hero:AddNewModifier( hero, nil, skillname, {} )
     modifier:SetStackCount(level)
 end
@@ -552,7 +547,7 @@ function talants:addskill(nPlayerID, add)
     local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
     local tab = CustomNetTables:GetTableValue("talants", tostring(nPlayerID))
     for k,v in pairs({"str", "agi", "int", "don"}) do
-        for i = 1, 12 do
+        for i = 1, 13 do
             local arg = v .. tostring(i)
             if tonumber(tab[arg]) > 0 then
                 local tree = GetHeroTalentsData(heroName)
@@ -661,7 +656,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
     ------------------------------------------     чит мод
     if isCheat then
         for k,v in pairs({'agi','int','don','str'}) do
-            for i = 1, 12 do
+            for i = 1, 13 do
                 arg = v .. i
                 progress[PlayerID][arg] = 0
             end
@@ -705,8 +700,11 @@ function talants:fillTabel(PlayerID, isCheat, isload)
     -- end
 
     for k,v in pairs({"int","str","agi"}) do
-        for i = 1, 12 do
+        for i = 1, 13 do
             arg = v .. i
+            if progress[PlayerID][arg] == nil then
+                progress[PlayerID][arg] = 0
+            end
             freepoints = freepoints - progress[PlayerID][arg]
             if DataBase:IsCheatMode() == false and diff_wave.wavedef == "Easy" and i == 12 then
                 progress[PlayerID][arg] = 0
@@ -733,8 +731,11 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         end
     end
     -- if donlevel > 7 then 7 else donlevel end
-    for i = 1, 12 do
+    for i = 1, 13 do
         arg = "don" .. i
+        if progress[PlayerID][arg] == nil then
+            progress[PlayerID][arg] = 0
+        end
         if progress[PlayerID][arg] == 1 then
             freedonpoints = freedonpoints -1
         end
@@ -877,7 +878,7 @@ function talants:unset(t)
     local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     talants:addskill(t.PlayerID, false)
     for k,v in pairs({'agi','int','str','don'}) do
-        for i = 1, 12 do
+        for i = 1, 13 do
             arg = v .. i
             tab[arg] = 0
         end
