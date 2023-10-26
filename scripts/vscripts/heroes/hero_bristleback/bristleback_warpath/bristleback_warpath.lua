@@ -38,6 +38,11 @@ function modifier_bristleback_warpath_lua:OnCreated()
 		self.move_speed_per_stack = self.move_speed_per_stack * 10
 	end
 
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_agi50") ~= nil then
+		self.max_stacks = self.max_stacks + 10
+		self.stack_duration = self.stack_duration * 2
+	end
+
 	if not IsServer() then return end
 	
 	-- Give the current Warpath charges to illusions (also pretty bootleg cause GetOwner() isn't working at all

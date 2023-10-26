@@ -90,6 +90,9 @@ function modifier_ancient_apparition_ice_vortex_lua_aura_effect:OnCreated( kv )
 		self.slow = self.slow * 2
 		self.damage = self.damage * 2
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_int8") ~= nil then 
+		self.damage = self.damage + self:GetCaster():GetIntellect() + self:GetCaster():GetAgility() + self:GetCaster():GetStrength()
+	end
 end
 
 

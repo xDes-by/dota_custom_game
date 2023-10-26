@@ -155,7 +155,10 @@ function lina_dragon_slave_lua:OnProjectileHitHandle( target, location, projecti
 	if abil ~= nil then 
 	damage_slave = damage_slave + self:GetCaster():GetIntellect()
 	end
-
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_int50")	
+	if abil ~= nil then 
+	damage_slave = damage_slave + self:GetCaster():GetIntellect()
+	end
 	-- apply damage
 	local damageTable = {
 		victim = target,

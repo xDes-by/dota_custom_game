@@ -1,10 +1,6 @@
 legion_press_the_attack = class({})
 LinkLuaModifier("modifier_legion_press_the_attack", "heroes/hero_legion/legion_press_the_attack/legion_press_the_attack", LUA_MODIFIER_MOTION_NONE)
 
-function legion_press_the_attack:IsHiddenWhenStolen()
-	return false
-end
-
 function legion_press_the_attack:GetAOERadius()
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str10")
 		if abil ~= nil	then 
@@ -37,7 +33,7 @@ end
 function legion_press_the_attack:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-	
+
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_str10")~= nil	or self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int6") ~= nil then 
 	
 	local target_point = self:GetCursorPosition()

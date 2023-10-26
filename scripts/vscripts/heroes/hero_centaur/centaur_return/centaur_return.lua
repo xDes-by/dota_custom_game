@@ -2,7 +2,6 @@ centaur_return_lua = centaur_return_lua or class({})
 LinkLuaModifier("modifier_return_aura", "heroes/hero_centaur/centaur_return/centaur_return", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_return_passive", "heroes/hero_centaur/centaur_return/centaur_return", LUA_MODIFIER_MOTION_NONE)
 
-
 function centaur_return_lua:GetIntrinsicModifierName()
 	return "modifier_return_aura"
 end
@@ -134,7 +133,11 @@ function modifier_return_passive:OnTakeDamage(keys)
 					damage = damage * 2 
 				end
 			end
-			
+			local abil = caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_centaur_int50")
+			if abil ~= nil then 
+				damage = damage * self:GetParent():GetSpellAmplification(false) * 0.01 * 0.05 
+			end		
+
 			ApplyDamage({
 				victim = attacker,
 				attacker = parent,

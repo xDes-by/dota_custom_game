@@ -15,15 +15,19 @@ function modifier_dragon_fire_ball_lua_thinker:OnCreated( kv )
 	local interval = self.burn_interval
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int8")	
-		if abil ~= nil then 
+	if abil ~= nil then 
 		self.damage = self:GetCaster():GetIntellect()
 	end
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi6")	
-		if abil ~= nil then 
+	if abil ~= nil then 
 		self.damage = self:GetCaster():GetAgility()
 	end
 	
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_int50")	
+	if abil ~= nil then 
+		self.damage = self:GetCaster():GetIntellect() * 2 + self.damage
+	end
 
 	if IsServer() then
 		GridNav:DestroyTreesAroundPoint( self:GetParent():GetOrigin(), self.radius, true )

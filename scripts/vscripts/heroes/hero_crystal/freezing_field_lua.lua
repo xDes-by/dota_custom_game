@@ -45,12 +45,7 @@ end
 function freezing_field_lua:OnToggle()
 	self:StartCooldown(1)
 	if self:GetToggleState() then
-		self.modifier = self:GetCaster():AddNewModifier(
-			self:GetCaster(), -- player source
-			self, -- ability source
-			"modifier_freezing_field_lua", -- modifier name
-			{  } -- kv
-		)
+		self.modifier = self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_freezing_field_lua",{})
 	else
 		if self.modifier and not self.modifier:IsNull() then
 			self.modifier:Destroy()
@@ -93,8 +88,10 @@ function modifier_freezing_field_lua:OnCreated( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int10") ~= nil then
 		self.manacost = self:GetCaster():GetIntellect()/4
 	end
-
-	local interval = 1
+	interval = 1
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int50") ~= nil then
+		interval = interval / 2
+	end
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_str11")	
 		if abil ~= nil then 
@@ -153,6 +150,18 @@ function modifier_freezing_field_lua:OnIntervalThink()
 		return
 	end
 	self:Burn()
+end
+
+function modifier_freezing_field_lua:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+	}
+end
+
+function modifier_freezing_field_lua:GetModifierMoveSpeedBonus_Constant()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int50") ~= nil then
+		return 550
+	end
 end
 
 function modifier_freezing_field_lua:Burn()

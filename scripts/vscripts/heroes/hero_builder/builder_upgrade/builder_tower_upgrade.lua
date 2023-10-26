@@ -2,7 +2,7 @@ function up(event)
  		local caster = event.caster
 		local target = event.target
 		local ability = event.ability 
-	if target:IsBuilding() then 
+		if target:IsBuilding() then 
 		local health = target:GetBaseMaxHealth()
 		local health2 = target:GetMaxHealth()	
 		local mindmg = target:GetBaseDamageMin()
@@ -47,6 +47,9 @@ function up(event)
 		target == caster and caster:FindAbilityByName("npc_dota_hero_tinker_str_last") == nil then
 		ability:EndCooldown()
 	end	
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_tinker_int50") and RollPercentage(20) then
+		caster:CastAbilityOnTarget(target, ability, -1)
+	end
 end
 
 LinkLuaModifier("modifier_attack_speed_towers", "heroes/hero_builder/builder_upgrade/builder_tower_upgrade", LUA_MODIFIER_MOTION_NONE)

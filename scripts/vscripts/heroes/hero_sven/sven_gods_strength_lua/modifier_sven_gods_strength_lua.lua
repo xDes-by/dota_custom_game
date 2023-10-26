@@ -125,8 +125,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sven_gods_strength_lua:OnRefresh( kv )
-	self.gods_strength_damage = self:GetAbility():GetSpecialValueFor( "gods_strength_damage" )
-	self.scepter_aoe = self:GetAbility():GetSpecialValueFor( "scepter_aoe" )
+	self:OnCreated( kv )
 end
 
 --------------------------------------------------------------------------------

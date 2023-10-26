@@ -230,12 +230,24 @@ function modifier_gyrocopter_call_down_lua_slow:OnCreated(keys)
 	if keys and keys.slow then
 		self:SetStackCount(keys.slow * (-1))
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_gyrocopter_str50") then
+		self.special_bonus_unique_npc_dota_hero_gyrocopter_str50 = true
+	end 
 end
 
 function modifier_gyrocopter_call_down_lua_slow:DeclareFunctions()
-	return {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+	}
 end
 
 function modifier_gyrocopter_call_down_lua_slow:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetStackCount()
+end
+
+function modifier_gyrocopter_call_down_lua_slow:GetModifierIncomingDamage_Percentage()
+	if self.special_bonus_unique_npc_dota_hero_gyrocopter_str50 then
+		return 150
+	end
 end

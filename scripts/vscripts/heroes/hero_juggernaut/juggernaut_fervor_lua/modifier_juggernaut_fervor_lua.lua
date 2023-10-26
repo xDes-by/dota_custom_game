@@ -100,10 +100,13 @@ function modifier_juggernaut_fervor_lua:OnAttack( params )
 		-- logic
 		if pass then
 			-- check if it is the same target
+			local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_agi50") 
 			if self.currentTarget==params.target then
 				self:AddStack()
 			else
-				self:ResetStack()
+				if not abil then
+					self:ResetStack()
+				end
 				self.currentTarget = params.target
 			end
 		end

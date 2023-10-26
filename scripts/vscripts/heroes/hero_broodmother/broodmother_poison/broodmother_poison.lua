@@ -34,10 +34,18 @@ function modifier_broodmother_poison:GetModifierProcAttack_Feedback( params )
 			if self:GetParent():FindAbilityByName("npc_dota_hero_broodmother_str9") then
 				stacks = stacks + 5
 			end
-		
+
+			if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_agi50") then
+				stacks = stacks + 3
+				self.special_bonus_unique_npc_dota_hero_broodmother_agi50 = true
+			end
+
 			modifier = params.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_broodmother_poison_debuff", { duration = duration})
 			if modifier:GetStackCount() < stacks then
 				modifier:IncrementStackCount()
+				if self.special_bonus_unique_npc_dota_hero_broodmother_agi50 then
+					modifier:SetStackCount(stacks)
+				end
 			end
 		end
 	end
@@ -74,7 +82,11 @@ function modifier_broodmother_poison_debuff:OnIntervalThink()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_broodmother_int9") then
 		self.damage = self.damage + self:GetCaster():GetIntellect() * 0.3
 	end
-	
+
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_int50") then
+		self.damage = self.damage + self:GetCaster():GetIntellect()
+	end
+
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_broodmother_agi8") then
 		self.damage = self.damage + self:GetCaster():GetAgility() * 0.3
 	end

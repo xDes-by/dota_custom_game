@@ -23,22 +23,26 @@ end
 function modifier_shadow_fiend_necromastery_lua:OnCreated( kv )
 	self.soul_release = self:GetAbility():GetSpecialValueFor("soul_release")
 	self.soul_damage = self:GetAbility():GetSpecialValueFor("soul_damage")
-
-	if IsServer() then
-		self:SetStackCount(0)
+	if not IsServer() then
+		return
 	end
+	self:SetStackCount(0)
+	self.special_bonus_unique_npc_dota_hero_nevermore_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_agi50")
 end
 
 function modifier_shadow_fiend_necromastery_lua:OnRefresh( kv )
-
 	self.soul_release = self:GetAbility():GetSpecialValueFor("soul_release")
 	self.soul_damage = self:GetAbility():GetSpecialValueFor("soul_damage")
+	if not IsServer() then
+		return
+	end
+	self.special_bonus_unique_npc_dota_hero_nevermore_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_agi50")
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_shadow_fiend_necromastery_lua:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_DEATH,
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -46,7 +50,6 @@ function modifier_shadow_fiend_necromastery_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS		
 	}
-	return funcs
 end
 
 --------------------------------------------------------------------------------
@@ -169,9 +172,12 @@ function modifier_shadow_fiend_necromastery_lua:KillLogic( params )
 			pass = true
 		end
 	end
-
+	local stack = 1
+	if self.special_bonus_unique_npc_dota_hero_nevermore_agi50 then
+		stack = 2
+	end
 	if pass and (not self:GetParent():PassivesDisabled()) then
-		self:AddStack(1)
+		self:AddStack(stack)
 	end
 end
 

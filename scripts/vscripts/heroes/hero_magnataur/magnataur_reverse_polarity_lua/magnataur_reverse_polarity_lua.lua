@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_magnataur_talent_str12", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_magnataur_talent_str12", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_magnataur_talent_agi6", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/modifier_magnataur_talent_agi6", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_magnataur_str50", "heroes/hero_magnataur/magnataur_reverse_polarity_lua/magnataur_reverse_polarity_lua", LUA_MODIFIER_MOTION_NONE )
 
 magnataur_reverse_polarity_lua = {}
 
@@ -7,22 +8,10 @@ function magnataur_reverse_polarity_lua:OnAbilityPhaseStart()
 	local radius = self:GetSpecialValueFor( "pull_radius" )
 	local castpoint = self:GetCastPoint()
 
-	local effect_cast = ParticleManager:CreateParticle(
-		"particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf",
-		PATTACH_ABSORIGIN_FOLLOW,
-		self:GetCaster()
-	)
+	local effect_cast = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf",PATTACH_ABSORIGIN_FOLLOW,self:GetCaster())
 	ParticleManager:SetParticleControl( effect_cast, 1, Vector( radius, radius, radius ) )
 	ParticleManager:SetParticleControl( effect_cast, 2, Vector( castpoint, 0, 0 ) )
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		3,
-		self:GetCaster(),
-		PATTACH_ABSORIGIN_FOLLOW,
-		"attach_hitloc",
-		Vector(),
-		true
-	)
+	ParticleManager:SetParticleControlEnt(effect_cast,3,self:GetCaster(),PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",Vector(),true)
 	ParticleManager:SetParticleControlForward( effect_cast, 3, self:GetCaster():GetForwardVector() )
 
 	self.effect_cast = effect_cast
@@ -64,6 +53,10 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 	local int8 = caster:FindAbilityByName("npc_dota_hero_magnataur_int8")
 	if int8 ~= nil then
 		damage = damage * 1.15
+	end
+	local special_bonus_unique_npc_dota_hero_magnataur_str50 = caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_str50")
+	if special_bonus_unique_npc_dota_hero_magnataur_str50 then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_magnataur_str50", {})
 	end
 	local damageTable = {
 		attacker = caster,
@@ -134,4 +127,55 @@ function magnataur_reverse_polarity_lua:StopEffects( interrupted )
 	ParticleManager:ReleaseParticleIndex( self.effect_cast )
 
 	StopSoundOn( "Hero_Magnataur.ReversePolarity.Anim", self:GetCaster() )
+end
+
+modifier_special_bonus_unique_npc_dota_hero_magnataur_str50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:IsDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:GetModifierBonusStats_Strength()
+	return 500 * self:GetAbility():GetLevel()
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:GetModifierBonusStats_Agility()
+	return 500 * self:GetAbility():GetLevel()
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_magnataur_str50:GetModifierBonusStats_Intellect()
+	return 500 * self:GetAbility():GetLevel()
 end

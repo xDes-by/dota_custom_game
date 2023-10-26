@@ -8,6 +8,14 @@ function slark_shadow_dance_lua:GetIntrinsicModifierName()
 	return "modifier_slark_shadow_dance_lua_passive"
 end
 
+function slark_shadow_dance_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_str50") then
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+	else
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+	end
+end
+
 function slark_shadow_dance_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6") ~= nil	then 
 		return 50 + math.min(65000, self:GetCaster():GetIntellect()/ 60)
@@ -17,17 +25,11 @@ end
 
 
 function slark_shadow_dance_lua:OnSpellStart()
-	-- unit identifier
-	local caster = self:GetCaster()
-
-	-- load data
-	local bDuration = self:GetSpecialValueFor("duration")
-
-	-- Add modifier
-	caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_slark_shadow_dance_lua", -- modifier name
-		{ duration = bDuration } -- kv
-	)
+	local duration = self:GetSpecialValueFor("duration")
+	local target = self:GetCursorTarget()
+	if target then
+		target:AddNewModifier(self:GetCaster(),self,"modifier_slark_shadow_dance_lua",{ duration = duration })
+		target:AddNewModifier(self:GetCaster(),self,"modifier_slark_shadow_dance_lua_passive",{ duration = duration })
+	end
+	self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_slark_shadow_dance_lua",{ duration = duration })
 end

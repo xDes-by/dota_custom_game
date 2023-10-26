@@ -18,25 +18,21 @@ function sven_bringer:IsStealable()
 end
 
 function sven_bringer:OnSpellStart()
-	if IsServer() then
-		-- Force attack the target
-		local caster = self:GetCaster()
-		caster:MoveToTargetToAttack(self:GetCursorTarget())
-		caster:AddNewModifier(caster, self, "modifier_sven_bringer_manual", {})
-		self:EndCooldown()
-	end
+	-- Force attack the target
+	local caster = self:GetCaster()
+	caster:MoveToTargetToAttack(self:GetCursorTarget())
+	caster:AddNewModifier(caster, self, "modifier_sven_bringer_manual", {})
+	self:EndCooldown()
 end
 
 function sven_bringer:OnUpgrade()
-	if IsServer() then
-		self:GetCaster():RemoveModifierByName("modifier_sven_bringer")
-		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_sven_bringer", {})
+	self:GetCaster():RemoveModifierByName("modifier_sven_bringer")
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_sven_bringer", {})
 
-		-- Toggles the autocast when first leveled
-		local caster_tidebringer = self:GetCaster():FindAbilityByName("sven_bringer")
-		if caster_tidebringer and caster_tidebringer:GetLevel() == 1 then
-			caster_tidebringer:ToggleAutoCast()
-		end
+	-- Toggles the autocast when first leveled
+	local caster_tidebringer = self:GetCaster():FindAbilityByName("sven_bringer")
+	if caster_tidebringer and caster_tidebringer:GetLevel() == 1 then
+		caster_tidebringer:ToggleAutoCast()
 	end
 end
 
@@ -192,7 +188,14 @@ function modifier_sven_bringer:OnAttackLanded( params )
 					if abil ~= nil then 
 					cleaveDamage = cleaveDamage * 2
 					end
-				
+
+					local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_agi50")
+					if abil ~= nil then 
+					cleaveDamage = cleaveDamage * 3
+					radius_end = radius_end * 3
+					range = range * 3
+					end
+									
 					DoCleaveAttack( params.attacker, params.target, ability, cleaveDamage, radius_start, radius_end, range, "particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf" )
 	
 

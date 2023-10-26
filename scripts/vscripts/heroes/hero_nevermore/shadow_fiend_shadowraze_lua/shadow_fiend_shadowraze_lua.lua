@@ -19,7 +19,10 @@ end
 
 ------------------------------------------------------------------------------------
 
-function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)          
+function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)  
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_int50") ~= nil then 
+        return 0
+    end        
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
         return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
@@ -27,6 +30,9 @@ function shadow_fiend_shadowraze_a_lua:GetManaCost(iLevel)
 end
 
 function shadow_fiend_shadowraze_b_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_int50") ~= nil then 
+        return 0
+    end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
         return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end
@@ -34,6 +40,9 @@ function shadow_fiend_shadowraze_b_lua:GetManaCost(iLevel)
 end
 
 function shadow_fiend_shadowraze_c_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_int50") ~= nil then 
+        return 0
+    end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_int8") ~= nil then 
         return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
     end

@@ -92,7 +92,9 @@ function modifier_broodmother_steal_debuff:OnCreated()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_broodmother_str8") then
 		self.hp_steal = self.hp_steal + self:GetCaster():GetMaxHealth()*0.03
 	end
-	
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_int50") then
+		self.hp_steal = self.hp_steal + self:GetCaster():GetIntellect()
+	end	
 	
 	self.duration = self:GetAbility():GetSpecialValueFor("duration")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_broodmother_int8") then

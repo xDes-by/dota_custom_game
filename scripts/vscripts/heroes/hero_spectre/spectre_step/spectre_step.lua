@@ -189,6 +189,9 @@ function modifier_step_debuff:OnIntervalThink()
 	if caster:HasModifier("modifier_step_buff") then
 		self.damage = self.damage * 2
 	end
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_spectre_int50") then
+		self.damage = self.damage * 2
+	end
 	ApplyDamage({attacker = caster, victim = self:GetParent(), damage = self.damage / 5, damage_type = DAMAGE_TYPE_MAGICAL, ability = self:GetAbility()})
 end
 

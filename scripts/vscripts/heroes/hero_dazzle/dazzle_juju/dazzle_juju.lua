@@ -12,18 +12,26 @@ function modifier_dazzle_custom_badjuju:IsHidden()
     return true
 end
 
+function modifier_dazzle_custom_badjuju:IsPurgable()
+	return false
+end
+
+function modifier_dazzle_custom_badjuju:RemoveOnDeath()
+	return false
+end
+
+function modifier_dazzle_custom_badjuju:OnCreated()
+	self.bonus = 0
+end
+
 function modifier_dazzle_custom_badjuju:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_EVENT_ON_DEATH,
+		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
     }
-end
-function modifier_dazzle_custom_badjuju:IsPurgable()
-	return false
-end
-function modifier_dazzle_custom_badjuju:RemoveOnDeath()
-	return false
 end
 
 function modifier_dazzle_custom_badjuju:GetModifierPercentageCooldown()
@@ -48,4 +56,17 @@ function modifier_dazzle_custom_badjuju:GetModifierAttackSpeedBonus_Constant()
 	return self:GetCaster():GetLevel() * 5
 	end
 	return 0
+end
+
+function modifier_dazzle_custom_badjuju:GetModifierBaseAttack_BonusDamage()
+	return self.bonus
+end
+
+function modifier_dazzle_custom_badjuju:OnDeath( params )
+	if data.attacker ~= self:GetParent() then
+		return
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dazzle_agi50") then
+		self.bonus = self.bonus + 10
+	end
 end

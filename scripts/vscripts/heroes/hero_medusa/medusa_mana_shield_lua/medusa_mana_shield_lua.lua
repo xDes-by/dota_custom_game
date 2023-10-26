@@ -91,6 +91,10 @@ function modifier_medusa_mana_shield_lua:OnRefresh( kv )
 	if abil ~= nil then 
 	self.damage_per_mana = self.damage_per_mana * 2
 	end	
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_str50")
+	if abil ~= nil then 
+	self.damage_per_mana = self.damage_per_mana * 5
+	end	
 end
 
 function modifier_medusa_mana_shield_lua:OnIntervalThink()

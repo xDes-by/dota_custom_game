@@ -3,9 +3,13 @@ LinkLuaModifier( "modifier_sven_gods_strength_lua", "heroes/hero_sven/sven_gods_
 LinkLuaModifier( "modifier_sven_gods_magic_debuff", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_magic_debuff", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sven_gods_magic_buff", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_magic_buff", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sven_gods_strength_child_lua", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_strength_child_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_sven_gods_strength_int50", "heroes/hero_svevn/sven_gods_strength_lua/sven_gods_strength_lua", LUA_MODIFIER_MOTION_NONE )
 
 
 --------------------------------------------------------------------------------
+function sven_gods_strength_lua:GetIntrinsicModifierName()
+    return "modifier_sven_gods_strength_int50"
+end
 
 function sven_gods_strength_lua:GetManaCost(iLevel)
     return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
@@ -52,7 +56,77 @@ function sven_gods_strength_lua:OnSpellStart()
 		false	-- bool, can grow cache
 	)
 	for _,enemy in pairs(enemies) do
-	ApplyDamage({attacker = self:GetCaster(), victim = enemy, ability = self, damage = self:GetCaster():GetIntellect()*5, damage_type = DAMAGE_TYPE_MAGICAL })--, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
+		ApplyDamage({
+			attacker = self:GetCaster(), 
+			victim = enemy, 
+			ability = self, 
+			damage = self:GetCaster():GetIntellect()*5, 
+			damage_type = DAMAGE_TYPE_MAGICAL 
+		})
 	end
+	end
+end
+
+modifier_sven_gods_strength_int50 = class({})
+--Classifications template
+function modifier_sven_gods_strength_int50:IsHidden()
+	return true
+end
+
+function modifier_sven_gods_strength_int50:IsDebuff()
+	return false
+end
+
+function modifier_sven_gods_strength_int50:IsPurgable()
+	return false
+end
+
+function modifier_sven_gods_strength_int50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_sven_gods_strength_int50:IsStunDebuff()
+	return false
+end
+
+function modifier_sven_gods_strength_int50:RemoveOnDeath()
+	return false
+end
+
+function modifier_sven_gods_strength_int50:DestroyOnExpire()
+	return false
+end
+
+function modifier_sven_gods_strength_int50:OnCreated()
+	if not IsServer() then
+		return
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
+		self.mod = self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_sven_gods_strength_lua", {})
+	end
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sven_int11")
+	if abil ~= nil then 
+		self:StartIntervalThink(1)
+	end
+end
+
+function modifier_sven_gods_strength_int50:OnRefresh()
+	if not IsServer() then
+		return
+	end
+	self.mod:ForceRefresh()
+end
+
+function modifier_sven_gods_strength_int50:OnIntervalThink()
+	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),self:GetCaster():GetAbsOrigin(),nil,700,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
+	for _,enemy in pairs(enemies) do
+		ApplyDamage({
+			attacker = self:GetCaster(), 
+			victim = enemy, 
+			ability = self, 
+			damage = self:GetCaster():GetIntellect()*5, 
+			damage_type = DAMAGE_TYPE_MAGICAL 
+		})
 	end
 end

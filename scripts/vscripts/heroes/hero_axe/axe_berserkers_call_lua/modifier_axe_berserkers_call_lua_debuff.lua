@@ -28,6 +28,9 @@ function modifier_axe_berserkers_call_lua_debuff:OnCreated( kv )
 		self:GetParent():SetForceAttackTarget( self:GetCaster() ) -- for creeps
 		self:GetParent():MoveToTargetToAttack( self:GetCaster() ) -- for heroes
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_agi50") then
+		self.attackspeed = 1000
+	end
 end
 
 function modifier_axe_berserkers_call_lua_debuff:OnRefresh( kv )
@@ -39,9 +42,15 @@ function modifier_axe_berserkers_call_lua_debuff:OnRemoved()
 	end
 end
 
-function modifier_axe_berserkers_call_lua_debuff:OnDestroy()
+function modifier_axe_berserkers_call_lua_debuff:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+	}
 end
 
+function modifier_axe_berserkers_call_lua_debuff:GetModifierAttackSpeedBonus_Constant()
+	return self.attackspeed
+end
 --------------------------------------------------------------------------------
 -- Status Effects
 function modifier_axe_berserkers_call_lua_debuff:CheckState()

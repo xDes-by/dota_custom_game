@@ -30,6 +30,11 @@ if not IsServer() then return end
 	local chance = self:GetAbility():GetSpecialValueFor("chance")
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
 	local damage = self:GetAbility():GetSpecialValueFor("damage")
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
+		chance = chance * 2
+		radius = radius * 2
+		damage = damage * 2
+	end
 	local caster_damage = keys.attacker:GetBaseDamageMin()
 		if RandomInt(1,100) <= chance then
 			

@@ -28,8 +28,12 @@ function modifier_drow_ranger_marksmanship_lua_effect:OnRefresh( kv )
 	self.str = self:GetAbility():GetSpecialValueFor( "agility_multiplier" )
 	
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi8") ~= nil then 
-		self.agility = self.agility + 10
+		self.agility = self.agility * 1.1
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_agi8") ~= nil then 
+		self.agility = self.agility * 3
+		self.str = self.str * 3
+	end	
 end
 
 
@@ -49,6 +53,7 @@ function modifier_drow_ranger_marksmanship_lua_effect:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
 	}
 
 	return funcs
@@ -138,6 +143,13 @@ function modifier_drow_ranger_marksmanship_lua_effect:GetModifierBonusStats_Stre
 			return bonus
 		end
 		
+	end
+	return 0
+end
+
+function modifier_drow_ranger_marksmanship_lua_effect:GetModifierPreAttack_BonusDamage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_agi50") ~= nil then 
+		return self:GetCaster():GetAgility() * 5
 	end
 	return 0
 end

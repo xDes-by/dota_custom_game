@@ -163,12 +163,19 @@ end
 function modifier_gyrocopter_flak_cannon_lua_side_gunner:OnIntervalThink()
 	if not IsServer() then return end
 	count = 0
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_gyrocopter_agi50") then
+		self.special_bonus_unique_npc_dota_hero_gyrocopter_agi50 = true
+		count = -1
+	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_agi_last") ~= nil and self:GetCaster():GetModelName() == "models/heroes/gyro/gyro.vmdl" then 
 		if not self:GetParent():IsOutOfGame() and not self:GetParent():IsInvisible() and not self:GetParent():PassivesDisabled() and self:GetParent():IsAlive() then
 			local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_FARTHEST, false)
 			if #enemies == 1 then
 				self:GetParent():PerformAttack(enemies[1], true, true, true, false, true, false, false)
 				self:GetParent():PerformAttack(enemies[1], true, true, true, false, true, false, false)
+				if self.special_bonus_unique_npc_dota_hero_gyrocopter_agi50 then
+					self:GetParent():PerformAttack(enemies[1], true, true, true, false, true, false, false)
+				end
 			else
 				for _,enemy in pairs(enemies) do
 					self:GetParent():PerformAttack(enemy, true, true, true, false, true, false, false)
@@ -177,5 +184,17 @@ function modifier_gyrocopter_flak_cannon_lua_side_gunner:OnIntervalThink()
 				end
 			end
 		end
+	end
+end
+
+function modifier_gyrocopter_flak_cannon_lua_side_gunner:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS
+	}
+end
+
+function modifier_gyrocopter_flak_cannon_lua_side_gunner:GetModifierAttackRangeBonus()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_gyrocopter_agi50") then
+		return 300
 	end
 end

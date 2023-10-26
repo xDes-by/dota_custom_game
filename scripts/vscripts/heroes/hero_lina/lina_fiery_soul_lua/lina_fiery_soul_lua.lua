@@ -214,6 +214,12 @@ function modifier_lina_flame2:IsPurgable()
 	return true
 end
 
+function modifier_lina_flame2:GetAttributes()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_str50") ~= nil then
+		return MODIFIER_ATTRIBUTE_MULTIPLE
+	end
+	return MODIFIER_ATTRIBUTE_NONE
+end
 
 function modifier_lina_flame2:OnCreated( kv )
 	damage = self:GetAbility():GetCaster():GetStrength()/2

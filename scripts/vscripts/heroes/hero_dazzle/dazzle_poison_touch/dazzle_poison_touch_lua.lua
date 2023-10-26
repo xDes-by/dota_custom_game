@@ -4,12 +4,17 @@ LinkLuaModifier( "modifier_dazzle_poison_touch_lua", "heroes/hero_dazzle/dazzle_
 
 function dazzle_poison_touch_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_int7") ~= nil	then 
-		return 50 + math.min(65000, caster:GetIntellect()/200)
+		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
 	end
-    return 100 + math.min(65000, caster:GetIntellect() / 100)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
-
+function dazzle_poison_touch_lua:GetCooldown(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dazzle_int50") ~= nil	then 
+		return 1
+	end
+    return self.BaseClass.GetCooldown(self, level)
+end
 
 function dazzle_poison_touch_lua:OnSpellStart()
 	-- unit identifier

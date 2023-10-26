@@ -4,10 +4,14 @@ LinkLuaModifier("modifier_bloodseeker_mist_aura_lua", "heroes/hero_bloodseeker/b
 LinkLuaModifier("modifier_bloodseeker_mist_debuff", "heroes/hero_bloodseeker/bloodseeker_mist_lua/bloodseeker_mist_lua", LUA_MODIFIER_MOTION_NONE)
 
 function bloodseeker_mist_lua:GetCastRange(location, target)
+	local radius = self:GetSpecialValueFor("radius")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int8") ~= nil then
-		return self:GetSpecialValueFor("radius") + 150
+		radius = radius + 150
 	end
-	return self:GetSpecialValueFor("radius")
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bloodseeker_str50") ~= nil then
+		radius = radius + 200
+	end
+	return radius
 end
 
 function bloodseeker_mist_lua:OnToggle()
@@ -49,10 +53,14 @@ function modifier_bloodseeker_mist_aura_lua:GetModifierAura()
 end
 
 function modifier_bloodseeker_mist_aura_lua:GetAuraRadius()
+	local radius = self:GetSpecialValueFor("radius")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int8") ~= nil then
-		return self:GetAbility():GetSpecialValueFor("radius") + 150
+		radius = radius + 150
 	end
-	return self:GetAbility():GetSpecialValueFor("radius")
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bloodseeker_str50") ~= nil then
+		radius = radius + 200
+	end
+	return radius
 end
 
 function modifier_bloodseeker_mist_aura_lua:GetAuraSearchFlags() 

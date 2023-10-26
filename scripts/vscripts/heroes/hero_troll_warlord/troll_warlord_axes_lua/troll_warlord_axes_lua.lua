@@ -78,7 +78,12 @@ function troll_warlord_whirling_axes_ranged_lua:OnSpellStart()
 		if abil ~= nil then 
 			axe_damage = self:GetCaster():GetIntellect()
 		end
-		
+
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int50")
+		if abil ~= nil then 
+			axe_damage = self:GetCaster():GetIntellect() * 4 + axe_damage
+		end
+
 		if target_loc == caster_loc then
 			direction = caster:GetForwardVector()
 		else
@@ -316,7 +321,12 @@ function troll_warlord_whirling_axes_melee_lua:DoAxeStuff(index,range,caster_loc
 	if abil ~= nil	then 
 		axe_damage = self:GetCaster():GetStrength()
 	end
-		
+
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int50")
+	if abil ~= nil	then 
+		axe_damage = self:GetCaster():GetIntellect() * 4 + axe_damage
+	end
+
 	local blind_duration = self:GetSpecialValueFor("blind_duration")
 	local blind_stacks = self:GetSpecialValueFor("blind_stacks")
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, range, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)

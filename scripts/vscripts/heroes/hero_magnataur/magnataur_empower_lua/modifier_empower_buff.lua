@@ -36,6 +36,8 @@ function modifier_empower_buff:OnCreated( kv )
 	----------------------- int
 	self.int7 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int7")
 	self.int12 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int_last")
+	self.special_bonus_unique_npc_dota_hero_magnataur_int50 = self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_int50")
+	self.special_bonus_unique_npc_dota_hero_magnataur_agi50 = self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_agi50")
 	if self.parent.empower_bonus_intelegent == nil then self.parent.empower_bonus_intelegent = 0 end
 	if self.parent:IsRealHero() then 
 		self.parent.empower_bonus_intelegent = (self.parent:GetIntellect() - self.parent.empower_bonus_intelegent) * 0.05 * self.ability:GetLevel() 
@@ -54,24 +56,21 @@ function modifier_empower_buff:OnCreated( kv )
 		self.cleave = self.cleave*multiplier
 	end
 
+	if self.special_bonus_unique_npc_dota_hero_magnataur_agi50 then
+		self.damage = self.damage*2
+		self.cleave = self.cleave*2
+		self.attack_count = self.attack_count*2
+	end
+
 	if self.agi9 == nil then 
 		self:SetStackCount(self.attack_count)
 	end
 
 	if self.int7 ~= nil then
 		
-		local units = FindUnitsInRadius(self.caster:GetTeam(), 
-		self.parent:GetOrigin(), 
-		nil, 
-		675,
-		DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
-		DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES,
-		FIND_ANY_ORDER, 
-		false)
+		local units = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetOrigin(), nil, 675,DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES,FIND_ANY_ORDER, false)
 		local damage = 50 * self.ability:GetLevel()
 		for __,v in pairs(units) do 
-
 			ApplyDamage({
 				victim = v,
 				attacker = self.caster,
@@ -79,7 +78,6 @@ function modifier_empower_buff:OnCreated( kv )
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = self.ability,
 			})
-
 		end
 		self:PlayEffect()
 	end
@@ -119,6 +117,9 @@ function modifier_empower_buff:DeclareFunctions()
 		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_TOOLTIP,
 		MODIFIER_PROPERTY_TOOLTIP2,
+
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE
 	}
 end
 
@@ -213,4 +214,16 @@ end
 
 function modifier_empower_buff:GetModifierMPRegenAmplify_Percentage()
 	return self.mp_regen
+end
+
+function modifier_empower_buff:GetModifierBonusStats_Agility_Percentage()
+	if self.special_bonus_unique_npc_dota_hero_magnataur_int50 then
+		return self:GetAbility():GetLevel() * 5
+	end
+end
+
+function modifier_empower_buff:GetModifierBonusStats_Strength_Percentage()
+	if self.special_bonus_unique_npc_dota_hero_magnataur_int50 then
+		return self:GetAbility():GetLevel() * 5
+	end
 end

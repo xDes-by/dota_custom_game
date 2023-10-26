@@ -77,7 +77,11 @@ function modifier_dismember_lua:OnCreated( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_agi9") ~= nil then
 		self.statdmg = self:GetCaster():GetAgility()
 	end
-	
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_agi50") ~= nil then
+		self.armor = self:GetParent():GetPhysicalArmorBaseValue() * -0.4
+	end
+
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str11") ~= nil then
 		self.statdmg = self.statdmg * 2
 	end
@@ -108,22 +112,23 @@ function modifier_dismember_lua:OnIntervalThink()
 end
 
 function modifier_dismember_lua:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_STUNNED] = true,
 		[MODIFIER_STATE_INVISIBLE] = false,
 	}
-
-	return state
 end
 
 function modifier_dismember_lua:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
 	}
-
-	return funcs
 end
 
-function modifier_dismember_lua:GetOverrideAnimation( params )
+function modifier_dismember_lua:GetOverrideAnimation()
 	return ACT_DOTA_DISABLED
+end
+
+function modifier_dismember_lua:GetModifierPhysicalArmorBonus()
+	return self.armor or 0
 end

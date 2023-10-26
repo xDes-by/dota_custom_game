@@ -8,7 +8,7 @@ function magnataur_empower_lua:OnAbilityPhaseStart()
 end
 
 function magnataur_empower_lua:GetManaCost(iLevel)
-    return 100 = math.min(65000, self:GetCaster():GetIntellect() / 100)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function magnataur_empower_lua:OnSpellStart()

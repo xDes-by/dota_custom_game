@@ -28,6 +28,12 @@ function modifier_juggernaut_blade_dance_lua:OnRefresh( kv )
 		if abil ~= nil then
 		self.crit_chance = self.crit_chance +17
 		end
+		self.special_bonus_unique_npc_dota_hero_juggernaut_int50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_int50")
+		self.npc_dota_hero_juggernaut_int_last = self:GetCaster():FindAbilityByName("npc_dota_hero_juggernaut_int_last")
+		self.rand = 10
+		if self.special_bonus_unique_npc_dota_hero_juggernaut_int50 then
+			self.rand = self.rand + 15
+		end
 end
 
 function modifier_juggernaut_blade_dance_lua:OnIntervalThink()
@@ -75,7 +81,7 @@ function modifier_juggernaut_blade_dance_lua:GetModifierProcAttack_Feedback( par
 end
 
 function modifier_juggernaut_blade_dance_lua:OnAttackLanded(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_juggernaut_int_last") ~= nil and RandomInt(1, 10) == 1 and params.attacker:FindAbilityByName("juggernaut_requiem") ~= nil and params.attacker:FindAbilityByName("juggernaut_requiem"):IsTrained() then
+	if self.npc_dota_hero_juggernaut_int_last and RollPercentage(rand) and params.attacker:FindAbilityByName("juggernaut_requiem") ~= nil and params.attacker:FindAbilityByName("juggernaut_requiem"):IsTrained() then
 		self:GetAbility():GetCaster():FindAbilityByName("juggernaut_requiem"):OnSpellStart()
 	end
 end

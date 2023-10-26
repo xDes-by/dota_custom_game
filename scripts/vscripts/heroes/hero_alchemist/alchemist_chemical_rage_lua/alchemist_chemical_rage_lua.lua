@@ -1,6 +1,7 @@
 alchemist_chemical_rage_lua = class({})
 LinkLuaModifier( "modifier_alchemist_chemical_rage_lua", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_alchemist_bkb", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_alchemist_chemical_rage_cleave", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
 
 function alchemist_chemical_rage_lua:GetManaCost(iLevel)
     return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
@@ -10,16 +11,20 @@ end
 function alchemist_chemical_rage_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor( "duration" )
-
-	caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", { duration = duration } )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_agi50") ~= nil then 
+		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", {} )
+		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_cleave", {} )
+	else
+		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", { duration = duration } )
+	end
 
 	local sound_cast = "Hero_Alchemist.ChemicalRage.Cast"
 	EmitSoundOn( sound_cast, self:GetCaster() )
 	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str6")	
-	if abil ~= nil then 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str6") ~= nil then 
 		caster:AddNewModifier( caster, self, "modifier_alchemist_bkb", { duration = 5 } )
 	end
+
 end
 
 --------------------------------------------------------------------------------------------------------------------------
@@ -250,4 +255,90 @@ end
 
 function modifier_alchemist_chemical_rage_lua:HeroEffectPriority()
 	return 10
+end
+
+
+modifier_alchemist_chemical_rage_cleave = class({})
+--Classifications template
+function modifier_alchemist_chemical_rage_cleave:IsHidden()
+	return true
+end
+
+function modifier_alchemist_chemical_rage_cleave:IsDebuff()
+	return false
+end
+
+function modifier_alchemist_chemical_rage_cleave:IsPurgable()
+	return false
+end
+
+function modifier_alchemist_chemical_rage_cleave:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_alchemist_chemical_rage_cleave:IsStunDebuff()
+	return false
+end
+
+function modifier_alchemist_chemical_rage_cleave:RemoveOnDeath()
+	return false
+end
+
+function modifier_alchemist_chemical_rage_cleave:DestroyOnExpire()
+	return false
+end
+
+function modifier_alchemist_chemical_rage_cleave:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK_LANDED
+	}
+end
+
+function modifier_alchemist_chemical_rage_cleave:OnAttackLanded(data)
+	if self:GetParent() ~= data.attacker then
+		return
+	end
+	local enemies = FindUnitsInCone( self:GetParent():GetTeamNumber(), data.target:GetOrigin(), self:GetParent():GetOrigin(), range, 150, 360, nil, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+	for _,enemy in pairs(enemies) do
+		if enemy ~= data.target then
+			ApplyDamage({victim = enemy, attacker = self:GetParent(), damage = data.original_damage * 0.7, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
+		end
+	end
+end
+
+function FindUnitsInCone( nTeamNumber, vCenterPos, vStartPos, vEndPos, fStartRadius, fEndRadius, hCacheUnit, nTeamFilter, nTypeFilter, nFlagFilter, nOrderFilter, bCanGrowCache )
+	local direction = vEndPos-vStartPos
+	direction.z = 0
+
+	local distance = direction:Length2D()
+	direction = direction:Normalized()
+
+	local big_radius = distance + math.max(fStartRadius, fEndRadius)
+
+	local units = FindUnitsInRadius(
+		nTeamNumber,	-- int, your team number
+		vCenterPos,	-- point, center point
+		nil,	-- handle, cacheUnit. (not known)
+		big_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+		nTeamFilter,	-- int, team filter
+		nTypeFilter,	-- int, type filter
+		nFlagFilter,	-- int, flag filter
+		nOrderFilter,	-- int, order filter
+		bCanGrowCache	-- bool, can grow cache
+	)
+
+	local targets = {}
+	for _,unit in pairs(units) do
+		local vUnitPos = unit:GetOrigin()-vStartPos
+		local fProjection = vUnitPos.x*direction.x + vUnitPos.y*direction.y + vUnitPos.z*direction.z
+		fProjection = math.max(math.min(fProjection,distance),0)
+		local vProjection = direction*fProjection
+		local fUnitRadius = (vUnitPos - vProjection):Length2D()
+		local fInterpRadius = (fProjection/distance)*(fEndRadius-fStartRadius) + fStartRadius
+		if fUnitRadius<=fInterpRadius then
+			table.insert( targets, unit )
+		end
+	end
+	return targets
 end

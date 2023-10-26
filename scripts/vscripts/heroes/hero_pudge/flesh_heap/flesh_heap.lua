@@ -43,6 +43,9 @@ function modifier_flesh_heap_stacks_lua:OnRefresh( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str6") ~= nil then 
 	self.base_magic_resist = self:GetAbility():GetSpecialValueFor("base_magic_resist") * 2
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str50") ~= nil then 
+		self.double_stack = true
+	end
 end
 
 function modifier_flesh_heap_stacks_lua:OnIntervalThink()
@@ -65,6 +68,9 @@ function modifier_flesh_heap_stacks_lua:OnDeath(params)
 	local parent = self:GetParent()
 	if IsMyKilledBadGuys(parent, params) then
 		self:IncrementStackCount()
+		if self.double_stack then
+			self:IncrementStackCount()
+		end
 		parent:CalculateStatBonus(true)
 	end
 end

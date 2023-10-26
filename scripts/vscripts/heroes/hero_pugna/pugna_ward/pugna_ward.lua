@@ -23,7 +23,16 @@ if IsServer() then
 		local duration = ability:GetSpecialValueFor('duration')
 
 		EmitSoundOn("Hero_Pugna.NetherWard", caster)
-
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pugna_int50") then
+			local position = point
+			local unit_name = 'npc_dota_pugna_nether_ward_lua'
+			local unit = CreateUnitByName(unit_name, position, false, caster, caster, caster:GetTeamNumber())
+			if unit and IsValidEntity(unit) then
+				FindClearSpaceForUnit(unit, position, false)
+				unit:AddNewModifier(caster, ability, "modifier_kill", {duration = duration})
+				unit:AddNewModifier(caster, ability, "modifier_pugna_nether_ward_lua", {duration = duration})
+			end
+		end
 		local position = point
 		local unit_name = 'npc_dota_pugna_nether_ward_lua'
 		local unit = CreateUnitByName(unit_name, position, false, caster, caster, caster:GetTeamNumber())
@@ -31,7 +40,7 @@ if IsServer() then
 			FindClearSpaceForUnit(unit, position, false)
 			unit:AddNewModifier(caster, ability, "modifier_kill", {duration = duration})
 			unit:AddNewModifier(caster, ability, "modifier_pugna_nether_ward_lua", {duration = duration})
-		end
+		end		
 	end
 end
 

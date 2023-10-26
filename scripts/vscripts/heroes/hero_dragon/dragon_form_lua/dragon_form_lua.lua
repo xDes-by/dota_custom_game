@@ -5,23 +5,25 @@ LinkLuaModifier( "modifier_dragon_form_lua_frost", "heroes/hero_dragon/dragon_fo
 
 
 function dragon_form_lua:GetManaCost(iLevel)
-    return 150 math.min(65000, self:GetCaster():GetIntellect()/30)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
 end
 
 function dragon_form_lua:GetCooldown( level )
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int6") 
 	if abil ~= nil then
 		return self.BaseClass.GetCooldown(self, level) - self.BaseClass.GetCooldown(self, level) * 0.25
-	 else
+	else
 		return self.BaseClass.GetCooldown(self, level)
-	 end
+	end
 end
 
 function dragon_form_lua:OnSpellStart()
 
 	local caster = self:GetCaster()
-
-	local duration = self:GetSpecialValueFor("duration")
+	duration = self:GetSpecialValueFor("duration")
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
+		duration = -1
+	end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi11") 
 		if abil ~= nil then
 		duration = 180

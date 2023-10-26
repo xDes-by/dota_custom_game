@@ -41,6 +41,12 @@ function wraith_king_sceleton:OnSpellStart()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_skeleton_king_agi_last") ~= nil then
 		self.dmg_mnoz = self.dmg_mnoz * 2
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skeleton_king_agi50") ~= nil then
+		count = 1
+		self.hp_mnoz = self.hp_mnoz * 6
+		self.armor = self.armor * 6
+		self.dmg_mnoz = self.dmg_mnoz * 6
+	end	
 	for i =1, count do
 		caster.skelet = CreateUnitByName("npc_skelets", position + RandomVector( RandomFloat( 150, 150 )), true, caster, nil, caster:GetTeam())
 		caster.skelet:AddNewModifier(caster.skelet, ability, "modifier_kill", {duration = 60})

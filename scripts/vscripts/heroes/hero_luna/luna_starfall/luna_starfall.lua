@@ -6,7 +6,7 @@ local ability = keys.ability
 local radius = ability:GetLevelSpecialValueFor( "radius" , ability:GetLevel() - 1  ) 
 local damage = ability:GetLevelSpecialValueFor( "damage" , ability:GetLevel() - 1  ) 
 local cd = ability:GetCooldown(ability:GetLevel() - 1)
-
+local special_bonus_unique_npc_dota_hero_luna_int50 = caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_luna_int50")
 	local abil = caster:FindAbilityByName("npc_dota_hero_luna_int6")
 	if abil ~= nil then 
 	damage = damage + caster:GetIntellect()/2
@@ -14,9 +14,11 @@ local cd = ability:GetCooldown(ability:GetLevel() - 1)
 	
 	local abil = caster:FindAbilityByName("npc_dota_hero_luna_str6")
 	if abil ~= nil then 
-	damage = caster:GetStrength()
+		damage = caster:GetStrength()
 	end
-
+ 	if special_bonus_unique_npc_dota_hero_luna_int50 then
+		damage = damage + caster:GetIntellect()*2
+	end
 	local enemy = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		if ability:IsFullyCastable() then		
 		if #enemy > 0 then
@@ -45,16 +47,14 @@ local cd = ability:GetCooldown(ability:GetLevel() - 1)
 				
 				local abil = caster:FindAbilityByName("npc_dota_hero_luna_int7")
 				if abil ~= nil then 
-				target_enemy:AddNewModifier(
-				target_enemy, -- player source
-				self, -- ability source
-				"modifier_generic_stunned_lua", -- modifier name
-				{ duration = 1 } -- kv
-			)
+					target_enemy:AddNewModifier(target_enemy,self,"modifier_generic_stunned_lua",{ duration = 1 })
 				end
-				
 			end
-		ability:StartCooldown(cd)
+			if special_bonus_unique_npc_dota_hero_luna_int50 then
+				ability:StartCooldown(1)
+			else
+				ability:StartCooldown(cd)
+			end
 		end
 	end
 end

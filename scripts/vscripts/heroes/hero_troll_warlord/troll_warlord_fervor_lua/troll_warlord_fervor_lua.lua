@@ -35,16 +35,10 @@ function modifier_troll_warlord_fervor_lua:DeclareFunctions()
 end
 
 function modifier_troll_warlord_fervor_lua:OnAttackLanded( params )
-	if IsServer() then
-		pass = false
-		if params.attacker==self:GetParent() then
-			pass = true
-		end
-
-		if pass then
-			self:AddStack(params.target, params.original_damage, params.attacker)
-		end
+	if params.attacker~=self:GetParent() then
+		return
 	end
+	self:AddStack(params.target, params.original_damage, params.attacker)
 end
 
 function modifier_troll_warlord_fervor_lua:AddStack(target, original_damage, attacker)
@@ -79,8 +73,17 @@ function modifier_troll_warlord_fervor_lua:AddStack(target, original_damage, att
 			
 			if self:GetParent():GetAttackCapability() == DOTA_UNIT_CAP_MELEE_ATTACK then
 				local damage = original_damage * (self.dmg / 100)
-				
-				DoCleaveAttack( self:GetParent(), target, self:GetAbility(), damage, 150, 360, 360, 'particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf')
+				local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 300,  DOTA_UNIT_TARGET_TEAM_ENEMY,  DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+				for _,unit in pairs(units) do
+					ApplyDamage({
+						victim = unit,
+						attacker = attacker,
+						damage = damage,
+						damage_type = DAMAGE_TYPE_PHYSICAL,
+						damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
+						ability = self:GetAbility()
+					})
+				end
 			else
 				if attacker == self:GetParent() and target and target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not self:GetParent():PassivesDisabled() then	
 					local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetParent():Script_GetAttackRange() + 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, FIND_ANY_ORDER, false)

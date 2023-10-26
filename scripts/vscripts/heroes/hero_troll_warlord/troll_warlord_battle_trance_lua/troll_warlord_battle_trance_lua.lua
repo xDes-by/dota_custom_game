@@ -158,16 +158,10 @@ function modifier_troll_warlord_battle_trance_lua:GetPriority()
 end
 
 function modifier_troll_warlord_battle_trance_lua:CheckState()
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int11")
-	if abil ~= nil	then 
-		return {}
-	end
-	if self:GetStackCount() == 1 then
-		local state = {}
-		state[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true
-		return state
-	else
-		return {}
+	if self:GetParent() == self:GetCaster() then
+		return {
+			[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true
+		}
 	end
 end
 

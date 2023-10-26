@@ -15,7 +15,7 @@ function death_prophet_crypt_swarm_bh:GetManaCost(iLevel)
     if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int11") then
         return 0
     end
-    return 100 + math.min(65000, caster:GetIntellect() / 100)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
 function death_prophet_crypt_swarm_bh:OnSpellStart()

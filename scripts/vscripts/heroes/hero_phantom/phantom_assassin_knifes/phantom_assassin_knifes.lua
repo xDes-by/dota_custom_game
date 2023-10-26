@@ -164,18 +164,26 @@ function modifier_phantom_assassin_knifes_attack:DeclareFunctions()
 end
 
 function modifier_phantom_assassin_knifes_attack:GetModifierPreAttack_BonusDamage( params )
-		dmg = self:GetAbility():GetSpecialValueFor( "damage" )
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_int8")
-		if abil ~= nil then
-			dmg = dmg + self:GetCaster():GetIntellect()
-		end
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_agi6")
-		if abil ~= nil then
-			dmg = dmg + self:GetCaster():GetAgility()
-		end
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_int_last")
-		if abil ~= nil then
-			dmg = dmg + dmg
-		end
-		return dmg 
+	dmg = self:GetAbility():GetSpecialValueFor( "damage" )
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_int8")
+	if abil ~= nil then
+		dmg = dmg + self:GetCaster():GetIntellect()
+	end
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_agi6")
+	if abil ~= nil then
+		dmg = dmg + self:GetCaster():GetAgility()
+	end
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_int_last")
+	if abil ~= nil then
+		dmg = dmg + dmg
+	end
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_int_last")
+	if abil ~= nil then
+		dmg = dmg + dmg
+	end
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_phantom_assassin_int50")
+	if abil ~= nil then
+		dmg = dmg * self:GetCaster():GetSpellAmplification(false) * 0.01 * 0.05
+	end
+	return dmg 
 end

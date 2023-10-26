@@ -85,7 +85,9 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 			end
 			if RandomInt(1,100) <= self.chance then 
 
-
+			if caster:FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
+				self.damage = self.damage * RandomFloat(3, 5)
+			end
 				-- find enemies
 				local enemies = FindUnitsInRadius(
 					caster:GetTeamNumber(),	-- int, your team number

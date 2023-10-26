@@ -9,6 +9,9 @@ function medusa_poison_arrow_lua:GetIntrinsicModifierName()
 end
 
 function medusa_poison_arrow_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_int50") ~= nil then
+		return 0
+	end
 	return 40 + math.min(65000, self:GetCaster():GetIntellect()/200)
 end
 

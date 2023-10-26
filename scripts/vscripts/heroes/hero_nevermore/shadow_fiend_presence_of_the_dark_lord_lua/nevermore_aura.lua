@@ -47,12 +47,10 @@ function modifier_nevermore_aura:OnCreated( kv )
 end
 
 function modifier_nevermore_aura:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
 	}
-
-	return funcs
 end
 
 function modifier_nevermore_aura:GetModifierPhysicalArmorBonus()
@@ -87,10 +85,22 @@ end
 
 function modifier_nevermore_aura_effect:OnCreated( kv )
 	self.reduction = self:GetAbility():GetSpecialValueFor( "reduction" )
+	if not IsServer() then
+		return
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_str50") then
+		self.reduction = self.reduction * 3
+	end
 end
 
 function modifier_nevermore_aura_effect:OnRefresh( kv )
 	self.reduction = self:GetAbility():GetSpecialValueFor( "reduction" )
+	if not IsServer() then
+		return
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_str50") then
+		self.reduction = self.reduction * 3
+	end
 end
 
 function modifier_nevermore_aura_effect:OnDestroy( kv )
@@ -98,11 +108,9 @@ function modifier_nevermore_aura_effect:OnDestroy( kv )
 end
 
 function modifier_nevermore_aura_effect:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
-
-	return funcs
 end
 
 function modifier_nevermore_aura_effect:GetModifierPhysicalArmorBonus()

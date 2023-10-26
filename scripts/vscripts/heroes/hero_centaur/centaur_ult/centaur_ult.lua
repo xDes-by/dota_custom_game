@@ -17,21 +17,24 @@ function borrowed_time_datadriven:IsNetherWardStealable()
 end
 
 function borrowed_time_datadriven:OnSpellStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local buff_duration = self:GetSpecialValueFor("duration")
-		
-		local abil = caster:FindAbilityByName("npc_dota_hero_centaur_str9")
-		if abil ~= nil then
-			buff_duration = buff_duration + 3
-		end
-
-		caster:AddNewModifier(caster, self, "modifier_imba_borrowed_time_buff_hot_caster", { duration = buff_duration })
-		-- local responses = {"abaddon_abad_borrowedtime_02","abaddon_abad_borrowedtime_03","abaddon_abad_borrowedtime_04","abaddon_abad_borrowedtime_05","abaddon_abad_borrowedtime_06","abaddon_abad_borrowedtime_07","abaddon_abad_borrowedtime_08","abaddon_abad_borrowedtime_09","abaddon_abad_borrowedtime_10","abaddon_abad_borrowedtime_11"}
-		-- if not caster:EmitCasterSound("npc_dota_hero_abaddon",responses, 50, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS,nil,nil) then
-			-- caster:EmitCasterSound("npc_dota_hero_abaddon",{"abaddon_abad_borrowedtime_01"}, 1, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS, nil,nil)
-		-- end
+	local caster = self:GetCaster()
+	local buff_duration = self:GetSpecialValueFor("duration")
+	
+	local abil = caster:FindAbilityByName("npc_dota_hero_centaur_str9")
+	if abil ~= nil then
+		buff_duration = buff_duration + 3
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_centaur_agi50") then
+		for i=0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(i) then
+				local hero = PlayerResource:GetSelectedHeroEntity(i)
+				if hero:IsAlive() then
+					hero:AddNewModifier(caster, self, "modifier_imba_borrowed_time_buff_hot_caster", { duration = buff_duration })
+				end
+			end
+		end
+	end
+	caster:AddNewModifier(caster, self, "modifier_imba_borrowed_time_buff_hot_caster", { duration = buff_duration })
 end
 
 ---------------------------------------------------------------------------------------

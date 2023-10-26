@@ -24,6 +24,13 @@ function call_tank(params)
 			unit:AddAbility("himars_attack"):SetLevel(1)
 			unit:AddAbility("boom_himars"):SetLevel(1)
 			unit:AddNewModifier(caster,ability,"modifier_invulnerable",{})
+			if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_str50") then
+				unit:SetContextThink("attack_caster_target", function() 
+					if caster:GetAggroTarget() ~= nil then
+						unit:MoveToTargetToAttack(caster:GetAggroTarget())
+					end
+				end, 0.1)
+			end
 		end
 	end
 end

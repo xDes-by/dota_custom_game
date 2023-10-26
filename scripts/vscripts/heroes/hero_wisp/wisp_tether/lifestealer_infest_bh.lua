@@ -185,9 +185,11 @@ modifier_lifestealer_infest_bh_ally = class({})
 LinkLuaModifier("modifier_lifestealer_infest_bh_ally", "heroes/hero_wisp/wisp_tether/lifestealer_infest_bh", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_lifestealer_infest_bh_ally:OnCreated()
-	self.bonus_hp = self:GetAbility():GetSpecialValueFor("ally_bonus_hp")
-	
-	if IsServer() then -- heal
+	if IsServer() then
+        self.bonus_hp = self:GetAbility():GetSpecialValueFor("ally_bonus_hp")
+        if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_wisp_str50") then
+            self.bonus_hp = self.bonus_hp + self:GetCaster():GetMaxHealth() * 0.85
+        end
 		self:GetParent():HealEvent( self.bonus_hp, self:GetAbility(), self:GetCaster(), {heal_flags = HEAL_FLAG_IGNORE_AMPLIFICATION} )
 	end
 end

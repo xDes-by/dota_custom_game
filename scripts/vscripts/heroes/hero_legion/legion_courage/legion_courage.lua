@@ -1,5 +1,6 @@
 	legion_courage = class({})
 LinkLuaModifier( "modifier_legion_courage", "heroes/hero_legion/legion_courage/legion_courage", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_legion_courage_armor_reduction", "heroes/hero_legion/legion_courage/legion_courage", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 function legion_courage:GetIntrinsicModifierName()
@@ -26,6 +27,10 @@ function modifier_legion_courage:IsPurgable()
 end
 
 function modifier_legion_courage:OnCreated( kv )
+	if not IsServer() then
+		return
+	end
+	self:GetCaster():AddAbility("special_bonus_unique_npc_dota_hero_legion_commander_agi50")
 end
 
 function modifier_legion_courage:OnRefresh( kv )
@@ -35,10 +40,34 @@ function modifier_legion_courage:OnDestroy( kv )
 end
 
 function modifier_legion_courage:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
 	}
-	return funcs
+end
+
+function modifier_legion_courage:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "armor_reduction" then
+			return 1
+		end
+	end
+	return 0
+end
+
+function modifier_legion_courage:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "armor_reduction" then
+			local armor_reduction = data.ability:GetLevelSpecialValueNoOverride( data.ability_special_value, data.ability_special_level )
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_agi50") then
+				armor_reduction = data.ability:GetLevel()
+			end
+			print(armor_reduction)
+			return armor_reduction
+		end
+	end
+	return 0
 end
 
 function modifier_legion_courage:OnAttackLanded( params )
@@ -91,6 +120,10 @@ function modifier_legion_courage:OnAttackLanded( params )
 end
 
 function deal_damage(mod, abil, parent, target, damage_type, damage_flags)
+	local v = abil:GetSpecialValueFor("armor_reduction")
+	if v ~= 0 then
+		target:AddNewModifier(parent, abil, "modifier_legion_courage_armor_reduction", {value = v})
+	end
 	damage = parent:GetAverageTrueAttackDamage(nil)
 	local heal = damage * abil:GetSpecialValueFor("damage")/100
 	parent:Heal( heal, abil )
@@ -142,4 +175,64 @@ function modifier_legion_courage:PlayEffects()
 	ParticleManager:ReleaseParticleIndex( effect_cast2 )
 	
 	EmitSoundOn( sound_cast, self:GetParent() )
+end
+
+modifier_legion_courage_armor_reduction = class({})
+--Classifications template
+function modifier_legion_courage_armor_reduction:IsHidden()
+	return false
+end
+
+function modifier_legion_courage_armor_reduction:IsDebuff()
+	return true
+end
+
+function modifier_legion_courage_armor_reduction:IsPurgable()
+	return true
+end
+
+function modifier_legion_courage_armor_reduction:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_legion_courage_armor_reduction:IsStunDebuff()
+	return false
+end
+
+function modifier_legion_courage_armor_reduction:RemoveOnDeath()
+	return true
+end
+
+function modifier_legion_courage_armor_reduction:DestroyOnExpire()
+	return true
+end
+
+function modifier_legion_courage_armor_reduction:OnCreated(data)
+	if not IsServer() then
+		return
+	end
+	self.value = data.value
+	self:SetStackCount(1)
+	self:SetDuration(30, true)
+end
+
+function modifier_legion_courage_armor_reduction:OnRefresh(data)
+	if not IsServer() then
+		return
+	end
+	self.value = data.value
+	if self:GetStackCount() <= 10 then
+		self:SetStackCount(self:GetStackCount()+1)
+	end
+end
+
+function modifier_legion_courage_armor_reduction:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+	}
+end
+
+function modifier_legion_courage_armor_reduction:GetModifierPhysicalArmorBonus()
+	return self:GetStackCount() * self.value
 end

@@ -30,7 +30,9 @@ function luna_moon:OnSpellStart()
 			owner_level = starfall_ability:GetLevel()
 		end
 	EmitSoundOn( sound_cast, caster )	
-	
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_luna_str50") then
+		caster:AddNewModifier(caster, self, "modifier_invulnerable", {duration = 5})
+	end
 	local dummy = CreateUnitByName("npc_dummy_unit", position, false, caster, caster, caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy, nil, "modifier_dummy", {})
 	dummy:SetControllableByPlayer(caster:GetPlayerID(), true)

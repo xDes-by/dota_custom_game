@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_pugna_nether_blast", "heroes/hero_pugna/pugna_blast/pu
 LinkLuaModifier( "modifier_armor_debuff", "heroes/hero_pugna/modifier_armor_debuff", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_pugna_from_hit", "heroes/hero_pugna/pugna_blast/pugna_blast", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_stun_cooldown", "heroes/hero_pugna/pugna_blast/pugna_blast", LUA_MODIFIER_MOTION_NONE )
 
 modifier_pugna_from_hit = class({})
 
@@ -25,9 +26,13 @@ end
 function modifier_pugna_from_hit:OnAttackLanded(params)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pugna_agi_last") ~= nil then
 		local abil = params.attacker:FindAbilityByName("pugna_nether_blast_lua")
-		if RandomInt(1, 100) <= 10 and  abil ~= nil and abil:GetLevel() > 0 then
-				_G.blasttarget = params.target
-				abil:OnSpellStart()
+		rand = 10
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pugna_agi50") ~= nil then
+			rand = rand + 15
+		end
+		if RollPercentage(rand) and  abil ~= nil and abil:GetLevel() > 0 then
+			_G.blasttarget = params.target
+			abil:OnSpellStart()
 		end
 	end
 end
@@ -191,7 +196,10 @@ function pugna_nether_blast_lua:OnSpellStart()
 			
 			local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_pugna_str8")	
 			if abil ~= nil then 
-			enemy:AddNewModifier(caster, ability, "modifier_generic_stunned_lua", {duration = 2})
+				if not enemy:HasModifier("modifier_stun_cooldown") then
+					enemy:AddNewModifier(caster, ability, "modifier_generic_stunned_lua", {duration = 2})
+					enemy:AddNewModifier(caster, ability, "modifier_stun_cooldown", {duration = 10})
+				end
 			end
 
 			if enemy:IsBuilding() then
@@ -210,4 +218,35 @@ function pugna_nether_blast_lua:OnSpellStart()
 		end
 	end)
 	_G.blasttarget = nil
+end
+
+modifier_stun_cooldown = class({})
+--Classifications template
+function modifier_stun_cooldown:IsHidden()
+	return true
+end
+
+function modifier_stun_cooldown:IsDebuff()
+	return false
+end
+
+function modifier_stun_cooldown:IsPurgable()
+	return false
+end
+
+function modifier_stun_cooldown:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_stun_cooldown:IsStunDebuff()
+	return false
+end
+
+function modifier_stun_cooldown:RemoveOnDeath()
+	return true
+end
+
+function modifier_stun_cooldown:DestroyOnExpire()
+	return true
 end

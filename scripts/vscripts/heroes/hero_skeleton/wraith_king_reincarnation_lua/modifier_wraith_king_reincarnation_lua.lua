@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_power", "heroes/hero_skeleton/other/modifier_power", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_wraith_king_reincarnation_lua_buff", "heroes/hero_skeleton/wraith_king_reincarnation_lua/modifier_wraith_king_reincarnation_lua_buff", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50", "heroes/hero_skeleton/wraith_king_reincarnation_lua/modifier_wraith_king_reincarnation_lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_wraith_king_reincarnation_lua = class({})
 
@@ -92,7 +93,17 @@ function modifier_wraith_king_reincarnation_lua:Reincarnate()
 		end)
 	end
 	
-	
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skeleton_king_str50") ~= nil then
+		Timers:CreateTimer(3.1,function() 
+		self:GetParent():AddNewModifier(
+				self:GetParent(),
+				self:GetAbility(),
+				"modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50",
+				{ duration = 5 }
+			)
+		end)
+	end
+
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skeleton_king_str10")
 		if abil ~= nil then 
 		local ability = self:GetCaster():FindAbilityByName( "wraith_king_sceleton")
@@ -134,4 +145,64 @@ function modifier_wraith_king_reincarnation_lua:PlayEffects()
 
 	-- play sound
 	EmitSoundOn( sound_cast, self:GetParent() )
+end
+
+modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:IsDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self.agi = self:GetCaster():GetAgility() * 2
+	self.str = self:GetCaster():GetStrength() * 2
+	self.int = self:GetCaster():GetIntellect() * 2
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:GetModifierBonusStats_Strength()
+	return self.str
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:GetModifierBonusStats_Agility()
+	return self.agi
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50:GetModifierBonusStats_Intellect()
+	return self.int
 end
