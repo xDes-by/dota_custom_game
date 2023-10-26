@@ -144,7 +144,7 @@ end
 function modifier_vengeful_spirit_wave_of_terror_debuff:GetArrmorReduction()
     local armor_reduction = self.armor_reduction
     if self:GetStackCount() > 0 then
-        armor_reduction = armor_reduction * self:GetStackCount() / 3
+        armor_reduction = armor_reduction + (self:GetStackCount()-1) * armor_reduction * 0.2
     end
     return armor_reduction 
 end

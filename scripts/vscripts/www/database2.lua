@@ -3,7 +3,7 @@ if DataBase == nil then
 end
 
 function DataBase:IsCheatMode()
-	if _G.cheatmode then
+	if _G.devmode then
 		return false
 	end
 	return GameRules:IsCheatMode()

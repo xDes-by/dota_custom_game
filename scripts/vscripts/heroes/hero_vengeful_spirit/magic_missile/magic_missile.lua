@@ -1,4 +1,5 @@
 LinkLuaModifier( "modifier_vengeful_spirit_magic_missile", "heroes/hero_vengeful_spirit/magic_missile/magic_missile" ,LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_vengeful_spirit_magic_missile_criticalstrike", "heroes/hero_vengeful_spirit/magic_missile/magic_missile" ,LUA_MODIFIER_MOTION_NONE )
 if vengeful_spirit_magic_missile == nil then
     vengeful_spirit_magic_missile = class({})
 end
@@ -70,6 +71,12 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
             ability = self
         })
 
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi10") then
+            self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_vengeful_spirit_magic_missile_criticalstrike", {})
+            self:GetCaster():PerformAttack(Target, true, true, true, false, false, false, true)
+            self:GetCaster():RemoveModifierByName("modifier_vengeful_spirit_magic_missile_criticalstrike")
+        end
+
         EmitSoundOn("Hero_VengefulSpirit.MagicMissileImpact", Target)
 
         Target:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration=magic_missile_stun})
@@ -138,3 +145,19 @@ function modifier_vengeful_spirit_magic_missile:OnAttack( params )
         end
     end
 end
+
+modifier_vengeful_spirit_magic_missile_criticalstrike = class({
+    IsHidden                = function(self) return true end,
+    IsPurgable              = function(self) return false end,
+    IsDebuff                = function(self) return false end,
+    IsBuff                  = function(self) return true end,
+    RemoveOnDeath           = function(self) return true end,
+    DeclareFunctions        = function(self)
+        return {
+            MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+        }
+    end,
+    GetModifierPreAttack_CriticalStrike = function(self)
+        return 1000
+    end,
+})
