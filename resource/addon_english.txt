@@ -1517,6 +1517,8 @@
         "quest_npc_shaker_boss_summon_desc" "To summon the overlord of the four raid bosses and engage in dialogue with him, you must first defeat each of these four powerful adversaries."
         "quest_npc_shaker_boss_summon" "Raid Bosses"
 
+        "quest_npc_cemetery_boss_desc" "In a location known for its dreadful cruelty, a sinister Wolf Reaper has found shelter. You'll have to confront this monster and put an end to its ominous reign."
+        "quest_npc_cemetery_boss" "Kill the Wolf Reaper"
         ///////////
         //C Items//
         ///////////
@@ -16648,42 +16650,43 @@
 
         //Str//
 
-		"hp_per_level""Thick Skin"
-        "hp_per_level_description" "+50 health per hero level"
-        "hp_regen_level" "Piece of meat"
-        "hp_regen_level_description" "+3 health regen per hero level"
-        "status" "Inevitability"
-        "status_description" "25% increased Health Regen"
-        "armor_per_level" "Steelskin"
-        "armor_per_level_description" "Gain 0.5 Armor per hero level."
-        "increase_str" "Bloodlust"
-        "increase_str_description" "Now You Gain 0.2 STR Per kill."
+		"modifier_talent_hp_per_level" "Thick Skin"
+        "modifier_talent_hp_per_level_description" "Health bonus per level"
+        "modifier_talent_hp_regen_level" "Meat Shield"
+        "modifier_talent_hp_regen_level_description" "Health regeneration bonus per level"
+        "modifier_talent_sheeld" "Inevitability"
+        "modifier_talent_sheeld_description" "Shield from maximum health"
+        "modifier_talent_armor_per_level" "Steel Skin"
+        "modifier_talent_armor_per_level_description" "Armor bonus per level"
+        "modifier_talent_increase_str" "Bloodthirst"
+        "modifier_talent_increase_str_description" "Gain strength stacks with each slain enemy"
 
-        //Agi//
+        // Agi //
 
-		"movespeed" "Phase"
-        "movespeed_description" "Grants 25% Increased Movement Speed"
-        "dmg_per_level" "Steady Hand"
-        "dmg_per_level_description" "Gain 10 Base Damage Each time you level up"
-        "all_evasion" "Superiority"
-        "all_evasion_description" "Grants 25% Global evasion."
-        "base_attack_time" "The pinnacle of skill"
-        "base_attack_time_description" "Every 5 levels the hero gains 5 attack speed"
-        "increase_agi" "Solo hunting"
-        "increase_agi_description" "Now You Gain 0.2 AGI Per kill."
+        "modifier_talent_armor_curruption" "Decay"
+        "modifier_talent_armor_curruption_description" "Reduces the target's armor per hero level"
+        "modifier_talent_dmg_per_level" "Strong Hand"
+        "modifier_talent_dmg_per_level_description" "Damage per hero level"
+        "modifier_talent_all_evasion" "Supremacy"
+        "modifier_talent_all_evasion_description" "The hero gains universal evasion"
+        "modifier_talent_base_attack_time" "Mastery Peak"
+        "modifier_talent_base_attack_time_description" "Reduces base attack time"
+        "modifier_talent_increase_agi" "Solo Hunt"
+        "modifier_talent_increase_agi_description" "Gain agility stacks with each slain enemy"
 
-        //Int//
+        // Int //
 
-		"mp_per_level" "Close to spirits"
-        "mp_per_level_description" "Gain 100 Mana Points Each time you level up"
-        "mp_regen_level" "Insight"
-        "mp_regen_level_description" "+3 mana regen per hero level"
-        "m_resist" "Primal Fortitude"
-        "m_resist_description" "Grants 25% Magic Resistanc"
-        "magic_damage" "Harmony"
-        "magic_damage_description" "Gain 10% Spell Amplification Each time you level up"
-        "increase_int" "Strong Will"
-        "increase_int_description" "Now You Gain 0.2 INT Per kill."
+        "modifier_talent_magic_damage" "Close to Spirits"
+        "modifier_talent_magic_damage_description" "Increases spell damage per level"
+        "modifier_talent_mp_regen_level" "Insight"
+        "modifier_talent_mp_regen_level_description" "Mana regeneration bonus per level"
+        "modifier_talent_m_resist" "Primordial Resilience"
+        "modifier_talent_m_resist_description" "Magic resistance bonus"
+        "modifier_talent_manacost" "Harmony"
+        "modifier_talent_manacost_description" "Reduces mana cost per level"
+        "modifier_talent_increase_int" "Strong Will"
+        "modifier_talent_increase_int_description" "Gain intelligence stacks with each slain enemy"
+
 
         //Gold
 

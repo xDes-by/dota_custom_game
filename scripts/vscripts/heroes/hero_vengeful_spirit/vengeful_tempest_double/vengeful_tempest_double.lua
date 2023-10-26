@@ -2,6 +2,8 @@
 vengeful_tempest_double = class({})
 LinkLuaModifier("modifier_tempest_double_illusion", "heroes/hero_vengeful_spirit/vengeful_tempest_double/modifier_tempest_double_illusion", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tempest_double_illusion_permanent", "heroes/hero_vengeful_spirit/vengeful_tempest_double/modifier_tempest_double_illusion_permanent", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_vengeful_tempest_double_str30", "heroes/hero_vengeful_spirit/vengeful_tempest_double/modifier_vengeful_tempest_double_str30", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_npc_dota_hero_vengefulspirit_str11", "heroes/hero_vengeful_spirit/vengeful_tempest_double/modifier_npc_dota_hero_vengefulspirit_str11", LUA_MODIFIER_MOTION_NONE)
 
 
 local TRANSFER_PLAIN = 1 -- just add modifier to clone
@@ -230,6 +232,13 @@ function vengeful_tempest_double:OnUpgrade()
 	clone:SetAbsOrigin(Vector(-8000, -8000, -8000))
 end
 
+function vengeful_tempest_double:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi9") then
+		return self.BaseClass.GetCooldown( self, level ) - 10
+	end
+	return self.BaseClass.GetCooldown( self, level )
+end
+
 
 function vengeful_tempest_double:OnSpellStart()
 	if not IsServer() then return end
@@ -270,4 +279,13 @@ function vengeful_tempest_double:OnSpellStart()
 	end)
 
 	caster:EmitSound("Hero_ArcWarden.TempestDouble")
+
+	if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_str_last") then
+		caster:AddNewModifier(caster, self, "modifier_vengeful_tempest_double_str30", {}):SetStackCount( caster:GetMaxHealth() * 5 )
+		clone:AddNewModifier(caster, self, "modifier_vengeful_tempest_double_str30", {}):SetStackCount( clone:GetMaxHealth() * 5 )
+	end
+	if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_str11") then
+		caster:AddNewModifier(caster, self, "modifier_npc_dota_hero_vengefulspirit_str11", {clone = clone:entindex()})
+		clone:AddNewModifier(caster, self, "modifier_npc_dota_hero_vengefulspirit_str11", {clone = clone:entindex()})
+	end
 end

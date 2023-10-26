@@ -53,11 +53,6 @@ local lvls = {
     [48] = 18000,
     [49] = 18000,
     [50] = 18000,
-    [51] = 18000,
-    [52] = 18000,
-    [53] = 18000,
-    [54] = 18000,
-    [55] = 18000,
 }
 local talant_shop = {
     [1] = {
@@ -232,10 +227,15 @@ function talants:AddAbilityFiltered(hero, skillname, place)
     ability:SetLevel(1)
 end
 
-function talants:AddModifierFiltered(hero, skillname, place)
+function talants:AddModifierFiltered(hero, skillname, place, level)
     if diff_wave.rating_scale == 0 and place == 12 then return end
-
+    table.print({
+        modifier = skillname,
+        stacks = level,
+        j = place
+    })
     modifier = hero:AddNewModifier( hero, nil, skillname, {} )
+    modifier:SetStackCount(level)
 end
 
 function talants:selectTalantCheat(t)
@@ -256,7 +256,7 @@ function talants:selectTalantCheat(t)
     CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), tab)
     local heroName = PlayerResource:GetSelectedHeroName(t.PlayerID)
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
-    local tree = talantlist[heroName]
+    local tree = GetHeroTalentsData(heroName)
     local skillname = nil
     for skill_key, skill_value in pairs(tree) do
         for pos_key, pos_value in pairs(skill_value.place) do
@@ -274,8 +274,8 @@ function talants:selectTalantCheat(t)
             break
         end
     end
-    if t.i == "don" then
-        talants:AddModifierFiltered(hero, skillname, t.j)
+    if t.i == "don" or t.j <= 5 then
+        talants:AddModifierFiltered(hero, skillname, t.j, tab[arg])
     elseif t.i ~= "don" then
         talants:AddAbilityFiltered(hero, skillname, t.j)
     end
@@ -338,7 +338,7 @@ function talants:selectTalantButton(t)
         CustomNetTables:SetTableValue("talants", tostring(PlayerID), tab)
         local heroName = PlayerResource:GetSelectedHeroName(PlayerID)
 		local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
-        local tree = talantlist[heroName]
+        local tree = GetHeroTalentsData(heroName)
         local skillname = nil
         for skill_key, skill_value in pairs(tree) do
             for pos_key, pos_value in pairs(skill_value.place) do
@@ -356,11 +356,10 @@ function talants:selectTalantButton(t)
                 break
             end
         end
-        if t.i == "don" then
-            hero:AddNewModifier( hero, nil, skillname, {} )
+        if t.i == "don" or t.j <= 5 then
+            talants:AddModifierFiltered(hero, skillname, t.j, tab[arg])
         elseif t.i ~= "don" then
-            ability = hero:AddAbility(skillname)
-            ability:SetLevel(1)
+            talants:AddAbilityFiltered(hero, skillname, t.j)
         end
         print("TalantButton: ", tab[arg])
     elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_HERO_SELECTION then
@@ -556,7 +555,7 @@ function talants:addskill(nPlayerID, add)
         for i = 1, 12 do
             local arg = v .. tostring(i)
             if tonumber(tab[arg]) > 0 then
-                local tree = talantlist[heroName]
+                local tree = GetHeroTalentsData(heroName)
                 local skillname = nil
                 ------------------------------------------      цыкл по всем талантом этого героя
                 for skill_key, skill_value in pairs(tree) do
@@ -577,10 +576,10 @@ function talants:addskill(nPlayerID, add)
                         break
                     end
                 end
-                if v == "don" then
+                if v == "don" or i <= 5 then
                     ------------------------------------------     модифаеры
-                    if add == true and RATING["rating"][nPlayerID]["patron"] == 1 then
-                        talants:AddModifierFiltered(hero, skillname, i)
+                    if add == true and ( v ~= "don" or RATING["rating"][nPlayerID]["patron"] == 1) then
+                        talants:AddModifierFiltered(hero, skillname, i, tonumber(tab[arg]))
                     elseif add == false then
                         hero:RemoveModifierByName( skillname )
                     end
@@ -635,7 +634,7 @@ end
 
 function talants:pickinfo(PlayerID,AutoLoad)
     heroname[PlayerID] = PlayerResource:GetSelectedHeroName( PlayerID )
-    herotalant[PlayerID] = talantlist[heroname[PlayerID]]
+    herotalant[PlayerID] = GetHeroTalentsData(heroname[PlayerID])
     local arr = {
 		sid = PlayerResource:GetSteamAccountID( PlayerID ),
 		heroname = heroname[PlayerID],

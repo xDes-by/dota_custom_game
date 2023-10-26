@@ -11,8 +11,9 @@ end
 function modifier_talent_m_resist:RemoveOnDeath()
 	return false
 end
-modifier_talent_m_resist.value = {10, 15, 20, 25, 30, 35}
+
 function modifier_talent_m_resist:OnCreated( kv )
+	self.value = {10, 15, 20, 25, 30, 35}
 	self.caster = self:GetCaster()
 	self.m_resist = self.value[self:GetStackCount()]
 end

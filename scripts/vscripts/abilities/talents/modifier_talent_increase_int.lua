@@ -11,8 +11,9 @@ end
 function modifier_talent_increase_int:RemoveOnDeath()
     return false
 end
-modifier_talent_increase_int.value = {0.1, 0.15, 0.2, 0.25, 0.3, 0.35}
+
 function modifier_talent_increase_int:OnCreated(kv)
+    self.value = {0.1, 0.15, 0.2, 0.25, 0.3, 0.35}
     self.int_per_creep = self.value[self:GetStackCount()]
 end
 

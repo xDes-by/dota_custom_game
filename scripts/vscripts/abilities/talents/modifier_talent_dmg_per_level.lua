@@ -11,8 +11,9 @@ end
 function modifier_talent_dmg_per_level:RemoveOnDeath()
 	return false
 end
-modifier_talent_dmg_per_level.value = {6, 8, 10, 12, 14, 16}
+
 function modifier_talent_dmg_per_level:OnCreated( kv )
+	self.value = {6, 8, 10, 12, 14, 16}
 	self.caster = self:GetCaster()
 	self.dmg_per_level = self.value[self:GetStackCount()]
 end

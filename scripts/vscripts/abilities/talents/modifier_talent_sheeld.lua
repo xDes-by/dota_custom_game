@@ -11,8 +11,9 @@ end
 function modifier_talent_sheeld:RemoveOnDeath()
 	return false
 end
-modifier_talent_sheeld.value = {7.5, 10, 12.5, 15, 17.5, 20}
+
 function modifier_talent_sheeld:OnCreated( kv )
+	self.value = {7.5, 10, 12.5, 15, 17.5, 20}
 	self.caster = self:GetCaster()
 	self.IsBroken = false
 	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()

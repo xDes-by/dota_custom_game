@@ -24,19 +24,20 @@
 				"1"
 				{
 					"UnitName"	"npc_4"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"-3456"
-							"y"		"-7936"
-						}
-						"2"
-						{
-							"x"		"422"
-							"y"		"-7150"
-						}
-					}
+					// "abs"
+					// {
+					// 	"1"
+					// 	{
+					// 		"x"		"-3456"
+					// 		"y"		"-7936"
+					// 	}
+					// 	"2"
+					// 	{
+					// 		"x"		"422"
+					// 		"y"		"-7150"
+					// 	}
+					// }
+					"mapoverlay"	"1"
 					"kill"
 					{
 						"use_type"	"random"
@@ -122,19 +123,7 @@
 			{
 				"1"
 				{
-					"abs"
-					{
-						"1"
-						{
-							"x"		"-3456"
-							"y"		"-7936"
-						}
-						"2"
-						{
-							"x"		"422"
-							"y"		"-7150"
-						}
-					}
+					"mapoverlay"	"1"
 					"UnitName"	"npc_5"
 					"item"
 					{
@@ -176,14 +165,7 @@
 				"1"
 				{
 					"UnitName"	"npc_3"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"3195"
-							"y"		"-10944"
-						}
-					}
+					"mapoverlay"	"2"
 					"kill"
 					{
 						"use_type"	"random"
@@ -233,19 +215,7 @@
 				"1"
 				{
 					"UnitName"	"npc_8"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"8854"
-							"y"		"-10816"
-						}
-						"2"
-						{
-							"x"		"10630"
-							"y"		"-9401"
-						}
-					}
+					"mapoverlay"	"3"
 					"kill"
 					{
 						"use_type"	"random"
@@ -320,14 +290,7 @@
 				"1"
 				{
 					"UnitName"	"npc_10"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"10730"
-							"y"		"-8288"
-						}
-					}
+					"mapoverlay"	"4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -369,19 +332,7 @@
 				"1"
 				{
 					"UnitName"	"npc_13"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"6528"
-							"y"		"-4480"
-						}
-						"2"
-						{
-							"x"		"9190"
-							"y"		"-5116"
-						}
-					}
+					"mapoverlay"	"5"
 					"kill"
 					{
 						"use_type"	"random"
@@ -448,44 +399,7 @@
 				"1"
 				{
 					"UnitName"				"npc_13"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"4736"
-							"y"		"-5483"
-						}
-						"2"
-						{
-							"x"		"5824"
-							"y"		"-6720"
-						}
-						"3"
-						{
-							"x"		"6528"
-							"y"		"-4480"
-						}
-						"4"
-						{
-							"x"		"7549"
-							"y"		"-4544"
-						}
-						"5"
-						{
-							"x"		"8383"
-							"y"		"-3332"
-						}
-						"6"
-						{
-							"x"		"9443"
-							"y"		"-3724"
-						}
-						"7"
-						{
-							"x"		"11200"
-							"y"		"-5120"
-						}
-					}
+					"mapoverlay"	"5"
 					"custom"
 					{
 						"min"				"1"
@@ -518,14 +432,7 @@
 				"1"
 				{
 					"UnitName"				"npc_14"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"6412"
-							"y"		"-1058"
-						}
-					}
+					"mapoverlay"	"6"
 					"kill"
 					{
 						"use_type"	"random"
@@ -568,19 +475,7 @@
 				"1"
 				{
 					"UnitName"	"npc_15"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"-9556"
-							"y"		"-9559"
-						}
-						"2"
-						{
-							"x"		"-7617"
-							"y"		"-10727"
-						}
-					}
+					"mapoverlay"	"7"
 					"kill"
 					{
 						"use_type"	"random"
@@ -661,14 +556,7 @@
 				"1"
 				{
 					"UnitName"	"npc_16"
-					"abs"
-					{
-						"1"
-						{
-							"x"		"-5682"
-							"y"		"-10970"
-						}
-					}
+					"mapoverlay"	"8"
 					"kill"
 					{
 						"use_type"	"random"
@@ -712,19 +600,7 @@
 				"1"
 				{
 					"UnitName"	"npc_19"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"2230"
-							"y"	"-3346"
-						}
-						"2"
-						{
-							"x"	"2111"
-							"y"	"-1004"
-						}
-					}
+					"mapoverlay"	"9"
 					"kill"
 					{
 						"use_type"	"random"
@@ -765,10 +641,52 @@
 				}
 			}
 		}
-		// 6 локация
 		"12"
 		{
 			"UnitName"	"npc_19"
+			"reward"
+			{
+				"experience"
+				{
+					"min"	"30000"
+					"max"	"35000"
+				}
+				"gold"
+				{
+					"min"	"55000"
+					"max"	"57500"
+				}
+				"talentExperience"	"370"
+			}
+			"tasks"
+			{
+				"1"
+				{
+					"UnitName"	"npc_23"
+					"mapoverlay"	"10"
+					"kill"
+					{
+						"use_type"	"random"
+						
+						"units"
+						{
+							"1"
+							{
+								"min"	"1"
+								"max"	"1"
+								"TextName"	"quest_npc_cemetery_boss"
+								"Desc"	"quest_npc_cemetery_boss_desc"
+								"1"		"npc_cemetery_boss"
+							}
+						}
+					}
+				}
+			}
+		}
+		// 6 локация
+		"13"
+		{
+			"UnitName"	"npc_23"
 			"reward"
 			{
 				"experience"
@@ -789,19 +707,7 @@
 				"1"
 				{
 					"UnitName"	"npc_25"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"-4465"
-							"y"	"-4771"
-						}
-						"2"
-						{
-							"x"	"-7863"
-							"y"	"-5518"
-						}
-					}
+					"mapoverlay"	"11"
 					"kill"
 					{
 						"use_type"	"random"
@@ -842,7 +748,7 @@
 				}
 			}
 		}
-		"13"
+		"14"
 		{
 			"unlock"
 			{
@@ -872,14 +778,7 @@
 				"1"
 				{
 					"UnitName"	"npc_27"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"-10644"
-							"y"	"-6247"
-						}
-					}
+					"mapoverlay"	"12"
 					"kill"
 					{
 						"use_type"	"random"
@@ -900,7 +799,7 @@
 			}
 		}
 		// 7 локация
-		"14"
+		"15"
 		{
 			"UnitName"	"npc_27"
 			"reward"
@@ -923,19 +822,7 @@
 				"1"
 				{
 					"UnitName"	"npc_29"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"10110"
-							"y"	"-2025"
-						}
-						"2"
-						{
-							"x"	"8750"
-							"y"	"905"
-						}
-					}
+					"mapoverlay"	"13"
 					"kill"
 					{
 						"use_type"	"random"
@@ -958,7 +845,7 @@
 				}
 			}
 		}
-		"15"
+		"16"
 		{
 			"UnitName"	"npc_29"
 			"reward"
@@ -980,14 +867,7 @@
 				"1"
 				{
 					"UnitName"	"npc_30"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"7393"
-							"y"	"53"
-						}
-					}
+					"mapoverlay"	"14"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1008,7 +888,7 @@
 			}
 		}
 		// 8 локация
-		"16"
+		"17"
 		{
 			"UnitName"	"npc_30"
 			"reward"
@@ -1031,19 +911,7 @@
 				"1"
 				{
 					"UnitName"	"npc_31"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"10777"
-							"y"	"4420"
-						}
-						"2"
-						{
-							"x"	"8400"
-							"y"	"3715"
-						}
-					}
+					"mapoverlay"	"15"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1066,7 +934,7 @@
 				}
 			}
 		}
-		"17"
+		"18"
 		{
 			"UnitName"	"npc_31"
 			"reward"
@@ -1088,14 +956,7 @@
 				"1"
 				{
 					"UnitName"	"npc_32"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"5635"
-							"y"	"2813"
-						}
-					}
+					"mapoverlay"	"16"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1329,6 +1190,7 @@
 				}
 			}
 		}
+		// убить фуриона 		удалено
 		"5"
 		{
 			"UnitName"	"npc_3"
@@ -2513,7 +2375,7 @@
 							"1"
 							{
 								"min"			"5"
-								"max"   		"15"
+								"max"   		"10"
 								"TextName"		"quest_medusa_ward"
 								"Desc"			"quest_medusa_ward_desc"
 								"1" 			"medusa_ward"
@@ -2673,51 +2535,6 @@
 								"Desc"			"quest_necro_warior_tank_desc"
 								"1" 			"npc_quest_necronomicon_warrior"
 								"2" 			"npc_quest_necronomicon_archer"
-							}
-						}
-					}
-				}
-			}
-		}
-		"26" // убить дума 3 раза
-		{
-			
-			"UnitName"	"npc_21"
-			"reward"
-			{
-				"experience"
-				{
-					"min"		"50000"
-					"max"		"50000"
-				}
-				"gold"
-				{
-					"min"		"50000"
-					"max"		"50000"
-				}
-				"talentExperience"	"100"
-			}
-			"options"
-			{
-				"available"	"1"
-			}
-			"tasks"
-			{
-				"1"
-				{
-					"UnitName"	"npc_21"
-					"kill"
-					{
-						"use_type"	"random"
-						"units"
-						{
-							"1"
-							{
-								"min"			"3"
-								"max"   		"3"
-								"TextName"		"quest_npc_mega_boss"
-								"Desc"			"quest_npc_mega_boss_desc"
-								"1" 			"npc_mega_boss"
 							}
 						}
 					}

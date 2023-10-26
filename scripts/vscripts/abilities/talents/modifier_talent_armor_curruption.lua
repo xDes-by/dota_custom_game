@@ -11,8 +11,9 @@ end
 function modifier_armor_curruption:RemoveOnDeath()
 	return false
 end
-modifier_armor_curruption.value = {0.1, 0.12, 0.14, 0.16, 0.18, 0.2}
+
 function modifier_armor_curruption:OnCreated( kv )
+	self.value = {0.1, 0.12, 0.14, 0.16, 0.18, 0.2}
 	self.caster = self:GetCaster()
 	self.armor_curruption = self.value[self:GetStackCount()]
 end

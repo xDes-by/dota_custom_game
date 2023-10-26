@@ -11,8 +11,9 @@ end
 function modifier_talent_increase_agi:RemoveOnDeath()
     return false
 end
-modifier_talent_increase_agi.value = {0.1, 0.15, 0.2, 0.25, 0.3, 0.35}
+
 function modifier_talent_increase_agi:OnCreated(kv)
+    self.value = {0.1, 0.15, 0.2, 0.25, 0.3, 0.35}
     self.agi_per_creep = self.value[self:GetStackCount()]
 end
 

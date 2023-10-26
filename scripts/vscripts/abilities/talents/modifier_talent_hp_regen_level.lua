@@ -11,8 +11,9 @@ end
 function modifier_talent_hp_regen_level:RemoveOnDeath()
 	return false
 end
-modifier_talent_hp_regen_level.value = {1, 2, 3, 4, 5, 6}
+
 function modifier_talent_hp_regen_level:OnCreated( kv )
+	self.value = {1, 2, 3, 4, 5, 6}
 	self.caster = self:GetCaster()
 	self.hp_regen_level = self.value[self:GetStackCount()]
 end

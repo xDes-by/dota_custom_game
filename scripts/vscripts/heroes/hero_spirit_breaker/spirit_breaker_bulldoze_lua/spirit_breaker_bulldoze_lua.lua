@@ -19,6 +19,12 @@ function spirit_breaker_bulldoze_lua:Precache( context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf", context )
 end
 
+function spirit_breaker_bulldoze_lua:GetIntrinsicModifierName()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_str10") then
+		return "modifier_spirit_breaker_bulldoze_lua"
+	end
+end
+
 function spirit_breaker_bulldoze_lua:Spawn()
 	if not IsServer() then return end
 end

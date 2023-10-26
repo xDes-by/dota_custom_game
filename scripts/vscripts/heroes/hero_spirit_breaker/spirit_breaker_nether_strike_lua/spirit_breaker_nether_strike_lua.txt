@@ -13,7 +13,7 @@
 		"ScriptFile"					"heroes/hero_spirit_breaker/spirit_breaker_nether_strike_lua/spirit_breaker_nether_strike_lua"
 		"AbilityTextureName"			"spirit_breaker_nether_strike"
 		"FightRecapLevel"				"2"
-		"MaxLevel"						"3"
+		"MaxLevel"						"10"
 		
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90 70 50"
+		"AbilityCooldown"				"90 85 80 75 70 65 60 55 50 45"
 		"AbilityManaCost"				"125 150 175"
 
 		// Damage
@@ -47,14 +47,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 175 250"
+				"damage"				"1000 1500 2000 2500 3000 3500 4000 4500 5000 5500"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"fade_time"				"1.0 1.0 1.0"
 			}
-
 		}
 	}
 }

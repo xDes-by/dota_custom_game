@@ -11,15 +11,16 @@ end
 function modifier_talent_hp_per_level:RemoveOnDeath()
 	return false
 end
-modifier_talent_hp_per_level.value = {150, 200, 250, 300, 350, 400}
+
 function modifier_talent_hp_per_level:OnCreated()
+	self.value = {150, 200, 250, 300, 350, 400}
 	self.caster = self:GetCaster()
 	self.hp_per_level = self.value[self:GetStackCount()]
 end
 
 function modifier_talent_hp_per_level:OnRefresh()
 	self.caster = self:GetCaster()
-	self.hp_per_level = self.value[self:GetStackCount()]	
+	self.hp_per_level = self.value[self:GetStackCount()]
 end
 
 function modifier_talent_hp_per_level:DeclareFunctions()
@@ -29,5 +30,5 @@ function modifier_talent_hp_per_level:DeclareFunctions()
 end
 
 function modifier_talent_hp_per_level:GetModifierExtraHealthBonus()
-	return self.hp_per_level
+	return self.value[self:GetStackCount()]
 end

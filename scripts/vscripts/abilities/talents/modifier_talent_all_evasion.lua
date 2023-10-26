@@ -11,8 +11,9 @@ end
 function modifier_talent_all_evasion:RemoveOnDeath()
 	return false
 end
-modifier_talent_all_evasion.value = {10, 15, 20, 25, 30, 35}
+
 function modifier_talent_all_evasion:OnCreated()
+	self.value = {10, 15, 20, 25, 30, 35}
 	self.caster = self:GetCaster()
 	self.max_chance = self.value[self:GetStackCount()]
 end

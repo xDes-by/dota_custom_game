@@ -110,6 +110,7 @@ modifier_vengeful_spirit_wave_of_terror_debuff = class({
         return {
             MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
             MODIFIER_PROPERTY_TOOLTIP,
+            MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
         }
     end,
     GetEffectName           = function(self) return "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf" end,
@@ -139,6 +140,12 @@ end
 
 function modifier_vengeful_spirit_wave_of_terror_debuff:GetModifierPhysicalArmorBonus()
     return self:GetArrmorReduction() 
+end
+
+function modifier_vengeful_spirit_wave_of_terror_debuff:GetModifierDamageOutgoing_Percentage()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str9") then
+        return -30
+    end
 end
 
 function modifier_vengeful_spirit_wave_of_terror_debuff:GetArrmorReduction()

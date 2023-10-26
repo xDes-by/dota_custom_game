@@ -11,8 +11,9 @@ end
 function modifier_talent_magic_damage:RemoveOnDeath()
 	return false
 end
-modifier_talent_magic_damage.value = {6, 8, 10, 12, 14, 16}
+
 function modifier_talent_magic_damage:OnCreated()
+	self.value = {6, 8, 10, 12, 14, 16}
 	self.caster = self:GetCaster()
 	self.magic_damage_level = self.value[self:GetStackCount()]
 end

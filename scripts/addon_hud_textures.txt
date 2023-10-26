@@ -1,0 +1,54 @@
+""
+{
+    "TextureData"
+    {
+        "minimap_blue_exclamation" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_blue_exclamation.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+		"minimap_blue_question" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_blue_question.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+		"minimap_yellow_exclamation" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_yellow_exclamation.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+		"minimap_yellow_question" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_yellow_question.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+		"minimap_questgiver" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_questgiver.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+		"minimap_empty" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/minimap_empty.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "64"
+            "height"   "64"
+        }
+    }
+}

@@ -158,6 +158,6 @@ modifier_vengeful_spirit_magic_missile_criticalstrike = class({
         }
     end,
     GetModifierPreAttack_CriticalStrike = function(self)
-        return 1000
+        return 150 * self:GetAbility():GetLevel()
     end,
 })

@@ -707,7 +707,9 @@ function ChatCommands:TestTestTest(pid, text)
         return
     end
     if text == "test" then
-        SendPlayerNotification:TutorialMessage(pid, "dota_tooltip_ability_item_raid_ticket3_description")
+        local hero = PlayerResource:GetSelectedHeroEntity(pid)
+        print(hero:GetAbsOrigin())
+        -- SendPlayerNotification:TutorialMessage(pid, "dota_tooltip_ability_item_raid_ticket3_description")
     end
 end
 

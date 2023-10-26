@@ -11,8 +11,9 @@ end
 function modifier_talent_manacost:RemoveOnDeath()
 	return false
 end
-modifier_talent_manacost.value = {0.075, 0.1, 0.125, 0.15, 0.175, 0.2}
+
 function modifier_talent_manacost:OnCreated( kv )
+	self.value = {0.075, 0.1, 0.125, 0.15, 0.175, 0.2}
 	self.caster = self:GetCaster()
 	self.manacost_level = self.value[self:GetStackCount()]
 end

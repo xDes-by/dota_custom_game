@@ -281,6 +281,7 @@ function Quests:OnNPCSpawned(t)
 					player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["complete"] = false
 					player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["active"] = false
 					player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["UnitName"] = quests[main][tostring(k1)]["tasks"][tostring(k2)]["UnitName"]
+					player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["mapoverlay"] = quests[main][tostring(k1)]["tasks"][tostring(k2)]["mapoverlay"]
 					player_info[tostring(steamID)][main][tostring(k1)]["tasks"][tostring(k2)]["Drop"] = false
 					--print(main,k1,k2)
 					--print(quests[main][tostring(k1)]["tasks"][tostring(k2)]["Drop"])
@@ -534,31 +535,36 @@ function Quests:addParticle(url, name, key, nPlayerID, n, t)
 end
 
 function Quests:createNPC()
-	-- for i = 1, Quests.npcMaxNumber do
-	-- 	local blacksmith = CreateUnitByName("blacksmith", Entities:FindByName(nil, Quests.pointName .. i):GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
-    -- 	blacksmith:AddNewModifier(blacksmith,nil,"modifier_quest",{})
-	-- 	blacksmith.ParticleInfo = {}
-	-- 	local quest = {}
-	-- 	quest['name'] = Quests.npcName .. i 
-	-- 	quest['unit'] = blacksmith
-	-- 	quest['particle'] = {}
-	-- 	for nPlayerID = 0, 4 do
-	-- 		quest['particle'][nPlayerID] = false
-	-- 	end
-	-- 	table.insert(Quests.npcArray, quest)
-	-- end
-	-- local index_name = {}
-	-- for i = 1, Quests.npcMaxNumber do
-	-- 	index_name[i] = {
-	-- 		name = Quests.npcArray[i]["name"],
-	-- 		index = Quests.npcArray[i]["unit"]:entindex()
-	-- 	}
-	-- end
-	-- CustomGameEventManager:Send_ServerToAllClients( "npcInfo", {
-	-- 	list = index_name,
-	-- 	mode = diff_wave.rating_scale
-	-- })
-	-- Timers:CreateTimer(2, function() Quests:updateParticle()  end)
+	for i = 1, Quests.npcMaxNumber do
+		local point = Entities:FindByName(nil, Quests.pointName .. i)
+		if not point then
+			print(Quests.pointName .. i)
+		else
+			local blacksmith = CreateUnitByName("blacksmith", point:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
+			blacksmith:AddNewModifier(blacksmith,nil,"modifier_quest",{})
+			blacksmith.ParticleInfo = {}
+			local quest = {}
+			quest['name'] = Quests.npcName .. i 
+			quest['unit'] = blacksmith
+			quest['particle'] = {}
+			for nPlayerID = 0, 4 do
+				quest['particle'][nPlayerID] = false
+			end
+			table.insert(Quests.npcArray, quest)
+		end
+	end
+	local index_name = {}
+	for i = 1, Quests.npcMaxNumber do
+		index_name[i] = {
+			name = Quests.npcArray[i]["name"],
+			index = Quests.npcArray[i]["unit"]:entindex()
+		}
+	end
+	CustomGameEventManager:Send_ServerToAllClients( "npcInfo", {
+		list = index_name,
+		mode = diff_wave.rating_scale
+	})
+	Timers:CreateTimer(0.5, function() Quests:updateParticle()  end)
 end
 
 
@@ -1236,65 +1242,64 @@ function Quests:OnEntityKilled( keys )
 end
 
 function Quests:updateMinimap(n, array)
-	local steamID = PlayerResource:GetSteamAccountID(n)
-	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-	local hero = PlayerResource:GetPlayer(n)
-	local playerID = hero:GetPlayerID()
-    local heros = PlayerResource:GetSelectedHeroEntity(playerID )
-	--DeepPrintTable(player_info[tostring(steamID)])
-	if array == nil then
-		for k1,v1 in pairs(player_info[tostring(steamID)]) do
-			for k2,v2 in pairs(v1) do			
-				if v2['active'] == 1 then
-					for k3,v3 in pairs(v2['tasks']) do
-						if v3['active'] == 1 then
-							if v3['have'] < v3['HowMuch'] then
-								if Quests.questTabel[k1][k2]['tasks'][k3]['abs'] then
-									heros:SetTeam(DOTA_TEAM_BADGUYS)
-									for k,v in pairs(Quests.questTabel[k1][k2]['tasks'][k3]['abs']) do
-										Timers:CreateTimer(k-1, function()
-											local x = v['x']
-											local y = v['y']
-											MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), x, y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
-										end)
-									end
-									heros:SetTeam(DOTA_TEAM_GOODGUYS)
-								end
-							elseif v3['have'] == v3['HowMuch'] then
-								local key = Quests:searchNpc(v3['UnitName'])
-								local npc = Quests.npcArray[key]["unit"]:GetAbsOrigin()
-								heros:SetTeam(DOTA_TEAM_BADGUYS)
-								MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), npc.x, npc.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5)
-								heros:SetTeam(DOTA_TEAM_GOODGUYS)
-							end
-						end
-					end
-				end
-			end
-		end
-	else
-		if player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['have'] < player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['HowMuch'] then
-			if Quests.questTabel[tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['abs'] then
-				heros:SetTeam(DOTA_TEAM_BADGUYS)
-				for k,v in pairs(Quests.questTabel[tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['abs']) do
-					Timers:CreateTimer(k-1, function()
-						--print(x,y)
-						local x = v['x']
-						local y = v['y']
-						MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), x, y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
-					end)
-				end
-				heros:SetTeam(DOTA_TEAM_GOODGUYS)
-			end
-		elseif player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['have'] == player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['HowMuch'] then
-			local key = Quests:searchNpc(player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['UnitName'])
-			local npc = Quests.npcArray[key]["unit"]:GetAbsOrigin()
-			heros:SetTeam(DOTA_TEAM_BADGUYS)
-			--print("updateMinimap_4")
-			MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), npc.x, npc.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5)
-			heros:SetTeam(DOTA_TEAM_GOODGUYS)			
-		end
-	end
+	-- local steamID = PlayerResource:GetSteamAccountID(n)
+	-- local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
+	-- local hero = PlayerResource:GetPlayer(n)
+	-- local playerID = hero:GetPlayerID()
+    -- local heros = PlayerResource:GetSelectedHeroEntity(playerID )
+	-- if array == nil then
+	-- 	for k1,v1 in pairs(player_info[tostring(steamID)]) do
+	-- 		for k2,v2 in pairs(v1) do			
+	-- 			if v2['active'] == 1 then
+	-- 				for k3,v3 in pairs(v2['tasks']) do
+	-- 					if v3['active'] == 1 then
+	-- 						if v3['have'] < v3['HowMuch'] then
+	-- 							if Quests.questTabel[k1][k2]['tasks'][k3]['abs'] then
+	-- 								heros:SetTeam(DOTA_TEAM_BADGUYS)
+	-- 								for k,v in pairs(Quests.questTabel[k1][k2]['tasks'][k3]['abs']) do
+	-- 									Timers:CreateTimer(k-1, function()
+	-- 										local x = v['x']
+	-- 										local y = v['y']
+	-- 										MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), x, y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+	-- 									end)
+	-- 								end
+	-- 								heros:SetTeam(DOTA_TEAM_GOODGUYS)
+	-- 							end
+	-- 						elseif v3['have'] == v3['HowMuch'] then
+	-- 							local key = Quests:searchNpc(v3['UnitName'])
+	-- 							local npc = Quests.npcArray[key]["unit"]:GetAbsOrigin()
+	-- 							heros:SetTeam(DOTA_TEAM_BADGUYS)
+	-- 							MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), npc.x, npc.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5)
+	-- 							heros:SetTeam(DOTA_TEAM_GOODGUYS)
+	-- 						end
+	-- 					end
+	-- 				end
+	-- 			end
+	-- 		end
+	-- 	end
+	-- else
+	-- 	if player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['have'] < player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['HowMuch'] then
+	-- 		if Quests.questTabel[tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['abs'] then
+	-- 			heros:SetTeam(DOTA_TEAM_BADGUYS)
+	-- 			for k,v in pairs(Quests.questTabel[tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['abs']) do
+	-- 				Timers:CreateTimer(k-1, function()
+	-- 					--print(x,y)
+	-- 					local x = v['x']
+	-- 					local y = v['y']
+	-- 					MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), x, y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 3)
+	-- 				end)
+	-- 			end
+	-- 			heros:SetTeam(DOTA_TEAM_GOODGUYS)
+	-- 		end
+	-- 	elseif player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['have'] == player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['HowMuch'] then
+	-- 		local key = Quests:searchNpc(player_info[tostring(steamID)][tostring(array[1])][tostring(array[2])]['tasks'][tostring(array[3])]['UnitName'])
+	-- 		local npc = Quests.npcArray[key]["unit"]:GetAbsOrigin()
+	-- 		heros:SetTeam(DOTA_TEAM_BADGUYS)
+	-- 		--print("updateMinimap_4")
+	-- 		MinimapEvent(DOTA_TEAM_GOODGUYS, hero:GetAssignedHero(), npc.x, npc.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5)
+	-- 		heros:SetTeam(DOTA_TEAM_GOODGUYS)			
+	-- 	end
+	-- end
 end
 
 function Quests:OnItemDrop(t)

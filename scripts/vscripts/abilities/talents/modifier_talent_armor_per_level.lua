@@ -11,8 +11,9 @@ end
 function modifier_talent_armor_per_level:RemoveOnDeath()
 	return false
 end
-modifier_talent_armor_per_level.value = {0.5, 0.75, 1, 1.25, 1.5, 2}
+
 function modifier_talent_armor_per_level:OnCreated( kv )
+	self.value = {0.5, 0.75, 1, 1.25, 1.5, 2}
 	self.caster = self:GetCaster()
 	self.armor_per_level = self.value[self:GetStackCount()]
 end

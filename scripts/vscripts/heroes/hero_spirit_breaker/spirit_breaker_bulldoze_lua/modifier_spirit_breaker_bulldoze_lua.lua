@@ -22,7 +22,15 @@ function modifier_spirit_breaker_bulldoze_lua:IsDebuff()
 end
 
 function modifier_spirit_breaker_bulldoze_lua:IsPurgable()
-	return true
+	return false
+end
+
+function modifier_spirit_breaker_bulldoze_lua:RemoveOnDeath()
+	return false
+end
+
+function modifier_spirit_breaker_bulldoze_lua:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 --------------------------------------------------------------------------------
