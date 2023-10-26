@@ -48,7 +48,9 @@ function modifier_dazzle_poison_touch_lua:OnCreated( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_dazzle_str_last") ~= nil then
 		damage = damage + math.floor(self:GetCaster():GetMaxHealth()*0.05)
 	end
-
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dazzle_str50") ~= nil then
+		damage = damage + math.floor(self:GetCaster():GetMaxHealth()*0.08)
+	end
 	-- precache damage
 	self.damageTable = {
 		victim = self:GetParent(),

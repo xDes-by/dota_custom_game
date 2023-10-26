@@ -9,9 +9,12 @@ function axe_enrage_lua:GetManaCost(iLevel)
     return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
-function axe_enrage_lua:GetBehavior()
-	local behavior = DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
- 	return behavior
+function axe_enrage_lua:GetCooldown(iLevel)
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_str50") 
+	if abil ~= nil then
+		return self.BaseClass.GetCooldown(self, level) / 2
+	end
+	return self.BaseClass.GetCooldown(self, level)
 end
 
 function axe_enrage_lua:OnSpellStart()

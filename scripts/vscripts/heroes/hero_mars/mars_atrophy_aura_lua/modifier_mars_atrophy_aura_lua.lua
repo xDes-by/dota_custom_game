@@ -58,10 +58,15 @@ function modifier_mars_atrophy_aura_lua:OnRefresh( kv )
 	self.bonus = self:GetAbility():GetSpecialValueFor( "permanent_bonus" )
 	self.duration = self:GetAbility():GetSpecialValueFor( "bonus_damage_duration" )
 	
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi6")
-		if abil ~= nil then 
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_mars_agi6")
+	if abil ~= nil then 
 		self.creep_bonus = self.creep_bonus +5 
-		end
+	end
+
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_agi50")
+	if abil ~= nil then 
+		self.duration = -1
+	end
 
 	if not IsServer() then return end
 

@@ -44,9 +44,43 @@ end
 function modifier_wraith_king_vampiric_aura_lua:OnCreated( kv )
 	-- references
 	self.aura_radius = self:GetAbility():GetSpecialValueFor( "vampiric_aura_radius" ) -- special value
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skeleton_king_int50") then
+		self.atr = self:GetCaster():GetPrimaryAttribute()
+		self.atr_bonus = self:GetCaster():GetLevel() * 20
+	end
 end
 
 function modifier_wraith_king_vampiric_aura_lua:OnRefresh( kv )
 	-- references
 	self.aura_radius = self:GetAbility():GetSpecialValueFor( "vampiric_aura_radius" ) -- special value
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skeleton_king_int50") then
+		self.atr = self:GetCaster():GetPrimaryAttribute()
+		self.atr_bonus = self:GetCaster():GetLevel() * 20
+	end
+end
+
+function modifier_wraith_king_vampiric_aura_lua:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS
+	}
+end
+
+function modifier_wraith_king_vampiric_aura_lua:GetModifierBonusStats_Intellect()
+	if self.atr == DOTA_ATTRIBUTE_INTELLECT then
+		return self.atr_bonus
+	end
+end
+
+function modifier_wraith_king_vampiric_aura_lua:GetModifierBonusStats_Strength()
+	if self.atr == DOTA_ATTRIBUTE_STRENGTH then
+		return self.atr_bonus
+	end
+end
+
+function modifier_wraith_king_vampiric_aura_lua:GetModifierBonusStats_Agility()
+	if self.atr == DOTA_ATTRIBUTE_AGILITY then
+		return self.atr_bonus
+	end
 end

@@ -7,6 +7,12 @@ function health_life_drain:GetAOERadius()
 	return self:GetSpecialValueFor("aura_radius") + self:GetCaster():GetCastRangeBonus()
 end
 
+function health_life_drain:GetBehavior()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pugna_str50") then
+		return DOTA_ABILITY_BEHAVIOR_TOGGLE
+	end
+	return DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_AURA
+end
 
 function health_life_drain:GetIntrinsicModifierName()
 	return "modifier_health_life_drain"
@@ -149,10 +155,18 @@ function modifier_health_life_drain_now:OnIntervalThink()
 		
 		local damage = self.parent:GetHealth()/100 * self.aura_damage * self.aura_damage_interval
 
+		damage_type = DAMAGE_TYPE_PURE
+		if self:GetAbility():GetBehavior() == DOTA_ABILITY_BEHAVIOR_TOGGLE then
+			if self:GetAbility():GetToggleState() then
+				damage_type = DAMAGE_TYPE_PURE
+			else
+				damage_type = DAMAGE_TYPE_MAGICAL
+			end
+		end
 		if self.is_ally then
 			local damageTable = {victim = self.caster,
 				damage = damage,
-				damage_type = DAMAGE_TYPE_PURE,
+				damage_type = damage_type,
 				attacker = self.caster,
 				ability = self.ability,
 				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
@@ -166,7 +180,7 @@ function modifier_health_life_drain_now:OnIntervalThink()
 		else
 			local damageTable = {victim = self.parent,
 				damage = damage,
-				damage_type = DAMAGE_TYPE_PURE,
+				damage_type = damage_type,
 				attacker = self.caster,
 				ability = self.ability,
 				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION

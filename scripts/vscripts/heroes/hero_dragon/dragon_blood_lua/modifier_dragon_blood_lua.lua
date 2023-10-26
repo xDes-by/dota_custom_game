@@ -38,6 +38,11 @@ function modifier_dragon_blood_lua:OnRefresh( kv )
 		self.regen = self:GetAbility():GetSpecialValueFor( "bonus_health_regen" ) * level * 3
 	end
 
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_str50") ~= nil then
+		self.armor = self.armor * 5
+		self.regen = self.regen * 5
+	end
+
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_str9")	
 	if abil ~= nil then 
 		if not self:GetCaster():HasModifier("modifier_blood_aura") then

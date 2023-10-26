@@ -8,12 +8,14 @@ function spectre_dispersion_lua:GetIntrinsicModifierName()
 	return "modifier_spectre_dispersion_lua"
 end
 
-function spectre_dispersion_lua:OnSpellStart()
-	if not IsServer() then return end
+function spectre_dispersion_lua:OnSpellStart()	
 	local modifier = self:GetCaster():FindModifierByName("modifier_spectre_dispersion_lua")
 	if modifier then
 		-- dmg = math.floor(modifier:GetStackCount() / 4)
 		dmg = modifier:GetStackCount()
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_spectre_str50") then
+			dmg = dmg * 2
+		end
 		local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, self:GetSpecialValueFor( "radius" ), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
 		for _,enemy in pairs(enemies) do
 			local damageTable = {

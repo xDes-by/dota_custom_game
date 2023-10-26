@@ -169,7 +169,11 @@ function modifier_imba_wisp_spirit_handler:OnCreated(params)
 		self.ability = self:GetAbility()
 		self.collision_radius = self.ability:GetSpecialValueFor("collision_radius")
 		self.creep_damage = self:GetAbility():GetSpecialValueFor("creep_damage")
-		
+
+		if self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_wisp_int50") ~= nil then
+			self.collision_radius = self.collision_radius + 100
+		end
+
 		if self.caster:FindAbilityByName("npc_dota_hero_wisp_int_last") ~= nil then
 			self.creep_damage = self.creep_damage + self:GetCaster():GetIntellect()/2
 		end

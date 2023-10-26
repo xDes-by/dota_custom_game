@@ -62,6 +62,9 @@ function modifier_ancient_apparition_cold_feet_lua_freeze:OnCreated()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_str7") ~= nil then 	
 		self.damage = self.damage + self:GetCaster():GetStrength()
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_ancient_apparition_int50") ~= nil then 	
+		self.damage = self.damage + self:GetCaster():GetStrength() + self:GetCaster():GetAgility() + self:GetCaster():GetIntellect()
+	end
 	self:StartIntervalThink(0.5)
 end
 

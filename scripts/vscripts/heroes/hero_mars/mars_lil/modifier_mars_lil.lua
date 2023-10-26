@@ -74,7 +74,7 @@ end
 --------------------------------------------------------------------------------
 -- Modifier Effects
 function modifier_mars_lil:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_EVENT_ON_ATTACK_RECORD_DESTROY,
@@ -84,9 +84,8 @@ function modifier_mars_lil:DeclareFunctions()
 		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
+		MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL
 	}
-
-	return funcs
 end
 
 function modifier_mars_lil:OnAttack( params )
@@ -158,49 +157,19 @@ function modifier_mars_lil:GetModifierBaseAttackTimeConstant()
 	return self.bat
 end
 
+function modifier_mars_lil:GetModifierProcAttack_BonusDamage_Magical()
+	if self:GetStackCount()<=0 then return end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_int50") ~= nil then
+		return self:GetCaster():GetIntellect() / 2
+	end
+end
+
 --------------------------------------------------------------------------------
 -- Graphics & Animations
 function modifier_mars_lil:PlayEffects()
-	-- Get Resources
-	local particle_cast = "particles/units/heroes/hero_snapfire/hero_snapfire_shells_buff.vpcf"
-
-	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		3,
-		self:GetParent(),
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		4,
-		self:GetParent(),
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		5,
-		self:GetParent(),
-		PATTACH_POINT_FOLLOW,
-		"attach_hitloc",
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
-
-	-- buff particle
-	self:AddParticle(
-		effect_cast,
-		false, -- bDestroyImmediately
-		false, -- bStatusEffect
-		-1, -- iPriority
-		false, -- bHeroEffect
-		false -- bOverheadEffect
-	)
+	local effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_snapfire/hero_snapfire_shells_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+	ParticleManager:SetParticleControlEnt(effect_cast,3,self:GetParent(),PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0),true)
+	ParticleManager:SetParticleControlEnt(effect_cast,4,self:GetParent(),PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0),true)
+	ParticleManager:SetParticleControlEnt(effect_cast,5,self:GetParent(),PATTACH_POINT_FOLLOW,"attach_hitloc",Vector(0,0,0),true)
+	self:AddParticle(effect_cast,false,false,-1,false,false)
 end

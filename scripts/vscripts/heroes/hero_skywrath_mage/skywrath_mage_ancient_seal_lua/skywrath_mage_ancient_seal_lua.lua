@@ -2,6 +2,15 @@ skywrath_mage_ancient_seal_lua = class({})
 LinkLuaModifier( "modifier_skywrath_mage_ancient_seal_lua", "heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_lua/modifier_skywrath_mage_ancient_seal_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_root", "heroes/generic/modifier_generic_root", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_skywrath_mage_int_per_cast", "heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_lua/skywrath_mage_ancient_seal_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50", "heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_lua/skywrath_mage_ancient_seal_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect", "heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_lua/skywrath_mage_ancient_seal_lua", LUA_MODIFIER_MOTION_NONE )
+
+function skywrath_mage_ancient_seal_lua:Spawn()
+	if not IsServer() then
+		return
+	end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50", {})
+end
 
 function skywrath_mage_ancient_seal_lua:GetIntrinsicModifierName()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_int_last") ~= nil then
@@ -136,4 +145,123 @@ end
  
 function modifier_skywrath_mage_int_per_cast:RemoveOnDeath()
     return false
+end
+
+modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsHidden()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsPurgable()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsPurgeException()
+	return true
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsStunDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:DestroyOnExpire()
+	return true
+end
+
+--------------------------------------------------------------------------------
+-- Aura Effects
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsAura()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetModifierAura()
+	if self:GetCaster():FindAbilityByName("modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50") then
+		return "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect"
+	end
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraRadius()
+	return 700
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraDuration()
+	return 0.5
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraSearchFlags()
+	return 0
+end
+
+modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:IsDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:IsPurgable()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self.parent = self:GetParent()
+	self.caster = self:GetCaster()
+	self.ability = self:GetAbility()
+	self.damage = self:GetCaster():GetIntellect() * 1.5
+	self:StartIntervalThink(1)
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect:OnIntervalThink()
+	if not IsServer() then
+		return
+	end
+	ApplyDamage({
+		victim = self.parent,
+		attacker = self.caster,
+		damage = sself.damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		damage_flags = 0,
+		ability = self.ability
+	})
 end

@@ -59,6 +59,9 @@ function modifier_windrunner_passive_lua:OnAttackLanded( params )
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_agi10")             
 	if abil ~= nil then
 		self.triger = 25
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_windrunner_agi50") then
+			self.triger = 100
+		end
 		local ra = RandomInt(1,100)
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_agi_last") ~= nil then
 				self.triger  = self.triger + 35

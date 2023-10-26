@@ -32,7 +32,7 @@ function viper_poison_attack_lua:GetManaCost( level )
     if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int6") then 
         return 0 
     end
-    return 40 + math.min(65000, caster:GetIntellect() / 250)
+    return 40 + math.min(65000, self:GetCaster():GetIntellect() / 250)
 end
 
 --------------------------------------------------------------------------------

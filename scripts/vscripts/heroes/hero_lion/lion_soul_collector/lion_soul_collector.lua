@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_lion_soul_collector", "heroes/hero_lion/lion_soul_collector/lion_soul_collector", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_special_bonus_unique_npc_dota_hero_lion_agi50", "heroes/hero_lion/lion_soul_collector/lion_soul_collector", LUA_MODIFIER_MOTION_NONE)
 
 lion_soul_collector = class({})
 
@@ -27,9 +28,11 @@ function modifier_lion_soul_collector:RemoveOnDeath()
 end
 
 function modifier_lion_soul_collector:OnCreated(kv)
+	if not IsServer() then
+		return
+	end
+	self.special_bonus_unique_npc_dota_hero_lion_agi50 = self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_agi50")
 end
-
-
 
 function modifier_lion_soul_collector:DeclareFunctions()
 	return {
@@ -37,7 +40,9 @@ function modifier_lion_soul_collector:DeclareFunctions()
         MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS		
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE
     }
 end
 
@@ -50,6 +55,10 @@ function modifier_lion_soul_collector:OnDeath(params)
 	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_lion_int_last")	
 	if abil ~= nil then 
 	count = count + 2
+	end
+	local abil = self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_int50")	
+	if abil ~= nil then 
+	count = count + 3
 	end
 	for i = 1, count do					
 		local parent = self:GetParent()
@@ -93,6 +102,14 @@ function modifier_lion_soul_collector:GetModifierConstantHealthRegen(params)
 	return 0
 end
 
+function modifier_lion_soul_collector:GetModifierPercentageCooldown(params)
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_str50")	
+	if abil ~= nil then 
+		return 50
+	end
+	return 0
+end
+
 function IsMyKilledBadGuys(hero, params)
     if params.unit:GetTeamNumber() ~= DOTA_TEAM_BADGUYS then
         return false
@@ -107,4 +124,54 @@ function IsMyKilledBadGuys(hero, params)
             return false
         end
     end
+end
+
+function modifier_lion_soul_collector:OnAttackLanded(data)
+	if self:GetParent() ~= data.attacker then
+		return
+	end
+	if self.special_bonus_unique_npc_dota_hero_lion_agi50 then
+		data.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_lion_agi50", {duration = 3})
+	end
+end
+
+modifier_special_bonus_unique_npc_dota_hero_lion_agi50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:IsDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:IsPurgable()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_lion_agi50:GetModifierPhysicalArmorBonus()
+	return -200
 end

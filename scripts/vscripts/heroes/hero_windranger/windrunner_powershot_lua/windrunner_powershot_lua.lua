@@ -56,11 +56,15 @@ function ability_class:OnChannelFinish(bInterrupted)
 	end
 end
 
-function ability_class:GetManaCost(iLevel)          
+function ability_class:GetManaCost(iLevel)
+	local mc = 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int7")   ~= nil then 
-		return 75 + math.min(65000, self:GetCaster():GetIntellect()/125)
+		mc = mc * 0.75
 	end
-	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_windrunner_int50")   ~= nil then 
+		mc = mc * 0.5
+	end
+	return mc
 end
 
 
@@ -117,6 +121,10 @@ function ability_class:OnProjectileHit(hTarget, vLocation)
 		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_int_last")             
 		if abil ~= nil then 
 		damage = damage + (self:GetCaster():GetIntellect()/2)
+		end
+		local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_windrunner_int50")             
+		if abil ~= nil then 
+		damage = damage * 1.5
 		end
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_windrunner_str_last") ~= nil then
 			caster:Heal(damage, self)

@@ -26,16 +26,26 @@ function shaman_wards_custom:OnSpellStart()
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_shadow_shaman_int10")             
 	if abil ~= nil then 
 	count = count + 5
+	end           
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_shadow_shaman_agi50") then
+		self.special_bonus_unique_npc_dota_hero_shadow_shaman_agi50 = true
+		self.ass = self:GetCaster():FindItemInInventory("item_assault_lua")
+		self.des = self:GetCaster():FindItemInInventory("item_desolator_lua")
 	end
-
 	for i = 1, count do	  
-
-	shadow_ward = CreateUnitByName("shadow_shaman_ward", position + RandomVector( RandomFloat( 10, 100 )), true, caster, nil, caster:GetTeam())
-	shadow_ward:SetControllableByPlayer(caster:GetPlayerID(), true)
-	shadow_ward:SetOwner(caster)
-	shadow_ward:AddAbility("summon_buff"):SetLevel(1)
-	shadow_ward:AddNewModifier( shadow_ward, nil, "modifier_shadow_ward", {} )
-	
+		shadow_ward = CreateUnitByName("shadow_shaman_ward", position + RandomVector( RandomFloat( 10, 100 )), true, caster, nil, caster:GetTeam())
+		shadow_ward:SetControllableByPlayer(caster:GetPlayerID(), true)
+		shadow_ward:SetOwner(caster)
+		shadow_ward:AddAbility("summon_buff"):SetLevel(1)
+		shadow_ward:AddNewModifier( shadow_ward, nil, "modifier_shadow_ward", {} )
+		if self.special_bonus_unique_npc_dota_hero_shadow_shaman_agi50 then
+			if self.ass then
+				shadow_ward:AddItemByName("item_assault_lua"):SetLevel(self.ass:GetLevel())
+			end
+			if self.des then
+				shadow_ward:AddItemByName("item_desolator_lua"):SetLevel(self.des:GetLevel())
+			end
+		end
 	end
 end
 

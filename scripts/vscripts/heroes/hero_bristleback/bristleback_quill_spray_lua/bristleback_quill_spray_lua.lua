@@ -60,7 +60,14 @@ function bristleback_quill_spray_lua:OnSpellStart()
 			caster:AddNewModifier(caster, self, "modifier_armor", { duration = 2 })
 		end
 	end
-
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_int50") ~= nil then
+		self.special_bonus_unique_npc_dota_hero_bristleback_int50 = true
+	end
+	if caster:FindAbilityByName("npc_dota_hero_bristleback_str6") ~= nil then 
+		if not self:IsFullyCastable() then
+			self.npc_dota_hero_bristleback_str6 = true
+		end
+	end
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(enemies) do
 		local stack = 0
@@ -70,15 +77,17 @@ function bristleback_quill_spray_lua:OnSpellStart()
 		end
 
 		damageTable.victim = enemy
-		damageTable.damage = math.min(base_damage + stack*stack_damage, max_damage)
+		if self.special_bonus_unique_npc_dota_hero_bristleback_int50 then
+			damageTable.damage = base_damage + stack*stack_damage
+		else
+			damageTable.damage = math.min(base_damage + stack*stack_damage, max_damage)
+		end
 		ApplyDamage( damageTable )
 
 		enemy:AddNewModifier(caster, self, "modifier_bristleback_quill_spray_lua", { stack_duration = stack_duration })
 		
-		if caster:FindAbilityByName("npc_dota_hero_bristleback_str6") ~= nil then 
-			if not self:IsFullyCastable() then
-				enemy:AddNewModifier(caster, self, "modifier_evasion", {duration = 2})
-			end
+		if self.npc_dota_hero_bristleback_str6 then
+			enemy:AddNewModifier(caster, self, "modifier_evasion", {duration = 2})
 		end
 		self:PlayEffects2( enemy )
 	end

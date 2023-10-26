@@ -61,19 +61,12 @@ function modifier_mars_bulwark_lua:OnRefresh( kv )
 	end
 end
 
-function modifier_mars_bulwark_lua:OnRemoved()
-end
-
-function modifier_mars_bulwark_lua:OnDestroy()
-end
-
---------------------------------------------------------------------------------
-
 function modifier_mars_bulwark_lua:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
 	}
-	return funcs
 end
 
 --------------------------------------------------------------------------------
@@ -103,6 +96,17 @@ function modifier_mars_bulwark_lua:GetModifierPhysical_ConstantBlock( params )
 	return reduction*params.damage/100
 end
 
+function modifier_mars_bulwark_lua:GetModifierHealthRegenPercentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_str50") then
+		return 10
+	end
+end
+
+function modifier_mars_bulwark_lua:GetModifierMagicalResistanceBonus()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_str50") then
+		return 50
+	end
+end
 --------------------------------------------------------------------------------
 
 function modifier_mars_bulwark_lua:PlayEffects( front )

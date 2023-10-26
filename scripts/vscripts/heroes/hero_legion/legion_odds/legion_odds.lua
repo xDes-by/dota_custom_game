@@ -1,6 +1,10 @@
 legion_odds = class({})
 
+LinkLuaModifier( "modifier_legion_odds_talents", "heroes/hero_legion/legion_odds/legion_odds", LUA_MODIFIER_MOTION_NONE )
 
+function legion_odds:GetIntrinsicModifierName()
+	return "modifier_legion_odds_talents"
+end
 
 function legion_odds:OnAbilityPhaseInterrupted()
 	if self.thundergod_spell_cast then
@@ -32,10 +36,10 @@ function legion_odds:OnSpellStart()
 			ParticleManager:ReleaseParticleIndex(self.thundergod_spell_cast)
 		end
 		
-		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int10")
-		if abil ~= nil then 
-			damage = damage + caster:GetIntellect()
-		end
+		-- local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int10")
+		-- if abil ~= nil then 
+		-- 	damage = damage + caster:GetIntellect()
+		-- end
 
 		EmitSoundOnLocationForAllies(self:GetCaster():GetAbsOrigin(), "Hero_LegionCommander.Overwhelming.Location", self:GetCaster())
 
@@ -78,4 +82,67 @@ function legion_odds:OnSpellStart()
 			end
 		end
 	end
+end
+
+modifier_legion_odds_talents = class({})
+--Classifications template
+function modifier_legion_odds_talents:IsHidden()
+	return true
+end
+
+function modifier_legion_odds_talents:IsDebuff()
+	return false
+end
+
+function modifier_legion_odds_talents:IsPurgable()
+	return false
+end
+
+function modifier_legion_odds_talents:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_legion_odds_talents:IsStunDebuff()
+	return false
+end
+
+function modifier_legion_odds_talents:RemoveOnDeath()
+	return false
+end
+
+function modifier_legion_odds_talents:DestroyOnExpire()
+	return false
+end
+
+function modifier_legion_odds_talents:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE 
+	}
+end
+
+function modifier_legion_odds_talents:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "damage" then
+			return 1
+		end
+	end
+	return 0
+end
+
+function modifier_legion_odds_talents:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "damage" then
+			local damage = data.ability:GetLevelSpecialValueNoOverride( data.ability_special_value, data.ability_special_level )
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int10") then
+				damage = damage + self:GetCaster():GetIntellect()
+			end
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_int50") then
+				damage = damage + (self:GetCaster():GetAverageTrueAttackDamage(nil) - self:GetCaster():GetBaseDamageMax())
+			end
+			return damage
+		end
+	end
+	return 0
 end

@@ -103,7 +103,9 @@ function modifier_hex_mine:OnIntervalThink()
 		if player:FindAbilityByName("npc_dota_hero_shadow_shaman_int_last") ~= nil then
 			try_damage = try_damage + player:GetIntellect()*0.5
 	    end
-		
+		if player:FindAbilityByName("special_bonus_unique_npc_dota_hero_shadow_shaman_int50") ~= nil then
+			try_damage = try_damage * 2
+	    end		
         local activation_radius = self:GetAbility():GetSpecialValueFor("activation_radius")
         local damage_radius = self:GetAbility():GetSpecialValueFor("damage_radius")
 

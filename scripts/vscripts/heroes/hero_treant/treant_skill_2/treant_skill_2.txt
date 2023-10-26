@@ -5,6 +5,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_treant/treant_skill_2/treant_skill_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityTextureName"			"treant2skill"
 		"MaxLevel"						"15"
 		"AbilityCooldown"				"40"

@@ -1,6 +1,7 @@
 skywrath_mage_arcane_bolt_lua = class({})
 LinkLuaModifier( "modifier_skywrath_mage_arcane_bolt_lua", "heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_lua/modifier_skywrath_mage_arcane_bolt_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_skywrath_mage_arcane_bolt_hit", "heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_lua/skywrath_mage_arcane_bolt_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50", "heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_lua/skywrath_mage_arcane_bolt_lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_skywrath_mage_arcane_bolt_hit = {}
 
@@ -73,6 +74,11 @@ function skywrath_mage_arcane_bolt_lua:OnSpellStart()
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_skywrath_mage_str9")	
 	if abil ~= nil then 
 		base_damage = caster:GetStrength()
+	end
+
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skywrath_mage_str50")	
+	if abil ~= nil then 
+		base_damage = base_damage * 3
 	end
 
 	local damage = base_damage
@@ -163,11 +169,16 @@ function skywrath_mage_arcane_bolt_lua:OnProjectileHit_ExtraData( target, locati
 	-- cancel if linken
 	if target:TriggerSpellAbsorb( self ) then return end
 
+	self.mult = 1
+	local m = target:FindModifierByName("modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50")
+	if m then
+		self.mult = m:GetStackCount() / 10 + self.mult
+	end
 	-- apply damage
 	local damageTable = {
 		victim = target,
 		attacker = self:GetCaster(),
-		damage = extraData.damage,
+		damage = extraData.damage * self.mult,
 		damage_type = self:GetAbilityDamageType(),
 		ability = self, --Optional.
 	}
@@ -183,11 +194,56 @@ function skywrath_mage_arcane_bolt_lua:OnProjectileHit_ExtraData( target, locati
 		duration, --flDuration
 		false --bObstructedVision
 	)
-
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skywrath_mage_agi50") then
+		local m = target:FindModifierByName("special_bonus_unique_npc_dota_hero_skywrath_mage_agi50")
+		if m then
+			m:IncrementStackCount()
+		else
+			target:AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50", {duration = 60})
+		end
+	end
 	-- play effects
 	local sound_cast = "Hero_SkywrathMage.ArcaneBolt.Impact"
 	EmitSoundOn( sound_cast, target )
 
 	local sound_cast = "Hero_SkywrathMage.ArcaneBolt.Cast"
 	StopSoundOn( sound_cast, self:GetCaster() )
+end
+
+modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:IsHidden()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:IsDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self:SetStackCount(1)
 end

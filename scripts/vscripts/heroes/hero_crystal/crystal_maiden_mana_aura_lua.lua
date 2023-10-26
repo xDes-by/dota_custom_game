@@ -106,7 +106,12 @@ function modifier_crystal_maiden_mana_aura_lua_effect:DeclareFunctions()
 	return funcs
 end
 function modifier_crystal_maiden_mana_aura_lua_effect:OnAttackLanded(params)
-	if  params.attacker:FindAbilityByName("crystal_nova_lua") ~= nil and self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_agi_last") ~= nil and RandomInt(1, 100) <= 10 then
+	if params.attacker:FindAbilityByName("npc_dota_hero_crystal_maiden_agi50") then
+		rand = 25
+	else
+		rand = 15
+	end 
+	if  params.attacker:FindAbilityByName("crystal_nova_lua") ~= nil and self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_agi_last") ~= nil and RollPercentage(rand) then
 		if params.attacker:FindAbilityByName("crystal_nova_lua"):IsTrained() then
 			_G.novatarget = params.target
 			params.attacker:FindAbilityByName("crystal_nova_lua"):OnSpellStart()

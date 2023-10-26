@@ -69,10 +69,13 @@ function terrorblade_conjure_image_lua:OnSpellStart()
 	count = 2
 	end
 	
-	
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_str50") then
+		incoming = 0
+	end	
 	for i = 1, count do
 	
 	-- create illusion
+
 	local illusions = CreateIllusions(
 		caster, -- hOwner
 		caster, -- hHeroToCopy

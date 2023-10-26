@@ -93,6 +93,10 @@ function warlock_golem:OnSpellStart()
 		if abil ~= nil	then 
 		count = count + 3
 	end
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50")
+	if abil ~= nil	then 
+		count = count + 2
+	end
 	for i =1, count do
 	
 	local creep = CreateUnitByName( "max_golem", target + RandomVector( RandomFloat( 50, 50 )), true, nil, nil, DOTA_TEAM_GOODGUYS )

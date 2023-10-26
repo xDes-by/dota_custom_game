@@ -228,8 +228,12 @@ function modifier_enchantress_natures_talant_aura:RemoveOnDeath() return false e
 function modifier_enchantress_natures_talant_aura:IsAuraActiveOnDeath() return false end
 
 function modifier_enchantress_natures_talant_aura:OnCreated()
-	self.mana_cost= self:GetAbility():GetSpecialValueFor( "mana_cost" )
-	self.move_speed= self:GetAbility():GetSpecialValueFor( "move_speed" )
+	self.mana_cost = self:GetAbility():GetSpecialValueFor( "mana_cost" )
+	self.move_speed = self:GetAbility():GetSpecialValueFor( "move_speed" )
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_enchantress_str50") then
+		self.mana_cost = self.mana_cost * 2
+		self.move_speed = self.move_speed * 2
+	end
 end
 
 function modifier_enchantress_natures_talant_aura:DeclareFunctions()

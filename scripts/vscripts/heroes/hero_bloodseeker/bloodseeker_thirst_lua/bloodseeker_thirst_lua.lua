@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_bloodseeker_thirst_lua", "heroes/hero_bloodseeker/bloodseeker_thirst_lua/bloodseeker_thirst_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_bloodseeker_thirst_lua_stack", "heroes/hero_bloodseeker/bloodseeker_thirst_lua/bloodseeker_thirst_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50", "heroes/hero_bloodseeker/bloodseeker_thirst_lua/bloodseeker_thirst_lua", LUA_MODIFIER_MOTION_NONE )
 
 bloodseeker_thirst_lua = class({})
 
@@ -69,6 +70,7 @@ function modifier_bloodseeker_thirst_lua:OnCreated( kv )
 	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi6") ~= nil then
 	-- 	self.try_damage = self.bonus_damage + self:GetCaster():GetAgility()
 	-- end
+	self.original_model = self:GetCaster():GetModelName()
 	self:StartIntervalThink(1)
 end
 
@@ -114,6 +116,9 @@ function modifier_bloodseeker_thirst_lua:OnDeath(params)
 	heal = self:GetParent():GetMaxHealth() / 100 * self:GetAbility():GetSpecialValueFor("bonus_lifesteal")
 	SendOverheadEventMessage( self:GetCaster(), OVERHEAD_ALERT_HEAL , self:GetCaster(), heal, nil )
 	self:GetParent():Heal(heal, self:GetAbility())
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bloodseeker_agi50") then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50", {duration = 10})
+	end
 end
 
 function modifier_bloodseeker_thirst_lua:AddStack(count, duration)
@@ -164,10 +169,17 @@ function modifier_bloodseeker_thirst_lua:OnAttackLanded(params)
 end
 
 function modifier_bloodseeker_thirst_lua:GetModifierSpellAmplify_Percentage()
+	local value = 0 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_int9") then
-		return self:GetStackCount() * 5
+		value = value + self:GetStackCount() * 5
 	end
-	return 0
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bloodseeker_int50") then
+		value = value + self:GetCaster():GetMoveSpeedModifier(true, false)
+	end
+	if self:GetCaster():GetModelName() ~= self.original_model then
+		return 0
+	end
+	return value
 end
 
 -- function modifier_bloodseeker_thirst_lua:GetModifierTotalDamageOutgoing_Percentage(k)
@@ -273,4 +285,54 @@ function modifier_bloodseeker_thirst_lua_stack:OnRemoved()
 end
 
 function modifier_bloodseeker_thirst_lua_stack:OnDestroy()
+end
+
+modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:IsDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:RemoveOnDeath()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:DestroyOnExpire()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:GetModifierMoveSpeedBonus_Percentage()
+	return 50
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_bloodseeker_agi50:GetModifierAttackSpeedBonus_Constant()
+	return 75
 end

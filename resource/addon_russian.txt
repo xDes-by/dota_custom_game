@@ -2485,6 +2485,7 @@
         "dota_tooltip_ability_legion_courage_description" "Может мгновенно ответить на вражескую атаку контрударом с дополнительным вампиризмом."
         "dota_tooltip_ability_legion_courage_trigger_chance" "%Шанс контратаки:"
         "dota_tooltip_ability_legion_courage_damage" "%Вампиризм:"
+        "dota_tooltip_ability_legion_courage_armor_reduction" "СНИЖЕНИЕ БРОНИ:"
 
         "dota_tooltip_ability_legion_ult" "Damage Collector"
         "dota_tooltip_ability_legion_ult_description" "Находясь на поле боя герой накапливает урон."

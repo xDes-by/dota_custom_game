@@ -106,6 +106,10 @@ function damage_tlents(ability, caster)
 	if caster:FindAbilityByName("npc_dota_hero_broodmother_int7") then
 		damage = damage + caster:GetIntellect()
 	end
+
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_int50") then
+		damage = damage + caster:GetIntellect()
+	end
 	return damage
 end
 

@@ -21,7 +21,10 @@ end
 	else
 	 	target = self:GetCursorTarget()
 	end
-	 
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_int50")	
+	if abil ~= nil then 
+		damage = damage + self:GetCaster():GetIntellect()
+	end	 
 	 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int9")	
 		if abil ~= nil then 
 		max_jump_count = 5

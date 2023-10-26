@@ -6,7 +6,11 @@ function sandking_waves(keys)
 	local radius = ability:GetSpecialValueFor("radius")
 	local chance = ability:GetSpecialValueFor("chance")
 	sand_ult_damage = ability:GetSpecialValueFor("damage")
-	
+
+	if caster:FindAbilityByName("npc_dota_hero_sand_king_agi50") ~= nil then 
+		radius = radius + 300
+	end
+
 	if caster:FindAbilityByName("npc_dota_hero_sand_king_str11") ~= nil then 
 		sand_ult_damage = ability:GetSpecialValueFor("damage") + caster:GetStrength() * 0.75
 	end

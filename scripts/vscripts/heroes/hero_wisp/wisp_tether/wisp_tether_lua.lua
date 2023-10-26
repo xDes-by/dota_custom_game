@@ -270,6 +270,14 @@ function modifier_wisp_tether_lua_ally:OnCreated()
 	--	self:GetParent():AddNewModifier(self:GetParent(), self, "modifier_spell_ampl_tether", {})
 		
 		-- self:StartIntervalThink(FrameTime())
+		self.atr = self:GetCaster():GetPrimaryAttribute()
+		if self.atr == DOTA_ATTRIBUTE_AGILITY then
+			self.atr_bonus = self:GetCaster():GetAgility()
+		elseif self.atr == DOTA_ATTRIBUTE_INTELLECT then
+			self.atr_bonus = self:GetCaster():GetIntellect()
+		elseif self.atr == DOTA_ATTRIBUTE_STRENGTH then
+			self.atr_bonus = self:GetCaster():GetStrength()
+		end
 	end
 end
 
@@ -328,14 +336,37 @@ function modifier_wisp_tether_lua_ally:OnRemoved()
 end
 
 function modifier_wisp_tether_lua_ally:DeclareFunctions()
-	local decFuncs = {
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-	}
 
-	return decFuncs
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+	}
+end
+
+function modifier_wisp_tether_lua_ally:GetModifierBonusStats_Strength()
+	if self.atr == DOTA_ATTRIBUTE_STRENGTH then
+		return self.atr_bonus
+	end
+	return 0
+end
+
+function modifier_wisp_tether_lua_ally:GetModifierBonusStats_Agility()
+	if self.atr == DOTA_ATTRIBUTE_AGILITY then
+		return self.atr_bonus
+	end
+	return 0
+end
+
+function modifier_wisp_tether_lua_ally:GetModifierBonusStats_Intellect()
+	if self.atr == DOTA_ATTRIBUTE_INTELLECT then
+		return self.atr_bonus
+	end
+	return 0
 end
 
 function modifier_wisp_tether_lua_ally:GetModifierAttackSpeedBonus_Constant()

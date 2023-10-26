@@ -68,12 +68,18 @@ end
 function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 	local caster = self:GetCaster()
 	if caster == target then return end
+	damage_type = self:GetAbilityDamageType()
+	damage_flags = DOTA_DAMAGE_FLAG_MAGIC_AUTO_ATTACK
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_agi50") then
+		damage_type = DAMAGE_TYPE_PHYSICAL
+		damage_flags = 0
+	end
 	local damageTable = {
 		victim = target,
 		attacker = caster,
 		damage = damage,
-		damage_type = self:GetAbilityDamageType(),
-		damage_flags = DOTA_DAMAGE_FLAG_MAGIC_AUTO_ATTACK,
+		damage_type = damage_type,
+		damage_flags = damage_flags,
 		ability = self,
 	}
 	ApplyDamage(damageTable)
@@ -199,7 +205,11 @@ function modifier_silencer_glaives_of_wisdom_lua:OnDeath(params)
 				0,	-- int, order filter
 				false	-- bool, can grow cache
 			)
-			if #heroes == 1 and RollPseudoRandomPercentage(10, caster:entindex(), caster) then
+			rand = 10
+			if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_int50") then
+				rand = rand + 23
+			end
+			if #heroes == 1 and RollPseudoRandomPercentage(rand, caster:entindex(), caster) then
 				self:IncrementStackCount()
 			end
 		end

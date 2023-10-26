@@ -32,7 +32,11 @@ function warlock_ripping:GetManaCost(iLevel)
 end
 
 function warlock_ripping:CastFilterResultTarget( hTarget )
-	if self:GetCaster():GetModifierStackCount( "modifier_golems", self) == 5 then 
+	self.max_golems = 5
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50") ~= nil then
+		self.max_golems = self.max_golems + 1
+	end
+	if self:GetCaster():GetModifierStackCount( "modifier_golems", self) == self.max_golems then 
 		local nResult = UnitFilter(
 		hTarget,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -84,6 +88,9 @@ function warlock_ripping:OnSpellStart()
 	local damage = ability:GetSpecialValueFor("damage")
 	
 	count = 3
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50") ~= nil then
+		count = count + 1
+	end
 	local modifier = caster:AddNewModifier(caster, ability,  "modifier_golems", nil)
 	local currentStacks = caster:GetModifierStackCount( "modifier_golems", ability)
 	
@@ -158,7 +165,10 @@ function warlock_ripping:OnSpellStart()
 		if abil ~= nil	then 
 		mnozhitel = mnozhitel + 0.5
 	end
-	
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_agi50")
+		if abil ~= nil	then 
+		mnozhitel = mnozhitel + 0.5
+	end	
 	-----------------------------------------------------
 	creep_damage_min = min_damage*mnozhitel
 	creep_damage_max = max_damage*mnozhitel

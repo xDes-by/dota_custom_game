@@ -12,6 +12,13 @@ function techies_land_mines_lua:IsStealable() 				return true end
 function techies_land_mines_lua:IsNetherWardStealable()	return false end
 function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("small_radius") end
 
+function techies_land_mines_lua:GetCooldown(iLevel)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_techies_int50") ~= nil	then 
+		return self.BaseClass.GetCooldown( self, level ) / 2
+	end
+	return self.BaseClass.GetCooldown( self, level )
+end
+
 function techies_land_mines_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
@@ -121,7 +128,10 @@ function modifier_land_mines:OnDestroy()
 		mine_damage = self:GetAbility():GetSpecialValueFor("damage")
 		
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_techies_str9") ~= nil then
-			mine_damage = self:GetCaster():GetMaxHealth() * 0.2 + mine_damage
+			mine_damage = self:GetCaster():GetMaxHealth() * 0.02 + mine_damage
+		end	
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_techies_str50") ~= nil then
+			mine_damage = self:GetCaster():GetMaxHealth() * 0.1 + mine_damage
 		end	
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_techies_agi7") ~= nil then
 			mine_damage = self:GetCaster():GetAttackDamage() + mine_damage

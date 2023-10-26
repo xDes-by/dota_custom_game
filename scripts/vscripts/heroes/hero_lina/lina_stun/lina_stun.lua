@@ -46,6 +46,10 @@ function lina_stun:OnSpellStart()
 	if abil ~= nil then 
 	damage = damage + self:GetCaster():GetIntellect()/2
 	end
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_int50")	
+	if abil ~= nil then 
+		damage = damage + self:GetCaster():GetIntellect()
+	end
 	local dummies = {}
 	-- destroyunits = false
 	Timers:CreateTimer(function()

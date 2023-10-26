@@ -50,7 +50,11 @@ function ancient_apparition_chilling_touch_lua:OnOrbImpact( keys )
 		self.damage = self.damage * 2
 		damage_type = DAMAGE_TYPE_PHYSICAL
 	end
-	
+
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_ancient_apparition_int50") ~= nil then 
+		self.damage = self.damage + self:GetCaster():GetStrength() + self:GetCaster():GetIntellect() + self:GetCaster():GetAgility()
+	end
+
 	count = 0
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_ancient_apparition_agi10") ~= nil then 
 		local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), keys.target:GetOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false )

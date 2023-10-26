@@ -13,12 +13,26 @@ function treant_skill_2:GetCooldown(level)
 	 end
 end
 
+function treant_skill_2:GetBehavior()
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_str50") 
+	if abil ~= nil then
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+	else
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+	end
+end
+
 function treant_skill_2:GetIntrinsicModifierName()
 	return "modifier_treant_skill_2"
 end
 
 function treant_skill_2:OnSpellStart()
-if IsServer() then 
+	local target = self:GetCursorTarget()
+	local caster = self:GetCaster()
+	if target then
+		local modifier = target:AddNewModifier(self:GetCaster(), self, "modifier_treant_skill_2", {duration = 60})
+		modifier:SetStackCount(caster:GetModifierStackCount("modifier_treant_skill_2", self) / 2)
+	end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_treant_int9")	
 	if abil ~= nil then 
 		if RandomInt(1,100) < 10 then
@@ -26,7 +40,6 @@ if IsServer() then
 		end
 	end
 		
-	local caster = self:GetCaster()
 	local target_point = self:GetCaster():GetOrigin()
 	
 	a = GridNav:GetAllTreesAroundPoint(target_point, 300, true)
@@ -38,7 +51,6 @@ if IsServer() then
 	GridNav:DestroyTreesAroundPoint( target_point, 300, true )
 
 	caster:EmitSound("Tiny.Grow")
-	end
 end
 
 -----------------------------------------------------------------------------
@@ -54,7 +66,8 @@ modifier_treant_skill_2 = class({
 	{MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
 	MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 	MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
-	MODIFIER_EVENT_ON_ABILITY_EXECUTED} end,
+	MODIFIER_EVENT_ON_ABILITY_EXECUTED,
+	MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE} end,
 })
 
 function modifier_treant_skill_2:OnAbilityExecuted(params)
@@ -88,4 +101,12 @@ function modifier_treant_skill_2:GetModifierPhysicalArmorBonusUnique(params)
 		return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("arm") * 2
 	end
 	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("arm")
+end
+
+function modifier_treant_skill_2:GetModifierPreAttack_CriticalStrike()
+	if self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_agi50") then
+		if RollPercentage(10) then
+			return self:GetStackCount() * 0.5
+		end
+	end
 end

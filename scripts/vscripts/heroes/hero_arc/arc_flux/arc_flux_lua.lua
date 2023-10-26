@@ -14,6 +14,15 @@ function arc_flux_lua:GetManaCost(iLevel)
 	end
 end
 
+function arc_flux_lua:GetCooldown(iLevel)
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_arc_warden_str50")
+	if abil ~= nil then
+		return self.BaseClass.GetCooldown( self, level ) / 2
+	else
+        return self.BaseClass.GetCooldown( self, level )
+	end
+end
+
 function arc_flux_lua:OnSpellStart()
 
 	local caster = self:GetCaster()

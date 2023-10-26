@@ -18,27 +18,15 @@
 		"AbilityCooldown"				"30"
 		"AbilityCastRange"				"700"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"				"350"
+			"regen"					"30 50 70 90 110 130 150 170 190 210 230 250 270 290 310"
+			"attack_speed"			"40 65 90 115 140 165 190 215 240 265 290 315 340 365 390"
+			"duration"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"30 50 70 90 110 130 150 170 190 210 230 250 270 290 310"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"40 65 90 115 140 165 190 215 240 265 290 315 340 365 390"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"5"
+				"value" "5"
+				"special_bonus_unique_npc_dota_hero_legion_commander_str50" "x3"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"

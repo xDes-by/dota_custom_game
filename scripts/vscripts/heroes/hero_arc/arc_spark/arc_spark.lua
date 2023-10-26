@@ -23,22 +23,28 @@ function ark_spark_lua:OnSpellStart()
 		local enemy_speed = self:GetSpecialValueFor("enemy_speed")
 		local caster_loc = caster:GetAbsOrigin()
 		caster:EmitSound("Hero_ArcWarden.SparkWraith.Cast")
+		count = 1
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_arc_warden_int50") then
+			count = 2
+		end
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-		for _,enemy in pairs(enemies) do
-		
-			enemy = enemies[1]
+		for i=1,count do
+			for _,enemy in pairs(enemies) do
 			
-			ProjectileManager:CreateTrackingProjectile({
-				Target = enemy,
-				Source = caster,
-				Ability = self,
-				EffectName = "particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_prj.vpcf",
-				bDodgeable = false,
-				bProvidesVision = false,
-				iMoveSpeed = enemy_speed,
-				flExpireTime = GameRules:GetGameTime() + 60,
-				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-			})
+				enemy = enemies[1]
+				
+				ProjectileManager:CreateTrackingProjectile({
+					Target = enemy,
+					Source = caster,
+					Ability = self,
+					EffectName = "particles/econ/items/arc_warden/arc_warden_ti9_immortal/arc_warden_ti9_wraith_prj.vpcf",
+					bDodgeable = false,
+					bProvidesVision = false,
+					iMoveSpeed = enemy_speed,
+					flExpireTime = GameRules:GetGameTime() + 60,
+					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+				})
+			end
 		end
 	end
 end

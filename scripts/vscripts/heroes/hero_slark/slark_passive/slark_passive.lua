@@ -31,22 +31,27 @@ function modifier_slark_passive:OnCreated( kv )
 	self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
 	self.chance = self:GetAbility():GetSpecialValueFor("chance")
 	self.lose = self:GetAbility():GetSpecialValueFor("lose")
-
-	if IsServer() then
-		self:SetStackCount(0)
+	if not IsServer() then
+		return
 	end
+	self.special_bonus_unique_npc_dota_hero_slark_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_agi50")
+	self:SetStackCount(0)
 end
 
 function modifier_slark_passive:OnRefresh( kv )
 	self.bonus_agi = self:GetAbility():GetSpecialValueFor("bonus_agi")
 	self.chance = self:GetAbility():GetSpecialValueFor("chance")
 	self.lose = self:GetAbility():GetSpecialValueFor("lose")
+	if not IsServer() then
+		return
+	end
+	self.special_bonus_unique_npc_dota_hero_slark_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_agi50")
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_slark_passive:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_DEATH,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -54,9 +59,9 @@ function modifier_slark_passive:DeclareFunctions()
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
 	}
-	return funcs
 end
 
 
@@ -178,7 +183,11 @@ function modifier_slark_passive:GetModifierPhysicalArmorBonus( params )
 	end
 end
 
-
+function modifier_slark_passive:GetModifierPreAttack_BonusDamage()
+	if self.special_bonus_unique_npc_dota_hero_slark_agi50 then
+		return self:GetStackCount() * 3
+	end
+end
 
 function modifier_slark_passive:AddStack( value )
 	local current = self:GetStackCount()

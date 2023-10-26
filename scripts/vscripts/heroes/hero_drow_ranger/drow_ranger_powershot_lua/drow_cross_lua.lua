@@ -70,7 +70,10 @@ function drow_cross_lua:OnSpellStart()
 	local length = 0
 	local c1 = self:GetCaster():GetOrigin()
 	local c2 = self:GetCaster():GetOrigin()
-
+	if self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_int50") ~= nil then 
+		self.count = self.count + 5
+		self.distance = self.distance + 200
+	end
 	for i=1, self.count do 
 		local offset = target_pos
 

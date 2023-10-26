@@ -33,6 +33,17 @@ function modifier_spectre_desolate_lua:IsAura()
     return false
 end
 
+function modifier_spectre_desolate_lua:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self.special_bonus_unique_npc_dota_hero_spectre_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_spectre_agi50")
+end
+
+function modifier_spectre_desolate_lua:OnRefresh()
+    self:OnCreated()
+end
+
 function modifier_spectre_desolate_lua:GetModifierAura() 
 	return "modifier_spectre_desolate_debuff" 
 end
@@ -65,31 +76,55 @@ end
 function modifier_spectre_desolate_lua:OnAttackLanded( params )
 	local attacker = params.attacker
     local target = params.target
-	if attacker ~= self:GetParent() then return end
-    if not target:IsAlive() or target:IsMagicImmune() then return end
-    EmitSoundOn("Hero_Spectre.Desolate", self:GetCaster())
+	if attacker ~= self:GetParent() then 
+        if self.special_bonus_unique_npc_dota_hero_spectre_agi50 then
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_spectre_agi11") then
+                local enemies = FindUnitsInRadius(
+                    self:GetParent():GetTeamNumber(),	-- int, your team number
+                    attacker:GetOrigin(),	-- point, center point
+                    nil,	-- handle, cacheUnit. (not known)
+                    150,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+                    DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+                    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+                    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
+                    0,	-- int, order filter
+                    false	-- bool, can grow cache
+                )
+        
+                for _,enemy in pairs(enemies) do
+                    if enemy ~= attacker then
+                        self:ApplyEffect(enemy, 0.75)
+                    end
+                end
+            end
+            self:ApplyEffect(attacker, 1)
+            EmitSoundOn("Hero_Spectre.Desolate", self:GetCaster())
+        else
+            EmitSoundOn("Hero_Spectre.Desolate", self:GetCaster())
 
     
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_spectre_agi11") then
-        local enemies = FindUnitsInRadius(
-            self:GetParent():GetTeamNumber(),	-- int, your team number
-            target:GetOrigin(),	-- point, center point
-            nil,	-- handle, cacheUnit. (not known)
-            150,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-            DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-            0,	-- int, order filter
-            false	-- bool, can grow cache
-        )
-
-        for _,enemy in pairs(enemies) do
-            if enemy ~= target then
-                self:ApplyEffect(enemy, 0.75)
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_spectre_agi11") then
+                local enemies = FindUnitsInRadius(
+                    self:GetParent():GetTeamNumber(),	-- int, your team number
+                    target:GetOrigin(),	-- point, center point
+                    nil,	-- handle, cacheUnit. (not known)
+                    150,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+                    DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
+                    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
+                    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
+                    0,	-- int, order filter
+                    false	-- bool, can grow cache
+                )
+        
+                for _,enemy in pairs(enemies) do
+                    if enemy ~= target then
+                        self:ApplyEffect(enemy, 0.75)
+                    end
+                end
             end
+            self:ApplyEffect(target, 1)
         end
     end
-    self:ApplyEffect(target, 1)
 end
 
 

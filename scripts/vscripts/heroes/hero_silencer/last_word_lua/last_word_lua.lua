@@ -1,7 +1,12 @@
 LinkLuaModifier( "modifier_silencer_last_word_lua_silence", "heroes/hero_silencer/last_word_lua/last_word_lua.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_silencer_last_word_lua", "heroes/hero_silencer/last_word_lua/last_word_lua.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_silencer_str50", "heroes/hero_silencer/last_word_lua/last_word_lua.lua", LUA_MODIFIER_MOTION_NONE )
 
 silencer_last_word_lua = {}
+
+function silencer_last_word_lua:GetIntrinsicModifierName()
+    return "modifier_special_bonus_unique_npc_dota_hero_silencer_str50"
+end
 
 function silencer_last_word_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
@@ -200,4 +205,59 @@ end
 
 function modifier_silencer_last_word_lua_silence:GetEffectAttachType()
 	return PATTACH_OVERHEAD_FOLLOW
+end
+
+modifier_special_bonus_unique_npc_dota_hero_silencer_str50 = class({})
+--Classifications template
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:IsHidden()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:IsDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:IsStunDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:RemoveOnDeath()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:DestroyOnExpire()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self.special_bonus_unique_npc_dota_hero_silencer_str50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_str50")
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:OnRefresh()
+	self:OnCreated()
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:GetModifierDamageOutgoing_Percentage(data)
+	if self.special_bonus_unique_npc_dota_hero_silencer_str50 and data.target:IsSilenced() then
+		return 200
+	end
+	return 100
 end
