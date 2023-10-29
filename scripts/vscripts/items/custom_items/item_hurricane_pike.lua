@@ -60,10 +60,10 @@ function modifier_hurricane_multishot:DeclareFunctions()
 end
 
 function modifier_hurricane_multishot:OnAttack(keys)
-    if not IsServer() then 
-        return 
+    if keys.no_attack_cooldown then
+        return
     end
-    if keys.attacker == self:GetParent() and self:GetParent():IsRangedAttacker() and keys.target and keys.target:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and not keys.no_attack_cooldown and self:GetAbility():IsFullyCastable() and RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("multishot_chance"), self:GetCaster():entindex(), self:GetCaster()) then	
+    if keys.attacker == self:GetParent() and self:GetParent():IsRangedAttacker() and keys.target and self:GetAbility():IsFullyCastable() and RollPseudoRandomPercentage(self:GetAbility():GetSpecialValueFor("multishot_chance"), self:GetCaster():entindex(), self:GetCaster()) then	
 	
         local enemies = FindUnitsInRadius(self:GetParent():GetTeamNumber(), keys.target:GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("multishot_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)		
         local nTargetNumber = 0		

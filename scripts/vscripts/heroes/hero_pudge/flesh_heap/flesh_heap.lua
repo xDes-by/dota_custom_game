@@ -43,7 +43,7 @@ function modifier_flesh_heap_stacks_lua:OnRefresh( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str6") ~= nil then 
 	self.base_magic_resist = self:GetAbility():GetSpecialValueFor("base_magic_resist") * 2
 	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str50") ~= nil then 
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_str50") ~= nil then 
 		self.double_stack = true
 	end
 end

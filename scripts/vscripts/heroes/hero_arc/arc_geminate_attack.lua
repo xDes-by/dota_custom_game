@@ -83,7 +83,7 @@ function arc_geminate_attack:OnProjectileHit_ExtraData(target, vLocation, extraD
 		end
 		local damage = self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster())*0.01*mult
 		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_arc_warden_agi50") ~= nil then
-			damage = damage * self:GetCaster():GetSpellAmplification(false) * 0.01 * 0.05
+			damage = damage * (self:GetCaster():GetSpellAmplification(false) * 0.05 + 1)
 		end
 		ApplyDamage({attacker = self:GetCaster(), victim = target, damage = damage, damage_type = DAMAGE_TYPE_PURE, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 	end

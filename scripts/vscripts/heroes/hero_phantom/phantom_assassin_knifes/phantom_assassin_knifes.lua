@@ -183,7 +183,7 @@ function modifier_phantom_assassin_knifes_attack:GetModifierPreAttack_BonusDamag
 	end
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_phantom_assassin_int50")
 	if abil ~= nil then
-		dmg = dmg * self:GetCaster():GetSpellAmplification(false) * 0.01 * 0.05
+		dmg = dmg * (1 + self:GetCaster():GetSpellAmplification(false) * 0.05)
 	end
 	return dmg 
 end

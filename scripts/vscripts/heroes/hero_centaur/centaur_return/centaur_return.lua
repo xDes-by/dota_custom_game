@@ -135,7 +135,7 @@ function modifier_return_passive:OnTakeDamage(keys)
 			end
 			local abil = caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_centaur_int50")
 			if abil ~= nil then 
-				damage = damage * self:GetParent():GetSpellAmplification(false) * 0.01 * 0.05 
+				damage = damage * (1 + self:GetParent():GetSpellAmplification(false) * 0.05)
 			end		
 
 			ApplyDamage({

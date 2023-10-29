@@ -10,7 +10,7 @@ function alchemist_greevils_greed_lua:GetIntrinsicModifierName()
 end
 
 function alchemist_greevils_greed_lua:GetBehavior()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_alchemist_str50") ~= nil then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50") ~= nil then
 		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
 	else
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
@@ -35,7 +35,7 @@ function alchemist_greevils_greed_lua:OnSpellStart()
 		local front = self:GetCaster():GetForwardVector():Normalized()
 		local target_pos = self:GetCaster():GetOrigin() + front * 200
 		EmitSoundOn("SeasonalConsumable.TI9.Shovel.Dig", self:GetCaster())
-		CreateRune(target_pos, RandomInt(0,5))
+		CreateRune(target_pos, DOTA_RUNE_DOUBLEDAMAGE)
 	end
 end
 
@@ -80,7 +80,7 @@ function modifier_alchemist_greevils_greed_lua:OnCreated()
 			end
 		end
 	end
-	if self:GetParent():HasAbility("npc_dota_hero_alchemist_int50") then
+	if self:GetParent():HasAbility("special_bonus_unique_npc_dota_hero_alchemist_int50") then
 		self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_alchemist_corrosive_weapon", {} )
 	end
 end
@@ -98,7 +98,7 @@ function modifier_alchemist_greevils_greed_lua:OnRefresh()
 			end
 		end
 	end
-	if self:GetParent():HasAbility("npc_dota_hero_alchemist_int50") then
+	if self:GetParent():HasAbility("special_bonus_unique_npc_dota_hero_alchemist_int50") then
 		self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_alchemist_corrosive_weapon", {} )
 	end
 end

@@ -19,7 +19,7 @@ function item_smithy_pickaxe:GetCastRange(vLocation, hTarget)
 end
 
 function item_smithy_pickaxe:GetCooldown(iLevel)
-    return self.ChannelTime
+    return self.ChannelTime or 0
 end
 
 function item_smithy_pickaxe:GetChannelTime()

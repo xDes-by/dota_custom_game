@@ -26,19 +26,6 @@ function modifier_legion_courage:IsPurgable()
 	return false
 end
 
-function modifier_legion_courage:OnCreated( kv )
-	if not IsServer() then
-		return
-	end
-	self:GetCaster():AddAbility("special_bonus_unique_npc_dota_hero_legion_commander_agi50")
-end
-
-function modifier_legion_courage:OnRefresh( kv )
-end
-
-function modifier_legion_courage:OnDestroy( kv )
-end
-
 function modifier_legion_courage:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -63,7 +50,6 @@ function modifier_legion_courage:GetModifierOverrideAbilitySpecialValue(data)
 			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_agi50") then
 				armor_reduction = data.ability:GetLevel()
 			end
-			print(armor_reduction)
 			return armor_reduction
 		end
 	end
@@ -122,7 +108,7 @@ end
 function deal_damage(mod, abil, parent, target, damage_type, damage_flags)
 	local v = abil:GetSpecialValueFor("armor_reduction")
 	if v ~= 0 then
-		target:AddNewModifier(parent, abil, "modifier_legion_courage_armor_reduction", {value = v})
+		target:AddNewModifier(parent, abil, "modifier_legion_courage_armor_reduction", {})
 	end
 	damage = parent:GetAverageTrueAttackDamage(nil)
 	local heal = damage * abil:GetSpecialValueFor("damage")/100
@@ -180,6 +166,9 @@ end
 modifier_legion_courage_armor_reduction = class({})
 --Classifications template
 function modifier_legion_courage_armor_reduction:IsHidden()
+	if self.value == 0 then
+		return true
+	end
 	return false
 end
 
@@ -209,19 +198,19 @@ function modifier_legion_courage_armor_reduction:DestroyOnExpire()
 end
 
 function modifier_legion_courage_armor_reduction:OnCreated(data)
+	self.value = self:GetAbility():GetSpecialValueFor("armor_reduction")
 	if not IsServer() then
 		return
 	end
-	self.value = data.value
 	self:SetStackCount(1)
 	self:SetDuration(30, true)
 end
 
 function modifier_legion_courage_armor_reduction:OnRefresh(data)
+	self.value = self:GetAbility():GetSpecialValueFor("armor_reduction")
 	if not IsServer() then
 		return
 	end
-	self.value = data.value
 	if self:GetStackCount() <= 10 then
 		self:SetStackCount(self:GetStackCount()+1)
 	end
@@ -234,5 +223,5 @@ function modifier_legion_courage_armor_reduction:DeclareFunctions()
 end
 
 function modifier_legion_courage_armor_reduction:GetModifierPhysicalArmorBonus()
-	return self:GetStackCount() * self.value
+	return self:GetStackCount() * self.value * -1
 end

@@ -108,8 +108,8 @@ function modifier_bristleback_bristleback_lua:OnTakeDamage( params )
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "frostivus2018_spectre_active_dispersion"  then return end
 			if params.inflictor ~= nil and params.inflictor:GetAbilityName() == "ability_npc_boss_plague_squirrel_spell2"  then return end
 				
-			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_agi50") then
-				self.special_bonus_unique_npc_dota_hero_bristleback_agi50 = true
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_str50") then
+				self.special_bonus_unique_npc_dota_hero_bristleback_str50 = true
 			else
 				forwardVector = self.caster:GetForwardVector()
 				forwardAngle = math.deg(math.atan2(forwardVector.x, forwardVector.y))
@@ -120,7 +120,7 @@ function modifier_bristleback_bristleback_lua:OnTakeDamage( params )
 				difference = math.abs(forwardAngle - reverseEnemyAngle)
 			end
 
-			if self.special_bonus_unique_npc_dota_hero_bristleback_agi50 or (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
+			if self.special_bonus_unique_npc_dota_hero_bristleback_str50 or (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
 				self:SetStackCount(self:GetStackCount() + params.damage)
 				
 				local ability = self:GetParent():FindAbilityByName("bristleback_quill_spray_lua")

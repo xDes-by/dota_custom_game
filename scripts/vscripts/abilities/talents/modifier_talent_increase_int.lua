@@ -1,7 +1,7 @@
 modifier_talent_increase_int = class({})
 
 function modifier_talent_increase_int:IsHidden()
-	return false
+	return true
 end
 
 function modifier_talent_increase_int:IsPurgable()
@@ -14,11 +14,9 @@ end
 
 function modifier_talent_increase_int:OnCreated(kv)
     self.value = {0.1, 0.15, 0.2, 0.25, 0.3, 0.35}
-    self.int_per_creep = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_increase_int:OnRefresh(kv)
-    self.int_per_creep = self.value[self:GetStackCount()]
+    self:SetStackCount(1)
+    self.parent = self:GetParent()
+    self.creeps_killed = 0
 end
 
 function modifier_talent_increase_int:DeclareFunctions()
@@ -31,13 +29,13 @@ end
 function modifier_talent_increase_int:OnDeath(params)
     local parent = self:GetParent()
     if IsMyKilledBadGuys(parent, params) then
-        self:IncrementStackCount()
+        self.creeps_killed = self.creeps_killed + 1
         parent:CalculateStatBonus(true)
     end
 end
 
 function modifier_talent_increase_int:GetModifierBonusStats_Intellect(params)
-    return math.floor(self:GetStackCount() * self.int_per_creep)
+    return math.floor(self.creeps_killed * self.value[self:GetStackCount()])
 end
 
 function IsMyKilledBadGuys(hero, params)

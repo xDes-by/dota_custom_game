@@ -106,7 +106,7 @@ function modifier_crystal_maiden_mana_aura_lua_effect:DeclareFunctions()
 	return funcs
 end
 function modifier_crystal_maiden_mana_aura_lua_effect:OnAttackLanded(params)
-	if params.attacker:FindAbilityByName("npc_dota_hero_crystal_maiden_agi50") then
+	if params.attacker:FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_agi50") then
 		rand = 25
 	else
 		rand = 15

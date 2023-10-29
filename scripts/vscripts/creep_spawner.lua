@@ -51,78 +51,6 @@ function creep_spawner:spawn_2023()
 	end)
 end
 
--- ////////////////////////////////////////////////////////////////////////////////////
-
-function creep_spawner:spawn_creeps_forest()
-	local count = 0
-	Timers:CreateTimer(0, function()
-	if count < 12 then
-		count = count + 1
-		pt = point_forest[count]
-		local point = Vector(pt[1],pt[2],pt[3])
-			if count == 1 or count == 7 or count == 9 or count == 10 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_1")
-					else	
-						local unit = CreateUnitByName("forest_creep_mini_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_1")
-					end	
-				end
-			else if count == 2 or count == 4 or count == 5 or count == 11 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_2")
-					else	
-						local unit = CreateUnitByName("forest_creep_mini_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_2")
-					end	
-				end
-			else 
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("forest_creep_big_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_big_3")
-					else	
-						local unit = CreateUnitByName("forest_creep_mini_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "forest_creep_mini_3")
-					end	
-				end
-			end	
-		end
-		return 0.1
-	else
-		return nil
-		end
-	end)
-	creep_spawner:bosses()	
-end
-
-
-function creep_spawner:bosses()	
-	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,  Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE,  DOTA_UNIT_TARGET_TEAM_BOTH,  DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-	 for _,unit in pairs(enemies) do
-		for _,t in ipairs(bosses) do
-			if t and t == unit:GetUnitName() then 
-				Rules:difficality_modifier(unit)
-				unit:add_items()
-				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
-			end
-		end			
-	end	
-	local points = Entities:FindByName( nil, "big_points"):GetAbsOrigin()
-	local newItem = CreateItem( "item_points_big", nil, nil )
-	local drop = CreateItemOnPositionForLaunch( points, newItem )
-end
-
 local creep_name_TO_item_level = {
 	["npc_forest_boss"] = 1,
 	["npc_village_boss"] = 1,
@@ -144,6 +72,10 @@ function CDOTA_BaseNPC:add_items(level)
 	if not level then
 		level = creep_name_TO_item_level[name]
 	end
+	if not level then
+		print("cant add item level not setted")
+		return
+	end
 	local empty_slots = 0
 	for i=0,5 do
 		if self:GetItemInSlot(i) == nil then
@@ -157,323 +89,221 @@ function CDOTA_BaseNPC:add_items(level)
 	end
 end
 
+---------------------------------------------------------------------------------------------------
+-------------------------- Locations Creeps
+---------------------------------------------------------------------------------------------------
+
+function creep_spawner:bosses()	
+	local enemies = FindUnitsInRadius(DOTA_TEAM_NEUTRALS,  Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE,  DOTA_UNIT_TARGET_TEAM_BOTH,  DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+	 for _,unit in pairs(enemies) do
+		for _,t in ipairs(bosses) do
+			if t and t == unit:GetUnitName() then 
+				Rules:difficality_modifier(unit)
+				unit:add_items()
+				unit:AddNewModifier( unit, nil, "modifier_hp_regen_boss", { } )
+			end
+		end			
+	end	
+	local points = Entities:FindByName( nil, "big_points"):GetAbsOrigin()
+	local newItem = CreateItem( "item_points_big", nil, nil )
+	local drop = CreateItemOnPositionForLaunch( points, newItem )
+end
+
+function creep_spawner:spawn_creeps_forest()
+    local count = 0
+	while count < 12 do
+		count = count + 1
+		local point = Vector(point_forest[count][1],point_forest[count][2],point_forest[count][3])
+		local creepName = count % 4 == 0 and "forest_creep_mini_1" or count % 4 == 1 and "forest_creep_mini_2" or "forest_creep_mini_3"
+		local creepNameBig = count % 4 == 0 and "forest_creep_big_1" or count % 4 == 1 and "forest_creep_big_2" or "forest_creep_big_3"
+		for i = 1, 4 do
+			local name = i % 4 == 0 and creepNameBig or creepName
+			CreateUnitByName_WithoutLags(name, point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+	end
+	creep_spawner:bosses()	
+end
+
 function spawn_creeps_village()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 5 then
-			count = count + 1
-			pt = point_village[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			for i = 1, 3 do
-				local unit = CreateUnitByName("village_creep_"..i, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-				add_modifier_death(unit, "village_creep_"..i)
-				Rules:difficality_modifier(unit)
-			end	
-		return 0.1
-	else
-		return nil
+	while count < 5 do
+		count = count + 1
+		pt = point_village[count]
+		local point = Vector(pt[1],pt[2],pt[3])
+		for i = 1, 3 do
+			CreateUnitByName_WithoutLags("village_creep_"..i, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end	
 	end
-	end)
 end	
 
 function spawn_creeps_mines()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 7 then
-			count = count + 1
-			pt = point_mines[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			for i = 1, 3 do
-				local unit = CreateUnitByName("mines_creep_"..i, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-				add_modifier_death(unit, "mines_creep_"..i)
-				Rules:difficality_modifier(unit)	
-			end
-		return 0.1
-	else
-		return nil
+	while count < 7 do
+		count = count + 1
+		pt = point_mines[count]
+		local point = Vector(pt[1],pt[2],pt[3])
+		for i = 1, 3 do
+			CreateUnitByName_WithoutLags("mines_creep_"..i, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
 	end
-	end)
 end	
 
 function spawn_creeps_dust()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 6 then
-			count = count + 1
-			pt = point_dust[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			if count == 1 or count == 4 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("dust_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_2")
-					else
-						local unit = CreateUnitByName("dust_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_1")
-					end	
-				end	
-			end	
-			if count == 2 or count == 5 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("dust_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_4")
-					else
-						local unit = CreateUnitByName("dust_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_3")
-					end	
-				end	
-			end	
-			if count == 3 or count == 6 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("dust_creep_6", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_6")
-					else
-						local unit = CreateUnitByName("dust_creep_5", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "dust_creep_5")
-					end
-				end
-			end	
-		return 0.1
-	else
-		return nil
+	local creepNames = {
+		{ "dust_creep_1", "dust_creep_2" },
+		{ "dust_creep_3", "dust_creep_4" },
+		{ "dust_creep_5", "dust_creep_6" }
+	}
+
+	while count < 3 do
+		count = count + 1
+		pt = point_dust[count]
+		local point = Vector(pt[1], pt[2], pt[3])
+
+		for i = 1, 4 do
+			if i == 4 then
+				CreateUnitByName_WithoutLags(creepNames[count][2], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+			else
+				CreateUnitByName_WithoutLags(creepNames[count][1], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+			end
+		end
 	end
-	end)
-end	
+end
 
 function spawn_creeps_cemetery()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 6 then
-			count = count + 1
-			pt = point_cemetery[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			if count == 1 or count == 5 then
-				for i = 1, 5 do
-					if i == 4 or i == 5 then
-						local unit = CreateUnitByName("cemetery_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_2")
-					else
-						local unit = CreateUnitByName("cemetery_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_1")
-					end	
-				end	
-			end	
-			if count == 3 or count == 4 then
-				for i = 1, 4 do
-					if i == 3 or i == 4 then
-						local unit = CreateUnitByName("cemetery_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_2")
-					else
-						local unit = CreateUnitByName("cemetery_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_3")
-					end	
-				end	
-			end	
-			if count == 2 or count == 6 then
-				for i = 1, 5 do
-					if i == 4 or i == 5 then
-						local unit = CreateUnitByName("cemetery_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_4")
-					else
-						local unit = CreateUnitByName("cemetery_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "cemetery_creep_3")
-					end
-				end
-			end	
-		return 0.1
-	else
-		return nil
+	local creepData = {
+		{ count = 5, creepName = "cemetery_creep_1", creep2Name = "cemetery_creep_2" },
+		{ count = 5, creepName = "cemetery_creep_3", creep2Name = "cemetery_creep_4" },
+		{ count = 4, creepName = "cemetery_creep_3", creep2Name = "cemetery_creep_2" },
+		{ count = 4, creepName = "cemetery_creep_2", creep2Name = "cemetery_creep_1" },
+		{ count = 5, creepName = "cemetery_creep_1", creep2Name = "cemetery_creep_2" },
+		{ count = 5, creepName = "cemetery_creep_3", creep2Name = "cemetery_creep_4" }
+	}
+
+	while count < 6 do
+		count = count + 1
+		local pt = point_cemetery[count]
+		local point = Vector(pt[1], pt[2], pt[3])
+		local data = creepData[count]
+
+		for i = 1, data.count do
+			local creepName = data.creepName
+			if i == 4 or i == 5 then
+				creepName = data.creep2Name
+			end
+			CreateUnitByName_WithoutLags(creepName, point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
 	end
-	end)
-end	
+end
 
 function spawn_creeps_swamp()
-	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 6 then
-			count = count + 1
-			pt = point_swamp[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			if count == 1 or count == 5 then
-				for i = 1, 5 do
-					if i == 4 or i == 5 then
-						local unit = CreateUnitByName("swamp_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_2")
-					else
-						local unit = CreateUnitByName("swamp_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_1")
-					end	
-				end	
-			end	
-			if count == 3 or count == 4 then
-				for i = 1, 4 do
-					if i == 3 or i == 4 then
-						local unit = CreateUnitByName("swamp_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_4")
-					else
-						local unit = CreateUnitByName("swamp_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_1")
-					end	
-				end	
-			end	
-			if count == 2 or count == 6 then
-				for i = 1, 5 do
-					if i == 4 or i == 5 then
-						local unit = CreateUnitByName("swamp_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_4")
-					else
-						local unit = CreateUnitByName("swamp_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "swamp_creep_3")
-					end
-				end
-			end	
-		return 0.1
-	else
-		return nil
-	end
-	end)
-end	
+    local count = 0
+    local creepNames = {
+        {1, 5, "swamp_creep_2"},
+        {3, 4, "swamp_creep_4"},
+        {2, 6, "swamp_creep_3"},
+    }
+    
+    while count < 6 do
+        count = count + 1
+        local point = Vector(point_swamp[count][1], point_swamp[count][2], point_swamp[count][3])
+        local randomVector = RandomVector(RandomInt(50, 200))
+        local creepName = "swamp_creep_1"
+        
+        for _, creepInfo in ipairs(creepNames) do
+            if count == creepInfo[1] or count == creepInfo[2] then
+                creepName = creepInfo[3]
+                break
+            end
+        end
+        
+        for i = 1, 5 do
+            CreateUnitByName_WithoutLags(creepName, point + randomVector, true, nil, nil, DOTA_TEAM_BADGUYS)
+        end
+    end
+end
 
 function spawn_creeps_snow()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 6 then
-			count = count + 1
-			pt = point_snow[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			if count == 1 or count == 5 then
-				for i = 1, 4 do
-					if i == 3 or i == 4 then
-						local unit = CreateUnitByName("snow_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_2")
-					else
-						local unit = CreateUnitByName("snow_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_1")
-					end	
-				end	
-			end	
-			if count == 2 or count == 6 then
-				for i = 1, 4 do
-					if i == 3 or i == 4 then
-						local unit = CreateUnitByName("snow_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_4")
-					else
-						local unit = CreateUnitByName("snow_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_3")
-					end	
-				end	
-			end	
-			if count == 3 or count == 4 then
-				for i = 1, 4 do
-					if i == 3 or i == 4 then
-						local unit = CreateUnitByName("snow_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_4")
-					else
-						local unit = CreateUnitByName("snow_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "snow_creep_1")
-					end
-				end
-			end	
-		return 0.1
-	else
-		return nil
+	local creepNames = {
+		{ "snow_creep_1", "snow_creep_2" },
+		{ "snow_creep_3", "snow_creep_4" },
+		{ "snow_creep_1", "snow_creep_4" },
+		{ "snow_creep_1", "snow_creep_4" },
+		{ "snow_creep_2", "snow_creep_2" },
+		{ "snow_creep_3", "snow_creep_4" },
+	}
+
+	while count < 6 do
+		count = count + 1
+		local pt = point_snow[count]
+		local point = Vector(pt[1], pt[2], pt[3])
+		local randomVector = RandomVector(RandomInt(50, 200))
+
+		local creepNamesForCount = creepNames[count]
+		for i = 1, 4 do
+			if i == 3 or i == 4 then
+				CreateUnitByName_WithoutLags(creepNamesForCount[2], point + randomVector, true, nil, nil, DOTA_TEAM_BADGUYS)
+			else
+				CreateUnitByName_WithoutLags(creepNamesForCount[1], point + randomVector, true, nil, nil, DOTA_TEAM_BADGUYS)
+			end
+		end
 	end
-	end)
-end	
+end
 		
 function spawn_creeps_last()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 6 then
-			count = count + 1
-			pt = point_last[count]
-			local point = Vector(pt[1],pt[2],pt[3])
-			if count % 2 == 0 then
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("last_creep_2", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "last_creep_2")
-					else
-						local unit = CreateUnitByName("last_creep_1", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "last_creep_1")
-					end	
-				end	
-			else
-				for i = 1, 4 do
-					if i == 4 then
-						local unit = CreateUnitByName("last_creep_4", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "last_creep_4")
-					else
-						local unit = CreateUnitByName("last_creep_3", point  + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-						Rules:difficality_modifier(unit)
-						add_modifier_death(unit, "last_creep_3")
-					end	
-				end	
-			end	
-		return 0.1
-	else
-		return nil
-	end
-	end)
+	while count < 6 do
+		count = count + 1
+		local point = Vector(point_last[count][1], point_last[count][2], point_last[count][3])
+		local creepType = count % 2 == 0 and "last_creep_1" or "last_creep_3"
+		local creep4Type = count % 2 == 0 and "last_creep_2" or "last_creep_4"
+		for i = 1, 4 do
+			local unitName = i == 4 and creep4Type or creepType
+			CreateUnitByName_WithoutLags(unitName, point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+	end	
 end		
-		
+
+function spawn_creeps_magma()
+	local count = 0
+	while count < 6 do
+		count = count + 1
+		local point = Vector(point_magma[count][1], point_magma[count][2], point_magma[count][3])
+		local creepType = "magma_creep_1"
+		local creep4Type = "magma_creep_2"
+		for i = 1, 4 do
+			local unitName = i == 4 and creep4Type or creepType
+			CreateUnitByName_WithoutLags(unitName, point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+	end	
+end	
+
 function creep_spawner:spawn_farm_zones()
 	local count = 0
-	Timers:CreateTimer(0, function()
-		if count < 5 then
-			count = count + 1
-			local point = Entities:FindByName( nil, "farm_zone_point_"..count):GetAbsOrigin()
-			for i = 1, 4 do
-				local unit = CreateUnitByName("farm_zone_dragon", point  + RandomVector( RandomInt(50, 100)), true, nil, nil, DOTA_TEAM_BADGUYS)
-				Rules:difficality_modifier(unit)
-				add_modifier_death(unit, "farm_zone_dragon")
-			end	
-		return 0.1
-	else
-		return nil
+	while count < 5 do
+		count = count + 1
+		local point = Entities:FindByName( nil, "farm_zone_point_"..count):GetAbsOrigin()
+		for i = 1, 4 do
+			CreateUnitByName_WithoutLags("farm_zone_dragon", point  + RandomVector( RandomInt(50, 100)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end	
 	end
-	end)
 end		
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+-------------------------- Donate Creeps
+---------------------------------------------------------------------------------------------------
 
 _G.don_spawn_level = 0
 
 function donate_level()
 	_G.don_spawn_level = _G.don_spawn_level + 1
 
-	if _G.don_spawn_level == 7 then
-		local unit = CreateUnitByName("npc_smithy_mound", Vector(6184, -5388.937012, 192), true, nil, nil, DOTA_TEAM_GOODGUYS)
-		unit:AddNewModifier(unit, nil, "modifier_kill", {duration = 300})
+	if _G.don_spawn_level > 3 and (not _G.npc_smithy_mound or _G.npc_smithy_mound:IsNull() or not _G.npc_smithy_mound:IsAlive()) then
+		_G.npc_smithy_mound = CreateUnitByName("npc_smithy_mound", Vector(-10417, 1217, 389), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_kill", {duration = 300})
 		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
@@ -482,7 +312,6 @@ function donate_level()
 		end
 	end
 end
-
 
 local creepDict = {
     [0] = {mini = forest_mini, big = forest_big},
@@ -493,7 +322,7 @@ local creepDict = {
     [5] = {mini = swamp_mini, big = swamp_big},
     [6] = {mini = snow_mini, big = snow_big},
     [7] = {mini = last_mini, big = last_big},
-    [8] = {mini = magma_mini, big = magma_big}   -- в файле data дописать крипов
+    [8] = {mini = magma_mini, big = magma_big}
 }
 
 function check_trigger_actiate()
@@ -531,7 +360,7 @@ end
 
 
 ---------------------------------------------------------------------------------------------------
---------------------Gold Creep
+-------------------------- Gold Creep
 ---------------------------------------------------------------------------------------------------
 
 ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "GoldCreeps"), creep_spawner)	
@@ -590,6 +419,34 @@ creep_spawner.ZoneUnitNames = {
 	["last_creep_2"]=true,
 	["last_creep_3"]=true,
 	["last_creep_4"]=true,
+	["magma_creep_1"]=true,
+	["magma_creep_2"]=true,
 	["farm_zone_dragon"]=true,
 }
 
+---------------------------------------------------------------------------------------------------
+-------------------------- function ot fix lag when new location open
+---------------------------------------------------------------------------------------------------
+_G.CreateUnitByName_WithoutLags_UnitsTable = {}
+function StartSpawnSchedule()
+	Timers:CreateTimer(1,function()
+		if _G.CreateUnitByName_WithoutLags_UnitsTable[1] then
+			--Get params to spawn from table
+			local UnitName = _G.CreateUnitByName_WithoutLags_UnitsTable[1]["unitName"]
+			local vLocation = _G.CreateUnitByName_WithoutLags_UnitsTable[1]["vLocation"]
+			local bFindClearSpace = _G.CreateUnitByName_WithoutLags_UnitsTable[1]["bFindClearSpace"]
+			local team = _G.CreateUnitByName_WithoutLags_UnitsTable[1]["team"]
+
+			local unit = CreateUnitByName(UnitName, vLocation, bFindClearSpace, nil, nil, team)
+			add_modifier_death(unit, UnitName)
+			Rules:difficality_modifier(unit)
+
+			table.remove(_G.CreateUnitByName_WithoutLags_UnitsTable, 1)
+		end
+		return FrameTime() * 5
+	end)
+end
+
+function CreateUnitByName_WithoutLags(unitName, vLocation, bFindClearSpace, npcOwner, entityOwner, team)
+	table.insert( _G.CreateUnitByName_WithoutLags_UnitsTable, {unitName = unitName, vLocation = vLocation, bFindClearSpace = bFindClearSpace, team = team})
+end

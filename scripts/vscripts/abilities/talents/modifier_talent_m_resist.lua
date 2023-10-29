@@ -14,13 +14,7 @@ end
 
 function modifier_talent_m_resist:OnCreated( kv )
 	self.value = {10, 15, 20, 25, 30, 35}
-	self.caster = self:GetCaster()
-	self.m_resist = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_m_resist:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	self.m_resist = self.value[self:GetStackCount()]
+	self.parent = self:GetParent()
 end
 
 function modifier_talent_m_resist:DeclareFunctions()
@@ -30,5 +24,5 @@ function modifier_talent_m_resist:DeclareFunctions()
 end
 
 function modifier_talent_m_resist:GetModifierMagicalResistanceBonus()
-	return self.m_resist
+	return self.value[self:GetStackCount()]
 end

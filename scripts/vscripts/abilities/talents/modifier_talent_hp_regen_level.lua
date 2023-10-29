@@ -14,13 +14,7 @@ end
 
 function modifier_talent_hp_regen_level:OnCreated( kv )
 	self.value = {1, 2, 3, 4, 5, 6}
-	self.caster = self:GetCaster()
-	self.hp_regen_level = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_hp_regen_level:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	self.hp_regen_level = self.value[self:GetStackCount()]	
+	self.parent = self:GetParent()
 end
 
 function modifier_talent_hp_regen_level:DeclareFunctions()
@@ -30,5 +24,5 @@ function modifier_talent_hp_regen_level:DeclareFunctions()
 end
 
 function modifier_talent_hp_regen_level:GetModifierConstantHealthRegen()
-	return self.hp_regen_level
+	return self.value[self:GetStackCount()]	 * self.parent:GetLevel()
 end

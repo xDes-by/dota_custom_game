@@ -14,13 +14,7 @@ end
 
 function modifier_armor_curruption:OnCreated( kv )
 	self.value = {0.1, 0.12, 0.14, 0.16, 0.18, 0.2}
-	self.caster = self:GetCaster()
-	self.armor_curruption = self.value[self:GetStackCount()]
-end
-
-function modifier_armor_curruption:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	self.armor_curruption = self.value[self:GetStackCount()]
+	self.parent = self:GetParent()
 end
 
 function modifier_armor_curruption:DeclareFunctions()
@@ -34,7 +28,7 @@ function modifier_armor_curruption:GetModifierProcAttack_Feedback(data)
 	if m then
 		m:IncrementStackCount()
 	else
-		data.target:AddNewModifier(self.caster, self.abi, "modifier_armor_curruption_talent", {duration = 3, armor_curruption = self.armor_curruption})
+		data.target:AddNewModifier(self.parent, nil, "modifier_armor_curruption_talent", {duration = 3, armor_curruption = self.value[self:GetStackCount()]})
 	end
 end
 

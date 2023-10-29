@@ -89,7 +89,7 @@ function modifier_freezing_field_lua:OnCreated( kv )
 		self.manacost = self:GetCaster():GetIntellect()/4
 	end
 	interval = 1
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int50") ~= nil then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_int50") or self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_str50") then
 		interval = interval / 2
 	end
 	
@@ -159,8 +159,11 @@ function modifier_freezing_field_lua:DeclareFunctions()
 end
 
 function modifier_freezing_field_lua:GetModifierMoveSpeedBonus_Constant()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int50") ~= nil then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_int50") ~= nil then
 		return 550
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_str50") ~= nil then
+		return -550
 	end
 end
 

@@ -37,7 +37,7 @@ function NeutralThink()
     end
 
 	if not thisEntity.bInitialized then
-	thisEntity.vInitialSpawnPos  = Vector(2085,692,128)
+		thisEntity.vInitialSpawnPos  = thisEntity:GetAbsOrigin()
         thisEntity.fMaxDist = thisEntity:GetAcquisitionRange()
         thisEntity.bInitialized = true
     end

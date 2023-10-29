@@ -161,19 +161,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	//last
-	"npc_dota_hero_sand_king_str50"
+	"special_bonus_unique_npc_dota_hero_sand_king_str50"
 	{
 		"BaseClass"             		"special_bonus_base"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_sand_king_agi50"
+	"special_bonus_unique_npc_dota_hero_sand_king_agi50"
 	{
 		"BaseClass"             		"special_bonus_base"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_sand_king_int50"
+	"special_bonus_unique_npc_dota_hero_sand_king_int50"
 	{
 		"BaseClass"             		"special_bonus_base"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

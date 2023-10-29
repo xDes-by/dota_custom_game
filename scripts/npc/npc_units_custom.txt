@@ -3563,7 +3563,7 @@
 			"Ability3"					"hp_regen_ability"				
 
 			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"	
-			"ArmorPhysical"				"160"			
+			"ArmorPhysical"				"170"			
 			"MagicalResistance"			"40"			
 			
 			"AttackDamageMin"			"14000"		
@@ -3615,7 +3615,7 @@
 
 			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 			
-			"ArmorPhysical"				"160"			
+			"ArmorPhysical"				"170"			
 			"MagicalResistance"			"40"			
 			
 			"AttackDamageMin"			"14000"		
@@ -3666,7 +3666,7 @@
 
 			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 			
-			"ArmorPhysical"				"160"			
+			"ArmorPhysical"				"170"			
 			"MagicalResistance"			"40"			
 			
 			"AttackDamageMin"			"14000"		
@@ -3716,7 +3716,7 @@
 
 			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 			
-			"ArmorPhysical"				"160"			
+			"ArmorPhysical"				"170"			
 			"MagicalResistance"			"40"			
 			
 			"AttackDamageMin"			"14000"		
@@ -3986,7 +3986,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		
-		"ArmorPhysical"				"340"
+		"ArmorPhysical"				"350"
 		"MagicalResistance"			"60"
 		
 		"AttackDamageMin"			"60000"
@@ -4036,7 +4036,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		
-		"ArmorPhysical"				"340"
+		"ArmorPhysical"				"350"
 		"MagicalResistance"			"60"
 		
 		"AttackDamageMin"			"60000"
@@ -4087,7 +4087,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		
-		"ArmorPhysical"				"340"
+		"ArmorPhysical"				"350"
 		"MagicalResistance"			"60"
 		
 		"AttackDamageMin"			"60000"
@@ -4137,7 +4137,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		
-		"ArmorPhysical"				"340"
+		"ArmorPhysical"				"350"
 		"MagicalResistance"			"60"
 		
 		"AttackDamageMin"			"60000"
@@ -4191,7 +4191,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"450"
 		"MagicalResistance"			"70"
 		
 		"AttackDamageMin"			"120000"
@@ -4241,7 +4241,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"450"
 		"MagicalResistance"			"70"
 		
 		"AttackDamageMin"			"120000"
@@ -4303,7 +4303,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"450"
 		"MagicalResistance"			"70"
 		
 		"AttackDamageMin"			"120000"
@@ -4354,7 +4354,7 @@
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		
-		"ArmorPhysical"				"500"
+		"ArmorPhysical"				"450"
 		"MagicalResistance"			"70"
 		
 		"AttackDamageMin"			"120000"
@@ -4831,6 +4831,137 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	"magma_creep_1"
+	{
+		"vscripts"					"ai/ai_spots.lua"
+		"Model"						"models/items/warlock/golem/ti_8_warlock_darkness_apostate_golem/ti_8_warlock_darkness_apostate_golem.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_WarlockGolem"
+		"Level"						"10"
+		"ModelScale" 				"0.8"
+		"CanRespawn"				"1"
+	 		
+		"Ability1"					"ability_magma_creep_1"
+		"Ability2"					"neutral_spell_immunity"
+		"Ability3"					"hp_regen_ability"	
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		
+		"ArmorPhysical"				"550"
+		"MagicalResistance"			"75"
+		
+		"AttackDamageMin"			"180000"
+		"AttackDamageMax"			"180000"
+		"AttackRate"				"0.3"
+		"AttackAnimationPoint"		"0.2"	
+		"AttackAcquisitionRange"	"600"		
+		"AttackRange"				"200"			
+		
+		"StatusHealth" 				"500000" 
+		//"StatusHealthRegen" 		"0" 
+		"StatusMana"				"5000" 
+		"StatusManaRegen" 			"1" 
+
+		"RingRadius"				"60"
+		"HealthBarOffset"			"190"
+
+		"BountyXP"					"6000"
+		"BountyGoldMin"				"3000"
+		"BountyGoldMax"				"3000"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+	
+"magma_creep_2"
+	{
+		"vscripts"					"ai/ai_spots.lua"
+		"Model"						"models/items/invoker/forge_spirit/infernus/infernus.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"10"
+		"ModelScale" 				"1.5"
+		"CanRespawn"				"1"
+	 		
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					"hp_regen_ability"	
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		
+		"ArmorPhysical"				"550"
+		"MagicalResistance"			"75"
+		
+		"AttackDamageMin"			"180000"
+		"AttackDamageMax"			"180000"
+		"AttackRate"				"0.3"
+		"AttackAnimationPoint"		"0.2"	
+		"AttackAcquisitionRange"	"600"		
+		"AttackRange"				"200"			
+		
+		"StatusHealth" 				"500000" 
+		//"StatusHealthRegen" 		"0" 
+		"StatusMana"				"5000" 
+		"StatusManaRegen" 			"1" 
+
+		"RingRadius"				"60"
+		"HealthBarOffset"			"190"
+
+		"BountyXP"					"6000"
+		"BountyGoldMin"				"3000"
+		"BountyGoldMax"				"3000"
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

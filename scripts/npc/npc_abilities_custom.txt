@@ -887,6 +887,18 @@
 		"ScriptFile"					"abilities/hp_regen_ability"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE |DOTA_ABILITY_BEHAVIOR_HIDDEN"			
 	}
+	"ability_magma_creep_1"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/ability_magma_creep_1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE |DOTA_ABILITY_BEHAVIOR_HIDDEN"			
+	}
+	"ability_magma_creep_2"
+	{
+		"BaseClass"           			"ability_lua"
+		"ScriptFile"					"abilities/ability_magma_creep_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE |DOTA_ABILITY_BEHAVIOR_HIDDEN"			
+	}
 	"hp_regen_ability_raid"
 	{
 		"BaseClass"           			"ability_lua"

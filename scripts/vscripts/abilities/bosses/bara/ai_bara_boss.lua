@@ -50,7 +50,14 @@ function modifier_ai_bara_boss:OnCreated()
 end
 
 function modifier_ai_bara_boss:OnIntervalThink()
-    if not IsServer() then return end
+    local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
+    local m = self:GetCaster():FindModifierByName("modifier_elder_titan_echo_stomp")
+    if m and #units == 0 then
+        return
+    else
+        self.Phase = "Figting_Spawn_pos"
+        m:Destroy()
+    end
     if self.Phase == "Figting_Spawn_pos" and (self.focus_target or self.focus_target:IsAlive()) then
         if self.abi3:IsFullyCastable() then
             self:GetCaster():CastAbilityNoTarget(self.abi3, -1)

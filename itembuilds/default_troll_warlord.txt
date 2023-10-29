@@ -34,6 +34,7 @@
 			"item"		"item_veil_of_discord_lua"
 			"item"		"item_mage_heart_lua"
 			"item"		"item_ring_of_flux_lua"
+			"item"		"item_spirit_vessel_lua"
 			
 		}
 		"TANK OR MID ITEMS"

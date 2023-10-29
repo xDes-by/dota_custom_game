@@ -14,12 +14,7 @@ end
 
 function modifier_talent_dmg_per_level:OnCreated( kv )
 	self.value = {6, 8, 10, 12, 14, 16}
-	self.caster = self:GetCaster()
-	self.dmg_per_level = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_dmg_per_level:OnRefresh( kv )
-	self.dmg_per_level = self.value[self:GetStackCount()]
+	self.parent = self:GetParent()
 end
 
 function modifier_talent_dmg_per_level:DeclareFunctions()
@@ -29,5 +24,5 @@ function modifier_talent_dmg_per_level:DeclareFunctions()
 end
 
 function modifier_talent_dmg_per_level:GetModifierBaseAttack_BonusDamage()
-	return self.dmg_per_level
+	return self.value[self:GetStackCount()] * self.parent:GetLevel()
 end

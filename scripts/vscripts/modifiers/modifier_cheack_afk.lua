@@ -22,7 +22,6 @@ function modifier_cheack_afk:OnCreated( kv )
 	self.parent = self:GetParent()
 	self.currentpos = self.parent:GetOrigin()
 	self.MinigameStarted = false
-	self.modifier = nil
 	if IsInToolsMode() or GameRules:IsCheatMode() then
 		return
 	end
@@ -51,14 +50,10 @@ function modifier_cheack_afk:OnIntervalThink()
 	
 	if dist == 0 and not self.parent:IsAttacking() and not self.parent:IsChanneling() then 
 		if not self.timer then
-			self.timer = Timers:CreateTimer(300, function()
+			self.timer = Timers:CreateTimer(10, function()
 				self.modifier1 = self.parent:AddNewModifier(self.parent, nil, "modifier_invulnerable", {})
 				self.modifier2 = self.parent:AddNewModifier(self.parent, nil, "modifier_stunned", {})
 				self.MinigameStarted = true
-				--@dansoo0911:добавить чтобы экспа капала в минус и раскидать папкам в контенете из архива вити все файлы
-				--это на 131 строку в minigame.js
-				--но вообще можешь куда угодно, тебе виднее
-				--GameEvents.SendCustomGameEventToServer( "EndMiniGame", {} );
 				ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
 				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
 			end)
@@ -87,5 +82,7 @@ function modifier_cheack_afk:GetModifierConstantManaRegen()
 end
 
 function modifier_cheack_afk:OnPlayerReconnected(data)
-	CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
+	if data.PlayerID == self.parent:GetPlayerOwnerID() then
+		CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
+	end
 end

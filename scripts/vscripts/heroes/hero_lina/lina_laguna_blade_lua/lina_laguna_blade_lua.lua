@@ -25,10 +25,10 @@ end
 	if abil ~= nil then 
 		damage = damage + self:GetCaster():GetIntellect()
 	end	 
-	 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int9")	
-		if abil ~= nil then 
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_int9")	
+	if abil ~= nil then 
 		max_jump_count = 5
-		end
+	end
 
 	 caster:EmitSound("Ability.LagunaBladeImpact")
 
@@ -50,11 +50,15 @@ end
 	damage_flags = DOTA_DAMAGE_FLAG_NONE
 	
 	local abil = caster:FindAbilityByName("npc_dota_hero_lina_str11")	
-		if abil ~= nil then 
+	if abil ~= nil then 
 		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-			damage = caster:GetHealth()
-		end
-
+		damage = caster:GetHealth()
+	end
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_agi50")	
+	if abil ~= nil then 
+		damage = damage + self:GetCaster():GetIntellect()
+		damage_flags = DOTA_DAMAGE_FLAG_NONE
+	end
 	 local damage_table 		= {}
 	 damage_table.attacker 		= caster
 	 damage_table.ability 		= ability

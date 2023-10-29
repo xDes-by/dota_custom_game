@@ -300,6 +300,7 @@ function modifier_imba_omni_slash_caster:DeclareFunctions()
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
 	}
 end
 
@@ -395,6 +396,13 @@ function modifier_imba_omni_slash_caster:OnDestroy()
 		self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_armor_boost",{ duration = 15 })
 		end	
 		
+end
+
+function modifier_imba_omni_slash_caster:GetModifierDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_str50") then
+		return 400
+	end
+	return 100
 end
 
 modifier_omnislash_image_afterimage_fade = modifier_omnislash_image_afterimage_fade or class({})
