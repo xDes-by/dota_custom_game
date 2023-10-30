@@ -10,10 +10,10 @@ Ability checklist (erase if done/checked):
 ]]
 --------------------------------------------------------------------------------
 dawnbreaker_solar_guardian_lua = class({})
+LinkLuaModifier( "modifier_dawnbreaker_solar_guardian_intrinsic_lua", "heroes/hero_dawnbreaker/dawnbreaker_solar_guardian_lua/modifier_dawnbreaker_solar_guardian_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_dawnbreaker_solar_guardian_lua", "heroes/hero_dawnbreaker/dawnbreaker_solar_guardian_lua/modifier_dawnbreaker_solar_guardian_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_dawnbreaker_solar_guardian_lua_leap", "heroes/hero_dawnbreaker/dawnbreaker_solar_guardian_lua/modifier_dawnbreaker_solar_guardian_lua_leap", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_arc_lua", "heroes/generic/modifier_generic_arc_lua", LUA_MODIFIER_MOTION_BOTH )
-LinkLuaModifier( "modifier_generic_custom_indicator", "heroes/generic/modifier_generic_custom_indicator", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
@@ -36,9 +36,9 @@ end
 -- Custom Indicator
 -- NOTE: The whole Custom Indicator doesn't work because FindUnitsInRadius is server-only.
 
--- function dawnbreaker_solar_guardian_lua:GetIntrinsicModifierName()
--- 	return "modifier_generic_custom_indicator"
--- end
+function dawnbreaker_solar_guardian_lua:GetIntrinsicModifierName()
+	return "modifier_dawnbreaker_solar_guardian_intrinsic_lua"
+end
 
 function dawnbreaker_solar_guardian_lua:CreateCustomIndicator()
 	local particle_cast1 = "particles/ui_mouseactions/range_finder_tp_dest.vpcf"

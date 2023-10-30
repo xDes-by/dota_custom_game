@@ -33,6 +33,10 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	-- references
 	self.bonus_ms = self:GetAbility():GetSpecialValueFor( "movement_speed" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "bash_radius" )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_int9") then
+		self.radius = self.radius + 200
+		self.dmg_multi = 2
+	end
 	self.duration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 
 	if not IsServer() then return end
@@ -67,6 +71,10 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	-- play effects
 	local sound_cast = "Hero_Spirit_Breaker.ChargeOfDarkness"
 	EmitSoundOn( sound_cast, self.parent )
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi6") then
+		self:StartIntervalThink(0.1)
+	end
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnRefresh( kv )
@@ -100,7 +108,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
 	
 	-- bash
 	if self.mod and (not self.mod:IsNull()) then
-		self.mod:Bash( self.target, false )
+		self.mod:Bash( self.target, self.dmg_multi )
 	end
 
 	-- stun enemy
@@ -237,7 +245,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:BashLogic()
 			self.targets[enemy] = true
 
 			-- apply bash
-			self.mod:Bash( enemy, 0, false )
+			self.mod:Bash( enemy, self.dmg_multi )
 		end
 	end
 end
@@ -315,4 +323,8 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetActivityTranslationModifiers()
 	return "charge"
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
+	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_bkb", {duration = 1.5})
 end

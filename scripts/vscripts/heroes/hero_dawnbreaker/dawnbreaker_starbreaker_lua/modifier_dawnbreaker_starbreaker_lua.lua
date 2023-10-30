@@ -19,6 +19,7 @@ end
 function modifier_dawnbreaker_starbreaker_lua:OnCreated( kv )
 	self.parent = self:GetParent()
 
+	self.duration = self:GetAbility():GetSpecialValueFor( "duration" )
 	-- references
 	self.swipe_radius = self:GetAbility():GetSpecialValueFor( "swipe_radius" )
 	self.swipe_damage = self:GetAbility():GetSpecialValueFor( "swipe_damage" )
@@ -40,9 +41,9 @@ function modifier_dawnbreaker_starbreaker_lua:OnCreated( kv )
 	if not IsServer() then return end
 
 	self.forward = Vector( kv.x, kv.y, 0 )
-	self.bonus = 0
+	self.bonus = self.swipe_damage
 	self.ctr = 0
-	local interval = self:GetDuration()/(self.attacks-1)
+	local interval = self.duration/(self.attacks-1)
 	
 	self.parent:SetForwardVector(self.forward)
 	self.parent:FaceTowards( self.forward)
@@ -136,7 +137,7 @@ function modifier_dawnbreaker_starbreaker_lua:Swipe()
 
 	for _,enemy in pairs(enemies) do
 		-- attack
-		self.bonus = self.swipe_damage
+		-- self.bonus = self.swipe_damage
 		self.parent:PerformAttack( enemy, true, true, true, true, false, false, true )
 
 		-- slow
@@ -166,7 +167,7 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 
 	for _,enemy in pairs(enemies) do
 		-- attack
-		self.bonus = self.smash_damage
+		-- self.bonus = self.smash_damage
 		self.parent:PerformAttack( enemy, true, true, true, true, false, false, true )
 
 		-- stun
@@ -188,6 +189,7 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 
 	-- play effects
 	self:PlayEffects3( center )
+	self:Destroy()
 end
 
 --------------------------------------------------------------------------------

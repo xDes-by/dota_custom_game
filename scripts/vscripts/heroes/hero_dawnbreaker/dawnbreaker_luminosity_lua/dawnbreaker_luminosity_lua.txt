@@ -63,11 +63,6 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"heal_from_creeps"			"50"
-			}	
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"allied_healing_pct"		"35"
 			}
 		}

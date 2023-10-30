@@ -12,7 +12,6 @@ Ability checklist (erase if done/checked):
 dawnbreaker_starbreaker_lua = class({})
 LinkLuaModifier( "modifier_dawnbreaker_starbreaker_lua", "heroes/hero_dawnbreaker/dawnbreaker_starbreaker_lua/modifier_dawnbreaker_starbreaker_lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 LinkLuaModifier( "modifier_dawnbreaker_starbreaker_lua_slow", "heroes/hero_dawnbreaker/dawnbreaker_starbreaker_lua/modifier_dawnbreaker_starbreaker_lua_slow", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_generic_custom_indicator", "heroes/generic/modifier_generic_custom_indicator", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_arc_lua", "heroes/generic/modifier_generic_arc_lua", LUA_MODIFIER_MOTION_BOTH )
 
@@ -31,20 +30,13 @@ end
 
 --------------------------------------------------------------------------------
 -- Custom Indicator
-function dawnbreaker_starbreaker_lua:GetIntrinsicModifierName()
-	return "modifier_generic_custom_indicator"
-end
+-- function dawnbreaker_starbreaker_lua:GetIntrinsicModifierName()
+-- 	return "modifier_generic_custom_indicator"
+-- end
 
 function dawnbreaker_starbreaker_lua:CastFilterResultLocation( vLoc )
-	if IsClient() then
-		if self.custom_indicator then
-			-- register cursor position
-			self.custom_indicator:Register( vLoc )
-		end
-	end
-
 	-- check nohammer
-	if self:GetCaster():HasModifier( "modifier_dawnbreaker_celestial_hammer_lua_nohammer" ) then
+	if self:GetCaster():HasModifier( "modifier_dawnbreaker_celestial_hammer_lua_nohammer" ) or self:GetCaster():HasModifier("modifier_dawnbreaker_starbreaker_lua") then
 		return UF_FAIL_CUSTOM
 	end
 
@@ -53,43 +45,16 @@ function dawnbreaker_starbreaker_lua:CastFilterResultLocation( vLoc )
 	return UF_SUCCESS
 end
 
-function dawnbreaker_starbreaker_lua:CreateCustomIndicator()
-	local particle_cast = "particles/units/heroes/hero_dawnbreaker/hero_dawnbreaker_combo_strike_range_finder_aoe.vpcf"
-	self.effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-end
-
-function dawnbreaker_starbreaker_lua:UpdateCustomIndicator( loc )
-	-- get data
-	local origin = self:GetCaster():GetAbsOrigin()
-	local radius = self:GetSpecialValueFor( "smash_radius" )
-	local speed = self:GetSpecialValueFor( "movement_speed" )
-	local duration = self:GetSpecialValueFor( "duration" )
-	local delta = self:GetSpecialValueFor( "smash_distance_from_hero" )
-	local distance = speed * duration + delta
-
-	-- get direction
-	local direction = loc - origin
-	direction.z = 0
-	direction = direction:Normalized()
-
-	ParticleManager:SetParticleControl( self.effect_cast, 0, origin )
-	ParticleManager:SetParticleControl( self.effect_cast, 1, origin + direction*distance )
-	ParticleManager:SetParticleControl( self.effect_cast, 6, Vector( radius, 0, 0 ) )
-end
-
-function dawnbreaker_starbreaker_lua:DestroyCustomIndicator()
-	ParticleManager:DestroyParticle( self.effect_cast, false )
-	ParticleManager:ReleaseParticleIndex( self.effect_cast )
-end
-
 --------------------------------------------------------------------------------
 -- Ability Cast Filter
 function dawnbreaker_starbreaker_lua:GetCustomCastErrorLocation( vLoc )
 	-- check nohammer
 	if self:GetCaster():HasModifier( "modifier_dawnbreaker_celestial_hammer_lua_nohammer" ) then
-		return "#dota_hud_error_nohammer"
+		return "#dota_hud_error_celestial_hammer_in_progress"
 	end
-
+	if self:GetCaster():HasModifier( "modifier_dawnbreaker_starbreaker_lua" ) then
+		return "#dota_hud_error_fire_wreath_in_progress"
+	end
 	return ""
 end
 
@@ -119,7 +84,6 @@ function dawnbreaker_starbreaker_lua:OnSpellStart()
 		self, -- ability source
 		"modifier_dawnbreaker_starbreaker_lua", -- modifier name
 		{
-			duration = duration,
 			x = direction.x,
 			y = direction.y,
 		} -- kv

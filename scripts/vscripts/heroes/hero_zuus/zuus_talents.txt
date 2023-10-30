@@ -15,8 +15,7 @@
 	}
 	"npc_dota_hero_zuus_str8"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_zuus/hp"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -28,8 +27,7 @@
 	}
 	"npc_dota_hero_zuus_str10"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_zuus/hpr"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -48,58 +46,25 @@
 	}
 	"npc_dota_hero_zuus_agi7"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_zuus/dmg"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"npc_dota_hero_zuus_agi8"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_zuus/spell_as"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"npc_dota_hero_zuus_agi9"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"FightRecapLevel"				"1"
-		"BaseClass"						"ability_datadriven"
-		"AbilityTextureName"			"medusa_split_shot"
-		"MaxLevel"						"1"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"arrow_count"			"1"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_split"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"IsPurgable"	"0"
-				"OnAttack"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_zuus/zuus_split_shot"
-						"Function"			"SplitShot"
-					}
-				}
-			}
-		}
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 	"npc_dota_hero_zuus_agi10"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_zuus/lifesteal"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -148,19 +113,37 @@
 	}
 
 	//last
-	"npc_dota_hero_zuus_str_last"
+	"npc_dota_hero_zuus_str12"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_zuus_agi_last"
+	"npc_dota_hero_zuus_agi12"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_zuus_int_last"
+	"npc_dota_hero_zuus_int12"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_zuus_str13"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_zuus_agi13"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_zuus_int13"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

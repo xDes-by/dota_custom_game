@@ -3,7 +3,7 @@
 	//=================================================================================================================
 	// Necrolyte's Heartstopper Aura
 	//=================================================================================================================
-	"imba_necrolyte_heartstopper_aura"
+	"necrolyte_heartstopper_aura_lua"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -11,13 +11,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"necrolyte_heartstopper_aura"
-		"ScriptFile"				"heroes/hero_necrolyte/necrolyte_heartstopper_aura/necrolyte_heartstopper_aura"
-		"HasScepterUpgrade"			"1"
-
+		"ScriptFile"					"heroes/hero_necrolyte/necrolyte_heartstopper_aura/necrolyte_heartstopper_aura"
+		"MaxLevel"						"15"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -41,27 +40,38 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_pct"				"0.6 1.2 1.8 2.4"
-				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_8"
-				"CalculateSpellDamageTooltip"	"0"
+				"damage"					"5"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"heal_reduce_pct"			"7.5 15 22.5 30"
-				"LinkedSpecialBonus"		"special_bonus_imba_necrolyte_4"
+				"heal_regen_to_damage"		"50"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"tick_rate"					"0.2"
+				"health_regen"				"7.5 15 22.5 30 37.5 45 52.5 60 67.5 75 82.5 90 97.5 105 112.5"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"scepter_multiplier"		"2" 
-				"RequiresScepter"			"1"
+				"mana_regen"				"4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"
 			} 
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"boss_multiplier"				"6"
+			} 
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"regen_duration"				"8"
+			} 
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"tick_rate"					"0.2"
+			}
 		}
 	}
 }

@@ -1,84 +1,103 @@
--------------------------------------------
---			DEATH PULSE
--------------------------------------------
-imba_necrolyte_death_pulse = imba_necrolyte_death_pulse or class({})
+LinkLuaModifier( "modifier_necrolyte_death_pulse_intrinsic_lua", "heroes/hero_necrolyte/necrolyte_death_pulse/modifier_necrolyte_death_pulse_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
+necrolyte_death_pulse_lua = class({})
 
-function imba_necrolyte_death_pulse:GetAbilityTextureName()
+function necrolyte_death_pulse_lua:GetAbilityTextureName()
 	return "necrolyte_death_pulse"
 end
 
-function imba_necrolyte_death_pulse:GetCastRange( location , target)
+function necrolyte_death_pulse_lua:GetIntrinsicModifierName()
+	return "modifier_necrolyte_death_pulse_intrinsic_lua"
+end
+
+function necrolyte_death_pulse_lua:GetCastRange( location , target)
 	return self:GetSpecialValueFor("radius")
 end
 
-function imba_necrolyte_death_pulse:OnSpellStart()
-	if IsServer() then
-		local caster = self:GetCaster()
-		local caster_loc = caster:GetAbsOrigin()
+function necrolyte_death_pulse_lua:GetBehavior()
+    local caster = self:GetCaster()
+    if caster:FindAbilityByName("npc_dota_hero_necrolyte_agi7") then
+		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
+    end
+end
 
-		-- Parameters
-		local radius = self:GetSpecialValueFor("radius")
-		local damage = self:GetSpecialValueFor("damage")
-		local base_heal = self:GetSpecialValueFor("base_heal")
-		local sec_heal_pct = self:GetSpecialValueFor("sec_heal_pct")
-		local enemy_speed = self:GetSpecialValueFor("enemy_speed")
-		local ally_speed = self:GetSpecialValueFor("ally_speed")
-
-		-- Cast sound
-		caster:EmitSound("Hero_Necrolyte.DeathPulse")
-		if (math.random(1,100) <= 50) and (caster:GetName() == "npc_dota_hero_necrolyte") then
-			caster:EmitSound("necrolyte_necr_ability_tox_0"..math.random(1,3))
-		end
-
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-		for _,enemy in pairs(enemies) do
-			ApplyDamage({attacker = caster, victim = enemy, ability = self, damage = damage, damage_type = self:GetAbilityDamageType()})
-			-- Enemy projectile
-			local enemy_projectile =
-				{
-					Target = caster,
-					Source = enemy,
-					Ability = self,
-					EffectName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf",
-					bDodgeable = false,
-					bProvidesVision = false,
-					iMoveSpeed = enemy_speed,
-					flExpireTime = GameRules:GetGameTime() + 60,
-					--	iVisionRadius = vision_radius,
-					--	iVisionTeamNumber = caster:GetTeamNumber(),
-					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-					ExtraData = {sec_heal_pct = sec_heal_pct, radius = radius, ally_speed = ally_speed}
-				}
-
-			-- Create the projectile
-			ProjectileManager:CreateTrackingProjectile(enemy_projectile)
-		end
-
-		local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-		for _,ally in pairs(allies) do
-			-- Ally projectile
-			local ally_projectile =
-				{
-					Target = ally,
-					Source = caster,
-					Ability = self,
-					EffectName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf",
-					bDodgeable = false,
-					bProvidesVision = false,
-					iMoveSpeed = ally_speed,
-					flExpireTime = GameRules:GetGameTime() + 60,
-					--	iVisionRadius = vision_radius,
-					--	iVisionTeamNumber = caster:GetTeamNumber(),
-					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-					ExtraData = {base_heal = base_heal}
-				}
-			-- Create the projectile
-			ProjectileManager:CreateTrackingProjectile(ally_projectile)
-		end
+function necrolyte_death_pulse_lua:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_int9") then
+		return self.BaseClass.GetCooldown( self, level ) - 2
 	end
 end
 
-function imba_necrolyte_death_pulse:OnProjectileHit_ExtraData(target, vLocation, extraData)
+function necrolyte_death_pulse_lua:GetAOERadius()
+	return 600
+end
+
+function necrolyte_death_pulse_lua:OnSpellStart(location, radius)
+	if not IsServer() then return end
+
+	local caster = self:GetCaster()
+	if caster:FindAbilityByName("npc_dota_hero_necrolyte_agi7") then
+		location = location or self:GetCursorPosition()
+		radius = radius or self:GetSpecialValueFor("radius")
+	else
+		location = location or caster:GetAbsOrigin()
+		radius = radius or self:GetSpecialValueFor("radius")
+	end
+	local damage = self:GetSpecialValueFor("damage")
+	local base_heal = self:GetSpecialValueFor("base_heal")
+	if caster:FindAbilityByName("npc_dota_hero_necrolyte_str7") then
+		base_heal = base_heal + caster:GetMaxHealth() * 0.1
+	end
+	local sec_heal_pct = self:GetSpecialValueFor("sec_heal_pct")
+	local enemy_speed = self:GetSpecialValueFor("enemy_speed")
+	local ally_speed = self:GetSpecialValueFor("ally_speed")
+
+	caster:EmitSound("Hero_Necrolyte.DeathPulse")
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), location, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	for _,enemy in pairs(enemies) do
+		ApplyDamage({attacker = caster, victim = enemy, ability = self, damage = damage, damage_type = self:GetAbilityDamageType()})
+		-- Enemy projectile
+		local enemy_projectile =
+			{
+				Target = caster,
+				Source = enemy,
+				Ability = self,
+				EffectName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf",
+				bDodgeable = false,
+				bProvidesVision = false,
+				iMoveSpeed = enemy_speed,
+				flExpireTime = GameRules:GetGameTime() + 60,
+				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+				ExtraData = {sec_heal_pct = sec_heal_pct, radius = radius, ally_speed = ally_speed}
+			}
+
+		-- Create the projectile
+		ProjectileManager:CreateTrackingProjectile(enemy_projectile)
+	end
+
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), location, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	for _,ally in pairs(allies) do
+		-- Ally projectile
+		local ally_projectile =
+			{
+				Target = ally,
+				Source = caster,
+				Ability = self,
+				EffectName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_friend.vpcf",
+				bDodgeable = false,
+				bProvidesVision = false,
+				iMoveSpeed = ally_speed,
+				flExpireTime = GameRules:GetGameTime() + 60,
+				--	iVisionRadius = vision_radius,
+				--	iVisionTeamNumber = caster:GetTeamNumber(),
+				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+				ExtraData = {base_heal = base_heal}
+			}
+		-- Create the projectile
+		ProjectileManager:CreateTrackingProjectile(ally_projectile)
+	end
+end
+
+function necrolyte_death_pulse_lua:OnProjectileHit_ExtraData(target, vLocation, extraData)
 	if IsServer() then
 		local caster = self:GetCaster()
 
@@ -125,6 +144,6 @@ function imba_necrolyte_death_pulse:OnProjectileHit_ExtraData(target, vLocation,
 	end
 end
 
-function imba_necrolyte_death_pulse:GetCooldown( nLevel )
+function necrolyte_death_pulse_lua:GetCooldown( nLevel )
 	return self.BaseClass.GetCooldown( self, nLevel )
 end

@@ -21,7 +21,7 @@
 		{
 			"arc_damage"            "40 80 120 160 200 240 280 320 360 400 440 480 520 560 600"
 			"radius"                "500"
-			"jump_count"            "5"
+			"jump_count"            "4"
 			"jump_delay"            "0.25"
 			"static_chain_mult"		"4"
 		}
