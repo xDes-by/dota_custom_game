@@ -114,9 +114,6 @@ function modifier_dawnbreaker_luminosity_lua_buff:GetModifierProcAttack_Feedback
 
 	-- calculate heal
 	local heal = params.damage * self.heal/100
-	if params.target:IsCreep() then
-		heal = heal * self.creepheal/100
-	end
 
 	-- heal self
 	self.parent:Heal( heal, self.ability )
