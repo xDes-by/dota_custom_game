@@ -78,7 +78,7 @@ function modifier_dismember_lua:OnCreated( kv )
 		self.statdmg = self:GetCaster():GetAgility()
 	end
 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_agi50") ~= nil then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") ~= nil then
 		self.armor = self:GetParent():GetPhysicalArmorBaseValue() * -0.4
 	end
 

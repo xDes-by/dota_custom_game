@@ -4,6 +4,10 @@ function treant_skill_2:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
+function treant_skill_2:GetAOERadius()
+    return self:GetSpecialValueFor( "radius" )
+end
+
 function treant_skill_2:GetCooldown(level)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_treant_str_last") 
 		if abil ~= nil then
@@ -18,7 +22,7 @@ function treant_skill_2:GetBehavior()
 	if abil ~= nil then
 		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
 	else
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
 	end
 end
 
@@ -27,7 +31,7 @@ function treant_skill_2:GetIntrinsicModifierName()
 end
 
 function treant_skill_2:OnSpellStart()
-	local target = self:GetCursorTarget()
+	local target_point = self:GetCursorPosition()
 	local caster = self:GetCaster()
 	if target then
 		local modifier = target:AddNewModifier(self:GetCaster(), self, "modifier_treant_skill_2", {duration = 60})
@@ -39,10 +43,9 @@ function treant_skill_2:OnSpellStart()
 			self:EndCooldown()
 		end
 	end
-		
-	local target_point = self:GetCaster():GetOrigin()
-	
-	a = GridNav:GetAllTreesAroundPoint(target_point, 300, true)
+	local radius = self:GetSpecialValueFor( "radius" )
+
+	a = GridNav:GetAllTreesAroundPoint(target_point, radius, true)
 
 	local currentStacks_hp = caster:GetModifierStackCount("modifier_treant_skill_2", self)	
 	caster:SetModifierStackCount("modifier_treant_skill_2", caster, currentStacks_hp + #a)

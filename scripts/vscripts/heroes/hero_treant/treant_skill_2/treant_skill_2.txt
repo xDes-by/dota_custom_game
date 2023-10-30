@@ -4,7 +4,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_treant/treant_skill_2/treant_skill_2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityTextureName"			"treant2skill"
@@ -14,6 +14,11 @@
 		
 		"AbilityValues"
 		{
+			"radius"
+			{
+				"value" "300"
+				"special_bonus_base_npc_dota_hero_treant_int50" "+300"
+			}
 			"damage"					"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
 			"hp"						"25 50 75 100 125 150 175 200 225 250 275 300 325 350 375"
 			"arm"						"0.25"

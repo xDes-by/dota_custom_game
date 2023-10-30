@@ -1764,7 +1764,6 @@
 //Heart//
 		
         "dota_tooltip_ability_item_heart_lua" "Heart"
-        "dota_tooltip_ability_item_heart_lua_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
         "dota_tooltip_ability_item_heart_lua_bonus_strength" "+$str"
         "dota_tooltip_ability_item_heart_lua_bonus_health" "+$health"
         "dota_tooltip_ability_item_heart_lua_health_regen_pct" "%+макс. здоровья в секунду"
@@ -1785,6 +1784,10 @@
         "dota_tooltip_ability_item_veil_of_discord_lua_description" "<h1>Активная: Magic Weakness</h1> Ослабляет врагов в области радиусом %debuff_radius%, отчего они получают на %spell_amp%%% больше урона от заклинаний.<br><br>Дальность применения: %abilitycastrange%<br>Длительность: %resist_debuff_duration% сек. \n\n <h1>Пассивная: Basilius Aura</h1> Увеличивает восстановление маны союзников на %aura_mana_regen%.<br><br>Радиус: %aura_radius%"
         "dota_tooltip_ability_item_veil_of_discord_lua_lore" "Головной убор испорченных магов."
         "dota_tooltip_ability_item_veil_of_discord_lua_bonus_all_stats" "+$all"
+        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
+        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua_Description" "Магический урон увеличен на %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua"				"Veil of Discord"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua_Description"	"Восстановление маны союзников увеличено."
 
 //Daedalus//
 
@@ -1865,7 +1868,6 @@
         "dota_tooltip_ability_item_octarine_core_lua_bonus_mana_regen" "+$mana_regen"
         "dota_tooltip_ability_item_octarine_core_lua_bonus_health" "+$health"
         "dota_tooltip_ability_item_octarine_core_lua_bonus_mana" "+$mana"
-        "dota_tooltip_ability_item_octarine_core_lua_lore" "<font color='#ff0000'>ПРЕДМЕТ НЕ СТАКАЕТСЯ! РАБОТАЕТ ПОСЛЕДНИЙ ВЗЯТЫЙ!</font>"
 
 //Mjollnir//
 
@@ -1927,10 +1929,23 @@
         "dota_tooltip_ability_item_satanic_lua_damage_bonus" "+$damage"
         "DOTA_Tooltip_modifier_satanic_lua_active" "Unholy Rage"
         "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Вампиризм увеличен до 200%"
-        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
-        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua_Description" "Магический урон увеличен на %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua"				"Veil of Discord"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua_Description"	"Восстановление маны союзников увеличено."
+
+//Spirit Vessel//
+
+        "dota_tooltip_ability_item_spirit_vessel_lua" "Spirit Vessel"
+        "dota_tooltip_ability_item_spirit_vessel_lua_description" "<h1>Активное: Soul Release</h1> Прокляните врага чтобы он терял %enemy_hp_drain%%% от своего текущего запаса здоровья, а также получал на %hp_regen_reduction_enemy%%% меньше здоровья от любого лечения, восстановления и вампиризма. Помимо этого, способность наносит %soul_damage_amount% + сумма всех аттрибутов урона в секунду. <br><br>Действует %duration% сек."
+        "dota_tooltip_ability_item_spirit_vessel_lua_lore" "Сотворена богом, желавшим изловить души остальных."
+        "dota_tooltip_ability_item_spirit_vessel_lua_note0" "Усиление заклинаний будет учтено для всех показателей, кроме процентного урона."
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_health"                     "+$health"
+		"DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_mana_regen"                "+$mana_regen"
+		"DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_all_stats"                "+$all"
+		"DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_spirit_vessel_lua_mana_regen"					"+$mana_regen"
+
+		"DOTA_Tooltip_modifier_item_spirit_vessel_lua_debuff"							"Урон от Spirit Vessel"
+		"DOTA_Tooltip_modifier_item_spirit_vessel_lua_debuff_Description"				"Каждую секунду теряет %dMODIFIER_PROPERTY_TOOLTIP% здоровья. Лечение уменьшено на %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+		
+		
 
 //Камувувушек//
 
@@ -1988,13 +2003,13 @@
 
 //echo sabre//
 		
-		"DOTA_Tooltip_ability_item_sabre_blade1" "Echo Blade"
-        "DOTA_Tooltip_ability_item_sabre_blade1_description" "<h1>Пассивно: Thrice Stricken</h1>При атаке врага вы получите максимальную скорость атаки на 0.5 секунд и замедляете его на %movement_slow%%% на %slow_duration% секунд.<br><br>Дополнительные атаки наносят %mult%%% от атаки в виде дополнительного чистого урона."
-        "DOTA_Tooltip_ability_item_sabre_blade1_bonus_strength" "+$str"
-        "DOTA_Tooltip_ability_item_sabre_blade1_bonus_intellect" "+$int"
-        "DOTA_Tooltip_ability_item_sabre_blade1_bonus_mana_regen" "+$mana_regen"
-        "DOTA_Tooltip_ability_item_sabre_blade1_bonus_damage" "+$damage"
-        "DOTA_Tooltip_ability_item_sabre_blade1_bonus_attack_speed" "+$attack"
+		"DOTA_Tooltip_ability_item_sabre_blade" "Echo Blade"
+        "DOTA_Tooltip_ability_item_sabre_blade_description" "<h1>Пассивно: Thrice Stricken</h1>При атаке врага вы получите максимальную скорость атаки на 0.5 секунд и замедляете его на %movement_slow%%% на %slow_duration% секунд.<br><br>Дополнительные атаки наносят %mult%%% от атаки в виде дополнительного чистого урона."
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_strength" "+$str"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_intellect" "+$int"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_damage" "+$damage"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_attack_speed" "+$attack"
 		
 //ability_item_midas_lua
 
@@ -6651,10 +6666,6 @@
         //Common talents//
         //////////////////
 
-        "dota_tooltip_modifier_modifier_infinite_int_collector" "Стаки интеллекта"
-        "dota_tooltip_modifier_modifier_infinite_str_collector" "Стаки силы"
-        "dota_tooltip_modifier_modifier_infinite_agi_collector" "стаки ловкости"
-
         //Str//
 
         "modifier_talent_hp_per_level" "Толстая кожа"
@@ -6798,6 +6809,83 @@
         "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
         "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Начинаем копать"
        
+//======================================================================================================================================
+//==RUNES
+//======================================================================================================================================
+         
+        "DOTA_HUD_Rune_DoubleDamage"	"<font color='#82CAFF'>Двойной урон</font>"
+		"DOTA_HUD_Rune_DenyDoubleDamage"	"разбивает руну <font color='#82CAFF'>двойного урона</font>"
+		"DOTA_HUD_Rune_Haste"			"<font color='#F62817'>Ускорение</font>"
+		"DOTA_HUD_Rune_DenyHaste"			"разбивает руну <font color='#F62817'>ускорения</font>"
+		"DOTA_HUD_Rune_Invisibility"	"<font color='#8B008B'>Невидимость</font>"
+		"DOTA_HUD_Rune_DenyInvisibility"	"разбивает руну <font color='#8B008B'>невидимости</font>"
+		"DOTA_HUD_Rune_Regeneration"	"<font color='#7FFF00'>Регенерация</font>"
+		"DOTA_HUD_Rune_DenyRegeneration"	"разбивает руну <font color='#7FFF00'>регенерации</font>"
+		"DOTA_HUD_Rune_Arcane"			"<font color='#FD3AFB'>Волшебство</font>"
+		"DOTA_HUD_Rune_DenyArcane"			"разбивает руну <font color='#FD3AFB'>волшебства</font>"
+		"DOTA_HUD_Rune_Water"			"<font color='#74A7F7'>Вода</font>"
+		"DOTA_HUD_Rune_DenyWater"			"разбивает руну <font color='#74A7F7'>воды</font>"
+		"DOTA_HUD_Rune_Bounty"			"<font color='#FF7800'>Богатство</font> {s:gold}"
+		"DOTA_HUD_Rune_DenyBounty"			"разбивает руну <font color='#FF7800'>богатства</font>"
+		"DOTA_HUD_Rune_XP"				"<font color='#FFC0CB'>Мудрость</font> ({d:xp} опыта)"
+		"DOTA_HUD_Rune_DenyXP"			"разбивает руну <font color='#FFC0CB'>мудрости</font>"
+		"DOTA_HUD_Rune_Shield"			"<font color='#555555'>Щит</font>"
+		"DOTA_HUD_Rune_DenyShield"			"разбивает руну <font color='#555555'>щита</font>"
+
+        "DOTA_Tooltip_rune_doubledamage"        "Критичность"
+        "DOTA_Tooltip_rune_doubledamage_description"  "Шанс 5% нанести 200% критического урона <br><br> Длительность эффекта 45 сккунд."
+
+        "DOTA_Tooltip_rune_arcane"            "Волшебство"
+        "DOTA_Tooltip_rune_arcane_description"      "Исходящий магический урон увеличится на 15% <br><br> Длительность эффекта 45 сккунд."
+
+        "DOTA_Tooltip_rune_haste"            "Грубая сила"
+        "DOTA_Tooltip_rune_haste_description"      "Исходящий физический урон увеличится на 15% <br><br> Длительность эффекта 45 сккунд."
+
+        "DOTA_Tooltip_rune_invisibility"        "Слабая сила"
+        "DOTA_Tooltip_rune_invisibility_description"  "Весь исходящий урон увеличен на 10% <br><br> Длительность эффекта 45 сккунд."
+        
+        "DOTA_Tooltip_rune_regeneration"        "Мультикаст"
+        "DOTA_Tooltip_rune_regeneration_description"  "С шансом 5% способность может не потратить ману и не запустить передарядку <br><br> Длительность эффекта 45 сккунд."
+        
+        "DOTA_Tooltip_rune_bounty"            "Богатство"
+        "DOTA_Tooltip_rune_bounty_description"      "Подберите руну и вся команда получит немного золота"
+        
+        "DOTA_Tooltip_rune_xp"            "Мудрость"
+        "DOTA_Tooltip_rune_xp_description"      "Даёт подобравшему руну герою 1/2 опыта текущего уровня, и столько же опыта его союзнику наименьшего уровня."
+        
+        "DOTA_Tooltip_rune_shield"            ""
+        "DOTA_Tooltip_rune_shield_description"      ""
+
+        "DOTA_Tooltip_modifier_rune_crit"		"Критичность"
+        "DOTA_Tooltip_modifier_rune_crit_Description"		"Шанс 5% нанести 200% критического урона"
+
+        "DOTA_Tooltip_modifier_rune_mage_damage_increace"		"Волшебство"
+        "DOTA_Tooltip_modifier_rune_mage_damage_increace_Description"		"Исходящий магический урон увеличится на 15%"
+
+        "DOTA_Tooltip_modifier_rune_phys_damage_increace"		"Грубая сила"
+        "DOTA_Tooltip_modifier_rune_phys_damage_increace_Description"		"Исходящий физический урон увеличится на 15%"
+
+        "DOTA_Tooltip_modifier_rune_all_damage_increace"		"Слабая сила"
+        "DOTA_Tooltip_modifier_rune_all_damage_increace_Description"		"Весь исходящий урон увеличен на 10%"
+
+        "DOTA_Tooltip_modifier_rune_multicast"		"Мультикаст"
+        "DOTA_Tooltip_modifier_rune_multicast_Description"		"С шансом 5% способность может не потратить ману и не запустить передарядку"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

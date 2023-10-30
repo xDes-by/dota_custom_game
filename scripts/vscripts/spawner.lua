@@ -16,8 +16,6 @@ function add_modifier(unit)
 	end	
 	if diff_wave.wavedef == "Ultra" then
 		unit:AddNewModifier(unit, nil, "modifier_ultra", {})
-		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
-		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end	
 	if diff_wave.wavedef == "Insane" then
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
@@ -49,6 +47,7 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
+	StartSpawnSchedule()
 	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
 	if not _G.point_line_spawner then
 		_G.point_line_spawner = Vector( -1292, -9245,0)
@@ -60,7 +59,9 @@ function Spawner:Init()
 	end)
 
 	Timers:CreateTimer(RandomInt(120, 300),function()
-		CreatePatroolWave()
+		if spawnCreeps then
+			CreatePatroolWave()
+		end
 		return RandomInt(120,300)
 	end)
 end

@@ -35,6 +35,7 @@ function modifier_rune_multicast:OnAbilityFullyCast( params )
 
 		if not ability:IsItem() and RandomInt(1,100) <= 5 then
 			ability:EndCooldown()
+			ability:RefundManaCost()
 			local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 1, 2, 1 ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )

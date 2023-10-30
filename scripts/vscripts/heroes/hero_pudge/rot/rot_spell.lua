@@ -16,10 +16,11 @@ function pudge_rot_lua:OnToggle()
 end
 
 function pudge_rot_lua:GetCastRange(location, target)
+	local rad = self:GetAbility():GetSpecialValueFor("base_radius")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str7") ~= nil then
-		return self.BaseClass.GetCastRange(self, location, target) + 100
+		rad = rad + 100
 	end
-	return self.BaseClass.GetCastRange(self, location, target)
+	return rad
 end
 
 pudge_rot_active_lua = class({})
@@ -52,9 +53,6 @@ function pudge_rot_active_lua:GetAuraRadius()
 	local rad = self:GetAbility():GetSpecialValueFor("base_radius")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str7") ~= nil then
 		rad = rad + 100
-	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_int50") ~= nil then
-		rad = rad + 300
 	end
 	return rad
 end

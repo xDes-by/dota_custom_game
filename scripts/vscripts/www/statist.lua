@@ -5,7 +5,6 @@ end
 
 
 function statist:init()
-    print("DFCS")
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( statist, 'OnGameRulesStateChange'), self)
     ListenToGameEvent( 'dota_item_picked_up', Dynamic_Wrap( statist, 'itemPickedUp'), self)
     ListenToGameEvent( 'dota_match_done', Dynamic_Wrap( statist, 'GameEnd'), self)

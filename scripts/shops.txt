@@ -138,6 +138,7 @@
 		"item"		"item_wind_waker"
 		"item"		"item_moon_shard_lua"
 		"item"		"item_hood_sword_lua"
+		"item"		"item_spirit_vessel_lua"
 	}
 		
 	// Level 3 - Purple Recipes	

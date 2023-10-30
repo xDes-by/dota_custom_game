@@ -6,9 +6,9 @@ LinkLuaModifier("modifier_item_midas_lua_shareable_gold", 'items/custom_items/it
 function item_midas_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
 	if not self.GemType then
-		return "all/vladmir_" .. level
+		return "all/item_midas" .. level
 	else
-		return "gem" .. self.GemType .. "/item_vladmir_lua" .. level
+		return "gem" .. self.GemType .. "/item_midas" .. level
 	end
 end
 

@@ -14,12 +14,7 @@ end
 
 function modifier_talent_magic_damage:OnCreated()
 	self.value = {6, 8, 10, 12, 14, 16}
-	self.caster = self:GetCaster()
-	self.magic_damage_level = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_magic_damage:OnRefresh()
-	self.magic_damage_level = self.value[self:GetStackCount()]	
+	self.parent = self:GetParent()
 end
 
 function modifier_talent_magic_damage:DeclareFunctions()
@@ -29,5 +24,5 @@ function modifier_talent_magic_damage:DeclareFunctions()
 end
 
 function modifier_talent_magic_damage:GetModifierSpellAmplify_Percentage()
-	return self.magic_damage_level
+	return self.value[self:GetStackCount()] * self.parent:GetLevel()
 end

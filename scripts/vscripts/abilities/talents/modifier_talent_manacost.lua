@@ -14,12 +14,7 @@ end
 
 function modifier_talent_manacost:OnCreated( kv )
 	self.value = {0.075, 0.1, 0.125, 0.15, 0.175, 0.2}
-	self.caster = self:GetCaster()
-	self.manacost_level = self.value[self:GetStackCount()]
-end
-
-function modifier_talent_manacost:OnRefresh( kv )
-	self.manacost_level = self.value[self:GetStackCount()]
+	self.parent = self:GetParent()
 end
 
 function modifier_talent_manacost:DeclareFunctions()
@@ -29,5 +24,5 @@ function modifier_talent_manacost:DeclareFunctions()
 end
 
 function modifier_talent_manacost:GetModifierSpellAmplify_Percentage()
-	return self.manacost_level
+	return self.value[self:GetStackCount()]
 end

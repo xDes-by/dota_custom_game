@@ -1,14 +1,3 @@
--- Created by Elfansoer
---[[
-Ability checklist (erase if done/checked):
-- Scepter Upgrade
-- Break behavior
-- Linken/Reflect behavior
-- Spell Immune/Invulnerable/Invisible behavior
-- Illusion behavior
-- Stolen behavior
-]]
---------------------------------------------------------------------------------
 modifier_dawnbreaker_starbreaker_lua = class({})
 
 --------------------------------------------------------------------------------
@@ -55,8 +44,8 @@ function modifier_dawnbreaker_starbreaker_lua:OnCreated( kv )
 	self.ctr = 0
 	local interval = self:GetDuration()/(self.attacks-1)
 	
-	-- self.parent:SetForwardVector(self.forward)
-	-- self.parent:FaceTowards( self.forward)
+	self.parent:SetForwardVector(self.forward)
+	self.parent:FaceTowards( self.forward)
 	-- apply forward motion
 	self:ApplyHorizontalMotionController()
 
@@ -65,27 +54,33 @@ function modifier_dawnbreaker_starbreaker_lua:OnCreated( kv )
 	self:OnIntervalThink()
 end
 
-function modifier_dawnbreaker_starbreaker_lua:OnRefresh( kv )
-end
-
-function modifier_dawnbreaker_starbreaker_lua:OnRemoved()
-end
-
 function modifier_dawnbreaker_starbreaker_lua:OnDestroy()
 	if not IsServer() then return end
 	self:GetParent():RemoveHorizontalMotionController( self )
 end
 
+function modifier_dawnbreaker_starbreaker_lua:RecalculateDirection(point)
+	local direction = point-self.parent:GetOrigin()
+	if direction:Length2D() < 1 then
+		direction = self.parent:GetForwardVector()
+	else
+		direction.z = 0
+		direction = direction:Normalized()
+	end
+	self.forward = direction
+	self.parent:SetForwardVector(self.forward)
+	self.parent:FaceTowards( self.forward)
+end
+
 --------------------------------------------------------------------------------
 -- Modifier Effects
 function modifier_dawnbreaker_starbreaker_lua:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_SUPPRESS_CLEAVE,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+		MODIFIER_EVENT_ON_ORDER
 	}
-
-	return funcs
 end
 
 function modifier_dawnbreaker_starbreaker_lua:GetOverrideAnimation( params )
@@ -94,7 +89,6 @@ end
 
 function modifier_dawnbreaker_starbreaker_lua:GetModifierPreAttack_BonusDamage()
 	if not IsServer() then return 0 end
-
 	return self.bonus
 end
 
@@ -102,15 +96,21 @@ function modifier_dawnbreaker_starbreaker_lua:GetSuppressCleave()
 	return 1
 end
 
+function modifier_dawnbreaker_starbreaker_lua:OnOrder(data)
+	if data.unit~=self.parent then return end
+	if data.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or DOTA_UNIT_ORDER_MOVE_TO_DIRECTION then
+		self:RecalculateDirection(data.new_pos)
+	elseif data.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or DOTA_UNIT_ORDER_ATTACK_TARGET then
+		self:RecalculateDirection(data.target:GetOrigin())
+	end
+end
 --------------------------------------------------------------------------------
 -- Status Effects
 function modifier_dawnbreaker_starbreaker_lua:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_DISARMED] = true,
 		-- [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
 	}
-
-	return state
 end
 
 --------------------------------------------------------------------------------
@@ -132,17 +132,7 @@ end
 
 function modifier_dawnbreaker_starbreaker_lua:Swipe()
 	-- find enemies
-	local enemies = FindUnitsInRadius(
-		self.parent:GetTeamNumber(),	-- int, your team number
-		self.parent:GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.swipe_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
+	local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(),self.parent:GetOrigin(),nil,self.swipe_radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 
 	for _,enemy in pairs(enemies) do
 		-- attack
@@ -151,12 +141,7 @@ function modifier_dawnbreaker_starbreaker_lua:Swipe()
 
 		-- slow
 		if not enemy:IsMagicImmune() then
-			enemy:AddNewModifier(
-				self.parent, -- player source
-				self:GetAbility(), -- ability source
-				"modifier_dawnbreaker_starbreaker_lua_slow", -- modifier name
-				{ duration = self.swipe_duration } -- kv
-			)
+			enemy:AddNewModifier(self.parent, self:GetAbility(), "modifier_dawnbreaker_starbreaker_lua_slow", { duration = self.swipe_duration })
 		end
 	end
 
@@ -177,17 +162,7 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 	local center = self.parent:GetOrigin() + self.forward*self.smash_distance
 
 	-- find enemies
-	local enemies = FindUnitsInRadius(
-		self.parent:GetTeamNumber(),	-- int, your team number
-		center,	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.smash_radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
+	local enemies = FindUnitsInRadius(self.parent:GetTeamNumber(),center,nil,self.smash_radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 
 	for _,enemy in pairs(enemies) do
 		-- attack
@@ -196,32 +171,12 @@ function modifier_dawnbreaker_starbreaker_lua:Smash()
 
 		-- stun
 		if not enemy:IsMagicImmune() then
-			enemy:AddNewModifier(
-				self.parent, -- player source
-				self:GetAbility(), -- ability source
-				"modifier_generic_stunned_lua", -- modifier name
-				{ duration = self.smash_duration } -- kv
-			)
-
-			enemy:AddNewModifier(
-				self.parent, -- player source
-				self:GetAbility(), -- ability source
-				"modifier_generic_arc_lua", -- modifier name
-				{
-					duration = self.arc_duration,
-					height = self.arc_height,
-					activity = ACT_DOTA_FLAIL,
-				} -- kv
-			)
+			enemy:AddNewModifier(self.parent,self:GetAbility(),"modifier_generic_stunned_lua",{ duration = self.smash_duration })
+			enemy:AddNewModifier(self.parent,self:GetAbility(),"modifier_generic_arc_lua",{duration = self.arc_duration,height = self.arc_height,activity = ACT_DOTA_FLAIL,})
 		end
 	end
 
-	self.parent:AddNewModifier(
-		self.parent, -- player source
-		self:GetAbility(), -- ability source
-		"modifier_generic_stunned_lua", -- modifier name
-		{ duration = self.selfstun } -- kv
-	)
+	self.parent:AddNewModifier(self.parent,self:GetAbility(),"modifier_generic_stunned_lua",{ duration = self.selfstun })
 
 	-- increment luminosity stack
 	if #enemies>0 then
@@ -267,50 +222,25 @@ function modifier_dawnbreaker_starbreaker_lua:PlayEffects1()
 end
 
 function modifier_dawnbreaker_starbreaker_lua:PlayEffects2()
-	-- Get Resources
-	local particle_cast = "particles/units/heroes/hero_dawnbreaker/dawnbreaker_fire_wreath_sweep.vpcf"
-	local sound_cast = "Hero_Dawnbreaker.Fire_Wreath.Sweep"
-
-	-- Get Data
 	local forward = RotatePosition( Vector(0,0,0), QAngle( 0, -120, 0 ), self.forward )
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.parent )
-	ParticleManager:SetParticleControlEnt(
-		effect_cast,
-		1,
-		self.parent,
-		PATTACH_POINT_FOLLOW,
-		"attach_attack1",
-		Vector(0,0,0), -- unknown
-		true -- unknown, true
-	)
+	local effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_dawnbreaker/dawnbreaker_fire_wreath_sweep.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
+	ParticleManager:SetParticleControlEnt(effect_cast,1,self.parent,PATTACH_POINT_FOLLOW,"attach_attack1",Vector(0,0,0),true)
 	ParticleManager:SetParticleControlForward( effect_cast, 0, forward )
 
 	-- buff particle
-	self:AddParticle(
-		effect_cast,
-		false, -- bDestroyImmediately
-		false, -- bStatusEffect
-		-1, -- iPriority
-		false, -- bHeroEffect
-		false -- bOverheadEffect
-	)
+	self:AddParticle(effect_cast,false,false,-1,false,false)
 
 	-- Create Sound
-	EmitSoundOn( sound_cast, self.parent )
+	EmitSoundOn( "Hero_Dawnbreaker.Fire_Wreath.Sweep", self.parent )
 end
 
 function modifier_dawnbreaker_starbreaker_lua:PlayEffects3( center )
-	-- Get Resources
-	local particle_cast = "particles/units/heroes/hero_dawnbreaker/dawnbreaker_fire_wreath_smash.vpcf"
-	local sound_cast = "Hero_Dawnbreaker.Fire_Wreath.Smash"
-
-	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self.parent )
+	local effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_dawnbreaker/dawnbreaker_fire_wreath_smash.vpcf", PATTACH_WORLDORIGIN, self.parent )
 	ParticleManager:SetParticleControl( effect_cast, 0, center )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	-- Create Sound
-	EmitSoundOn( sound_cast, self.parent )
+	EmitSoundOn( "Hero_Dawnbreaker.Fire_Wreath.Smash", self.parent )
 end

@@ -205,7 +205,7 @@ function modifier_silencer_glaives_of_wisdom_lua:OnDeath(params)
 				0,	-- int, order filter
 				false	-- bool, can grow cache
 			)
-			rand = 10
+			rand = 17
 			if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_int50") then
 				rand = rand + 23
 			end

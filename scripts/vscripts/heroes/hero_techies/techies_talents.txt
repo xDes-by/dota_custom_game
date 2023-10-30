@@ -137,20 +137,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
 //last
-	"npc_dota_hero_techies_str50"
+	"special_bonus_unique_npc_dota_hero_techies_str50"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_techies_agi50"
+	"special_bonus_unique_npc_dota_hero_techies_agi50"
 	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_techies/mine_plant"
+		"BaseClass"						"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_techies_int50"
+	"special_bonus_unique_npc_dota_hero_techies_int50"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

@@ -47,12 +47,6 @@ end
 function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
-	GameModeEntity:SetUseDefaultDOTARuneSpawnLogic(true)
-	GameModeEntity:SetBountyRuneSpawnInterval(60)
-	GameModeEntity:SetPowerRuneSpawnInterval(5*60)
-	GameModeEntity:SetXPRuneSpawnInterval(3*60)
-	GameModeEntity:SetRuneEnabled(DOTA_RUNE_ILLUSION, false)
-	GameModeEntity:SetRuneEnabled(DOTA_RUNE_SHIELD, false)
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(5)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
@@ -89,8 +83,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.3)
 	
-	--------------------------------------------------------------------------------------------	
-	--@dansoo0911:это листенер с панорамы если будешь искать
+	-------------------------------------------------------------------------------------------
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
 	
 
@@ -99,6 +92,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
+	GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(CAddonAdvExGameMode, "ExperienceFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
@@ -408,23 +402,22 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		Timers:CreateTimer(1,function()
 			SendToServerConsole("host_timescale 1")
 		end)
-		
-	Timers:CreateTimer(function()
-			if GameRules:IsDaytime() then
-				GameRules:SetTimeOfDay(0.25)
-			else
-				GameRules:SetTimeOfDay(0.75)
-			end
-		return 300
-	end)
+		Timers:CreateTimer(function()
+				if GameRules:IsDaytime() then
+					GameRules:SetTimeOfDay(0.25)
+				else
+					GameRules:SetTimeOfDay(0.75)
+				end
+			return 300
+		end)
 	
 	-- Timers:CreateTimer(3000, function()
 		-- creep_spawner:spawn_2023()
 	-- end)
 	GameRules:SetTimeOfDay(0.25)
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
-	creep_spawner:spawn_creeps_forest()	
 	Spawner:Init()
+	creep_spawner:spawn_creeps_forest()	
 	Rules:tower_hp()
 	Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
@@ -432,6 +425,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	Dummy:init()
 	leave_game()
 	item_destroy()
+	create_runes()
 	end
 end
 
@@ -533,7 +527,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------
 function CAddonAdvExGameMode:BountyRunePickupFilter(data)
-	local players = PlayerResource:GetNumConnectedHumanPlayers()
+	local players = PlayerResource:GetPlayerCount()
 	if _G.kill_invoker then
 		data.gold_bounty =  10000
 		return true
@@ -547,7 +541,8 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[5] = 650,
 		[6] = 1000,
 		[7] = 1500,
-		[7] = 4500,
+		[8] = 4500,
+		[9] = 4500,
 	}
 	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / (players or 1)
 	return true
@@ -557,7 +552,6 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 	local runs = {
 		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
 		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
-		-- [DOTA_RUNE_ILLUSION] = nil,
 		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_invis",
 		[DOTA_RUNE_REGENERATION] = "modifier_rune_regen",
 		[DOTA_RUNE_BOUNTY] = nil,
@@ -566,11 +560,74 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 		[DOTA_RUNE_XP] = nil,
 		-- [DOTA_RUNE_SHIELD] = "modifier_rune_shield",
 	}
+	local modifiers = {
+		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_crit",
+		[DOTA_RUNE_HASTE] = "modifier_rune_phys_damage_increace",
+		[DOTA_RUNE_INVISIBILITY] = "modifier_rune_all_damage_increace",
+		[DOTA_RUNE_REGENERATION] = "modifier_rune_multicast",
+		[DOTA_RUNE_BOUNTY] = nil,
+		[DOTA_RUNE_ARCANE] = "modifier_rune_mage_damage_increace",
+		[DOTA_RUNE_WATER] = nil,
+		[DOTA_RUNE_XP] = nil,
+		-- [DOTA_RUNE_SHIELD] = "modifier_rune_shield",
+	}
 	if runs[data.rune] ~= nil then
 		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
 		hHero:RemoveModifierByName(runs[data.rune])
+		hHero:AddNewModifier(hHero, nil, modifiers[data.rune], {duration = 45})
 	end
-	
+end
+
+function create_runes()
+	local target_bounty = Entities:FindAllByName("target_bounty")
+	Timers:CreateTimer(0,function()
+		for k,v in pairs(target_bounty) do
+			local point = v:GetAbsOrigin()
+			v.rune = CreateRune(point, DOTA_RUNE_BOUNTY)
+		end
+		return 60
+	end)
+	local xp_rune = Entities:FindAllByName("xp_rune")
+	Timers:CreateTimer(0,function()
+		for k,v in pairs(xp_rune) do
+			local point = v:GetAbsOrigin()
+			v.rune = CreateRune(point, DOTA_RUNE_XP)
+		end
+		return 60 * 3
+	end)
+	local power_rune = Entities:FindAllByName("power_rune")
+	local r = {0,1,3,4,6}
+	Timers:CreateTimer(20*60,function()
+		for k,v in pairs(power_rune) do
+			if v.rune then
+				UTIL_Remove(v.rune)
+			end
+			local point = v:GetAbsOrigin()
+			--нужно сделать чтобы все объекты уничтожались при следующем роле
+			if not not _G.kill_invoker then
+				if RandomFloat(0, 100) < 0.1 then
+					--@todo:спавн кристалла
+				elseif RollPercentage(1) then
+					--@todo:спавн сферы
+				elseif RollPercentage(1) then
+					--@todo:спавн рейтпоинтов
+				else
+					v.rune = CreateRune(point, r[RandomInt(1, #r)])
+				end
+			else
+				v.rune = CreateRune(point, r[RandomInt(1, #r)])
+			end
+		end
+		return 60 * 2.5
+	end)
+end
+
+function CAddonAdvExGameMode:ExperienceFilter(data)
+	if data.reason_const == DOTA_ModifyXP_Unspecified then
+		local hero = EntIndexToHScript(data.hero_entindex_const)
+		data.experience = XP_PER_LEVEL_TABLE[hero:GetLevel()] / 2
+	end
+	return true
 end
 
 function gg()
@@ -688,11 +745,6 @@ function add_soul(boss)
 					unit:ModifyGoldFiltered( 4000, true, 0 )
 					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
 				end
-				if boss == "npc_mega_boss" then
-					sInv:AddSoul("item_antimage_soul", nPlayerID)
-					unit:ModifyGoldFiltered( 4000, true, 0 )
-					SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 4000, nil)						
-				end
 			end
 		end
 	end
@@ -742,9 +794,34 @@ end
 function CAddonAdvExGameMode:OnEntityKilled( keys )
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	local killerEntity = EntIndexToHScript( keys.entindex_attacker )
+
+	for _, name in pairs(bosses_names) do
+		if name == killedUnit:GetUnitName() then
+			if killerEntity:GetOwner() ~= nil and not killerEntity:IsRealHero() and killerEntity:GetTeam() == DOTA_TEAM_GOODGUYS then
+				--it's a friendly summon killing something, credit to the owner
+				if killerEntity:GetOwner() ~= nil and killerEntity:GetOwner():IsRealHero() then
+					killerEntity:GetOwner():IncrementKills(1)
+				end
+			elseif killerEntity:IsRealHero() then
+				killerEntity:IncrementKills(1)
+			end
+			break
+		end
+	end
+
+	if _G.don_bosses_count and #_G.don_bosses_count > 0 then
+		for i, hCreep in ipairs( _G.don_bosses_count ) do
+			if killedUnit == hCreep then
+				table.remove( _G.don_bosses_count, i )
+				return
+			end
+		end 
+	end
+
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
+	
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
 			killedUnit:SetTimeUntilRespawn( 1.2 )
@@ -758,29 +835,23 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 				if mod:GetStackCount() <= 0 then
 					killedUnit:RemoveModifierByNameAndCaster("modifier_insane_lives", killedUnit)
 					check_insane_lives()
+					return
 				end
 			end	
 		end
 	end
-
-	if _G.don_bosses_count and #_G.don_bosses_count > 0 then
-		for i, hCreep in ipairs( _G.don_bosses_count ) do
-			if killedUnit == hCreep then
-				table.remove( _G.don_bosses_count, i )
-			end
-		end 
-	end
 	
 	if killedUnit:GetUnitName() == "creep_1"
-	or killedUnit:GetUnitName() == "creep_2" 
-	or killedUnit:GetUnitName() == "creep_3"
-	or killedUnit:GetUnitName() == "creep_4"
-	or killedUnit:GetUnitName() == "creep_5"
-	or killedUnit:GetUnitName() == "creep_6"
-	or killedUnit:GetUnitName() == "creep_7"
-	or killedUnit:GetUnitName() == "creep_8"
-	or killedUnit:GetUnitName() == "creep_9"
-	or killedUnit:GetUnitName() == "creep_10" then
+		or killedUnit:GetUnitName() == "creep_2" 
+		or killedUnit:GetUnitName() == "creep_3"
+		or killedUnit:GetUnitName() == "creep_4"
+		or killedUnit:GetUnitName() == "creep_5"
+		or killedUnit:GetUnitName() == "creep_6"
+		or killedUnit:GetUnitName() == "creep_7"
+		or killedUnit:GetUnitName() == "creep_8"
+		or killedUnit:GetUnitName() == "creep_9"
+		or killedUnit:GetUnitName() == "creep_10" then
+
 		local heroes = FindUnitsInRadius(killerEntity:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 1100, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false )
 		for i = 1, #heroes do
 			local gold = golddrop / #heroes
@@ -790,18 +861,19 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			-- herogold:addGold(playerID,gold)
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player, gold, nil)
 		end
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "boss_1"
-	or killedUnit:GetUnitName() == "boss_2" 
-	or killedUnit:GetUnitName() == "boss_3"
-	or killedUnit:GetUnitName() == "boss_4"
-	or killedUnit:GetUnitName() == "boss_5"
-	or killedUnit:GetUnitName() == "boss_6"
-	or killedUnit:GetUnitName() == "boss_7"
-	or killedUnit:GetUnitName() == "boss_8"
-	or killedUnit:GetUnitName() == "boss_9"
-	or killedUnit:GetUnitName() == "boss_10"
+		or killedUnit:GetUnitName() == "boss_2" 
+		or killedUnit:GetUnitName() == "boss_3"
+		or killedUnit:GetUnitName() == "boss_4"
+		or killedUnit:GetUnitName() == "boss_5"
+		or killedUnit:GetUnitName() == "boss_6"
+		or killedUnit:GetUnitName() == "boss_7"
+		or killedUnit:GetUnitName() == "boss_8"
+		or killedUnit:GetUnitName() == "boss_9"
+		or killedUnit:GetUnitName() == "boss_10"
 	and (not killedUnit:HasModifier("modifier_health"))  then
 
 	local heroes = FindUnitsInRadius(killerEntity:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false )
@@ -814,6 +886,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			player:EmitSound("Hero_LegionCommander.Duel.Victory")
 			local duel_victory_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_victory.vpcf", PATTACH_ABSORIGIN_FOLLOW, player)
 		end
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "comandir_creep_1"
@@ -834,10 +907,11 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
             player:ModifyGoldFiltered( gold, true, 0 )
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player, gold, nil)
 		end
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_dota_goodguys_fort" and not DataBase:IsCheatMode() then
-			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+			for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
 				if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 					if PlayerResource:HasSelectedHero( nPlayerID ) then
 						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
@@ -854,9 +928,12 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if _G.kill_invoker == false then
 			rating_lose()
 		end
+		return
 	end
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
+		local point = Entities:FindByName( nil, "point_bara"):GetAbsOrigin()
+		CreateUnitByName("npc_bara_boss", point, true, nil, nil, DOTA_TEAM_BADGUYS)
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
@@ -868,23 +945,41 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			_G.kill_invoker = true
 			rating_win()
 		end
+		return
 	end
-	
+
+	if killedUnit:GetUnitName() == "npc_bara_boss" and not DataBase:IsCheatMode() then
+		--@todo: addbara revard
+		return
+	end
+
+	if (killedUnit:GetUnitName() == "npc_sand_king_boss" or
+		killedUnit:GetUnitName() == "npc_dota_monkey_king_boss" or
+		killedUnit:GetUnitName() == "npc_titan_boss" or
+		killedUnit:GetUnitName() == "npc_appariion_boss" or
+		killedUnit:GetUnitName() == "npc_crystal_boss") and
+
+		not DataBase:IsCheatMode() then
+		--@todo: add 5 boss revard
+		return
+	end
+
 	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
 		Timers:CreateTimer(3,function() 
 			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		end)
 		full_win()
+		return
 	end
 	
 
 	if killedUnit:GetUnitName() == "badguys_fort"  then
 		local vPoint1 = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
 		local invoker = CreateUnitByName( "npc_invoker_boss", vPoint1 + RandomVector( RandomInt( 0, 50 )), true, nil, nil, DOTA_TEAM_BADGUYS )
-		invoker:SetBaseDamageMin(invoker:GetBaseDamageMin() * wave * 3)
-		invoker:SetBaseDamageMax(invoker:GetBaseDamageMax() * wave * 3)
-		invoker:SetPhysicalArmorBaseValue(invoker:GetPhysicalArmorBaseValue() * wave * 3)
-		invoker:SetBaseMagicalResistanceValue(invoker:GetBaseMagicalResistanceValue() * wave * 1.2)
+		invoker:SetBaseDamageMin(invoker:GetBaseDamageMin() * wave * 4)
+		invoker:SetBaseDamageMax(invoker:GetBaseDamageMax() * wave * 4)
+		invoker:SetPhysicalArmorBaseValue(invoker:GetPhysicalArmorBaseValue() * wave * 4)
+		invoker:SetBaseMagicalResistanceValue(invoker:GetBaseMagicalResistanceValue() * wave * 1.4)
 		invoker:SetMaxHealth(invoker:GetMaxHealth() * wave * 10)
 		invoker:SetBaseMaxHealth(invoker:GetBaseMaxHealth() * wave * 10)
 		invoker:SetHealth(invoker:GetMaxHealth() * wave * 10)		
@@ -954,21 +1049,25 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 				invoker:AddNewModifier(invoker, nil, "modifier_insane", {})
 			end  
 		end	
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_creeps" then
 		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack1")
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_comandirs" then
 		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_boss_barrack2")
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "badguys_boss" then
 		_G.destroyed_barracks = true
 		Spawner:SpawnBaracksBosses("npc_byrocktar")
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_forest_boss_fake" then
@@ -976,6 +1075,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_village_boss_fake" then
@@ -983,6 +1083,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 1000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mines_boss_fake" then
@@ -990,6 +1091,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 1500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_dust_boss_fake" then
@@ -997,13 +1099,23 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
 	end
-	
+
+	if killedUnit:GetUnitName() == "npc_cemetery_boss" then
+		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGoldFiltered( 4000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
+	end
+
 	if killedUnit:GetUnitName() == "npc_swamp_boss_fake" then
 		sInv:AddSoul("item_swamp_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2500, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)	
+		return	
 	end
 	
 	if killedUnit:GetUnitName() == "npc_snow_boss_fake" then
@@ -1011,6 +1123,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 3000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_boss_location8_fake" then
@@ -1018,21 +1131,39 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 4000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
+	end
+
+	if killedUnit:GetUnitName() == "npc_boss_magma" then
+		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGoldFiltered( 4000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
 	end
 	
+	if killedUnit:GetUnitName() == "npc_mega_boss" then
+		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
+		unit:ModifyGoldFiltered( 4000, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		return
+	end
+
 	if killedUnit:GetUnitName() == "npc_forest_boss" then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
 		local fura =  {"furion_furi_death_03","furion_furi_death_05","furion_furi_death_07","furion_furi_death_08"}
 		killedUnit:EmitSound(fura[RandomInt(1, #fura)])
 		local forest = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "forest_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(forest, point, false)
 			forest:Stop()
 			forest:RespawnUnit()
-		 end)
+		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_village_boss"  then
@@ -1047,7 +1178,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			FindClearSpaceForUnit(village, point, false)
 			village:Stop()
 			village:RespawnUnit()
-		 end)
+		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_mines_boss"  then
@@ -1061,8 +1193,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(mines, point, false)
 			mines:Stop()
-		 mines:RespawnUnit()
-		 end)
+		 	mines:RespawnUnit()
+		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_dust_boss"  then
@@ -1071,28 +1204,44 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local nyx =  {"nyx_assassin_nyx_death_02","nyx_assassin_nyx_death_03","nyx_assassin_nyx_rival_24","nyx_assassin_nyx_death_01","nyx_assassin_nyx_death_07"}
 		killedUnit:EmitSound(nyx[RandomInt(1, #nyx)])
 		local dust = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "dust_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(dust, point, false)
 			dust:Stop()
 			dust:RespawnUnit()
-		 end)
+		end)
+		return
 	end	
-	
+
+	if killedUnit:GetUnitName() == "npc_cemetery_boss"  then
+		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
+		local snow = killedUnit
+		Timers:CreateTimer(diff_wave.respawn, function()
+			local ent = Entities:FindByName( nil, "")
+			local point = ent:GetAbsOrigin()
+			FindClearSpaceForUnit(snow, point, false)
+			snow:Stop()
+			snow:RespawnUnit()
+		end)
+		return
+	end	
+
 	if killedUnit:GetUnitName() == "npc_swamp_boss"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
 		local venom =  {"venomancer_venm_death_08","venomancer_venm_death_07","venomancer_venm_death_09","venomancer_venm_death_06","venomancer_venm_death_05"}
 		killedUnit:EmitSound(venom[RandomInt(1, #venom)])
 		local swamp = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "swamp_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(swamp, point, false)
 			swamp:Stop()
-		 swamp:RespawnUnit()
-		 end)
+		 	swamp:RespawnUnit()
+		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_snow_boss"  then
@@ -1101,33 +1250,63 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local tiny =  {"tiny_tiny_death_09","tiny_tiny_death_01","tiny_tiny_death_05","tiny_tiny_death_11","tiny_tiny_death_08"}
 		killedUnit:EmitSound(tiny[RandomInt(1, #tiny)])
 		local snow = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "snow_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
 			snow:RespawnUnit()
-		 end)
+		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "npc_boss_location8"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
-		 Timers:CreateTimer(diff_wave.respawn, function()
+		Timers:CreateTimer(diff_wave.respawn, function()
 			local ent = Entities:FindByName( nil, "last_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
 			snow:RespawnUnit()
-		 end)
+		end)
+		return
 	end	
-	
+
+	if killedUnit:GetUnitName() == "npc_mega_boss"  then
+		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
+		local snow = killedUnit
+		Timers:CreateTimer(diff_wave.respawn, function()
+			local ent = Entities:FindByName( nil, "")
+			local point = ent:GetAbsOrigin()
+			FindClearSpaceForUnit(snow, point, false)
+			snow:Stop()
+			snow:RespawnUnit()
+		end)
+		return
+	end	
+
+	if killedUnit:GetUnitName() == "npc_boss_magma"  then
+		add_soul(killedUnit:GetUnitName())
+		add_feed(killerEntity_playerID)
+		local snow = killedUnit
+		Timers:CreateTimer(diff_wave.respawn, function()
+			local ent = Entities:FindByName( nil, "")
+			local point = ent:GetAbsOrigin()
+			FindClearSpaceForUnit(snow, point, false)
+			snow:Stop()
+			snow:RespawnUnit()
+		end)
+		return
+	end	
+
 	if killedUnit:GetUnitName() == "roshan_npc"  then
-	_G.rsh = rsh + 1
-	add_feed(killerEntity_playerID)
-	local roshan = killedUnit
-		 Timers:CreateTimer(60, function()
+		_G.rsh = rsh + 1
+		add_feed(killerEntity_playerID)
+		local roshan = killedUnit
+		Timers:CreateTimer(60, function()
 			local ent = Entities:FindByName( nil, "roshan_npc_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(roshan, point, false)
@@ -1142,6 +1321,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			roshan:SetHealth(roshan:GetMaxHealth()* 2)		
 			set_max_stats(roshan)
 		end)
+		return
 	end	
 	
 	if killedUnit:GetUnitName() == "raid_boss" or killedUnit:GetUnitName() == "raid_boss3" or killedUnit:GetUnitName() == "raid_boss4" or killedUnit:GetUnitName() == "npc_2023" then
@@ -1161,7 +1341,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end	
 		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
-		end	
+		end
+		return
 	end
 	
 	if killedUnit:GetUnitName() == "raid_boss2" then
@@ -1181,22 +1362,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end	
 		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
-		end	
-	end	
-
-	for _, name in pairs(bosses_names) do
-		if name == killedUnit:GetUnitName() then
-			if killerEntity:GetOwner() ~= nil and not killerEntity:IsRealHero() and killerEntity:GetTeam() == DOTA_TEAM_GOODGUYS then
-				--it's a friendly summon killing something, credit to the owner
-				if killerEntity:GetOwner() ~= nil and killerEntity:GetOwner():IsRealHero() then
-					killerEntity:GetOwner():IncrementKills(1)
-				end
-			elseif killerEntity:IsRealHero() then
-				killerEntity:IncrementKills(1)
-			end
-			break
 		end
-	end
+		return
+	end	
 end
 
 function Add_bsa_hero()	
@@ -1280,9 +1448,8 @@ function OnEndMiniGame(eventIndex, data)
 	CustomUI:DynamicHud_Destroy(data.PlayerID, "minigame_container")
 	local mod = hHero:FindModifierByName("modifier_cheack_afk")
 	mod.MinigameStarted = false
-	if mod.modifier then
+	if mod.modifier1 then
 		mod.modifier1:Destroy()
 		mod.modifier2:Destroy()
-		mod.modifier = nil
 	end
 end

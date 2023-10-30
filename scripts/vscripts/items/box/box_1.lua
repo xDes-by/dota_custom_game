@@ -18,8 +18,6 @@ function add_modifier(unit)
 	end	
 	if diff_wave.wavedef == "Insane" then
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
-		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
-		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end	
 end	
 

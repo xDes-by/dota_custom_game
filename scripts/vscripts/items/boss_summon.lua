@@ -11,10 +11,11 @@ local bossTable = {
     [2] = "npc_village_boss_fake",
     [3] = "npc_mines_boss_fake",
     [4] = "npc_dust_boss_fake",
-    [5] = "npc_swamp_boss_fake",
-    [6] = "npc_snow_boss_fake",
-    [7] = "npc_boss_location8_fake"
-    -- [8] = "npc_boss_magma_fake"
+    [5] = "npc_cemetery_boss_fake",
+    [6] = "npc_swamp_boss_fake",
+    [7] = "npc_snow_boss_fake",
+    [8] = "npc_boss_location8_fake"
+    [9] = "npc_boss_magma_fake"
 }
 
 function item_boss_summon:OnSpellStart()

@@ -22,8 +22,8 @@ snow_big = {"snow_creep_3","snow_creep_4"}
 last_mini = {"last_creep_1","last_creep_2"}
 last_big = {"last_creep_3","last_creep_4"}
 
-magma_mini = {"last_creep_1","last_creep_2"}
-magma_big = {"last_creep_3","last_creep_4"}
+magma_mini = {"magma_creep_1"}
+magma_big = {"magma_creep_2"}
 
 scroll_item_lvl_1 = {"item_up_ability_tower"}
 scroll_item_lvl_2 = {"item_up_ability_tower2"}

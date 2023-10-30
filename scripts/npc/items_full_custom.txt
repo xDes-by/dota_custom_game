@@ -128,12 +128,12 @@
 		"ItemCost"						"5125"
         "AbilityValues"
         {
-			"bonus_attack_speed"    "25 50 75 100 125 150 175 200"
-			"bonus_armor"            "10 20 40 80 130 175 225 300"
+			"bonus_attack_speed"    "25 50 75 100 125 150 175 200 225 250 275"
+			"bonus_armor"            "10 20 40 80 130 175 225 275 325 375 425"
 			"aura_radius"            "800"
-			"aura_attack_speed"        "25 50 75 100 125 150 175 200"
-			"aura_positive_armor"    "5 15 30 50 100 150 200 300"
-			"aura_negative_armor"    "5 15 30 50 100 150 200 300"
+			"aura_attack_speed"        "25 50 75 100 125 150 175 200 225 250 275"
+			"aura_positive_armor"    "5 15 30 50 100 150 200 250 300 350 400"
+			"aura_negative_armor"    "5 15 30 50 100 150 200 250 300 350 400"
         }
     }
 	
@@ -165,7 +165,35 @@
 			"projectile_speed"		"320 340 360 380 400 420 440 460"
 		}
 	}
-	
+
+	"item_spirit_vessel_lua"
+	{
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/custom_items/item_spirit_vessel_lua"
+		"AbilityTextureName"			"item_spirit_vessel"
+		"ItemBaseLevel"					"1"	
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"AbilityCastRange"				"750"
+		"AbilityCooldown"				"20"
+		"ItemCost"						"2780"
+		"AbilityValues"
+		{
+			"bonus_mana_regen"		"1.75 3.5 5.25 7 8.75 10.5 12.25 14"
+			"bonus_all_stats"		"6 12 24 48 96 192 384 768"
+			"bonus_armor"			"2 4 8 16 32 64 128 256"
+			"bonus_health"			"125 250 500 1000 2000 4000 8000 16000"
+			"duration"				"8"
+			"hp_regen_reduction_enemy"	"5 10 15 20 25 30 35 99"
+			"soul_damage_amount"	"50 100 150 200 250 300 350 400"
+			"enemy_hp_drain"	"1"
+		}
+	}
+
 	"item_satanic_lua"
 	{
 		"BaseClass"						"item_lua"
@@ -259,7 +287,6 @@
 		"AbilityTextureName"			"item_blight_stone"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemCost"						"300"
-		"ItemCost"						"300"
 		"AbilityValues"
 		{
             "armor_reduction"		"2"
@@ -276,8 +303,8 @@
 		"ItemCost"						"3500"
 		"AbilityValues"
 		{
-			"bonus_damage"			"50 120 360 1080 2160 4320 8500 12750"
-			"corruption_armor"		"7 15 20 40 80 120 200 300"
+			"bonus_damage"			"50 120 360 1080 2160 4320 8500 12750 16500 20500 25000"
+			"corruption_armor"		"7 15 20 40 80 120 160 240 280 320 360"
 			"corruption_duration"	"5.0"
 		}
 	}

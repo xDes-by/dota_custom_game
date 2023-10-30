@@ -14,26 +14,40 @@ end
 
 function modifier_talent_sheeld:OnCreated( kv )
 	self.value = {7.5, 10, 12.5, 15, 17.5, 20}
-	self.caster = self:GetCaster()
+	self:SetStackCount(1)
+	self.parent = self:GetParent()
 	self.IsBroken = false
-	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()
-	self.sheeld_regen = self.sheeld_max / 30
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
 	self.current_sheeld_health = self.sheeld_max
-	self:StartIntervalThink(FrameTime())
+	if not IsServer() then
+		return
+	end
+	self:SetHasCustomTransmitterData( true )
 end
 
 function modifier_talent_sheeld:OnRefresh( kv )
-	self.caster = self:GetCaster()
-	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.caster:GetMaxHealth()
-	self.sheeld_regen = self.sheeld_max / 30
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
+end
+
+function modifier_talent_sheeld:OnStackCountChanged()
+	self:OnRefresh()
 end
 
 function modifier_talent_sheeld:OnIntervalThink()
+	if not self.IsBroken then
+		self:StartIntervalThink(FrameTime())
+		self.IsBroken = true
+		return
+	end
 	self.current_sheeld_health = self.current_sheeld_health + self.sheeld_regen
-	if self.current_sheeld_health > self.sheeld_max then
+	if self.current_sheeld_health >= self.sheeld_max then
 		self.current_sheeld_health = self.sheeld_max
 		self.IsBroken = false
+		self:StartIntervalThink(-1)
 	end
+	self:SendBuffRefreshToClients()
 end
 
 function modifier_talent_sheeld:DeclareFunctions()
@@ -57,12 +71,29 @@ function modifier_talent_sheeld:GetModifierIncomingDamageConstant(data)
         local remain = self.current_sheeld_health - data.damage
         if remain > 0 then
             self.current_sheeld_health = self.current_sheeld_health - data.damage
-            return -data.damage
+			self.IsBroken = false
+			self:StartIntervalThink(5)
+			self:SendBuffRefreshToClients()
+			return -data.damage
         else
 			self.IsBroken = true
+			self:StartIntervalThink(FrameTime())
             local p = data.damage - self.current_sheeld_health
             self.current_sheeld_health = 0
-            return -p
+			self:SendBuffRefreshToClients()
+			return -p
         end
     end	
+end
+
+function modifier_talent_sheeld:AddCustomTransmitterData()
+	return {
+		current_sheeld_health = self.current_sheeld_health,
+		sheeld_max = self.sheeld_max,
+	}
+end
+
+function modifier_talent_sheeld:HandleCustomTransmitterData( data )
+	self.current_sheeld_health = data.current_sheeld_health
+	self.sheeld_max = data.sheeld_max
 end

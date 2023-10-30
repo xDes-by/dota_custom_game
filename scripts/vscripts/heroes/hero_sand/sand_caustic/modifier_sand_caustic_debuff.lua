@@ -51,6 +51,10 @@ function modifier_sand_caustic_debuff:OnDeath( params )
 		if params.unit~=self:GetParent() then return end
 		if params.unit:GetTeamNumber()==params.attacker:GetTeamNumber() then return end
 		self:Explode( true )
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sand_king_int50") ~= nil then
+			self:GetCaster():ModifyIntellect(1)
+			self:GetCaster():CalculateStatBonus(true)
+		end
 	end
 end
 

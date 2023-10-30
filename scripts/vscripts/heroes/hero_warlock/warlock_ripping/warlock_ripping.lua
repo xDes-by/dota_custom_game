@@ -116,8 +116,13 @@ function warlock_ripping:OnSpellStart()
 	else
 
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_int7")
-		if abil ~= nil	then 
+	if abil ~= nil	then 
 		damage = self:GetCaster():GetIntellect()
+	end
+
+	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_int50")
+	if abil ~= nil	then 
+		damage = damage * self:GetCaster():GetIntellect()
 	end
 
 	 local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

@@ -132,11 +132,19 @@ function modifier_item_veil_of_discord_aura_lua:RemoveOnDeath() return false end
 function modifier_item_veil_of_discord_aura_lua:IsAuraActiveOnDeath() return false end
 
 function modifier_item_veil_of_discord_aura_lua:OnCreated()
+	if not IsServer() then
+		return
+	end
 	self.aura_mana_regen = self:GetAbility():GetSpecialValueFor("aura_mana_regen")
+	self:SetHasCustomTransmitterData( true )
 end
 
 function modifier_item_veil_of_discord_aura_lua:OnRefresh()
+	if not IsServer() then
+		return
+	end
 	self.aura_mana_regen = self:GetAbility():GetSpecialValueFor("aura_mana_regen")
+	self:SendBuffRefreshToClients()
 end
 
 function modifier_item_veil_of_discord_aura_lua:DeclareFunctions()
@@ -147,4 +155,14 @@ end
 
 function modifier_item_veil_of_discord_aura_lua:GetModifierConstantManaRegen()
 	return self.aura_mana_regen
+end
+
+function modifier_item_veil_of_discord_aura_lua:AddCustomTransmitterData()
+	return {
+		aura_mana_regen = self.aura_mana_regen,
+	}
+end
+
+function modifier_item_veil_of_discord_aura_lua:HandleCustomTransmitterData( data )
+	self.aura_mana_regen = data.aura_mana_regen
 end
