@@ -11,7 +11,7 @@ end
 
 function alchemist_greevils_greed_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50") ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
 	else
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 	end

@@ -20,7 +20,7 @@ end
 function treant_skill_2:GetBehavior()
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_str50") 
 	if abil ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
 	else
 		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
 	end

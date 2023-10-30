@@ -969,6 +969,11 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_bara_boss" and not DataBase:IsCheatMode() then
+		CreateUnitByName("npc_sand_king_boss", Vector(7987, -11138, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		CreateUnitByName("npc_dota_monkey_king_boss", Vector(7812, -9992, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		CreateUnitByName("npc_appariion_boss", Vector(9779, -9990, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
 			if PlayerResource:IsValidPlayer(nPlayerID) then
 				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
