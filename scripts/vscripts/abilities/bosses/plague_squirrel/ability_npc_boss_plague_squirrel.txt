@@ -145,4 +145,42 @@
 
 		}
 	}
+	"ability_npc_boss_plague_squirrel_spell9"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/bosses/plague_squirrel/ability_npc_boss_plague_squirrel_spell9"
+		"AbilityTextureName"			""
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"				"15"
+		"AbilityValues"
+		{
+			"" ""
+			"" ""
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

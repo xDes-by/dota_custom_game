@@ -35,7 +35,8 @@ function alchemist_greevils_greed_lua:OnSpellStart()
 		local front = self:GetCaster():GetForwardVector():Normalized()
 		local target_pos = self:GetCaster():GetOrigin() + front * 200
 		EmitSoundOn("SeasonalConsumable.TI9.Shovel.Dig", self:GetCaster())
-		CreateRune(target_pos, DOTA_RUNE_DOUBLEDAMAGE)
+		local r = {0,1,3,4,6}
+		CreateRune(target_pos, r[RandomInt(1, #r)])
 	end
 end
 

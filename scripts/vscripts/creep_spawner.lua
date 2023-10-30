@@ -326,13 +326,13 @@ local creepDict = {
 }
 
 function check_trigger_actiate()
+	local triggerName = thisEntity:GetName()
+	local point = "point_donate_creeps_"..string.sub(triggerName, -1)
+
 	if _G.kill_invoker then 
-		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
+		spawn_creeps(point, "farm_zone_dragon", "farm_zone_dragon")
 		return
 	end
-
-    local triggerName = thisEntity:GetName()
-    local point = "point_donate_creeps_"..string.sub(triggerName, -1)
 
     if creepDict[_G.don_spawn_level] then
         local levelCreeps = creepDict[_G.don_spawn_level]

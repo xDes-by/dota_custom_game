@@ -84,20 +84,8 @@ function modifier_raid_clap:OnCreated( kv )
 	
 	self.caster = self:GetCaster()
 	if not IsServer() then return end
-	self.arc = self:GetParent():AddNewModifier(
-		self.caster, -- player source
-		self:GetAbility(), -- ability source
-		"modifier_generic_arc_lua", -- modifier name
-		{
-			duration = 0.7,
-			distance = 0,
-			height = 200,
-			-- fix_end = true,
-			fix_duration = false,
-			isStun = true,
-			activity = ACT_DOTA_FLAIL,
-		} -- kv
-	)
+	self.arc = self:GetParent():AddNewModifier(self.caster,self:GetAbility(),"modifier_generic_arc_lua",
+		{duration = 0.7,distance = 0,height = 200,fix_duration = false,isStun = true,activity = ACT_DOTA_FLAIL,})
 end
 
 function modifier_raid_clap:OnRefresh( kv )

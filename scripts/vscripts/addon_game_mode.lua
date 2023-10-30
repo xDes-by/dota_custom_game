@@ -69,10 +69,10 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
 	GameRules:GetGameModeEntity():SetMinimumAttackSpeed( 0 )
-	GameModeEntity:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
-	GameModeEntity:SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
-	GameModeEntity:SetUseCustomHeroLevels( true )
-	
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
+	GameRules:GetGameModeEntity():SetUseCustomHeroLevels( true )
+
 	--------------------------------------------------------------------------------------------
 	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
@@ -327,45 +327,63 @@ function LevelUp (eventInfo)
 	end
 end
 
-HERO_MAX_LEVEL = 300
+HERO_MAX_LEVEL = 500
 
 XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE[0] = 0
-XP_PER_LEVEL_TABLE[1] = 250
+XP_PER_LEVEL_TABLE[1] = 180
 for i=2,25 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250  
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200  
 end
 
 for i=26,50 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220 
 end
 
 for i=51,75 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 240 
 end
 
 for i=76,100 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 260 
 end
 
 for i=101,150 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 280
 end
 
 for i=151,200 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
 end
 
-for i=201,299 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
+for i=201,250 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
 end
 
+for i=251,300 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
+end
+
+for i=301,350 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 330 
+end
+
+for i=351,400 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
+end
+
+for i=401,450 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 310 
+end
+
+for i=451,499 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+end
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
-    
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		loadscript()
 	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
@@ -543,7 +561,7 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[8] = 4500,
 		[9] = 4500,
 	}
-	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / (players or 1)
+	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / players
 	return true
 end
 
@@ -948,6 +966,16 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_bara_boss" and not DataBase:IsCheatMode() then
+		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(nPlayerID) then
+				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+				if hHero then
+					hHero:ModifyAgility(1000)
+					hHero:ModifyStrength(1000)
+					hHero:ModifyIntellect(1000)
+				end
+			end
+		end
 		--@todo: addbara revard
 		return
 	end
@@ -1102,9 +1130,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_cemetery_boss" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		sInv:AddSoul("item_cemetery_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 2500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
@@ -1112,7 +1140,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_swamp_boss_fake" then
 		sInv:AddSoul("item_swamp_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 2500, true, 0 )
+		unit:ModifyGoldFiltered( 3000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)	
 		return	
 	end
@@ -1120,7 +1148,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_snow_boss_fake" then
 		sInv:AddSoul("item_snow_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 3000, true, 0 )
+		unit:ModifyGoldFiltered( 3500, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
@@ -1134,17 +1162,17 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_boss_magma" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		sInv:AddSoul("item_magma_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 5000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mega_boss" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		sInv:AddSoul("item_antimage_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 50000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
@@ -1218,7 +1246,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
+			local ent = Entities:FindByName( nil, "cemetery_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
@@ -1273,26 +1301,26 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end	
 
-	if killedUnit:GetUnitName() == "npc_mega_boss"  then
-		add_soul(killedUnit:GetUnitName())
-		add_feed(killerEntity_playerID)
-		local snow = killedUnit
-		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
-			local point = ent:GetAbsOrigin()
-			FindClearSpaceForUnit(snow, point, false)
-			snow:Stop()
-			snow:RespawnUnit()
-		end)
-		return
-	end	
+	-- if killedUnit:GetUnitName() == "npc_mega_boss"  then
+	-- 	add_soul(killedUnit:GetUnitName())
+	-- 	add_feed(killerEntity_playerID)
+	-- 	local snow = killedUnit
+	-- 	Timers:CreateTimer(diff_wave.respawn, function()
+	-- 		local ent = Entities:FindByName( nil, "")
+	-- 		local point = ent:GetAbsOrigin()
+	-- 		FindClearSpaceForUnit(snow, point, false)
+	-- 		snow:Stop()
+	-- 		snow:RespawnUnit()
+	-- 	end)
+	-- 	return
+	-- end	
 
 	if killedUnit:GetUnitName() == "npc_boss_magma"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
+			local ent = Entities:FindByName( nil, "mega_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
