@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	"leshrac_split_earth_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_leshrac/leshrac_split_earth_lua/leshrac_split_earth_lua"
+		"AbilityTextureName"			"leshrac_split_earth"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0.7 0.7 0.7 0.7"
+		"AbilityDuration"				"2 2 2 2"
+
+		"AbilityCooldown"				"9"
+		"AbilityManaCost"				"80 100 120 140"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"				"0.35"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"120 135 150 165 180 195 210 225 240 255 270 285 300 300 300"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.7"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"120 170 220 270 320 370 420 470 520 570 620 670 720 770 820"
+			}
+		}
+	}
+}

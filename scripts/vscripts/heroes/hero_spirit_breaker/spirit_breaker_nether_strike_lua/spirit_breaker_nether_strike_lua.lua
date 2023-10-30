@@ -11,6 +11,8 @@ Ability checklist (erase if done/checked):
 --------------------------------------------------------------------------------
 spirit_breaker_nether_strike_lua = class({})
 LinkLuaModifier( "modifier_spirit_breaker_nether_strike_lua", "heroes/hero_spirit_breaker/spirit_breaker_nether_strike_lua/modifier_spirit_breaker_nether_strike_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_nether_strike_intrinsic_lua", "heroes/hero_spirit_breaker/spirit_breaker_nether_strike_lua/modifier_spirit_breaker_nether_strike_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_nether_strike_as_lua", "heroes/hero_spirit_breaker/spirit_breaker_nether_strike_lua/modifier_spirit_breaker_nether_strike_as_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Init Abilities
@@ -20,6 +22,10 @@ end
 
 function spirit_breaker_nether_strike_lua:Spawn()
 	if not IsServer() then return end
+end
+
+function spirit_breaker_nether_strike_lua:GetIntrinsicModifierName()
+	return "modifier_spirit_breaker_nether_strike_intrinsic_lua"
 end
 
 --------------------------------------------------------------------------------
@@ -93,6 +99,10 @@ function spirit_breaker_nether_strike_lua:OnSpellStart()
 	}
 	ApplyDamage(damageTable)
 
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi9") then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_spirit_breaker_nether_strike_as_lua", {duration = 3})
+	end
+	
 	FindClearSpaceForUnit( caster, pos, true )
 
 	-- play effects

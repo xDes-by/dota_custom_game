@@ -11,6 +11,7 @@ Ability checklist (erase if done/checked):
 --------------------------------------------------------------------------------
 spirit_breaker_bulldoze_lua = class({})
 LinkLuaModifier( "modifier_spirit_breaker_bulldoze_lua", "heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/modifier_spirit_breaker_bulldoze_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_bulldoze_intrinsic_lua", "heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/modifier_spirit_breaker_bulldoze_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Init Abilities
@@ -20,13 +21,17 @@ function spirit_breaker_bulldoze_lua:Precache( context )
 end
 
 function spirit_breaker_bulldoze_lua:GetIntrinsicModifierName()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_str10") then
-		return "modifier_spirit_breaker_bulldoze_lua"
-	end
+	return "modifier_spirit_breaker_bulldoze_intrinsic_lua"
 end
 
 function spirit_breaker_bulldoze_lua:Spawn()
 	if not IsServer() then return end
+end
+
+function spirit_breaker_bulldoze_lua:GetCastRange()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_str11") then
+		return 800
+	end
 end
 
 --------------------------------------------------------------------------------
