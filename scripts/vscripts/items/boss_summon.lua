@@ -14,7 +14,7 @@ local bossTable = {
     [5] = "npc_cemetery_boss_fake",
     [6] = "npc_swamp_boss_fake",
     [7] = "npc_snow_boss_fake",
-    [8] = "npc_boss_location8_fake"
+    [8] = "npc_boss_location8_fake",
     [9] = "npc_boss_magma_fake"
 }
 

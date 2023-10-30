@@ -1,6 +1,7 @@
 mega_boss_emp_lua = class({})
 
 LinkLuaModifier( "modifier_mega_boss_emp_lua_thinker", "abilities/bosses/mega/mega_boss_emp_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_mega_boss_emp_lua_thinker_aura_effect", "abilities/bosses/mega/mega_boss_emp_lua", LUA_MODIFIER_MOTION_NONE )
 
 function mega_boss_emp_lua:OnSpellStart()
 	local delay = self:GetSpecialValueFor("delay")
@@ -37,7 +38,7 @@ function modifier_mega_boss_emp_lua_thinker:OnDestroy( kv )
     end
     local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MANA_ONLY, 0, false)
     for _,u in pairs(enemies) do
-        enemy:Script_ReduceMana( u:GetMana() * self.damage_pct, self:GetAbility() )
+        u:Script_ReduceMana( u:GetMana() * self.damage_pct, self:GetAbility() )
         ApplyDamage({
             victim = u,
             attacker = self:GetCaster(),
@@ -52,4 +53,80 @@ function modifier_mega_boss_emp_lua_thinker:OnDestroy( kv )
     ParticleManager:ReleaseParticleIndex( self.effect_cast )
     EmitSoundOnLocationWithCaster( self:GetParent():GetOrigin(), "Hero_Invoker.EMP.Discharge", self:GetCaster() )
     UTIL_Remove( self:GetParent() )
+end
+
+--------------------------------------------------------------------------------
+-- Aura Effects
+function modifier_mega_boss_emp_lua_thinker:IsAura()
+    return true
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetModifierAura()
+    return "modifier_mega_boss_emp_lua_thinker_aura_effect"
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetAuraRadius()
+    return self.radius
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetAuraDuration()
+    return 0.5
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetAuraSearchTeam()
+    return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetAuraSearchType()
+    return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+end
+
+function modifier_mega_boss_emp_lua_thinker:GetAuraSearchFlags()
+    return 0
+end
+
+modifier_mega_boss_emp_lua_thinker_aura_effect = class({})
+--Classifications template
+function modifier_mega_boss_emp_lua_thinker_aura_effect:IsHidden()
+    return true
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:IsDebuff()
+    return true
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:IsPurgable()
+    return false
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:IsPurgeException()
+    return false
+end
+
+-- Optional Classifications
+function modifier_mega_boss_emp_lua_thinker_aura_effect:IsStunDebuff()
+    return false
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:RemoveOnDeath()
+    return true
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:DestroyOnExpire()
+    return true
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self.thinker_pos = self:GetAuraOwner():GetAbsOrigin()
+    self:StartIntervalThink(FrameTime())
+end
+
+function modifier_mega_boss_emp_lua_thinker_aura_effect:OnIntervalThink()
+    local direction = self.thinker_pos - self:GetParent():GetAbsOrigin()
+    direction.z = 0
+    direction = direction:Normalized()
+    FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin() + direction * 300 * FrameTime(), true)
 end

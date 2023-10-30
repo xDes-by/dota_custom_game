@@ -52,19 +52,33 @@ function creep_spawner:spawn_2023()
 end
 
 local creep_name_TO_item_level = {
+	["npc_forest_boss_fake"] = 1,
+	["npc_village_boss_fake"] = 1,
+	["npc_mines_boss_fake"] = 2,
+	["npc_dust_boss_fake"] = 3,
+	["npc_cemetery_boss_fake"] = 3,
+	["npc_swamp_boss_fake"] = 4,
+	["npc_snow_boss_fake"] = 5,
+	["npc_boss_location8_fake"] = 6,
+	["npc_boss_magma_fake"] = 7,
+
 	["npc_forest_boss"] = 1,
 	["npc_village_boss"] = 1,
 	["npc_mines_boss"] = 2,
 	["npc_dust_boss"] = 3,
+	["npc_cemetery_boss"] = 3,
 	["npc_swamp_boss"] = 4,
 	["npc_snow_boss"] = 5,
-	["raid_boss"] = 5,
-	["raid_boss2"] = 5,
-	["raid_boss3"] = 5,
-	["raid_boss4"] = 5,
 	["npc_boss_location8"] = 6,
-	["npc_mega_boss"] = 6,
-	["npc_boss_plague_squirrel"] = 6,
+	["npc_boss_magma"] = 7,
+
+	["raid_boss"] = 8,
+	["raid_boss2"] = 8,
+	["raid_boss3"] = 8,
+	["raid_boss4"] = 8,
+	
+	["npc_mega_boss"] = 9,
+	["npc_boss_plague_squirrel"] = 9,
 }
 
 function CDOTA_BaseNPC:add_items(level)

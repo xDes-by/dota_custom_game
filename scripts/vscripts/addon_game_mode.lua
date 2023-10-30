@@ -319,7 +319,9 @@ function LevelUp (eventInfo)
 	if not hero then
 		return 0.1
 	end	
-	
+	for _,mod in pairs(hero:FindAllModifiers()) do
+		mod:ForceRefresh()
+	end
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
