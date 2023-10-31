@@ -10,7 +10,7 @@ function DataBase:IsCheatMode()
 end
 
 function DataBase:init()
-	-- https://random-defence-adventure.ru/backend/api2/daily-award?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
+	-- https://random-defence-adventure.ru/backend/api2/game-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
 	DataBase.key = _G.key
 	DataBase.matchID = tostring(GameRules:Script_GetMatchID())
 	DataBase.gameSetupLink = _G.host .. "/backend/api2/game-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -147,8 +147,8 @@ function DataBase:Squirrel(pid)
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
 		if res.StatusCode == 200 and res.Body ~= nil then
-			print(res.StatusCode)
-			print(res.Body)
+			-- print(res.StatusCode)
+			-- print(res.Body)
 		end
 	end)
 end
@@ -226,9 +226,9 @@ function DataBase:GameSetup()
 	local req = CreateHTTPRequestScriptVM( "GET", DataBase.gameSetupLink )
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
-		print("GameSetup")
-		print("StatusCode: ", res.StatusCode)
-		print("Body: ", res.Body)
+		-- print("GameSetup")
+		-- print("StatusCode: ", res.StatusCode)
+		-- print("Body: ", res.Body)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			local obj = json.decode(res.Body)
 			_G.RATING.top = obj.top
@@ -294,9 +294,9 @@ function DataBase:PlayerSetup( pid )
 	req:SetHTTPRequestGetOrPostParameter('arr',data)
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
-		print("PlayerSetup")
-		print("StatusCode: ", res.StatusCode)
-		print("Body: ", res.Body)
+		-- print("PlayerSetup")
+		-- print("StatusCode: ", res.StatusCode)
+		-- print("Body: ", res.Body)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			local obj = json.decode(res.Body)
 			_G.RATING.rating[pid] = obj.rating

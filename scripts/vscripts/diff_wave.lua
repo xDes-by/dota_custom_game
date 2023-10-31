@@ -34,8 +34,8 @@ function diff_wave:GameSettingsInit(t)
 	Timers:CreateTimer(0 ,function()
 		if not RATING then return 0.1 end
 		local maximum_passed_difficulty = 0
-		if RATING["rating"][t.PlayerID+1] and RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"] then
-			maximum_passed_difficulty = RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"]
+		if RATING["rating"][t.PlayerID] and RATING["rating"][t.PlayerID]["maximum_passed_difficulty"] then
+			maximum_passed_difficulty = RATING["rating"][t.PlayerID]["maximum_passed_difficulty"]
 		end
 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {maximum_passed_difficulty = maximum_passed_difficulty} )
 	end)
@@ -43,6 +43,7 @@ end
 
 function diff_wave:OnGameStateChanged(t)
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		print("diff_wave:OnGameStateChanged")
 		local diff = {0,0,0,0,0,0}
 		local count = 0
 		for i = 0, PlayerResource:GetPlayerCount()-1 do
@@ -70,6 +71,7 @@ function diff_wave:OnGameStateChanged(t)
 				self.talent_scale = self.info[mode].talent_scale
 			end
 		end
+		print("Selected Difficulty: ", self.wavedef)
 	end
 end
 
