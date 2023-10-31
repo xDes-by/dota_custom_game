@@ -1,7 +1,7 @@
 "itembuilds"
 {
 	"author"		"Valve"
-	"hero"			"npc_dota_hero_alchemist"
+	"hero"			"npc_dota_hero_death_prophet"
 	"Title"			"Recommended items"
 	
 	"Items"

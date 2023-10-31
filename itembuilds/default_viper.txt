@@ -1,7 +1,7 @@
 "itembuilds"
 {
 	"author"		"Valve"
-	"hero"			"npc_dota_hero_phantom_assassin"
+	"hero"			"npc_dota_hero_viper"
 	"Title"			"Recommended items"
 	
 	"Items"

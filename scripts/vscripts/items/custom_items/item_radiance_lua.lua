@@ -8,10 +8,6 @@ function item_radiance_lua:GetIntrinsicModifierName()
 end
 
 function item_radiance_lua:GetAbilityTextureName()
-	if not self:GetToggleState() then
-		return "radiance_inactive_png"
-	end
-	
 	local level = self:GetLevel()
 	if self:GetSecondaryCharges() == 0 then
 		return "all/rad_" .. level

@@ -2687,15 +2687,15 @@
 		"Ability7"					""
 		"Ability8"					"ai_bara_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"800"			
+		"MagicalResistance"			"90"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"350000"		
+		"AttackDamageMax"			"350000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"2.5"		
-		"AttackAnimationPoint"		"0.6"		
+		"AttackRate"				"0.15"		
+		"AttackAnimationPoint"		"0.1"		
 		"AttackAcquisitionRange"	"0"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
@@ -2705,16 +2705,16 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"100000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
-		//"StatusHealthRegen"			"0.0"		
+		"StatusHealth"				"4500000"		
+		"StatusHealthRegen"			"100000"		
 		"StatusMana"				"1000"			
-		"StatusManaRegen"			"1000.0"		
+		"StatusManaRegen"			"1000.0"			
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"

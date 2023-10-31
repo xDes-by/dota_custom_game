@@ -56,7 +56,9 @@ function modifier_ai_bara_boss:OnIntervalThink()
         return
     else
         self.Phase = "Figting_Spawn_pos"
-        m:Destroy()
+        if m then
+            m:Destroy()
+        end
     end
     if self.Phase == "Figting_Spawn_pos" and (self.focus_target or self.focus_target:IsAlive()) then
         if self.abi3:IsFullyCastable() then

@@ -205,10 +205,6 @@ function CDOTA_BaseNPC_Hero:ModifyGoldFiltered(goldChange, reliable, reason)
 	self:oldModifyGoldFiltered(goldChange, reliable, reason)
 end
 
--- if not CDOTA_BaseNPC_Hero.oldGetGold then
--- 	CDOTA_BaseNPC_Hero.oldGetGold = CDOTA_BaseNPC_Hero.GetGold
--- end
-
 function CDOTA_BaseNPC_Hero:GetTotalGold()
 	local mod = self:FindModifierByName("modifier_gold_bank")
 	if mod and mod:GetStackCount() > 0 then

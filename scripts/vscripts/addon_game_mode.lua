@@ -92,7 +92,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
-	GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(CAddonAdvExGameMode, "ExperienceFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
@@ -336,39 +335,39 @@ XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE[0] = 0
 XP_PER_LEVEL_TABLE[1] = 180
 for i=2,25 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200  
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 180  
 end
 
 for i=26,50 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 190 
 end
 
 for i=51,75 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 240 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200 
 end
 
 for i=76,100 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 260 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 210 
 end
 
 for i=101,150 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 280
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220
 end
 
 for i=151,200 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 230 
 end
 
 for i=201,250 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250 
 end
 
 for i=251,300 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 270 
 end
 
 for i=301,350 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 330 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 290 
 end
 
 for i=351,400 do
@@ -376,11 +375,11 @@ for i=351,400 do
 end
 
 for i=401,450 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 310 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
 end
 
 for i=451,499 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
 end
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -569,6 +568,27 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 end
 
 function CAddonAdvExGameMode:OnRunePickup(data)
+	if data.rune == DOTA_RUNE_XP then
+		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+		local need_exp = XP_PER_LEVEL_TABLE[hHero:GetLevel()] / 2
+		local t = {}
+		hHero:AddExperience(need_exp, 0, false, false)
+		for i = 0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState() == DOTA_CONNECTION_STATE_CONNECTED then
+				local hero = PlayerResource:GetSelectedHeroEntity(i)
+				if hero then
+					t[hero:GetLevel()] = hero
+				end
+			end
+		end
+		for i = 0, 500 do
+			if t[i] and t[i] ~= hHero then
+				t[i]:AddExperience(need_exp, 0, false, false)
+				break
+			end
+		end
+		return
+	end
 	local runs = {
 		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
 		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
@@ -640,14 +660,6 @@ function create_runes()
 		end
 		return 60 * 2.5
 	end)
-end
-
-function CAddonAdvExGameMode:ExperienceFilter(data)
-	if data.reason_const == DOTA_ModifyXP_Unspecified then
-		local hero = EntIndexToHScript(data.hero_entindex_const)
-		data.experience = XP_PER_LEVEL_TABLE[hero:GetLevel()] / 2
-	end
-	return true
 end
 
 function gg()
@@ -974,6 +986,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		CreateUnitByName("npc_appariion_boss", Vector(9779, -9990, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		local antimage = Entities:FindByName( nil, "npc_mega_boss")
+		if antimage then
+			local m = antimage:FindModifierByName("modifier_invulnerable")
+			if m then
+				m:Destroy()
+			end
+		end
 		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
 			if PlayerResource:IsValidPlayer(nPlayerID) then
 				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
@@ -1252,10 +1271,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_cemetery_boss"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
-		local snow = killedUnit
+		local cemetery = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "cemetery_boss_point")
-			local point = ent:GetAbsOrigin()
+			local point = Vector(7149, 10737, 773)
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
 			snow:RespawnUnit()
@@ -1328,8 +1346,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "magma_boss_point")
-			local point = ent:GetAbsOrigin()
+			local point = Vector(11302, -6631, 389)
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
 			snow:RespawnUnit()
