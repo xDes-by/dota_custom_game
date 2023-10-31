@@ -42,7 +42,7 @@
 			"shareble_gold"				"30"
 		}
 	}
-	"item_hurricane_pike"
+	"item_hurricane_pike_lua"
 	{
 		"BaseClass"                     "item_lua"
 		"ScriptFile"                    "items/custom_items/item_hurricane_pike"

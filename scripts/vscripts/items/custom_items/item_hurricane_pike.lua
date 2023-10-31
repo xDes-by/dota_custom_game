@@ -1,18 +1,18 @@
-item_hurricane_pike = class({})
+item_hurricane_pike_lua = class({})
 
 LinkLuaModifier("modifier_hurricane_multishot", "items/custom_items/item_hurricane_pike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_custom_dragon_lance3_reduced_damage","items/custom_items/item_hurricane_pike", LUA_MODIFIER_MOTION_NONE)
 
-function item_hurricane_pike:GetAbilityTextureName()
+function item_hurricane_pike_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/hurricane_pike_" .. level
 	else
-		return "gem" .. self.GemType .. "/hurricane_pike_" .. level .. "_gem" .. self.GemType
+		return "gem" .. self:GetSecondaryCharges() .. "/hurricane_pike_" .. level .. "_gem" .. self:GetSecondaryCharges()
 	end
 end
 
-function item_hurricane_pike:GetIntrinsicModifierName()
+function item_hurricane_pike_lua:GetIntrinsicModifierName()
     return "modifier_hurricane_multishot"
 end
 

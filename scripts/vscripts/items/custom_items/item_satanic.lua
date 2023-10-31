@@ -5,10 +5,10 @@ item_satanic_lua = class({})
 
 function item_satanic_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/satanic" .. level
 	else
-		return "gem" .. self.GemType .. "/item_satanic_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_satanic_lua" .. level
 	end
 end
 

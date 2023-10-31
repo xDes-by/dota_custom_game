@@ -318,6 +318,7 @@ function donate_level()
 	if _G.don_spawn_level > 3 and (not _G.npc_smithy_mound or _G.npc_smithy_mound:IsNull() or not _G.npc_smithy_mound:IsAlive()) then
 		_G.npc_smithy_mound = CreateUnitByName("npc_smithy_mound", Vector(-10417, 1217, 389), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_kill", {duration = 300})
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_attack_immune", {})
 		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)

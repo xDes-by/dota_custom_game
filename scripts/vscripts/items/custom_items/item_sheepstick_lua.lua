@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_sheepstick_lua_flame","items/custom_items/item_sheepst
 
 function item_sheepstick_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/hex_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_sheepstick_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_sheepstick_lua" .. level
 	end
 end
 

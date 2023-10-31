@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_mage_heart", 'items/custom_items/item_mage_heart.
 
 function item_mage_heart_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/mage" .. level
 	else
-		return "gem" .. self.GemType .. "/item_mage_heart_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_mage_heart_lua" .. level
 	end
 end
 

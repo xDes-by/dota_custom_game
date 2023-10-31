@@ -99,9 +99,9 @@
         "BaseClass"						"item_lua"
 		"AbilityTextureName"			"quest_kirka"
 		"ScriptFile"					"items/other/item_smithy_pickaxe"
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
-		"ItemDroppable" 				"0"
+		// "ItemPurchasable"				"0"
+		// "ItemSellable"					"0"
+		// "ItemDroppable" 				"0"
 		"AbilityValues"
 		{
 

@@ -14,10 +14,10 @@ modifier_boots_of_bearing_lua_active = class ({})
 
 function item_boots_of_bearing_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/boots_of_bearing_lua" .. level
 	else
-		return "gem" .. self.GemType .. "/boots_of_bearing_lua" .. level .. "_gem" .. self.GemType
+		return "gem" .. self:GetSecondaryCharges() .. "/boots_of_bearing_lua" .. level .. "_gem" .. self:GetSecondaryCharges()
 	end
 end
 

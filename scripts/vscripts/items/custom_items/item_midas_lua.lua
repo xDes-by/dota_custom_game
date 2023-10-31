@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_midas_lua_shareable_gold", 'items/custom_items/it
 
 function item_midas_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/item_midas" .. level
 	else
-		return "gem" .. self.GemType .. "/item_midas" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_midas" .. level
 	end
 end
 

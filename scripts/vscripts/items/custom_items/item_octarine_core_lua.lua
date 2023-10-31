@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_octarine_core_lua", 'items/custom_items/item_octa
 
 function item_octarine_core_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/octarin_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_octarine_core_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_octarine_core_lua" .. level
 	end
 end
 

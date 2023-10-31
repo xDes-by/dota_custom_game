@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_item_veil_of_discord_aura_lua", 'items/custom_items/it
 
 function item_veil_of_discord_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/veil_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_veil_of_discord_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_veil_of_discord_lua" .. level
 	end
 end
 

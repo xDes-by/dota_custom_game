@@ -1328,7 +1328,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "mega_boss_point")
+			local ent = Entities:FindByName( nil, "magma_boss_point")
 			local point = ent:GetAbsOrigin()
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
@@ -1473,10 +1473,7 @@ end
     -- return true
 -- end
 
-Convars:RegisterCommand( "upgrade", function ()
 
-end,
-"upgrade", FCVAR_CHEAT )
 
 function OnEndMiniGame(eventIndex, data)
 	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)

@@ -4,10 +4,10 @@ LinkLuaModifier( "modifier_item_kaya_custom", "items/custom_items/item_kaya_cust
 
 function item_kaya_custom_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/magic_staff_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_kaya_custom_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_kaya_custom_lua" .. level
 	end
 end
 

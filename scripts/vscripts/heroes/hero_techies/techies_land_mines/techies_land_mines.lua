@@ -12,13 +12,6 @@ function techies_land_mines_lua:IsStealable() 				return true end
 function techies_land_mines_lua:IsNetherWardStealable()	return false end
 function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("small_radius") end
 
-function techies_land_mines_lua:GetCooldown(iLevel)
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_techies_int50") ~= nil	then 
-		return self.BaseClass.GetCooldown( self, level ) / 2
-	end
-	return self.BaseClass.GetCooldown( self, level )
-end
-
 function techies_land_mines_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end

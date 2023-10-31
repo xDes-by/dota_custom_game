@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_item_moon_shard_lua_passive_aura_positive_effect", 'it
 
 function item_moon_shard_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/moon" .. level
 	else
-		return "gem" .. self.GemType .. "/item_moon_shard_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_moon_shard_lua" .. level
 	end
 end
 
