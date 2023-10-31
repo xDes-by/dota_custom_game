@@ -71,6 +71,12 @@ function diff_wave:OnGameStateChanged(t)
 				self.talent_scale = self.info[mode].talent_scale
 			end
 		end
+		self.wavedef = "Ultra"
+		self.mmr_win = self.info["Ultra"].mmr_win
+		self.mmr_lose = self.info["Ultra"].mmr_lose
+		self.respawn = self.info["Ultra"].respawn
+		self.rp_win = self.info["Ultra"].rp_win
+		self.talent_scale = self.info["Ultra"].talent_scale
 		print("Selected Difficulty: ", self.wavedef)
 	end
 end

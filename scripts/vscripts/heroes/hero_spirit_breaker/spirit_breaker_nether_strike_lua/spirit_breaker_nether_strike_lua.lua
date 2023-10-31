@@ -86,7 +86,7 @@ function spirit_breaker_nether_strike_lua:OnSpellStart()
 	-- proc bash
 	local mod = caster:FindModifierByName( "modifier_spirit_breaker_greater_bash_lua" )
 	if mod and mod:GetAbility():GetLevel()>0 then
-		mod:Bash( target, true )
+		mod:Bash( target )
 	end
 
 	-- apply damage

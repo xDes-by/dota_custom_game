@@ -25,7 +25,7 @@ require("effects")
 _G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
-_G.server_load = not IsInToolsMode() -- true
+_G.server_load = false --not IsInToolsMode() -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -48,7 +48,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(5)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(30)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)

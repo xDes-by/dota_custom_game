@@ -5876,8 +5876,6 @@
 
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua"									"Eye of the Storm"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Description"						"Собирает над героем грозовую тучу, которая бьёт молнией врага с наименьшим здоровьем, нанося ему урон и снижая его броню.<br><br>Способность наносит %damage_perc%%% урона героя в урон способности."
-		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_scepter_description"				"Позволяет способности наносить урон башням, казармам и Древним, а также атаковать сразу две цели."
-		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Lore"								"Как гром среди ясного неба."
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Note0"								"Каждый удар наносится противнику с наименьшим количеством здоровья в области действия."
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Note1"								"Туча в первую очередь атакует героев под действием способности Static Link."
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Note2"								"Действие нескольких способностей складывается."
