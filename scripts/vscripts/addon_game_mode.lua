@@ -110,6 +110,7 @@ function CAddonAdvExGameMode:InitGameMode()
 end
 
 function CAddonAdvExGameMode:GoldFilter(event)
+	table.print(event)
 	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
 	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
 	local mod = hero:FindModifierByName("modifier_gold_bank")

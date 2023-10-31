@@ -113,7 +113,7 @@ function Forge:UpdgradeButton(t)
     local itemLevel = item:GetLevel()
     local soul = upgradeCost[itemLevel].soul
     if itemLevel < self.levelMax and (sInv:HasSoul(soul, t.PlayerID) or hero:FindItemInInventory(soul)) then 
-        if hero:GetGold() >= upgradeCost[itemLevel].gold then
+        if hero:GetTotalGold() >= upgradeCost[itemLevel].gold then
             hero:ModifyGoldFiltered(-upgradeCost[itemLevel].gold, true, 0)
             local s = hero:FindItemInInventory(soul)
             if s then
@@ -205,16 +205,12 @@ function CDOTA_BaseNPC_Hero:ModifyGoldFiltered(goldChange, reliable, reason)
 	self:oldModifyGoldFiltered(goldChange, reliable, reason)
 end
 
-if not CDOTA_BaseNPC_Hero.oldGetGold then
-	CDOTA_BaseNPC_Hero.oldGetGold = CDOTA_BaseNPC_Hero.GetGold
-end
-
-function CDOTA_BaseNPC_Hero:GetGold()
+function CDOTA_BaseNPC_Hero:GetTotalGold()
 	local mod = self:FindModifierByName("modifier_gold_bank")
 	if mod and mod:GetStackCount() > 0 then
-		totalgold = mod:GetStackCount() + self:oldGetGold()
+		totalgold = mod:GetStackCount() + self:GetGold()
 	else
-		totalgold = self:oldGetGold()
+		totalgold = self:GetGold()
 	end
 	return totalgold
 end
