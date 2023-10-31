@@ -17,6 +17,7 @@ function modifier_gem1:OnCreated(data)
 	if not IsServer() then
 		return
 	end
+	self.sum_ability_level = 0
 	self.tbl_origin = {}
 	self.tbl_current = {}
 	local ability = EntIndexToHScript(data.ability)
@@ -43,12 +44,11 @@ end
 function modifier_gem1:OnIntervalThink()
 	local total_bonus = 0
 	for ability,gem_bonus in pairs(self.tbl_origin) do
-		if not ability:IsNull() then
-			if not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
-				self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
-			else
-				self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
-			end
+		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
+			self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
+		else
+			self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
+			self.sum_ability_level = self.sum_ability_level + ability:GetLevel()
 		end
 		total_bonus = total_bonus + self.tbl_current[ability]
 	end
@@ -62,7 +62,7 @@ function modifier_gem1:DeclareFunctions()
 end
 
 function modifier_gem1:OnTakeDamage( keys )
-	if self:GetCaster():HasModifier("modifier_gem1") and keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
+	if keys.attacker == self:GetParent() and not keys.unit:IsBuilding() and not keys.unit:IsOther() and keys.unit:GetTeamNumber() ~= self:GetParent():GetTeamNumber() then
 		-- Spell lifesteal handler
 		if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.inflictor and bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) ~= DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL then			
 			-- Particle effect
@@ -74,13 +74,13 @@ function modifier_gem1:OnTakeDamage( keys )
 		-- Attack lifesteal handler
 		else 
 			if keys.damage_category == 1 then
-			-- Heal and fire the particle			
-			self.lifesteal_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
-			ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
-			ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
-			
-			keys.attacker:HealWithParams(keys.damage * self:GetStackCount() * 0.01, self:GetAbility(), true, true, keys.attacker, false)
+				-- Heal and fire the particle			
+				self.lifesteal_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.attacker)
+				ParticleManager:SetParticleControl(self.lifesteal_pfx, 0, keys.attacker:GetAbsOrigin())
+				ParticleManager:ReleaseParticleIndex(self.lifesteal_pfx)
+				
+				keys.attacker:HealWithParams(keys.damage * self:GetStackCount() * 0.01, self:GetAbility(), true, true, keys.attacker, false)
+			end
 		end
 	end
-end
 end

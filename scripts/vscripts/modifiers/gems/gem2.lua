@@ -17,6 +17,7 @@ function modifier_gem2:OnCreated(data)
 	if not IsServer() then
 		return
 	end
+	self.sum_ability_level = 0
 	self.tbl_origin = {}
 	self.tbl_current = {}
 	local ability = EntIndexToHScript(data.ability)
@@ -43,12 +44,11 @@ end
 function modifier_gem2:OnIntervalThink()
 	local total_bonus = 0
 	for ability,gem_bonus in pairs(self.tbl_origin) do
-		if not ability:IsNull() then
-			if not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
-				self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
-			else
-				self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
-			end
+		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
+			self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
+		else
+			self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
+			self.sum_ability_level = self.sum_ability_level + ability:GetLevel()
 		end
 		total_bonus = total_bonus + self.tbl_current[ability]
 	end

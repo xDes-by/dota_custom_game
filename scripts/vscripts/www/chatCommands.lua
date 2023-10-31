@@ -31,6 +31,7 @@ function ChatCommands:IsTester(sid)
     return table.has_value({
         103583376, -- headmower1q
         351759722, -- ᛝ Nุ MɆɌȻɎ BUT FRENZY △
+        1106832554, -- Jaku
     }, sid)
 end
 

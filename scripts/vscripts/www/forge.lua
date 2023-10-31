@@ -11,7 +11,7 @@ local upgradeableItems = {
 }
 
 local upgradeCost = {
-    [1] = { gold = 100000, soul = "item_forest_soul", max_gems = 1000},
+    [1] = { gold = 5000, soul = "item_forest_soul", max_gems = 1000},
     [2] = { gold = 10000, soul = "item_village_soul", max_gems = 2000},
     [3] = { gold = 20000, soul = "item_mines_soul", max_gems = 3000},
     [4] = { gold = 30000, soul = "item_dust_soul", max_gems = 4000},
