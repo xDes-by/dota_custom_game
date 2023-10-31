@@ -11,27 +11,19 @@
 		"AbilityTextureName"				"techies_land_mines"
 		"ScriptFile"						"heroes/hero_techies/techies_land_mines/techies_land_mines.lua"
 		"AbilityCastRange"					"300"
-		
-		"AbilityCooldown"					"20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
+
         "MaxLevel"						    "15"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"AbilityCooldown"	
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000"
+				"value"					"20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
+				"special_bonus_unique_npc_dota_hero_techies_int50" "-2.5"
 			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"small_radius"				"300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"activation_time"			"1.0"
-			}
+			"damage"					"200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000"
+			"small_radius"				"300"
+			"activation_time"			"1.0"
 		}
 	}
 }

@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_blodstone_active_lua", 'items/custom_items/item_b
 
 function item_bloodstone_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/bloodstone_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_bloodstone_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_bloodstone_lua" .. level
 	end
 end
 

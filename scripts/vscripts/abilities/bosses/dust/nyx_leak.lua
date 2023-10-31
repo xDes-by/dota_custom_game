@@ -60,6 +60,7 @@ function modifier_nyx_leak_aura:OnDeath(data)
 		unit:SetBaseMoveSpeed(5000)
 		unit:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
 		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_nyx_boss_visual", {duration = 120, target = target})
+		data.attacker:AddNewModifier(data.attacker, nil, "modifier_nyx_boss_debuff", {duration = 120})
 	end
 end
 
@@ -162,7 +163,6 @@ function modifier_nyx_boss_visual:OnCreated(data)
 	end
 	self.parent = self:GetParent()
 	self.target = EntIndexToHScript(data.target)
-	self.target:AddNewModifier(self.parent, nil, "modifier_nyx_boss_debuff", {duration = 120})
 	self.parent:AddNewModifier(self.parent, nil, "modifier_kill", {duration = 120})
 	local p = ParticleManager:CreateParticle("particles/econ/events/ti11/duel/dueling_glove_outcome_win.vpcf", PATTACH_POINT_FOLLOW, self.target)
 	ParticleManager:ReleaseParticleIndex(p)
@@ -233,26 +233,28 @@ function modifier_nyx_boss_debuff:DestroyOnExpire()
 	return true
 end
 
-function modifier_nyx_boss_debuff:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+function modifier_nyx_boss_debuff:OnCreated()
+	self.str = self:GetParent():GetStrength()
+	self.int = self:GetParent():GetIntellect()
+	self.agi = self:GetParent():GetAgility()
 end
 
 function modifier_nyx_boss_debuff:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS_PERCENTAGE
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
 	}
 end
 
-function modifier_nyx_boss_debuff:GetModifierBonusStats_Strength_Percentage()
-	return -10
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Strength()
+	return self.str * -0.1
 end
 
-function modifier_nyx_boss_debuff:GetModifierBonusStats_Agility_Percentage()
-	return -10
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Agility()
+	return self.agi * -0.1
 end
 
-function modifier_nyx_boss_debuff:GetModifierBonusStats_Intellect_Percentage()
-	return -10
+function modifier_nyx_boss_debuff:GetModifierBonusStats_Intellect()
+	return self.int * -0.1
 end

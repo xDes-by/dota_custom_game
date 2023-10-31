@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_monkey_king_bar_passive", 'items/custom_items/ite
 
 function item_monkey_king_bar_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/mkb_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_monkey_king_bar_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_monkey_king_bar_lua" .. level
 	end
 end
 

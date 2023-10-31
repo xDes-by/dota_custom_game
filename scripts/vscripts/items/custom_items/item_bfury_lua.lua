@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_bfury_lua", 'items/custom_items/item_bfury_lua.lu
 
 function item_bfury_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/fury_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_bfury_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_bfury_lua" .. level
 	end
 end
 

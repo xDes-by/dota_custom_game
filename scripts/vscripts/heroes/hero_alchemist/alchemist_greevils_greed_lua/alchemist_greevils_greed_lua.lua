@@ -11,7 +11,7 @@ end
 
 function alchemist_greevils_greed_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50") ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
 	else
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 	end
@@ -35,7 +35,8 @@ function alchemist_greevils_greed_lua:OnSpellStart()
 		local front = self:GetCaster():GetForwardVector():Normalized()
 		local target_pos = self:GetCaster():GetOrigin() + front * 200
 		EmitSoundOn("SeasonalConsumable.TI9.Shovel.Dig", self:GetCaster())
-		CreateRune(target_pos, DOTA_RUNE_DOUBLEDAMAGE)
+		local r = {0,1,3,4,6}
+		CreateRune(target_pos, r[RandomInt(1, #r)])
 	end
 end
 

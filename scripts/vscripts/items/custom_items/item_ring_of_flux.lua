@@ -4,10 +4,10 @@ LinkLuaModifier( "modifier_item_ring_of_flux_lua", "items/custom_items/item_ring
 
 function item_ring_of_flux_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/ring" .. level
 	else
-		return "gem" .. self.GemType .. "/item_ring_of_flux_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_ring_of_flux_lua" .. level
 	end
 end
 

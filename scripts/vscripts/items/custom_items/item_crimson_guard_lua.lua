@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_crimson_guard_active_lua", 'items/custom_items/it
 
 function item_crimson_guard_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/crimson_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_crimson_guard_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_crimson_guard_lua" .. level
 	end
 end
 

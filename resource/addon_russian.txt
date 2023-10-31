@@ -1992,14 +1992,14 @@
 
 // item_hurricane_pike //
 
-        "DOTA_Tooltip_ability_item_hurricane_pike1" "Hurricane Pike"
-        "DOTA_Tooltip_ability_item_hurricane_pike1_description" "<h1>Пассивно: Multishot</h1>С вероятностью %multishot_chance%%%, при атаке героем дальнего боя, выпускается дополнительная %multishot_targets% стрела, наносящая %multishot_damage%%% урона. Перезарядка %multishot_cooldown% сек."
-        "DOTA_Tooltip_ability_item_hurricane_pike1_bonus_strength" "+$str"
-        "DOTA_Tooltip_ability_item_hurricane_pike1_bonus_intellect" "+$int"
-        "DOTA_Tooltip_ability_item_hurricane_pike1_bonus_agility" "+$agi"
-        "DOTA_Tooltip_Ability_item_hurricane_pike1_base_attack_range"              "+$attack_range"
-        "DOTA_Tooltip_ability_item_hurricane_pike1_bonus_health" "+$health"
-        "DOTA_Tooltip_ability_item_hurricane_pike1_bonus_damage" "+$damage"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua" "Hurricane Pike"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_description" "<h1>Пассивно: Multishot</h1>С вероятностью %multishot_chance%%%, при атаке героем дальнего боя, выпускается дополнительная %multishot_targets% стрела, наносящая %multishot_damage%%% урона. Перезарядка %multishot_cooldown% сек."
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_strength" "+$str"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_intellect" "+$int"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_agility" "+$agi"
+        "DOTA_Tooltip_Ability_item_hurricane_pike_lua_base_attack_range"              "+$attack_range"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_health" "+$health"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_damage" "+$damage"
 
 //echo sabre//
 		

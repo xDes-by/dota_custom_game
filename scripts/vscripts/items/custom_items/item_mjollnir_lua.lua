@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_item_mjollnir_lua_active", 'items/custom_items/item_mj
 
 function item_mjollnir_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/mjolner" .. level
 	else
-		return "gem" .. self.GemType .. "/item_mjollnir_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_mjollnir_lua" .. level
 	end
 end
 

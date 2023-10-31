@@ -12,32 +12,47 @@ function modifier_gem5:RemoveOnDeath()
 	return false
 end
 
-function modifier_gem5:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
 function modifier_gem5:OnCreated(data)
 	self.parent = self:GetParent()
-	self.lvlup = {0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4}
 	if not IsServer() then
 		return
 	end
+	self.tbl_origin = {}
+	self.tbl_current = {}
+	local ability = EntIndexToHScript(data.ability)
+	local gem_bonus = data.gem_bonus
+	self.tbl_origin[ability] = (gem_bonus or 0)
 	self:StartIntervalThink(1)
 end
 
+function modifier_gem5:OnRefresh(data)
+	if not IsServer() then
+		return
+	end
+	local gem_bonus = data.gem_bonus
+	local ability = EntIndexToHScript(data.ability)
+	if self.tbl_origin[ability] then
+		self.tbl_origin[ability] = self.tbl_origin[ability] + (gem_bonus or 0)
+		self.tbl_current[ability] = 0
+	else
+		self.tbl_origin[ability] = (gem_bonus or 0)
+		self.tbl_current[ability] = 0
+	end
+end
+
 function modifier_gem5:OnIntervalThink()
-	self.stacks = 0 
-	for i=0,5 do
-		local item = self.parent:GetItemInSlot(i)
-		if item then
-			if string.sub(item:GetAbilityName(),-4) == "gem5" then
-				self.stacks = self.stacks + self.lvlup[item:GetLevel()]
+	local total_bonus = 0
+	for ability,gem_bonus in pairs(self.tbl_origin) do
+		if not ability:IsNull() then
+			if not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
+				self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
+			else
+				self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
 			end
 		end
+		total_bonus = total_bonus + self.tbl_current[ability]
 	end
-	if self.stacks == 0 then 
-		self:Destroy()
-	end
+	self:SetStackCount(total_bonus)
 end
 
 function modifier_gem5:DeclareFunctions()
@@ -48,9 +63,9 @@ function modifier_gem5:DeclareFunctions()
 end
 
 function modifier_gem5:GetModifierTotalPercentageManaRegen()
-	return self.stacks
+	return self:GetStackCount()
 end
 
 function modifier_gem5:GetModifierHealthRegenPercentage()
-	return self.stacks
+	return self:GetStackCount()
 end

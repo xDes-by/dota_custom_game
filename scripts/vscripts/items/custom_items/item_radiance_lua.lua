@@ -13,10 +13,10 @@ function item_radiance_lua:GetAbilityTextureName()
 	end
 	
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/rad_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_radiance_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_radiance_lua" .. level
 	end
 end
 

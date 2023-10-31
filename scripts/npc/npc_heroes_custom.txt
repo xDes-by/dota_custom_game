@@ -133,7 +133,7 @@
 	"Ability1"				"techies_land_mines_lua"
 	"Ability2"				"techies_stasis_trap_lua"
 	"Ability3"				"techies_suicide_lua"
-	"Ability4"				"generic_hillen"
+	"Ability4"				"generic_hidden"
 	"Ability5"				"techies_focused_detonate_lua"
 	"Ability6"				"techies_remote_mines_lua"
 	"Ability10"				""

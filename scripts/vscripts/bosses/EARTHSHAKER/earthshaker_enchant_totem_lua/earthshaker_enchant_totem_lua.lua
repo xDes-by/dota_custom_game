@@ -44,21 +44,8 @@ function earthshaker_enchant_totem_lua:OnAbilityPhaseStart()
 	local distance = (point - caster:GetOrigin()):Length2D()
 
 	-- add arc modifier
-	local arc = caster:AddNewModifier(
-		caster, -- player source
-		self, -- ability source
-		"modifier_generic_arc_lua", -- modifier name
-		{
-			target_x = point.x,
-			target_y = point.y,
-			distance = distance,
-			duration = duration,
-			height = height,
-			fix_end = false,
-			isForward = true,
-			-- isRestricted = true,
-		} -- kv
-	)
+	local arc = caster:AddNewModifier(caster,self,"modifier_generic_arc_lua",
+		{target_x = point.x,target_y = point.y,distance = distance,duration = duration,height = height,fix_end = false,isForward = true,})
 	arc:SetEndCallback(function()
 		if not self.interrupted then return end
 		self.interrupted = nil

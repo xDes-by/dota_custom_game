@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_midas_lua_shareable_gold", 'items/custom_items/it
 
 function item_midas_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/item_midas" .. level
 	else
-		return "gem" .. self.GemType .. "/item_midas" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_midas" .. level
 	end
 end
 
@@ -128,7 +128,10 @@ function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
     local killedUnit = EntIndexToHScript( data.entindex_killed )
 	local killerEntity = EntIndexToHScript( data.entindex_attacker )
     if killerEntity == self.parent then
-        local gold = killedUnit:GetGoldBounty() * self.shareable_gold
-        killerEntity:ModifyGoldFiltered(killerEntity:GetPlayerOwnerID(), gold, true, DOTA_ModifyGold_SharedGold)
+        local bounty = killedUnit:GetGoldBounty()
+        if bounty then
+            gold = bounty * self.shareable_gold
+            killerEntity:ModifyGoldFiltered(killerEntity:GetPlayerOwnerID(), gold, true, DOTA_ModifyGold_SharedGold)
+        end
     end
 end

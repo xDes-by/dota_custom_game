@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_greater_crit_lua", 'items/custom_items/item_great
 
 function item_greater_crit_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/greater_crit" .. level
 	else
-		return "gem" .. self.GemType .. "/item_greater_crit_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_greater_crit_lua" .. level
 	end
 end
 

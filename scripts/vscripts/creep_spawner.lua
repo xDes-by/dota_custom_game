@@ -52,19 +52,33 @@ function creep_spawner:spawn_2023()
 end
 
 local creep_name_TO_item_level = {
+	["npc_forest_boss_fake"] = 1,
+	["npc_village_boss_fake"] = 1,
+	["npc_mines_boss_fake"] = 2,
+	["npc_dust_boss_fake"] = 3,
+	["npc_cemetery_boss_fake"] = 3,
+	["npc_swamp_boss_fake"] = 4,
+	["npc_snow_boss_fake"] = 5,
+	["npc_boss_location8_fake"] = 6,
+	["npc_boss_magma_fake"] = 7,
+
 	["npc_forest_boss"] = 1,
 	["npc_village_boss"] = 1,
 	["npc_mines_boss"] = 2,
 	["npc_dust_boss"] = 3,
+	["npc_cemetery_boss"] = 3,
 	["npc_swamp_boss"] = 4,
 	["npc_snow_boss"] = 5,
-	["raid_boss"] = 5,
-	["raid_boss2"] = 5,
-	["raid_boss3"] = 5,
-	["raid_boss4"] = 5,
 	["npc_boss_location8"] = 6,
-	["npc_mega_boss"] = 6,
-	["npc_boss_plague_squirrel"] = 6,
+	["npc_boss_magma"] = 7,
+
+	["raid_boss"] = 8,
+	["raid_boss2"] = 8,
+	["raid_boss3"] = 8,
+	["raid_boss4"] = 8,
+	
+	["npc_mega_boss"] = 9,
+	["npc_boss_plague_squirrel"] = 9,
 }
 
 function CDOTA_BaseNPC:add_items(level)
@@ -304,6 +318,7 @@ function donate_level()
 	if _G.don_spawn_level > 3 and (not _G.npc_smithy_mound or _G.npc_smithy_mound:IsNull() or not _G.npc_smithy_mound:IsAlive()) then
 		_G.npc_smithy_mound = CreateUnitByName("npc_smithy_mound", Vector(-10417, 1217, 389), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_kill", {duration = 300})
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_attack_immune", {})
 		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
@@ -326,13 +341,13 @@ local creepDict = {
 }
 
 function check_trigger_actiate()
+	local triggerName = thisEntity:GetName()
+	local point = "point_donate_creeps_"..string.sub(triggerName, -1)
+
 	if _G.kill_invoker then 
-		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
+		spawn_creeps(point, "farm_zone_dragon", "farm_zone_dragon")
 		return
 	end
-
-    local triggerName = thisEntity:GetName()
-    local point = "point_donate_creeps_"..string.sub(triggerName, -1)
 
     if creepDict[_G.don_spawn_level] then
         local levelCreeps = creepDict[_G.don_spawn_level]
