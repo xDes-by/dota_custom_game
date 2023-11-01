@@ -189,7 +189,7 @@ function CDOTA_BaseNPC_Hero:ModifyGoldFiltered(goldChange, reliable, reason)
 		totalgold = self:GetGold()
 	end
 	if goldChange < 0 then
-		if totalgold > (goldChange * -1) then
+		if totalgold > -goldChange then
 			while goldChange ~= 0 do
 				if (goldChange + 99999) < 0 then
 					goldChange = goldChange + 99999

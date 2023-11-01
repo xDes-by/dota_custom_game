@@ -170,7 +170,7 @@ function modifier_razor_eye_of_the_storm_lua:OnIntervalThink()
 		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NONE
 	else
 		damage = damage + self.parent:GetAverageTrueAttackDamage(self.parent) * self:GetAbility():GetSpecialValueFor("damage_perc") / 100
-		if caster:FindAbilityByName("npc_dota_hero_razor_agi6") then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi6") then
 			damage = damage + self.parent:GetAverageTrueAttackDamage(self.parent) * 60 / 100
 		end
 		self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL

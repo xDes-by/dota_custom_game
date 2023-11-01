@@ -87,7 +87,9 @@ function modifier_necrolyte_heartstopper_aura_intrinsic:GetModifierOverrideAbili
 	if data.ability and data.ability == self:GetAbility() then
 		if data.ability_special_value == "heal_regen_to_damage" then
 			local heal_regen_to_damage = self:GetAbility():GetLevelSpecialValueNoOverride( "heal_regen_to_damage", data.ability_special_level )
-            heal_regen_to_damage = heal_regen_to_damage * 1.5
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str9") then
+            	heal_regen_to_damage = heal_regen_to_damage * 1.5
+			end
             return heal_regen_to_damage
 		end
 		if data.ability_special_value == "boss_multiplier" then
