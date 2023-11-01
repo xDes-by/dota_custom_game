@@ -21,6 +21,8 @@
 			"item"		"item_hurricane_pike_lua"
 			"item"		"item_bfury_lua"
 			"item"		"item_butterfly_lua"
+			"item"		"item_skadi_lua"
+			"item"		"item_mjollnir_lua"
 		}
 		
 		"MAGICAL CARRY ITEMS"
@@ -38,6 +40,7 @@
 			"item"		"item_spirit_vessel_lua"
 			"item"		"item_meteor_hammer_lua"
 			"item"		"item_crimson_guard_lua"
+			"item"		"item_ethereal_blade_lua"
 			
 		}
 		"TANK OR MID ITEMS"
@@ -52,6 +55,7 @@
 			"item"		"item_pudge_heart_lua"
 			"item"		"item_moon_shard_lua"
 			"item"		"item_boots_of_bearing_lua"
+			"item"		"item_pipe_lua"
 		}
 		"TELEPORTS"
 		{

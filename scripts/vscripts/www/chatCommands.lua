@@ -438,7 +438,7 @@ function ChatCommands:DropItems(pid, text, info)
 
     for _, item in pairs(itemsList) do
         local newItem = CreateItem( item.name, owner, owner )
-        newItem:SetLevel(8)
+        newItem:SetLevel(10)
         local drop = CreateItemOnPositionForLaunch( heroPoint, newItem )
         newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, item.vector )
         newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 30 )
@@ -483,7 +483,9 @@ function ChatCommands:DropItemsNew(pid, text, info)
     end
     local heroPoint = hero:GetAbsOrigin()
     local itemsList = {
-        {vector = Vector(heroPoint.x + -300, heroPoint.y + 300), name = "item_assault_lua"},
+        {vector = Vector(heroPoint.x + -400, heroPoint.y + 350), name = "item_assault_lua"},
+        {vector = Vector(heroPoint.x + -350, heroPoint.y + 400), name = "item_hurricane_pike_lua"},
+        {vector = Vector(heroPoint.x + -350, heroPoint.y + 350), name = "item_spirit_vessel_lua"},
         {vector = Vector(heroPoint.x + -250, heroPoint.y + 300), name = "item_desolator_lua"},
         {vector = Vector(heroPoint.x + -200, heroPoint.y + 300), name = "item_butterfly_lua"},
         {vector = Vector(heroPoint.x + -300, heroPoint.y + 250), name = "item_monkey_king_bar_lua"},
