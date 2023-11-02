@@ -30,10 +30,10 @@ local gems = {
 function Forge:init()
     --лучше использовать этот ивент, он так же вызывается при выкладывании или продаже предмета, 
     --так же он исключит дальнейшие ошибки попыток обращения к null объектам или отсутсвия предмета в инвентаре
-    -- ListenToGameEvent("dota_hero_inventory_item_change", Dynamic_Wrap(self, 'ItemUpdate'), self)
-    ListenToGameEvent("dota_item_combined", Dynamic_Wrap(self, 'ItemUpdate'), self)
-    ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(self, 'ItemUpdate'), self)
-    ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(self, 'ItemUpdate'), self)
+    ListenToGameEvent("dota_hero_inventory_item_change", Dynamic_Wrap(self, 'ItemUpdate'), self)
+    -- ListenToGameEvent("dota_item_combined", Dynamic_Wrap(self, 'ItemUpdate'), self)
+    -- ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(self, 'ItemUpdate'), self)
+    -- ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(self, 'ItemUpdate'), self)
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
     self.PlayerItems = {}
     self.PlayerItems[0] = {}
@@ -67,52 +67,65 @@ function Forge:OnGameStateChanged(t)
     end
 end
 
-function Forge:ItemUpdate(t)
-    for _, itemname in pairs(upgradeableItems) do
-        if t.itemname == itemname then
-            self:CreateOrUpdateUpgardeItemPanel(t)
-            break
+function Forge:ExploreAllInventory(PlayerID)
+    local NewItemsList = {}
+    local hero = PlayerResource:GetSelectedHeroEntity( PlayerID )
+    for ITEM_SLOT = DOTA_ITEM_SLOT_1, DOTA_STASH_SLOT_6 do
+        local item = hero:GetItemInSlot(ITEM_SLOT)
+        if item then
+            local itemname = item:GetName()
+            local itemLevel = item:GetLevel()
+            if table.has_value(upgradeableItems, itemname) then
+                local data = {
+                    itemname = itemname,
+                    itemLevel = itemLevel,
+                    entindex = item:entindex(),
+                    gold = upgradeCost[itemLevel].gold,
+                    soul = upgradeCost[itemLevel].soul,
+                    max_gems = upgradeCost[itemLevel].max_gems,
+                    gemType = item.gemType or 0,
+                    gemsNumber = item.gemsNumber or 0,
+                }
+                table.insert(NewItemsList, data)
+            end
+        end
+    end
+    self.PlayerItems[PlayerID] = NewItemsList
+    self:CreateOrUpdateUpgardeItemPanel(PlayerID)
+end
+
+function Forge:UpdateItemData(PlayerID, entindex)
+    local item = EntIndexToHScript( entindex )
+    for key, data in pairs(self.PlayerItems[PlayerID]) do
+        if data.entindex == entindex then
+            self.PlayerItems[PlayerID][key] = {
+                itemname = item:GetName(),
+                itemLevel = item:GetLevel(),
+                entindex = item:entindex(),
+                gold = upgradeCost[item:GetLevel()].gold,
+                soul = upgradeCost[item:GetLevel()].soul,
+                max_gems = upgradeCost[item:GetLevel()].max_gems,
+                gemType = item.gemType or 0,
+                gemsNumber = item.gemsNumber or 0,
+            }
         end
     end
 end
 
-function Forge:CreateOrUpdateUpgardeItemPanel(t)
-    if table.has_value(self.PlayerItems[t.PlayerID], t.itemname) then
-        return
-    end
-    local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-    local item = hero:FindItemInInventory(t.itemname)
-    local itemLevel = item:GetLevel()
-    local data = {
-        itemname = t.itemname,
-        itemLevel = itemLevel,
-        gold = upgradeCost[itemLevel].gold,
-        soul = upgradeCost[itemLevel].soul,
-        max_gems = upgradeCost[itemLevel].max_gems,
-        gemType = item.gemType or 0,
-        gemsNumber = item.gemsNumber or 0,
-    }
-    local insert = true
-    for itemKey, itemData in pairs(self.PlayerItems[t.PlayerID]) do
-        if itemData.itemname == t.itemname then 
-            insert = false
-            self.PlayerItems[t.PlayerID][itemKey] = data
-            break
-        end
-    end
-    if insert then
-        table.insert(self.PlayerItems[t.PlayerID], data)
-    end
-    self:UpdateGemsTable(t.PlayerID)
-    CustomNetTables:SetTableValue("forge", tostring(t.PlayerID), self.PlayerItems[t.PlayerID])
+function Forge:ItemUpdate(t)
+    self:ExploreAllInventory(t.player_id)
+end
+
+function Forge:CreateOrUpdateUpgardeItemPanel(PlayerID)
+    CustomNetTables:SetTableValue("forge", tostring(PlayerID), self.PlayerItems[PlayerID])
 end
 
 function Forge:UpdgradeButton(t)
     local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-    local item = hero:FindItemInInventory(t.itemname)
+    local item = EntIndexToHScript( t.entindex )
     local itemLevel = item:GetLevel()
     local soul = upgradeCost[itemLevel].soul
-    if itemLevel < self.levelMax and (sInv:HasSoul(soul, t.PlayerID) or hero:FindItemInInventory(soul)) then 
+    if itemLevel < self.levelMax and (sInv:HasSoul(soul, t.PlayerID) or hero:FindItemInInventory(soul)) then
         if hero:GetTotalGold() >= upgradeCost[itemLevel].gold then
             hero:ModifyGoldFiltered(-upgradeCost[itemLevel].gold, true, 0)
             local s = hero:FindItemInInventory(soul)
@@ -122,14 +135,15 @@ function Forge:UpdgradeButton(t)
                 sInv:RemoveSoul(soul, t.PlayerID)
             end
             item:SetLevel( itemLevel + 1 )
-            self:ItemUpdate(t)
+            -- self:UpdateItemData( t.PlayerID, item:entindex())
+            self:ItemUpdate({player_id = t.PlayerID, item_entindex = t.entindex})
         end
     end
 end
 
 function Forge:UpdgradeGemsButton(t)
     local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
-    local item = hero:FindItemInInventory(t.itemname)
+    local item = EntIndexToHScript( t.entindex )
     local itemLevel = item:GetLevel()
     local cost = t.gemsNumber - (item.gemsNumber or 0 )
     if gems[t.PlayerID][t.gemType] and cost > gems[t.PlayerID][t.gemType] then
@@ -151,7 +165,8 @@ function Forge:UpdgradeGemsButton(t)
     else
         item.gemsNumber = item.gemsNumber + cost
     end
-    self:CreateOrUpdateUpgardeItemPanel(t)
+    self:UpdateItemData(t.PlayerID, t.entindex)
+    self:CreateOrUpdateUpgardeItemPanel(t.PlayerID)
 end
 
 function Forge:UpdateGemsTable(pid)
@@ -188,20 +203,15 @@ function CDOTA_BaseNPC_Hero:ModifyGoldFiltered(goldChange, reliable, reason)
 	else
 		totalgold = self:GetGold()
 	end
-	if goldChange < 0 then
-		if totalgold > -goldChange then
-			while goldChange ~= 0 do
-				if (goldChange + 99999) < 0 then
-					goldChange = goldChange + 99999
-					self:oldModifyGoldFiltered(-99999, reliable, reason)
-				else
-					self:oldModifyGoldFiltered(goldChange, reliable, reason)
-					goldChange = 0
-				end
-			end
-			return
-		end
-	end
+    while goldChange < 0 do
+        if (goldChange + 99999) < 0 then
+            goldChange = goldChange + 99999
+            self:oldModifyGoldFiltered(-99999, reliable, reason)
+        else
+            self:oldModifyGoldFiltered(goldChange, reliable, reason)
+            return
+        end
+    end
 	self:oldModifyGoldFiltered(goldChange, reliable, reason)
 end
 

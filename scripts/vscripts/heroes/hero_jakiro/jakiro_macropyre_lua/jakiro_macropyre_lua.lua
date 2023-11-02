@@ -7,7 +7,7 @@ function jakiro_macropyre_lua:GetIntrinsicModifierName()
 	return "modifier_jakiro_macropyre_lua_intrinsic_lua"
 end
 
-function jakiro_macropyre_lua:UseAbility(dir, duration, path_radius)
+function jakiro_macropyre_lua:UseAbility(dir, duration, path_radius, cast_range)
 	local caster = self:GetCaster()
 	CreateModifierThinker(
 		caster, -- player source
@@ -18,6 +18,7 @@ function jakiro_macropyre_lua:UseAbility(dir, duration, path_radius)
 			x = dir.x,
 			y = dir.y,
 			path_radius = path_radius,
+			cast_range = cast_range,
 		}, -- kv
 		caster:GetOrigin(),
 		caster:GetTeamNumber(),
@@ -30,9 +31,7 @@ function jakiro_macropyre_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
 	local path_radius = self:GetSpecialValueFor("path_radius")
-	if caster:FindAbilityByName("npc_dota_hero_jakiro_str10") then
-		path_radius = path_radius + 150
-	end
+	local cast_range = self:GetSpecialValueFor("cast_range")
 	-- calculate direction
 	local dir = point - caster:GetOrigin()
 	dir.z = 0
@@ -41,8 +40,19 @@ function jakiro_macropyre_lua:OnSpellStart()
 	-- get duration
 	local duration = self:GetSpecialValueFor( "duration" )
 	-- create thinker
-	self:UseAbility(dir, duration, path_radius)
+	self:UseAbility(dir, duration, path_radius, cast_range)
+	if caster:FindAbilityByName("npc_dota_hero_jakiro_int11") then
+		for _, angle_value in pairs({30, -30}) do
+			local angle_point = RotatePosition(caster:GetAbsOrigin(), QAngle(0, angle_value, 0), point)
+			local angle_direction = (angle_point - caster:GetAbsOrigin()):Normalized()+0.1
+			self:UseAbility(angle_direction, duration, path_radius, cast_range)
+		end
+	end
+	-- local right_QAngle = QAngle(0, -30, 0)
 
+	-- 	-- Left arrow variables
+	-- local left_spawn_point = RotatePosition(caster:GetAbsOrigin(), left_QAngle, point)
+	-- local left_direction = (left_spawn_point - caster:GetAbsOrigin()):Normalized()+0.1
 	-- play effects
 	local sound_cast = "Hero_Jakiro.Macropyre.Cast"
 	EmitSoundOn( sound_cast, caster )

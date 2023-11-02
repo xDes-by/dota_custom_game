@@ -108,6 +108,9 @@ end
 function modifier_jakiro_liquid_ice_lua:OnCreated( kv )
 	-- references
 	local damage = self:GetCaster():GetIntellect() * (self:GetAbility():GetSpecialValueFor("int_damage") / 100)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_str13") then
+		damage = damage + self:GetCaster():GetMaxHealth() * (self:GetAbility():GetSpecialValueFor("max_hp_damage") / 100)
+	end
 	self.slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
 
 	if not IsServer() then return end

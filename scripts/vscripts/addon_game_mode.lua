@@ -390,7 +390,7 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 		loadscript()
 	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		local AllHeroPull = LoadKeyValues("scripts/npc/all_hero_pull.txt")
-		for iPlayerID=0, PlayerResource:GetPlayerCount() do
+		for iPlayerID=0, PlayerResource:GetPlayerCount()-1 do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				for k,v in pairs(AllHeroPull) do
 					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )

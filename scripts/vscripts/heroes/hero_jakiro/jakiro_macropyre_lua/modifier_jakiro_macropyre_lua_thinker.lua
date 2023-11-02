@@ -27,11 +27,10 @@ function modifier_jakiro_macropyre_lua_thinker:OnCreated( kv )
 	-- references
 	self.duration = self:GetAbility():GetSpecialValueFor( "linger_duration" )
 	self.interval = self:GetAbility():GetSpecialValueFor( "burn_interval" )
-	self.range = self:GetAbility():GetSpecialValueFor( "cast_range" )
 	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 
 	if not IsServer() then return end
-	
+	self.range = kv.cast_range
 	self.radius = kv.path_radius
 	-- ability properties
 	self.abilityDamageType = self:GetAbility():GetAbilityDamageType()

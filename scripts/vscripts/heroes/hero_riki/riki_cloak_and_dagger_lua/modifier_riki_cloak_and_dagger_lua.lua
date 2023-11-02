@@ -47,7 +47,7 @@ end
 
 function modifier_riki_cloak_and_dagger_lua:GetModifierPreAttack_CriticalStrike( params )
 	if IsServer() and (not self:GetParent():PassivesDisabled()) then
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str_last") and RollPseudoRandomPercentage(7, self:GetCaster():entindex(), self:GetCaster()) and self.bBackstab then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str12") and RollPseudoRandomPercentage(7, self:GetCaster():entindex(), self:GetCaster()) and self.bBackstab then
 			self.record = params.record
 			return 1250
 		end
@@ -72,7 +72,7 @@ function modifier_riki_cloak_and_dagger_lua:GetModifierPreAttack_BonusDamage(key
 			self.bBackstab = true
 		end
 		if self.bBackstab then
-			if not self:GetParent():IsIllusion() and not self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int_last") then
+			if not self:GetParent():IsIllusion() and not self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int12") then
 				return self:CalculateDamage()
 			end
 		end
@@ -94,7 +94,7 @@ function modifier_riki_cloak_and_dagger_lua:OnAttackLanded(keys)
 			self.backstab_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab.vpcf", PATTACH_ABSORIGIN_FOLLOW, keys.target)
 			ParticleManager:SetParticleControlEnt(self.backstab_particle, 1, keys.target, PATTACH_POINT_FOLLOW, "attach_hitloc", keys.target:GetAbsOrigin(), true)
 			ParticleManager:ReleaseParticleIndex(self.backstab_particle)
-			if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int_last") then
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int12") then
 				local damage = self:CalculateDamage()
 				ApplyDamage({ victim = keys.target, attacker = self:GetParent(), damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 				SendOverheadEventMessage( nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, keys.target, damage, nil )

@@ -30,8 +30,8 @@ function doom_ulti_think_lua:IsPurgable()
 end
 
 function doom_ulti_think_lua:OnCreated()
-    self.effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_dark_willow/dark_willow_shadow_realm.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-	ParticleManager:SetParticleControlEnt(self.effect_cast,1,self:GetCaster(),PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",Vector(0,0,0), true)
+    self.effect_cast = ParticleManager:CreateParticle( "particles/units/heroes/hero_doom_bringer/doom_bringer_doom_aura.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	-- ParticleManager:SetParticleControlEnt(self.effect_cast,1,self:GetCaster(),PATTACH_ABSORIGIN_FOLLOW,"attach_hitloc",Vector(0,0,0), true)
     EmitSoundOn( "Hero_DoomBringer.Doom", self:GetCaster() )
 end
 
@@ -77,7 +77,7 @@ end
 
 function doom_ulti_burn_lua:OnCreated()
 
-    local damage = (self:GetCaster():GetModifierStackCount("modifier_ability_devour_souls", self:GetCaster())) * (self:GetAbility():GetSpecialValueFor("dmg_per_soul"))
+    local damage = (self:GetCaster():GetModifierStackCount("modifier_ability_devour_souls", self:GetCaster())) * (self:GetAbility():GetSpecialValueFor("damage_per_soul"))
 
     self.damageTable = {
 		victim = self:GetParent(),

@@ -57,8 +57,8 @@ function modifier_riki_tricks_of_the_trade_lua_primary:OnCreated()
 		
 		local attack_count = ability:GetSpecialValueFor("attack_count")
 		local duration = ability:GetSpecialValueFor("channel_duration")
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi_last") then
-			attack_count = attack_count + duration / (1 / self:GetCaster():GetAttacksPerSecond())
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi12") then
+			attack_count = attack_count + duration / (1 / (self:GetCaster():GetAttacksPerSecond() / 2))
 		end
 		local interval = duration / attack_count
 		

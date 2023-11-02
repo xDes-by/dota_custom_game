@@ -31,19 +31,22 @@ function modifier_jakiro_liquid_fire_lua:OnCreated( kv )
 	end
 
 	if not IsServer() then return end
-
+	local interval = 0.5
 	-- precache damage
+	self.damage = damage * interval
 	self.damageTable = {
 		victim = self:GetParent(),
 		attacker = self:GetCaster(),
-		damage = damage,
+		damage = self.damage,
 		damage_type = self:GetAbility():GetAbilityDamageType(),
 		ability = self:GetAbility(), --Optional.
 	}
+	self.stack_table = {}
 	-- ApplyDamage(damageTable)
-
-	-- Start interval
-	self:StartIntervalThink( 0.5 )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi13") then
+		interval = interval / 2
+	end
+	self:StartIntervalThink( interval )
 end
 
 function modifier_jakiro_liquid_fire_lua:OnRefresh( kv )
@@ -69,9 +72,31 @@ function modifier_jakiro_liquid_fire_lua:GetModifierAttackSpeedBonus_Constant()
 	return self.slow
 end
 
+function modifier_jakiro_liquid_fire_lua:OnStackCountChanged(prev_stacks)
+	if not IsServer() then return end
+	local stacks = self:GetStackCount()
+	if stacks > prev_stacks then
+		table.insert(self.stack_table, GameRules:GetGameTime())
+		self:ForceRefresh()
+	end
+end
+
 --------------------------------------------------------------------------------
 -- Interval Effects
 function modifier_jakiro_liquid_fire_lua:OnIntervalThink()
+	local repeat_needed = #self.stack_table > 0
+	while repeat_needed do
+		if GameRules:GetGameTime() - self.stack_table[1] >= 6 then
+			table.remove(self.stack_table, 1)
+			self:DecrementStackCount()
+		else
+			repeat_needed = false
+		end
+	end
+	if self:GetStackCount() > 1 then
+		local stacks = self:GetStackCount() - 1
+		self.damageTable.damage = self.damage + (self.damage * 0.1) * stacks
+	end
 	ApplyDamage( self.damageTable )
 end
 

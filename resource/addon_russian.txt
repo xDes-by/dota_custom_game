@@ -447,7 +447,11 @@
         "DailyTaskDescription_23"                               "Убить боссов за одну игру"
         "DailyTaskDescription_24"                               "Убить боссов за одну игру"
         "DailyTaskDescription_25"                               "Убить Рошана"
-
+        "ForgeLifesteal"                                        "вампиризм"
+        "SpellAmplify"                                          "усиление заклинаний"
+        "ForgeStats"                                            "всех атрибутов"
+        "ForgeBaseDamage"                                       "базового урона"
+        "ForgeRegen"                                            "регенирации"
         // Panorama
 
         /////////////////
@@ -5124,7 +5128,7 @@
 		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_burn_damage"																		"ОГНЕННЫЙ УРОН:"
 		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_slow_movement_speed_pct"															"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_slow_attack_speed_pct"																"ЗАМЕДЛЕНИЕ АТАКИ:"
-		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_abilityduration"																	"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_duration"																	        "ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_start_radius"																		"ПЕРВИЧНЫЙ РАДИУС:"
 		"DOTA_Tooltip_ability_jakiro_dual_breath_lua_end_radius"																		"КОНЕЧНЫЙ РАДИУС:"
 		
@@ -5147,6 +5151,7 @@
 		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_duration"                   "ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_movement_slow"              "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
 		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_int_damage"       		    "%УРОН ОТ ИНТЕЛЛЕКТА:"
+		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_max_hp_damage"       		"%УРОН ОТ МАКС.ЗДОРОВЬЯ:"
 		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_abilitycastrange"			"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"DOTA_Tooltip_ability_jakiro_liquid_ice_lua_radius"						"РАДИУС:"
 
@@ -5158,21 +5163,21 @@
 		"DOTA_Tooltip_ability_jakiro_macropyre_lua_duration"																			"ДЛИТЕЛЬНОСТЬ:"
 
         "npc_dota_hero_jakiro_str6" "Вкус крови"
-        "npc_dota_hero_jakiro_str6_description" "Dual Breath срабатывает в направлении взгляда героя с интервалом 1.7 перезарядки."
+        "npc_dota_hero_jakiro_str6_description" "Dual Breath срабатывает в направлении взгляда героя с интервалом 1.5 перезарядки."
         "npc_dota_hero_jakiro_str7" "Быстрее света"
         "npc_dota_hero_jakiro_str7_description" "40% силы к урону Macropyre в секунду."
         "npc_dota_hero_jakiro_str8" "Крепкая кожа"
         "npc_dota_hero_jakiro_str8_description" "100% силы в урон Ice Path."
         "npc_dota_hero_jakiro_str9" "Паралич"
-        "npc_dota_hero_jakiro_str9_description" "Dual Breath применяется в 4 стороны, вокруг героя."
+        "npc_dota_hero_jakiro_str9_description" "Dual Breath применяется в 5 сторон, вокруг героя."
         "npc_dota_hero_jakiro_str10" "Несокрушимый"
-        "npc_dota_hero_jakiro_str10_description" "+150 радиус Macropyre."
+        "npc_dota_hero_jakiro_str10_description" "+150 радиус, дальность Macropyre."
         "npc_dota_hero_jakiro_str11" "Магическая стойкость"
         "npc_dota_hero_jakiro_str11_description" "Ice Path применяется на том же месте еще 2 раза с задержкой 4сек."
         "npc_dota_hero_jakiro_str12" "Вся сила"
-        "npc_dota_hero_jakiro_str12_description" "Новая способность Liquid Ice."
+        "npc_dota_hero_jakiro_str12_description" "Новая способность Liquid Frost."
         "npc_dota_hero_jakiro_str13" "Вся сила"
-        "npc_dota_hero_jakiro_str13_description" "Liquid Ice наносит урон +2.5% макс. здоровья героя."
+        "npc_dota_hero_jakiro_str13_description" "Liquid Frost наносит урон +2.5% макс. здоровья героя."
 
         "npc_dota_hero_jakiro_agi6" "Ловкий удар"
         "npc_dota_hero_jakiro_agi6_description" "0 сек. перезарядка Liquid Fire."
@@ -5185,7 +5190,7 @@
         "npc_dota_hero_jakiro_agi10" "Чувство страха"
         "npc_dota_hero_jakiro_agi10_description" "Дальность Dual Breath х2."
         "npc_dota_hero_jakiro_agi11" "Старческая ловкость"
-        "npc_dota_hero_jakiro_agi11_description" "После применения Dual Breath, на область действия способности применяется Macropyre на 3сек."
+        "npc_dota_hero_jakiro_agi11_description" "После применения Dual Breath, на область действия способности применяется Macropyre на 2.5 сек."
         "npc_dota_hero_jakiro_agi12" "Инфузия Кровавого Ритуала"
         "npc_dota_hero_jakiro_agi12_description" "Liquid Fire стакается на основной цели атаки. Каждый стак увеличивает урон на 10% от изначальных значений."
         "npc_dota_hero_jakiro_agi12_tooltip" "Длительность стака 6 сек., типо как у хускара."
@@ -6500,6 +6505,19 @@
 
 
 // RIKI
+
+        "dota_tooltip_ability_riki_smoke_screen_lua" "Smoke Screen"
+        "dota_tooltip_ability_riki_smoke_screen_lua_description" "Бросает дымовую бомбу, которая замедляет передвижение врагов, а также не позволяет им применять способности и заставляет их промахиваться почти всеми атаками."
+		"dota_tooltip_ability_riki_smoke_screen_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_miss_rate" "%ШАНС ПРОМАХА:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_radius" "РАДИУС:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_area_of_effect" "РАДИУС:"
+        "dota_tooltip_ability_riki_smoke_screen_lua_max_vision_reduction_pcnt" "%МАКС. СНИЖЕНИЕ ОБЗОРА:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_miss_chance" "%ШАНС ПРОМАХА:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_note0" "Эффекты от нескольких дымовых завес не складываются."
+		"dota_tooltip_ability_riki_smoke_screen_lua_slow" "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"dota_tooltip_ability_riki_smoke_screen_lua_turn_rate_slow" "%ЗАМЕДЛЕНИЕ ПОВОРОТА:"
+
 		"dota_tooltip_ability_riki_blink_strike_723_lua" "Blink Strike"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_abilitycastrange" "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_bonus_damage" "ДОП. УРОН:"
@@ -6512,10 +6530,8 @@
 		"dota_tooltip_ability_riki_blink_strike_723_lua_description" "Герой телепортируется за спину цели и, если это враг, наносит ему урон."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_duration" "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
 		"dota_tooltip_ability_riki_blink_strike_723_lua_jump_range" "ДАЛЬНОСТЬ:"
-		"dota_tooltip_ability_riki_blink_strike_723_lua_lore" "От проворного убийцы никому не сбежать."
-		"dota_tooltip_ability_riki_blink_strike_723_lua_note0" "Всегда будет пытаться найти кратчайший путь."
-		"dota_tooltip_ability_riki_blink_strike_723_lua_note1" "Во время прыжков Through the Ball Room, владелец неуязвим."
 		"dota_tooltip_ability_riki_blink_strike_723_lua_turn_rate_slow_pct" "%ЗАМЕДЛЕНИЕ ПОВОРОТА:"
+
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua" "Cloak and Dagger (До 7.23)"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua" "Cloak and Dagger"
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_damage_multiplier" "УРОН ЗА ЕДИНИЦУ ЛОВКОСТИ:"
@@ -6529,20 +6545,11 @@
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_lore" "Скрытный убийца считает, что в бою все средства хороши, и не стесняется бить в спину."
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_note0" "Только прерывание невидимости от Cloak and Dagger, даст дополнительный урон. Другие источники невидимости не дают такого эффекта."
 		"dota_tooltip_ability_riki_cloak_and_dagger_lua_note1" "Атакуя сзади внутри дымовой завесы, вы получите полный дополнительный урон."
-		"dota_tooltip_ability_riki_smoke_screen_lua" "Smoke Screen"
-		"dota_tooltip_ability_riki_smoke_screen_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_lore" "Бесшумный убийца высоко ценит обычную дымовую завесу, сбивающую противников с толку, ведь в роковую ночь она спасла его от предателей."
-		"dota_tooltip_ability_riki_smoke_screen_lua_miss_rate" "%ШАНС ПРОМАХА:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_radius" "РАДИУС:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_area_of_effect" "РАДИУС:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_description" "Бросает дымовую бомбу, которая замедляет передвижение врагов, а также не позволяет им применять способности и заставляет их промахиваться почти всеми атаками."
+		
+        
+		
 
-		"dota_tooltip_ability_riki_smoke_screen_lua_lore" "Бесшумный убийца высоко ценит обычную дымовую завесу, сбивающую противников с толку, ведь в роковую ночь она спасла его от предателей."
-		"dota_tooltip_ability_riki_smoke_screen_lua_max_vision_reduction_pcnt" "%МАКС. СНИЖЕНИЕ ОБЗОРА:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_miss_chance" "%ШАНС ПРОМАХА:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_note0" "Эффекты от нескольких дымовых завес не складываются."
-		"dota_tooltip_ability_riki_smoke_screen_lua_slow" "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
-		"dota_tooltip_ability_riki_smoke_screen_lua_turn_rate_slow" "%ЗАМЕДЛЕНИЕ ПОВОРОТА:"
+		
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua" "Tricks of the Trade"
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_description"     "ПРЕРЫВАЕМАЯ — герой пропадает из нашего мира и периодически атакует в спину случайного врага в области действия."
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_channel_duration" "ДЛИТЕЛЬНОСТЬ:"
@@ -6586,7 +6593,9 @@
         "npc_dota_hero_riki_agi11" "Аура Проклятия"
         "npc_dota_hero_riki_agi11_description" "+30% базового урона, после использования блинка, на 5 сек." // +
         "npc_dota_hero_riki_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_riki_agi12_description" "Число атак +время между атаками героя" // +
+        "npc_dota_hero_riki_agi12_description" "Число атак +50% кол-ва атак, которое герой успел бы нанести, исходя из интервала между атаками." // +
+        "npc_dota_hero_riki_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_riki_agi13_description" "Атаки в 2 раза чаще, если внутри круга только одна цель." // +
 		
         "npc_dota_hero_riki_int6" "Накопление Интеллекта"
         "npc_dota_hero_riki_int6_description" "Снижение перезарядки 3 кнопки на 50%" // +
@@ -6604,6 +6613,86 @@
         "npc_dota_hero_riki_int12_description" "Урон Ультимейт становится магическим и его возможно усилить" // +
 
         
+        // DOOM 
+        "DOTA_Tooltip_ability_doom_devour_lua"							"Devour"
+		"DOTA_Tooltip_ability_doom_devour_lua_Description"				"Герой получает дополнительное золото и приобретает дополнительную регенерацию и урон, когда он съедает крипа с помощью своей способности."
+		"DOTA_Tooltip_ability_doom_devour_lua_regen"				    "РЕГЕНЕРАЦИЯ:"
+		"DOTA_Tooltip_ability_doom_devour_lua_bonus_gold"				"ДОП. ЗОЛОТО:"
+		"DOTA_Tooltip_ability_doom_devour_lua_devour_damage"			"ДОПОЛНИТЕЛЬНЫЙ УРОН:"
+
+        "DOTA_Tooltip_ability_lina_firehell"					"Scorched Earth"
+		"DOTA_Tooltip_ability_lina_firehell_Description"		"Устилает пламенем землю вокруг героя, увеличивая его скорость передвижения, а также нанося урон противникам."
+		"DOTA_Tooltip_ability_lina_firehell_base_damage_per_second"	"УРОН:"
+		"DOTA_Tooltip_ability_lina_firehell_radius"			    "РАДИУС:"
+		"DOTA_Tooltip_ability_lina_firehell_damage_per_second_for_caster"		"%ПОТЕРЯ ЗДОРОВЬЯ:"
+
+        "DOTA_Tooltip_ability_ability_infernal_blade_lua"						"Infernal Blade"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_Description"			"Пламенная атака поджигает жертву и оглушает её на %ministun_duration% сек. Цель горит %burn_duration% сек. и каждую секунду получает как базовый урон, так и урон, зависящий от её максимального запаса здоровья."
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_burn_damage"		"БАЗОВЫЙ УРОН:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_burn_damage_pct"  "%УВЕЛИЧЕНИЕ УРОНА ЗА ДУШУ:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_burn_duration"    "ДЛИТЕЛЬНОСТЬ ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_ministun_duration"    		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_shard_ministun_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_shard_bonus_stun_duration"	"ДЛИТЕЛЬНОСТЬ ДОП. ОГЛУШЕНИЯ:"
+		"DOTA_Tooltip_ability_ability_infernal_blade_lua_shard_bonus_damage"			"ДОПОЛНИТЕЛЬНЫЙ УРОН:"
+
+        "DOTA_Tooltip_ability_doom_ulti_lua"							"Doom"
+		"DOTA_Tooltip_ability_doom_ulti_lua_Description"				"Врагов настигает жуткая участь, и герой получает периодический урон, причем его величина зависит от количества сожранных врагов."
+		"DOTA_Tooltip_ability_doom_ulti_lua_duration"					"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_doom_ulti_lua_radius"					    "РАДИУС:"
+		"DOTA_Tooltip_ability_doom_ulti_lua_damage_per_soul"			"УРОН ЗА ДУШУ:"
+
+        "npc_dota_hero_doom_bringer_str6" "Эхо Тишины"
+        "npc_dota_hero_doom_bringer_str6_description" "-20сек. перезарядка Devour."
+        "npc_dota_hero_doom_bringer_str7" "Мгновенное Затишье"
+        "npc_dota_hero_doom_bringer_str7_description" "50% силы в урон Scorched Earth."
+        "npc_dota_hero_doom_bringer_str8" "Мудрость Безгранична"
+        "npc_dota_hero_doom_bringer_str8_description" "%"
+        "npc_dota_hero_doom_bringer_str9" "Проклятие Изнурения"
+        "npc_dota_hero_doom_bringer_str9_description" "х3 дополнительное золото Devour."
+        "npc_dota_hero_doom_bringer_str10" "Celestial Hammer"
+        "npc_dota_hero_doom_bringer_str10_description" "Devour даёт силу равную урону."
+        "npc_dota_hero_doom_bringer_str11" "Luminosity"
+        "npc_dota_hero_doom_bringer_str11_description" "%"
+        "npc_dota_hero_doom_bringer_str11_tooltip" "%"
+        "npc_dota_hero_doom_bringer_str12" "Глобальный Гром"
+        "npc_dota_hero_doom_bringer_str12_description" "%"
+        "npc_dota_hero_doom_bringer_str13" "Глобальный Гром"
+        "npc_dota_hero_doom_bringer_str13_description" "%"
+        
+        "npc_dota_hero_doom_bringer_agi6" "Ближний Разум"
+        "npc_dota_hero_doom_bringer_agi6_description" "Души Devour дают шанс 15% нанести крит. атаку 100% + 10 * кол-во душ."
+        "npc_dota_hero_doom_bringer_agi7" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi7_description" "%"
+        "npc_dota_hero_doom_bringer_agi8" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi8_description" "%"
+        "npc_dota_hero_doom_bringer_agi9" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi9_description" "Атаки героя наносят 100% сплеш урон."
+        "npc_dota_hero_doom_bringer_agi10" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi10_description" "%"
+        "npc_dota_hero_doom_bringer_agi11" "Аура Проклятия"
+        "npc_dota_hero_doom_bringer_agi11_description" "%"
+        "npc_dota_hero_doom_bringer_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_doom_bringer_agi12_description" "%"
+        "npc_dota_hero_doom_bringer_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_doom_bringer_agi13_description" "%"
+		
+        "npc_dota_hero_doom_bringer_int6" "Celestial Hammer"
+        "npc_dota_hero_doom_bringer_int6_description" "Если число душ Devour кратно 3 то эффективность их в 1.5 раза выше."
+        "npc_dota_hero_doom_bringer_int7" "Усиленная Мудрость"
+        "npc_dota_hero_doom_bringer_int7_description" "Scorched Earth переключаемая способность."
+        "npc_dota_hero_doom_bringer_int8" "Слово По Области"
+        "npc_dota_hero_doom_bringer_int8_description" "%"
+        "npc_dota_hero_doom_bringer_int9" "Стакующая Мудрость"
+        "npc_dota_hero_doom_bringer_int9_description" "%"
+        "npc_dota_hero_doom_bringer_int10" "Командная Работа"
+        "npc_dota_hero_doom_bringer_int10_description" "3 сек. перезарядка Infernal Blade, на всех уровнях."
+        "npc_dota_hero_doom_bringer_int11" "Командная Работа"
+        "npc_dota_hero_doom_bringer_int11_description" "%"
+        "npc_dota_hero_doom_bringer_int12" "Удвоенный Урон"
+        "npc_dota_hero_doom_bringer_int12_description" "%"
+        "npc_dota_hero_doom_bringer_int13" "Удвоенный Урон"
+        "npc_dota_hero_doom_bringer_int13_description" "%"
 
         //Marci//
 
@@ -6908,22 +6997,5 @@
 
         "DOTA_Tooltip_modifier_rune_multicast"		"Мультикаст"
         "DOTA_Tooltip_modifier_rune_multicast_Description"		"С шансом 5% способность может не потратить ману и не запустить передарядку"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

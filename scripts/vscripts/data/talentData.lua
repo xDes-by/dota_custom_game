@@ -2637,10 +2637,10 @@ heroTalentsData = {
         npc_dota_hero_doom_bringer_str11 = {
             place = {"str 11"}, url = "/npc_dota_hero_doom_bringer/str/str-talant-11.png", name = "npc_dota_hero_doom_bringer_str11",
         },
-        npc_dota_hero_doom_bringer_str_last = {
+        npc_dota_hero_doom_bringer_str12 = {
             place = {"str 12"}, url = "/npc_dota_hero_doom_bringer/str/str-talant-12.png", name = "npc_dota_hero_doom_bringer_str12",
         },
-        special_bonus_unique_npc_dota_hero_doom_bringer_str50 = {
+        npc_dota_hero_doom_bringer_str13 = {
             place = {"str 13"}, url = "/npc_dota_hero_doom_bringer/str/str-talant-12.png", name = "npc_dota_hero_doom_bringer_str13",
         },
         -------------------- AGI -----------------------------------------------------------
@@ -2662,10 +2662,10 @@ heroTalentsData = {
         npc_dota_hero_doom_bringer_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_doom_bringer/agi/agi-talant-11.png", name = "npc_dota_hero_doom_bringer_agi11",
         },
-        npc_dota_hero_doom_bringer_agi_last = {
+        npc_dota_hero_doom_bringer_agi12 = {
             place = {"agi 12"}, url = "/npc_dota_hero_doom_bringer/agi/agi-talant-12.png", name = "npc_dota_hero_doom_bringer_agi12",
         },
-        special_bonus_unique_npc_dota_hero_doom_bringer_agi50 = {
+        npc_dota_hero_doom_bringer_agi13 = {
             place = {"agi 13"}, url = "/npc_dota_hero_doom_bringer/agi/agi-talant-12.png", name = "npc_dota_hero_doom_bringer_agi13",
         },
         -------------------- INT -----------------------------------------------------------
@@ -2687,10 +2687,10 @@ heroTalentsData = {
         npc_dota_hero_doom_bringer_int11 = {
             place = {"int 11"}, url = "/npc_dota_hero_doom_bringer/int/int-talant-11.png", name = "npc_dota_hero_doom_bringer_int11",
         },
-        npc_dota_hero_doom_bringer_int_last = {
+        npc_dota_hero_doom_bringer_int12 = {
             place = {"int 12"}, url = "/npc_dota_hero_doom_bringer/int/int-talant-12.png", name = "npc_dota_hero_doom_bringer_int12",
         },
-        special_bonus_unique_npc_dota_hero_doom_bringer_int50 = {
+        npc_dota_hero_doom_bringer_int13 = {
             place = {"int 13"}, url = "/npc_dota_hero_doom_bringer/int/int-talant-12.png", name = "npc_dota_hero_doom_bringer_int13",
         },
     },
@@ -4178,10 +4178,10 @@ heroTalentsData = {
         npc_dota_hero_riki_str11 = {
             place = {"str 11"}, url = "/npc_dota_hero_riki/str/1.png", name = "npc_dota_hero_riki_str11", 
         },
-        npc_dota_hero_riki_str_last = {
+        npc_dota_hero_riki_str12 = {
             place = {"str 12"}, url = "/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str12", 
         },
-        special_bonus_unique_npc_dota_hero_riki_str50 = {
+        npc_dota_hero_riki_str13 = {
             place = {"str 13"}, url = "/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str13", 
         },
         -------------------- AGI -----------------------------------------------------------
@@ -4203,10 +4203,10 @@ heroTalentsData = {
         npc_dota_hero_riki_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_riki/agi/2.png", name = "npc_dota_hero_riki_agi11", 
         },
-        npc_dota_hero_riki_agi_last = {
+        npc_dota_hero_riki_agi12 = {
             place = {"agi 12"}, url = "/npc_dota_hero_riki/agi/3.png", name = "npc_dota_hero_riki_agi12", 
         },
-        special_bonus_unique_npc_dota_hero_riki_agi50 = {
+        npc_dota_hero_riki_agi13 = {
             place = {"agi 13"}, url = "/npc_dota_hero_riki/agi/3.png", name = "npc_dota_hero_riki_agi13", 
         },
         -------------------- INT -----------------------------------------------------------
@@ -4228,8 +4228,11 @@ heroTalentsData = {
         npc_dota_hero_riki_int11 = {
             place = {"int 11"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int11", 
         },  
-        npc_dota_hero_riki_int_last = {
+        npc_dota_hero_riki_int12 = {
             place = {"int 12"}, url = "/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int12", 
+        },
+        npc_dota_hero_riki_int13 = {
+            place = {"int 13"}, url = "/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int13", 
         },
     },
     npc_dota_hero_leshrac = {

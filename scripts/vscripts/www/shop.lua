@@ -266,7 +266,18 @@ function Shop:PlayerSetup( pid )
 		arr.ban = 0
 	end
 	Shop.pShop[pid] = arr
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = _G.RATING[ 'rating' ][ pid ][ 'likes' ], reports = _G.RATING[ 'rating' ][ pid ][ 'reports' ]})
+	CustomNetTables:SetTableValue("shopinfo", tostring(pid), {
+		feed = arr.feed, 
+		coins = arr.coins, 
+		mmrpoints = arr.mmrpoints, 
+		likes = _G.RATING[ 'rating' ][ pid ][ 'likes' ], 
+		reports = _G.RATING[ 'rating' ][ pid ][ 'reports' ],
+		purple_gem = _G.SHOP[pid]["gem_1"],
+		blue_gem = _G.SHOP[pid]["gem_2"],
+		orange_gem = _G.SHOP[pid]["gem_3"],
+		red_gem = _G.SHOP[pid]["gem_4"],
+		green_gem = _G.SHOP[pid]["gem_5"],
+	})
 
 	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray

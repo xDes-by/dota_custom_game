@@ -18,6 +18,12 @@ function modifier_jakiro_dual_breath_lua_ice:IsPurgable()
 	return true
 end
 
+function modifier_jakiro_dual_breath_lua_ice:GetAttributes()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_int12") then
+		return MODIFIER_ATTRIBUTE_MULTIPLE
+	end
+end
+
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_jakiro_dual_breath_lua_ice:OnCreated( kv )
