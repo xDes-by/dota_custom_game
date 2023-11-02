@@ -11,17 +11,17 @@ local upgradeableItems = {
 }
 
 local upgradeCost = {
-    [1] = { gold = 5000, soul = "item_forest_soul", max_gems = 1000},
-    [2] = { gold = 10000, soul = "item_village_soul", max_gems = 2000},
-    [3] = { gold = 20000, soul = "item_mines_soul", max_gems = 3000},
-    [4] = { gold = 30000, soul = "item_dust_soul", max_gems = 4000},
-    [5] = { gold = 40000, soul = "item_cemetery_soul", max_gems = 5000},
-    [6] = { gold = 50000, soul = "item_swamp_soul", max_gems = 6000},
-    [7] = { gold = 75000, soul = "item_snow_soul", max_gems = 7000},
-    [8] = { gold = 100000, soul = "item_divine_soul", max_gems = 8000},
-    [9] = { gold = 180000, soul = "item_magma_soul", max_gems = 9000},
-    [10] = { gold = 500000, soul = "item_antimage_soul", max_gems = 10000},
-    [11] = {                                         max_gems = 11000},
+    [1] = { gold = 5000, soul = "item_forest_soul", max_gems = 150},
+    [2] = { gold = 10000, soul = "item_village_soul", max_gems = 300},
+    [3] = { gold = 20000, soul = "item_mines_soul", max_gems = 450},
+    [4] = { gold = 30000, soul = "item_dust_soul", max_gems = 600},
+    [5] = { gold = 40000, soul = "item_cemetery_soul", max_gems = 750},
+    [6] = { gold = 50000, soul = "item_swamp_soul", max_gems = 900},
+    [7] = { gold = 75000, soul = "item_snow_soul", max_gems = 1050},
+    [8] = { gold = 100000, soul = "item_divine_soul", max_gems = 1200},
+    [9] = { gold = 180000, soul = "item_magma_soul", max_gems = 1350},
+    [10] = { gold = 500000, soul = "item_antimage_soul", max_gems = 1500},
+    [11] = {                                         max_gems = 100000},
 }
 local gems = {
 

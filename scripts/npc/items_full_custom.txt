@@ -313,7 +313,7 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_butterfly"
-		"ScriptFile"					"items/custom_items/item_butterfly_lua1"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"ItemCost"						"4975"

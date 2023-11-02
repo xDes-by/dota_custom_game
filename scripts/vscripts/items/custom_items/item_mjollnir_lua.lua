@@ -115,7 +115,7 @@ end
 function modifier_item_mjollnir_lua_strike:OnIntervalThink()
 	self.zapped = false
 	
-	if (self.unit_counter >= self.static_strikes and self.static_strikes > 0) or not self.zapped then
+	if self.current_unit and (self.unit_counter >= self.static_strikes and self.static_strikes > 0) or not self.zapped then
 
 		for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self.current_unit:GetAbsOrigin(), nil, self.static_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_CLOSEST, false)) do
 			if not self.units_affected[enemy] and enemy ~= self.current_unit and enemy ~= self.previous_unit then

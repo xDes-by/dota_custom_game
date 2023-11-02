@@ -560,8 +560,9 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[5] = 650,
 		[6] = 1000,
 		[7] = 1500,
-		[8] = 4500,
+		[8] = 3000,
 		[9] = 4500,
+		[10] = 6000,
 	}
 	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / players
 	return true
@@ -570,11 +571,11 @@ end
 function CAddonAdvExGameMode:OnRunePickup(data)
 	if data.rune == DOTA_RUNE_XP then
 		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
-		local need_exp = XP_PER_LEVEL_TABLE[hHero:GetLevel()] / 2
+		local need_exp = (XP_PER_LEVEL_TABLE[hHero:GetLevel()] - XP_PER_LEVEL_TABLE[hHero:GetLevel() - 1])/ 2
 		local t = {}
 		hHero:AddExperience(need_exp, 0, false, false)
 		for i = 0, PlayerResource:GetPlayerCount() - 1 do
-			if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState() == DOTA_CONNECTION_STATE_CONNECTED then
+			if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_CONNECTED then
 				local hero = PlayerResource:GetSelectedHeroEntity(i)
 				if hero then
 					t[hero:GetLevel()] = hero
