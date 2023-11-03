@@ -42,7 +42,7 @@ return function(context)
 	PrecacheUnitByNameSync("last_creep_4", context, nil)
 	PrecacheUnitByNameSync("magma_creep_1", context, nil)
 	PrecacheUnitByNameSync("magma_creep_2", context, nil)
-	PrecacheUnitByNameSync("npc_bara_boss", context, nil)
+	PrecacheUnitByNameSync("npc_bara_boss_main", context, nil)
 
 
 

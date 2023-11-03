@@ -67,6 +67,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetHideBlacklistedHeroes(true)
     GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered( true )
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
+	GameRules:GetGameModeEntity():SetGoldSoundDisabled( true )
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
 	GameRules:GetGameModeEntity():SetMinimumAttackSpeed( 0 )
@@ -437,7 +438,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
 	Spawner:Init()
 	creep_spawner:spawn_creeps_forest()	
-	Rules:tower_hp()
 	Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
@@ -966,7 +966,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
 		local point = Entities:FindByName( nil, "point_bara"):GetAbsOrigin()
-		CreateUnitByName("npc_bara_boss", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+		CreateUnitByName("npc_bara_boss_main", point, true, nil, nil, DOTA_TEAM_BADGUYS)
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
@@ -981,7 +981,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_bara_boss" and not DataBase:IsCheatMode() then
+	if killedUnit:GetUnitName() == "npc_bara_boss_main" and not DataBase:IsCheatMode() then
 		CreateUnitByName("npc_sand_king_boss", Vector(7987, -11138, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
 		CreateUnitByName("npc_dota_monkey_king_boss", Vector(7812, -9992, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
 		CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)

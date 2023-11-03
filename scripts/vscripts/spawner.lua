@@ -339,6 +339,7 @@ function CreatePatroolWave()
 	if _G.don_spawn_level == 0 then
 		-- return
 	end
+	--@todo:патруль нотификейшн
 	local gold = {[0] = 60,[1] = 150,[2] = 250,[3] = 400,[4] = 550,[5] = 650,[6] = 1000,[7] = 1500,[8] = 50}
 	local corners = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(-1376, -3935,0), nil, 99999, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 	local points = {}

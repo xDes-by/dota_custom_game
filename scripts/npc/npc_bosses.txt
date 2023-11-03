@@ -1559,6 +1559,7 @@
 		"Model"						"models/items/lycan/ultimate/_ascension_of_the_hallowed_beast_form/_ascension_of_the_hallowed_beast_form.vmdl"	// Model.
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
+		"CanRespawn"				"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1632,6 +1633,7 @@
 		"Model"						"models/items/lycan/ultimate/_ascension_of_the_hallowed_beast_form/_ascension_of_the_hallowed_beast_form.vmdl"	// Model.
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
+		"CanRespawn"				"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -2243,10 +2245,11 @@
 		"BaseClass"					"npc_dota_creature"
 		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"Model"						"models/heroes/doom/doom.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"0.5"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
+		"CanRespawn"				"1"
 		
 		"Ability1"					"creature_fire_breath"	
 		"Ability2"					"magma_boss_damage_aura"	
@@ -2317,6 +2320,7 @@
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
+		"CanRespawn"				"1"
 		
 		"Ability1"					"creature_fire_breath"	
 		"Ability2"					"magma_boss_damage_aura"	
@@ -2668,7 +2672,7 @@
 	///////////////////////////////////////////////////////////////////////////////
 	//Bara
 	///////////////////////////////////////////////////////////////////////////////	
-	"npc_bara_boss"
+	"npc_bara_boss_main"
 	{
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
@@ -2767,7 +2771,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/sand_king/sand_king.vmdl"
-		"ModelScale"				"1.5"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -2781,8 +2785,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_sand_boss"
 
-		"ArmorPhysical"				"500"			
-		"MagicalResistance"			"70"	
+		"ArmorPhysical"				"700"			
+		"MagicalResistance"			"90"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"120000"		
@@ -2790,7 +2794,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -2835,7 +2839,7 @@
     {
         "BaseClass"                                   "npc_dota_creature"
         "Model"                                       "models/heroes/monkey_king/monkey_king.vmdl"
-        "ModelScale"                                  "0.8100"
+        "ModelScale"                                  "1.5"
         "IdleExpression"                              "scenes/monkey_king/monkey_king_exp_idle_01.vcd"
         "SoundSet"                                    "Hero_MonkeyKing"
         "particle_folder"                             "particles/units/heroes/hero_monkey_king"
@@ -2928,7 +2932,7 @@
     {
         "BaseClass"                                   "npc_dota_creature"
         "Model"                                       "models/heroes/monkey_king/monkey_king.vmdl"
-        "ModelScale"                                  "1"
+        "ModelScale"                                  "3"
         "SoundSet"                                    "Hero_MonkeyKing"
         "Level"                                       "1"
 		"IsAncient"					"1"
@@ -2942,9 +2946,10 @@
 		"Ability6"					""
 		"Ability7"					""
 		"Ability8"					"ai_monkey_boss"
+		"AttackAcquisitionRange"	"1200"		
 
-		"ArmorPhysical"				"500"			
-		"MagicalResistance"			"70"
+		"ArmorPhysical"				"700"			
+		"MagicalResistance"			"90"
 
         "CanBeDominated"                              "0"
         "ConsideredHero"                              "0"
@@ -3010,8 +3015,8 @@
 
         // Vision
         //----------------------------------------------------------------
-        "VisionDaytimeRange"                          "600"
-        "VisionNighttimeRange"                        "600"
+        "VisionDaytimeRange"                          "1200"
+        "VisionNighttimeRange"                        "1200"
 
         "Creature"
         {
@@ -3029,7 +3034,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/elder_titan/elder_titan.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3052,7 +3057,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3096,7 +3101,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/elder_titan/ancestral_spirit.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"Ability1"					"ability_npc_titan_boss_stomp"
@@ -3106,7 +3111,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/ancient_apparition/ancient_apparition.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3129,7 +3134,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"600"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3180,7 +3185,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/crystal_maiden/crystal_maiden_arcana.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3203,7 +3208,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"600"		
 		"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
