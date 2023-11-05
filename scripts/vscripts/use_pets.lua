@@ -20,6 +20,7 @@ function use_pets:UsePet(t)
 			if tab.pet ~= nil then
 				local ability = hero:FindAbilityByName(tab.pet)
 				ability:OnSpellStart()
+				DailyQuests:UpdateCounter(t.PlayerID, 35)
 			end
 		end
 	end

@@ -9,6 +9,7 @@ LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_M
 LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_impossible", "abilities/difficult/impossible", LUA_MODIFIER_MOTION_NONE )
 -----------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )

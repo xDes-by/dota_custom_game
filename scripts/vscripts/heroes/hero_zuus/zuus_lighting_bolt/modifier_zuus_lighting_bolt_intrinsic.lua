@@ -27,6 +27,9 @@ function modifier_zuus_lighting_bolt_intrinsic:GetModifierOverrideAbilitySpecial
 		if data.ability_special_value == "damage" then
 			return 1
 		end
+        if data.ability_special_value == "sight_duration" then
+			return 1
+		end
 	end
 	return 0
 end
@@ -45,6 +48,13 @@ function modifier_zuus_lighting_bolt_intrinsic:GetModifierOverrideAbilitySpecial
                 damage = damage + self:GetCaster():GetIntellect() * 1.0
             end
             return damage
+		end
+        if data.ability_special_value == "sight_duration" then
+			local sight_duration = self:GetAbility():GetLevelSpecialValueNoOverride( "sight_duration", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi11") then
+                sight_duration = sight_duration + 3
+            end
+            return sight_duration
 		end
 	end
 	return 0

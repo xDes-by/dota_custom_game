@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_generic_stunned_lua",  "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_zuus_lightning_bolt_lua_true_sight",  "heroes/hero_zuus/zuus_lighting_bolt/zuus_lighting_bolt", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_zuus_lightning_bolt_lua_dummy",  "heroes/hero_zuus/zuus_lighting_bolt/zuus_lighting_bolt", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_zuus_lighting_bolt_intrinsic", "heroes/hero_zuus/zuus_lighting_bolt/modifier_zuus_lighting_bolt_intrinsic.lua", LUA_MODIFIER_MOTION_NONE )
@@ -8,6 +9,15 @@ function zuus_lightning_bolt_lua:GetIntrinsicModifierName()
 	return "modifier_zuus_lighting_bolt_intrinsic"
 end
 
+function zuus_lightning_bolt_lua:GetCooldown(level)
+	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi8") then
+	-- 	return self.BaseClass.GetCooldown( self, level ) - 2
+	-- end
+	return self.BaseClass.GetCooldown( self, level )
+end
+function zuus_lightning_bolt_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function zuus_lightning_bolt_lua:OnAbilityPhaseStart()
 	self:GetCaster():EmitSound("Hero_Zuus.LightningBolt.Cast")
 	return true
@@ -180,16 +190,11 @@ function zuus_lightning_bolt_lua:CastLightningBolt(caster, ability, target, targ
 		if target ~= nil and target:GetTeam() ~= caster:GetTeam() then
 			
 				
-			target:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration * (1 - target:GetStatusResistance())})
+			target:AddNewModifier(caster, ability, "modifier_generic_stunned_lua", {duration = stun_duration * (1 - target:GetStatusResistance())})
 			
 			bolt_damage = rewritten_damage
 			if not bolt_damage then
 				bolt_damage = ability:GetSpecialValueFor("damage")
-			end
-			if caster:FindAbilityByName("npc_dota_hero_zuus_int1")~=nil then
-				if caster:FindAbilityByName("npc_dota_hero_zuus_int1"):GetLevel() > 0 then 
-					bolt_damage = bolt_damage + 300
-				end
 			end
 			
 			local damage_table 			= {}

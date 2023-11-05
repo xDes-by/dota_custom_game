@@ -6,7 +6,9 @@ LinkLuaModifier( "modifier_leshrac_diabolic_edict_intrinsic_lua", "heroes/hero_l
 function leshrac_diabolic_edict_lua:GetIntrinsicModifierName()
 	return "modifier_leshrac_diabolic_edict_intrinsic_lua"
 end
-
+function leshrac_diabolic_edict_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function leshrac_diabolic_edict_lua:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()

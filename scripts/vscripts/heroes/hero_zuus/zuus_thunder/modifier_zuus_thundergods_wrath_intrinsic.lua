@@ -28,6 +28,9 @@ function modifier_zuus_thundergods_wrath_intrinsic:GetModifierOverrideAbilitySpe
 		if data.ability_special_value == "damage" then
 			return 1
 		end
+		if data.ability_special_value == "radius" then
+			return 1
+		end
 	end
 	return 0
 end
@@ -46,6 +49,13 @@ function modifier_zuus_thundergods_wrath_intrinsic:GetModifierOverrideAbilitySpe
                 damage = damage + self:GetCaster():GetIntellect() * 1.0
             end
             return damage
+		end
+		if data.ability_special_value == "radius" then
+			local radius = self:GetAbility():GetLevelSpecialValueNoOverride( "radius", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi10") then
+                radius = radius + 300
+            end
+            return radius
 		end
 	end
 	return 0

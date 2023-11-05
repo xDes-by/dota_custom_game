@@ -140,19 +140,9 @@ function modifier_necrolyte_heartstopper_aura_intrinsic:OnDeath(params)
                 mod:IncrementStackCount()
             end
         end
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str12") or self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str13") then
-			self:IncrementStackCount()
-		end
 	end
 end
 
 function modifier_necrolyte_heartstopper_aura_intrinsic:GetModifierHealthRegenPercentage()
-	local regen = 0
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str12") then
-		regen = regen + 0.004
-	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str12") then
-		regen = regen + 0.006
-	end
-	return self:GetStackCount() * regen
+	
 end

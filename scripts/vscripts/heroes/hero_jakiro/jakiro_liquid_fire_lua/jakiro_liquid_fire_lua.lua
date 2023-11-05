@@ -1,21 +1,25 @@
 jakiro_liquid_fire_lua = class({})
-LinkLuaModifier( "modifier_generic_orb_effect_lua", "heroes/generic/modifier_generic_orb_effect_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_jakiro_liquid_fire_lua", "heroes/hero_jakiro/jakiro_liquid_fire_lua/modifier_jakiro_liquid_fire_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_jakiro_liquid_fire_intrinsic_lua", "heroes/hero_jakiro/jakiro_liquid_fire_lua/modifier_jakiro_liquid_fire_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
 
 
 function jakiro_liquid_fire_lua:GetIntrinsicModifierName()
-	return "modifier_generic_orb_effect_lua"
+	return "modifier_jakiro_liquid_fire_intrinsic_lua"
 end
 
 function jakiro_liquid_fire_lua:OnSpellStart()
 end
 
-function jakiro_liquid_fire_lua:GetCooldown(level)
-	local talent_ability = self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_int3")
-	if talent_ability ~= nil and talent_ability:GetLevel() > 0 then
-		return self.BaseClass.GetCooldown( self, level ) -5	
+function jakiro_liquid_fire_lua:GetCastRange( location , target)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_int9") then
+		return 900
 	end
-	return self.BaseClass.GetCooldown( self, level )
+end
+
+function jakiro_liquid_fire_lua:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi6") then
+		return 0
+	end
 end
 
 function jakiro_liquid_fire_lua:GetProjectileName()
@@ -34,11 +38,11 @@ function jakiro_liquid_fire_lua:OnOrbImpact( params )
 	-- get data
 	local duration = self:GetDuration()
 	local radius = self:GetSpecialValueFor( "radius" )
-
+	local target = params.target
 	-- find enemy in radius
 	local enemies = FindUnitsInRadius(
 		caster:GetTeamNumber(),	-- int, your team number
-		params.target:GetOrigin(),	-- point, center point
+		target:GetOrigin(),	-- point, center point
 		nil,	-- handle, cacheUnit. (not known)
 		radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
 		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
@@ -47,20 +51,30 @@ function jakiro_liquid_fire_lua:OnOrbImpact( params )
 		0,	-- int, order filter
 		false	-- bool, can grow cache
 	)
-
+	local npc_dota_hero_jakiro_agi12 = caster:FindAbilityByName("npc_dota_hero_jakiro_agi12")
 	for _,enemy in pairs(enemies) do
 		-- add modifier
-		enemy:AddNewModifier(
+		local mod = enemy:AddNewModifier(
 			caster, -- player source
 			self, -- ability source
 			"modifier_jakiro_liquid_fire_lua", -- modifier name
 			{ duration = duration } -- kv
 		)
-		
+		if npc_dota_hero_jakiro_agi12 and enemy == target then
+			mod:IncrementStackCount()
+		end
 	end
 
 	-- play effects
-	self:PlayEffects( params.target, radius )
+	self:PlayEffects( target, radius )
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi7") then
+		local jakiro_dual_breath_lua = self:GetCaster():FindAbilityByName("jakiro_dual_breath_lua")
+		local direction = (target:GetOrigin() - caster:GetAbsOrigin()):Normalized()
+		if jakiro_dual_breath_lua and jakiro_dual_breath_lua:GetLevel() > 0 then
+			jakiro_dual_breath_lua:FireBreath(direction.x, direction.y)
+		end
+	end
 end
 
 function jakiro_liquid_fire_lua:PlayEffects( target, radius )

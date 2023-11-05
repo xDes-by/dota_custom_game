@@ -17,7 +17,6 @@ function modifier_jakiro_ice_path_intrinsic_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-		MODIFIER_EVENT_ON_ATTACK,
 	}
 
 	return funcs

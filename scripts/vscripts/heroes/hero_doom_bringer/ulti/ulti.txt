@@ -6,8 +6,8 @@
 		"ScriptFile"					"heroes/hero_doom_bringer/ulti/ulti"
 		"AbilityTextureName"			"doom_bringer_doom"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"15"
-		"AbilityCooldown"				"300"
+		"MaxLevel"						"10"
+		"AbilityCooldown"				"90"
 
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -16,19 +16,26 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
 		
 		"AbilitySpecial"
 		{
-
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_per_soul" 		    "25 50 75 100 125 150 175 200 225 250"
+				"duration" 		    	"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius" 		    "25 50 75 100 125 150 175 200 225 250"
+				"damage_per_soul" 		    "25 50 75 100 125 150 175 200 225 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius" 		    "300"
 			}
 		}
 	}

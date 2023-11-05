@@ -51,5 +51,10 @@ function aura_dif(unit)
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
 		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 		unit:AddAbility(new_abil_passive):SetLevel(4)
-	end		
+	end	
+	if diff_wave.wavedef == "Impossible" then
+		unit:AddNewModifier(unit, nil, "modifier_impossible", {})
+		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+		unit:AddAbility(new_abil_passive):SetLevel(4)
+	end	
 end

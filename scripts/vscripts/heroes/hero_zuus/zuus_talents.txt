@@ -52,7 +52,8 @@
 	}
 	"npc_dota_hero_zuus_agi8"
 	{
-		"BaseClass"						"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_zuus/npc_dota_hero_zuus_agi8"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

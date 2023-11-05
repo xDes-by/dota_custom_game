@@ -12,6 +12,7 @@ require("www/forge")
 require("www/SendPlayerNotification")
 require("www/dailyQuests")
 require("www/battlePass")
+require("www/adminPanel")
 
 local point = Entities:FindByName( nil, 'check_pizdobol'):GetAbsOrigin() 
 local Unit = CreateUnitByName('npc_dummy_unit', point, true, nil, nil, DOTA_TEAM_BADGUYS)

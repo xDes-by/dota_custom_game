@@ -3,7 +3,19 @@ death_prophet_exorcism_bh = class({})
 function death_prophet_exorcism_bh:GetIntrinsicModifierName()
 	return "modifier_death_prophet_exorcism_bh_talent"
 end
-
+function death_prophet_exorcism_bh:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
+function death_prophet_exorcism_bh:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi6") then
+		return 0.1
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi9") then
+		return self.BaseClass.GetCooldown( self, level ) / 2
+	end
+    return self.BaseClass.GetCooldown( self, level )
+end
+	-- 
 function death_prophet_exorcism_bh:OnSpellStart()
 	local caster = self:GetCaster()
 	
@@ -14,7 +26,7 @@ function death_prophet_exorcism_bh:OnSpellStart()
 	-- end
 	caster:EmitSound("Hero_DeathProphet.Exorcism.Cast")
 	ParticleManager:FireParticle("particles/units/heroes/hero_death_prophet/death_prophet_spawn.vpcf", PATTACH_POINT_FOLLOW, caster)
-	if caster:FindAbilityByName("npc_dota_hero_death_prophet_str_last") then
+	if caster:FindAbilityByName("npc_dota_hero_death_prophet_str12") then
 		caster:AddNewModifier(caster, self, "modifier_death_prophet_exorcism_bh_bkb", {duration = 20})
 	end
 end
@@ -121,9 +133,16 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 			self.seekTarget = nil
 			local damage = self.damage
 			local critical_strike = false
-			if caster:FindAbilityByName("npc_dota_hero_death_prophet_int_last") and RollPseudoRandomPercentage(5, caster:entindex(), caster) then
-				damage = damage * (1 + caster:GetIntellect() / 100)
-				critical_strike = true
+			if caster:FindAbilityByName("npc_dota_hero_death_prophet_int13") then
+				if RandomInt(1, 100) <= 30 then
+					damage = damage * 400
+					critical_strike = true
+				end
+			elseif caster:FindAbilityByName("npc_dota_hero_death_prophet_int12") then
+				if RandomInt(1, 100) <= 15 then
+					damage = damage * 400
+					critical_strike = true
+				end
 			end
 			local enemies = {}
 			table.insert(enemies, target)
@@ -224,8 +243,8 @@ function modifier_death_prophet_exorcism_bh:OnCreated()
 		self.health_bonus = self:GetCaster():GetStrength() * 20
 	end
 	self.dmg = 0
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi9") then
-		self.dmg = self.dmg + (1000 / 15) * self:GetAbility():GetLevel() * self.maxGhosts
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi13") then
+		self.dmg = self.dmg + (3500 / 10) * self:GetAbility():GetLevel() * self.maxGhosts
 	end
 	if IsServer() then
 		self:StartIntervalThink( self.spawnRate )
@@ -297,9 +316,41 @@ end
 function modifier_death_prophet_exorcism_bh_talent:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
 	}
 end
+function modifier_death_prophet_exorcism_bh_talent:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			return 1
+		end
+		if data.ability_special_value == "AbilityCharges" then
+			return 1
+		end
+	end
+	return 0
+end
 
+function modifier_death_prophet_exorcism_bh_talent:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			local AbilityChargeRestoreTime = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityChargeRestoreTime", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi9") then
+                return 50
+            end
+            return 100
+		end
+		if data.ability_special_value == "AbilityCharges" then
+			local AbilityCharges = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityCharges", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_agi6") then
+                AbilityCharges = 2
+            end
+            return AbilityCharges
+		end
+	end
+	return 0
+end
 function modifier_death_prophet_exorcism_bh_talent:GetModifierMoveSpeedBonus_Constant()
 	return self.movement_bonus
 end

@@ -7,7 +7,9 @@ death_prophet_ghastly_haunting = class({})
 function death_prophet_ghastly_haunting:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
-
+function death_prophet_ghastly_haunting:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function death_prophet_ghastly_haunting:OnSpellStart()
 	local caster = self:GetCaster()
 	local position = self:GetCursorPosition()

@@ -101,12 +101,26 @@ end
 
 function modifier_spirit_breaker_greater_bash_lua:OnTakeDamage(params)
 	if params.unit == self.parent then
-		if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str_last") and params.damage_type == DAMAGE_TYPE_PHYSICAL then
-			if not params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 70, self.pseudoseed, self.parent ) then
-				params.attacker.baraBashFirstTime = true
-				self:Bash( params.attacker )
-			elseif params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 30, self.pseudoseed, self.parent ) then
-				self:Bash( params.attacker )
+		if (self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str12") or self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str13")) and params.damage_type == DAMAGE_TYPE_PHYSICAL then
+			local distance = (self.parent:GetAbsOrigin() - params.attacker:GetAbsOrigin()):Length2D()
+			if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str13") then
+				if distance <= 800 then
+					if not params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 70, self.pseudoseed, self.parent ) then
+						params.attacker.baraBashFirstTime = true
+						self:Bash( params.attacker )
+					elseif params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 30, self.pseudoseed, self.parent ) then
+						self:Bash( params.attacker )
+					end
+				end
+			elseif self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str12") then
+				if distance <= 500 then
+					if not params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 40, self.pseudoseed, self.parent ) then
+						params.attacker.baraBashFirstTime = true
+						self:Bash( params.attacker )
+					elseif params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 20, self.pseudoseed, self.parent ) then
+						self:Bash( params.attacker )
+					end
+				end
 			end
 		end
 	end
@@ -162,11 +176,11 @@ function modifier_spirit_breaker_greater_bash_lua:GetAbilityDamage(params)
 	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str7") then
 		damage = damage + self.parent:GetStrength() * 0.50
 	end
-	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_agi_last") then
-		damage = damage + self.parent:GetBaseDamageMax() * 0.50
+	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_agi13") then
+		damage = damage + self.parent:GetBaseDamageMax() * 0.60
 	end
-	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str9") then
-		speed_damage = speed_damage * 2
+	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int13") then
+		speed_damage = speed_damage + self:GetCaster():GetLevel()
 	end
 	if params.damage then
 		return damage
@@ -236,9 +250,20 @@ function modifier_spirit_breaker_greater_bash_lua:Bash( target, dmg_multi )
 		end
 	else
 		ApplyDamage(damageTable)
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi12") then
+			self:GetCaster():PerformAttack(
+				damageTable.target, -- hTarget
+				true, -- bUseCastAttackOrb
+				false, -- bProcessProcs
+				true, -- bSkipCooldown
+				false, -- bIgnoreInvis
+				false, -- bUseProjectile
+				false, -- bFakeAttack
+				false -- bNeverMiss
+			)
+		end
 	end
 	
-
 	-- play effects
 	self:PlayEffects( target, target:IsCreep() )
 end

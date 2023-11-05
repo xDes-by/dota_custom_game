@@ -93,7 +93,7 @@ function modifier_zuus_nimbus_intrinsic:OnCreated( kv )
 end
 
 function modifier_zuus_nimbus_intrinsic:OnIntervalThink()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi10") then
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi12") then
         self:GetAbility():SetHidden(false)
     else
         self:GetAbility():SetHidden(true)

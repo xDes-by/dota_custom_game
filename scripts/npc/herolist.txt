@@ -1,16 +1,20 @@
 "CustomHeroList"
 {
-	"npc_dota_hero_riki"        				"1" // 100
-	"npc_dota_hero_razor"        				"1"	// 95
-	"npc_dota_hero_death_prophet"       	 	"1"	// 95
-    "npc_dota_hero_viper"        				"1"	// 95
-	"npc_dota_hero_spirit_breaker"        		"1" // 95
-    "npc_dota_hero_vengefulspirit"        		"1"	// 95
+	"npc_dota_hero_jakiro"        				"1"
 	"npc_dota_hero_leshrac"        				"1"
 	"npc_dota_hero_necrolyte"        			"1"
+	"npc_dota_hero_spirit_breaker"        		"1" // 95
+    "npc_dota_hero_doom_bringer"        		"1"
+	"npc_dota_hero_riki"        				"1" // 100
 	"npc_dota_hero_zuus"        				"1"  
-	"npc_dota_hero_jakiro"        				"1"
+	"npc_dota_hero_death_prophet"       	 	"1"	// 95
 	
+	
+	"npc_dota_hero_razor"        				"1"	// 95
+    "npc_dota_hero_viper"        				"1"	// 95
+	"npc_dota_hero_vengefulspirit"        		"1"	// 95
+	
+
 	"npc_dota_hero_dawnbreaker"        			"0"
 	"npc_dota_hero_queenofpain"        			"0"
 	"npc_dota_hero_templar_assassin"        	"0"
@@ -81,7 +85,6 @@
     "npc_dota_hero_disruptor"        "0"
     
     "npc_dota_hero_ogre_magi"        "0"
-    "npc_dota_hero_doom_bringer"        "0"
     "npc_dota_hero_tusk"        "0"
     "npc_dota_hero_abaddon"        "0"
     "npc_dota_hero_lich"        "0"

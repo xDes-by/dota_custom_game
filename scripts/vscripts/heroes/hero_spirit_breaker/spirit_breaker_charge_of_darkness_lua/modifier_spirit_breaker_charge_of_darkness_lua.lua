@@ -40,6 +40,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	self.duration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 
 	if not IsServer() then return end
+	self.repetitions = kv.repetitions
 
 	self.target = EntIndexToHScript( kv.target )
 	self.direction = self:GetParent():GetForwardVector()
@@ -134,6 +135,18 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
 	-- play effects
 	local sound_cast = "Hero_Spirit_Breaker.Charge.Impact"
 	EmitSoundOn( sound_cast, self.target )
+
+	if self.repetitions > 0 then
+		local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false )
+		if #enemies > 0 then
+			self:GetCaster():AddNewModifier(
+				self:GetCaster(), -- player source
+				self:GetAbility(), -- ability source
+				"modifier_spirit_breaker_charge_of_darkness_lua", -- modifier name
+				{ target = enemies[1]:entindex(), repetitions = self.repetitions-1 } -- kv
+			)
+		end
+	end
 end
 
 --------------------------------------------------------------------------------

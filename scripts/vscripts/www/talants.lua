@@ -92,6 +92,7 @@ function talants:init()
     CustomGameEventManager:RegisterListener("HeroesAmountInfo", Dynamic_Wrap(talants, 'HeroesAmountInfo'))
     talants.testing = {}
     talants.barakDestroy = false;
+    talants.hell_game = {}
 end
 
 
@@ -287,7 +288,7 @@ function talants:selectTalantButton(t)
         if t.codeCall then
             if tonumber(tab[t.i .. t.j]) > 0 then return end
         else
-            if t.j <= 5 and tonumber(tab[t.i .. t.j]) == 5 then return end
+            if t.j <= 5 and tonumber(tab[t.i .. t.j]) == 6 then return end
             if t.j > 5 and tonumber(tab[t.i .. t.j]) == 1 then return end
         end
 
@@ -441,14 +442,21 @@ end
 
 function talants:AddExperience(id, n)
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
-    if tonumber(tab["gameNormalExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
+    if not talants.hell_game[id] then
+        if tonumber(tab["gameNormalExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
+            return
+        end
+        -- print("don2=",tab["don2"])
+        if tab["don2"] == 1 then
+            n = n * 1.15
+        end
+    end
+    if n < 0 and tonumber(tab["totalexp"]) + n <= 0 then
+        tab["totalexp"] = 0
+        CustomNetTables:SetTableValue("talants", tostring(id), tab)
         return
     end
-    -- print("don2=",tab["don2"])
-    if tab["don2"] == 1 then
-        n = n * 1.15
-    end
-    -- tab["gave_exp"] = n
+    tab["gave_exp"] = n
     this_lvl = 0
     totalexp = 0
     for k,v in pairs(lvls) do
@@ -482,14 +490,21 @@ end
 function talants:AddExperienceDonate(id, n)
     
     local tab = CustomNetTables:GetTableValue("talants", tostring(id))
-    if RATING["rating"][id]["patron"] == nil or RATING["rating"][id]["patron"] == 0 then
-        return
+    if not talants.hell_game[id] then
+        if RATING["rating"][id]["patron"] == nil or RATING["rating"][id]["patron"] == 0 then
+            return
+        end
+        if tonumber(tab["gameDonatExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
+            return
+        end
+        if tab['don2'] == 1 then
+            n = n * 1.15
+        end
     end
-    if tonumber(tab["gameDonatExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
+    if n < 0 and tonumber(tab["totaldonexp"]) + n <= 0 then
+        tab["totaldonexp"] = 0
+        CustomNetTables:SetTableValue("talants", tostring(id), tab)
         return
-    end
-    if tab['don2'] == 1 then
-        n = n * 1.15
     end
     tab["donavailable"] = 1
     this_lvl = 0
@@ -906,6 +921,26 @@ function talants:HeroesAmountInfo(t)
     t.hero_name = progress[t.portID]["hero_name"]
     local count = DataBase:GetHeroesTalantCount(t)
     
+end
+
+function talants:EnableHellGame(pid)
+    talants.hell_game[pid] = true
+    local gain = -20
+    Timers:CreateTimer(0, function()
+        talants:AddExperienceDonate(pid, gain)
+        talants:AddExperience(pid, gain)
+        if talants.hell_game[pid] then
+            return 1
+        end
+    end)
+    
+end
+
+function talants:DisableHellGame(pid)
+    talants.hell_game[pid] = false
+    local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
+    tab["gave_exp"] = 0
+    CustomNetTables:SetTableValue("talants", tostring(pid), tab)
 end
 
 talants:init()

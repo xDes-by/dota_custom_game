@@ -24,6 +24,7 @@ function modifier_necrolyte_heartstopper_aura_damage:OnCreated()
             victim = self:GetParent(),
             attacker = self:GetCaster(),
             damage_type = DAMAGE_TYPE_MAGICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
         }		
 		self:StartIntervalThink(self.tick_rate)
 	end

@@ -1863,7 +1863,7 @@
 
 //=====================================================================================================DOOM=====================================================================================================================================================
 
-//#base "../vscripts/heroes/hero_skywrath_mage/skywrath_mage_talents.txt"
+#base "../vscripts/heroes/hero_doom_bringer/doom_talents.txt"
 #base "../vscripts/heroes/hero_doom_bringer/blade/blade.txt"
 #base "../vscripts/heroes/hero_doom_bringer/devour/devour.txt"
 #base "../vscripts/heroes/hero_doom_bringer/earth/lina_firehell.txt"

@@ -11,7 +11,9 @@ LinkLuaModifier("modifier_ghost_shroud_debuff_lua", "heroes/hero_necrolyte/necro
 function necrolyte_ghost_shroud_lua:GetAbilityTextureName()
 	return "necrolyte_sadist"
 end
-
+function necrolyte_ghost_shroud_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function necrolyte_ghost_shroud_lua:GetCooldown(level)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_int11") then
 		return self.BaseClass.GetCooldown( self, level ) - 6
@@ -118,6 +120,12 @@ end
 -- IntervalThink to remove active if magic immune (so you can't stack the two)
 function modifier_ghost_shroud_active_lua:OnCreated()
 	self.healing_amp_pct	= self:GetAbility():GetSpecialValueFor("healing_amp_pct")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str12") then
+		self.healing_amp_pct = 45
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_str 13") then
+		self.healing_amp_pct = 70
+	end
 	if not IsServer() then return end
 	self:StartIntervalThink(FrameTime())
 end

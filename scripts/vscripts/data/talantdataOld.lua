@@ -12057,8 +12057,8 @@ npc_dota_hero_riki = {
         place = {"str 11"}
     },
 
-    npc_dota_hero_riki_str_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str_last", description = "",
+    npc_dota_hero_riki_str12 = {
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str12", description = "",
         place = {"str 12"}
     },
         
@@ -12094,8 +12094,8 @@ npc_dota_hero_riki = {
         place = {"agi 11"}
     },
 
-    npc_dota_hero_riki_agi_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/3.png", name = "npc_dota_hero_riki_agi_last", description = "",
+    npc_dota_hero_riki_agi12 = {
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/agi/3.png", name = "npc_dota_hero_riki_agi12", description = "",
         place = {"agi 12"}
     },
         
@@ -12130,8 +12130,8 @@ npc_dota_hero_riki = {
         place = {"int 11"}
     },  
 
-    npc_dota_hero_riki_int_last = {
-        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int_last", description = "",
+    npc_dota_hero_riki_int12 = {
+        url = "/images/custom_game/talants/img/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int12", description = "",
         place = {"int 12"}
     },	
 

@@ -10,7 +10,9 @@ function zuus_nimbus:IsInnateAbility() return true end
 function zuus_nimbus:GetAOERadius()
 	return self:GetSpecialValueFor("cloud_radius")
 end
-
+function zuus_nimbus:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function zuus_nimbus:GetCastRange(vLocation, hTarget)
 	return self:GetSpecialValueFor("cast_range")
 end

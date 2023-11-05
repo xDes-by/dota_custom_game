@@ -14,6 +14,21 @@ function modifier_riki_smoke_screen_lua:OnCreated()
 		self.remnants_vision_reduction	= 0
 		self.solid_turn_rate_slow		= 0
 	end
+	if not IsServer() then return end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int7") then
+		self.damageTable = {
+			victim = self:GetParent(),
+			attacker = self:GetCaster(),
+			damage = self:GetCaster():GetIntellect() * 0.2,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self:GetAbility(), --Optional.
+		}
+		self:StartIntervalThink(0.2)
+	end
+end
+
+function modifier_riki_smoke_screen_lua:OnIntervalThink()
+	ApplyDamage(self.damageTable)
 end
 
 function modifier_riki_smoke_screen_lua:CheckState()
@@ -74,7 +89,7 @@ function modifier_riki_smoke_screen_lua:OnAttackStart(keys)
 	end
 end
 
-modifier_item_imba_bloodthorn_attacker_crit = modifier_item_imba_bloodthorn_attacker_crit or class({})
+modifier_item_imba_bloodthorn_attacker_crit = class({})
 function modifier_item_imba_bloodthorn_attacker_crit:IsHidden() return true end
 function modifier_item_imba_bloodthorn_attacker_crit:IsDebuff() return false end
 function modifier_item_imba_bloodthorn_attacker_crit:IsPurgable() return false end
