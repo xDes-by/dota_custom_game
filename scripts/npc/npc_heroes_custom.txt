@@ -193,6 +193,7 @@
 	"override_hero"			"npc_dota_hero_slark"
 	"StatusMana"			"300"
 	"StatusManaRegen"	    "4"
+	"DisableWearables"		"1"
 	"Ability1"				"slark_dark_pact_lua"
 	"Ability2"				"slark_pounce_lua"
 	"Ability3"				"slark_passive"
@@ -302,6 +303,7 @@
 	"override_hero"			"npc_dota_hero_nevermore"
 	"StatusMana"			"300"
 	"StatusManaRegen"	    "4"
+	"DisableWearables"		"1"
 	"Ability1"				"shadow_fiend_shadowraze_a_lua"
 	"Ability2"				"shadow_fiend_shadowraze_b_lua"
 	"Ability3"				"shadow_fiend_shadowraze_c_lua"
@@ -625,6 +627,7 @@
 	"npc_dota_hero_juggernaut"
 	{
 	"override_hero"			"npc_dota_hero_juggernaut"
+	"DisableWearables"		"1"
 	"StatusMana"			"300"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"juggernaut_requiem"

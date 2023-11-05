@@ -59,8 +59,8 @@ function modifier_nyx_leak_aura:OnDeath(data)
 		unit:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
 		unit:SetBaseMoveSpeed(5000)
 		unit:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_nyx_boss_visual", {duration = 120, target = target})
-		data.attacker:AddNewModifier(data.attacker, nil, "modifier_nyx_boss_debuff", {duration = 120})
+		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_nyx_boss_visual", {duration = 60, target = target})
+		data.attacker:AddNewModifier(data.attacker, nil, "modifier_nyx_boss_debuff", {duration = 60})
 	end
 end
 
@@ -158,18 +158,31 @@ function modifier_nyx_boss_visual:DestroyOnExpire()
 end
 
 function modifier_nyx_boss_visual:OnCreated(data)
-	if not IsServer() then
+	if not IsServer() or not data.target then
 		return
 	end
 	self.parent = self:GetParent()
 	self.target = EntIndexToHScript(data.target)
-	self.parent:AddNewModifier(self.parent, nil, "modifier_kill", {duration = 120})
 	local p = ParticleManager:CreateParticle("particles/econ/events/ti11/duel/dueling_glove_outcome_win.vpcf", PATTACH_POINT_FOLLOW, self.target)
 	ParticleManager:ReleaseParticleIndex(p)
-	self:StartIntervalThink(0.1)
+	self:StartIntervalThink(0.2)
+end
+
+function modifier_nyx_boss_visual:OnRefresh(data)
+	if self:GetRemainingTime() > self.duration then
+		self:Destroy()
+	end
+end
+
+function modifier_nyx_boss_visual:OnDestroy()
+	if not IsServer() then
+		return
+	end
+	UTIL_Remove(self.parent)
 end
 
 function modifier_nyx_boss_visual:OnIntervalThink()
+	self.duration = self:GetRemainingTime()
 	self.parent:MoveToPosition(self.target:GetAbsOrigin())
 end
 

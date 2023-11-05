@@ -13,7 +13,7 @@ function modifier_talent_mp_regen_level:RemoveOnDeath()
 end
 
 function modifier_talent_mp_regen_level:OnCreated( kv )
-	self.value = {2, 2.5, 3, 3.5, 4, 4.5}
+	self.value = {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}
 	self.parent = self:GetParent()
 end
 

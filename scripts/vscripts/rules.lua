@@ -27,15 +27,6 @@ function Rules:difficality_modifier(unit)
 	end		
 end	
 
-function Rules:tower_hp()
-	local towers = {"npc_dota_custom_tower", "npc_dota_custom_tower2", "npc_dota_custom_tower3"}
-	for key,value in ipairs(towers) do
-		local tower = Entities:FindByName( nil, value)
-		ApplyDamage({ victim = tower, attacker = tower, damage = 6800, damage_type = DAMAGE_TYPE_PHYSICAL })
-		tower:AddNewModifier( tower, nil, "modifier_attack_immune", {} )
-	end
-end
-
 timer_spawn_time_don = 13
 
 function Rules:spawn_creeps_don()

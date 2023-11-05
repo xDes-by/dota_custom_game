@@ -23,6 +23,7 @@
 			"item"		"item_butterfly_lua"
 			"item"		"item_skadi_lua"
 			"item"		"item_mjollnir_lua"
+			"item"		"item_midas_lua"
 		}
 		
 		"MAGICAL CARRY ITEMS"

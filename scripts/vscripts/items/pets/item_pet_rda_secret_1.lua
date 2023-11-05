@@ -113,7 +113,7 @@ end
 
 
 function modifier_pet_rda_250_attribute_bonus:GetModifierModelChange(params)
- return "models/courier/baby_rosh/babyroshan_alt.vmdl"
+ return "models/courier/baby_rosh/babyroshan_alt_flying.vmdl"
 end
 
 function modifier_pet_rda_250_attribute_bonus:GetModifierMoveSpeed_Absolute()
