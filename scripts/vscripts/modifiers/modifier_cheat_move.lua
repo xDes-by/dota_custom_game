@@ -1,7 +1,7 @@
 modifier_cheat_move = class({})
 
 function modifier_cheat_move:IsHidden()
-	return false
+	return true
 end
 
 function modifier_cheat_move:IsPurgable()

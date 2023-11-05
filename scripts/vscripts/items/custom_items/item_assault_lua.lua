@@ -113,7 +113,7 @@ end
 modifier_assault_lua_aura_positive_effect = class({})
 --Classifications template
 function modifier_assault_lua_aura_positive_effect:GetTexture()
-	return self:GetAbility():GetAbilityTextureName()
+	return "item_assault"
 end
 
 function modifier_assault_lua_aura_positive_effect:IsHidden()
@@ -184,7 +184,7 @@ end
 modifier_assault_lua_aura_negative_effect = class({})
 --Classifications template
 function modifier_assault_lua_aura_negative_effect:GetTexture()
-	return self:GetAbility():GetAbilityTextureName()
+	return "item_assault"
 end
 
 function modifier_assault_lua_aura_negative_effect:IsHidden()

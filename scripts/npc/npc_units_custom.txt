@@ -4823,6 +4823,8 @@
 		"ModelScale"				"1.7"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
 	}
 	"npc_mortimer_second_phase"
 	{

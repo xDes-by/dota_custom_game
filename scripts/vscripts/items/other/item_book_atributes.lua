@@ -9,19 +9,27 @@ end
 
 modifier_item_book_atributes = class({})
 
+function modifier_item_book_atributes:GetTexture()
+    return "arm"
+end
 function modifier_item_book_atributes:IsHidden()
-    return false
+    return true
 end
 
 function modifier_item_book_atributes:IsDebuff()
     return false
 end
 
-function modifier_item_book_atributes:GetTexture()
-    return "arm"
+function modifier_item_book_atributes:IsPurgable()
+    return false
 end
 
-function modifier_item_book_atributes:IsPurgable()
+function modifier_item_book_atributes:IsPurgeException()
+    return false
+end
+
+-- Optional Classifications
+function modifier_item_book_atributes:IsStunDebuff()
     return false
 end
 
@@ -29,18 +37,23 @@ function modifier_item_book_atributes:RemoveOnDeath()
     return false
 end
 
-function modifier_item_book_atributes:OnCreated( kv )
-    if IsServer() then
-        -- self:StartIntervalThink(self:GetDuration())
-        self:IncrementStackCount()
-    end
+function modifier_item_book_atributes:DestroyOnExpire()
+    return false
 end
 
-function modifier_item_book_atributes:OnDestroy()
-    if IsServer() then
-        self.mod = self:GetCaster():AddNewModifier(self:GetCaster(), nil, "modifier_item_book_atributes", {duration = 60 * self:GetCaster():GetCooldownReduction()})
-        self.mod:SetStackCount(self.mod:GetStackCount() + self:GetStackCount())
+function modifier_item_book_atributes:OnCreated( kv )
+    if not IsServer() then
+        return
     end
+    self:SetStackCount(1)
+    self:StartIntervalThink(60 * self:GetCaster():GetCooldownReduction())
+end
+
+function modifier_item_book_atributes:OnIntervalThink()
+    local time = 60 * self:GetCaster():GetCooldownReduction()
+    self:SetDuration(time, true)
+    self:IncrementStackCount()
+    self:StartIntervalThink(time)
 end
 
 function modifier_item_book_atributes:DeclareFunctions()

@@ -1157,7 +1157,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_cemetery_boss" then
+	if killedUnit:GetUnitName() == "npc_cemetery_boss_fake" then
 		sInv:AddSoul("item_cemetery_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2500, true, 0 )
@@ -1189,7 +1189,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_boss_magma" then
+	if killedUnit:GetUnitName() == "npc_boss_magma_fake" then
 		sInv:AddSoul("item_magma_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 5000, true, 0 )
@@ -1276,8 +1276,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		Timers:CreateTimer(diff_wave.respawn, function()
 			local point = Vector(7149, 10737, 773)
 			FindClearSpaceForUnit(snow, point, false)
-			snow:Stop()
-			snow:RespawnUnit()
+			cemetery:Stop()
+			cemetery:RespawnUnit()
 		end)
 		return
 	end	
