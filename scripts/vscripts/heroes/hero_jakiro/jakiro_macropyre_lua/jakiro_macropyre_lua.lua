@@ -6,7 +6,9 @@ LinkLuaModifier( "modifier_jakiro_macropyre_lua_intrinsic_lua", "heroes/hero_jak
 function jakiro_macropyre_lua:GetIntrinsicModifierName()
 	return "modifier_jakiro_macropyre_lua_intrinsic_lua"
 end
-
+function jakiro_macropyre_lua:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
 function jakiro_macropyre_lua:UseAbility(dir, duration, path_radius, cast_range)
 	local caster = self:GetCaster()
 	CreateModifierThinker(

@@ -25,6 +25,8 @@ function modifier_jakiro_liquid_ice_intrinsic_lua:OnCreated( kv )
 	
 	self.cast = false
 	self.records = {}
+	if not IsServer() then return end
+	self:StartIntervalThink(0.2)
 end
 
 function modifier_jakiro_liquid_ice_intrinsic_lua:OnRefresh( kv )
@@ -45,7 +47,7 @@ function modifier_jakiro_liquid_ice_intrinsic_lua:DeclareFunctions()
 
 		MODIFIER_EVENT_ON_ORDER,
 
-		MODIFIER_PROPERTY_PROJECTILE_NAME,
+		-- MODIFIER_PROPERTY_PROJECTILE_NAME,
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
 	}
@@ -127,13 +129,13 @@ function modifier_jakiro_liquid_ice_intrinsic_lua:OnOrder( params )
 	end
 end
 
-function modifier_jakiro_liquid_ice_intrinsic_lua:GetModifierProjectileName()
-	if not self:GetAbility().GetProjectileName then return end
+-- function modifier_jakiro_liquid_ice_intrinsic_lua:GetModifierProjectileName()
+-- 	if not self:GetAbility().GetProjectileName then return end
 
-	if self:ShouldLaunch( self:GetCaster():GetAggroTarget() ) then
-		return self:GetAbility():GetProjectileName()
-	end
-end
+-- 	if self:ShouldLaunch( self:GetCaster():GetAggroTarget() ) then
+-- 		return self:GetAbility():GetProjectileName()
+-- 	end
+-- end
 
 --------------------------------------------------------------------------------
 -- Helper
@@ -199,11 +201,6 @@ function modifier_jakiro_liquid_ice_intrinsic_lua:GetModifierOverrideAbilitySpec
 		end
 	end
 	return 0
-end
-
-function modifier_jakiro_liquid_ice_intrinsic_lua:OnCreated( kv )
-	if not IsServer() then return end
-	self:StartIntervalThink(0.2)
 end
 
 function modifier_jakiro_liquid_ice_intrinsic_lua:OnIntervalThink()

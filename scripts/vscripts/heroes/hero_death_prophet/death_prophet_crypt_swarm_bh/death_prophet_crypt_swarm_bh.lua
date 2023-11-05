@@ -3,7 +3,6 @@ death_prophet_crypt_swarm_bh = class({})
 function death_prophet_crypt_swarm_bh:GetIntrinsicModifierName()
 	return "modifier_death_prophet_crypt_swarm_talent"
 end
-
 function death_prophet_crypt_swarm_bh:GetCooldown( level )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int11") then
 		return self.BaseClass.GetCooldown( self, level ) / 2
@@ -15,11 +14,11 @@ function death_prophet_crypt_swarm_bh:GetManaCost(iLevel)
     if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_int11") then
         return 0
     end
-    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+    return 60 + math.min(65000, self:GetCaster():GetIntellect() / 150)
 end
 
-function death_prophet_crypt_swarm_bh:OnSpellStart()
-	local caster = self:GetCaster()
+function death_prophet_crypt_swarm_bh:UseAbility()
+    local caster = self:GetCaster()
 	local position = self:GetCursorPosition()
 	local direction = (position - caster:GetAbsOrigin()):Normalized()
 	-- if caster:HasTalent("special_bonus_unique_death_prophet_crypt_swarm_2") then
@@ -29,6 +28,10 @@ function death_prophet_crypt_swarm_bh:OnSpellStart()
 	local distance = self:GetSpecialValueFor("range")
 	local width = self:GetSpecialValueFor("start_radius")
 	local endWidth = self:GetSpecialValueFor("end_radius")
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str6") then
+        width = width + 150
+        endWidth = endWidth + 150
+    end
 	
 	self.projectiles = self.projectiles or {}
 	local proj = "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
@@ -36,9 +39,11 @@ function death_prophet_crypt_swarm_bh:OnSpellStart()
     local directions = {
         caster:GetForwardVector()  -- Original direction
     }
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str6") then
-        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, 40, 0), caster:GetForwardVector()))
-        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, -40, 0), caster:GetForwardVector()))
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str13") then
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, 25, 0), caster:GetForwardVector()))
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, 50, 0), caster:GetForwardVector()))
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, -25, 0), caster:GetForwardVector()))
+        table.insert(directions, RotatePosition(Vector(0, 0, 0), QAngle(0, -50, 0), caster:GetForwardVector()))
     end
     for _, direction in pairs(directions) do
         local info = {
@@ -68,6 +73,15 @@ function death_prophet_crypt_swarm_bh:OnSpellStart()
         self.projectiles[id] = fx
     end
 	caster:EmitSound("Hero_DeathProphet.CarrionSwarm")
+end
+
+function death_prophet_crypt_swarm_bh:OnSpellStart()
+	self:UseAbility()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_death_prophet_str13") then
+        Timers:CreateTimer(0.8, function()
+            self:UseAbility()
+        end)
+    end
 end
 
 function death_prophet_crypt_swarm_bh:OnProjectileHitHandle( target, position, id )

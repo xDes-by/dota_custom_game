@@ -22,9 +22,9 @@ function jakiro_liquid_ice_lua:GetCooldown(level)
 	return self.BaseClass.GetCooldown( self, level )
 end
 
-function jakiro_liquid_ice_lua:GetProjectileName()
-	return "particles/units/heroes/hero_jakiro/jakiro_liquid_ice_projectile.vpcf"
-end
+-- function jakiro_liquid_ice_lua:GetProjectileName()
+-- 	return "particles/units/heroes/hero_jakiro/jakiro_liquid_ice_projectile.vpcf"
+-- end
 
 function jakiro_liquid_ice_lua:OnOrbFire( params )
 	-- play effects

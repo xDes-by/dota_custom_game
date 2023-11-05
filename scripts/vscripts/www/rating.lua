@@ -9,16 +9,28 @@ function rating:init()
 	ListenToGameEvent( "player_connect_full", Dynamic_Wrap( rating, "PlayerConnectFull"), self)
 	CustomGameEventManager:RegisterListener("pickRatingLua", Dynamic_Wrap( rating, 'pickRatingLua' ))
 	CustomGameEventManager:RegisterListener("pickInit", Dynamic_Wrap( rating, 'pickInit' ))
+	CustomGameEventManager:RegisterListener("MapOverlay_Hints", Dynamic_Wrap( rating, 'MapOverlay_Hints' ))
 	ListenToGameEvent( "entity_killed", Dynamic_Wrap( rating, "OnEntityKilled"), self)
 	rating.reliable = 0
 	rating.wave_name = ""
 	rating.wave_count = 0
 	rating.wave_need = 0
+	self.RatingTable = {}
+	self.RatingTable[0] = {}
+	self.RatingTable[1] = {}
+	self.RatingTable[2] = {}
+	self.RatingTable[3] = {}
+	self.RatingTable[4] = {}
 end
 
 function rating:pickInit(t)
 	if not RATING['rating'] then return end
 	CustomGameEventManager:Send_ServerToAllClients( "pickRating", RATING )
+end
+
+function rating:MapOverlay_Hints(t)
+	RATING["rating"][t.PlayerID]['map_hints'] = t.hints == 1
+	DataBase:MapOverlay_Hints(t.PlayerID, tonumber(t.hints))
 end
 
 function rating:OnEntityKilled(keys)
@@ -48,7 +60,6 @@ function rating:OnGameRulesStateChange()
 	-- 	end)
 	-- CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "pickRating", RATING )
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
-		-- _G.kill_invoker = false
 		Timers:CreateTimer(2, function()
 			if RATING then
 				CustomGameEventManager:Send_ServerToAllClients( "initRating", RATING )
@@ -71,10 +82,12 @@ function rating:OnGameRulesStateChange()
 			nad = mmr - (30 * diff_wave.rating_scale)
 			mmr = 30 * diff_wave.rating_scale 
 			end
-			
-			CustomGameEventManager:Send_ServerToAllClients( "updateRatingCouter", {a = mmr, b = nad, c = doom} )
+			CustomNetTables:SetTableValue("GameInfo", "winning", {
+				for_victory = mmr,
+				reliable = nad
+			})
 			if _G.kill_invoker == true then return nil end
-			return 10
+			return 1
 		end)
 	end
 end
@@ -84,6 +97,11 @@ function rating:PlayerConnectFull(keys)
 	
 end
 
+function rating:PlayerSetup(pid)
+	self.RatingTable[pid].mmr = RATING["rating"][pid]['points']
+	self.RatingTable[pid].map_hints = RATING["rating"][pid]['map_hints'] == 1
+	CustomNetTables:SetTableValue("GameInfo", tostring(pid), self.RatingTable[pid])
+end
 
 function rating:OnPlayerReconnected(keys)
 	Timers:CreateTimer(2, function()

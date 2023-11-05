@@ -39,6 +39,9 @@ function Dummy:init()
 	end	
 	if diff_wave.wavedef == "Insane" then
 		self.Entity:AddNewModifier(self.Entity, nil, "modifier_insane", {})
+	end
+	if diff_wave.wavedef == "Impossible" then
+		self.Entity:AddNewModifier(self.Entity, nil, "modifier_impossible", {})
 	end	
 end
 

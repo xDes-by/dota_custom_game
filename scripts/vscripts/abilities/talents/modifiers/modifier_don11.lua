@@ -34,9 +34,17 @@ function modifier_don11:OnAbilityFullyCast( params )
 		if ability == nil then
 			return 0
 		end
-
+		print("OnAbilityFullyCast")
 		if not ability:IsItem() and RandomInt(1,100) <= 15 then
-			ability:EndCooldown()
+			print("-------------------------")
+			local AbilityCharges = ability:GetSpecialValueFor("AbilityCharges") 
+			print(AbilityCharges)
+			if AbilityCharges and AbilityCharges > 0 then
+				ability:SetCurrentAbilityCharges(ability:GetCurrentAbilityCharges() + 1)
+			else
+				print("EndCooldown")
+				ability:EndCooldown()
+			end
 			local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
 			ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 1, 2, 1 ) )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )

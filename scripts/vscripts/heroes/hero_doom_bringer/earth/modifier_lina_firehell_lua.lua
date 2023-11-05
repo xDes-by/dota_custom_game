@@ -7,7 +7,7 @@ function modifier_lina_firehell_lua:IsHidden()
 end
 
 function modifier_lina_firehell_lua:IsDebuff()
-	return false
+	return not self.owner
 end
 
 function modifier_lina_firehell_lua:IsPurgable()
@@ -18,44 +18,30 @@ end
 -- Initializations
 function modifier_lina_firehell_lua:OnCreated( kv )
 	-- references
-	local damage = self:GetAbility():GetSpecialValueFor( "base_damage_per_second" ) * self:GetCaster():GetModifierStackCount("modifier_ability_devour_souls", self:GetCaster())
+	local damage = self:GetAbility():GetSpecialValueFor( "base_damage_per_second" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 	self.ms_bonus = self:GetAbility():GetSpecialValueFor( "bonus_movement_speed_pct" )
 	self.manacost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel() - 1)
 	
-
-	if not IsServer() then return end
-	local interval = 1
+	self:PlayEffects1()
 	self.owner = kv.isProvidedByAura~=1
-
-	if not self.owner then return end
+	if not IsServer() then return end
+	self.interval = 0.3
+	if self.owner then return end
 	-- precache damage
 	self.damageTable = {
-		-- victim = target,
+		victim = self:GetParent(),
 		attacker = self:GetCaster(),
-		damage = damage,
-		damage_type = DAMAGE_TYPE_PURE,
+		damage = damage * self.interval,
+		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self:GetAbility(),
-		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	}
 
 	-- Start interval
-	self:StartIntervalThink( interval )
+	self:StartIntervalThink( 0.2 )
 
 	-- Play effects
-	self:PlayEffects1()
-end
-
-function modifier_lina_firehell_lua:OnRefresh( kv )
-	-- references
-	local damage = self:GetAbility():GetSpecialValueFor( "base_damage_per_second" )
-	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
-	self.ms_bonus = self:GetAbility():GetSpecialValueFor( "bonus_movement_speed_pct" )	
-
-	if not IsServer() then return end
-	if not self.owner then return end
-	-- update damage
-	self.damageTable.damage = damage
+	
 end
 
 function modifier_lina_firehell_lua:OnRemoved()
@@ -81,43 +67,9 @@ end
 --------------------------------------------------------------------------------
 -- Interval Effects
 function modifier_lina_firehell_lua:OnIntervalThink()
-
-	local caster = self:GetCaster()
-	self:GetParent():SpendMana( self.manacost, self:GetAbility() )
-	if caster:GetMana() <=  self.manacost then
-	caster:RemoveModifierByName("modifier_lina_firehell_lua")	
-	end
-
-	local damage = caster:GetMaxHealth()/100 * self:GetAbility():GetSpecialValueFor( "damage_per_second_for_caster" )
-	ApplyDamage({
-		victim = caster,
-		attacker = self:GetCaster(),
-		damage = damage,
-		damage_type = DAMAGE_TYPE_PURE,
-		ability = self:GetAbility(),
-		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-	})
-		
-	local enemies = FindUnitsInRadius(
-		self:GetParent():GetTeamNumber(),	-- int, your team number
-		self:GetParent():GetOrigin(),	-- point, center point
-		nil,	-- handle, cacheUnit. (not known)
-		self.radius,	-- float, radius. or use FIND_UNITS_EVERYWHERE
-		DOTA_UNIT_TARGET_TEAM_ENEMY,	-- int, team filter
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,	-- int, type filter
-		0,	-- int, flag filter
-		0,	-- int, order filter
-		false	-- bool, can grow cache
-	)
-
-	for _,enemy in pairs(enemies) do
-		-- apply damage
-		self.damageTable.victim = enemy
-		ApplyDamage( self.damageTable )
-
-		-- play effects
-		self:PlayEffects2( enemy )
-	end
+	ApplyDamage( self.damageTable )
+	self:PlayEffects2( self:GetParent() )
+	self:StartIntervalThink( self.interval )
 end
 
 --------------------------------------------------------------------------------
@@ -139,23 +91,11 @@ function modifier_lina_firehell_lua:GetAuraDuration()
 end
 
 function modifier_lina_firehell_lua:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+	return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
 function modifier_lina_firehell_lua:GetAuraSearchType()
 	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_lina_firehell_lua:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
-end
-
-function modifier_lina_firehell_lua:GetAuraEntityReject( hEntity )
-	if not IsServer() then return end
-
-	if hEntity==self:GetParent() then return true end
-
-	return hEntity:GetPlayerOwnerID()~=self:GetParent():GetPlayerOwnerID()
 end
 
 --------------------------------------------------------------------------------

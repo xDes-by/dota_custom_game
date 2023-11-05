@@ -391,10 +391,11 @@
 
         //Rating//
 
-        "rating_zar" "Win rating"
-        "rating_nadez" "Save rating"
+        "rating_zar" "You will receive a rating for winning"
+        "rating_nadez" "You will receive a rating if you lose"
         "rating_doom" "Doom rating"
-        "rating_your_mmr" "Rating"
+        "rating_your_mmr" "Your rating"
+        "rating_difficulty"         "Difficulty level"
 
         "season_tab" "SEASONS"
         "season" "SEASON"
@@ -683,7 +684,9 @@
         
         "dota_tooltip_ability_item_book_atributes" "Endless Book of Attributes"
         "dota_tooltip_ability_item_book_atributes_description" "<h1>Active: Attributes </h1>Using this book the hero gains %int% to base attributes."        
-    
+        "dota_tooltip_modifier_item_book_atributes" "Endless Book of Attributes"
+        "dota_tooltip_modifier_item_book_atributes_description" "%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility, %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intellect, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength"
+
         "other_4" "Golden tree"
 
         "dota_tooltip_ability_item_zaglushka" "Can't summon pet"
@@ -951,9 +954,9 @@
         "dota_tooltip_ability_item_magma_soul" "Doom's Soul"
         "dota_tooltip_ability_item_cemetery_soul" "Cemetery Soul"
         "dota_tooltip_ability_item_antimage_soul" "Antimage's Soul"
-        "dota_tooltip_ability_item_dragon_soul" "Red Dragon Soul"
-        "dota_tooltip_ability_item_dragon_soul_2" "Green Dragon Soul"
-        "dota_tooltip_ability_item_dragon_soul_3" "Gold Dragon Soul"
+        "dota_tooltip_ability_item_dragon_soul" "Red Soul"
+        "dota_tooltip_ability_item_dragon_soul_2" "Green Soul"
+        "dota_tooltip_ability_item_dragon_soul_3" "Gold Soul"
 
         "dota_tooltip_ability_item_forest_soul_Description" "Souls improve items. Get them by defeating bosses."
         "dota_tooltip_ability_item_village_soul_Description" "Souls improve items. Get them by defeating bosses."
@@ -965,9 +968,9 @@
         "dota_tooltip_ability_item_magma_soul_Description" "Souls improve items. Get them by defeating bosses."
         "dota_tooltip_ability_item_cemetery_soul_Description" "Souls improve items. Get them by defeating bosses."
         "dota_tooltip_ability_item_antimage_soul_Description" "Souls improve items. Get them by defeating bosses."
-        "dota_tooltip_ability_item_dragon_soul_Description" "Souls improve items and are only available through central quests."
-        "dota_tooltip_ability_item_dragon_soul_2_Description" "Souls improve items and are only available through central quests."
-        "dota_tooltip_ability_item_dragon_soul_3_Description" "Souls improve items and are only available through central quests."
+        "dota_tooltip_ability_item_dragon_soul_Description" "This soul can be obtained by completing a series of quests to defend the central lane. From this soul, you can create a <font color='Crimson'><b>Spectral Scythe</b></font>."
+        "dota_tooltip_ability_item_dragon_soul_2_Description" "This soul can be obtained by completing a series of quests to defend the central lane. From this soul, you can create a <font color='ForestGreen'><b>Dragon Veil</b></font>."
+        "dota_tooltip_ability_item_dragon_soul_3_Description" "This soul can be obtained by completing a series of quests to defend the central lane. From this soul, you can create a <font color='gold'><b>Hell Radiance</b></font>."
 
         ////////
         //PETS//===================================================================================================================================================================================================================================================

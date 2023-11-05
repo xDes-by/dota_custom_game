@@ -8,7 +8,9 @@ end
 function necrolyte_death_pulse_lua:GetIntrinsicModifierName()
 	return "modifier_necrolyte_death_pulse_intrinsic_lua"
 end
-
+function necrolyte_death_pulse_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function necrolyte_death_pulse_lua:GetCastRange( location , target)
 	return self:GetSpecialValueFor("radius")
 end

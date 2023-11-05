@@ -52,7 +52,8 @@
 	}
 	"npc_dota_hero_jakiro_agi8"
 	{
-		"BaseClass"						"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_jakiro/jakiro_dual_breath_lua/npc_dota_hero_jakiro_agi8"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -74,7 +75,6 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-//==	
 	"npc_dota_hero_jakiro_int6"
 	{
 		"BaseClass"             		"special_bonus_undefined"
@@ -111,9 +111,6 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-
-
-	//last
 	"npc_dota_hero_jakiro_str12"
 	{
 		"BaseClass"             		"special_bonus_undefined"
@@ -146,7 +143,8 @@
 	}
 	"npc_dota_hero_jakiro_int13"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_jakiro/CooldownReduction"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

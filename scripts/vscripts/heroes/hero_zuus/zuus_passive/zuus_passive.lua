@@ -7,16 +7,38 @@ function zuus_passive_lua:GetCooldown(level)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int11") ~= nil then 
 		return self.BaseClass.GetCooldown(self, level) / 2
 	end
+	return self.BaseClass.GetCooldown(self, level)
 end
 
 function zuus_passive_lua:GetCastRange(level)
 	self:GetSpecialValueFor("radius")
 end
 
+function zuus_passive_lua:OnAbilityUpgrade( hAbility )
+	if hAbility == self and self:GetLevel() == 1 then
+		self:ToggleAbility()
+	end
+end
+
 function zuus_passive_lua:GetIntrinsicModifierName()
 	return "modifier_zuus_passive_lua"
 end
+function zuus_passive_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
 
+function zuus_passive_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
+function zuus_passive_lua:OnToggle()
+	if not IsServer() then return end
+	if self:GetToggleState() then
+		self:EndCooldown()
+	end
+end
 -------------------------------------------------------------------
 
 modifier_zuus_passive_lua = class({})
@@ -96,7 +118,7 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 	local caster = self:GetCaster()	
 	local ability = self:GetAbility()
 	
-	if IsServer() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() and not caster:HasModifier("modifier_fountain_invulnerability") and ability:IsFullyCastable() then
+	if IsServer() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() and not caster:HasModifier("modifier_fountain_invulnerability") and ability:GetCooldownTimeRemaining() == 0 and ability:GetToggleState() then
 
 		local radius = ability:GetSpecialValueFor("radius")
 		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
@@ -104,7 +126,7 @@ function modifier_zuus_passive_lua:OnIntervalThink()
 			for _,unit in pairs(hEnemies) do
 				self:ApplyDamage(unit)
 			end
-			self:GetAbility():UseResources(false, false,false, true)
+			ability:StartCooldown( ability:GetCooldown(ability:GetLevel()) * caster:GetCooldownReduction())
 		end
 	end
 end

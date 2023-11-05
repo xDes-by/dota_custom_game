@@ -2,19 +2,21 @@ doom_ulti_lua = {}
 
 LinkLuaModifier( "doom_ulti_think_lua", 'heroes/hero_doom_bringer/ulti/ulti.lua', LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "doom_ulti_burn_lua", 'heroes/hero_doom_bringer/ulti/ulti.lua', LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_ulti_intrinsic_lua", 'heroes/hero_doom_bringer/ulti/modifier_ulti_intrinsic_lua.lua', LUA_MODIFIER_MOTION_NONE )
 
 doom_ulti_think_lua = {}
 
 doom_ulti_burn_lua = {}
-
+function doom_ulti_lua:GetIntrinsicModifierName()
+	return "modifier_ulti_intrinsic_lua"
+end
+function doom_ulti_lua:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
 function doom_ulti_lua:OnSpellStart()
+    self:GetCaster():AddNewModifier(self:GetCaster(), self, "doom_ulti_think_lua", { duration = self:GetSpecialValueFor("duration") })
 
-    self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_other", { duration = 5 })
-
-    self:GetCaster():AddNewModifier(self:GetCaster(), self, "doom_ulti_think_lua", { duration = 5 })
-
-    StartAnimation(self:GetCaster(), {duration = 5, activity = ACT_DOTA_CHANNEL_ABILITY_4})
-
+    -- StartAnimation(self:GetCaster(), {duration = 5, activity = ACT_DOTA_CHANNEL_ABILITY_4})
 end
 
 function doom_ulti_think_lua:RemoveOnDeath()
@@ -44,7 +46,7 @@ function doom_ulti_think_lua:IsAura()
 end
 
 function doom_ulti_think_lua:GetAuraRadius()
-	return 700
+	return 300
 end
 
 function doom_ulti_think_lua:GetAuraSearchFlags()
@@ -71,29 +73,53 @@ function doom_ulti_burn_lua:IsHidden()
 	return false
 end
 
+function doom_ulti_burn_lua:IsDebuff()
+	return true
+end
+
 function doom_ulti_burn_lua:IsPurgable()
 	return false
 end
 
 function doom_ulti_burn_lua:OnCreated()
-
-    local damage = (self:GetCaster():GetModifierStackCount("modifier_ability_devour_souls", self:GetCaster())) * (self:GetAbility():GetSpecialValueFor("damage_per_soul"))
-
+	local stacks = self:GetCaster():GetModifierStackCount("modifier_devour_intrinsic_lua", self:GetCaster())
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_int6") then
+		stacks = stacks * 1.5
+	end
+    local damage = stacks * (self:GetAbility():GetSpecialValueFor("damage_per_soul"))
+	self.interval = 0.2
     self.damageTable = {
 		victim = self:GetParent(),
 		attacker = self:GetCaster(),
-		damage = damage,
-		damage_type = DAMAGE_TYPE_PURE,
-		ability = self,
-		damage_type = DAMAGE_TYPE_PURE, 
-		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL
+		damage = damage * self.interval,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = self:GetAbility(),
 	}
-    self:StartIntervalThink(1)
+    
     ParticleManager:CreateParticle("particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf", PATTACH_ABSORIGIN, enemy)
+	if not IsServer() then return end
+	self:StartIntervalThink(self.interval)
 end
 
 function doom_ulti_burn_lua:OnIntervalThink()
-    if IsServer() then
-        ApplyDamage(self.damageTable)
-    end
+    ApplyDamage(self.damageTable)
+end
+
+function doom_ulti_burn_lua:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+	}
+	return funcs
+end
+
+function doom_ulti_burn_lua:GetModifierTotalDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_str6") then
+		return -20
+	end
+end
+function doom_ulti_burn_lua:GetModifierIncomingDamage_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_int9") then
+		return 20
+	end
 end

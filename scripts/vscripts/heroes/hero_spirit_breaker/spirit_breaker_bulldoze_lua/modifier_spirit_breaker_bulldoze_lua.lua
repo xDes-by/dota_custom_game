@@ -87,6 +87,7 @@ function modifier_spirit_breaker_bulldoze_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
 	}
 
 	return funcs
@@ -118,6 +119,12 @@ end
 
 function modifier_spirit_breaker_bulldoze_lua:GetModifierIgnoreMovespeedLimit()
 	return 1
+end
+
+function modifier_spirit_breaker_bulldoze_lua:GetModifierHealthRegenPercentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_str9") then
+		return 5
+	end
 end
 
 --------------------------------------------------------------------------------

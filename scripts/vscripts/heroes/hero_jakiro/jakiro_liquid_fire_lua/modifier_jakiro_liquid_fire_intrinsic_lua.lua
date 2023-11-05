@@ -22,7 +22,6 @@ end
 -- Initializations
 function modifier_jakiro_liquid_fire_intrinsic_lua:OnCreated( kv )
 	-- generate data
-	
 	self.cast = false
 	self.records = {}
 end
@@ -223,7 +222,7 @@ function modifier_jakiro_liquid_fire_intrinsic_lua:GetModifierOverrideAbilitySpe
 end
 
 function modifier_jakiro_liquid_fire_intrinsic_lua:GetModifierAttackRangeBonus()
-	if IsServer() and self:GetAbility():GetAutoCastState() then
+	if IsServer() and self:GetAbility():GetAutoCastState() and self:GetAbility():IsFullyCastable() then
     	return self:GetAbility():GetSpecialValueFor("attack_range")
 	end
 end

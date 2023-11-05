@@ -35,6 +35,12 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("CustomShopStash_TakeItem",function(_, keys)
         Shop:CustomShopStash_TakeItem(keys)
     end)
+	CustomGameEventManager:RegisterListener("CustomShopStash_UseAllScroll",function(_, keys)
+        Shop:UseAllScroll(keys)
+    end)
+	CustomGameEventManager:RegisterListener("CustomShopStash_ReturnItem",function(_, keys)
+        Shop:CustomShopStash_ReturnItem(keys)
+    end)
 	CustomGameEventManager:RegisterListener("ActivateTrialPeriod_Pet",function(_, keys)
         Shop:ActivateTrialPeriod_Pet(keys)
     end)
@@ -295,6 +301,12 @@ function Shop:PlayerSetup( pid )
 		end
 		return 1.0
 	end)
+	if ChangeHero:IsMarciAvailable_PickStage(pid) then
+		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
+	end
+	if ChangeHero:IsSilencerAvailable_PickStage(pid) then
+		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
+	end
 end
 
 function Shop:createShop()
@@ -588,16 +600,47 @@ function Shop:CustomShopStash_TakeItem(t)
 	local thisItem = nil
 	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
 		for itemKey, item in ipairs(category) do
-			if item.itemname and item.itemname == t.itemname then
+			if item.itemname and item.itemname == t.itemname and item.now > 0 then
 				thisItem = item
 				thisItem.categoryKey = categoryKey
 				thisItem.itemKey = itemKey
+				break
 			end
 		end
 	end
 	-- t.IsControlDown
 	if thisItem then
 		Shop:giveItem({PlayerID = t.PlayerID , i = thisItem.categoryKey, n = thisItem.itemKey, IsControlDown = t.IsControlDown == 1})
+	end
+end
+
+function Shop:CustomShopStash_ReturnItem(t)
+	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	local found_item = hero:FindItemInInventory( t.itemname )
+	if found_item then
+		for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+			for itemKey, item in ipairs(category) do
+				if item.itemname and item.itemname == found_item:GetName() then
+					item.now = item.now + found_item:GetCurrentCharges()
+					hero:RemoveItem(found_item)
+					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "UpdateStore", {
+						{categoryKey = categoryKey, productKey = itemKey, itemname = item.itemname, count = item.now},
+					})
+					return
+				end
+			end
+		end
+	end
+end
+
+function Shop:UseAllScroll(t)
+	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+		for itemKey, item in ipairs(category) do
+			if item.itemname and table.has_value(t, item.itemname) and item.now > 0 and not hero:HasModifier("modifier_"..item.itemname.."_cd") then
+				Shop:giveItem({PlayerID = t.PlayerID , i = categoryKey, n = itemKey, IsControlDown = true})
+			end
+		end
 	end
 end
 

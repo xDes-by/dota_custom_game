@@ -9,7 +9,9 @@ LinkLuaModifier( "modifier_jakiro_ice_path_intrinsic_lua", "heroes/hero_jakiro/j
 function jakiro_ice_path_lua:GetIntrinsicModifierName()
 	return "modifier_jakiro_ice_path_intrinsic_lua"
 end
-
+function jakiro_ice_path_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function jakiro_ice_path_lua:UseAbility(dir, startpoint, endpoint)
 	local caster = self:GetCaster()
 	CreateModifierThinker(

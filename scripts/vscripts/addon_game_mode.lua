@@ -48,7 +48,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(30)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(60)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
@@ -388,21 +388,14 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		loadscript()
-	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		local AllHeroPull = LoadKeyValues("scripts/npc/all_hero_pull.txt")
 		for iPlayerID=0, PlayerResource:GetPlayerCount()-1 do
-			if PlayerResource:IsValidPlayer(iPlayerID) then
-				for k,v in pairs(AllHeroPull) do
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
-				end
-				if ChangeHero:IsMarciAvailable_PickStage(iPlayerID) then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
-				end
-				if ChangeHero:IsSilencerAvailable_PickStage(iPlayerID) then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
-				end
+			for k,v in pairs(AllHeroPull) do
+				GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
 			end
 		end
+	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
@@ -487,6 +480,9 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		if diff_wave.wavedef == "Insane" then
 			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
+		end	
+		if diff_wave.wavedef == "Impossible" then
+			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(3)
 		end	
 		
 		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
@@ -617,6 +613,7 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 		hHero:RemoveModifierByName(runs[data.rune])
 		hHero:AddNewModifier(hHero, nil, modifiers[data.rune], {duration = 45})
 	end
+	DailyQuests:UpdateCounter(data.PlayerID, 45)
 end
 
 function create_runes()
@@ -976,6 +973,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		hRelay:Trigger(nil,nil)
 		if not DataBase:IsCheatMode() then
 			_G.kill_invoker = true
+			for pid = 0, PlayerResource:GetPlayerCount()-1 do
+				DailyQuests:UpdateCounter(pid, 28)
+			end
 			rating_win()
 		end
 		return
@@ -1502,4 +1502,5 @@ function OnEndMiniGame(eventIndex, data)
 		mod.modifier1:Destroy()
 		mod.modifier2:Destroy()
 	end
+	talants:DisableHellGame(data.PlayerID)
 end

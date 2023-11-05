@@ -5,10 +5,18 @@ function zuus_thundergods_wrath_lua:GetIntrinsicModifierName()
 	return "modifier_zuus_thundergods_wrath_intrinsic"
 end
 
+function zuus_thundergods_wrath_lua:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
+
 function zuus_thundergods_wrath_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_str10") then
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
 	end
+end
+
+function zuus_thundergods_wrath_lua:GetCastRange()
+	return self:GetSpecialValueFor("radius")
 end
 
 function zuus_thundergods_wrath_lua:GetCooldown(iLevel)

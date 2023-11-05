@@ -12,7 +12,9 @@ end
 function leshrac_pulse_nova_lua:OnSpellStart()
 	local caster = self:GetCaster()
 end
-
+function leshrac_pulse_nova_lua:GetManaCost(iLevel)
+    return 40 + math.min(65000, self:GetCaster():GetIntellect() / 300)
+end
 function leshrac_pulse_nova_lua:GetCastRange(vLocation, hTarget)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_str10") then
 		return 1000

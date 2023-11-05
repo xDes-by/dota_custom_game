@@ -9,7 +9,9 @@ function leshrac_split_earth_lua:GetAOERadius()
 	end
 	return self:GetSpecialValueFor("radius")
 end
-
+function leshrac_split_earth_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function leshrac_split_earth_lua:GetIntrinsicModifierName()
 	return "modifier_leshrac_split_earth_intrinsic_lua"
 end

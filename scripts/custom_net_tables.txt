@@ -15,5 +15,6 @@
         "forge",
         "Daily",
 		"BattlePass",
+		"GameInfo",
     ]
 }

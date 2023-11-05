@@ -10,7 +10,7 @@ function DataBase:IsCheatMode()
 end
 
 function DataBase:init()
-	-- https://random-defence-adventure.ru/backend/api2/game-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
+	-- https://random-defence-adventure.ru/backend/api2/edit-points?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
 	-- https://random-defence-adventure.ru/backend/api2/player-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0&arr={"sid":455872541, "name":""}
 	DataBase.key = _G.key
 	DataBase.matchID = tostring(GameRules:Script_GetMatchID())
@@ -43,6 +43,8 @@ function DataBase:init()
 	DataBase.SprayToggleActivateLink = _G.host .. "/backend/api/spray-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.ActivateTrialPeriodPetLink = _G.host .. "/backend/api/activate-trial-period-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.GiveOutAllHotOfferItemsLink = _G.host .. "/backend/api/give-out-all-hot-offer-items?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.MapOverlayHintsLink = _G.host .. "/backend/api/map-hints?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
@@ -65,10 +67,6 @@ function DataBase:OnGameRulesStateChange()
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		print('DOTA_GAMERULES_STATE_GAME_IN_PROGRESS')
-
-		
-
 		for i = 0, PlayerResource:GetPlayerCount() -1 do
 			if PlayerResource:IsValidPlayer(i) then
         		-- SendToServerConsole("kick " .. PlayerResource:GetPlayerName(i))
@@ -306,15 +304,8 @@ function DataBase:PlayerSetup( pid )
 			_G.SHOP[pid] = obj.shop
 			DailyQuests:SetPlayerData(pid, obj.daily)
 			Shop:PlayerSetup( pid )
+			rating:PlayerSetup(pid)
 			BattlePass:SetPlayerData(pid, obj)
-			-- Shop:createShop()
-			-- Timers:CreateTimer(0 ,function()
-			-- 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-			-- 		rating:pickInit(t)
-			-- 		return nil
-			-- 	end
-			-- 	return 0.1
-			-- end)
 		end
 	end)
 end
@@ -326,13 +317,6 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 	
 
 	local tab = CustomNetTables:GetTableValue("talants", tostring(player))
-	local daily_counters = {}
-	for i = 1, DailyQuests.tasksNumber do
-		table.insert(daily_counters, {
-			index = DailyQuests.player[player][i].index,
-			now = DailyQuests.player[player][i].now,
-		})
-	end
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(player),
 		pEdit = pEdit,
@@ -344,8 +328,10 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 		trial_period_count = Quests.trialPeriodCount[player],
 		hero_marci_trial = ChangeHero.heroes["npc_dota_hero_marci"].trialCount[player],
 		hero_silencer_trial = ChangeHero.heroes["npc_dota_hero_silencer"].trialCount[player],
-		daily_counters = daily_counters,
+		daily_counters = DailyQuests:BuildServerDataArray(player),
+		diff = diff_wave.rating_scale,
 	}
+	
 	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[player] then
 		arr['gameDonatExp'] = 0
 		arr['gameNormalExp'] = 0
@@ -353,8 +339,9 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 	if isGameEnded then
 		arr['isGameEnded'] = true
 	end
-	local req = CreateHTTPRequestScriptVM( "POST", DataBase.editPoints ..'&sid=' .. arr['sid'] )
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.editPoints ..'&sid=' .. arr['sid'] )
     arr = json.encode(arr)
+	print(arr)
 	req:SetHTTPRequestGetOrPostParameter('arr',arr)
 	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 	req:Send(function(res)
@@ -695,6 +682,23 @@ function DataBase:DailyAward(pid, index, prize, now)
 	print(json.encode(arr))
 	local req = CreateHTTPRequestScriptVM( "GET", DataBase.DailyAwardLink )
 	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(arr))
+	req:Send(function(res)
+		print(res.StatusCode)
+		print(res.Body)
+		if res.StatusCode == 200 and res.Body ~= nil then
+			
+		end
+	end)
+end
+
+function DataBase:MapOverlay_Hints(pid, hints)
+	requestData = {
+		sid = PlayerResource:GetSteamAccountID(pid),
+		hints = hints,
+	}
+	local req = CreateHTTPRequestScriptVM( "GET", DataBase.MapOverlayHintsLink )
+	req:SetHTTPRequestGetOrPostParameter('arr',json.encode(requestData))
+	print(json.encode(requestData))
 	req:Send(function(res)
 		print(res.StatusCode)
 		print(res.Body)

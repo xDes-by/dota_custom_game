@@ -11,6 +11,14 @@ end
 function necrolyte_reapers_scythe_lua:GetIntrinsicModifierName()
 	return "modifier_necrolyte_reapers_scythe_intrinsic_lua"
 end
+function necrolyte_reapers_scythe_lua:GetManaCost(iLevel)
+    return 170 + math.min(65000, self:GetCaster():GetIntellect() / 25)
+end
+function necrolyte_reapers_scythe_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi12") or self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi13") then
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+	end
+end
 function necrolyte_reapers_scythe_lua:OnSpellStart()
 	if IsServer() then
 		local caster = self:GetCaster()

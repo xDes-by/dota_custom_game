@@ -8,6 +8,10 @@ function DailyQuests:init()
     self.tasksForToday = {}
     ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
     ListenToGameEvent( "entity_killed", Dynamic_Wrap( self, "OnEntityKilled" ), self)
+    ListenToGameEvent( "nommed_tree", Dynamic_Wrap( self, "OnNommedTree" ), self)
+    ListenToGameEvent( "player_death", Dynamic_Wrap( self, "OnPlayerDeath" ), self)
+    ListenToGameEvent( "dota_item_physical_destroyed", Dynamic_Wrap( self, "OnItemDestroyed" ), self)
+    
     CustomGameEventManager:RegisterListener("GetDailyAwardButton",function(_, keys)
         self:GetAwardButton(keys)
     end)
@@ -25,7 +29,7 @@ end
 
 
 function DailyQuests:UpdateCounter(pid, index)
-    if DataBase:IsCheatMode() then return end
+    if DataBase:IsCheatMode() or _G.kill_invoker then return end
     for _, data in pairs(self.player[pid]) do
         if data.index == index then
             if data.now >= data.count then return end
@@ -36,6 +40,45 @@ function DailyQuests:UpdateCounter(pid, index)
     end
 end
 
+function DailyQuests:GetAwardButton(t)
+    for _, data in pairs(self.player[t.PlayerID]) do
+        if data.index == t.index and data.now >= data.count then
+            local received = 0
+            for _, data2 in pairs(self.player[t.PlayerID]) do
+                if data2.received == true then 
+                    received = received + 1
+                end
+            end
+            local prize = 0
+            if received == 0 then
+                prize = 5
+            elseif received >= 1 then
+                prize = 10
+            end
+            DataBase:DailyAward(t.PlayerID, t.index, prize, data.now)
+            Shop:AddRP(t.PlayerID, prize)
+            data.received = true
+            CustomNetTables:SetTableValue("Daily", tostring(t.PlayerID), self.player[t.PlayerID])
+            break
+        end
+    end
+end
+
+function DailyQuests:BuildServerDataArray(pid)
+    local data = {}
+    for i = 1, self.tasksNumber do
+        local index = self.player[pid][i].index
+        local now = self.player[pid][i].now
+        if self.player[pid][i].dont_save_unfinished_progress then
+            now = 0
+        end
+		table.insert(data, {
+			index = index,
+			now = now,
+		})
+	end
+    return data
+end
 function DailyQuests:OnGameStateChanged(t)
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
         Timers:CreateTimer(1, function()
@@ -49,6 +92,13 @@ function DailyQuests:OnGameStateChanged(t)
             end
 		end)
     end
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        Timers:CreateTimer(60*60, function()
+            for nPlayerID = 0, PlayerResource:GetPlayerCount()-1 do
+                self:UpdateCounter(nPlayerID, 29)
+            end
+		end)
+    end
 end
 
 function DailyQuests:OnEntityKilled(keys)
@@ -58,7 +108,6 @@ function DailyQuests:OnEntityKilled(keys)
         return
     end
 	local unitName = killedUnit:GetUnitName()
-    print(unitName)
     local PlayerID = killerEntity:GetPlayerID()
     for _, data in pairs(self.player[PlayerID]) do
         if data.event and data.event == "kill" and (table.has_value(data.target, unitName) or table.has_value(data.target, "any")) then
@@ -77,28 +126,17 @@ function DailyQuests:OnEntityKilled(keys)
     end
 end
 
-function DailyQuests:GetAwardButton(t)
-    for _, data in pairs(self.player[t.PlayerID]) do
-        if data.index == t.index and data.now >= data.count then
-            local received = 0
-            for _, data2 in pairs(self.player[t.PlayerID]) do
-                if data2.received == true then 
-                    received = received + 1
-                end
-            end
-            local prize = 0
-            if received == 0 then
-                prize = 5
-            elseif received >= 1 and received <= 2 then
-                prize = 10
-            end
-            DataBase:DailyAward(t.PlayerID, t.index, prize, data.now)
-            Shop:AddRP(t.PlayerID, prize)
-            data.received = true
-            CustomNetTables:SetTableValue("Daily", tostring(t.PlayerID), self.player[t.PlayerID])
-            break
-        end
-    end
+function DailyQuests:OnNommedTree(t)
+    self:UpdateCounter(t.PlayerID, 41)
+end
+
+function DailyQuests:OnItemDestroyed(t)
+    self:UpdateCounter(t.PlayerID, 46)
+end
+
+function DailyQuests:OnPlayerDeath(t)
+    local hero = EntIndexToHScript( t.userid ) 
+    self:UpdateCounter(hero:GetPlayerID(), 49)
 end
 
 

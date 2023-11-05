@@ -1,5 +1,4 @@
 require("data/data")
-
 if Spawner == nil then
 	Spawner = class({})
 end
@@ -19,6 +18,11 @@ function add_modifier(unit)
 	end	
 	if diff_wave.wavedef == "Insane" then
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
+		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+		unit:AddAbility(new_abil_passive):SetLevel(4)
+	end	
+	if diff_wave.wavedef == "Impossible" then
+		unit:AddNewModifier(unit, nil, "modifier_impossible", {})
 		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end	

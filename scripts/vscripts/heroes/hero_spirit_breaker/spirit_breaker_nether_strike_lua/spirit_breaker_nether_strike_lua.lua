@@ -27,7 +27,9 @@ end
 function spirit_breaker_nether_strike_lua:GetIntrinsicModifierName()
 	return "modifier_spirit_breaker_nether_strike_intrinsic_lua"
 end
-
+function spirit_breaker_nether_strike_lua:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
 --------------------------------------------------------------------------------
 -- Ability Phase Start
 function spirit_breaker_nether_strike_lua:OnAbilityPhaseStart()

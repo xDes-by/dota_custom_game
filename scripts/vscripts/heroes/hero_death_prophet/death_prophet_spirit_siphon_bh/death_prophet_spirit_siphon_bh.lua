@@ -3,7 +3,9 @@ death_prophet_spirit_siphon_bh = class({})
 function death_prophet_spirit_siphon_bh:IsStealable()
 	return true
 end
-
+function death_prophet_spirit_siphon_bh:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function death_prophet_spirit_siphon_bh:IsHiddenWhenStolen()
 	return false
 end

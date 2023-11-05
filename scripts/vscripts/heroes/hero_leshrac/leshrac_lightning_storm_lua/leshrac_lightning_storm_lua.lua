@@ -7,7 +7,9 @@ LinkLuaModifier( "modifier_leshrac_lightning_storm_lua_thinker", "heroes/hero_le
 function leshrac_lightning_storm_lua:GetIntrinsicModifierName()
 	return "modifier_leshrac_lightning_storm_intrinsic_lua"
 end
-
+function leshrac_lightning_storm_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 --------------------------------------------------------------------------------
 -- Ability Start
 function leshrac_lightning_storm_lua:OnSpellStart(count_fixed)

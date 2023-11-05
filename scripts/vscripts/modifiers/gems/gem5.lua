@@ -14,7 +14,7 @@ end
 
 function modifier_gem5:OnCreated(data)
 	self.parent = self:GetParent()
-	self.bonus = {150,300,450,600,750,900,1050,1200,1350,1500}
+	self.bonus = {150,300,450,600,750,900,1050,1200,1350,1500,100000}
 	if not IsServer() then
 		return
 	end

@@ -8,10 +8,19 @@ LinkLuaModifier( "modifier_jakiro_dual_breath_intrinsic_lua", "heroes/hero_jakir
 function jakiro_dual_breath_lua:GetIntrinsicModifierName()
 	return "modifier_jakiro_dual_breath_intrinsic_lua"
 end
+function jakiro_dual_breath_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function jakiro_dual_breath_lua:GetCastRange(location, target)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi10") then
    		return self.BaseClass.GetCastRange(self, location, target) * 2
 	end
+end
+function jakiro_dual_breath_lua:GetCooldown( level )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi8") then
+		return 0.1
+	end
+	return self.BaseClass.GetCooldown( self, level )
 end
 --------------------------------------------------------------------------------
 function jakiro_dual_breath_lua:FireBreath(direction_x, direction_y)

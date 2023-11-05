@@ -55,8 +55,8 @@ function modifier_cheack_afk:OnIntervalThink()
 				self.modifier2 = self.parent:AddNewModifier(self.parent, nil, "modifier_stunned", {})
 				self.MinigameStarted = true
 				ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
-				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
-				--@todo:сделать чтобы опыт шел в минус
+				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame/minigame.xml", nil)
+				talants:EnableHellGame(self:GetParent():GetPlayerID())
 			end)
 		end	
 	else
