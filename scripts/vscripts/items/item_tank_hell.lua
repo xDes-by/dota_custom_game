@@ -1,14 +1,16 @@
 ﻿item_tank_hell = item_tank_hell or class({})
-item_tank_hell2 = item_tank_hell or class({})
-item_tank_hell3 = item_tank_hell or class({})
-item_tank_hell4 = item_tank_hell or class({})
-item_tank_hell5 = item_tank_hell or class({})
-item_tank_hell6 = item_tank_hell or class({})
-item_tank_hell7 = item_tank_hell or class({})
-item_tank_hell8 = item_tank_hell or class({})
 
 LinkLuaModifier("modifier_item_tank_hell", "items/item_tank_hell", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_tank_hell_effect", "items/item_tank_hell", LUA_MODIFIER_MOTION_NONE)
+
+function item_tank_hell:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if self:GetSecondaryCharges() == 0 then
+		return "mid_items/lance" .. level
+	else
+		return "gem" .. self:GetSecondaryCharges() .. "/lance" .. level .. "_gem" .. self:GetSecondaryCharges()
+	end
+end
 
 function item_tank_hell:GetIntrinsicModifierName()
 	return "modifier_item_tank_hell"
