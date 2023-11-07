@@ -23,7 +23,9 @@ end
 function razor_plasma_field_lua:Spawn()
 	if not IsServer() then return end
 end
-
+function razor_plasma_field_lua:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 -- function razor_plasma_field_lua:GetCooldown( level )
 -- 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int8") then
 -- 		return self.BaseClass.GetCooldown( self, level ) * 0.5

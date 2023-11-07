@@ -712,6 +712,20 @@
 		"ItemStackableMax"				"64"
 		"ItemInitialCharges"			"1"
 	}	
+"item_quest_pivo_bara"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/pivo"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}	
 	
 "item_quest_line_head"
 	{

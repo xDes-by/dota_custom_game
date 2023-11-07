@@ -9,7 +9,9 @@ LinkLuaModifier("modifier_npc_dota_hero_vengefulspirit_str11", "heroes/hero_veng
 local TRANSFER_PLAIN = 1 -- just add modifier to clone
 local TRANSFER_FULL = 2 -- add modifier and transfer stacks
 
-
+function vengeful_tempest_double:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
 vengeful_tempest_double.transferable_ability = {
     ["spell_item_pet_RDA_250_attribute_bonus"]           = TRANSFER_PLAIN,
     ["spell_item_pet_RDA_250_bkb"]                       = TRANSFER_PLAIN,

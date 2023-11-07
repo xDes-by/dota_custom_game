@@ -81,8 +81,6 @@ battlePassLevelExperience = {
     [1]  = 1000, [2]  = 1000, [3]  = 1000, [4]  = 1000, [5]  = 1000, [6]  = 1000, [7]  = 1000, [8]  = 1000, [9]  = 1000, [10] = 1000,
     [11] = 1000, [12] = 1000, [13] = 1000, [14] = 1000, [15] = 1000, [16] = 1000, [17] = 1000, [18] = 1000, [19] = 1000, [20] = 1000,
     [21] = 1000, [22] = 1000, [23] = 1000, [24] = 1000, [25] = 1000, [26] = 1000, [27] = 1000, [28] = 1000, [29] = 1000, [30] = 1000,
-    [31] = 1000, [32] = 1000, [33] = 1000, [34] = 1000, [35] = 1000, [36] = 1000, [37] = 1000, [38] = 1000, [39] = 1000, [40] = 1000,
-    [41] = 1000, [42] = 1000, [43] = 1000, [44] = 1000, [45] = 1000, [46] = 1000, [47] = 1000, [48] = 1000, [49] = 1000, [50] = 1000,
 }
 
 
@@ -222,4 +220,150 @@ battlePassDailyRewards = {
     [28] = {info = {type='', amount = 3}, img = "bp/items/1.jpg"},
     [29] = {info = {type='', amount = 3}, img = "bp/items/1.jpg"},
     [30] = {info = {type='', amount = 3}, img = "bp/items/5.jpg"},
+}
+-- common (Обычный)
+-- uncommon (Необычный)
+-- rare (Редкий)
+-- epic (Эпический)
+-- mythical (Мифический)
+-- legendary (Легендарный)
+
+function CreateRewardArray(reward_type, reward_rarity, data)
+    local data = {
+        reward_type = reward_type,
+        reward_rarity = reward_rarity,
+        data = data,
+    }
+    return data
+end
+
+battlePassRewards = {
+    free = {
+        [1] = CreateRewardArray(    "boost_experience",     "common",   {value = 1.25, display_value = "x1.25"}),
+        [2] = CreateRewardArray(    "boost_rp",             "common",   {value = 1.25, display_value = "x1.25"}),
+        [3] = CreateRewardArray(    "gems",                 "common",   {value = 2500, display_value = "+2500"}),
+        [4] = CreateRewardArray(    "experience_common",    "common",   {value = 5000, display_value = "+5000"}),
+        [5] = CreateRewardArray(    "hero_access",          "uncommon", {game_amount = 1, display_value = "1"}),
+        [6] = CreateRewardArray(    "treasury",             "common",   {amount = 2, display_value = "2"}),
+        [7] = CreateRewardArray(    "rp",                   "common",   {amount = 250, display_value = "+250"}),
+        [8] = CreateRewardArray(    "pet_access",           "common",   {game_amount = 10, price = 150,display_value = "10"}),
+        [9] = CreateRewardArray(    "effect",               "uncommon", {}),
+        [10] = CreateRewardArray(   "item_scroll",          "rare",     {amount = 2, display_value = "2"}),
+        [11] = CreateRewardArray(   "boost_experience",     "uncommon", {value = 1.5, display_value = "x1.5"}),
+        [12] = CreateRewardArray(   "boost_rp",             "uncommon", {value = 1.5, display_value = "x1.5"}),
+        [13] = CreateRewardArray(   "gems",                 "uncommon", {value = 5000, display_value = "+5000"}),
+        [14] = CreateRewardArray(   "experience_common",    "uncommon", {value = 18000, display_value = "+18000"}),
+        [15] = CreateRewardArray(   "hero_access",          "uncommon", {game_amount = 3, display_value = "3"}),
+        [16] = CreateRewardArray(   "treasury",             "uncommon", {amount = 4, display_value = "4"}),
+        [17] = CreateRewardArray(   "coins",                "uncommon", {amount = 2, display_value = "+2"}),
+        [18] = CreateRewardArray(   "pet_access",                "uncommon", {game_amount = 10, price = 150,display_value = "10"}),
+        [19] = CreateRewardArray(   "effect",                "uncommon", {}),
+        [20] = CreateRewardArray(   "item_scroll",                "uncommon", {amount = 2, display_value = "2"}),
+        [21] = CreateRewardArray(   "boost_experience",                "uncommon", {value = 1.75, display_value = "x1.75"}),
+        [22] = CreateRewardArray(   "boost_rp",                "uncommon", {value = 1.75, display_value = "x1.75"}),
+        [23] = CreateRewardArray(   "gems",                "uncommon", {value = 8000,display_value = "+8000"}),
+        [24] = CreateRewardArray(   "experience_common",                "uncommon", {value = 18000,display_value = "+18000"}),
+        [25] = CreateRewardArray(   "hero_access",                "uncommon", {game_amount = 5, display_value = "5"}),
+        [26] = CreateRewardArray(   "treasury",                "uncommon", {amount = 6,display_value = "6"}),
+        [27] = CreateRewardArray(   "coins",                "uncommon", {amount = 3, display_value = "+3"}),
+        [28] = CreateRewardArray(   "pet_access",                "uncommon", {game_amount = 10, price = 150,display_value = "10"}),
+        [29] = CreateRewardArray(   "effect",                "uncommon", {}),
+        [30] = CreateRewardArray(   "golden_branch",                "uncommon", {duration_in_days = 5,display_value = "5д"}),
+    },
+    premium = {
+        [1] = {
+            CreateRewardArray(    "boost_experience",     "common",   {value = 2.0, display_value = "x2.0"}),
+        },
+        [2] = {
+            CreateRewardArray(    "boost_rp",     "common",   {value = 2.0, display_value = "x2.0"}),
+        },
+        [3] = {
+            CreateRewardArray(    "gems",     "common",   {value = 5000, display_value = "+5000"}),
+        },
+        [4] = {
+            CreateRewardArray(    "experience_common",     "common",   {value = 5000,display_value = "+5000"}),
+            CreateRewardArray(    "experience_golden",     "common",   {value = 5000,display_value = "+5000"}),
+        },
+        [5] = {
+            CreateRewardArray(    "item_scroll",     "common",   {amount = 3,display_value = "3"}),
+        },
+        [6] = {
+            CreateRewardArray(    "soul",     "common",   {amount = 1,display_value = "1"}),
+        },
+        [7] = {
+            CreateRewardArray(    "rp",     "common",   {amount = 500, display_value = "+500"}),
+        },
+        [8] = {
+            CreateRewardArray(    "pet_access",     "common",   {game_amount = 10, price = 250,display_value = "10"}),
+        },
+        [9] = {
+            CreateRewardArray(    "effect",     "common",   {}),
+        },
+        [10] = {
+            CreateRewardArray(    "hero_model",     "common",   {}),
+        },
+        [11] = {
+            CreateRewardArray(    "boost_experience",     "common",   {value = 2.25, display_value = "x2.25"}),
+        },
+        [12] = {
+            CreateRewardArray(    "boost_rp",     "common",   {value = 2.25, display_value = "x2.25"}),
+        },
+        [13] = {
+            CreateRewardArray(    "gems",     "common",   {value = 10000,display_value = "+10000"}),
+        },
+        [14] = {
+            CreateRewardArray(    "experience_common",     "common",   {value = 18000,display_value = "+18000"}),
+            CreateRewardArray(    "experience_golden",     "common",   {value = 18000,display_value = "+18000"}),
+        },
+        [15] = {
+            CreateRewardArray(    "item_forever_ward",     "common",   {amount = 1,display_value = "1"}),
+        },
+        [16] = {
+            CreateRewardArray(    "soul",     "common",   {amount = 1,display_value = "1"}),
+        },
+        [17] = {
+            CreateRewardArray(    "item_scroll",     "common",   {amount = 2,display_value = "2"}),
+        },
+        [18] = {
+            CreateRewardArray(    "pet_access",     "common",   {game_amount = 10, price = 250,display_value = "10"}),
+        },
+        [19] = {
+            CreateRewardArray(    "effect",     "common",   {}),
+        },
+        [20] = {
+            CreateRewardArray(    "hero_model",     "common",   {}),
+        },
+        [21] = {
+            CreateRewardArray(    "boost_experience",     "common",   {value = 2.5, display_value = "x2.5"}),
+        },
+        [22] = {
+            CreateRewardArray(    "boost_rp",     "common",   {value = 2.5, display_value = "x2.5"}),
+        },
+        [23] = {
+            CreateRewardArray(    "gems",     "common",   {value = 15000,display_value = "+15000"}),
+        },
+        [24] = {
+            CreateRewardArray(    "experience_common",     "common",   {value = 18000,display_value = "+18000"}),
+            CreateRewardArray(    "experience_golden",     "common",   {value = 18000,display_value = "+18000"}),
+        },
+        [25] = {
+            CreateRewardArray(    "item_boss_summon",     "common",   {amount = 3,display_value = "3"}),
+            CreateRewardArray(    "item_ticket",     "common",   {amount = 10,display_value = "10"}),
+        },
+        [26] = {
+            CreateRewardArray(    "soul",     "common",   {amount = 1,display_value = "1"}),
+        },
+        [27] = {
+            CreateRewardArray(    "effect",     "common",   {}),
+        },
+        [28] = {
+            CreateRewardArray(    "pet_access",     "common",   {game_amount = 10, price = 250,display_value = "10"}),
+        },
+        [29] = {
+            CreateRewardArray(    "pet_exclusive",     "common",   {amount = 1}),
+        },
+        [30] = {
+            CreateRewardArray(    "hero_model",     "common",   {}),
+        },
+    }
 }

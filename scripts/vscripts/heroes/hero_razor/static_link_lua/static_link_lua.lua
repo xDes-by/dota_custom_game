@@ -13,7 +13,9 @@ function static_link_lua:GetBehavior()
     return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
   end
 end
-
+function static_link_lua:GetManaCost(iLevel)
+  return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function static_link_lua:OnSpellStart(target)
   local ability = self
   local caster = self:GetCaster()

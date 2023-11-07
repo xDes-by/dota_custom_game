@@ -24,7 +24,20 @@ function AdminPanel:init()
     CustomGameEventManager:RegisterListener("AdminPanelHeroLevel",function(_, keys)
         self:HeroLevel(keys)
     end)
+    CustomGameEventManager:RegisterListener("AdminPanelChangeGems",function(_, keys)
+        self:ChangeGems(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelBattlePassAddExperience",function(_, keys)
+        self:BattlePassAddExperience(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelBattlePassDrop",function(_, keys)
+        self:BattlePassDrop(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelBattlePassPremium",function(_, keys)
+        self:BattlePassPremium(keys)
+    end)
 end
+
 
 function AdminPanel:ChangeGold(t)
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
@@ -136,4 +149,23 @@ function AdminPanel:HeroLevel(t)
     end
 end
 
+function AdminPanel:ChangeGems(t)
+    for i = 1, 5 do
+        Forge:add_gems({
+            PlayerID = t.PlayerID,
+            type = i,
+            value = t.amount
+        })
+    end
+end
+
+function AdminPanel:BattlePassAddExperience(t)
+    BattlePass:AddExperience(t.PlayerID, t.amount)
+end
+function AdminPanel:BattlePassDrop(t)
+    BattlePass:ResetProgress(t.PlayerID)
+end
+function AdminPanel:BattlePassPremium(t)
+    BattlePass:ActivatePremium(t.PlayerID)
+end
 AdminPanel:init()

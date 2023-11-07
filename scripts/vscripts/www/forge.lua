@@ -111,6 +111,9 @@ function Forge:ExploreAllInventory(PlayerID)
             if table.has_value(upgradeableItems, item:GetName()) then
                 table.insert(NewItemsList, self:GatherItemDataArray(item))
             end
+            if item:GetLevel() >= 8 and item:GetName() == "item_spirit_vessel_lua" then
+                Quests:UpdateCounter("bonus", 8, 2, pid)
+            end
         end
     end
     self.PlayerItems[PlayerID] = NewItemsList
@@ -150,6 +153,9 @@ function Forge:RecordTaskCompletionOnItemLevelUp(pid, item)
     if item:GetLevel() == 11 then
         DailyQuests:UpdateCounter( pid, 33)
     end
+    if item:GetLevel() >= 8 and item:GetName() == "item_spirit_vessel_lua" then
+        Quests:UpdateCounter("bonus", 8, 2, pid)
+    end
     DailyQuests:UpdateCounter( pid, 34)
 end
 function Forge:DeductResourcesForItemUpgrade(pid, item)
@@ -173,8 +179,8 @@ function Forge:UpdgradeButton(t)
     local soul_name = self:GetSoulNameForItemUpgrade(item:GetName(), level)
     if self:GetItemUpgradeSoulsCost() <= 0 or (hero:FindItemInInventory(soul_name) or sInv:HasSoul(soul_name, t.PlayerID)) then
         if hero:GetTotalGold() >= self:GetItemUpgradeCost(level) then
-            item:SetLevel( level + 1 )
             self:DeductResourcesForItemUpgrade(t.PlayerID, item)
+            item:SetLevel( level + 1 )
             self:RecordTaskCompletionOnItemLevelUp(t.PlayerID, item)
             self:ExploreAllInventory(t.PlayerID)
         end

@@ -24,7 +24,7 @@ function modifier_quest:CheckState()
 		[MODIFIER_STATE_LOW_ATTACK_PRIORITY] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 		[MODIFIER_STATE_UNTARGETABLE] = true,
-		[MODIFIER_STATE_UNSELECTABLE] = true,
+		[MODIFIER_STATE_UNSELECTABLE] = false,
 	}
 
   	return state

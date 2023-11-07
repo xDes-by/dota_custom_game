@@ -6,7 +6,9 @@ if vengeful_spirit_wave_of_terror == nil then
 end
 
 --------------------------------------------------------------------------------
-
+function vengeful_spirit_wave_of_terror:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function vengeful_spirit_wave_of_terror:OnSpellStart()
     local caster = self:GetCaster()
     local position = self:GetCursorPosition()

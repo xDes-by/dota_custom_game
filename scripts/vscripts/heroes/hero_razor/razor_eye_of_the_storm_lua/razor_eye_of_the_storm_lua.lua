@@ -19,7 +19,9 @@ function razor_eye_of_the_storm_lua:Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_razor/razor_eye_of_the_storm.vpcf", context )
 end
-
+function razor_eye_of_the_storm_lua:GetManaCost(iLevel)
+    return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
+end
 function razor_eye_of_the_storm_lua:GetBehavior()
     if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_str10") then
         return DOTA_ABILITY_BEHAVIOR_TOGGLE + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
