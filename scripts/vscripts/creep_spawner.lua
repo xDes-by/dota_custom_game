@@ -361,10 +361,12 @@ function spawn_creeps(triggerName, mini_creep, big_creep)
 	local point = Entities:FindByName( nil, triggerName ):GetAbsOrigin()
 	for i = 1, 3 do	  
 		local minispawn = CreateUnitByName( mini_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )
+		minispawn.donate = true
 		Rules:difficality_modifier(minispawn)
 		add_modifier_death2(minispawn)	
 	end
-	local minispawn = CreateUnitByName( big_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )	 
+	local minispawn = CreateUnitByName( big_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )	
+	minispawn.donate = true
 	Rules:difficality_modifier(minispawn)	
 	add_modifier_death2(minispawn)	
 end

@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_nyx_leak", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nyx_leak_aura", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nyx_leak_delay", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_nyx_boss_visual", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nyx_boss_debuff", "abilities/bosses/dust/nyx_leak", LUA_MODIFIER_MOTION_NONE)
 
 nyx_leak = class({})
@@ -55,11 +54,6 @@ end
 function modifier_nyx_leak_aura:OnDeath(data)
 	if data.unit == self:GetCaster() then
 		local target = data.attacker:entindex()
-		local unit = CreateUnitByName("npc_dota_hero_nyx_assassin", data.unit:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
-		unit:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
-		unit:SetBaseMoveSpeed(5000)
-		unit:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_nyx_boss_visual", {duration = 60, target = target})
 		data.attacker:AddNewModifier(data.attacker, nil, "modifier_nyx_boss_debuff", {duration = 60})
 	end
 end
@@ -126,95 +120,6 @@ function modifier_nyx_leak:OnDestroy()
 	self.parent:StopSound("Imba.Hero_KeeperOfTheLight.ManaLeak.Target.FP")
 end
 
-modifier_nyx_boss_visual = class({})
---Classifications template
-function modifier_nyx_boss_visual:IsHidden()
-	return true
-end
-
-function modifier_nyx_boss_visual:IsDebuff()
-	return true
-end
-
-function modifier_nyx_boss_visual:IsPurgable()
-	return false
-end
-
-function modifier_nyx_boss_visual:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_nyx_boss_visual:IsStunDebuff()
-	return false
-end
-
-function modifier_nyx_boss_visual:RemoveOnDeath()
-	return false
-end
-
-function modifier_nyx_boss_visual:DestroyOnExpire()
-	return false
-end
-
-function modifier_nyx_boss_visual:OnCreated(data)
-	if not IsServer() or not data.target then
-		return
-	end
-	self.parent = self:GetParent()
-	self.target = EntIndexToHScript(data.target)
-	local p = ParticleManager:CreateParticle("particles/econ/events/ti11/duel/dueling_glove_outcome_win.vpcf", PATTACH_POINT_FOLLOW, self.target)
-	ParticleManager:ReleaseParticleIndex(p)
-	self:StartIntervalThink(0.2)
-end
-
-function modifier_nyx_boss_visual:OnRefresh(data)
-	if self:GetRemainingTime() > self.duration then
-		self:Destroy()
-	end
-end
-
-function modifier_nyx_boss_visual:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	UTIL_Remove(self.parent)
-end
-
-function modifier_nyx_boss_visual:OnIntervalThink()
-	self.duration = self:GetRemainingTime()
-	self.parent:MoveToPosition(self.target:GetAbsOrigin())
-end
-
-function modifier_nyx_boss_visual:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
-		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
-		MODIFIER_PROPERTY_VISUAL_Z_DELTA
-	}
-end
-
-function modifier_nyx_boss_visual:GetVisualZDelta()
-	return 300
-end
-
-function modifier_nyx_boss_visual:GetModifierInvisibilityLevel()
-	return 1
-end
-
-function modifier_nyx_boss_visual:GetModifierProvidesFOWVision()
-	return 1
-end
-
-function modifier_nyx_boss_visual:CheckState()
-	return {
-		[MODIFIER_STATE_INVULNERABLE] = true,
-		[MODIFIER_STATE_INVISIBLE] = true,
-		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
-		[MODIFIER_STATE_NO_UNIT_COLLISION] = true
-	}
-end
-
 modifier_nyx_boss_debuff = class({})
 --Classifications template
 function modifier_nyx_boss_debuff:IsHidden()
@@ -250,6 +155,19 @@ function modifier_nyx_boss_debuff:OnCreated()
 	self.str = self:GetParent():GetStrength()
 	self.int = self:GetParent():GetIntellect()
 	self.agi = self:GetParent():GetAgility()
+	if not IsServer() then
+		return
+	end
+	self.remain = self:GetRemainingTime()
+	self:StartIntervalThink(0.2)
+end
+
+function modifier_nyx_boss_debuff:OnIntervalThink()
+	if self:GetRemainingTime() > self.remain then
+		self:Destroy()
+		return
+	end
+	self.remain = self:GetRemainingTime()
 end
 
 function modifier_nyx_boss_debuff:DeclareFunctions()
