@@ -236,6 +236,7 @@
         "dota_tooltip_ability_item_quest_line_skull" "Череп"
         "dota_tooltip_ability_item_quest_line_sword" "Меч"
         "dota_tooltip_ability_item_quest_line_dimand" "Бриллиантовый браслет"
+        "dota_tooltip_ability_item_quest_pivo_bara" "ПИВО"
         "dota_tooltip_ability_item_quest_line_head" "Шапка мага"
         "dota_tooltip_ability_item_quest_line_head2" "Шляпа"
         "dota_tooltip_ability_item_quest_line_ice_asd1" "Зачарованные наручи"
@@ -249,7 +250,7 @@
         "dota_tooltip_ability_item_quest_line_boots" "Боты"
         "dota_tooltip_ability_item_quest_necronomicon"  "Агрессивный Некрономикон"
         "dota_tooltip_ability_item_quest_necronomicon_description"  "<h1>Активное: Call to Action</h1></h1>Вызывает двух агрессивных к вам некрономиконов за убийство которых вы получите награду."
-
+        
         "dota_tooltip_ability_item_key_description" "Старый ключ!"
 
         "dota_tooltip_ability_item_raid_ticket" "Рейд на босса"
@@ -485,6 +486,47 @@
         "ForgeBaseDamage"                                       "базового урона"
         "ForgeRegen"                                            "регенирации"
         "maptogglebutton_Label"                                 "ПОДСКАЗКИ"
+
+
+        /// ------------------- BATTE PASS --------------------------------------
+        "BattlePass_soul_name"                          "одна душа на старте игры"
+        "BattlePass_soul_description"                   "При получении этой награды вы сможете выбрать одну из душ. Душа будет выдаваться вам в начале игры."
+        "BattlePass_exp_boost_name"                     "Множитель опыта талантов"
+        "BattlePass_exp_boost_description"              "Увеличение получения опыта для талантов из всех источников на <font color='#ff0066'><b>##display_value##</b></font>. Если использовать несколько бустеров то их бонус перемножается."
+        "BattlePass_rp_boost_name"                      "Множитель получения щитков"
+        "BattlePass_rp_boost_description"               "Увеличение получения щитков из всех источников на <font color='#ff0066'><b>##display_value##</b></font>. Если использовать несколько бустеров то их бонус перемножается."
+        "BattlePass_forge_gems_name"                    "Камни для кузницы"
+        "BattlePass_forge_gems_description"             "Вы получитье <font color='#ff0066'><b>##display_value##</b></font> всех камней на свой аккаунт."
+        "BattlePass_exp_book_1_name"                    "Опыт талантов"
+        "BattlePass_exp_book_1_description"             "Повышение текущего опыта выбранного вами героя на <font color='#ff0066'><b>##display_value##</b></font>."
+        "BattlePass_exp_book_2_name"                    "Опыт талантов"
+        "BattlePass_exp_book_2_description"             "Повышение текущего опыта золотой ветки выбранного вами героя на <font color='#ff0066'><b>##display_value##</b></font>."
+        "BattlePass_hero_access_name"                   "Доступ к особым героям"
+        "BattlePass_hero_access_description"            "При получении этой награды вы сможете выбрать одного из наших особых героев, залокированные в пике. Вам будет доступно сыграть <font color='#ff0066'><b>##display_value##</b></font> игр на выбранном герое."
+        "BattlePass_treasury_name"                      "Сокровищница"
+        "BattlePass_treasury_description"               "При получении этой награды вы сможете выбрать <font color='#ff0066'><b>##display_value##</b></font> сокровищниц. Сокровищницу можно открыть через магазин."
+        "BattlePass_add_rp_name"                        "Щитки"
+        "BattlePass_add_rp_description"                 "Вы получите <font color='#ff0066'><b>##display_value##</b></font> щитков на свой аккаунт."
+        "BattlePass_pet_name"                           "питомец"
+        "BattlePass_pet_description"                    "Вы сможете выбрать одного из питомцев за <font color='#ff0066'><b>##price##</b></font> кристаллов. Питомец будет доступен на <font color='#ff0066'><b>##display_value##</b></font> игр."
+        "BattlePass_add_coins_name"                     "кристаллы"
+        "BattlePass_add_coins_description"              "Вы получите <font color='#ff0066'><b>##display_value##</b></font> кристаллов на свой аккаунт."
+        "BattlePass_item_scroll_name"                   "Свитки"
+        "BattlePass_item_scroll_description"            "При получении награды вы сможете выбрать <font color='#ff0066'><b>##display_value##</b></font> свитков. Свитки сохраняются на вашем аккаунте и обновляются каждую игру."
+        "BattlePass_effect_name"                        "визуальные эффекты"
+        "BattlePass_effect_description"                 "Вы получите уникальный эффект, которого нет в магазиней."
+        "BattlePass_golden_branch_name"                 "золотая ветка талантов"
+        "BattlePass_golden_branch_description"          "Вам будет доступна золотая ветка на <font color='#ff0066'><b>##display_value##</b></font> дней, с момента принятия награды, на всех героях."
+        "BattlePass_forever_ward_name"                  "вечный вард"
+        "BattlePass_forever_ward_description"           "Вы получите <font color='#ff0066'><b>##display_value##</b></font> вечный вард. Этот предмет будет обновлятся в каждой игре."
+        "BattlePass_boss_summo_name"                    "Призыв босса"
+        "BattlePass_boss_summo_description"             "Вы получите <font color='#ff0066'><b>##display_value##</b></font> книгу для призыва босса. Этот предмет будет обновлятся в каждой игре."
+        "BattlePass_ticket_name"                        "билет на проход в фарм локацию"
+        "BattlePass_ticket_description"                 "Вы получите <font color='#ff0066'><b>##display_value##</b></font> билетов для прохода в локацию для фарма. Этот предмет будет обновлятся в каждой игре."
+        
+        "battle_pass_lock"                              "Будет доступно после покупки в магазине."
+        "collect_all_rewards_button"                    "Собрать всё"
+        /// ------------------- BATTE PASS --------------------------------------
         // Panorama
 
         /////////////////
@@ -1631,6 +1673,11 @@
         "quest_npc_cemetery_boss_desc"               "В локации, известной своей ужасной жестокостью, нашел убежище жуткий Волчий Жнец. Вам придется сразиться с этим чудовищем и завершить его зловещий террор."
         "quest_npc_cemetery_boss"               "Убить Волчьего Жнеца"
         
+        "quest_item_quest_pivo_bara_desc"       "Сварить ерша, для коктейля вам нужен лютый пивас"
+        "quest_item_quest_pivo_bara"            "Принеси пиво"
+
+        "quest_urna_desc"                       "Для убийства того кто находится за этими вратами тебе очень поможет урна."
+        "quest_urna"                            "Собрать Spirit Vessel 8ур."
         ///////////
         //C Items//
         ///////////

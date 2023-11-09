@@ -924,11 +924,21 @@ function talants:HeroesAmountInfo(t)
 end
 
 function talants:EnableHellGame(pid)
+    print("EnableHellGame")
     talants.hell_game[pid] = true
     local gain = -20
-    Timers:CreateTimer(0, function()
+    local tick = 0
+    -- 
+    -- EmitSoundOn( "bus_rush_sound", PlayerResource:GetSelectedHeroEntity(pid) )
+    EmitSoundOn( "yeeeeeaaaahhh", PlayerResource:GetSelectedHeroEntity(pid) )
+    Timers:CreateTimer(1, function()
+        print(tick)
         talants:AddExperienceDonate(pid, gain)
         talants:AddExperience(pid, gain)
+        tick = tick + 1
+        if tick % 15 == 0 then 
+            gain = gain - 1
+        end
         if talants.hell_game[pid] then
             return 1
         end

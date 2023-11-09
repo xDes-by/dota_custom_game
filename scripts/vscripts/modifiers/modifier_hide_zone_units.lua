@@ -63,7 +63,7 @@ function modifier_creep_antilag:GetModifierAura()
 end
 
 function modifier_creep_antilag:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+  return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD
 end
 
 function modifier_creep_antilag:GetAuraEntityReject(target)

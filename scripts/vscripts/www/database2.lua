@@ -10,12 +10,12 @@ function DataBase:IsCheatMode()
 end
 
 function DataBase:init()
-	-- https://random-defence-adventure.ru/backend/api2/edit-points?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0
+	-- https://random-defence-adventure.ru/backend/init-shutdown/player-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0&arr={"name":"","sid":455872541}
 	-- https://random-defence-adventure.ru/backend/api2/player-setup?key=0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D&match=0&arr={"sid":455872541, "name":""}
 	DataBase.key = _G.key
 	DataBase.matchID = tostring(GameRules:Script_GetMatchID())
 	DataBase.gameSetupLink = _G.host .. "/backend/api2/game-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	DataBase.playerSetupLink = _G.host .. "/backend/api2/player-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.playerSetupLink = _G.host .. "/backend/init-shutdown/player-setup?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.DailyAwardLink = _G.host .. "/backend/api2/daily-award?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.start = _G.host .. "/backend/api/start?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.editPoints = _G.host .. "/backend/api2/edit-points?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -305,7 +305,7 @@ function DataBase:PlayerSetup( pid )
 			DailyQuests:SetPlayerData(pid, obj.daily)
 			Shop:PlayerSetup( pid )
 			rating:PlayerSetup(pid)
-			BattlePass:SetPlayerData(pid, obj)
+			BattlePass:SetPlayerData(pid, obj.battle_pass)
 		end
 	end)
 end
@@ -315,7 +315,10 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 	
 	local hero = PlayerResource:GetSelectedHeroEntity( player )
 	
-
+	local diff = diff_wave.rating_scale
+	if not _G.kill_invoker then
+		diff = 0
+	end
 	local tab = CustomNetTables:GetTableValue("talants", tostring(player))
 	local arr = {
 		sid = PlayerResource:GetSteamAccountID(player),
@@ -329,7 +332,7 @@ function DataBase:PointsChange(player, pEdit, isGameEnded)
 		hero_marci_trial = ChangeHero.heroes["npc_dota_hero_marci"].trialCount[player],
 		hero_silencer_trial = ChangeHero.heroes["npc_dota_hero_silencer"].trialCount[player],
 		daily_counters = DailyQuests:BuildServerDataArray(player),
-		diff = diff_wave.rating_scale,
+		diff = diff,
 	}
 	
 	if hero:HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[player] then

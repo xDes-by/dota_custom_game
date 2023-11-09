@@ -1360,7 +1360,6 @@
 			"options"
 			{
 				"available"				"1"
-				"close_all_after_end"	"1"
 			}
 
 
@@ -1369,13 +1368,13 @@
 			{
 				"experience"
 				{
-					"min"		"30000"
-					"max"		"20000"
+					"min"		"100000"
+					"max"		"100000"
 				}
 				"gold"
 				{
-					"min"		"20000"
-					"max"		"10000"
+					"min"		"100000"
+					"max"		"100000"
 				}
 				"talentExperience"	"100"
 			}
@@ -1384,24 +1383,6 @@
 				"1"
 				{
 					"UnitName"	"npc_24"
-					"abs"
-					{
-						"1"
-						{
-							"x"	"2800"
-							"y"	"-957"
-						}
-						"2"
-						{
-							"x"	"3300"
-							"y"	"2000"
-						}
-						"3"
-						{
-							"x"	"4100"
-							"y"	"4100"
-						}
-					}
 					"item"
 					{
 						"use_type"	"random"
@@ -1409,14 +1390,25 @@
 						{
 							"1"
 							{
-								"TextName"	"quest_item_key"
-								"DotaName"	"item_key"
-								"Desc"		"quest_item_key_desc"
-								"min"		"1"
-								"max"		"1"
+								"TextName"	"quest_item_quest_pivo_bara"
+								"DotaName"	"item_quest_pivo_bara"
+								"Desc"		"quest_item_quest_pivo_bara_desc"
+								"min"		"10"
+								"max"		"10"
 							}
 							
 						}
+					}
+				}
+				"2"
+				{
+					"UnitName"	"npc_24"
+					"custom"
+					{
+						"TextName"	"quest_urna"
+						"Desc"		"quest_urna_desc"
+						"min"		"1"
+						"max"		"1"
 					}
 				}
 			}

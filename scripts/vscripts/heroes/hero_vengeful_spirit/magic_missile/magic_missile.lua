@@ -9,7 +9,9 @@ function vengeful_spirit_magic_missile:GetIntrinsicModifierName()
 end
 
 --------------------------------------------------------------------------------
-
+function vengeful_spirit_magic_missile:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function vengeful_spirit_magic_missile:OnSpellStart(Target)
     speed = self:GetSpecialValueFor("magic_missile_speed")
     magic_missile_stun = self:GetSpecialValueFor("magic_missile_stun")
