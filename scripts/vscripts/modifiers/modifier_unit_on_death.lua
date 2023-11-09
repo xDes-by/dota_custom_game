@@ -51,10 +51,8 @@ function modifier_unit_on_death:OnDeath(event)
 	if _G.kill_invoker == true then return end
 	
 	for _,t in ipairs(creep_respawn_8) do
-		if t and t == self.unitName then 			
-			local pt = point_village[RandomInt(1,#point_village)]
-			self.spawnPos = Vector(pt[1],pt[2],pt[3])  
-			amountTime = 6
+		if t and t == self.unitName then 			 
+			amountTime = 4
 			respawn(amountTime, self.spawnPos, self.unitName)
 			return
 		end
@@ -62,8 +60,6 @@ function modifier_unit_on_death:OnDeath(event)
 
 	for _,t in ipairs(creep_respawn_5) do
 		if t and t == self.unitName then 
-			local pt = point_mines[RandomInt(1,#point_mines)]
-			self.spawnPos = Vector(pt[1],pt[2],pt[3])  
 			amountTime = 2
 			respawn(amountTime, self.spawnPos, self.unitName)
 			return

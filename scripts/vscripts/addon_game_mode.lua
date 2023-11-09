@@ -109,28 +109,53 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
 end
 
-function CAddonAdvExGameMode:GoldFilter(event)
-	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
-	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
+function CAddonAdvExGameMode:GoldFilter(data)
+	if data.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
+	local hero = PlayerResource:GetSelectedHeroEntity( data.player_id_const )
 	local mod = hero:FindModifierByName("modifier_gold_bank")
-	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
-		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
-		hero:SetGold( 99999, false )
-	elseif event.gold > 0 then
-		hero:SetGold( hero:GetGold() + event.gold, false )
-	elseif event.gold < 0 then
-		hero:ModifyGold(event.gold, true, 0)
-		if hero:GetGold() + mod:GetStackCount() <= 99999 then
-			hero:SetGold( hero:GetGold() + mod:GetStackCount(), false )
-			mod:SetStackCount(0)
-		else
-			local flaw = 99999 - hero:GetGold()
-			mod:SetStackCount(mod:GetStackCount() - flaw)
+	local gold = hero:GetTotalGold()
+	if data.gold > 0 then
+		new_gold = gold + data.gold
+		if new_gold > 99999 then
 			hero:SetGold( 99999, false )
+			mod:SetStackCount(new_gold - 99999)
+		else
+			hero:SetGold( new_gold, false )
+		end
+	elseif (data.gold * -1) < gold then
+		new_gold = gold + data.gold
+		if new_gold > 99999 then
+			hero:SetGold( 99999, false )
+			mod:SetStackCount(new_gold - 99999)
+		else
+			hero:SetGold( new_gold, false )
 		end
 	end
 	return false
 end
+
+-- function CAddonAdvExGameMode:GoldFilter(event)
+-- 	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
+-- 	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
+-- 	local mod = hero:FindModifierByName("modifier_gold_bank")
+-- 	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
+-- 		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
+-- 		hero:SetGold( 99999, false )
+-- 	elseif event.gold > 0 then
+-- 		hero:SetGold( hero:GetGold() + event.gold, false )
+-- 	elseif event.gold < 0 then
+-- 		hero:ModifyGold(event.gold, true, 0)
+-- 		if hero:GetGold() + mod:GetStackCount() <= 99999 then
+-- 			hero:SetGold( hero:GetGold() + mod:GetStackCount(), false )
+-- 			mod:SetStackCount(0)
+-- 		else
+-- 			local flaw = 99999 - hero:GetGold()
+-- 			mod:SetStackCount(mod:GetStackCount() - flaw)
+-- 			hero:SetGold( 99999, false )
+-- 		end
+-- 	end
+-- 	return false
+-- end
 
 function CAddonAdvExGameMode:InventoryFilter(event)
 	DeepPrintTable(event)

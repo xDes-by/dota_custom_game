@@ -13,9 +13,9 @@ end
 function item_spirit_vessel_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
 	if self:GetSecondaryCharges() == 0 then
-		return "all/veil_" .. level
+		return "all/vessel" .. level
 	else
-		return "gem" .. self:GetSecondaryCharges() .. "/item_veil_of_discord_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/vessel" .. level
 	end
 end
 
