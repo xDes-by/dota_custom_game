@@ -277,6 +277,7 @@
 			"aura_damage_illusions"		"35"
 			"blind_pct"					"17 19 21 23 25 27 29 31 33 35"
 			"aura_radius"				"700"
+			"stats_damage"				"80 120 160 200 240 280 320 360 400 440"
 		}
 	}
 	

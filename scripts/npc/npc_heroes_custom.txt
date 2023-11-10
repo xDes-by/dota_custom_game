@@ -66,7 +66,7 @@
 	"npc_dota_hero_crystal_maiden"
 	{
 	"override_hero"			"npc_dota_hero_crystal_maiden"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"crystal_nova_lua"
 	"Ability2"				"crystal_slow_aura_lua"
@@ -87,7 +87,7 @@
 	"npc_dota_hero_marci"
 	{
 	"override_hero"			"npc_dota_hero_marci"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"marci_crystals"
 	"Ability2"				"marci_prigok"
@@ -107,7 +107,7 @@
 	"npc_dota_hero_pangolier"
 	{
 	"override_hero"			"npc_dota_hero_pangolier"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				""
 	"Ability2"				""
@@ -128,7 +128,7 @@
 	"npc_dota_hero_techies"
 	{
 	"override_hero"			"npc_dota_hero_techies"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"techies_land_mines_lua"
 	"Ability2"				"techies_stasis_trap_lua"
@@ -149,7 +149,7 @@
 	"npc_dota_hero_pudge"
 	{
 	"override_hero"			"npc_dota_hero_pudge"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"pudge_meat_hook_lua"
 	"Ability2"				"pudge_rot_lua"
@@ -170,7 +170,7 @@
 	"npc_dota_hero_doom_bringer"
 	{
 	"override_hero"			"npc_dota_hero_doom_bringer"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"doom_devour_lua"
 	"Ability2"				"lina_firehell"
@@ -191,9 +191,9 @@
 	"npc_dota_hero_slark"
 	{
 	"override_hero"			"npc_dota_hero_slark"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
-	// "DisableWearables"		"1"
+	"DisableWearables"		"1"
 	"Ability1"				"slark_dark_pact_lua"
 	"Ability2"				"slark_pounce_lua"
 	"Ability3"				"slark_passive"
@@ -215,7 +215,7 @@
 	"AttributeBaseStrength" 	"17"
 	"AttributeStrengthGain"   	"1.5"
 	"override_hero"			"npc_dota_hero_medusa"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"medusa_split_shot_lua"
 	"Ability2"				"medusa_mystic_snake_lua"
@@ -236,7 +236,7 @@
 	"npc_dota_hero_skywrath_mage"
 	{
 	"override_hero"			"npc_dota_hero_skywrath_mage"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"skywrath_mage_arcane_bolt_lua"
 	"Ability2"				"skywrath_mage_concussive_shot_lua"
@@ -259,7 +259,7 @@
 	"npc_dota_hero_treant"
 	{
 	"override_hero"			"npc_dota_hero_treant"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"treant_skill_1"
 	"Ability2"				"treant_skill_2"
@@ -280,7 +280,7 @@
 	"npc_dota_hero_tinker"
 	{
 	"override_hero"			"npc_dota_hero_tinker"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"builder_tower_repair"
 	"Ability2"				"builder_turrel"
@@ -301,9 +301,9 @@
 	"npc_dota_hero_nevermore"
 	{
 	"override_hero"			"npc_dota_hero_nevermore"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
-	// "DisableWearables"		"1"
+	"DisableWearables"		"1"
 	"Ability1"				"shadow_fiend_shadowraze_a_lua"
 	"Ability2"				"shadow_fiend_shadowraze_b_lua"
 	"Ability3"				"shadow_fiend_shadowraze_c_lua"
@@ -325,7 +325,7 @@
 	"npc_dota_hero_legion_commander"
 	{
 	"override_hero"			"npc_dota_hero_legion_commander"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"legion_odds"
 	"Ability2"				"legion_press_the_attack"
@@ -347,7 +347,7 @@
 	"npc_dota_hero_dragon_knight"
 	{
 	"override_hero"			"npc_dota_hero_dragon_knight"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"dragon_fire_ball_lua"
 	"Ability2"				"dragon_2_skill"
@@ -368,7 +368,7 @@
 	"npc_dota_hero_wisp"
 	{
 	"override_hero"			"npc_dota_hero_wisp"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"wisp_tether_lua"
 	"Ability2"				"wisp_spirits_bh"
@@ -392,7 +392,7 @@
 	"npc_dota_hero_axe"
 	{
 	"override_hero"			"npc_dota_hero_axe"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"axe_berserkers_call_lua"
 	"Ability2"				"axe_counter_helix_lua"
@@ -413,7 +413,7 @@
 	"npc_dota_hero_centaur"
 	{
 	"override_hero"			"npc_dota_hero_centaur"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"centaur_warrunner_hoof_stomp_lua"
 	"Ability2"				"centaur_return_lua"
@@ -434,7 +434,7 @@
 	"npc_dota_hero_mars"
 	{
 	"override_hero"			"npc_dota_hero_mars"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"mars_lil"
 	"Ability2"				"mars_gods_rebuke_lua"
@@ -454,7 +454,7 @@
 	"npc_dota_hero_sven"
 	{
 	"override_hero"			"npc_dota_hero_sven"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"sven_bringer"
 	"Ability2"				"sven_great_cleave_lua"
@@ -475,7 +475,7 @@
 	"npc_dota_hero_skeleton_king"
 	{
 	"override_hero"			"npc_dota_hero_skeleton_king"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"wraith_king_sceleton"
 	"Ability2"				"wraith_king_vampiric_aura_lua"
@@ -496,7 +496,7 @@
 	"npc_dota_hero_sand_king"
 	{
 	"override_hero"			"npc_dota_hero_sand_king"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"sand_stun"
 	"Ability2"				"sand_king_sand_storm_lua"
@@ -517,7 +517,7 @@
 	"npc_dota_hero_bristleback"
 	{
 	"override_hero"			"npc_dota_hero_bristleback"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"bristleback_passive"
 	"Ability2"				"bristleback_quill_spray_lua"
@@ -538,7 +538,7 @@
 	"npc_dota_hero_magnataur"
 	{
 	"override_hero"			"npc_dota_hero_magnataur"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"magnataur_shockwave_lua"
 	"Ability2"				"magnataur_empower_lua"
@@ -562,7 +562,7 @@
 	"npc_dota_hero_spectre"
 	{
 	"override_hero"			"npc_dota_hero_spectre"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"spectre_step"
 	"Ability2"				"spectre_desolate_lua"
@@ -584,7 +584,7 @@
 	"npc_dota_hero_terrorblade"
 	{
 	"override_hero"			"npc_dota_hero_terrorblade"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"terrorblade_reflection_lua"
 	"Ability2"				"terrorblade_conjure_image_lua"
@@ -606,7 +606,7 @@
 	"npc_dota_hero_drow_ranger"
 	{
 	"override_hero"			"npc_dota_hero_drow_ranger"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"drow_ranger_frost_arrows_lua"
 	"Ability2"				"drow_cross_lua"
@@ -627,8 +627,8 @@
 	"npc_dota_hero_juggernaut"
 	{
 	"override_hero"			"npc_dota_hero_juggernaut"
-	// "DisableWearables"		"1"
-	"StatusMana"			"300"
+	"DisableWearables"		"1"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"juggernaut_requiem"
 	"Ability2"				"juggernaut_blade_dance_lua"
@@ -650,7 +650,7 @@
 	"npc_dota_hero_phantom_assassin"
 	{
 	"override_hero"			"npc_dota_hero_phantom_assassin"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"phantom_assassin_knifes"
 	"Ability2"				"phantom_assassin_phantom_strike_lua"
@@ -671,7 +671,7 @@
 	"npc_dota_hero_sniper"
 	{
 	"override_hero"			"npc_dota_hero_sniper"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"sniper_shrapnel_lua"
 	"Ability2"				"sniper_granade"
@@ -692,7 +692,7 @@
 	"npc_dota_hero_arc_warden"
 	{
 	"override_hero"			"npc_dota_hero_arc_warden"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"arc_flux_lua"
 	"Ability2"				"arc_warden_magnetic_field_lua"
@@ -713,7 +713,7 @@
 	"npc_dota_hero_luna"
 	{
 	"override_hero"			"npc_dota_hero_luna"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"luna_starfall"
 	"Ability2"				"luna_moon_glaive_lua"
@@ -736,7 +736,7 @@
 	"npc_dota_hero_zuus"
 	{
 	"override_hero"			"npc_dota_hero_zuus"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"zuus_arc_lightning_lua"
 	"Ability2"				"zuus_lightning_bolt_lua"
@@ -758,7 +758,7 @@
 	"npc_dota_hero_lion"
 	{
 	"override_hero"			"npc_dota_hero_lion"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"lion_earth_spike_lua"
 	"Ability2"				"lion_soul_collector"
@@ -779,7 +779,7 @@
 	"npc_dota_hero_enchantress"
 	{
 	"override_hero"			"npc_dota_hero_enchantress"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"enchantress_natures_attendants_lua"
 	"Ability2"				"enchantress_natures"
@@ -800,7 +800,7 @@
 	"npc_dota_hero_lina"
 	{
 	"override_hero"			"npc_dota_hero_lina"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"lina_dragon_slave_lua"
 	"Ability2"				"lina_stun"
@@ -821,7 +821,7 @@
 	"npc_dota_hero_dazzle"
 	{
 	"override_hero"			"npc_dota_hero_dazzle"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"dazzle_poison_touch_lua"
 	"Ability2"				"dazzle_shallow_grave_lua"
@@ -842,7 +842,7 @@
 	"npc_dota_hero_pugna"
 	{
 	"override_hero"			"npc_dota_hero_pugna"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"pugna_nether_blast_lua"
 	"Ability2"				"pugna_decrepify_lua"
@@ -863,7 +863,7 @@
 	"npc_dota_hero_shadow_shaman"
 	{
 	"override_hero"			"npc_dota_hero_shadow_shaman"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"shadow_shaman_ether_shock_lua"
 	"Ability2"				"shaman_hex"
@@ -884,7 +884,7 @@
 	"npc_dota_hero_warlock"
 	{
 	"override_hero"			"npc_dota_hero_warlock"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"warlock_fatal_bonds_lua"
 	"Ability2"				"warlock_shadow_word_lua"
@@ -905,7 +905,7 @@
 	"npc_dota_hero_windrunner"
 	{
 	"override_hero"			"npc_dota_hero_windrunner"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"windrunner_powershot_lua"
 	"Ability2"				"windrunner_passive_lua"
@@ -926,7 +926,7 @@
 	"npc_dota_hero_troll_warlord"
 	{
 	"override_hero"			"npc_dota_hero_troll_warlord"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"troll_warlord_rage_lua"
 	"Ability2"				"troll_warlord_whirling_axes_ranged_lua"
@@ -947,7 +947,7 @@
 	"npc_dota_hero_alchemist"
 	{
 	"override_hero"			"npc_dota_hero_alchemist"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"alchemist_acid_spray_lua"
 	"Ability2"				"alchemist_unstable_concoction_lua"
@@ -968,7 +968,7 @@
 	"npc_dota_hero_bloodseeker"
 	{
 	"override_hero"			"npc_dota_hero_bloodseeker"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"bloodseeker_bloodrage_lua"
 	"Ability2"				"bloodseeker_blood_rite_lua"
@@ -989,7 +989,7 @@
 	"npc_dota_hero_gyrocopter"
 	{
 	"override_hero"			"npc_dota_hero_gyrocopter"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"gyrocopter_rocket_barrage_lua"
 	"Ability2"				"gyrocopter_homing_missile_lua"
@@ -1010,7 +1010,7 @@
 	"npc_dota_hero_ancient_apparition"
 	{
 	"override_hero"			"npc_dota_hero_ancient_apparition"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"ancient_apparition_cold_feet_lua"
 	"Ability2"				"ancient_apparition_ice_vortex_lua"
@@ -1030,7 +1030,7 @@
 	"npc_dota_hero_muerta"
     {
 	"override_hero"		"npc_dota_hero_muerta"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1" 			"muerta_dead_shot_custom"
 	// "Ability2" 			"muerta_the_calling_custom"
@@ -1055,7 +1055,7 @@
 	"npc_dota_hero_huskar"
     {
 	"override_hero"		"npc_dota_hero_huskar"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1" 			"huskar_inner_fire_lua"
 	"Ability2" 			"huskar_burning_spear_lua"
@@ -1083,7 +1083,7 @@
 	"npc_dota_hero_broodmother"
 	{
 	"override_hero"			"npc_dota_hero_broodmother"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"broodmother_web"
 	"Ability2"				"broodmother_steal"
@@ -1111,7 +1111,7 @@
 	"npc_dota_hero_silencer"
 	{
 	"override_hero"			"npc_dota_hero_silencer"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"silencer_curse_of_the_silent_lua"
 	"Ability2"				"silencer_glaives_of_wisdom_lua"
@@ -1138,7 +1138,7 @@
 	"npc_dota_hero_viper"
 	{
 	"override_hero"			"npc_dota_hero_viper"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"viper_poison_attack_lua"
 	"Ability2"				"viper_nethertoxin_lua"
@@ -1165,7 +1165,7 @@
 	"npc_dota_hero_witch_doctor"
 	{
 	"override_hero"			"npc_dota_hero_witch_doctor"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"witch_doctor_paralyzing_cask"
 	"Ability2"				"witch_doctor_voodoo_restoration"//
@@ -1192,7 +1192,7 @@
 	"npc_dota_hero_dawnbreaker"
 	{
 	"override_hero"			"npc_dota_hero_dawnbreaker"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"				"dawnbreaker_starbreaker_lua"//dawnbreaker_starbreaker_lua
 	"Ability2"				"dawnbreaker_celestial_hammer_lua"//
@@ -1222,7 +1222,7 @@
 	"npc_dota_hero_necrolyte"
 	{
 	"override_hero"				"npc_dota_hero_necrolyte"
-	"StatusMana"			"300"
+	"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 	"Ability1"					"necrolyte_death_pulse_lua"
 	"Ability2"					"necrolyte_ghost_shroud_lua"
@@ -1243,7 +1243,7 @@
 	"npc_dota_hero_vengefulspirit"
 	{
 		"override_hero"				"npc_dota_hero_vengefulspirit"
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 		"AttributeStrengthGain"   	"3.2"
 		"AttributeIntellectGain"   	"2.0"
@@ -1267,7 +1267,7 @@
 	"npc_dota_hero_razor"
 	{
 		"override_hero"				"npc_dota_hero_razor"
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 		"Ability1"					"razor_plasma_field_lua"
 		"Ability2"					"static_link_lua"
@@ -1288,7 +1288,7 @@
 	"npc_dota_hero_death_prophet"
 	{
 		"override_hero"				"npc_dota_hero_death_prophet"
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 	"StatusManaRegen"	    "4"
 		"Ability1"					"death_prophet_crypt_swarm_bh"
 		"Ability2"					"death_prophet_ghastly_haunting"
@@ -1309,7 +1309,7 @@
 	"npc_dota_hero_spirit_breaker"
 	{
 		"override_hero"				"npc_dota_hero_spirit_breaker"
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 		"StatusManaRegen"	    "4"
 		"Ability1"					"spirit_breaker_charge_of_darkness_lua"
 		"Ability2"					"spirit_breaker_bulldoze_lua"
@@ -1330,7 +1330,7 @@
 	"npc_dota_hero_templar_assassin" 
 		{
 		"override_hero"			"npc_dota_hero_templar_assassin" 
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 		"StatusManaRegen"	    "4"
 		"Ability1"				"templar_assassin_refraction_lua"
 		"Ability2"				"templar_assassin_meld_lua"
@@ -1351,7 +1351,7 @@
 	"npc_dota_hero_riki" 
 		{
 		"override_hero"			"npc_dota_hero_riki" 
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 		"StatusManaRegen"	    "4"
 		"Ability1"				"riki_smoke_screen_lua"
 		"Ability2"				"riki_blink_strike_723_lua"
@@ -1371,7 +1371,7 @@
 	"npc_dota_hero_leshrac" 
 	{
 		"override_hero"			"npc_dota_hero_leshrac" 
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 		"StatusManaRegen"	    "4"
 		"Ability1"				"leshrac_split_earth_lua"
 		"Ability2"				"leshrac_diabolic_edict_lua"
@@ -1391,7 +1391,7 @@
 	"npc_dota_hero_jakiro" 
 	{
 		"override_hero"			"npc_dota_hero_jakiro" 
-		"StatusMana"			"300"
+		"StatusMana"			"500"
 		"StatusManaRegen"	    "4"
 		"Ability1"				"jakiro_dual_breath_lua"
 		"Ability2"				"jakiro_ice_path_lua"

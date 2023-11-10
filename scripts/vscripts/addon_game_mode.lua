@@ -21,6 +21,7 @@ require("damage")
 require("dummy")
 require("use_pets")
 require("effects")
+require("wearable")
 
 _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
@@ -114,51 +115,18 @@ function CAddonAdvExGameMode:GoldFilter(data)
 	local hero = PlayerResource:GetSelectedHeroEntity( data.player_id_const )
 	local mod = hero:FindModifierByName("modifier_gold_bank")
 	local gold = hero:GetTotalGold()
-	if data.gold > 0 then
-		new_gold = gold + data.gold
-		if new_gold > 99999 then
-			hero:SetGold( 99999, false )
-			mod:SetStackCount(new_gold - 99999)
-		else
-			hero:SetGold( new_gold, false )
-		end
-	elseif (data.gold * -1) < gold then
-		new_gold = gold + data.gold
-		if new_gold > 99999 then
-			hero:SetGold( 99999, false )
-			mod:SetStackCount(new_gold - 99999)
-		else
-			hero:SetGold( new_gold, false )
-		end
+	new_gold = gold + data.gold
+	if new_gold > 99999 then
+		hero:SetGold( 99999, false )
+		mod:SetStackCount(new_gold - 99999)
+	else
+		hero:SetGold( new_gold, false )
 	end
 	return false
 end
 
--- function CAddonAdvExGameMode:GoldFilter(event)
--- 	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
--- 	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
--- 	local mod = hero:FindModifierByName("modifier_gold_bank")
--- 	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
--- 		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
--- 		hero:SetGold( 99999, false )
--- 	elseif event.gold > 0 then
--- 		hero:SetGold( hero:GetGold() + event.gold, false )
--- 	elseif event.gold < 0 then
--- 		hero:ModifyGold(event.gold, true, 0)
--- 		if hero:GetGold() + mod:GetStackCount() <= 99999 then
--- 			hero:SetGold( hero:GetGold() + mod:GetStackCount(), false )
--- 			mod:SetStackCount(0)
--- 		else
--- 			local flaw = 99999 - hero:GetGold()
--- 			mod:SetStackCount(mod:GetStackCount() - flaw)
--- 			hero:SetGold( 99999, false )
--- 		end
--- 	end
--- 	return false
--- end
-
 function CAddonAdvExGameMode:InventoryFilter(event)
-	DeepPrintTable(event)
+	-- DeepPrintTable(event)
 end
 
 
@@ -496,6 +464,9 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
 		npc:AddItemByName("item_tpscroll")
 		
+		if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
+			Wearable:SetDefault(npc)
+		end
 		
 		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
 		npc:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
