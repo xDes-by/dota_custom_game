@@ -56,7 +56,7 @@ if not IsServer() then return end
 								if item ~= nil then
 									self.parent:GetOwner():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 									local pid = self.parent:GetOwner():GetPlayerID()
-									Forge:add_gems({PlayerID = pid, type = number, value = RandomInt(60,120)})	
+									CustomShop:AddGems(pid, { [number] = RandomInt(60,120) }, not DataBase:IsCheatMode())
 									UTIL_RemoveImmediate(item)	
 								end
 							end
@@ -66,7 +66,7 @@ if not IsServer() then return end
 								if item ~= nil then
 									self.parent:GetOwner():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 									local pid = self.parent:GetOwner():GetPlayerID()
-									Forge:add_gems({PlayerID = pid, type = number, value = RandomInt(40,80)})	
+									CustomShop:AddGems(pid, { [number] = RandomInt(40,80) }, not DataBase:IsCheatMode())
 									UTIL_RemoveImmediate(item)	
 								end
 							end

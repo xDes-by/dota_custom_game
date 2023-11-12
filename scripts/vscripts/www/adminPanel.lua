@@ -151,11 +151,7 @@ end
 
 function AdminPanel:ChangeGems(t)
     for i = 1, 5 do
-        Forge:add_gems({
-            PlayerID = t.PlayerID,
-            type = i,
-            value = t.amount
-        })
+        CustomShop:AddGems(t.PlayerID, { [i] = t.amount }, false)
     end
 end
 

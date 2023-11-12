@@ -486,7 +486,7 @@
         "ForgeBaseDamage"                                       "базового урона"
         "ForgeRegen"                                            "регенирации"
         "maptogglebutton_Label"                                 "ПОДСКАЗКИ"
-
+        "quest_multiplier_text"                                 "x##multiplier## осталось ##games## игр"
 
         /// ------------------- BATTE PASS --------------------------------------
         "BattlePass_soul_name"                          "одна душа на старте игры"
@@ -524,8 +524,15 @@
         "BattlePass_ticket_name"                        "билет на проход в фарм локацию"
         "BattlePass_ticket_description"                 "Вы получите <font color='#ff0066'><b>##display_value##</b></font> билетов для прохода в локацию для фарма. Этот предмет будет обновлятся в каждой игре."
         
-        "battle_pass_lock"                              "Будет доступно после покупки в магазине."
         "collect_all_rewards_button"                    "Собрать всё"
+        "BattlePass_choice_count"                       "сделайте выбор <font color='#ff0066'><b>##count##</b></font> раз"
+        "BattleBase_unavailable_reward_premium"         "<font color='red'>Эту награду возможно получить, только если вы купили доступ к наградам второго уровня, в магазине.</font>"
+        "BattlePass_tab_bp_name"                        "Battle Pass"
+        "open_button_battle_pass"                       "Battle Pass"
+        "BattlePass_tab_inventory_name"                 "Инвентарь"
+        "battle_pass_level"                             "УРОВЕНЬ"
+        "battle_pass_task_1_description"                "Убейте <font color='red'><b>10000</b></font> крипов, награда 1000 опыта"
+        "battle_pass_task_2_description"                "Поучаствуйте в убийсте <font color='red'><b>250</b></font> боссов, награда 1000 опыта"
         /// ------------------- BATTE PASS --------------------------------------
         // Panorama
 

@@ -248,7 +248,8 @@ function leave_game()
 							PlayerConection[nPlayerID] = connection
 								if not bot(nPlayerID) and connection == DOTA_CONNECTION_STATE_ABANDONED then 
 									if rat >= 6 and not GameRules:IsCheatMode() and _G.kill_invoker == false then
-										DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										-- DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										DataBase:EndGameSession(nPlayerID, -25 * diff_wave.rating_scale)
 									end
 								end
 							end
@@ -691,10 +692,12 @@ function rating_lose()
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else		
 				if rat < 75 then
-					DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					-- DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					DataBase:EndGameSession(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale))
 				end
 				if rat >= 75 then
-					DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+					-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+					DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 				end
 			end	
 		end			
@@ -707,7 +710,8 @@ function rating_win()
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else
-				DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+				-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+				DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 			end
 		end
 	end

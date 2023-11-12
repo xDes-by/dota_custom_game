@@ -205,34 +205,11 @@ function Forge:UpdgradeGemsButton(t)
     end
     item.gemType = t.gemType
     item.gemsNumber = (item.gemsNumber or 0) + cost
-    self:add_gems({
-        PlayerID = t.PlayerID, type = t.gemType-1, value = -cost
-    })
+    CustomShop:AddGems(t.PlayerID, {[item.gemType] = -cost}, not DataBase:IsCheatMode())
     self:ApplyGemModifierToPlayer(t.PlayerID, item, cost)
     self:UpdateItemData(t.PlayerID, t.entindex)
     self:CreateOrUpdateUpgardeItemPanel(t.PlayerID)
 end
-
-function Forge:UpdateGemsTable(pid)
-    local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-    shopinfo['purple_gem'] = gems[pid][1]
-    shopinfo['blue_gem'] = gems[pid][2]
-    shopinfo['orange_gem'] = gems[pid][3]
-    shopinfo['red_gem'] = gems[pid][4]
-    shopinfo['green_gem'] = gems[pid][5]
-    CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
-    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "update_gems_js", gems[pid] )
-end
-
-function Forge:add_gems(t)
-    if DataBase:IsCheatMode() then return end
-    gems[t.PlayerID][t.type] = gems[t.PlayerID][t.type] + t.value
-    if t.shop ~= true then
-        DataBase:EdditGems({PlayerID = t.PlayerID, type = t.type, value = t.value, action = 'add'})
-    end
-    self:UpdateGemsTable(t.PlayerID)
-end
-
 
 Forge:init()
 

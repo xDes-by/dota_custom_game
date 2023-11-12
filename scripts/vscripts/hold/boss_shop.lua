@@ -420,7 +420,9 @@ function Shop:buyItem(t)
 
 		for pi = 1, 5 do
 			if sql_name['gem_'..pi] and give['gem_'..pi] then
-				Forge:add_gems({PlayerID = t.PlayerID, type = pi, value = give['gem_'..pi] * sql_name['gem_'..pi], shop = true})
+				CustomShop:AddGems(t.PlayerID, {
+					[pi] = give['gem_'..pi] * sql_name['gem_'..pi]
+				}, not DataBase:IsCheatMode())
 			end
 		end
 		
@@ -435,7 +437,9 @@ function Shop:buyItem(t)
 			end
 		elseif shop_type == "gem" then
 			--print(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["give"],' ',t.amountBuy,' ',Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["give"] * t.amountBuy)
-			Forge:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
+			CustomShop:AddGems(t.PlayerID, {
+				[Shop.pShop[pid][i][n]["gem_type"]] = Shop.pShop[pid][i][n]["give"] * t.amountBuy
+			}, false )
 		end
 		Shop:buyRequest({PlayerID = t.PlayerID, name = sql_name, give = give, price = price, amount = t.amountBuy, currency = currency})
 		CustomNetTables:SetTableValue("shopinfo", tostring(pid), {coins = Shop.pShop[pid]["coins"], mmrpoints = Shop.pShop[pid]["mmrpoints"]})
