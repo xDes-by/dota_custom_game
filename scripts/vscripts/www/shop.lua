@@ -245,32 +245,12 @@ function Shop:PlayerSetup( pid )
 		end
 	end
 
-	if _G.SHOP[pid].coins then
-		arr.coins = _G.SHOP[pid].coins
-	else
-		arr.coins = 0
-	end
-	if _G.SHOP[pid].mmrpoints then
-		arr.mmrpoints = _G.SHOP[pid].mmrpoints
-	else
-		arr.mmrpoints = 0
-	end
-	if _G.SHOP[pid].totaldonate then
-		arr.totaldonate = _G.SHOP[pid].totaldonate
-	else
-		arr.totaldonate = 0
-	end
-	if _G.SHOP[pid].feed then
-		arr.feed = _G.SHOP[pid].feed
-	else
-		arr.feed = 0
-	end
-	
-	if _G.SHOP[pid].other_60 then
-		arr.ban = _G.SHOP[pid].other_60
-	else
-		arr.ban = 0
-	end
+	arr.coins = _G.SHOP[pid].coins or 0
+	arr.mmrpoints = _G.SHOP[pid].mmrpoints or 0
+	arr.totaldonate = _G.SHOP[pid].totaldonate or 0
+	arr.feed = _G.SHOP[pid].feed or 0
+	arr.ban = _G.SHOP[pid].other_60 or 0
+	arr.pet_change = _G.SHOP[pid].pet_change or 0
 	arr.gems = {
 		[1] = _G.SHOP[pid]["gem_1"],
 		[2] = _G.SHOP[pid]["gem_2"],

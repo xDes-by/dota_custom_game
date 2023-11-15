@@ -53,7 +53,9 @@ function DataBase:init()
 	DataBase.link.AddGems = _G.host .. "/backend/gameplay/add-gems?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.ResetProgress = _G.host .. "/backend/player-actions/reset-progress?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.EndGameSession = _G.host .. "/backend/init-shutdown/end-game-session?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	
+	DataBase.link.FeedPet = _G.host .. "/backend/player-actions/feed-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BuyPetShop = _G.host .. "/backend/player-actions/buy-pet-shop?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BuyPet = _G.host .. "/backend/player-actions/buy-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
@@ -312,11 +314,14 @@ function DataBase:PlayerSetup( pid )
 			_G.RATING.history[pid] = obj.history
 			_G.SHOP[pid] = obj.shop
 			DailyQuests:SetPlayerData(pid, obj.daily)
+			Pets:SetPlayerData(pid, obj.pets)
 			Shop:PlayerSetup( pid )
 			rating:PlayerSetup(pid)
 			BattlePass:SetPlayerData(pid, obj.battle_pass)
-			MultiplierManager:SetTalentExperienceList(pid, obj.booster_experience)
-			MultiplierManager:SetCurrencyRpList(pid, obj.booster_rp)
+			MultiplierManager:SetTalentExperienceList(pid, (obj.booster_experience or {}))
+			MultiplierManager:SetCurrencyRpList(pid, (obj.booster_rp or {}))
+			DeepPrintTable(obj.souls)
+			sInv:OnStart(pid, (obj.souls or {}))
 		end
 	end)
 end

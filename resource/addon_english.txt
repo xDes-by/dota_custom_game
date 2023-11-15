@@ -483,8 +483,6 @@
         "shop_image_heros_tooltip" "Purchase a hero card to unlock 2nd talent tree branch"
 
         //Pet Shop//
-
-        "pets_info" "Information"
         "yest' u"  "Got it "
         "igrokov" " Players"
         "pet_level"   "Level"
