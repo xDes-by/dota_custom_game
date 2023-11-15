@@ -11,6 +11,9 @@ function BattlePass:init()
     CustomGameEventManager:RegisterListener("BattlePassSelectReward",function(_, keys)
         self:SelectReward(keys)
     end)
+    CustomGameEventManager:RegisterListener("BattlePassHeroVote",function(_, keys)
+        self:OnVote(keys)
+    end)
     self.player = {}
     self.levelMax = 30
     self.dataReward = battlePassRewards
@@ -19,6 +22,11 @@ function BattlePass:init()
     for i=1,self.levelMax do
         self.ExpToLevelUp[i] = self.ExpToLevelUp[i-1] + battlePassLevelExperience[i]
     end
+    self.voting_heroes_list = {}
+    for key, value in pairs(voting_heroes_list) do
+        self.voting_heroes_list[key] = value
+        self.voting_heroes_list[key].index = key
+    end
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
 end
 
@@ -26,6 +34,7 @@ function BattlePass:OnGameRulesStateChange()
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         CustomNetTables:SetTableValue('BattlePass', "dataReward", self.dataReward)
         CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", self.ExpToLevelUp)
+        CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     end
 end
 
@@ -36,6 +45,7 @@ function BattlePass:SetPlayerData(pid, obj)
     self.player[pid].premium = obj.premium
     self.player[pid].pass_id = obj.battle_pass_id
     self.player[pid].rewards = {}
+    self.player[pid].vote = ""
     for i = 1, self.levelMax * 3 do
         local reward_index = obj.rewards[i].reward_index
         self.player[pid].rewards[reward_index] = obj.rewards[i]
@@ -77,25 +87,7 @@ function BattlePass:ClaimReward(t)
     self.player[pid].rewards[reward_index].claimed = 1
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
     CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
-    local send_data = {
-        reward_info = {
-            id = self.player[pid].rewards[reward_index].id,
-            reward_index = self.player[pid].rewards[reward_index].reward_index,
-            claimed = self.player[pid].rewards[reward_index].claimed,
-            choice_count = self.player[pid].rewards[reward_index].choice_count,
-        }
-    }
-    send_data = self:GemsReward(reward_data, send_data, pid)
-    send_data = self:TalentNormalExperience(pid, reward_data, send_data)
-    send_data = self:TalentGoldenExperience(pid, reward_data, send_data)
-    send_data = self:AddRpReward(reward_data, send_data, pid)
-    send_data = self:AddCoinsReward(reward_data, send_data, pid)
-    send_data = self:AddBoosterExperience(reward_data, send_data, pid)
-    send_data = self:AddBoosterRp(reward_data, send_data, pid)
-    send_data = self:AddItem(reward_data, send_data)
-    DataBase:Send(DataBase.ClaimReward, "GET", send_data, pid, not DataBase:IsCheatMode(), function(body)
-        print(body)
-    end)
+    self:GiveOutReward(pid, reward_index)
 end
 function BattlePass:ClaimAllRewards(t)
     local choice_index = {}
@@ -127,6 +119,7 @@ function BattlePass:ClaimAllRewards(t)
 end
 function BattlePass:SelectReward(t)
     local pid = t.PlayerID
+    local choice_index = t.choice_index
     local reward_index = self:DetermineRewardIndex(t.number_type, t.reward_level)
     local data = self:DetermineRewardDataByIndex(reward_index)
     self.player[pid].rewards[reward_index].choice_count = self.player[pid].rewards[reward_index].choice_count + 1
@@ -135,6 +128,44 @@ function BattlePass:SelectReward(t)
     end
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
     CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+    self:GiveOutReward(pid, reward_index, choice_index)
+end
+function BattlePass:OnVote(t)
+    local pid = t.PlayerID
+    if self.player[pid].premium == 0 then return end
+    self:DecrementVoteCount(self.player[pid].vote)
+    if self.player[pid].vote == t.hero_name then
+        self.player[pid].vote = ""
+    else
+        self.player[pid].vote = t.hero_name
+        self:IncrementVoteCount(t.hero_name)
+    end
+    CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
+    CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:GiveOutReward(pid, reward_index, choice_index)
+    local reward_data = self:DetermineRewardDataByIndex(reward_index)
+    local send_data = {
+        reward_info = {
+            id = self.player[pid].rewards[reward_index].id,
+            reward_index = self.player[pid].rewards[reward_index].reward_index,
+            claimed = self.player[pid].rewards[reward_index].claimed,
+            choice_count = self.player[pid].rewards[reward_index].choice_count,
+        }
+    }
+    send_data = self:GemsReward(reward_data, send_data, pid)
+    send_data = self:TalentNormalExperience(pid, reward_data, send_data)
+    send_data = self:TalentGoldenExperience(pid, reward_data, send_data)
+    send_data = self:AddRpReward(reward_data, send_data, pid)
+    send_data = self:AddCoinsReward(reward_data, send_data, pid)
+    send_data = self:AddBoosterExperience(reward_data, send_data, pid)
+    send_data = self:AddBoosterRp(reward_data, send_data, pid)
+    send_data = self:AddItem(reward_data, send_data)
+    send_data = self:PetAccess(reward_data, send_data, pid, choice_index)
+    send_data = self:ExtraSouls(reward_data, send_data, pid, choice_index)
+    DataBase:Send(DataBase.ClaimReward, "GET", send_data, pid, not DataBase:IsCheatMode(), function(body)
+        print(body)
+    end)
 end
 ----------------- /ACTION FUNCTIONS ----------------------------
 ----------------- HELPERS ------------------------------------
@@ -152,20 +183,15 @@ function BattlePass:DetermineRewardType(number_type)
 end
 function BattlePass:DetermineRewardIndex(number_type, number_level)
     if number_type == 0 then return number_level end
-    if number_type == 1 then return number_level * 2 - 1 + self.levelMax end
-    if number_type == 2 then return number_level * 2 + self.levelMax end
+    if number_type == 1 then return number_level + self.levelMax end
 end
 function BattlePass:DetermineRewardLevel(reward_type, reward_index)
     if reward_type == "free" then return reward_index end
-    return math.ceil((reward_index-self.levelMax)/2)
+    return reward_index - self.levelMax
 end
 function BattlePass:DetermineRewardDataByIndex(reward_index)
     if reward_index <= self.levelMax then return self.dataReward['free'][reward_index] end
-    print(reward_index, self.levelMax, (reward_index - self.levelMax), (reward_index - self.levelMax)/2, math.ceil( (reward_index - self.levelMax)/2 ))
-    local a = math.ceil( (reward_index - self.levelMax)/2 )
-    local b = 1
-    if reward_index % 2 == 0 then b = 2 end
-    return self.dataReward['premium'][a][b]
+    return self.dataReward['premium'][reward_index - self.levelMax]
 end
 function BattlePass:IsRewardAvailable(pid, reward_type, reward_index)
     local level = self:DetermineRewardLevel(reward_type, reward_index)
@@ -182,13 +208,27 @@ function BattlePass:CalculateAvailableRewardsCount(pid)
         end
     end
     if self.player[pid].premium == 1 then
-        for index = self.levelMax + 1, self.player[pid].level * 2 + self.levelMax do
+        for index = self.levelMax + 1, self.player[pid].level + self.levelMax do
             if self.player[pid].rewards[index].claimed == 0 and self:DetermineRewardDataByIndex(index) then
                 count = count + 1
             end
         end
     end
     return count
+end
+function BattlePass:DecrementVoteCount(hero_name)
+    for _, value in pairs(self.voting_heroes_list) do
+        if value.name == hero_name then
+            value.vote = value.vote -1
+        end
+    end
+end
+function BattlePass:IncrementVoteCount(hero_name)
+    for _, value in pairs(self.voting_heroes_list) do
+        if value.name == hero_name then
+            value.vote = value.vote +1
+        end
+    end
 end
 ----------------- /HELPERS ------------------------------------
 ----------------- REWARDS ------------------------------------
@@ -280,7 +320,7 @@ function BattlePass:FindDBItemNameByDotaItemName(item_name)
     return false
 end
 function BattlePass:AddItem(reward_data, send_data)
-    if table.has_value({"treasury","item_scroll","item_forever_ward","item_boss_summon","item_ticket"},reward_data.reward_type) then
+    if table.has_value({"item_scroll","item_forever_ward","item_boss_summon","item_ticket"},reward_data.reward_type) then
         if not send_data.items then
             send_data.items = {}
         end
@@ -288,6 +328,38 @@ function BattlePass:AddItem(reward_data, send_data)
             name = self:FindDBItemNameByDotaItemName(reward_data.data.item_name),
             value = reward_data.data.value,
         })
+    end
+    return send_data
+end
+function BattlePass:PetAccess(reward_data, send_data, pid, choice_index)
+    if table.has_value({"pet_access150","pet_access250"},reward_data.reward_type) then
+        if not send_data.pets then
+            send_data.pets = {}
+        end
+        local data = {
+            name = Pets:FindPetDataByAbilityName(reward_data.data.choice[choice_index]).name,
+            value = reward_data.data.value,
+            remaining_games_count = reward_data.data.game_count,
+        }
+        table.insert(send_data.pets, data)
+        if Pets.player[pid][data.name] == nil or Pets.player[pid][data.name].value <= data.value then
+            Pets.player[pid][data.name] = data
+            CustomNetTables:SetTableValue('Pets', tostring(pid), Pets.player[pid])
+        end
+    end
+    return send_data
+end
+function BattlePass:ExtraSouls(reward_data, send_data, pid, choice_index)
+    if reward_data.reward_type == "soul" then
+        if not send_data.souls then
+            send_data.souls = {}
+        end
+        local data = {
+            name = reward_data.data.choice[choice_index],
+            days_count = reward_data.data.days_count,
+        }
+        table.insert(send_data.souls, data)
+        sInv:AddSoul(data.name, pid)
     end
     return send_data
 end

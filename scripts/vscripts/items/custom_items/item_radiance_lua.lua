@@ -110,7 +110,10 @@ function modifier_item_radiance_burn_lua:OnCreated()
 		self:Destroy() 
 		return 
 	end
-	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage")
+	self.hero = self:GetAuraOwner()
+	self.stats_damage = self.hero:GetPrimaryStatValue()
+	self.stats_damage = self:GetAbility():GetSpecialValueFor("stats_damage") / 100
+	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage") + self.hero:GetPrimaryStatValue() * self.stats_damage
 	self.blind = self:GetAbility():GetSpecialValueFor("blind_pct")
 	if self.particle == nil then
 		self.particle = ParticleManager:CreateParticle("particles/items2_fx/radiance.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

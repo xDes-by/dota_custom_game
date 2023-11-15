@@ -97,7 +97,7 @@ function Spawn_system()
 			Quests:UpdateCounter("bonus", 17, 1, i, 1)
 			Quests:UpdateCounter("bonus", 15, 1, i, 1)
 		end
-		if wave ~= 0 and wave % 5 == 0 then 
+		if wave ~= 0 and wave % 10 == 0 then 
 			Spawner:SpawnBosses()
 			return line_time
 		else
@@ -110,11 +110,12 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function Spawner:settings()
+	wave_new = wave / 1.8
 	creeps_name = t_creeps[RandomInt(1,#t_creeps)]	
 	health = health * 1.16
 	damage_creeps = damage_creeps * 1.16
 
-	set_health = math.floor(health + health*(wave/2)) * 2
+	set_health = math.floor(health + health*(wave_new/2)) * 2
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -131,7 +132,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave/2)) * 2
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2)) * 2
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -148,11 +149,11 @@ function Spawner:settings()
 		set_damage_boss = 2000000000
 	end		
 		
-	set_armor = math.floor(wave*2^(1.02+wave*2*armor) * 1.25 )
+	set_armor = math.floor(wave_new*2^(1.02+wave_new*2*armor) * 1.25 )
  	set_armor_commandir = set_armor * 1.5
 	set_armor_boss = set_armor * 2
 	
-	set_mag_resist = math.floor(magermor + wave) * 2
+	set_mag_resist = math.floor(magermor + wave_new) * 2
 	set_mag_resist_creep = math.min(set_mag_resist / 3, 90)
 	set_mag_resist_commandir =  math.min(set_mag_resist / 2.5, 90)
 	set_mag_resist_boss =  math.min(set_mag_resist / 2, 90)
