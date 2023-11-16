@@ -19,7 +19,6 @@ require('plugins')
 require('tp')
 require("damage")
 require("dummy")
-require("use_pets")
 require("effects")
 require("wearable")
 
@@ -87,6 +86,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	-------------------------------------------------------------------------------------------
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
+	CustomGameEventManager:RegisterListener( "ItemBossSummonChoice", function(...) return ItemBossSummonChoice( ... ) end )
 	
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
@@ -104,7 +104,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	damage:Init()
 	effects:init()
 	_G.Activate_belka = false
-	use_pets:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
@@ -241,7 +240,8 @@ function leave_game()
 							PlayerConection[nPlayerID] = connection
 								if not bot(nPlayerID) and connection == DOTA_CONNECTION_STATE_ABANDONED then 
 									if rat >= 6 and not GameRules:IsCheatMode() and _G.kill_invoker == false then
-										DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										-- DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										DataBase:EndGameSession(nPlayerID, -25 * diff_wave.rating_scale)
 									end
 								end
 							end
@@ -609,7 +609,7 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 		hHero:RemoveModifierByName(runs[data.rune])
 		hHero:AddNewModifier(hHero, nil, modifiers[data.rune], {duration = 45})
 	end
-	DailyQuests:UpdateCounter(data.PlayerID, 45)
+	Quests:UpdateCounter("daily", data.PlayerID, 45)
 end
 
 function create_runes()
@@ -638,13 +638,19 @@ function create_runes()
 			end
 			local point = v:GetAbsOrigin()
 			--нужно сделать чтобы все объекты уничтожались при следующем роле
-			if not not _G.kill_invoker then
+			if not _G.kill_invoker then
 				if RandomFloat(0, 100) < 0.1 then
 					--@todo:спавн кристалла
 				elseif RollPercentage(1) then
-					--@todo:спавн сферы
+					local souls = {"item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul"}
+					local item_name = souls[RandomInt(1, #souls)]
+					local newItem = CreateItem( item_name, nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
 				elseif RollPercentage(1) then
-					--@todo:спавн рейтпоинтов
+					local newItem = CreateItem( "item_points_big", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
 				else
 					v.rune = CreateRune(point, r[RandomInt(1, #r)])
 				end
@@ -687,10 +693,12 @@ function rating_lose()
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else		
 				if rat < 75 then
-					DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					-- DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					DataBase:EndGameSession(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale))
 				end
 				if rat >= 75 then
-					DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+					-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+					DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 				end
 			end	
 		end			
@@ -703,7 +711,8 @@ function rating_win()
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else
-				DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+				-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+				DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 			end
 		end
 	end
@@ -970,7 +979,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if not DataBase:IsCheatMode() then
 			_G.kill_invoker = true
 			for pid = 0, PlayerResource:GetPlayerCount()-1 do
-				DailyQuests:UpdateCounter(pid, 28)
+				Quests:UpdateCounter("daily", pid, 28)
 			end
 			rating_win()
 		end
@@ -1416,6 +1425,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end	
 end
 
+
 function Add_bsa_hero()	
 	if GetMapName() == "normal" and not GameRules:IsCheatMode() then
 		arr = {}
@@ -1499,4 +1509,28 @@ function OnEndMiniGame(eventIndex, data)
 		mod.modifier2:Destroy()
 	end
 	talants:DisableHellGame(data.PlayerID)
+end
+
+function ItemBossSummonChoice(eventIndex, data)
+	local bossTable = {
+		[0] = "npc_forest_boss_fake",
+		[1] = "npc_forest_boss_fake",
+		[2] = "npc_village_boss_fake",
+		[3] = "npc_mines_boss_fake",
+		[4] = "npc_dust_boss_fake",
+		[5] = "npc_cemetery_boss_fake",
+		[6] = "npc_swamp_boss_fake",
+		[7] = "npc_snow_boss_fake",
+		[8] = "npc_boss_location8_fake",
+		[9] = "npc_boss_magma_fake"
+	}
+	local boss_spawn = bossTable[data.index]
+	if boss_spawn then
+		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
+		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		table.insert(_G.don_bosses_count, unit)
+		unit:add_items()
+		unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
+		Rules:difficality_modifier(unit)
+	end
 end

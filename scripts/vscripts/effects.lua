@@ -42,7 +42,7 @@ function effects:CastSpray(t)
 
 	EmitSoundOnLocationWithCaster( point, "Spraywheel.Paint", hero )
 	self.spray[t.PlayerID] = spray
-	DailyQuests:UpdateCounter(t.PlayerID, 50)
+	Quests:UpdateCounter("daily", t.PlayerID, 50)
 end
 
 function effects:HighFive(t)

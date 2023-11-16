@@ -151,16 +151,12 @@ end
 
 function AdminPanel:ChangeGems(t)
     for i = 1, 5 do
-        Forge:add_gems({
-            PlayerID = t.PlayerID,
-            type = i,
-            value = t.amount
-        })
+        CustomShop:AddGems(t.PlayerID, { [i] = t.amount }, false)
     end
 end
 
 function AdminPanel:BattlePassAddExperience(t)
-    BattlePass:AddExperience(t.PlayerID, t.amount)
+    BattlePass:AddExperience(t.PlayerID, t.amount, false)
 end
 function AdminPanel:BattlePassDrop(t)
     BattlePass:ResetProgress(t.PlayerID)

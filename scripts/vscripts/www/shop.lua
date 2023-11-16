@@ -245,47 +245,23 @@ function Shop:PlayerSetup( pid )
 		end
 	end
 
-	if _G.SHOP[pid].coins then
-		arr.coins = _G.SHOP[pid].coins
-	else
-		arr.coins = 0
-	end
-	if _G.SHOP[pid].mmrpoints then
-		arr.mmrpoints = _G.SHOP[pid].mmrpoints
-	else
-		arr.mmrpoints = 0
-	end
-	if _G.SHOP[pid].totaldonate then
-		arr.totaldonate = _G.SHOP[pid].totaldonate
-	else
-		arr.totaldonate = 0
-	end
-	if _G.SHOP[pid].feed then
-		arr.feed = _G.SHOP[pid].feed
-	else
-		arr.feed = 0
-	end
-	
-	if _G.SHOP[pid].other_60 then
-		arr.ban = _G.SHOP[pid].other_60
-	else
-		arr.ban = 0
-	end
+	arr.coins = _G.SHOP[pid].coins or 0
+	arr.mmrpoints = _G.SHOP[pid].mmrpoints or 0
+	arr.totaldonate = _G.SHOP[pid].totaldonate or 0
+	arr.feed = _G.SHOP[pid].feed or 0
+	arr.ban = _G.SHOP[pid].other_60 or 0
+	arr.pet_change = _G.SHOP[pid].pet_change or 0
+	arr.auto_pet = _G.SHOP[pid].auto_pet or ""
+	arr.gems = {
+		[1] = _G.SHOP[pid]["gem_1"],
+		[2] = _G.SHOP[pid]["gem_2"],
+		[3] = _G.SHOP[pid]["gem_3"],
+		[4] = _G.SHOP[pid]["gem_4"],
+		[5] = _G.SHOP[pid]["gem_5"],
+	}
 	Shop.pShop[pid] = arr
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), {
-		feed = arr.feed, 
-		coins = arr.coins, 
-		mmrpoints = arr.mmrpoints, 
-		likes = _G.RATING[ 'rating' ][ pid ][ 'likes' ], 
-		reports = _G.RATING[ 'rating' ][ pid ][ 'reports' ],
-		purple_gem = _G.SHOP[pid]["gem_1"],
-		blue_gem = _G.SHOP[pid]["gem_2"],
-		orange_gem = _G.SHOP[pid]["gem_3"],
-		red_gem = _G.SHOP[pid]["gem_4"],
-		green_gem = _G.SHOP[pid]["gem_5"],
-	})
+	CustomShop:UpdateShopInfoTable(pid)
 
-	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray
 	Shop.Change_Available[pid] = true
 	Timers:CreateTimer(function()
@@ -301,127 +277,12 @@ function Shop:PlayerSetup( pid )
 		end
 		return 1.0
 	end)
+	ChangeHero:SetDonateHeroesDate(pid)
 	if ChangeHero:IsMarciAvailable_PickStage(pid) then
 		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
 	end
 	if ChangeHero:IsSilencerAvailable_PickStage(pid) then
 		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
-	end
-end
-
-function Shop:createShop()
-
-	if SHOP then
-		for i = 0 , PlayerResource:GetPlayerCount() do --
-			if PlayerResource:IsValidPlayer(i) then -- 
-				local sid = PlayerResource:GetSteamAccountID(i)
-				local arr = {}
-				for sKey, sValue in pairs(basicshop) do
-					if type(sValue) == 'table' then
-						arr[sKey] = {}
-						for oKey, oValue in pairs(sValue) do
-							arr[sKey][oKey] = {}
-							if type(oValue) == 'table' then
-
-								for pKey, pValue in pairs(oValue) do
-									arr[sKey][oKey][pKey] = pValue
-								end
-								
-								if SHOP[i][oValue.name] then
-									arr[sKey][oKey].onStart = tonumber(SHOP[i][oValue.name])
-									arr[sKey][oKey].now = tonumber(SHOP[i][oValue.name])
-									if arr[sKey][oKey].type == "consumabl" then
-										arr[sKey][oKey].status = 'consumabl'
-									elseif tonumber(SHOP[i][oValue.name]) > 0 then
-										if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
-											arr[sKey][oKey].status = 'active'
-										else
-											arr[sKey][oKey].status = 'taik'
-										end
-									else
-										arr[sKey][oKey].status = 'buy'
-									end
-								else
-									if arr[sKey][oKey].type == "hero_change" then
-										arr[sKey][oKey].onStart = 1
-										arr[sKey][oKey].now = 1
-										if SHOP[i]["totaldonate"] >= 2000 then
-											arr[sKey][oKey].status = 'shop_select'
-										else
-											arr[sKey][oKey].status = 'shop_lock'
-										end
-									else
-										arr[sKey][oKey].onStart = 0
-										arr[sKey][oKey].now = 0
-										if arr[sKey][oKey].type == "consumabl" then
-											arr[sKey][oKey].status = 'consumabl'
-										else
-											arr[sKey][oKey].status = 'buy'
-										end
-									end
-								end
-							elseif type(oValue) == 'string' then
-								arr[sKey][oKey] = oValue
-							end
-						end
-					end
-				end
-			
-				if SHOP[i].coins then
-					arr.coins = SHOP[i].coins
-				else
-					arr.coins = 0
-				end
-				if SHOP[i].mmrpoints then
-					arr.mmrpoints = SHOP[i].mmrpoints
-				else
-					arr.mmrpoints = 0
-				end
-				if SHOP[i].totaldonate then
-					arr.totaldonate = SHOP[i].totaldonate
-				else
-					arr.totaldonate = 0
-				end
-				if SHOP[i].feed then
-					arr.feed = SHOP[i].feed
-				else
-					arr.feed = 0
-				end
-				
-				if SHOP[i].other_60 then
-					arr.ban = SHOP[i].other_60
-				else
-					arr.ban = 0
-				end
-				Shop.pShop[i] = arr
-				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i ][ 'likes' ], reports = RATING[ 'rating' ][ i ][ 'reports' ]})
-
-				Shop.Auto_Pet[i] = SHOP[i].auto_pet
-				Shop.spray[i] = SHOP[i].auto_spray
-				Shop.Change_Available[i] = true
-			end
-		end
-		
-		for i = 0, 4 do
-            Timers:CreateTimer(function()
-                if PlayerResource:GetPlayer(i) == nil then
-                    return nil
-                end
-                if PlayerResource:HasSelectedHero(i) then
-                    local heroName = PlayerResource:GetSelectedHeroName(i)
-                    talants:pickinfo(i,false)
-                    return nil
-                else
-                  --  print(PlayerResource:HasSelectedHero(i))
-                end
-                return 1.0
-            end)
-        end
-	else
-		print("============================")
-		print("ERROR: _G.SHOP not exist")
-		print("CREATE SHOP FAILED")
-		print("============================")
 	end
 end
 
@@ -556,7 +417,9 @@ function Shop:buyItem(t)
 				CustomNetTables:SetTableValue("talants", tostring(pid), tab)
 			end
 		elseif shop_type == "gem" then
-			Forge:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
+			CustomShop:AddGems(t.PlayerID, { 
+				[Shop.pShop[pid][i][n]["gem_type"]] = Shop.pShop[pid][i][n]["give"] * t.amountBuy 
+			}, not DataBase:IsCheatMode())
 		end
 		DataBase:buyRequest({PlayerID = t.PlayerID, name = sql_name, give = give, price = price, amount = t.amountBuy, currency = currency})
 		
@@ -874,37 +737,57 @@ end
 
 function ChangeHero:OnGameRulesStateChange()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
-		Timers:CreateTimer(1, function()
-			for heroName, heroData in pairs(self.heroes) do
-				heroData.unit = CreateUnitByName(heroData.unitName , heroData.position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-				if heroData.unit then
-					heroData.unit:AddNewModifier(heroData.unit,nil,"modifier_quest",{})
-					heroData.unitIndex = heroData.unit:entindex()
-					heroData.unit:SetForwardVector(heroData.unit:GetForwardVector() * -1)
-				end
-				for i = 0 , PlayerResource:GetPlayerCount()-1 do
-					if PlayerResource:IsValidPlayer(i) then
-						heroData.trialCount[i] = RATING["rating"][i][heroData.trialName]
-						if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
-							heroData.trialCount[i] = -1
-						end
-						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
-							heroData.available[i] = true
-						end
-						if heroName == "npc_dota_hero_marci" and RATING["rating"][i]["patron"] == 1 then
-							heroData.trialCount[i] = -1
-							heroData.available[i] = true
-						end
-						if heroName == "npc_dota_hero_silencer" and RATING["rating"][i]["silencer_date"] ~= nil then
-							heroData.trialCount[i] = -1
-							heroData.available[i] = true
-						end
-					end
-				end
-			end
+		-- Timers:CreateTimer(1, function()
+		-- 	for heroName, heroData in pairs(self.heroes) do
+		-- 		heroData.unit = CreateUnitByName(heroData.unitName , heroData.position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		-- 		if heroData.unit then
+		-- 			heroData.unit:AddNewModifier(heroData.unit,nil,"modifier_quest",{})
+		-- 			heroData.unitIndex = heroData.unit:entindex()
+		-- 			heroData.unit:SetForwardVector(heroData.unit:GetForwardVector() * -1)
+		-- 		end
+		-- 		for i = 0 , PlayerResource:GetPlayerCount()-1 do
+		-- 			if PlayerResource:IsValidPlayer(i) then
+		-- 				heroData.trialCount[i] = RATING["rating"][i][heroData.trialName]
+		-- 				if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
+		-- 					heroData.trialCount[i] = -1
+		-- 				end
+		-- 				if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 				if heroName == "npc_dota_hero_marci" and RATING["rating"][i]["patron"] == 1 then
+		-- 					heroData.trialCount[i] = -1
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 				if heroName == "npc_dota_hero_silencer" and RATING["rating"][i]["silencer_date"] ~= nil then
+		-- 					heroData.trialCount[i] = -1
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 			end
+		-- 		end
+		-- 	end
 			
-			CustomGameEventManager:Send_ServerToAllClients( "UpdateChangeHeresInfo", self.heroes )
-		end)
+		-- 	CustomGameEventManager:Send_ServerToAllClients( "UpdateChangeHeresInfo", self.heroes )
+		-- end)
+	end
+end
+
+function ChangeHero:SetDonateHeroesDate(pid)
+	for heroName, heroData in pairs(self.heroes) do
+		heroData.trialCount[pid] = RATING["rating"][pid][heroData.trialName]
+		if Shop.pShop[pid].totaldonate >= heroData.minimumTotal then
+			heroData.trialCount[pid] = -1
+		end
+		if Shop.pShop[pid].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[pid] > 0 then
+			heroData.available[pid] = true
+		end
+		if heroName == "npc_dota_hero_marci" and RATING["rating"][pid]["patron"] == 1 then
+			heroData.trialCount[pid] = -1
+			heroData.available[pid] = true
+		end
+		if heroName == "npc_dota_hero_silencer" and RATING["rating"][pid]["silencer_date"] ~= nil then
+			heroData.trialCount[pid] = -1
+			heroData.available[pid] = true
+		end
 	end
 end
 
@@ -912,12 +795,16 @@ function ChangeHero:IsMarciAvailable_PickStage(PlayerID)
 	local marci = ChangeHero.heroes.npc_dota_hero_marci
 	return Shop.pShop[PlayerID].totaldonate >= marci.minimumTotal or DataBase:IsCheatMode() or marci.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["patron"] == 1
 end
-
+function ChangeHero:GetMarciTrial(pid)
+	return self.heroes["npc_dota_hero_marci"].trialCount[pid]
+end
 function ChangeHero:IsSilencerAvailable_PickStage(PlayerID)
 	local silencer = ChangeHero.heroes.npc_dota_hero_silencer
 	return Shop.pShop[PlayerID].totaldonate >= silencer.minimumTotal or DataBase:IsCheatMode() or silencer.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["silencer_date"] ~= nil
 end
-
+function ChangeHero:GetSilencerTrial(pid)
+	return self.heroes["npc_dota_hero_silencer"].trialCount[pid]
+end
 function ChangeHero:dota_player_gained_level(t)
 	local player = EntIndexToHScript( t.player )
 	local player_id = player:GetPlayerID()

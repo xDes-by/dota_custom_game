@@ -9,6 +9,7 @@ function sInv:init()
     end)
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
     ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( self, "OnItemPickUp"), self)
+    ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
     self.item_forest_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_village_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_mines_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
@@ -70,7 +71,7 @@ function sInv:OnItemPickUp(keys)
 end
 
 function sInv:OnPlayerReconnected(t)
-    -- sInv:UpdateInventory(t.PlayerID)
+    sInv:UpdateInventory(t.PlayerID)
 end
 
 function sInv:UpdateInventory(pid)
@@ -100,6 +101,17 @@ function sInv:GetSoul(t)
     hero:AddItemByName(t.name)
     sInv:UpdateInventory(t.PlayerID)
 end
-
-
+function sInv:OnStart(pid, obj)
+    for _, value in pairs(obj) do
+        sInv:AddSoul(value.soul_name, pid)
+    end
+end
+function sInv:OnGameStateChanged(t)
+    local state = GameRules:State_Get()
+    if state >= DOTA_GAMERULES_STATE_PRE_GAME then
+        for i = 0, 4 do
+            sInv:UpdateInventory(i)
+        end
+    end
+end
 sInv:init()

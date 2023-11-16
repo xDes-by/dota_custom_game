@@ -11,7 +11,55 @@ _G.pets_exp = {
 	[9] = 2000,
 	[10] = 2500,
 }
-
+pets_shop = {
+	pet_change = { price = {don = 500}, type = "pet_change" },
+	feed_x230 = { price = { don = 3, rp = 15 }, give = 230, type ="feed" },
+	feed_x600 = { price = { don = 7, rp = 35 }, give = 600, type ="feed" },
+}
+pets_list = {
+	[1] = {
+		[1] = {name = "ratingpoints_1", price = {rp = 250}, itemname = "spell_item_pet_RDA_simple_1", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+		[2] = {name = "ratingpoints_2", price = {rp = 350}, itemname = "spell_item_pet_RDA_simple_2", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+		[3] = {name = "ratingpoints_3", price = {rp = 450}, itemname = "spell_item_pet_RDA_simple_3", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
+	},
+	[2] = {
+		[1] = {name = "pet_15", price = {rp = 550}, itemname = "spell_item_pet_RDA_mana_regen", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+		[2] = {name = "pet_13", price = {rp = 550}, itemname = "spell_item_pet_RDA_hp_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+		[3] = {name = "pet_14", price = {rp = 550}, itemname = "spell_item_pet_RDA_dmg_com", rarity = "#0044ff", text_color = "#0044ff", type = "pet", tier = 2},
+	},
+	[3] = {
+		[1] = {name = "pet_5", price = {don = 100}, itemname = "spell_item_pet_RDA_total_dmg", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[2] = {name = "pet_6", price = {don = 100}, itemname = "spell_item_pet_RDA_int", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[3] = {name = "pet_7", price = {don = 100}, itemname = "spell_item_pet_RDA_str", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[4] = {name = "pet_8", price = {don = 100}, itemname = "spell_item_pet_RDA_agi", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+		[5] = {name = "pet_9", price = {don = 100}, itemname = "spell_item_pet_RDA_heal", rarity = "#ffa600", text_color = "#ffa600", type = "pet", tier = 3},
+	},
+	[4] = {
+		[1] = {name = "pet_1", price = {don = 150}, itemname = "spell_item_pet_RDA_dmg", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[2] = {name = "pet_2", price = {don = 150}, itemname = "spell_item_pet_RDA_hp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[3] = {name = "pet_3", price = {don = 150}, itemname = "spell_item_pet_RDA_fast", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[4] = {name = "pet_4", price = {don = 150}, itemname = "spell_item_pet_RDA_cleave", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[5] = {name = "pet_10", price = {don = 150}, itemname = "spell_item_pet_RDA_block", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[6] = {name = "pet_11", price = {don = 150}, itemname = "spell_item_pet_RDA_all_dmg_amp", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+		[7] = {name = "pet_12", price = {don = 150}, itemname = "spell_item_pet_RDA_gold", rarity = "#d400ff", text_color = "#d400ff", type = "pet", tier = 4},
+	},
+	[5] = {
+		[1] = {name = "pet_16", price = {don = 250}, itemname = "spell_item_pet_RDA_250_gold_and_exp", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[2] = {name = "pet_17", price = {don = 250}, itemname = "spell_item_pet_RDA_250_attribute_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[3] = {name = "pet_18", price = {don = 250}, itemname = "spell_item_pet_RDA_250_dmg_reduction", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[4] = {name = "pet_19", price = {don = 250}, itemname = "spell_item_pet_RDA_250_regen", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[5] = {name = "pet_20", price = {don = 250}, itemname = "spell_item_pet_RDA_250_bkb", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[6] = {name = "pet_21", price = {don = 250}, itemname = "spell_item_pet_RDA_250_phys_dmg_reducrion", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[7] = {name = "pet_22", price = {don = 250}, itemname = "spell_item_pet_RDA_250_pure_damage", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[8] = {name = "pet_23", price = {don = 250}, itemname = "spell_item_pet_RDA_250_no_spell_phys_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[9] = {name = "pet_24", price = {don = 250}, itemname = "spell_item_pet_RDA_250_no_phys_spell_bonus", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+		[10] = {name = "pet_25", price = {don = 250}, itemname = "spell_item_pet_RDA_250_minus_armor", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
+	}
+}
+battle_pass_shop = {
+	bp_premium = { price = {don = 250} },
+	bp_experience = { price = { rp = 150, don = 50}, give = 1000 },
+}
 _G.basicshop = {
 	[1] = {
 		name = "pets",

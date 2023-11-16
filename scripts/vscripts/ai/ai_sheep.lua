@@ -34,7 +34,7 @@ function NecroLordThink()
    for _, hEnemy in pairs( enemies ) do
 	local id = hEnemy:GetPlayerID()
 	
-	Quests:UpdateCounter("bonus", 4, 1, id)
+	Quests:UpdateCounter("bonus", id, 4, 1)
 		end
 	return 0.1
 end

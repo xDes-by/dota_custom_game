@@ -93,30 +93,13 @@ function talants:init()
     talants.testing = {}
     talants.barakDestroy = false;
     talants.hell_game = {}
-end
-
-
-
-function talants:sendPlayer(nPlayerID)
-    if progress[nPlayerID]["cheat"] == nil then
-        local tab = CustomNetTables:GetTableValue("talants", tostring(nPlayerID))
-        local arr = {
-            sid = tab["sid"],
-            heroname = heroname[nPlayerID],
-            gameDonatExp = tab["gameDonatExp"],
-            gameNormalExp = tab["gameNormalExp"],
-            gametime = GameRules:GetGameTime(),
-        }
-        local req = CreateHTTPRequestScriptVM( "POST", _G.host .. "/backend/api/talants?reqtype=end&key=" .. _G.key ..'&match=' .. tostring(GameRules:Script_GetMatchID()) .. '&sid=' .. arr['sid'] )
-        arr = json.encode(arr)
-        req:SetHTTPRequestGetOrPostParameter('arr',arr)
-        req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-        req:Send(function(res)
-            if res.StatusCode == 200 then
-                -- print(res.Body)
-            end
-        end)
+    talants.levelMax = #lvls
+    talants.calculated_levels = {}
+    talants.calculated_levels[0] = 0
+    for i=1,talants.levelMax do
+        talants.calculated_levels[i] = talants.calculated_levels[i-1] + lvls[i]
     end
+    talants.tab = {}
 end
 
 function talants:OnPlayerReconnected(keys)
@@ -189,7 +172,6 @@ function talants:tickExperience(pid)
     --------------------------------------------------------------- gave_exp
     local gave_exp = 1
     --------------------------------------------------------------- стрик
-    local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
     local streek = tonumber(tab["gamecout"])
     if streek > 0 then
         streek = streek * 0.05
@@ -200,8 +182,8 @@ function talants:tickExperience(pid)
         end
     end
     --------------------------------------------------------------- опыт за сложности
-    tab["gave_exp"] = gave_exp * diff_wave.talent_scale
-    CustomNetTables:SetTableValue("talants", tostring(pid), tab)
+    talants.tab[pid]["gave_exp"] = gave_exp * diff_wave.talent_scale
+    CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
     Timers:CreateTimer(1, function()
         local connectState = PlayerResource:GetConnectionState(pid)	
         if bot(pid) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN or DataBase:IsCheatMode() then --  
@@ -212,6 +194,7 @@ function talants:tickExperience(pid)
         if not hero:HasModifier("modifier_fountain_invulnerability") then
             talants:AddExperienceDonate(pid, gave_exp)
             talants:AddExperience(pid, gave_exp)
+            talants:UpdateGainValue(pid, gave_exp)
         end
         
         if wave_count == 0 or _G.kill_invoker == true or _G.destroyed_barracks == true then
@@ -237,19 +220,18 @@ end
 function talants:selectTalantCheat(t)
     if not talants.testing[t.PlayerID] then return end
     if ChatCommands:IsAvailable("selectTalantCheat", t.PlayerID) == false then return end
-    local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     local arg = t.i .. t.j
-    if tab[arg] == 1 then return end
-    if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
-        tab["freedonpoints"] = tonumber(tab["freedonpoints"]) - 1
-        tab[arg] = 1
-    elseif t.i ~= "don" and tonumber(tab["freepoints"]) > 0 then
-        tab["freepoints"] = tonumber(tab["freepoints"]) - 1
-        tab[arg] = 1
+    if talants.tab[t.PlayerID][arg] == 1 then return end
+    if t.i == "don" and tonumber(talants.tab[t.PlayerID]["freedonpoints"]) > 0 then
+        talants.tab[t.PlayerID]["freedonpoints"] = tonumber(talants.tab[t.PlayerID]["freedonpoints"]) - 1
+        talants.tab[t.PlayerID][arg] = 1
+    elseif t.i ~= "don" and tonumber(talants.tab[t.PlayerID]["freepoints"]) > 0 then
+        talants.tab[t.PlayerID]["freepoints"] = tonumber(talants.tab[t.PlayerID]["freepoints"]) - 1
+        talants.tab[t.PlayerID][arg] = 1
     else
         return
     end
-    CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), tab)
+    CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), talants.tab[t.PlayerID])
     local heroName = PlayerResource:GetSelectedHeroName(t.PlayerID)
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
     local tree = GetHeroTalentsData(heroName)
@@ -280,58 +262,56 @@ end
 function talants:selectTalantButton(t)
     local PlayerID = t.PlayerID
     local arg = t.i .. t.j
-    print("TalantButton: ", arg)
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
-        local tab = CustomNetTables:GetTableValue("talants", tostring(PlayerID))
         if t.i == "don" and RATING["rating"][PlayerID]["patron"] ~= 1 and DataBase:IsCheatMode() == false then return end
 
         if t.codeCall then
-            if tonumber(tab[t.i .. t.j]) > 0 then return end
+            if tonumber(talants.tab[t.PlayerID][t.i .. t.j]) > 0 then return end
         else
-            if t.j <= 5 and tonumber(tab[t.i .. t.j]) == 6 then return end
-            if t.j > 5 and tonumber(tab[t.i .. t.j]) == 1 then return end
+            if t.j <= 5 and tonumber(talants.tab[t.PlayerID][t.i .. t.j]) == 6 then return end
+            if t.j > 5 and tonumber(talants.tab[t.PlayerID][t.i .. t.j]) == 1 then return end
         end
 
-        if t.j == 11 and tonumber(tab[t.i .. 8]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 11 and tonumber(talants.tab[t.PlayerID][t.i .. 8]) ~= 1 then talants:FastLearning(t) return end
 
-        if t.j == 10 and tonumber(tab[t.i .. 7]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 10 and tonumber(talants.tab[t.PlayerID][t.i .. 7]) ~= 1 then talants:FastLearning(t) return end
 
-        if t.j == 9 and tonumber(tab[t.i .. 6]) ~= 1 then talants:FastLearning(t) return end
+        if t.j == 9 and tonumber(talants.tab[t.PlayerID][t.i .. 6]) ~= 1 then talants:FastLearning(t) return end
 
-        if (t.j == 6 or t.j == 7 or t.j == 8) and (tonumber(tab[t.i .. 5]) ~= 1 and tonumber(tab[t.i .. 6]) ~= 1 and tonumber(tab[t.i .. 7]) ~= 1 and tonumber(tab[t.i .. 8]) ~= 1) then talants:FastLearning(t) return end
+        if (t.j == 6 or t.j == 7 or t.j == 8) and (tonumber(talants.tab[t.PlayerID][t.i .. 5]) ~= 1 and tonumber(talants.tab[t.PlayerID][t.i .. 6]) ~= 1 and tonumber(talants.tab[t.PlayerID][t.i .. 7]) ~= 1 and tonumber(talants.tab[t.PlayerID][t.i .. 8]) ~= 1) then talants:FastLearning(t) return end
         
-        if t.j == 5 and tonumber(tab[t.i .. 4]) == 0 then talants:FastLearning(t) return end
+        if t.j == 5 and tonumber(talants.tab[t.PlayerID][t.i .. 4]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 4 and tonumber(tab[t.i .. 3]) == 0 then talants:FastLearning(t) return end
+        if t.j == 4 and tonumber(talants.tab[t.PlayerID][t.i .. 3]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 3 and tonumber(tab[t.i .. 2]) == 0 then talants:FastLearning(t) return end
+        if t.j == 3 and tonumber(talants.tab[t.PlayerID][t.i .. 2]) == 0 then talants:FastLearning(t) return end
 
-        if t.j == 2 and tonumber(tab[t.i .. 1]) == 0 then talants:FastLearning(t) return end
+        if t.j == 2 and tonumber(talants.tab[t.PlayerID][t.i .. 1]) == 0 then talants:FastLearning(t) return end
 
         if t.j == 1 and t.i ~= "don" then 
             local boo = 0
-            if tonumber(tab["int1"]) > 0 and t.i ~= "int" then boo = boo + 1 end
-            if tonumber(tab["str1"]) > 0 and t.i ~= "str" then boo = boo + 1 end
-            if tonumber(tab["agi1"]) > 0 and t.i ~= "agi" then boo = boo + 1 end
-            print(tab["cout"]," ",boo)
-            if boo >= tonumber(tab["cout"]) then
+            if tonumber(talants.tab[t.PlayerID]["int1"]) > 0 and t.i ~= "int" then boo = boo + 1 end
+            if tonumber(talants.tab[t.PlayerID]["str1"]) > 0 and t.i ~= "str" then boo = boo + 1 end
+            if tonumber(talants.tab[t.PlayerID]["agi1"]) > 0 and t.i ~= "agi" then boo = boo + 1 end
+            print(talants.tab[t.PlayerID]["cout"]," ",boo)
+            if boo >= tonumber(talants.tab[t.PlayerID]["cout"]) then
                 return
             end
         end
-        if t.i == "don" and tonumber(tab["freedonpoints"]) > 0 then
-            tab["freedonpoints"] = tonumber(tab["freedonpoints"]) - 1
-            tab[arg] = 1
-        elseif t.i ~= "don" and tonumber(tab["freepoints"]) > 0 then
-            tab["freepoints"] = tonumber(tab["freepoints"]) - 1
+        if t.i == "don" and tonumber(talants.tab[t.PlayerID]["freedonpoints"]) > 0 then
+            talants.tab[t.PlayerID]["freedonpoints"] = tonumber(talants.tab[t.PlayerID]["freedonpoints"]) - 1
+            talants.tab[t.PlayerID][arg] = 1
+        elseif t.i ~= "don" and tonumber(talants.tab[t.PlayerID]["freepoints"]) > 0 then
+            talants.tab[t.PlayerID]["freepoints"] = tonumber(talants.tab[t.PlayerID]["freepoints"]) - 1
             if t.j > 5 then
-                tab[arg] = 1
+                talants.tab[t.PlayerID][arg] = 1
             else
-                tab[arg] = tab[arg] + 1
+                talants.tab[t.PlayerID][arg] = talants.tab[t.PlayerID][arg] + 1
             end
         else
             return
         end
-        CustomNetTables:SetTableValue("talants", tostring(PlayerID), tab)
+        CustomNetTables:SetTableValue("talants", tostring(PlayerID), talants.tab[PlayerID])
         local heroName = PlayerResource:GetSelectedHeroName(PlayerID)
 		local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
         local tree = GetHeroTalentsData(heroName)
@@ -357,7 +337,6 @@ function talants:selectTalantButton(t)
         elseif t.i ~= "don" then
             talants:AddAbilityFiltered(hero, skillname, t.j)
         end
-        print("TalantButton: ", tab[arg])
     elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_HERO_SELECTION then
         if t.i == "don" and tonumber(progress[PlayerID]["freedonpoints"]) > 0 then
             progress[PlayerID]["freedonpoints"] = tonumber(progress[PlayerID]["freedonpoints"]) - 1
@@ -389,43 +368,42 @@ function talants:FastLearning(t)
     if t.j == 12 then
         levelNeed = levelNeed + 3
     end
-    local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     local branch_count = 0
     for i = 1, 5 do
-        if tab[t.i..i] == 1 then
+        if talants.tab[t.PlayerID][t.i..i] == 1 then
             branch_count = branch_count + 1
         end
     end
-    if tonumber(tab[t.i.."6"]) + tonumber(tab[t.i.."7"]) + tonumber(tab[t.i.."8"]) == 1 then
+    if tonumber(talants.tab[t.PlayerID][t.i.."6"]) + tonumber(talants.tab[t.PlayerID][t.i.."7"]) + tonumber(talants.tab[t.PlayerID][t.i.."8"]) == 1 then
         branch_count = branch_count + 1
     end
-    if tonumber(tab[t.i.."9"]) + tonumber(tab[t.i.."10"]) + tonumber(tab[t.i.."11"]) == 1 then
+    if tonumber(talants.tab[t.PlayerID][t.i.."9"]) + tonumber(talants.tab[t.PlayerID][t.i.."10"]) + tonumber(talants.tab[t.PlayerID][t.i.."11"]) == 1 then
         branch_count = branch_count + 1
     end
     
-    if (t.i == 'don' and tab['freedonpoints'] >= levelNeed - branch_count) or (t.i ~= 'don' and tab['freepoints'] >= levelNeed - branch_count) then
-        if t.j >= 2 and tab[t.i.."1"] ~= 1 then
+    if (t.i == 'don' and talants.tab[t.PlayerID]['freedonpoints'] >= levelNeed - branch_count) or (t.i ~= 'don' and talants.tab[t.PlayerID]['freepoints'] >= levelNeed - branch_count) then
+        if t.j >= 2 and talants.tab[t.PlayerID][t.i.."1"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 1, codeCall = true})
         end
-        if t.j >= 3 and tab[t.i.."2"] ~= 1 then
+        if t.j >= 3 and talants.tab[t.PlayerID][t.i.."2"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 2, codeCall = true})
         end
-        if t.j >= 4 and tab[t.i.."3"] ~= 1 then
+        if t.j >= 4 and talants.tab[t.PlayerID][t.i.."3"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 3, codeCall = true})
         end
-        if t.j >= 5 and tab[t.i.."4"] ~= 1 then
+        if t.j >= 5 and talants.tab[t.PlayerID][t.i.."4"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 4, codeCall = true})
         end
-        if t.j >= 6 and tab[t.i.."5"] ~= 1 then
+        if t.j >= 6 and talants.tab[t.PlayerID][t.i.."5"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 5, codeCall = true})
         end
-        if t.j == 9 and tab[t.i.."6"] ~= 1 then
+        if t.j == 9 and talants.tab[t.PlayerID][t.i.."6"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 6, codeCall = true})
         end
-        if t.j == 10 and tab[t.i.."7"] ~= 1 then
+        if t.j == 10 and talants.tab[t.PlayerID][t.i.."7"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 7, codeCall = true})
         end
-        if t.j == 11 and tab[t.i.."8"] ~= 1 then
+        if t.j == 11 and talants.tab[t.PlayerID][t.i.."8"] ~= 1 then
             talants:selectTalantButton({PlayerID = t.PlayerID, i = t.i, j = 8, codeCall = true})
         end
         talants:selectTalantButton(t)
@@ -433,113 +411,12 @@ function talants:FastLearning(t)
 end
 
 function talants:giveExperienceFromQuest(id, n)
-    local tab = CustomNetTables:GetTableValue("talants", tostring(id))
+    n = n * MultiplierManager:GetTalentExperienceMultiplier(id)
     talants:AddExperience(id, n)
     if RATING["rating"][id]["patron"] == 1 then
         talants:AddExperienceDonate(id, n)
     end
 end
-
-function talants:AddExperience(id, n)
-    local tab = CustomNetTables:GetTableValue("talants", tostring(id))
-    if not talants.hell_game[id] then
-        if tonumber(tab["gameNormalExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
-            return
-        end
-        -- print("don2=",tab["don2"])
-        if tab["don2"] == 1 then
-            n = n * 1.15
-        end
-    end
-    if n < 0 and tonumber(tab["totalexp"]) + n <= 0 then
-        tab["totalexp"] = 0
-        CustomNetTables:SetTableValue("talants", tostring(id), tab)
-        return
-    end
-    tab["gave_exp"] = n
-    this_lvl = 0
-    totalexp = 0
-    for k,v in pairs(lvls) do
-        if tonumber(tab["totalexp"]) >= totalexp + v then -- 1750
-            this_lvl = this_lvl + 1
-            totalexp = totalexp + v
-        else
-            break
-        end
-    end
-    if lvls[tonumber(tab["level"]) + 1] then
-        local next_lvl = totalexp + lvls[tonumber(tab["level"]) + 1]
-
-        if tonumber(tab["totalexp"]) < next_lvl and tonumber(tab["totalexp"]) + n >= next_lvl then
-            tab["level"] = tonumber(tab["level"])+1
-            if tonumber(tab["level"]) <= 14 or tonumber(tab["level"]) == 30 then
-                tab["freepoints"] = tonumber(tab["freepoints"])+1
-            end
-        end
-    end
-    tab["totalexp"] = tonumber(tab["totalexp"]) + n
-    if tab["gameNormalExp"] then
-        tab["gameNormalExp"] = tonumber(tab["gameNormalExp"]) + n
-    else
-        tab["gameNormalExp"] = n
-    end
-    
-    CustomNetTables:SetTableValue("talants", tostring(id), tab)
-end
-
-function talants:AddExperienceDonate(id, n)
-    
-    local tab = CustomNetTables:GetTableValue("talants", tostring(id))
-    if not talants.hell_game[id] then
-        if RATING["rating"][id]["patron"] == nil or RATING["rating"][id]["patron"] == 0 then
-            return
-        end
-        if tonumber(tab["gameDonatExp"] or 0) >= 14000 * diff_wave.talent_scale or GameRules:GetGameTime() / 60 >= 120 then
-            return
-        end
-        if tab['don2'] == 1 then
-            n = n * 1.15
-        end
-    end
-    if n < 0 and tonumber(tab["totaldonexp"]) + n <= 0 then
-        tab["totaldonexp"] = 0
-        CustomNetTables:SetTableValue("talants", tostring(id), tab)
-        return
-    end
-    tab["donavailable"] = 1
-    this_lvl = 0
-    totalexp = 0
-   
-    for k,v in pairs(lvls) do
-        if tonumber(tab["totaldonexp"]) >= totalexp + v then -- 1750
-            this_lvl = this_lvl + 1
-            totalexp = totalexp + v
-        else
-            break
-        end
-    end
-    
-    if lvls[tonumber(tab["donlevel"]) + 1] then
-        local next_lvl = totalexp + lvls[tonumber(tab["donlevel"]) + 1]
-        
-        if tonumber(tab["totaldonexp"]) < next_lvl and tonumber(tab["totaldonexp"]) + n >= next_lvl then
-            tab["donlevel"] = tonumber(tab["donlevel"])+1
-            if tonumber(tab["donlevel"]) <= 7 or tonumber(tab["donlevel"]) == 30 then
-                tab["freedonpoints"] = tonumber(tab["freedonpoints"])+1
-            end
-        end
-    end
-
-    if tab["gameDonatExp"] then
-        tab["gameDonatExp"] = tonumber(tab["gameDonatExp"]) + n
-    else
-        tab["gameDonatExp"] = n
-    end
-    tab["totaldonexp"] = tonumber(tab["totaldonexp"]) + n
-
-    CustomNetTables:SetTableValue("talants", tostring(id), tab)
-end
-
 
 ------------------------------------------          Модифаеры
 LinkLuaModifier( "modifier_don1", "abilities/talents/modifiers/modifier_don1", LUA_MODIFIER_MOTION_NONE )
@@ -560,11 +437,10 @@ function talants:addskill(nPlayerID, add)
     local arr = {}
     local heroName = PlayerResource:GetSelectedHeroName(nPlayerID)
     local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-    local tab = CustomNetTables:GetTableValue("talants", tostring(nPlayerID))
     for k,v in pairs({"str", "agi", "int", "don"}) do
         for i = 1, 13 do
             local arg = v .. tostring(i)
-            if tonumber(tab[arg]) > 0 then
+            if talants.tab[nPlayerID][arg] > 0 then
                 local tree = GetHeroTalentsData(heroName)
                 local skillname = nil
                 ------------------------------------------      цыкл по всем талантом этого героя
@@ -589,7 +465,7 @@ function talants:addskill(nPlayerID, add)
                 if v == "don" or i <= 5 then
                     ------------------------------------------     модифаеры
                     if add == true and ( v ~= "don" or RATING["rating"][nPlayerID]["patron"] == 1) then
-                        talants:AddModifierFiltered(hero, skillname, i, tonumber(tab[arg]))
+                        talants:AddModifierFiltered(hero, skillname, i, talants.tab[nPlayerID][arg])
                     elseif add == false then
                         hero:RemoveModifierByName( skillname )
                     end
@@ -616,6 +492,7 @@ function talants:loadTree(PlayerID)
             local index = PlayerResource:GetSelectedHeroEntity( nPlayerID ):entindex()
             local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
             pInfo[nPlayerID] = { heroname, index}
+            talants.tab[nPlayerID] = progress[nPlayerID]
             CustomNetTables:SetTableValue("talants", tostring(nPlayerID), progress[nPlayerID])
 -----------------------------------------------------------------------------------------------------------------------------	
             talants:addskill(nPlayerID, true)
@@ -635,6 +512,7 @@ function talants:ChangeHeroLoadTree(PlayerID)
         PlayerResource:GetSelectedHeroEntity( PlayerID ):entindex()
     }
     CustomGameEventManager:Send_ServerToAllClients( "ChangeHeroLoadTree", { info = herotalant, players = pInfo, lvls = lvls, talant_shop = talant_shop, PlayerID = PlayerID, match =  tostring(GameRules:Script_GetMatchID())} )
+    talants.tab[PlayerID] = progress[PlayerID]
     CustomNetTables:SetTableValue("talants", tostring(PlayerID), progress[PlayerID])
 end
 
@@ -768,6 +646,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
     end
 
     -- DeepPrintTable(progress[PlayerID])
+    talants.tab[PlayerID] = progress[PlayerID]
     CustomNetTables:SetTableValue("talants", tostring(PlayerID), progress[PlayerID])
 
     -------------------------------- первая загрузк
@@ -834,32 +713,30 @@ function talants:BuyExp(t)
             end
         end)
     end
-    local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     if t.type == "normal" then
-        tab['totalexp'] = tonumber(tab['totalexp']) + t.gane
-        level = talants:coutExp(tonumber(tab['totalexp']))
-        if level > tonumber(tab['level']) then
-            local sp = tonumber(tab['level']) - level
+        talants.tab[t.PlayerID]['totalexp'] = tonumber(talants.tab[t.PlayerID]['totalexp']) + t.gane
+        level = talants:coutExp(tonumber(talants.tab[t.PlayerID]['totalexp']))
+        if level > tonumber(talants.tab[t.PlayerID]['level']) then
+            local sp = tonumber(talants.tab[t.PlayerID]['level']) - level
             sp = sp * -1
-            tab['freepoints'] = tonumber(tab['freepoints']) + sp
+            talants.tab[t.PlayerID]['freepoints'] = tonumber(talants.tab[t.PlayerID]['freepoints']) + sp
         end
-        tab['level'] = level
+        talants.tab[t.PlayerID]['level'] = level
     elseif t.type == "donate" then
-        tab['totaldonexp'] = tonumber(tab['totaldonexp']) + t.gane
-        donlevel = talants:coutExp(tonumber(tab['totaldonexp']))
-        if donlevel > tonumber(tab['donlevel']) then
-            local sp = tonumber(tab['donlevel']) - donlevel
+        talants.tab[t.PlayerID]['totaldonexp'] = tonumber(talants.tab[t.PlayerID]['totaldonexp']) + t.gane
+        donlevel = talants:coutExp(tonumber(talants.tab[t.PlayerID]['totaldonexp']))
+        if donlevel > tonumber(talants.tab[t.PlayerID]['donlevel']) then
+            local sp = tonumber(talants.tab[t.PlayerID]['donlevel']) - donlevel
             sp = sp * -1
-            tab['freedonpoints'] = tonumber(tab['freedonpoints']) + sp
+            talants.tab[t.PlayerID]['freedonpoints'] = tonumber(talants.tab[t.PlayerID]['freedonpoints']) + sp
         end
-        tab['donlevel'] = donlevel
+        talants.tab[t.PlayerID]['donlevel'] = donlevel
     end
-    progress[t.PlayerID]['totalexp'] = tab['totalexp']
-    progress[t.PlayerID]['freepoints'] = tab['freepoints']
-    progress[t.PlayerID]['totaldonexp'] = tab['totaldonexp']
-    progress[t.PlayerID]['freedonpoints'] = tab['freedonpoints']
-    -- DeepPrintTable(tab)
-    CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), tab)
+    progress[t.PlayerID]['totalexp'] = talants.tab[t.PlayerID]['totalexp']
+    progress[t.PlayerID]['freepoints'] = talants.tab[t.PlayerID]['freepoints']
+    progress[t.PlayerID]['totaldonexp'] = talants.tab[t.PlayerID]['totaldonexp']
+    progress[t.PlayerID]['freedonpoints'] = talants.tab[t.PlayerID]['freedonpoints']
+    CustomNetTables:SetTableValue("talants", tostring(t.PlayerID), talants.tab[t.PlayerID])
 end
 
 function talants:unset(t)
@@ -890,15 +767,14 @@ function talants:unset(t)
             end
         end)
     end
-    local tab = CustomNetTables:GetTableValue("talants", tostring(t.PlayerID))
     talants:addskill(t.PlayerID, false)
     for k,v in pairs({'agi','int','str','don'}) do
         for i = 1, 13 do
             arg = v .. i
-            tab[arg] = 0
+            talants.tab[t.PlayerID][arg] = 0
         end
     end
-    progress[t.PlayerID] = tab
+    progress[t.PlayerID] = talants.tab[t.PlayerID]
     talants:fillTabel(t.PlayerID, DataBase:IsCheatMode(), false)
 end
 
@@ -924,17 +800,15 @@ function talants:HeroesAmountInfo(t)
 end
 
 function talants:EnableHellGame(pid)
-    print("EnableHellGame")
     talants.hell_game[pid] = true
     local gain = -20
     local tick = 0
-    -- 
-    -- EmitSoundOn( "bus_rush_sound", PlayerResource:GetSelectedHeroEntity(pid) )
     EmitSoundOn( "yeeeeeaaaahhh", PlayerResource:GetSelectedHeroEntity(pid) )
     Timers:CreateTimer(1, function()
         print(tick)
         talants:AddExperienceDonate(pid, gain)
         talants:AddExperience(pid, gain)
+        talants:UpdateGainValue(pid, gain)
         tick = tick + 1
         if tick % 15 == 0 then 
             gain = gain - 1
@@ -943,14 +817,117 @@ function talants:EnableHellGame(pid)
             return 1
         end
     end)
-    
 end
-
 function talants:DisableHellGame(pid)
     talants.hell_game[pid] = false
-    local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
-    tab["gave_exp"] = 0
-    CustomNetTables:SetTableValue("talants", tostring(pid), tab)
+    talants.tab[pid]["gave_exp"] = 0
+    talants:UpdateGainValue(pid, 0)
+    CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
 end
+
+function talants:UpdateGainValue(pid, value)
+    talants.tab[pid].gave_exp = value * MultiplierManager:GetTalentExperienceMultiplier(pid)
+    CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
+end
+function talants:CalculateLevelFromExperience(experience)
+    for i = 1, talants.levelMax do
+        if experience < talants.calculated_levels[i] then
+            return i-1
+        end
+    end
+    return talants.levelMax
+end
+function talants:CountLearnedNormalTalents(pid)
+    local count = 0
+    for _, t in pairs({"agi","int","str"}) do
+        for i = 1, 13 do
+            count = count + talants.tab[pid][t..i]
+        end
+    end
+    return count
+end
+function talants:CountLearnedGoldenTalents(pid)
+    local count = 0
+    DeepPrintTable(talants.tab[pid])
+    for i = 1, 13 do
+        count = count + talants.tab[pid]["don"..i]
+    end
+    return count
+end
+function talants:AddExperience(pid, value)
+    print(pid, value)
+    if value > 0 then
+        value = value * MultiplierManager:GetTalentExperienceMultiplier(pid)
+        if talants.tab[pid].don2 > 0 then
+            value = value * 1.15
+        end
+        if GameRules:GetGameTime() / 60 >= 120 then
+            return false
+        end
+    end
+    if talants.tab[pid].totalexp + value < 0 then 
+        talants.tab[pid].totalexp = 0
+        value = 0
+    end
+    local level = talants:CalculateLevelFromExperience(talants.tab[pid].totalexp + value)
+    talants.tab[pid].freepoints = level - talants:CountLearnedNormalTalents(pid)
+    talants.tab[pid].level = level
+    talants.tab[pid].totalexp = talants.tab[pid].totalexp + value
+    talants.tab[pid].gameNormalExp = (talants.tab[pid].gameNormalExp or 0) + value
+    CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
+end
+function talants:AddExperienceDonate(pid, value)
+    print(pid, value)
+    if value > 0 then
+        value = value * MultiplierManager:GetTalentExperienceMultiplier(pid)
+        if talants.tab[pid].don2 > 0 then
+            value = value * 1.15
+        end
+        if GameRules:GetGameTime() / 60 >= 120 then
+            return false
+        end
+    end
+    if talants.tab[pid].totaldonexp + value < 0 then 
+        talants.tab[pid].totaldonexp = 0
+        value = 0
+    end
+    if RATING["rating"][pid]["patron"] == nil or RATING["rating"][pid]["patron"] == 0 then
+        return false
+    end
+    local level = talants:CalculateLevelFromExperience(talants.tab[pid].totaldonexp + value)
+    talants.tab[pid].freepoints = level - talants:CountLearnedGoldenTalents(pid)
+    talants.tab[pid].donlevel = level
+    talants.tab[pid].totaldonexp = talants.tab[pid].totaldonexp + value
+    talants.tab[pid].gameDonatExp = (talants.tab[pid].gameDonatExp or 0) + value
+    CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 talants:init()

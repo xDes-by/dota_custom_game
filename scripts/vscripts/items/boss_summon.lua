@@ -21,23 +21,34 @@ local bossTable = {
 }
 
 function item_boss_summon:OnSpellStart()
-	local boss_spawn = bossTable[_G.don_spawn_level]
-	if boss_spawn then
-		local point = Entities:FindByName(nil, "point_donate_creeps_"..self:GetCaster():GetPlayerID()):GetAbsOrigin()
-		if #_G.don_bosses_count < 5 then
-			local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			table.insert(_G.don_bosses_count, unit)
-			unit:add_items()
-			unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
-			Rules:difficality_modifier(unit)
-
-			if self:GetCurrentCharges() > 1 then
-				self:SetCurrentCharges(self:GetCurrentCharges() - 1)
-			else
-				self:GetCaster():RemoveItem(self)
-			end
+	if #_G.don_bosses_count < 5 then
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
+			spawn_level = _G.don_spawn_level,
+		} )
+		if self:GetCurrentCharges() > 1 then
+			self:SetCurrentCharges(self:GetCurrentCharges() - 1)
+		else
+			self:GetCaster():RemoveItem(self)
 		end
 	end
+
+	-- local boss_spawn = bossTable[_G.don_spawn_level]
+	-- if boss_spawn then
+	-- 	local point = Entities:FindByName(nil, "point_donate_creeps_"..self:GetCaster():GetPlayerID()):GetAbsOrigin()
+	-- 	if #_G.don_bosses_count < 5 then
+	-- 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
+	-- 		table.insert(_G.don_bosses_count, unit)
+	-- 		unit:add_items()
+	-- 		unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
+	-- 		Rules:difficality_modifier(unit)
+
+	-- 		if self:GetCurrentCharges() > 1 then
+	-- 			self:SetCurrentCharges(self:GetCurrentCharges() - 1)
+	-- 		else
+	-- 			self:GetCaster():RemoveItem(self)
+	-- 		end
+	-- 	end
+	-- end
 end
 
 LinkLuaModifier( "modifier_item_boss_summon_cd", "items/boss_summon", LUA_MODIFIER_MOTION_NONE )

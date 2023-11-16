@@ -10,11 +10,12 @@
         "itemscost",
         "itemsingredients",
         "shop",
-        "player_pets",
+        "cosmetic_buttons",
         "difficultyVote",
         "forge",
-        "Daily",
-		"BattlePass",
-		"GameInfo",
+        "BattlePass",
+        "GameInfo",
+        "pets",
+        "QuestSystem",
     ]
 }

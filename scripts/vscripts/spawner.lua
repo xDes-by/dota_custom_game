@@ -94,8 +94,8 @@ function Spawn_system()
 		wave = wave + 1
 		rat = rat + wave_count * 2
 		for i = 0, 4 do
-			Quests:UpdateCounter("bonus", 17, 1, i, 1)
-			Quests:UpdateCounter("bonus", 15, 1, i, 1)
+			Quests:UpdateCounter("bonus", i, 17, 1)
+			Quests:UpdateCounter("bonus", i, 15, 1)
 		end
 		if wave ~= 0 and wave % 10 == 0 then 
 			Spawner:SpawnBosses()
