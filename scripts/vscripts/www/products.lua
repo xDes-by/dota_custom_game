@@ -11,6 +11,11 @@ _G.pets_exp = {
 	[9] = 2000,
 	[10] = 2500,
 }
+pets_shop = {
+	pet_change = { price = {don = 500}, type = "pet_change" },
+	feed_x230 = { price = { don = 3, rp = 15 }, give = 230, type ="feed" },
+	feed_x600 = { price = { don = 7, rp = 35 }, give = 600, type ="feed" },
+}
 pets_list = {
 	[1] = {
 		[1] = {name = "ratingpoints_1", price = {rp = 250}, itemname = "spell_item_pet_RDA_simple_1", rarity = "#00ff48", text_color = "#00ff48", type = "pet", currency = "mmrpoints", tier = 1},
@@ -51,10 +56,9 @@ pets_list = {
 		[10] = {name = "pet_25", price = {don = 250}, itemname = "spell_item_pet_RDA_250_minus_armor", rarity = "#fa3535", text_color = "#fa3535", type = "pet", tier = 5},
 	}
 }
-pets_shop = {
-	pet_change = { price = {don = 500}, type = "pet_change" },
-	feed_x230 = { price = { don = 3, rp = 15 }, give = 230, type ="feed" },
-	feed_x600 = { price = { don = 7, rp = 35 }, give = 600, type ="feed" },
+battle_pass_shop = {
+	bp_premium = { price = {don = 250} },
+	bp_experience = { price = { rp = 150, don = 50}, give = 1000 },
 }
 _G.basicshop = {
 	[1] = {

@@ -156,7 +156,7 @@ function AdminPanel:ChangeGems(t)
 end
 
 function AdminPanel:BattlePassAddExperience(t)
-    BattlePass:AddExperience(t.PlayerID, t.amount)
+    BattlePass:AddExperience(t.PlayerID, t.amount, false)
 end
 function AdminPanel:BattlePassDrop(t)
     BattlePass:ResetProgress(t.PlayerID)

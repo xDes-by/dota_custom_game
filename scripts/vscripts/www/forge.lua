@@ -139,24 +139,24 @@ end
 
 function Forge:RecordTaskCompletionOnItemLevelUp(pid, item)
     if item:GetLevel() == 8 then
-        DailyQuests:UpdateCounter( pid, 30)
+        Quests:UpdateCounter("daily", pid, 30)
     end
     if item:GetLevel() == 8 and item:GetName() == "item_midas_lua" then
-        DailyQuests:UpdateCounter( pid, 44)
+        Quests:UpdateCounter("daily", pid, 44)
     end
     if item:GetLevel() == 9 then
-        DailyQuests:UpdateCounter( pid, 31)
+        Quests:UpdateCounter("daily", pid, 31)
     end
     if item:GetLevel() == 10 then
-        DailyQuests:UpdateCounter( pid, 32)
+        Quests:UpdateCounter("daily", pid, 32)
     end
     if item:GetLevel() == 11 then
-        DailyQuests:UpdateCounter( pid, 33)
+        Quests:UpdateCounter("daily", pid, 33)
     end
     if item:GetLevel() >= 8 and item:GetName() == "item_spirit_vessel_lua" then
-        Quests:UpdateCounter("bonus", 8, 2, pid)
+        Quests:UpdateCounter("bonus", pid, 8, 2)
     end
-    DailyQuests:UpdateCounter( pid, 34)
+    Quests:UpdateCounter("daily",  pid, 34)
 end
 function Forge:DeductResourcesForItemUpgrade(pid, item)
     local hero = PlayerResource:GetSelectedHeroEntity( pid )

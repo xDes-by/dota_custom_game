@@ -13,9 +13,9 @@
         "cosmetic_buttons",
         "difficultyVote",
         "forge",
-        "Daily",
         "BattlePass",
         "GameInfo",
         "pets",
+        "QuestSystem",
     ]
 }

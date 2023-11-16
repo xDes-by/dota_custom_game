@@ -14,6 +14,10 @@ function BattlePass:init()
     CustomGameEventManager:RegisterListener("BattlePassHeroVote",function(_, keys)
         self:OnVote(keys)
     end)
+    CustomGameEventManager:RegisterListener("BattlePassBuy",function(_, keys)
+        self:OnBuy(keys)
+    end)
+    self.shop = battle_pass_shop
     self.player = {}
     self.levelMax = 30
     self.dataReward = battlePassRewards
@@ -45,8 +49,9 @@ function BattlePass:SetPlayerData(pid, obj)
     self.player[pid].premium = obj.premium
     self.player[pid].pass_id = obj.battle_pass_id
     self.player[pid].rewards = {}
-    self.player[pid].vote = ""
-    for i = 1, self.levelMax * 3 do
+    self.player[pid].vote = obj.vote or ""
+    self.player[pid].exp_current_game = 0
+    for i = 1, self.levelMax * 2 do
         local reward_index = obj.rewards[i].reward_index
         self.player[pid].rewards[reward_index] = obj.rewards[i]
     end
@@ -72,7 +77,10 @@ function BattlePass:ResetProgress(pid)
         pass_id = self.player[pid].pass_id
     }, pid, true, nil)
 end
-function BattlePass:AddExperience(pid, value)
+function BattlePass:AddExperience(pid, value, write)
+    if write == true then
+        self.player[pid].exp_current_game = self.player[pid].exp_current_game + value
+    end
     self.player[pid].experience = self.player[pid].experience + value
     self.player[pid].level = self:CalculateLevelFromExperience(self.player[pid].experience)
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
@@ -142,6 +150,10 @@ function BattlePass:OnVote(t)
     end
     CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+    DataBase:Send(DataBase.link.HeroVote, "GET", {
+        pass_id = self.player[pid].pass_id,
+        hero_name = self.player[pid].vote,
+    }, pid, true, nil)
 end
 function BattlePass:GiveOutReward(pid, reward_index, choice_index)
     local reward_data = self:DetermineRewardDataByIndex(reward_index)
@@ -166,6 +178,38 @@ function BattlePass:GiveOutReward(pid, reward_index, choice_index)
     DataBase:Send(DataBase.ClaimReward, "GET", send_data, pid, not DataBase:IsCheatMode(), function(body)
         print(body)
     end)
+end
+function BattlePass:OnBuy(t)
+    local pid = t.PlayerID
+    local name = t.name
+    local currency = t.currency
+    local amount = tonumber(t.amount)
+    if currency == 'don' and not (self.shop[name].price.don ~= nil and Shop.pShop[pid]["coins"] >= self.shop[name].price.don * amount) then
+        return
+    end
+    if currency == 'rp' and not (self.shop[name].price.rp ~= nil and Shop.pShop[pid]["mmrpoints"] >= self.shop[name].price.rp * amount) then
+        return
+    end
+    local send = {}
+    if currency == 'don' then
+        Shop.pShop[pid]["coins"] = Shop.pShop[pid]["coins"] - self.shop[name].price.don * amount
+        send.don = self.shop[name].price.don * amount
+    end
+    if currency == 'rp' then
+        Shop.pShop[pid]["mmrpoints"] = Shop.pShop[pid]["mmrpoints"] - self.shop[name].price.rp * amount
+        send.rp = self.shop[name].price.rp * amount
+    end
+    send.pass_id = self.player[pid].pass_id
+    if name == "bp_premium" then
+        self:ActivatePremium(pid)
+        send.bp_premium = 1
+    end
+    if name == "bp_experience" then
+        self:AddExperience(pid, self.shop[name].give * amount, false)
+        send.bp_experience = self.shop[name].give * amount
+    end
+    CustomShop:UpdateShopInfoTable(pid)
+    DataBase:Send(DataBase.link.BattlePassBuy, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 ----------------- /ACTION FUNCTIONS ----------------------------
 ----------------- HELPERS ------------------------------------
@@ -265,8 +309,7 @@ function BattlePass:AddRpReward(reward_data, send_data, pid)
         if not send_data.rp then
             send_data.rp = 0
         end
-        send_data.rp = send_data.rp + math.ceil(add_value * MultiplierManager:GetCurrencyRpMultiplier(pid))
-        CustomShop:AddRP(pid, send_data.rp, true, false)
+        send_data.rp = CustomShop:AddRP(pid, send_data.rp, true, false)
     end
     return send_data
 end

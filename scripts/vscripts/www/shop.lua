@@ -251,6 +251,7 @@ function Shop:PlayerSetup( pid )
 	arr.feed = _G.SHOP[pid].feed or 0
 	arr.ban = _G.SHOP[pid].other_60 or 0
 	arr.pet_change = _G.SHOP[pid].pet_change or 0
+	arr.auto_pet = _G.SHOP[pid].auto_pet or ""
 	arr.gems = {
 		[1] = _G.SHOP[pid]["gem_1"],
 		[2] = _G.SHOP[pid]["gem_2"],
@@ -261,7 +262,6 @@ function Shop:PlayerSetup( pid )
 	Shop.pShop[pid] = arr
 	CustomShop:UpdateShopInfoTable(pid)
 
-	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray
 	Shop.Change_Available[pid] = true
 	Timers:CreateTimer(function()
@@ -283,122 +283,6 @@ function Shop:PlayerSetup( pid )
 	end
 	if ChangeHero:IsSilencerAvailable_PickStage(pid) then
 		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
-	end
-end
-
-function Shop:createShop()
-
-	if SHOP then
-		for i = 0 , PlayerResource:GetPlayerCount() do --
-			if PlayerResource:IsValidPlayer(i) then -- 
-				local sid = PlayerResource:GetSteamAccountID(i)
-				local arr = {}
-				for sKey, sValue in pairs(basicshop) do
-					if type(sValue) == 'table' then
-						arr[sKey] = {}
-						for oKey, oValue in pairs(sValue) do
-							arr[sKey][oKey] = {}
-							if type(oValue) == 'table' then
-
-								for pKey, pValue in pairs(oValue) do
-									arr[sKey][oKey][pKey] = pValue
-								end
-								
-								if SHOP[i][oValue.name] then
-									arr[sKey][oKey].onStart = tonumber(SHOP[i][oValue.name])
-									arr[sKey][oKey].now = tonumber(SHOP[i][oValue.name])
-									if arr[sKey][oKey].type == "consumabl" then
-										arr[sKey][oKey].status = 'consumabl'
-									elseif tonumber(SHOP[i][oValue.name]) > 0 then
-										if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
-											arr[sKey][oKey].status = 'active'
-										else
-											arr[sKey][oKey].status = 'taik'
-										end
-									else
-										arr[sKey][oKey].status = 'buy'
-									end
-								else
-									if arr[sKey][oKey].type == "hero_change" then
-										arr[sKey][oKey].onStart = 1
-										arr[sKey][oKey].now = 1
-										if SHOP[i]["totaldonate"] >= 2000 then
-											arr[sKey][oKey].status = 'shop_select'
-										else
-											arr[sKey][oKey].status = 'shop_lock'
-										end
-									else
-										arr[sKey][oKey].onStart = 0
-										arr[sKey][oKey].now = 0
-										if arr[sKey][oKey].type == "consumabl" then
-											arr[sKey][oKey].status = 'consumabl'
-										else
-											arr[sKey][oKey].status = 'buy'
-										end
-									end
-								end
-							elseif type(oValue) == 'string' then
-								arr[sKey][oKey] = oValue
-							end
-						end
-					end
-				end
-			
-				if SHOP[i].coins then
-					arr.coins = SHOP[i].coins
-				else
-					arr.coins = 0
-				end
-				if SHOP[i].mmrpoints then
-					arr.mmrpoints = SHOP[i].mmrpoints
-				else
-					arr.mmrpoints = 0
-				end
-				if SHOP[i].totaldonate then
-					arr.totaldonate = SHOP[i].totaldonate
-				else
-					arr.totaldonate = 0
-				end
-				if SHOP[i].feed then
-					arr.feed = SHOP[i].feed
-				else
-					arr.feed = 0
-				end
-				
-				if SHOP[i].other_60 then
-					arr.ban = SHOP[i].other_60
-				else
-					arr.ban = 0
-				end
-				Shop.pShop[i] = arr
-				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i ][ 'likes' ], reports = RATING[ 'rating' ][ i ][ 'reports' ]})
-
-				Shop.Auto_Pet[i] = SHOP[i].auto_pet
-				Shop.spray[i] = SHOP[i].auto_spray
-				Shop.Change_Available[i] = true
-			end
-		end
-		
-		for i = 0, 4 do
-            Timers:CreateTimer(function()
-                if PlayerResource:GetPlayer(i) == nil then
-                    return nil
-                end
-                if PlayerResource:HasSelectedHero(i) then
-                    local heroName = PlayerResource:GetSelectedHeroName(i)
-                    talants:pickinfo(i,false)
-                    return nil
-                else
-                  --  print(PlayerResource:HasSelectedHero(i))
-                end
-                return 1.0
-            end)
-        end
-	else
-		print("============================")
-		print("ERROR: _G.SHOP not exist")
-		print("CREATE SHOP FAILED")
-		print("============================")
 	end
 end
 

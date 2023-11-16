@@ -168,7 +168,10 @@ PatroolWave = {
 }
 
 PatroolPoints = {point_forest,point_village,point_mines,point_dust,point_cemetery,point_swamp,point_snow,point_last,point_magma}
-
+battlePassTasks = {
+	[1] = { event = "kill", target = {"any"}, count = 10000},
+	[2] = { event = "assistance", target = bosses_names, count = 250},
+}
 dailyTasks = {
 	[1] = { event = "kill", target = {"npc_forest_boss", "npc_forest_boss_fake"}, count = 5},
 	[2] = { event = "kill", target = {"npc_village_boss", "npc_village_boss_fake"}, count = 5},
@@ -176,10 +179,10 @@ dailyTasks = {
 	[4] = { event = "kill", target = {"npc_dust_boss", "npc_dust_boss_fake"}, count = 5},
 	[5] = { event = "kill", target = {"npc_swamp_boss", "npc_swamp_boss_fake"}, count = 3},
 	[6] = { event = "kill", target = {"npc_snow_boss", "npc_snow_boss_fake"}, count = 3},
-	[7] = { event = "kill", target = {"raid_boss"}, count = 1},
-	[8] = { event = "kill", target = {"raid_boss2"}, count = 1},
-	[9] = { event = "kill", target = {"raid_boss3"}, count = 1},
-	[10] = { event = "kill", target = {"raid_boss4"}, count = 1},
+	[7] = { event = "assistance", target = {"raid_boss"}, count = 1},
+	[8] = { event = "assistance", target = {"raid_boss2"}, count = 1},
+	[9] = { event = "assistance", target = {"raid_boss3"}, count = 1},
+	[10] = { event = "assistance", target = {"raid_boss4"}, count = 1},
 	[11] = { event = "kill", target = {"any"}, count = 1000},
 	[12] = { event = "kill", target = {"any"}, count = 2000},
 	[13] = { event = "kill", target = {"any"}, count = 3000},
@@ -195,8 +198,8 @@ dailyTasks = {
 	[23] = { event = "kill", target = bosses_names, count = 20, dont_save_unfinished_progress = true},
 	[24] = { event = "kill", target = bosses_names, count = 30, dont_save_unfinished_progress = true},
 	[25] = { event = "kill", target = {"roshan_npc"}, count = 3},
-	[26] = { event = "kill", target = {"npc_bara_boss"}, count = 1},
-	[27] = { event = "kill", target = {"npc_mega_boss"}, count = 1},
+	[26] = { event = "assistance", target = {"npc_bara_boss"}, count = 1},
+	[27] = { event = "assistance", target = {"npc_mega_boss"}, count = 1},
 	[28] = { event = "", count = 1},
 	[29] = { event = "", count = 1},
 	[30] = { event = "", count = 1},
@@ -205,11 +208,11 @@ dailyTasks = {
 	[33] = { event = "", count = 1},
 	[34] = { event = "", count = 1},
 	[35] = { event = "", count = 100},
-	[36] = { event = "kill", target = {"npc_sand_king_boss"}, count = 1},
-	[37] = { event = "kill", target = {"npc_dota_monkey_king_boss"}, count = 1},
-	[38] = { event = "kill", target = {"npc_titan_boss"}, count = 1},
-	[39] = { event = "kill", target = {"npc_appariion_boss"}, count = 1},
-	[40] = { event = "kill", target = {"npc_crystal_boss"}, count = 1},
+	[36] = { event = "assistance", target = {"npc_sand_king_boss"}, count = 1},
+	[37] = { event = "assistance", target = {"npc_dota_monkey_king_boss"}, count = 1},
+	[38] = { event = "assistance", target = {"npc_titan_boss"}, count = 1},
+	[39] = { event = "assistance", target = {"npc_appariion_boss"}, count = 1},
+	[40] = { event = "assistance", target = {"npc_crystal_boss"}, count = 1},
 	[41] = { event = "", count = 25},
 	[42] = { event = "", count = 1},
 	[43] = { event = "", count = 1},
@@ -220,8 +223,6 @@ dailyTasks = {
 	[48] = { event = "kill", target = {"npc_dota_custom_tower_dire_1", "npc_dota_custom_tower_dire_2", "npc_dota_custom_tower_dire_3", "npc_dota_custom_tower_dire_4", "npc_dota_custom_tower_dire_5"}, count = 1},
 	[49] = { event = "", count = 25},
 	[50] = { event = "", count = 5},
-
-	-- [25] = { event = "combine", target = {"roshan_npc"}, count = 3},
 }
 _G.Miniboses = {
 	"npc_miniboss_darkseer", 

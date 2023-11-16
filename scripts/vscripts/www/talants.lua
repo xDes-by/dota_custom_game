@@ -848,6 +848,7 @@ function talants:CountLearnedNormalTalents(pid)
 end
 function talants:CountLearnedGoldenTalents(pid)
     local count = 0
+    DeepPrintTable(talants.tab[pid])
     for i = 1, 13 do
         count = count + talants.tab[pid]["don"..i]
     end
@@ -893,8 +894,8 @@ function talants:AddExperienceDonate(pid, value)
     if RATING["rating"][pid]["patron"] == nil or RATING["rating"][pid]["patron"] == 0 then
         return false
     end
-    local level = talants:CountLearnedGoldenTalents(talants.tab[pid].totaldonexp + value)
-    talants.tab[pid].freepoints = level - talants:CountLearnedNormalTalents(pid)
+    local level = talants:CalculateLevelFromExperience(talants.tab[pid].totaldonexp + value)
+    talants.tab[pid].freepoints = level - talants:CountLearnedGoldenTalents(pid)
     talants.tab[pid].donlevel = level
     talants.tab[pid].totaldonexp = talants.tab[pid].totaldonexp + value
     talants.tab[pid].gameDonatExp = (talants.tab[pid].gameDonatExp or 0) + value

@@ -425,7 +425,7 @@
         "DailyTaskDescription_Lable2"                            "Убить драконов <font color='green'>148/1000</font>"
         "DailyTaskDescription_Lable3"                            "Убить фуриона 0/5 <font color='green'>1/5</font>"
         "DailyTaskGetAward"                                     "Получить награду!"
-        "DailyMainLabel"                                        "Ежедневные задания"
+        "DailyMainLabel"                                        "Квесты"
         "DailyTitleTooltip"                                     "<b>Уникальные задания на каждый день.</b><br><br> За выполнение этих заданий вы получит награду <font color='gold'>5,10,10</font> щитков на свой аккаунт."
 
         "DailyTaskDescription_1"                                "Убить Хранителя Леса"
@@ -534,6 +534,14 @@
         "battle_pass_vote_label"                        "голосование за следующего героя"
         "battle_pass_task_1_description"                "Убейте <font color='red'><b>10000</b></font> крипов, награда 1000 опыта"
         "battle_pass_task_2_description"                "Поучаствуйте в убийсте <font color='red'><b>250</b></font> боссов, награда 1000 опыта"
+        "BpTaskDescription_1"                           "Убить любых крипов"
+        "BpTaskDescription_2"                           "Убить боссов"
+        "battle_pass_task_description"                  "Задания для прокачки боевого пропуска, обновляются раз в неделю"
+        "battle_pass_buy_experience"                    "##value## опыта за ##price##"
+        "battle_pass_buy_premium"                       "Золотой пропуск ##price##"
+        "battle_pass_buy_premium_tooltip"               "Доступ к наградам второго уровня и голосованию за героя"
+        "bp_premium"                                    "<font color='gold'>Золотой пропуск</font>"
+        "bp_experience"                                 "##count## опыта"
         /// ------------------- BATTLE PASS --------------------------------------
         /// ------------------- PETS --------------------------------------
         "gems_image_pet"                                "Кристаллы"
@@ -545,9 +553,10 @@
         "pets_status_loading"                           "Загрузка..."
         "dota_pets_feed_error"                          "Недостаточно корма"
         "pets_tier_title"                               "питомцы: тир ##number##"
+        "pets_trial_game_count"                         "еще ##count## игр"
         /// ------------------- PETS --------------------------------------
 
-        
+        "quest_title_description"                       "Ежедневные задания, задания для прокачки батл пасс, игровые задания"
         // Panorama
 
         /////////////////
