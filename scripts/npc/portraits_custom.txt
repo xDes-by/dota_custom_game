@@ -1,6 +1,6 @@
 "Portraits"
 {
-	"custom_skins/models/heroes/juggernaut/juggernaut_custom.vmdl"
+	"denk/models/juggernaut/juggernaut_arcana_red/juggernaut_arcana_denk_red.vmdl"
 	{
 		"PortraitLightPosition"    "106.913757 -64.295067 186.072372"
 		"PortraitLightAngles"    "48.081665 135.670166 0.000000"

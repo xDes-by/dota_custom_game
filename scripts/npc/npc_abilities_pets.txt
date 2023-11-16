@@ -399,9 +399,46 @@
 		"ScriptFile"					"items/pets/item_pet_rda_secret_1"
 		"AbilitySpecial"
 		{
+			"speed"					"3750 4000 4350 4750 5000 5300 5600 5900 6200 6500"
+			"bonus_health"					"300 325 350 375 400 425 450 475 500 525"
+			"cleave_amount"				"30 35 40 45 55 60 65 70 75 80"
+			"cleave_radius"				"550"
+			"block"					"6 7 8 9 10 11 12 13 14 15"
+			"dmg"					"10 11 12 13 14 15 16 17 18 19"
+			"gold"					"5 6 7 8 9 10 11 12 13 14"
+			// "stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
+		}
+	}	
+	"spell_item_pet_rda_secret_2"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pets/atrib"
+		"ScriptFile"					"items/pets/item_pet_rda_secret_2"
+		"AbilitySpecial"
+		{
+			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
+			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
+			"minus_armor"			"0.15 0.3 0.45 0.6 0.75 0.9 1.05 1.2 1.35 1.5"
+			"dur"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
+			"bkb"					"2 2.5 3 3.5 4 4.5 5 5.5 6 6.5"
+			"phys_percent"					"110 120 130 140 150 160 170 180 190 200"
+			"pure_percent"					"7.5 10 12.5 15 17.5 20 22.5 25 27.5 30"
+			"goex"					"10 11 12 13 14 15 16 17 18 19"
+			"regen"					"2 2.25 2.50 2.75 3 3.25 3.50 3.75 4 4.25"
+		}
+	}
+	"spell_item_pet_rda_secret_3"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pets/atrib"
+		"ScriptFile"					"items/pets/item_pet_rda_secret_3"
+		"AbilitySpecial"
+		{
 			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
 			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
 		}
-	}	
+	}
     //======================================================================================================================================
 }

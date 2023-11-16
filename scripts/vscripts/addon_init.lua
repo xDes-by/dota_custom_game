@@ -47,6 +47,9 @@ LinkLuaModifier( "modifier_animation", "libraries/modifiers/modifier_animation.l
 LinkLuaModifier( "modifier_animation_translate", "libraries/modifiers/modifier_animation_translate.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_animation_translate_permanent", "libraries/modifiers/modifier_animation_translate_permanent.lua", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "effect_projectile_change1", "modifiers/effect_projectile_change1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "effect_projectile_change2", "modifiers/effect_projectile_change2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "effect_projectile_change3", "modifiers/effect_projectile_change3", LUA_MODIFIER_MOTION_NONE )
 
 
 --таланты
