@@ -33,11 +33,11 @@ end
 
 function Wearable:HasAlternativeSkin(sHreoName)
     local t = {
-        -- ["npc_dota_hero_juggernaut"] = true,
-        -- ["npc_dota_hero_slark"] = true,
+        ["npc_dota_hero_juggernaut"] = true,
+        ["npc_dota_hero_slark"] = true,
         ["npc_dota_hero_nevermore"] = true,
-        -- ["npc_dota_hero_pudge"] = true,
-        -- ["npc_dota_hero_spectre"] = true
+        ["npc_dota_hero_pudge"] = true,
+        ["npc_dota_hero_spectre"] = true
     }
     return t[sHreoName] or false
 end
@@ -113,7 +113,7 @@ function Wearable:SetAlternative(Value)
     end
 
     local sHreoName = hUnit:GetUnitName()
-    if not Wearable:HasAlternativeSkin(iPlayerID, sHreoName) then
+    if not Wearable:HasAlternativeSkin(sHreoName) then
         print("Alternative skin not unlocked")
         return
     end

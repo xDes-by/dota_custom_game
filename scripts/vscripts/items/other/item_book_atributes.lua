@@ -13,7 +13,7 @@ function modifier_item_book_atributes:GetTexture()
     return "arm"
 end
 function modifier_item_book_atributes:IsHidden()
-    return true
+    return false
 end
 
 function modifier_item_book_atributes:IsDebuff()

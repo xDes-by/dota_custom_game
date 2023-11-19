@@ -15,12 +15,12 @@ function rating:init()
 	rating.wave_name = ""
 	rating.wave_count = 0
 	rating.wave_need = 0
-	self.RatingTable = {}
-	self.RatingTable[0] = {}
-	self.RatingTable[1] = {}
-	self.RatingTable[2] = {}
-	self.RatingTable[3] = {}
-	self.RatingTable[4] = {}
+	rating.RatingTable = {}
+	rating.RatingTable[0] = {}
+	rating.RatingTable[1] = {}
+	rating.RatingTable[2] = {}
+	rating.RatingTable[3] = {}
+	rating.RatingTable[4] = {}
 end
 
 function rating:pickInit(t)
@@ -29,8 +29,14 @@ function rating:pickInit(t)
 end
 
 function rating:MapOverlay_Hints(t)
-	RATING["rating"][t.PlayerID]['map_hints'] = t.hints == 1
-	DataBase:MapOverlay_Hints(t.PlayerID, tonumber(t.hints))
+	local pid = t.PlayerID
+	rating.RatingTable[pid].map_hints = t.hints == 1
+	CustomNetTables:SetTableValue("GameInfo", tostring(pid), rating.RatingTable[pid])
+	DataBase:Send(DataBase.link.SettingsSetMapHints, "GET", {
+        map_hints = rating.RatingTable[pid].map_hints
+    }, pid, true, function(body)
+		print(body)
+	end)
 end
 
 function rating:OnEntityKilled(keys)
@@ -97,10 +103,11 @@ function rating:PlayerConnectFull(keys)
 	
 end
 
-function rating:PlayerSetup(pid)
-	self.RatingTable[pid].mmr = RATING["rating"][pid]['points']
-	self.RatingTable[pid].map_hints = RATING["rating"][pid]['map_hints'] == 1
-	CustomNetTables:SetTableValue("GameInfo", tostring(pid), self.RatingTable[pid])
+function rating:PlayerSetup(pid, settings)
+	DeepPrintTable(settings)
+	rating.RatingTable[pid].mmr = RATING["rating"][pid]['points']
+	rating.RatingTable[pid].map_hints = settings.map_hints == 1
+	CustomNetTables:SetTableValue("GameInfo", tostring(pid), rating.RatingTable[pid])
 end
 
 function rating:OnPlayerReconnected(keys)

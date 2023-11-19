@@ -263,7 +263,7 @@ function talants:selectTalantButton(t)
     local PlayerID = t.PlayerID
     local arg = t.i .. t.j
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
-        if t.i == "don" and RATING["rating"][PlayerID]["patron"] ~= 1 and DataBase:IsCheatMode() == false then return end
+        if t.i == "don" and (RATING["rating"][PlayerID]["patron"] ~= 1 and not Shop.pShop[PlayerID].golden_branch) and DataBase:IsCheatMode() == false then return end
 
         if t.codeCall then
             if tonumber(talants.tab[t.PlayerID][t.i .. t.j]) > 0 then return end
@@ -413,7 +413,7 @@ end
 function talants:giveExperienceFromQuest(id, n)
     n = n * MultiplierManager:GetTalentExperienceMultiplier(id)
     talants:AddExperience(id, n)
-    if RATING["rating"][id]["patron"] == 1 then
+    if RATING["rating"][id]["patron"] == 1 or Shop.pShop[id].golden_branch then
         talants:AddExperienceDonate(id, n)
     end
 end
@@ -464,7 +464,7 @@ function talants:addskill(nPlayerID, add)
                 end
                 if v == "don" or i <= 5 then
                     ------------------------------------------     модифаеры
-                    if add == true and ( v ~= "don" or RATING["rating"][nPlayerID]["patron"] == 1) then
+                    if add == true and ( v ~= "don" or RATING["rating"][nPlayerID]["patron"] == 1 or Shop.pShop[nPlayerID].golden_branch) then
                         talants:AddModifierFiltered(hero, skillname, i, talants.tab[nPlayerID][arg])
                     elseif add == false then
                         hero:RemoveModifierByName( skillname )
@@ -568,7 +568,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         end
     end
     ------------------------------------------     выдача донатного опыта
-    if RATING["rating"][PlayerID]["patron"] == "1" then
+    if RATING["rating"][PlayerID]["patron"] == 1 or Shop.pShop[PlayerID].golden_branch then
         progress[PlayerID]["donavailable"] = 1
     end
     ------------------------------------------     подсчет уровня
@@ -632,7 +632,7 @@ function talants:fillTabel(PlayerID, isCheat, isload)
         if progress[PlayerID][arg] == 1 then
             freedonpoints = freedonpoints -1
         end
-        if DataBase:IsCheatMode() == false and RATING["rating"][PlayerID]["patron"] ~= 1 then
+        if DataBase:IsCheatMode() == false and (RATING["rating"][PlayerID]["patron"] ~= 1 and not Shop.pShop[PlayerID].golden_branch) then
             progress[PlayerID][arg] = 0
         end
     end
@@ -877,7 +877,6 @@ function talants:AddExperience(pid, value)
     CustomNetTables:SetTableValue("talants", tostring(pid), talants.tab[pid])
 end
 function talants:AddExperienceDonate(pid, value)
-    print(pid, value)
     if value > 0 then
         value = value * MultiplierManager:GetTalentExperienceMultiplier(pid)
         if talants.tab[pid].don2 > 0 then
@@ -891,7 +890,7 @@ function talants:AddExperienceDonate(pid, value)
         talants.tab[pid].totaldonexp = 0
         value = 0
     end
-    if RATING["rating"][pid]["patron"] == nil or RATING["rating"][pid]["patron"] == 0 then
+    if RATING["rating"][pid]["patron"] == 0 and not Shop.pShop[PlayerID].golden_branch then
         return false
     end
     local level = talants:CalculateLevelFromExperience(talants.tab[pid].totaldonexp + value)

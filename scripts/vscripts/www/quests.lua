@@ -8,6 +8,7 @@ function Quests:init()
     self.daily_tasks_number = 3
     self.daily = {}
     self.bp = {}
+    self.settings = {}
     ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
     ListenToGameEvent( "entity_killed", Dynamic_Wrap( self, "OnEntityKilled" ), self)
     ListenToGameEvent( "nommed_tree", Dynamic_Wrap( self, "OnNommedTree" ), self)
@@ -19,7 +20,9 @@ function Quests:init()
     end)
 end
 
-function Quests:SetPlayerData(pid, daily, bp)
+function Quests:SetPlayerData(pid, daily, bp, settings)
+    self.settings[pid] = {}
+    self.settings[pid].quest_auto_submit = settings.quest_auto_submit or 0
     self.daily[pid] = daily
     for i = 1, self.daily_tasks_number do
         local index = self.daily[pid][i].index
