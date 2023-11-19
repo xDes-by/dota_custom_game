@@ -104,10 +104,7 @@ function BattlePass:ResetProgress(pid)
         pass_id = self.player[pid].pass_id
     }, pid, true, nil)
 end
-function BattlePass:AddExperience(pid, value, write)
-    if write == true then
-        self.player[pid].exp_current_game = self.player[pid].exp_current_game + value
-    end
+function BattlePass:AddExperience(pid, value)
     self.player[pid].experience = self.player[pid].experience + value
     self.player[pid].level = self:CalculateLevelFromExperience(self.player[pid].experience)
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)

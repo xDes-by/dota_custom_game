@@ -1030,7 +1030,6 @@ function QuestSystem:giveReward(type, number, task, pid)
 	if player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'] then
 		local experience = tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'])
 		talants:giveExperienceFromQuest(pid, experience)
-		BattlePass:AddExperience(pid, experience, true)
 	end
 	
 	--print('give revard')

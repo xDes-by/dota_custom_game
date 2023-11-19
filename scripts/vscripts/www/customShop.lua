@@ -11,7 +11,7 @@ function CustomShop:UpdateShopInfoTable(pid)
         mmrpoints = Shop.pShop[pid].mmrpoints,
         coins = Shop.pShop[pid].coins,
         feed = Shop.pShop[pid].feed,
-        pet_change = Pets.player[pid].auto_pet,
+        pet_change = Shop.pShop[pid].pet_change,
         likes = _G.RATING['rating'][pid]['likes'], 
 		reports = _G.RATING['rating'][pid]['reports'],
 		purple_gem = Shop.pShop[pid].gems[1],

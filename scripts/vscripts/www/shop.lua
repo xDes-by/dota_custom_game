@@ -240,6 +240,10 @@ function Shop:PlayerSetup( pid, items )
 	arr.totaldonate = _G.SHOP[pid].totaldonate or 0
 	arr.feed = _G.SHOP[pid].feed or 0
 	arr.ban = _G.SHOP[pid].other_60 or 0
+	arr.pet_change = 0
+	if temp.pet_change and temp.pet_change.value > 0 then
+		arr.pet_change = temp.pet_change.value
+	end
 	arr.auto_quest_trial = temp.auto_quest_trial.value
 	arr.golden_branch = temp.golden_branch or false
 	arr.gems = {

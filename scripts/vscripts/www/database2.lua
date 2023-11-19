@@ -58,6 +58,7 @@ function DataBase:init()
 	DataBase.link.BuyPet = _G.host .. "/backend/player-actions/buy-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.HeroVote = _G.host .. "/backend/player-actions/hero-vote?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.DailyReward = _G.host .. "/backend/player-actions/daily-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BpReward = _G.host .. "/backend/player-actions/bp-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.BattlePassBuy = _G.host .. "/backend/player-actions/battle-pass-buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.SettingsSetMapHints = _G.host .. "/backend/player-actions/settings-set-map-hints?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.SettingsSetAutoPet = _G.host .. "/backend/player-actions/settings-set-auto-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -260,6 +261,7 @@ function DataBase:GameSetup()
 			BattlePass.current_season = obj.current_season
 			Pets:AddBattlePassPetsToPetList()
 			BattlePass:UpdateRewardsForCurrentSeason()
+			BattlePass.vote = obj.vote
 			Timers:CreateTimer(0 ,function()
 				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 					rating:pickInit(t)
@@ -666,6 +668,7 @@ function DataBase:PlayerSetup( pid )
 		_G.RATING.rating[pid] = obj.rating
 		_G.RATING.history[pid] = obj.history
 		_G.SHOP[pid] = obj.shop
+		diff_wave:SetPlayerData(pid, obj.settings)
 		Quests:SetPlayerData(pid, obj.daily, obj.bp, obj.settings)
 		Pets:SetPlayerData(pid, obj.items, obj.settings)
 		Shop:PlayerSetup( pid, obj.items)
@@ -679,7 +682,7 @@ function DataBase:PlayerSetup( pid )
 end
 function DataBase:EndGameSession(pid, rating_change)
 	local game_over = true
-	if _G.kill_invoker == false and Entities:FindByName(nil, "npc_dota_goodguys_fort") then
+	if _G.kill_invoker == false or not Entities:FindByName(nil, "npc_dota_goodguys_fort") then
 		game_over = false
 	end
 	local game = {
@@ -692,21 +695,16 @@ function DataBase:EndGameSession(pid, rating_change)
 		golden_experience = talants.tab[pid].gameDonatExp or 0,
 	}
 	local trial = {
-		marci = ChangeHero:GetMarciTrial(pid),
-		silencer = ChangeHero:GetSilencerTrial(pid),
-		quest = QuestSystem.trialPeriodCount[pid],
+		hero_marci_trial = ChangeHero:GetMarciTrial(pid),
+		hero_silencer_trial = ChangeHero:GetSilencerTrial(pid),
+		auto_quest_trial = QuestSystem.trialPeriodCount[pid],
 	}
 	local player = {
 		rating_change = rating_change,
 		hero_name = PlayerResource:GetSelectedHeroName(pid),
-		auto_pet = Shop.Auto_Pet[pid] or "",
 		rp = 0,
 	}
 	local quest_counters = Quests:GetServerDataArray(pid)
-	local battle_pass_experience = {
-		exp_current_game = BattlePass.player[pid].exp_current_game,
-		pass_id = BattlePass.player[pid].pass_id,
-	}
 	if _G.kill_invoker == false then 
 		game.diff = 0
 	end

@@ -16,8 +16,12 @@ function Quests:init()
     ListenToGameEvent( "dota_item_physical_destroyed", Dynamic_Wrap( self, "OnItemDestroyed" ), self)
     
     CustomGameEventManager:RegisterListener("GetDailyAwardButton",function(_, keys)
-        self:GetAwardButton(keys)
+        self:GetDailyAwardButton(keys)
     end)
+    CustomGameEventManager:RegisterListener("GetBpAwardButton",function(_, keys)
+        self:GetBpAwardButton(keys)
+    end)
+    
 end
 
 function Quests:SetPlayerData(pid, daily, bp, settings)
@@ -40,10 +44,11 @@ function Quests:SetPlayerData(pid, daily, bp, settings)
     self:UpdateTable(pid)
 end
 function Quests:UpdateDailyQuets(pid, index)
-    if DataBase:IsCheatMode() or _G.kill_invoker then return end
+    if DataBase:IsCheatMode() then return end
     for _, data in pairs(self.daily[pid]) do
         if data.index == index then
             if data.now >= data.count then return end
+            if not data.count_after_victory and self:IsGameVictory() then return end
             data.now = data.now + 1
             self:UpdateTable(pid)
             break
@@ -51,10 +56,11 @@ function Quests:UpdateDailyQuets(pid, index)
     end
 end
 function Quests:UpdateBpQuets(pid, index)
-    if DataBase:IsCheatMode() or _G.kill_invoker then return end
+    if DataBase:IsCheatMode() then return end
     for _, data in pairs(self.bp[pid]) do
         if data.index == index then
             if data.now >= data.count then return end
+            if not data.count_after_victory and self:IsGameVictory() then return end
             data.now = data.now + 1
             self:UpdateTable(pid)
             break
@@ -73,8 +79,8 @@ function Quests:UpdateCounter(quest_type, pid, index, index2)
     end
 end
 
-function Quests:GetAwardButton(t)
-    if DataBase:IsCheatMode() or _G.kill_invoker then return end
+function Quests:GetDailyAwardButton(t)
+    if DataBase:IsCheatMode() then return end
     for _, data in pairs(self.daily[t.PlayerID]) do
         if data.index == t.index and data.now >= data.count then
             local received = 0
@@ -91,12 +97,33 @@ function Quests:GetAwardButton(t)
             end
             data.received = 1
             prize = CustomShop:AddRP(t.PlayerID, prize, true, false)
-            BattlePass:AddExperience(t.PlayerID, 200, true)
+            BattlePass:AddExperience(t.PlayerID, 100)
             DataBase:Send(DataBase.link.DailyReward, "GET", {
                 id = data.id,
                 prize = prize,
                 now = data.now,
-            }, t.PlayerID, true, nil)
+                pass_id = BattlePass.player[t.PlayerID].pass_id,
+                experience = 100,
+            }, t.PlayerID, not DataBase:IsCheatMode(), nil)
+            self:UpdateTable(t.PlayerID)
+            break
+        end
+    end
+end
+
+function Quests:GetBpAwardButton(t)
+    if DataBase:IsCheatMode() then return end
+    for _, data in pairs(self.bp[t.PlayerID]) do
+        if data.index == t.index and data.now >= data.count and data.received == 0 then
+            data.received = 1
+            
+            BattlePass:AddExperience(t.PlayerID, 1000)
+            DataBase:Send(DataBase.link.BpReward, "GET", {
+                id = data.id,
+                now = data.now,
+                pass_id = BattlePass.player[t.PlayerID].pass_id,
+                experience = 1000,
+            }, t.PlayerID, not DataBase:IsCheatMode(), nil)
             self:UpdateTable(t.PlayerID)
             break
         end
@@ -195,5 +222,7 @@ function Quests:UpdateTable(pid)
         bp = self.bp[pid],
     })
 end
-
+function Quests:IsGameVictory()
+    return _G.kill_invoker
+end
 Quests:init()

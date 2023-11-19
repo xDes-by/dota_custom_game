@@ -300,7 +300,6 @@ Wearable.abilities_particles = {
 }
 
 if not Wearable.bInit then
-    --@todo: ивент для смены облика или возвращения в первоначальный вид
     CustomGameEventManager:RegisterListener("SetAlternative", Dynamic_Wrap( Wearable, 'SetAlternative' ))
     CustomGameEventManager:RegisterListener("SetDefault", Dynamic_Wrap( Wearable, 'SetDefault' ))
     Wearable.bInit = true

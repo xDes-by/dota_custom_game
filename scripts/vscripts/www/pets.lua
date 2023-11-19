@@ -153,7 +153,7 @@ function Pets:OnFeed(t)
 	if self.player[pid].pets[name].remaining_games_count ~= nil or self.player[pid].pets[name].end_date ~= nil then return end
 
 	Shop.pShop[pid]["feed"] = Shop.pShop[pid]["feed"] - count
-    self.player[pid].pets[name].value = self.player[pid][name].value + count
+    self.player[pid].pets[name].value = self.player[pid].pets[name].value + count
     if self.current_pet_name[pid] == name then
         local level = self:CalculateLevelFromExperience(self.player[pid].pets[name].value)
         local hero = PlayerResource:GetSelectedHeroEntity(pid)
@@ -163,11 +163,9 @@ function Pets:OnFeed(t)
     CustomShop:UpdateShopInfoTable(pid)
     CustomNetTables:SetTableValue('Pets', tostring(pid), self.player[pid])
     DataBase:Send(DataBase.link.FeedPet, "GET", {
-        id = self.player[pid][name].id,
+        id = self.player[pid].pets[name].id,
         feed = count,
-    }, pid, not DataBase:IsCheatMode(), function(body)
-        print(body)
-    end)
+    }, pid, not DataBase:IsCheatMode(), nil)
 end
 function Pets:OnBuyShop(t)
 	local pid = t.PlayerID

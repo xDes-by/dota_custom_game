@@ -22,7 +22,7 @@ function diff_wave:init()
 	CustomGameEventManager:RegisterListener("GameSettingsInit",function(_, keys)
         self:GameSettingsInit(keys)
     end)
-	
+	self.maximum_passed_difficulty = {}
 end
 
 function diff_wave:GameSettings(t)
@@ -32,10 +32,13 @@ end
 
 function diff_wave:GameSettingsInit(t)
 	Timers:CreateTimer(0 ,function()
-		if not RATING or not RATING["rating"] or not RATING["rating"][t.PlayerID] then return 0.1 end
-		local maximum_passed_difficulty = RATING["rating"][t.PlayerID]["maximum_passed_difficulty"]
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {maximum_passed_difficulty = maximum_passed_difficulty} )
+		if self.maximum_passed_difficulty[t.PlayerID] == nil then return 0.1 end
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {maximum_passed_difficulty = self.maximum_passed_difficulty[t.PlayerID]} )
 	end)
+end
+
+function diff_wave:SetPlayerData(pid, settings)
+	self.maximum_passed_difficulty[pid] = settings.maximum_passed_difficulty
 end
 
 function diff_wave:OnGameStateChanged(t)
