@@ -1,55 +1,55 @@
-LinkLuaModifier( "modifier_pet_rda_secret_2", "items/pets/item_pet_rda_secret_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_pet_rda_secret_2", "items/pets/item_pet_rda_secret_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pet_rda_roshan_2", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_pet_rda_roshan_2", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_custompet_bkb", "items/pets/item_pet_rda_secret_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_custompet_delay", "items/pets/item_pet_rda_secret_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_custompet_bkb", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_custompet_delay", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_pet_rda_250_minus_armor_debuff", "items/pets/item_pet_RDA_250_minus_armor", LUA_MODIFIER_MOTION_NONE )
 
-spell_item_pet_rda_secret_2 = class({})
+spell_item_pet_rda_roshan_2 = class({})
 
-function spell_item_pet_rda_secret_2:OnSpellStart()
+function spell_item_pet_rda_roshan_2:OnSpellStart()
 	if IsServer() then
 		self.caster = self:GetCaster()
 		
 		self.caster:AddNewModifier(
 		self.caster,
 		self,
-		"modifier_pet_rda_secret_2", 
+		"modifier_pet_rda_roshan_2", 
 		{})
 		EmitSoundOn( "Hero_Lion.Voodoo", self:GetCaster() )
 	end
 end
 
-function spell_item_pet_rda_secret_2:GetIntrinsicModifierName()
-	return "modifier_item_pet_rda_secret_2"
+function spell_item_pet_rda_roshan_2:GetIntrinsicModifierName()
+	return "modifier_item_pet_rda_roshan_2"
 end
 
-modifier_item_pet_rda_secret_2 = class({})
+modifier_item_pet_rda_roshan_2 = class({})
 
-function modifier_item_pet_rda_secret_2:IsHidden()
+function modifier_item_pet_rda_roshan_2:IsHidden()
 	return true
 end
 
-function modifier_item_pet_rda_secret_2:IsPurgable()
+function modifier_item_pet_rda_roshan_2:IsPurgable()
 	return false
 end
 
-function modifier_item_pet_rda_secret_2:OnCreated( kv )
+function modifier_item_pet_rda_roshan_2:OnCreated( kv )
 		if IsServer() then
 		local point = self:GetCaster():GetAbsOrigin()
 		if not self:GetCaster():IsIllusion() then
-			self.pet = CreateUnitByName("pet_rda_secret_2", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			self.pet = CreateUnitByName("pet_rda_roshan_2", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
 			self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
 			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 			self.pet:SetOwner(self:GetCaster())
 		end
 end
 end
-function modifier_item_pet_rda_secret_2:OnDestroy()
+function modifier_item_pet_rda_roshan_2:OnDestroy()
 	UTIL_Remove(self.pet)
 end
 
-function modifier_item_pet_rda_secret_2:DeclareFunctions()
+function modifier_item_pet_rda_roshan_2:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
@@ -66,30 +66,30 @@ function modifier_item_pet_rda_secret_2:DeclareFunctions()
 	}
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierTotalPercentageManaRegen()
+function modifier_pet_rda_250_regen:GetModifierTotalPercentageManaRegen()
 	return self:GetAbility():GetSpecialValueFor("regen")
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierHealthRegenPercentage()
+function modifier_pet_rda_250_regen:GetModifierHealthRegenPercentage()
 	return self:GetAbility():GetSpecialValueFor("regen")
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierProcAttack_BonusDamage_Pure()
+function modifier_item_pet_rda_roshan_2:GetModifierProcAttack_BonusDamage_Pure()
 	return self:GetParent():GetAttackDamage() * self:GetAbility():GetSpecialValueFor("pure_percent") * 0.01
 end
 
-function modifier_item_pet_rda_secret_2:OnAttack(keys)
+function modifier_item_pet_rda_roshan_2:OnAttack(keys)
 	self.cast = 0
 end
 
-function modifier_item_pet_rda_secret_2:OnAbilityFullyCast(keys)
+function modifier_item_pet_rda_roshan_2:OnAbilityFullyCast(keys)
 	self.cast = 0
 	if keys.ability:IsItem() then
 		self.cast = 1
 	end
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierTotalDamageOutgoing_Percentage(keys)
+function modifier_item_pet_rda_roshan_2:GetModifierTotalDamageOutgoing_Percentage(keys)
 	if self.cast == 1 then
 		return 0
 	end
@@ -103,109 +103,106 @@ function modifier_item_pet_rda_secret_2:GetModifierTotalDamageOutgoing_Percentag
 	end
 end
 
-function modifier_item_pet_rda_secret_2:OnAttackLanded(keys)
-	if keys.attacker == self:GetParent() and self:GetParent():HasModifier("modifier_item_pet_rda_secret_2") then
+function modifier_item_pet_rda_roshan_2:OnAttackLanded(keys)
+	if keys.attacker == self:GetParent() and self:GetParent():HasModifier("modifier_item_pet_rda_roshan_2") then
 		keys.target:AddNewModifier(self:GetCaster(),self:GetAbility(),"modifier_pet_rda_250_minus_armor_debuff", {duration = 5})	
 	end
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierPercentageGoldRateBoost()
+function modifier_item_pet_rda_roshan_2:GetModifierPercentageGoldRateBoost()
 	return self:GetAbility():GetSpecialValueFor("goex")
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierPercentageExpRateBoost()
+function modifier_item_pet_rda_roshan_2:GetModifierPercentageExpRateBoost()
 	return self:GetAbility():GetSpecialValueFor("goex")
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierIncomingDamage_Percentage()
+function modifier_item_pet_rda_roshan_2:GetModifierIncomingDamage_Percentage()
 	return self:GetAbility():GetSpecialValueFor("dur")
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierBonusStats_Strength()
+function modifier_item_pet_rda_roshan_2:GetModifierBonusStats_Strength()
 	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierBonusStats_Agility()
+function modifier_item_pet_rda_roshan_2:GetModifierBonusStats_Agility()
 	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
 end
 
-function modifier_item_pet_rda_secret_2:GetModifierBonusStats_Intellect()
+function modifier_item_pet_rda_roshan_2:GetModifierBonusStats_Intellect()
 	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-modifier_pet_rda_secret_2 = class({})
+modifier_pet_rda_roshan_2 = class({})
 
-function modifier_pet_rda_secret_2:IsHidden()
+function modifier_pet_rda_roshan_2:IsHidden()
 	return true
 end
 
-function modifier_pet_rda_secret_2:IsDebuff()
+function modifier_pet_rda_roshan_2:IsDebuff()
 	return false
 end
 
-function modifier_pet_rda_secret_2:IsPurgable()
+function modifier_pet_rda_roshan_2:IsPurgable()
 	return false
 end
 
-function modifier_pet_rda_secret_2:OnCreated( kv ) 
+function modifier_pet_rda_roshan_2:OnCreated( kv ) 
 	self.caster = self:GetCaster()
 	
 	self.speed = self:GetAbility():GetSpecialValueFor( "speed" )
 
 end
 
-function modifier_pet_rda_secret_2:CheckState()
+function modifier_pet_rda_roshan_2:CheckState()
 	local state = {
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 	return state
 end
 
-function modifier_pet_rda_secret_2:DeclareFunctions()
+function modifier_pet_rda_roshan_2:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_SPENT_MANA,
-		MODIFIER_PROPERTY_VISUAL_Z_DELTA
 	}
 	return funcs
 end
 
-function modifier_pet_rda_secret_2:GetVisualZDelta()
-	return 100
-end
 
-function modifier_pet_rda_secret_2:GetModifierModelChange(params)
+
+function modifier_pet_rda_roshan_2:GetModifierModelChange(params)
  return "models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
 end
 
-function modifier_pet_rda_secret_2:GetModifierMoveSpeed_Absolute()
+function modifier_pet_rda_roshan_2:GetModifierMoveSpeed_Absolute()
 	return self.speed
 end
 
-function modifier_pet_rda_secret_2:GetModifierIncomingDamage_Percentage()
+function modifier_pet_rda_roshan_2:GetModifierIncomingDamage_Percentage()
 	return 300
 end
 
-function modifier_pet_rda_secret_2:OnAttack( params )
+function modifier_pet_rda_roshan_2:OnAttack( params )
 	if IsServer() then
 	if params.attacker~=self:GetParent() then return end
 	--if params.target:GetTeamNumber()==self:GetParent():GetTeamNumber() then return end
 	EmitSoundOn("DOTA_Item.BlackKingBar.Activate", self.caster)
 	self.caster:AddNewModifier(self:GetParent(), nil, "modifier_custompet_bkb", {duration = self:GetAbility():GetSpecialValueFor("bkb")})
 	self.caster:AddNewModifier(self:GetParent(), nil, "modifier_custompet_delay", {duration = 30})
-	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_secret_2", self:GetParent() )
+	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_2", self:GetParent() )
 	if not modifier then return end
 	
 	modifier:Destroy()
 end
 end
 
-function modifier_pet_rda_secret_2:OnSpentMana( params )
+function modifier_pet_rda_roshan_2:OnSpentMana( params )
 	if IsServer() then
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
@@ -220,7 +217,7 @@ function modifier_pet_rda_secret_2:OnSpentMana( params )
     self.mana_loss = self.mana_loss + params.cost
 	if self.mana_loss >= 10 then
 
-	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_secret_2", self:GetParent() )
+	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_2", self:GetParent() )
 	if not modifier then return end
 	
 	modifier:Destroy()

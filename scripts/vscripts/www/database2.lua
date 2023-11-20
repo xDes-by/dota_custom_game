@@ -58,8 +58,17 @@ function DataBase:init()
 	DataBase.link.BuyPet = _G.host .. "/backend/player-actions/buy-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.HeroVote = _G.host .. "/backend/player-actions/hero-vote?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.DailyReward = _G.host .. "/backend/player-actions/daily-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	DataBase.link.ChangeAutoPet = _G.host .. "/backend/player-actions/change-auto-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BpReward = _G.host .. "/backend/player-actions/bp-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.BattlePassBuy = _G.host .. "/backend/player-actions/battle-pass-buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SettingsSetMapHints = _G.host .. "/backend/player-actions/settings-set-map-hints?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SettingsSetAutoPet = _G.host .. "/backend/player-actions/settings-set-auto-pet?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SettingsSetParticle = _G.host .. "/backend/player-actions/settings-set-particle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SettingsSetAutoModels = _G.host .. "/backend/player-actions/settings-set-auto-models?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SettingsSetAutoQuest = _G.host .. "/backend/player-actions/settings-set-auto-quest?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BuyShop = _G.host .. "/backend/player-actions/buy-shop?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BuyGems = _G.host .. "/backend/player-actions/buy-gems?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.BuyHotOffer = _G.host .. "/backend/player-actions/buy-hot-offer?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TreasureReward = _G.host .. "/backend/player-actions/treasure-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
@@ -249,6 +258,10 @@ function DataBase:GameSetup()
 			_G.RATING.top = obj.top
 			_G.RATING.bg = obj.bg
 			_G.RATING.seasons = obj.seasons
+			BattlePass.current_season = obj.current_season
+			Pets:AddBattlePassPetsToPetList()
+			BattlePass:UpdateRewardsForCurrentSeason()
+			BattlePass.vote = obj.vote
 			Timers:CreateTimer(0 ,function()
 				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 					rating:pickInit(t)
@@ -299,64 +312,18 @@ function DataBase:GameSetup()
 	-- end)
 end
 
-function DataBase:PlayerSetup( pid )
-	local data = json.encode({
-		sid = PlayerResource:GetSteamAccountID(pid),
-		name = PlayerResource:GetPlayerName(pid),
-	})
-	local req = CreateHTTPRequestScriptVM( "GET", DataBase.playerSetupLink )
-	req:SetHTTPRequestGetOrPostParameter('arr',data)
-	print(data)
-	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-	req:Send(function(res)
-		print("PlayerSetup")
-		print("StatusCode: ", res.StatusCode)
-		print("Body: ", res.Body)
-		if res.StatusCode == 200 and res.Body ~= nil then
-			local obj = json.decode(res.Body)
-			_G.RATING.rating[pid] = obj.rating
-			_G.RATING.history[pid] = obj.history
-			_G.SHOP[pid] = obj.shop
-			DeepPrintTable(obj.daily)
-			Quests:SetPlayerData(pid, obj.daily, obj.bp)
-			Pets:SetPlayerData(pid, obj.pets)
-			Shop:PlayerSetup( pid )
-			rating:PlayerSetup(pid)
-			BattlePass:SetPlayerData(pid, obj.battle_pass)
-			MultiplierManager:SetTalentExperienceList(pid, (obj.booster_experience or {}))
-			MultiplierManager:SetCurrencyRpList(pid, (obj.booster_rp or {}))
-			DeepPrintTable(obj.souls)
-			sInv:OnStart(pid, (obj.souls or {}))
-		end
-	end)
-end
+
 
 function DataBase:buyRequest(t)
-	if DataBase:IsCheatMode() then return end
-	
-	if currency == nil then
-		currency = "gems"
-	end
-	local arr = {
-		sid = PlayerResource:GetSteamAccountID( t.PlayerID ),
-		price = t.price,
-		currency = t.currency,
-		name = t.name,
-		give = t.give,
-		hero_name = PlayerResource:GetSelectedHeroName(t.PlayerID),
-		amount = t.amount,
-	}
-	DeepPrintTable(arr)
-	local req = CreateHTTPRequestScriptVM( "GET", DataBase.buy .. '&sid=' .. arr['sid'] )
-    arr = json.encode(arr)
-	-- print(arr)
-	req:SetHTTPRequestGetOrPostParameter('arr',arr)
-	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-	req:Send(function(res)
-		if res.StatusCode == 200 then
-			-- print(res.Body)
-		end
-	end)
+	-- local pid = t.PlayerID
+	-- local send = {
+	-- 	t.currency = t.price,
+	-- 	name = t.name,
+	-- 	give = t.give,
+	-- 	hero_name = PlayerResource:GetSelectedHeroName(pid),
+	-- 	amount = t.amount,
+	-- }
+	-- DataBase:Send(DataBase.link.BuyShop, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 
 function DataBase:CommentChange(t)
@@ -691,10 +658,31 @@ function DataBase:MapOverlay_Hints(pid, hints)
 	end)
 end
 -------------------------------------------------------------------------------------------------------------------
-
+function DataBase:PlayerSetup( pid )
+	DataBase:Send(DataBase.playerSetupLink, "GET", {
+		name = PlayerResource:GetPlayerName(pid)
+	}, pid, true, function(body)
+		print("PlayerSetup")
+		print("Body: ", body)
+		local obj = json.decode(body)
+		_G.RATING.rating[pid] = obj.rating
+		_G.RATING.history[pid] = obj.history
+		_G.SHOP[pid] = obj.shop
+		diff_wave:SetPlayerData(pid, obj.settings)
+		Quests:SetPlayerData(pid, obj.daily, obj.bp, obj.settings)
+		Pets:SetPlayerData(pid, obj.items, obj.settings)
+		Shop:PlayerSetup( pid, obj.items)
+		rating:PlayerSetup(pid, obj.settings)
+		BattlePass:SetPlayerData(pid, obj.battle_pass, obj.settings)
+		BattlePass:UpdatePlayerCosmeticEffects(pid, obj.items)
+		BattlePass:UpdatePlayerHeroModels(pid, obj.items)
+		MultiplierManager:SetPlayerData(pid, obj.items)
+		sInv:SetPlayerData(pid, obj.items)
+	end)
+end
 function DataBase:EndGameSession(pid, rating_change)
 	local game_over = true
-	if _G.kill_invoker == false and Entities:FindByName(nil, "npc_dota_goodguys_fort") then
+	if _G.kill_invoker == false or not Entities:FindByName(nil, "npc_dota_goodguys_fort") then
 		game_over = false
 	end
 	local game = {
@@ -707,21 +695,16 @@ function DataBase:EndGameSession(pid, rating_change)
 		golden_experience = talants.tab[pid].gameDonatExp or 0,
 	}
 	local trial = {
-		marci = ChangeHero:GetMarciTrial(pid),
-		silencer = ChangeHero:GetSilencerTrial(pid),
-		quest = QuestSystem.trialPeriodCount[pid],
+		hero_marci_trial = ChangeHero:GetMarciTrial(pid),
+		hero_silencer_trial = ChangeHero:GetSilencerTrial(pid),
+		auto_quest_trial = QuestSystem.trialPeriodCount[pid],
 	}
 	local player = {
 		rating_change = rating_change,
 		hero_name = PlayerResource:GetSelectedHeroName(pid),
-		auto_pet = Shop.Auto_Pet[pid] or "",
 		rp = 0,
 	}
 	local quest_counters = Quests:GetServerDataArray(pid)
-	local battle_pass_experience = {
-		exp_current_game = BattlePass.player[pid].exp_current_game,
-		pass_id = BattlePass.player[pid].pass_id,
-	}
 	if _G.kill_invoker == false then 
 		game.diff = 0
 	end
@@ -751,6 +734,11 @@ function DataBase:Send(path, method, data, pid, check, callback)
 			print(key, json.encode(value))
 		end
 		if type(value) == "number" or type(value) == "string" then
+			req:SetHTTPRequestGetOrPostParameter(key ,tostring(value))
+			print(key, value)
+		end
+		if type(value) == "boolean" then
+			if value then value = 1 else value = 0 end
 			req:SetHTTPRequestGetOrPostParameter(key ,tostring(value))
 			print(key, value)
 		end

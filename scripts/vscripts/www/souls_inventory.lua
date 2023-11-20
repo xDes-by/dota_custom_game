@@ -10,6 +10,8 @@ function sInv:init()
     ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
     ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( self, "OnItemPickUp"), self)
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( self, 'OnGameStateChanged' ), self )
+    ListenToGameEvent( "entity_killed", Dynamic_Wrap( self, "OnEntityKilled" ), self)
+    self.souls = {"item_forest_soul","item_village_soul","item_mines_soul","item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul","item_antimage_soul","item_dragon_soul","item_dragon_soul_2","item_dragon_soul_3"}
     self.item_forest_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_village_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
     self.item_mines_soul = {[0]=0,[1]=0,[2]=0,[3]=0,[4]=0}
@@ -101,9 +103,13 @@ function sInv:GetSoul(t)
     hero:AddItemByName(t.name)
     sInv:UpdateInventory(t.PlayerID)
 end
-function sInv:OnStart(pid, obj)
-    for _, value in pairs(obj) do
-        sInv:AddSoul(value.soul_name, pid)
+function sInv:SetPlayerData(pid, items)
+    for _, item in pairs(items) do
+        if table.has_value(self.souls, item.name) then
+            for i = 1, item.value do
+                sInv:AddSoul(item.name, pid)
+            end
+        end
     end
 end
 function sInv:OnGameStateChanged(t)
@@ -111,6 +117,29 @@ function sInv:OnGameStateChanged(t)
     if state >= DOTA_GAMERULES_STATE_PRE_GAME then
         for i = 0, 4 do
             sInv:UpdateInventory(i)
+        end
+    end
+end
+function sInv:OnEntityKilled( keys )
+    local killedUnit = EntIndexToHScript( keys.entindex_killed )
+	local killerEntity = EntIndexToHScript( keys.entindex_attacker )
+    if killedUnit:GetUnitName() == 'raid_boss' then
+        self.raid_boss = true
+    end
+    if killedUnit:GetUnitName() == 'raid_boss2' then
+        self.raid_boss2 = true
+    end
+    if killedUnit:GetUnitName() == 'raid_boss3' then
+        self.raid_boss3 = true
+    end
+    if killedUnit:GetUnitName() == 'raid_boss4' then
+        self.raid_boss4 = true
+    end
+    if self.raid_boss and self.raid_boss2 and self.raid_boss3 and self.raid_boss4 then
+        for i = 0, 4 do
+            if PlayerResource:IsValidPlayer(i) then
+                self:AddSoul('item_magma_soul', i)
+            end
         end
     end
 end

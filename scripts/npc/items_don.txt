@@ -902,6 +902,102 @@
 		}
 	}		
 
+"item_book_mage_damage"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_7"
+		"ScriptFile"					"items/other/book_mage_damage"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"150.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}	
+
+"item_book_phys_damage"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_8"
+		"ScriptFile"					"items/other/book_phys_damage"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"150.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}	
+
+	"item_book_gold"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
+        "BaseClass"						"item_lua"
+		"AbilityTextureName"			"scroll_9"
+		"ScriptFile"					"items/other/book_gold"
+		"ItemPurchasable"				"0"
+		"AbilityCooldown"				"150.0"
+		"ItemDroppable" 				"1"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"500"
+		"ItemInitialCharges"			"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed"			"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"300"
+			}
+		}
+	}	
+	
 "item_str"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       

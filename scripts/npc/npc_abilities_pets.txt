@@ -391,13 +391,13 @@
 		}
 	}
 	//======================================================================================================================================
-	"spell_item_pet_rda_secret_1"
+	"spell_item_pet_rda_roshan_1"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
-		"AbilityTextureName"			"pets/atrib"
-		"ScriptFile"					"items/pets/item_pet_rda_secret_1"
-		"AbilitySpecial"
+		"AbilityTextureName"			"pets/babyroshan_png"
+		"ScriptFile"					"items/pets/item_pet_rda_roshan_1"
+		"AbilityValues"
 		{
 			"speed"					"3750 4000 4350 4750 5000 5300 5600 5900 6200 6500"
 			"bonus_health"					"300 325 350 375 400 425 450 475 500 525"
@@ -409,13 +409,13 @@
 			// "stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
 		}
 	}	
-	"spell_item_pet_rda_secret_2"
+	"spell_item_pet_rda_roshan_2"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
-		"AbilityTextureName"			"pets/atrib"
-		"ScriptFile"					"items/pets/item_pet_rda_secret_2"
-		"AbilitySpecial"
+		"AbilityTextureName"			"pets/babyroshan_elemental2_png"
+		"ScriptFile"					"items/pets/item_pet_rda_roshan_2"
+		"AbilityValues"
 		{
 			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
 			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
@@ -428,13 +428,13 @@
 			"regen"					"2 2.25 2.50 2.75 3 3.25 3.50 3.75 4 4.25"
 		}
 	}
-	"spell_item_pet_rda_secret_3"
+	"spell_item_pet_rda_bp_1"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
-		"AbilityTextureName"			"pets/atrib"
-		"ScriptFile"					"items/pets/item_pet_rda_secret_3"
-		"AbilitySpecial"
+		"AbilityTextureName"			"pets/baby_winter_wyvern_png"
+		"ScriptFile"					"items/pets/item_pet_rda_bp_1"
+		"AbilityValues"
 		{
 			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
 			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"

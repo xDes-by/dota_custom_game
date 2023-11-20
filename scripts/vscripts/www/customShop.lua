@@ -12,7 +12,6 @@ function CustomShop:UpdateShopInfoTable(pid)
         coins = Shop.pShop[pid].coins,
         feed = Shop.pShop[pid].feed,
         pet_change = Shop.pShop[pid].pet_change,
-        auto_pet = Shop.pShop[pid].auto_pet,
         likes = _G.RATING['rating'][pid]['likes'], 
 		reports = _G.RATING['rating'][pid]['reports'],
 		purple_gem = Shop.pShop[pid].gems[1],
@@ -51,6 +50,7 @@ function CustomShop:AddCoins(pid, value, notification, sendToServer)
             value = value
         }
     }, pid, sendToServer, nil)
+    return value
 end
 
 function CustomShop:AddGems(pid, info, sendToServer)

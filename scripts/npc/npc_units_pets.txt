@@ -317,9 +317,9 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"		
     }	
-"pet_rda_secret_1"
+"pet_rda_roshan_1"
     {
-		"vscripts"       			"items/pets/ai/item_pet_rda_secret_1.lua"
+		"vscripts"       			"items/pets/ai/item_pet_rda_roshan_1.lua"
 		"BaseClass" 				"npc_dota_creature"
 		"Model" 					"models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
 		"Ability1"					"pet_ability"
@@ -332,11 +332,11 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"
     }	
-"pet_rda_secret_2"
+"pet_rda_roshan_2"
     {
-		"vscripts"       			"items/pets/ai/item_pet_rda_secret_2.lua"
+		"vscripts"       			"items/pets/ai/item_pet_rda_roshan_2.lua"
 		"BaseClass" 				"npc_dota_creature"
-		"Model" 					"models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
+		"Model" 					"models/courier/baby_rosh/babyroshan_ti10_flying.vmdl"
 		"Ability1"					"pet_ability"
 		"AttackCapabilities" 		"DOTA_UNIT_CAP_NO_ATTACK" 
 		"MovementCapabilities"   	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -347,11 +347,12 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"
     }
-"pet_rda_secret_3"
+"pet_rda_bp_1"
     {
-		"vscripts"       			"items/pets/ai/item_pet_rda_secret_3.lua"
+		"vscripts"       			"items/pets/ai/item_pet_rda_bp_1.lua"
 		"BaseClass" 				"npc_dota_creature"
-		"Model" 					"models/courier/baby_rosh/babyroshan_ti10_flying.vmdl"
+		"Model" 					"models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
+		// "Model" 					"models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
 		"Ability1"					"pet_ability"
 		"AttackCapabilities" 		"DOTA_UNIT_CAP_NO_ATTACK" 
 		"MovementCapabilities"   	"DOTA_UNIT_CAP_MOVE_GROUND"

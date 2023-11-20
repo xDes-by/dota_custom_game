@@ -35,6 +35,7 @@ function Pets:init()
         self.current_pet_name[i] = ""
         self.current_pet_spell[i] = "spell_item_pet"
     end
+    self.pet_names = {}
 end
 function Pets:OnGameRulesStateChange()
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
@@ -44,25 +45,34 @@ function Pets:OnGameRulesStateChange()
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         for pid = 0, 4 do
             if PlayerResource:IsValidPlayer(pid) then
-                print("auto_pet", Shop.pShop[pid].auto_pet)
-                if Shop.pShop[pid].auto_pet ~= "" then
-                    self:Equip(pid, Shop.pShop[pid].auto_pet)
+                if table.count(self.player[pid].pets) > 0 then
+                    local auto_pet = self.player[pid].auto_pet
+                    if auto_pet ~= "" and self.player[pid].pets[auto_pet] and self.player[pid].pets[auto_pet].value > 0 then
+                        self:Equip(pid, auto_pet)
+                    else
+                        local pet_value, pet_key = table.random(self.player[pid].pets)
+                        self:Equip(pid, pet_key)
+                    end
                 else
                     self:EquipFree(pid)
                 end
             end
         end
     end
-    
 end
-function Pets:SetPlayerData(pid, obj)
+function Pets:SetPlayerData(pid, items, settings)
     self.player[pid] = {}
-    for _, pet in pairs(obj) do
-        if self.player[pid][pet.name] ~= nil and self.player[pid][pet.name].value < pet.value then
-            self.player[pid][pet.name] = pet
-        elseif self.player[pid][pet.name] == nil then
-            self.player[pid][pet.name] = pet
+    self.player[pid].pets = {}
+    self.player[pid].auto_pet = settings.auto_pet or ""
+    for _, item in pairs(items) do
+        if table.has_value(self.pet_names, item.name) then
+            if self.player[pid].pets[item.name] == nil or self.player[pid].pets[item.name].value < item.value then
+                self.player[pid].pets[item.name] = item
+            end
         end
+    end
+    if not self.player[pid].pets[settings.auto_pet] then
+        self.player[pid].auto_pet = ""
     end
     CustomNetTables:SetTableValue('Pets', tostring(pid), self.player[pid])
 end
@@ -90,7 +100,7 @@ end
 function Pets:EquipPanoramaEvent(t)
     local pid = t.PlayerID
     local name = t.name
-    if self.player[pid][name] == nil or self.player[pid][name].value <= 0 then return end
+    if self.player[pid].pets[name] == nil or self.player[pid].pets[name].value <= 0 then return end
     if not (self.change_limit[pid] > 0 or Shop.pShop[pid].pet_change == 1) then return end
     local equip = self:Equip(pid, name)
     if equip and Shop.pShop[pid].pet_change == 0 then
@@ -104,9 +114,9 @@ function Pets:Equip(pid, name)
     local spell = "spell_item_pet"
     local level = 1
     hero:RemoveAbility(self.current_pet_spell[pid])
-    if self.current_pet_name[pid] ~= name then
+    if self.current_pet_name[pid] ~= 'spell_item_pet' and self.current_pet_name[pid] ~= name then
         spell = self:FindSpellNameByName(name)
-        level = self:CalculateLevelFromExperience(self.player[pid][name].value)
+        level = self:CalculateLevelFromExperience(self.player[pid].pets[name].value)
         equip = true
     else
         name =  "spell_item_pet"
@@ -140,12 +150,12 @@ function Pets:OnFeed(t)
 	local count = tonumber(t.count)
 
 	if Shop.pShop[pid]["feed"] < count then return end
-	if self.player[pid][name].remaining_games_count ~= nil or self.player[pid][name].end_date ~= nil then return end
+	if self.player[pid].pets[name].remaining_games_count ~= nil or self.player[pid].pets[name].end_date ~= nil then return end
 
 	Shop.pShop[pid]["feed"] = Shop.pShop[pid]["feed"] - count
-    self.player[pid][name].value = self.player[pid][name].value + count
+    self.player[pid].pets[name].value = self.player[pid].pets[name].value + count
     if self.current_pet_name[pid] == name then
-        local level = self:CalculateLevelFromExperience(self.player[pid][name].value)
+        local level = self:CalculateLevelFromExperience(self.player[pid].pets[name].value)
         local hero = PlayerResource:GetSelectedHeroEntity(pid)
         local ability = hero:FindAbilityByName(self.current_pet_spell[pid])
         ability:SetLevel(level)
@@ -153,11 +163,9 @@ function Pets:OnFeed(t)
     CustomShop:UpdateShopInfoTable(pid)
     CustomNetTables:SetTableValue('Pets', tostring(pid), self.player[pid])
     DataBase:Send(DataBase.link.FeedPet, "GET", {
-        id = self.player[pid][name].id,
+        id = self.player[pid].pets[name].id,
         feed = count,
-    }, pid, not DataBase:IsCheatMode(), function(body)
-        print(body)
-    end)
+    }, pid, not DataBase:IsCheatMode(), nil)
 end
 function Pets:OnBuyShop(t)
 	local pid = t.PlayerID
@@ -224,24 +232,38 @@ function Pets:OnBuyPet(t)
     end
     send.name = name
     CustomShop:UpdateShopInfoTable(pid)
-    self.player[pid][name] = { status = "loading" }
+    self.player[pid].pets[name] = { status = "loading" }
     CustomNetTables:SetTableValue('Pets', tostring(pid), self.player[pid])
     DataBase:Send(DataBase.link.BuyPet, "GET", send, pid, not DataBase:IsCheatMode(), function(body)
-        self.player[pid][name] = json.decode(body)
+        self.player[pid].pets[name] = json.decode(body)
         CustomNetTables:SetTableValue('Pets', tostring(pid), self.player[pid])
     end)
 end
 function Pets:ChangeAutoPet(t)
-    DeepPrintTable(t)
     local pid = t.PlayerID
     if t.checked == 1 then
-        Shop.pShop[pid].auto_pet = t.name 
+        self.player[pid].auto_pet = t.name 
     else
-        Shop.pShop[pid].auto_pet = ""
+        self.player[pid].auto_pet = ""
     end
     CustomShop:UpdateShopInfoTable(pid)
-    DataBase:Send(DataBase.link.ChangeAutoPet, "GET", {
-        auto_pet = Shop.pShop[pid].auto_pet
+    DataBase:Send(DataBase.link.SettingsSetAutoPet, "GET", {
+        auto_pet = self.player[pid].auto_pet
     }, pid, true, nil)
+end
+function Pets:AddBattlePassPetsToPetList()
+    for key, value in pairs(battle_pass_pets) do
+        table.insert(self.list[6], value)
+        if key <= BattlePass.current_season - 3 then
+            local last_index = #self.list[6]
+            self.list[6][last_index].price.don = 300
+        end
+    end
+    for _, tier in pairs(self.list) do
+        for _, pet in pairs(tier) do
+            table.insert(self.pet_names, pet.name)
+        end
+    end
+    CustomNetTables:SetTableValue('Pets', "list", self.list)
 end
 Pets:init()

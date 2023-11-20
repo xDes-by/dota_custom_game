@@ -17,6 +17,10 @@ function BattlePass:init()
     CustomGameEventManager:RegisterListener("BattlePassBuy",function(_, keys)
         self:OnBuy(keys)
     end)
+    CustomGameEventManager:RegisterListener("BattlePassInventoryItemSelect",function(_, keys)
+        self:OnInventorySelection(keys)
+    end)
+    ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
     self.shop = battle_pass_shop
     self.player = {}
     self.levelMax = 30
@@ -31,7 +35,9 @@ function BattlePass:init()
         self.voting_heroes_list[key] = value
         self.voting_heroes_list[key].index = key
     end
-    ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
+    self.pet_exclusive = 29
+    self.effect = {{'free', 9},{'free', 19},{'free', 29},{'premium', 9},{'premium', 19},{'premium', 27}}
+    self.hero_model = { 10,20,30 }
 end
 
 function BattlePass:OnGameRulesStateChange()
@@ -40,9 +46,27 @@ function BattlePass:OnGameRulesStateChange()
         CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", self.ExpToLevelUp)
         CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     end
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+        for pid = 0, 4 do
+            if PlayerResource:IsValidPlayer(pid) then
+                local hero = PlayerResource:GetSelectedHeroEntity(pid)
+                for hero_name, value in pairs(self.player[pid].auto_models) do
+                    if hero:GetUnitName() == hero_name and value == true then
+                        Wearable:SetAlternative(pid)
+                    end
+                end
+                if self.player[pid].auto_projectile_particle ~= "" then
+                    self:AddPariticle(pid, self.player[pid].auto_projectile_particle, self.player[pid].projectile_particles, true)
+                end
+                if self.player[pid].auto_following_particle ~= "" then
+                    self:AddPariticle(pid, self.player[pid].auto_following_particle, self.player[pid].following_particles, true)
+                end
+            end
+        end
+    end
 end
 
-function BattlePass:SetPlayerData(pid, obj)
+function BattlePass:SetPlayerData(pid, obj, settings)
     self.player[pid] = {}
     self.player[pid].level = self:CalculateLevelFromExperience(obj.experience)
     self.player[pid].experience = obj.experience
@@ -51,6 +75,9 @@ function BattlePass:SetPlayerData(pid, obj)
     self.player[pid].rewards = {}
     self.player[pid].vote = obj.vote or ""
     self.player[pid].exp_current_game = 0
+    self.player[pid].auto_projectile_particle = settings.projectile_particle
+    self.player[pid].auto_following_particle = settings.following_particle
+    self.player[pid].auto_models = json.decode(settings.models)
     for i = 1, self.levelMax * 2 do
         local reward_index = obj.rewards[i].reward_index
         self.player[pid].rewards[reward_index] = obj.rewards[i]
@@ -67,7 +94,7 @@ end
 function BattlePass:ResetProgress(pid)
     self.player[pid].experience = 0
     self.player[pid].level = self:CalculateLevelFromExperience(self.player[pid].experience)
-    for i = 1, self.levelMax * 3 do
+    for i = 1, self.levelMax * 2 do
         self.player[pid].rewards[i].claimed = 0
         self.player[pid].rewards[i].choice_count = 0
     end
@@ -77,10 +104,7 @@ function BattlePass:ResetProgress(pid)
         pass_id = self.player[pid].pass_id
     }, pid, true, nil)
 end
-function BattlePass:AddExperience(pid, value, write)
-    if write == true then
-        self.player[pid].exp_current_game = self.player[pid].exp_current_game + value
-    end
+function BattlePass:AddExperience(pid, value)
     self.player[pid].experience = self.player[pid].experience + value
     self.player[pid].level = self:CalculateLevelFromExperience(self.player[pid].experience)
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
@@ -167,16 +191,59 @@ function BattlePass:GiveOutReward(pid, reward_index, choice_index)
     }
     send_data = self:GemsReward(reward_data, send_data, pid)
     send_data = self:TalentNormalExperience(pid, reward_data, send_data)
-    send_data = self:TalentGoldenExperience(pid, reward_data, send_data)
+    send_data = self:TalentGoldenExperience(reward_data, send_data, pid, choice_index)
     send_data = self:AddRpReward(reward_data, send_data, pid)
     send_data = self:AddCoinsReward(reward_data, send_data, pid)
     send_data = self:AddBoosterExperience(reward_data, send_data, pid)
     send_data = self:AddBoosterRp(reward_data, send_data, pid)
-    send_data = self:AddItem(reward_data, send_data)
+    send_data = self:ForeverWard(reward_data, send_data, pid)
     send_data = self:PetAccess(reward_data, send_data, pid, choice_index)
     send_data = self:ExtraSouls(reward_data, send_data, pid, choice_index)
+    send_data = self:ExclusivePet(reward_data, send_data)
+    send_data = self:Particle(reward_data, send_data, pid)
+    send_data = self:Model(reward_data, send_data)
+    send_data = self:HeroAccess(reward_data, send_data, choice_index)
+    send_data = self:Treasury(reward_data, send_data, pid, choice_index)
+    send_data = self:Scroll(reward_data, send_data, pid, choice_index)
+    send_data = self:BossSummonTicket(reward_data, send_data, pid, choice_index)
+    send_data = self:GoldenBranch(reward_data, send_data, pid)
+
     DataBase:Send(DataBase.ClaimReward, "GET", send_data, pid, not DataBase:IsCheatMode(), function(body)
-        print(body)
+        if send_data.pet_exclusive ~= nil then
+            local pet_exclusive = json.decode(body)[1]
+            Pets.player[pid][pet_exclusive.name] = pet_exclusive
+            CustomNetTables:SetTableValue('Pets', tostring(pid), Pets.player[pid])
+        end
+        if send_data.effects ~= nil then
+            local effects = json.decode(body)[1]
+            local data = self:FindParticleDataByName(effects.name)
+            if data.type == "projectile" then
+                table.insert(self.player[pid].projectile_particles, data)
+            end
+            if data.type == "following" then
+                table.insert(self.player[pid].following_particles, data)
+            end
+            CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+            if data.type == "projectile" then
+                self:AddPariticle(pid, data.name, self.player[pid].projectile_particles, true)
+                self:SetSelectedParticle(pid, "projectile_particle", data.name, true)
+            elseif data.type == "following" then
+                self:AddPariticle(pid, data.name, self.player[pid].following_particles, true)
+                self:SetSelectedParticle(pid, "following_particle", data.name, true)
+            end
+        end
+        if send_data.models ~= nil then
+            local models = json.decode(body)[1]
+            local data = self:FindModelDataByName(models.name)
+            table.insert(self.player[pid].models, data)
+            CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+            self:SetSelectedModel(pid, models.name, true)
+        end
+        if send_data.pets ~= nil then
+            local pet = json.decode(body)[1]
+            Pets.player[pid].pets[pet.name] = json.decode(body)
+            CustomNetTables:SetTableValue('Pets', tostring(pid), Pets.player[pid])
+        end
     end)
 end
 function BattlePass:OnBuy(t)
@@ -210,6 +277,66 @@ function BattlePass:OnBuy(t)
     end
     CustomShop:UpdateShopInfoTable(pid)
     DataBase:Send(DataBase.link.BattlePassBuy, "GET", send, pid, not DataBase:IsCheatMode(), nil)
+end
+function BattlePass:AddPariticle(pid, name, tab, checked)
+    local hero = PlayerResource:GetSelectedHeroEntity( pid )
+    for _, value in pairs(tab) do
+        hero:RemoveModifierByName( value.modifier )
+        if value.name == name and checked == true then
+            LinkLuaModifier( value.modifier, "effects/" .. value.modifier, LUA_MODIFIER_MOTION_NONE )
+            hero:AddNewModifier( hero, nil, value.modifier, {} )
+        end
+    end
+end
+function BattlePass:SetSelectedParticle(pid, variable, name, checked)
+    if checked then
+        self.player[pid]['auto_'..variable] = name
+    else
+        self.player[pid]['auto_'..variable] = ""
+    end
+    DataBase:Send(DataBase.link.SettingsSetParticle, "GET", {
+        variable = variable,
+        name = name,
+    }, pid, true, nil)
+    CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:SetSelectedModel(pid, name, hero_name, checked)
+    self.player[pid].auto_models[name] = checked
+    DataBase:Send(DataBase.link.SettingsSetAutoModels, "GET", {
+        checked = checked,
+        name = hero_name,
+    }, pid, true, nil)
+    CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:OnInventorySelection(t)
+    local pid = t.PlayerID
+    local name = t.name
+    local checked = t.checked == 1
+    local IsNameInTable = function(name, tab)
+        for _, value in pairs(tab) do
+            if value.name == name then
+                return true
+            end
+        end
+        return false
+    end
+    if IsNameInTable(name, self.player[pid].projectile_particles) then
+        self:AddPariticle(pid, name, self.player[pid].projectile_particles, checked)
+        self:SetSelectedParticle(pid, "projectile_particle", name, checked)
+    end
+    if IsNameInTable(name, self.player[pid].following_particles) then
+        self:AddPariticle(pid, name, self.player[pid].following_particles, checked)
+        self:SetSelectedParticle(pid, "following_particle", name, checked)
+    end
+    if IsNameInTable(name, self.player[pid].models) then
+        local data = self:FindModelDataByName(name)
+        self:SetSelectedModel(pid, name, data.hero_name, checked)
+        if data.hero_name == PlayerResource:GetSelectedHeroName(pid) and checked == true then
+            Wearable:SetAlternative( pid )
+        elseif data.hero_name == PlayerResource:GetSelectedHeroName(pid) and checked == false then
+            Wearable:SetDefault( pid )
+        end
+    end
 end
 ----------------- /ACTION FUNCTIONS ----------------------------
 ----------------- HELPERS ------------------------------------
@@ -274,6 +401,100 @@ function BattlePass:IncrementVoteCount(hero_name)
         end
     end
 end
+function BattlePass:UpdateRewardsForCurrentSeason()
+    self.dataReward['premium'][self.pet_exclusive].data.abilityname = battle_pass_pets[self.current_season].itemname
+    self.dataReward['premium'][self.pet_exclusive].data.name = battle_pass_pets[self.current_season].name
+    for key, value in pairs(battle_pass_effects[self.current_season]) do
+        self.dataReward[self.effect[key][1]][self.effect[key][2]].data.name = value.name
+        self.dataReward[self.effect[key][1]][self.effect[key][2]].data.modifier = value.modifier
+    end
+    for key, value in pairs(battle_pass_models[self.current_season]) do
+        self.dataReward['premium'][self.hero_model[key]].data.name = value.name
+        self.dataReward['premium'][self.hero_model[key]].data.hero_name = value.hero_name
+        self.dataReward['premium'][self.hero_model[key]].data.image = value.image
+    end
+    CustomNetTables:SetTableValue('BattlePass', "dataReward", self.dataReward)
+end
+function BattlePass:UpdatePlayerCosmeticEffects(pid, items)
+    local particles = {}
+    for _, season_value in pairs(battle_pass_effects) do
+        for _, particle in pairs(season_value) do
+            if particle.name then
+                particles[particle.name] = particle
+            end
+        end
+    end
+    local projectile_particles = {}
+    local following_particles = {}
+    for key, value in pairs(items) do
+        if particles[value.name] ~= nil and value.value > 0 then
+            if particles[value.name].type == "projectile" then
+                projectile_particles[value.name] = particles[value.name]
+            end
+            if particles[value.name].type == "following" then
+                following_particles[value.name] = particles[value.name]
+            end
+        end
+    end
+    self.player[pid].projectile_particles = {}
+    self.player[pid].following_particles = {}
+    for _, season_value in pairs(battle_pass_effects) do
+        for _, particle in ipairs(season_value) do
+            if particle.name and particle.type then
+                if particle.type == "projectile" and projectile_particles[particle.name] then
+                    table.insert(self.player[pid].projectile_particles, projectile_particles[particle.name])
+                end
+                if particle.type == "following" and following_particles[particle.name] then
+                    table.insert(self.player[pid].following_particles, following_particles[particle.name])
+                end
+            end
+        end
+    end
+    CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:UpdatePlayerHeroModels(pid, items)
+    local models = {}
+    for _, season_value in pairs(battle_pass_models) do
+        for _, model in pairs(season_value) do
+            if model.name then
+                models[model.name] = model
+            end
+        end
+    end
+    local models2 = {}
+    for key, value in pairs(items) do
+        if models[value.name] ~= nil and value.value > 0 then
+            models2[value.name] = models[value.name]
+        end
+    end
+    self.player[pid].models = {}
+    for _, season_value in pairs(battle_pass_models) do
+        for _, model in ipairs(season_value) do
+            if model.name then
+                table.insert(self.player[pid].models, models2[model.name])
+            end
+        end
+    end
+    CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:FindParticleDataByName(name)
+    for _, season_value in pairs(battle_pass_effects) do
+        for _, particle in pairs(season_value) do
+            if particle.name and particle.name == name then
+                return particle
+            end
+        end
+    end
+end
+function BattlePass:FindModelDataByName(name)
+    for _, season_value in pairs(battle_pass_models) do
+        for _, model in pairs(season_value) do
+            if model.name and model.name == name then
+                return model
+            end
+        end
+    end
+end
 ----------------- /HELPERS ------------------------------------
 ----------------- REWARDS ------------------------------------
 function BattlePass:GemsReward(reward_data, send_data, pid)
@@ -297,9 +518,14 @@ function BattlePass:TalentNormalExperience(pid, reward_data, send_data)
     end
     return send_data
 end
-function BattlePass:TalentGoldenExperience(pid, reward_data, send_data)
-    if reward_data.reward_type == "experience_golden" then
-        talants:AddExperienceDonate(pid, reward_data.data.value)
+function BattlePass:TalentGoldenExperience(reward_data, send_data, pid, choice_index)
+    if reward_data.reward_type == "experience_choice" then
+        if reward_data.data.choice[choice_index] == 'experience_common' then
+            talants:AddExperience(pid, reward_data.data.value)
+        end
+        if reward_data.data.choice[choice_index] == 'experience_golden' then
+            talants:AddExperienceDonate(pid, reward_data.data.value)
+        end
     end
     return send_data
 end
@@ -330,9 +556,11 @@ function BattlePass:AddBoosterExperience(reward_data, send_data, pid)
             send_data.booster_experience = {}
         end
         local data = {
-            multiplier = reward_data.data.value,
+            name = 'booster_experience',
+            value = reward_data.data.value,
             remaining_games_count = reward_data.data.game_count,
         }
+        data.multiplier = data.value
         table.insert(send_data.booster_experience, data)
         MultiplierManager:InsertTalentExperienceList(pid, data)
     end
@@ -344,9 +572,11 @@ function BattlePass:AddBoosterRp(reward_data, send_data, pid)
             send_data.booster_rp = {}
         end
         local data = {
-            multiplier = reward_data.data.value,
+            name = 'booster_rp',
+            value = reward_data.data.value,
             remaining_games_count = reward_data.data.game_count,
         }
+        data.multiplier = data.value
         table.insert(send_data.booster_rp, data)
         MultiplierManager:InsertCurrencyRpList(pid, data)
     end
@@ -362,15 +592,17 @@ function BattlePass:FindDBItemNameByDotaItemName(item_name)
     end
     return false
 end
-function BattlePass:AddItem(reward_data, send_data)
-    if table.has_value({"item_scroll","item_forever_ward","item_boss_summon","item_ticket"},reward_data.reward_type) then
+function BattlePass:ForeverWard(reward_data, send_data, pid)
+    if reward_data.reward_type == 'item_forever_ward' then -- table.has_value({"item_scroll","item_forever_ward","item_boss_summon","item_ticket"},reward_data.reward_type) then
         if not send_data.items then
             send_data.items = {}
         end
-        table.insert(send_data.items, {
-            name = self:FindDBItemNameByDotaItemName(reward_data.data.item_name),
-            value = reward_data.data.value,
-        })
+        local data = {
+            name = reward_data.data.name,
+            value = 1
+        }
+        table.insert(send_data.items, data)
+        Shop:AddItemByName(pid, data.name, data.value)
     end
     return send_data
 end
@@ -380,15 +612,11 @@ function BattlePass:PetAccess(reward_data, send_data, pid, choice_index)
             send_data.pets = {}
         end
         local data = {
-            name = Pets:FindPetDataByAbilityName(reward_data.data.choice[choice_index]).name,
+            name = reward_data.data.choice[choice_index],
             value = reward_data.data.value,
             remaining_games_count = reward_data.data.game_count,
         }
         table.insert(send_data.pets, data)
-        if Pets.player[pid][data.name] == nil or Pets.player[pid][data.name].value <= data.value then
-            Pets.player[pid][data.name] = data
-            CustomNetTables:SetTableValue('Pets', tostring(pid), Pets.player[pid])
-        end
     end
     return send_data
 end
@@ -399,10 +627,129 @@ function BattlePass:ExtraSouls(reward_data, send_data, pid, choice_index)
         end
         local data = {
             name = reward_data.data.choice[choice_index],
+            value = 1,
             days_count = reward_data.data.days_count,
         }
         table.insert(send_data.souls, data)
         sInv:AddSoul(data.name, pid)
+    end
+    return send_data
+end
+function BattlePass:ExclusivePet(reward_data, send_data)
+    if reward_data.reward_type == "pet_exclusive" then
+        if not send_data.pet_exclusive then
+            send_data.pet_exclusive = {}
+        end
+        local data = {
+            name = reward_data.data.name,
+            value = 1;
+        }
+        table.insert(send_data.pet_exclusive, data)
+    end
+    return send_data
+end
+function BattlePass:Particle(reward_data, send_data, pid)
+    if reward_data.reward_type == "effect" then
+        if not send_data.effects then
+            send_data.effects = {}
+        end
+        local data = {
+            name = reward_data.data.name,
+            value = 1;
+        }
+        table.insert(send_data.effects, data)
+    end
+    return send_data
+end
+function BattlePass:Model(reward_data, send_data, pid)
+    if reward_data.reward_type == "hero_model" then
+        if not send_data.models then
+            send_data.models = {}
+        end
+        local data = {
+            name = reward_data.data.name,
+            value = 1;
+        }
+        table.insert(send_data.models, data)
+    end
+    return send_data
+end
+function BattlePass:HeroAccess(reward_data, send_data, choice_index)
+    if reward_data.reward_type == "hero_access" then
+        if not send_data.hero_access then
+            send_data.hero_access = {}
+        end
+        local data = {
+            name = reward_data.data.choice[choice_index],
+            value = reward_data.data.game_count,
+        }
+        table.insert(send_data.hero_access, data)
+    end
+    return send_data
+end
+function BattlePass:Treasury(reward_data, send_data, pid, choice_index)
+    if reward_data.reward_type == "treasury" then
+        if not send_data.treasury then
+            send_data.treasury = {}
+        end
+        local data = {
+            name = reward_data.data.choice[choice_index],
+            value = reward_data.data.value,
+        }
+        table.insert(send_data.treasury, data)
+        Shop:AddItemByName(pid, data.name, data.value)
+    end
+    return send_data
+end
+function BattlePass:Scroll(reward_data, send_data, pid, choice_index)
+    if table.has_value({'item_scroll1','item_scroll2'}, reward_data.reward_type) then
+        if not send_data.scroll then
+            send_data.scroll = {}
+        end
+        local data = {
+            name = reward_data.data.choice[choice_index],
+            value = reward_data.data.value,
+        }
+        table.insert(send_data.scroll, data)
+        Shop:AddItemByName(pid, data.name, data.value)
+    end
+    return send_data
+end
+function BattlePass:BossSummonTicket(reward_data, send_data, pid, choice_index)
+    if reward_data.reward_type == 'boss_summon_ticket' then
+        if not send_data.items then
+            send_data.items = {}
+        end
+        local data = {
+            name = reward_data.data.choice[choice_index],
+        }
+        if data.name == 'scroll_12' then
+            data.value = 3
+        end
+        if data.name == 'scroll_11' then
+            data.value = 10
+        end
+        table.insert(send_data.items, data)
+        Shop:AddItemByName(pid, data.name, data.value)
+    end
+    return send_data
+end
+function BattlePass:GoldenBranch(reward_data, send_data, pid)
+    if reward_data.reward_type == 'golden_branch' then
+        if not send_data.golden_branch then
+            send_data.golden_branch = {}
+        end
+        local data = {
+            name = 'golden_branch',
+            days_count = reward_data.data.days_count,
+            value = 1,
+        }
+        table.insert(send_data.golden_branch, data)
+        Shop.pShop[pid].golden_branch = true
+        if RATING["rating"][pid]["patron"] ~= 1 then
+
+
+        end
     end
     return send_data
 end

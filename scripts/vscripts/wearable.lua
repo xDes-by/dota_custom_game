@@ -33,8 +33,8 @@ end
 
 function Wearable:HasAlternativeSkin(sHreoName)
     local t = {
-        -- ["npc_dota_hero_juggernaut"] = true,
-        -- ["npc_dota_hero_slark"] = true,
+        ["npc_dota_hero_juggernaut"] = true,
+        ["npc_dota_hero_slark"] = true,
         ["npc_dota_hero_nevermore"] = true,
         ["npc_dota_hero_pudge"] = true,
         ["npc_dota_hero_spectre"] = true
@@ -132,6 +132,10 @@ function Wearable:SetAlternative(Value)
     end
 
     local sHreoName = hUnit:GetUnitName()
+    if not Wearable:HasAlternativeSkin(sHreoName) then
+        print("Alternative skin not unlocked")
+        return
+    end
     if hUnit.WearableStatus == "alternative" then
         print("Unit already alternative")
         return
@@ -353,7 +357,6 @@ Wearable.abilities_particles = {
 }
 
 if not Wearable.bInit then
-    --@todo: ивент для смены облика или возвращения в первоначальный вид
     CustomGameEventManager:RegisterListener("SetAlternative", Dynamic_Wrap( Wearable, 'SetAlternative' ))
     CustomGameEventManager:RegisterListener("SetDefault", Dynamic_Wrap( Wearable, 'SetDefault' ))
     Wearable.bInit = true

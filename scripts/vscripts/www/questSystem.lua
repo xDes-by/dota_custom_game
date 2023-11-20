@@ -579,9 +579,9 @@ function QuestSystem:AutoQuestToggleInit()
 		if RATING["rating"][i]["patron"] and RATING["rating"][i]["patron"] == 1 then
 			subscribe = true
 		end
-		if PlayerResource:IsValidPlayer(i) and RATING["rating"][i] and RATING["rating"][i]['auto_quest_trial'] ~= nil then
-			QuestSystem.trialPeriodCount[i] = RATING["rating"][i]['auto_quest_trial']
-			if subscribe and RATING["rating"][i]['auto_quest'] and RATING["rating"][i]['auto_quest'] == 1 then
+		if PlayerResource:IsValidPlayer(i) and RATING["rating"][i] and Shop.pShop[i]['auto_quest_trial'] ~= nil then
+			QuestSystem.trialPeriodCount[i] = Shop.pShop[i]['auto_quest_trial']
+			if subscribe and Quests.settings[i].quest_auto_submit and Quests.settings[i].quest_auto_submit == 1 then
 				QuestSystem.auto[i] = true
 			else
 				QuestSystem.auto[i] = false
@@ -618,7 +618,9 @@ function QuestSystem:auto_quest_toggle(t)
 		end
 	elseif subscribe == true then
 		QuestSystem.auto[t.PlayerID] = t.toggle_state == 1
-		DataBase:AutoQuestToggle(t)
+		DataBase:Send(DataBase.link.SettingsSetAutoQuest, "GET", {
+			checked = QuestSystem.auto[t.PlayerID],
+		}, t.PlayerID, true, nil)
 	end
 end
 
@@ -1028,7 +1030,6 @@ function QuestSystem:giveReward(type, number, task, pid)
 	if player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'] then
 		local experience = tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'])
 		talants:giveExperienceFromQuest(pid, experience)
-		BattlePass:AddExperience(pid, experience, true)
 	end
 	
 	--print('give revard')

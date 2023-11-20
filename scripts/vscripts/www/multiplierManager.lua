@@ -15,17 +15,28 @@ function MultiplierManager:init()
     end
 end
 
-function MultiplierManager:SetTalentExperienceList(pid, list)
-    self.talent_experience_list[pid] = list
-    self:CalculateFinalExperienceMultiplier(pid)
+function MultiplierManager:SetPlayerData(pid, items)
+    self:CalculateFinalRpMultiplier(pid)
+    self:UpdateExperienceMultiplier(pid)
+    self:UpdateRpMultiplier(pid)
+    for _, value in pairs(items) do
+        if value.name == "booster_experience" then
+            self:InsertTalentExperienceList(pid, {
+                multiplier = value.value,
+                remaining_games_count = value.remaining_games_count,
+            })
+        end
+        if value.name == "booster_rp" then
+            self:InsertCurrencyRpList(pid, {
+                multiplier = value.value,
+                remaining_games_count = value.remaining_games_count,
+            })
+        end
+    end
 end
 function MultiplierManager:InsertTalentExperienceList(pid, value)
     table.insert(self.talent_experience_list[pid],value)
     self:CalculateFinalExperienceMultiplier(pid)
-end
-function MultiplierManager:SetCurrencyRpList(pid, list)
-    self.currency_rp_list[pid] = list
-    self:CalculateFinalRpMultiplier(pid)
 end
 function MultiplierManager:InsertCurrencyRpList(pid, value)
     table.insert(self.currency_rp_list[pid],value)
