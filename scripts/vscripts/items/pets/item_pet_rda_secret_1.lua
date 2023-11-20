@@ -163,10 +163,10 @@ function modifier_pet_rda_secret_1:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_SPENT_MANA,
+
 	}
 	return funcs
 end
-
 
 
 function modifier_pet_rda_secret_1:GetModifierModelChange(params)

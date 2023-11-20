@@ -616,6 +616,9 @@ function create_runes()
 	local target_bounty = Entities:FindAllByName("target_bounty")
 	Timers:CreateTimer(0,function()
 		for k,v in pairs(target_bounty) do
+			if v.rune then
+				UTIL_Remove(v.rune)
+			end
 			local point = v:GetAbsOrigin()
 			v.rune = CreateRune(point, DOTA_RUNE_BOUNTY)
 		end
@@ -624,6 +627,9 @@ function create_runes()
 	local xp_rune = Entities:FindAllByName("xp_rune")
 	Timers:CreateTimer(0,function()
 		for k,v in pairs(xp_rune) do
+			if v.rune then
+				UTIL_Remove(v.rune)
+			end
 			local point = v:GetAbsOrigin()
 			v.rune = CreateRune(point, DOTA_RUNE_XP)
 		end
@@ -1534,3 +1540,12 @@ function ItemBossSummonChoice(eventIndex, data)
 		Rules:difficality_modifier(unit)
 	end
 end
+
+Convars:RegisterCommand( "test_abi", function( cmd, arg ) 
+    local hero = PlayerResource:GetSelectedHeroEntity(0)
+	if hero then
+		local abi = hero:AddAbility("spell_item_pet_rda_secret_" .. arg)
+		abi:SetHidden(false)
+	end
+    end, "test_abi", FCVAR_CHEAT
+)

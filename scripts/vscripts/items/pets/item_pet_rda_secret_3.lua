@@ -1,5 +1,5 @@
-LinkLuaModifier( "modifier_pet_rda_secret_3", "items/pets/pet_rda_secret_3", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_pet_rda_secret_3", "items/pets/pet_rda_secret_3", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pet_rda_secret_3", "items/pets/item_pet_rda_secret_3", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_pet_rda_secret_3", "items/pets/item_pet_rda_secret_3", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
 
 spell_item_pet_rda_secret_3 = class({})
@@ -103,6 +103,7 @@ function modifier_pet_rda_secret_3:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK,
 		MODIFIER_EVENT_ON_SPENT_MANA,
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA
 	}
 	return funcs
 end
@@ -119,6 +120,10 @@ end
 
 function modifier_pet_rda_secret_3:GetModifierIncomingDamage_Percentage()
 	return 300
+end
+
+function modifier_pet_rda_secret_3:GetVisualZDelta()
+	return 100
 end
 
 function modifier_pet_rda_secret_3:OnAttack( params )

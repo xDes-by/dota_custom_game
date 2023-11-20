@@ -36,8 +36,8 @@ function Wearable:HasAlternativeSkin(sHreoName)
         -- ["npc_dota_hero_juggernaut"] = true,
         -- ["npc_dota_hero_slark"] = true,
         ["npc_dota_hero_nevermore"] = true,
-        -- ["npc_dota_hero_pudge"] = true,
-        -- ["npc_dota_hero_spectre"] = true
+        ["npc_dota_hero_pudge"] = true,
+        ["npc_dota_hero_spectre"] = true
     }
     return t[sHreoName] or false
 end
@@ -61,6 +61,7 @@ function Wearable:SetDefault(Value)
     end
     local name = hUnit:GetUnitName()
     for _,model_name in pairs(self.items[name]["default_items"]) do
+        print(model_name)
         hModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = model_name})
         hModel:SetModel(model_name)
         hModel:SetOwner(hUnit)
@@ -91,6 +92,24 @@ function Wearable:ClearWear(Value)
         print("Unit already clear")
         return
     end
+    if hUnit:GetUnitName() == "npc_dota_hero_nevermore" then
+        local t = {
+            ["models/heroes/pudge/righthook.vmdl"] = true,
+            ["models/heroes/pudge/hair.vmdl"] = true,
+            ["models/heroes/pudge/leftweapon.vmdl"] = true,
+        }
+        for _,hModel in pairs(self.wear[iPlayerID]) do
+            if t[hModel:GetModelName()] then
+                for _,particle in pairs(hModel.particles) do
+                    ParticleManager:DestroyParticle(particle, true)
+                    ParticleManager:ReleaseParticleIndex(particle)
+                end
+                hModel.particles = {}
+                UTIL_Remove(hModel)
+            end
+        end
+        return
+    end
     for _,hModel in pairs(self.wear[iPlayerID]) do
         for _,particle in pairs(hModel.particles) do
             ParticleManager:DestroyParticle(particle, true)
@@ -113,10 +132,6 @@ function Wearable:SetAlternative(Value)
     end
 
     local sHreoName = hUnit:GetUnitName()
-    if not Wearable:HasAlternativeSkin(iPlayerID, sHreoName) then
-        print("Alternative skin not unlocked")
-        return
-    end
     if hUnit.WearableStatus == "alternative" then
         print("Unit already alternative")
         return
@@ -125,6 +140,10 @@ function Wearable:SetAlternative(Value)
     Wearable:ChangeModel(hUnit, "SetAlternative")
     if sHreoName == "npc_dota_hero_nevermore" then
         hUnit:SetRangedProjectileName("amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_base_attack.vpcf")
+    end
+    if sHreoName == "npc_dota_hero_pudge" then
+        Wearable:SetAlternative_Pudge(hUnit)
+        return
     end
     local name = hUnit:GetUnitName()
     for _,model_name in pairs(self.items[name]["altenative_items"]) do
@@ -180,6 +199,40 @@ function Wearable:ChangeModel(hUnit, Type)
             hUnit:SetModel("models/heroes/shadow_fiend/shadow_fiend.vmdl")
         end
     end
+end
+
+function Wearable:SetAlternative_Pudge(hUnit)
+    local name = hUnit:GetUnitName()
+    for _,model_name in pairs(self.items[name]["altenative_items"]) do
+        hModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = model_name})
+        hModel:SetModel(model_name)
+        hModel:SetOwner(hUnit)
+        hModel:SetParent(hUnit, "")
+        hModel:FollowEntity(hUnit, true)
+        hModel.particles = {}
+        if self.wearable_particles[model_name] then
+            for particle_name,attach in pairs(self.wearable_particles[model_name]) do
+                local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, hModel)
+                ParticleManager:SetParticleControlEnt(particle, 0, hUnit, PATTACH_POINT_FOLLOW, attach, Vector(0,0,0), true)
+                if Wearable.SpesialFixes[particle_name] then
+                    for _,tbl in pairs(Wearable.SpesialFixes[particle_name]) do
+                        for k,v in pairs(tbl) do
+                            if k == "m_iControlPoint" then
+                                m_iControlPoint = v
+                            end
+                            if k == "m_attachmentName" then
+                                m_attachmentName = v
+                            end
+                        end
+                        ParticleManager:SetParticleControlEnt(particle, m_iControlPoint, hUnit, PATTACH_POINT_FOLLOW, m_attachmentName, Vector(0,0,0), true)
+                    end
+                end
+                table.insert(hModel.particles, particle)
+            end
+        end
+        table.insert( self.wear[iPlayerID], hModel )
+    end
+    hUnit.WearableStatus = "alternative"
 end
 
 Wearable.SpesialFixes = {
