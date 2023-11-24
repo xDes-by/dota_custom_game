@@ -520,17 +520,17 @@ function BattlePass:GemsReward(reward_data, send_data, pid)
 end
 function BattlePass:TalentNormalExperience(pid, reward_data, send_data)
     if reward_data.reward_type == "experience_common" then
-        talants:AddExperience(pid, reward_data.data.value)
+        Talents:AddExperience(pid, reward_data.data.value, false)
     end
     return send_data
 end
 function BattlePass:TalentGoldenExperience(reward_data, send_data, pid, choice_index)
     if reward_data.reward_type == "experience_choice" then
         if reward_data.data.choice[choice_index] == 'experience_common' then
-            talants:AddExperience(pid, reward_data.data.value)
+            Talents:AddExperience(pid, reward_data.data.value)
         end
         if reward_data.data.choice[choice_index] == 'experience_golden' then
-            talants:AddExperienceDonate(pid, reward_data.data.value)
+            Talents:AddExperienceDonate(pid, reward_data.data.value, false)
         end
     end
     return send_data

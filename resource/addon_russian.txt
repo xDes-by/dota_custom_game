@@ -489,9 +489,9 @@
         "BattlePass_soul_name"                          "одна душа на старте игры"
         "BattlePass_soul_description"                   "При получении этой награды вы сможете выбрать одну из душ. Душа будет выдаваться вам в начале игры. Длительность <font color='#ff0066'><b>##days_count##</b></font> дней."
         "BattlePass_exp_boost_name"                     "Множитель опыта талантов"
-        "BattlePass_exp_boost_description"              "Увеличение получения опыта для талантов из всех источников на <font color='#ff0066'><b>##display_value##</b></font>. Бустер будет действовать на протяжении <font color='#ff0066'><b>##game_count##</b></font> игр. Если использовать несколько бустеров то их бонус перемножается."
+        "BattlePass_exp_boost_description"              "Увеличение получения опыта для талантов на <font color='#ff0066'><b>##display_value##</b></font>. Бустер будет действовать на протяжении <font color='#ff0066'><b>##game_count##</b></font> игр. Если использовать несколько бустеров то их бонус суммируется."
         "BattlePass_rp_boost_name"                      "Множитель получения щитков"
-        "BattlePass_rp_boost_description"               "Увеличение получения щитков из всех источников на <font color='#ff0066'><b>##display_value##</b></font>. Бустер будет действовать на протяжении <font color='#ff0066'><b>##game_count##</b></font> игр. Если использовать несколько бустеров то их бонус перемножается."
+        "BattlePass_rp_boost_description"               "Увеличение получения щитков на <font color='#ff0066'><b>##display_value##</b></font>. Бустер будет действовать на протяжении <font color='#ff0066'><b>##game_count##</b></font> игр. Если использовать несколько бустеров то их бонус суммируется."
         "BattlePass_forge_gems_name"                    "Камни для кузницы"
         "BattlePass_forge_gems_description"             "Вы получитье <font color='#ff0066'><b>##display_value##</b></font> всех камней на свой аккаунт."
         "BattlePass_exp_book_1_name"                    "Опыт талантов"
@@ -542,7 +542,7 @@
         "bp_experience"                                 "##count## опыта"
         "battle_pase_use_toggle_button"                 "активно"
         "quest_title_description"                       "Ежедневные задания, задания для прокачки батл пасс, игровые задания"
-        /// ------------------- BATTLE PASS --------------------------------------
+        /// ------------------- /BATTLE PASS --------------------------------------
         /// ------------------- PETS --------------------------------------
         "gems_image_pet"                                "Кристаллы"
         "rp_image_pet"                                  "Щитки"
@@ -557,7 +557,7 @@
         "pets_trial_end_date"                           "доступен до ##date##"
         "pets_buy_unavailible"                          "недоступен"
         "pets_buy_unavailible_tooltip"                  "Возможно получить в качестве награды из боевого пропуска или сокровищницы."
-        /// ------------------- PETS --------------------------------------
+        /// ------------------- /PETS --------------------------------------
         /// ------------------- TALENTS -----------------------------------
         "talent_level_label"                            "Ур."
         "talant_button_update"                          "Улучшить"
@@ -6732,7 +6732,7 @@
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_attack_count" "ЧИСЛО АТАК:"
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_dmg_perc" "%УРОН АТАК:"
 		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_extra_agility" "%ДОПОЛНИТЕЛЬНАЯ ЛОВКОСТЬ:"
-		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_attack_count2" "МАКС.ЦЕЛЕЙ:"
+		"dota_tooltip_ability_riki_tricks_of_the_trade_lua_target_count" "МАКС.ЦЕЛЕЙ:"
 
         "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify"              "Cloak and Dagger"
         "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify_description"  "Урон от заклинаний увеличен на %MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE%%%"
