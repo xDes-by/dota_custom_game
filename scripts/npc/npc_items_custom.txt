@@ -775,7 +775,7 @@
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_tank_hell"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "all/lance1"
+		"AbilityTextureName"	        "mid_items/lance1"
 		"ItemBaseLevel"					"1"
 		"AbilityValues"
 		{
