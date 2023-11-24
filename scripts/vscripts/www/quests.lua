@@ -14,7 +14,8 @@ function Quests:init()
     ListenToGameEvent( "nommed_tree", Dynamic_Wrap( self, "OnNommedTree" ), self)
     ListenToGameEvent( "player_death", Dynamic_Wrap( self, "OnPlayerDeath" ), self)
     ListenToGameEvent( "dota_item_physical_destroyed", Dynamic_Wrap( self, "OnItemDestroyed" ), self)
-    
+    ListenToGameEvent("game_end", Dynamic_Wrap( self, "OnGameEnd" ), self)
+    ListenToGameEvent("player_disconnect", Dynamic_Wrap( self, "OnPlayerDisconnect" ), self)
     CustomGameEventManager:RegisterListener("GetDailyAwardButton",function(_, keys)
         self:GetDailyAwardButton(keys)
     end)
@@ -27,14 +28,26 @@ end
 function Quests:SetPlayerData(pid, daily, bp, settings)
     self.settings[pid] = {}
     self.settings[pid].quest_auto_submit = settings.quest_auto_submit or 0
-    self.daily[pid] = daily
+    self.daily[pid] = {}
+    for k,v in pairs(daily) do
+        self.daily[pid][tonumber(k)] = {}
+        for key,value in pairs(v) do
+            self.daily[pid][tonumber(k)][key] = value
+        end
+    end
     for i = 1, self.daily_tasks_number do
-        local index = self.daily[pid][i].index
+        local index = self.daily[pid][i]['index']
         for key, value in pairs(self.daily_tasks_list[index]) do
             self.daily[pid][i][key] = value
         end
     end
-    self.bp[pid] = bp
+    self.bp[pid] = {}
+    for k,v in pairs(bp) do
+        self.bp[pid][tonumber(k)] = {}
+        for key,value in pairs(v) do
+            self.bp[pid][tonumber(k)][key] = value
+        end
+    end
     for i = 1, 2 do
         local index = self.bp[pid][i].index
         for key, value in pairs(self.bp_tasks_list[index]) do
@@ -49,6 +62,7 @@ function Quests:UpdateDailyQuets(pid, index)
         if data.index == index then
             if data.now >= data.count then return end
             if not data.count_after_victory and self:IsGameVictory() then return end
+            if data.now + 1 == data.count then self:PlaySound(pid) end
             data.now = data.now + 1
             self:UpdateTable(pid)
             break
@@ -61,6 +75,7 @@ function Quests:UpdateBpQuets(pid, index)
         if data.index == index then
             if data.now >= data.count then return end
             if not data.count_after_victory and self:IsGameVictory() then return end
+            if data.now + 1 == data.count then self:PlaySound(pid) end
             data.now = data.now + 1
             self:UpdateTable(pid)
             break
@@ -224,5 +239,23 @@ function Quests:UpdateTable(pid)
 end
 function Quests:IsGameVictory()
     return _G.kill_invoker
+end
+function Quests:OnGameEnd()
+    for i = 0, 4 do
+        if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_CONNECTED then
+            self:SaveData(i)
+        end
+    end
+end
+function Quests:OnPlayerDisconnect(t)
+    self:SaveData(t.PlayerID)
+end
+function Quests:PlaySound(pid)
+    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "PlayCompletionSound", {})
+end
+function Quests:SaveData(pid)
+    DataBase:Send(DataBase.link.SaveQuestsData, "GET", {
+        data = self:GetServerDataArray(pid),
+    }, pid, not DataBase:IsCheatMode(), nil)
 end
 Quests:init()

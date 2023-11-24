@@ -3947,10 +3947,10 @@ heroTalentsData = {
         npc_dota_hero_viper_str11 = {
             place = {"str 11"}, url = "/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str11", 
         },
-        npc_dota_hero_viper_str_last = {
+        npc_dota_hero_viper_str12 = {
             place = {"str 12"}, url = "/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str12", 
         },
-        special_bonus_unique_npc_dota_hero_viper_str50 = {
+        npc_dota_hero_viper_str13 = {
             place = {"str 13"}, url = "/npc_dota_hero_viper/str/3.png", name = "npc_dota_hero_viper_str13", 
         },
         -------------------- AGI -----------------------------------------------------------
@@ -3958,13 +3958,13 @@ heroTalentsData = {
             place = {"agi 6"}, url = "/npc_dota_hero_viper/agi/1.png", name = "npc_dota_hero_viper_agi6", 
         },
         npc_dota_hero_viper_agi7 = {
-            place = {"agi 7"}, url = "/npc_dota_hero_viper/agi/0.png", name = "npc_dota_hero_viper_agi7", 
+            place = {"agi 7"}, url = "/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi7", 
         },
         npc_dota_hero_viper_agi8 = {
             place = {"agi 8"}, url = "/npc_dota_hero_viper/agi/3.png", name = "npc_dota_hero_viper_agi8", 
         },
         npc_dota_hero_viper_agi9 = {
-            place = {"agi 9"}, url = "/npc_dota_hero_viper/agi/1.png", name = "npc_dota_hero_viper_agi9", 
+            place = {"agi 9"}, url = "/npc_dota_hero_viper/agi/4.png", name = "npc_dota_hero_viper_agi9", 
         },
         npc_dota_hero_viper_agi10 = {
             place = {"agi 10"}, url = "/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi10", 
@@ -3972,21 +3972,21 @@ heroTalentsData = {
         npc_dota_hero_viper_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_viper/agi/3.png", name = "npc_dota_hero_viper_agi11", 
         },
-        npc_dota_hero_viper_agi_last = {
-            place = {"agi 12"}, url = "/npc_dota_hero_viper/agi/0.png", name = "npc_dota_hero_viper_agi12", 
+        npc_dota_hero_viper_agi12 = {
+            place = {"agi 12"}, url = "/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi12", 
         },
-        special_bonus_unique_npc_dota_hero_viper_agi50 = {
-            place = {"agi 13"}, url = "/npc_dota_hero_viper/agi/0.png", name = "npc_dota_hero_viper_agi13", 
+        npc_dota_hero_viper_agi13 = {
+            place = {"agi 13"}, url = "/npc_dota_hero_viper/agi/2.png", name = "npc_dota_hero_viper_agi13", 
         },
         -------------------- INT -----------------------------------------------------------
         npc_dota_hero_viper_int6 = {
             place = {"int 6"}, url = "/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int6", 
         },
         npc_dota_hero_viper_int7 = {
-            place = {"int 7"}, url = "/npc_dota_hero_viper/int/0.png", name = "npc_dota_hero_viper_int7", 
+            place = {"int 7"}, url = "/npc_dota_hero_viper/int/2.png", name = "npc_dota_hero_viper_int7", 
         },
         npc_dota_hero_viper_int8 = {
-            place = {"int 8"}, url = "/npc_dota_hero_viper/int/0.png", name = "npc_dota_hero_viper_int8", 
+            place = {"int 8"}, url = "/npc_dota_hero_viper/int/4.png", name = "npc_dota_hero_viper_int8", 
         },
         npc_dota_hero_viper_int9 = {
             place = {"int 9"}, url = "/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int9", 
@@ -3997,10 +3997,10 @@ heroTalentsData = {
         npc_dota_hero_viper_int11 = {
             place = {"int 11"}, url = "/npc_dota_hero_viper/int/4.png", name = "npc_dota_hero_viper_int11", 
         },  
-        npc_dota_hero_viper_int_last = {
+        npc_dota_hero_viper_int12 = {
             place = {"int 12"}, url = "/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int12", 
         },	
-        special_bonus_unique_npc_dota_hero_viper_int50 = {
+        npc_dota_hero_viper_int13 = {
             place = {"int 13"}, url = "/npc_dota_hero_viper/int/1.png", name = "npc_dota_hero_viper_int13", 
         },	
     },

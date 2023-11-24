@@ -50,7 +50,11 @@ function riki_tricks_of_the_trade_lua:OnSpellStart()
 	if self:GetCursorTarget() then
 		self:GetCaster():SetAbsOrigin(self:GetCursorTarget():GetAbsOrigin())
 	end
-	local origin = caster:GetAbsOrigin()
+	-- local origin = Vector() = caster:GetAbsOrigin()
+	local origin = Vector(0,0,0)
+	origin.x = caster:GetAbsOrigin().x
+	origin.y = caster:GetAbsOrigin().y
+	origin.z = caster:GetAbsOrigin().z
 	local aoe = self:GetSpecialValueFor("area_of_effect")
 
 	
@@ -85,13 +89,13 @@ function riki_tricks_of_the_trade_lua:OnChannelFinish()
 		ParticleManager:ReleaseParticleIndex(self.TricksParticle)
 		self.TricksParticle = nil
 
-		local target = self:GetCursorTarget()
+		-- local target = self:GetCursorTarget()
 		caster:RemoveNoDraw()
 		local end_particle = "particles/units/heroes/hero_riki/riki_tricks_end.vpcf"
 		local particle = ParticleManager:CreateParticle(end_particle, PATTACH_ABSORIGIN, caster)
 		ParticleManager:ReleaseParticleIndex(particle)
 
-		self.target = nil
+		-- self.target = nil
 	end
 end
 

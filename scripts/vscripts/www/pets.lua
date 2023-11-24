@@ -42,20 +42,26 @@ function Pets:OnGameRulesStateChange()
         CustomNetTables:SetTableValue('Pets', "list", self.list)
         CustomNetTables:SetTableValue('Pets', "experience_levels", self.experience_levels)
     end
-    if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
         for pid = 0, 4 do
-            if PlayerResource:IsValidPlayer(pid) then
-                if table.count(self.player[pid].pets) > 0 then
-                    local auto_pet = self.player[pid].auto_pet
-                    if auto_pet ~= "" and self.player[pid].pets[auto_pet] and self.player[pid].pets[auto_pet].value > 0 then
-                        self:Equip(pid, auto_pet)
-                    else
-                        local pet_value, pet_key = table.random(self.player[pid].pets)
-                        self:Equip(pid, pet_key)
+            if PlayerResource:IsValidPlayer(pid) and PlayerResource:HasSelectedHero(pid) then
+                Timers:CreateTimer(function()
+                    if PlayerResource:GetSelectedHeroEntity( pid ) then
+                        if table.count(self.player[pid].pets) > 0 then
+                            local auto_pet = self.player[pid].auto_pet
+                            if auto_pet ~= "" and self.player[pid].pets[auto_pet] and self.player[pid].pets[auto_pet].value > 0 then
+                                self:Equip(pid, auto_pet)
+                            else
+                                local pet_value, pet_key = table.random(self.player[pid].pets)
+                                self:Equip(pid, pet_key)
+                            end
+                        else
+                            self:EquipFree(pid)
+                        end
+                        return nil
                     end
-                else
-                    self:EquipFree(pid)
-                end
+                    return 0.1
+                end)
             end
         end
     end

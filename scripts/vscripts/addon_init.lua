@@ -53,6 +53,18 @@ LinkLuaModifier( "effect_projectile_change3", "modifiers/effect_projectile_chang
 
 
 --таланты
+LinkLuaModifier( "modifier_don1", "abilities/talents/modifiers/modifier_don1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don2", "abilities/talents/modifiers/modifier_don2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don3", "abilities/talents/modifiers/modifier_don3", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don4", "abilities/talents/modifiers/modifier_don4", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don5", "abilities/talents/modifiers/modifier_don5", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don6", "abilities/talents/modifiers/modifier_don6", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don7", "abilities/talents/modifiers/modifier_don7", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don8", "abilities/talents/modifiers/modifier_don8", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don9", "abilities/talents/modifiers/modifier_don9", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don10", "abilities/talents/modifiers/modifier_don10", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don11", "abilities/talents/modifiers/modifier_don11", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don_last", "abilities/talents/modifiers/modifier_don_last", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_sheeld", "abilities/talents/modifier_talent_sheeld", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption_effect", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )

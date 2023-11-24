@@ -27,38 +27,18 @@
     
         // Special
         //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "min_damage"            "20 35 50 65 80 95 110 125 180 140 155 185 200 215 230"
-            }
-            "02"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "max_damage"            "50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
-            }
-            "03"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "max_duration"          "4"
-            }
-            "04"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "radius"        "400"
-            }
-            "05"
-            {
-                "var_type"              "FIELD_FLOAT"
-                "duration"          "5.2 5.4 5.6 5.8 6 6.2 6.4 6.6 6.8 7.0 7.2 7.4 7.6 7.8 8"
-            }
-            "06"
-            {
-                "var_type"              "FIELD_INTEGER"
-                "projectile_speed"  "2000"
-            }
+        "AbilityValues"
+		{
+            "min_damage"            "20 35 50 65 80 95 110 125 180 140 155 185 200 215 230"
+            "max_damage"            "50 100 150 200 250 300 350 400 450 500 550 600 650 700 750"
+            "max_duration"          "4"
+            "radius"                "400"
+            "duration"              "5.2 5.4 5.6 5.8 6 6.2 6.4 6.6 6.8 7.0 7.2 7.4 7.6 7.8 8"
+            "projectile_speed"      "2000"
+            "move_slow"             "0"
+            "attack_proc"            "0"
+            "AbilityCharges"            "0"
+            "AbilityChargeRestoreTime"            "14"
         }
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
     }

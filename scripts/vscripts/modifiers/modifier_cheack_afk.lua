@@ -56,7 +56,7 @@ function modifier_cheack_afk:OnIntervalThink()
 				self.MinigameStarted = true
 				ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
 				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame/minigame.xml", nil)
-				talants:EnableHellGame(self:GetParent():GetPlayerID())
+				Talents:EnableAFKGame(self:GetParent():GetPlayerID())
 			end)
 		end	
 	else

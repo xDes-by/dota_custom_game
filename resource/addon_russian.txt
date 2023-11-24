@@ -77,6 +77,7 @@
         "history_status"    "В игре"
         "history_time"  "Время"
         "history_level"     "Уровень"
+        "players_have_label"        "есть у ##count## игроков"
         "yest' u"   "есть у"
         "igrokov"      "игроков"
         "pet_level"      "уровень"
@@ -308,37 +309,34 @@
         "talant_don_exp_description" "Желтый опыт:"
         "talant_don_exp_label" "Золотой опыт:"
 
-        "talant_normal_exp_label" "Опыт:"
 		
 		
-		"talant_game_cout_label" "Игры:" 
         "talant_games_description" "Игры:"
 
         "talant_time_description" "Время:"
-        "talant_game_time_label" "Время:" 
 
         //Talent TREE SHOP//
 
-        "talant-shop-refresh" "Сброс талантов"
+        "talant_shop_refresh" "Сброс талантов"
         "talant-shop-refresh-description" "Вы можете сбросить прокачку героя. Накопленый опыт сохраняется"
-        "talant-shop-exp-pack-1" "Книга на 1000 опыта"
+        "talant_shop_exp_pack_1" "Книга на 1000 опыта"
         "talant-shop-exp-pack-1-description" "Увеличивает опыт талантов героя на 1000 ед."
-        "talant-shop-exp-pack-2" "Книга на 5000 опыта"
+        "talant_shop_exp_pack_2" "Книга на 5000 опыта"
         "talant-shop-exp-pack-2-description" "Увеличивает опыт талантов героя на 5000 ед."
-        "talant-shop-exp-pack-3" "Книга на 15000 опыта"
+        "talant_shop_exp_pack_3" "Книга на 15000 опыта"
         "talant-shop-exp-pack-3-description" "Увеличивает опыт талантов героя на 15000 ед."
-        "talant-shop-don-exp-pack-1" "Золотая книга опыта"
+        "talant_shop_don_exp_pack_1" "Золотая книга опыта"
         "talant-shop-don-exp-pack-1-description" "Увеличивает опыт золотых талантов героя на 1000 ед."
-        "talant-shop-don-exp-pack-2" "Золотая книга опыта"
+        "talant_shop_don_exp_pack_2" "Золотая книга опыта"
         "talant-shop-don-exp-pack-2-description" "Увеличивает опыт золотых талантов героя на 5000 ед."
-        "talant-shop-don-exp-pack-3" "Золотая книга опыта"
+        "talant_shop_don_exp_pack_3" "Золотая книга опыта"
         "talant-shop-don-exp-pack-3-description" "Увеличивает опыт золотых талантов героя на 15000 ед."
 
         // Panorama
         "InTreasuriesLabel"                 "в сокровищнице"
         "TreasuriesPreviewLabel"            "осмотреть"
-        "tooltip_talant_30_level"			"Талант 30 уровня"
         "tooltip_talant_30_level"           "Талант 30-го уровня"
+        "tooltip_talant_50_level"           "Талант 50-го уровня"
         "tier"                              "тир"
         "improve"                           "улучшить"
         "max"                               "макс"
@@ -483,7 +481,7 @@
         "SpellAmplify"                                          "усиление заклинаний"
         "ForgeStats"                                            "всех атрибутов"
         "ForgeBaseDamage"                                       "базового урона"
-        "ForgeRegen"                                            "регенирации"
+        "ForgeRegen"                                            "регенерации"
         "maptogglebutton_Label"                                 "ПОДСКАЗКИ"
         "quest_multiplier_text"                                 "x##multiplier## осталось ##games## игр"
 
@@ -536,13 +534,14 @@
         "battle_pass_task_2_description"                "Поучаствуйте в убийсте <font color='red'><b>250</b></font> боссов, награда 1000 опыта"
         "BpTaskDescription_1"                           "Убить любых крипов"
         "BpTaskDescription_2"                           "Убить боссов"
-        "battle_pass_task_description"                  "Задания для прокачки боевого пропуска, обновляются раз в неделю"
+        "battle_pass_task_description"                  "Задания для прокачки боевого пропуска, обновляются <font color='red'>каждую неделю</font>"
         "battle_pass_buy_experience"                    "##value## опыта за ##price##"
         "battle_pass_buy_premium"                       "Золотой пропуск ##price##"
         "battle_pass_buy_premium_tooltip"               "Доступ к наградам второго уровня и голосованию за героя"
         "bp_premium"                                    "<font color='gold'>Золотой пропуск</font>"
         "bp_experience"                                 "##count## опыта"
         "battle_pase_use_toggle_button"                 "активно"
+        "quest_title_description"                       "Ежедневные задания, задания для прокачки батл пасс, игровые задания"
         /// ------------------- BATTLE PASS --------------------------------------
         /// ------------------- PETS --------------------------------------
         "gems_image_pet"                                "Кристаллы"
@@ -559,8 +558,25 @@
         "pets_buy_unavailible"                          "недоступен"
         "pets_buy_unavailible_tooltip"                  "Возможно получить в качестве награды из боевого пропуска или сокровищницы."
         /// ------------------- PETS --------------------------------------
-
-        "quest_title_description"                       "Ежедневные задания, задания для прокачки батл пасс, игровые задания"
+        /// ------------------- TALENTS -----------------------------------
+        "talent_level_label"                            "Ур."
+        "talant_button_update"                          "Улучшить"
+        "talents_cheat_mode_label"                      "Cheat Mode"
+        "talents_cheat_drop_label"                      "Сбросить таланты"
+        "talents_unavailible_turbo"                     "<br><font color='red'>Не доступно в режиме Turbo</font>"
+        "talents_unavailible_normal"                    "<br><font color='red'>Не доступно в режиме Normal</font>"
+        "talents_open_button"                           "Таланты"
+        "talents_only_patron"                           "<br><br><font color='red'>Работает только с активной подпиской</font>"
+        "talant_normal_exp_label"                       "Обычный опыт"
+        "talant_don_exp_label"                          "Золотой опыт"
+        "talant_game_cout_label"                        "Число игр"
+        "talant_game_time_label"                        "Часов игры"
+        /// ------------------- /TALENTS -----------------------------------
+        /// ------------------- MINIGAME -----------------------------------
+        "minigame_label_1"                              "АДСКАЯ МИНИ ИГРА!"
+        "minigame_label_2"                              "наказание за бездействие"
+        "minigame_label_3"                              "вы теряете опыт талантов, пока игра не закончится"
+        /// ------------------- /MINIGAME -----------------------------------
         // Panorama
 
         /////////////////
@@ -790,7 +806,7 @@
         
         "scroll_6" "Свиток регенерации"
         "dota_tooltip_ability_item_hp_aura" "Свиток регенерации"
-        "dota_tooltip_ability_item_hp_aura_description" "Использовав этот свиток герои находившиеся в радиусе 1000 получат 2% к регенерации здоровья.\n При смерти бафф спадает."
+        "dota_tooltip_ability_item_hp_aura_description" "Использовав этот свиток герои находившиеся в радиусе 1000 получат 2% к регенерации здоровья и маны.\n При смерти бафф спадает."
         "dota_tooltip_ability_item_hp_aura_dur" "Длительность:"
         "dota_tooltip_modifier_item_hp_aura" "Бафф свитка регенерации"
         "dota_tooltip_modifier_item_hp_aura_description" "Регенерация увеличена"
@@ -2192,8 +2208,22 @@
         "DOTA_Tooltip_ability_item_midas_lua" "Hand of Midas"
         "DOTA_Tooltip_ability_item_midas_lua_description" "<h1>Активное: Gold Transfer</h1>Свяжите ваше золото с союзником и получайте до %shareble_gold%%% его золота."
         "DOTA_Tooltip_ability_item_midas_lua_attack_speed" "+$attack"
-
-
+// clarity
+        "DOTA_Tooltip_ability_item_clarity_custom1" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom1_description" "<h1>Использование: Replenish</h1>Увеличивает восстановление маны."
+        "DOTA_Tooltip_ability_item_clarity_custom1_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom1_buff_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_item_clarity_custom2" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom2_description" "<h1>Использование: Replenish</h1>Увеличивает восстановление маны."
+        "DOTA_Tooltip_ability_item_clarity_custom2_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom2_buff_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_item_clarity_custom3" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom3_description" "<h1>Использование: Replenish</h1>Увеличивает восстановление маны."
+        "DOTA_Tooltip_ability_item_clarity_custom3_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom3_buff_duration" "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_modifier_item_clarity_custom"							"Clarity"
+		"DOTA_Tooltip_modifier_item_clarity_custom_Description"				"Восстановление маны увеличено"
+		
         //////////
         //////////
         //////////
@@ -6223,110 +6253,106 @@
         //VIPER
 		"DOTA_Tooltip_ability_viper_poison_attack_lua"										"Poison Attack"
 		"DOTA_Tooltip_ability_viper_poison_attack_lua_Description"							"Добавляет к обычной атаке героя яд, уменьшающий скорость передвижения и сопротивление магии, а также наносящий периодический урон. Эффект яда складывается до %max_stacks% раз."
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_description"					"Увеличивает максимум эффектов. Каждый эффект уменьшает броню жертвы. Способность действует на постройки с уменьшенным уроном."
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_Lore"									"Врождённое ядовитое дыхание низших драконов быстро высасывает жизненные силы жертвы."
 		"DOTA_Tooltip_ability_viper_poison_attack_lua_duration"								"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_viper_poison_attack_lua_damage"								"УРОН В СЕКУНДУ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_movement_speed"					"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_magic_resistance"					"%СОПРОТИВЛЕНИЕ МАГИИ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_max_stacks"						"МАКСИМУМ ЭФФЕКТОВ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_abilitycastrange"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_armor_reduction"			"СНИЖЕНИЕ БРОНИ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_building_dmg_pct"			"%УРОН ПОСТРОЙКАМ:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_bonus_max_stacks"			"БОНУС К МАКСИМУМУ ЭФФЕКТОВ:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua"										"Nethertoxin"
+		"DOTA_Tooltip_ability_viper_poison_attack_lua_movement_speed"					    "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_viper_poison_attack_lua_magic_resistance"					    "%СОПРОТИВЛЕНИЕ МАГИИ:"
+		"DOTA_Tooltip_ability_viper_poison_attack_lua_max_stacks"						    "МАКСИМУМ ЭФФЕКТОВ:"
+		"DOTA_Tooltip_ability_viper_poison_attack_lua_abilitycastrange"					    "ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow"						        "Poison Attack"
+		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow_Description"			        "Скорость передвижения уменьшена на %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Сопротивление магии уменьшено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Получает периодический урон."
+	
+        "DOTA_Tooltip_ability_viper_nethertoxin_lua"										"Nethertoxin"
 		"DOTA_Tooltip_ability_viper_nethertoxin_lua_Description"							"Герой покрывает землю низшим токсином. Противники в отравленной области получают периодический урон, увеличивающийся со временем пребывания в ней, а их пассивные способности не работают."
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_Lore"									"Яд нижних пределов делает смертельной каждую рану, каждую немощь."
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_min_damage"							"МИН. УРОН В СЕКУНДУ:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_max_damage"							"МАКС. УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_min_damage"							    "МИН. УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_max_damage"							    "МАКС. УРОН В СЕКУНДУ:"
 		"DOTA_Tooltip_ability_viper_nethertoxin_lua_max_duration"							"ВРЕМЕНИ ДО МАКС. УРОНА:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_radius"							"РАДИУС:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_duration"						"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua"										"Corrosive Skin"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_radius"							        "РАДИУС:"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_duration"						        "ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_move_slow"						        "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_viper_nethertoxin_lua_attack_proc"						    "%ШАНС СРАБОТАТЬ ПРИ АТАКЕ:"
+
+		"DOTA_Tooltip_modifier_viper_nethertoxin_lua" 								        "Nethertoxin"
+		"DOTA_Tooltip_modifier_viper_nethertoxin_lua_Description" 					        "Пассивные способности отключены. Получает периодический урон."
+
+        "DOTA_Tooltip_ability_viper_corrosive_skin_lua"										"Corrosive Skin"
 		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Description"							"Если враг на расстоянии до %max_range_tooltip% нанесёт герою урон, то отравится заразным ядом, который наносит урон и замедляет атаки. Также способность увеличивает сопротивление магическому урону."
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_scepter_Description"							"Урон и замедление атаки в %effect_multiplier% раза сильнее для врагов в радиусе %effect_multiplier_distance% вокруг владельца."
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Lore"								"Ржавеющие прямо в руках щиты и мечи — обычное дело для тех, кто посмеет напасть на низшего дракона."
-		
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Note0"								"Перемножается с другими источниками сопротивления магическому урону."
 		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_duration"							"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_damage"								"УРОН В СЕКУНДУ:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_attack_speed"					"ЗАМЕДЛЕНИЕ АТАКИ:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_attack_speed_reduction"				"ЗАМЕДЛЕНИЕ АТАКИ:"
 		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_magic_resistance"				"%СОПРОТИВЛЕНИЕ МАГИИ:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_max_range_tooltip"				"МАКС. ДАЛЬНОСТЬ ДЕЙСТВИЯ:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_attack_speed"				    "СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_arrmor"				        "БРОНЯ:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_aura_radius"				            "РАДИУС АУРЫ:"
+        
+        "DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow"						"Замедление от Corrosive Skin"
+		"DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow_Description"			"Существо получает периодический урон, скорость атаки снижена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+		
 		"DOTA_Tooltip_ability_viper_viper_strike_lua"										"Viper Strike"
 		"DOTA_Tooltip_ability_viper_viper_strike_lua_Description"							"Замедляет скорость атаки и передвижения выбранного врага, при этом нанося ему периодический урон. Скорость цели постепенно восстанавливается."
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_Lore"									"Когда-то жестокого мага погубил самый опасный из ядов его питомца. Теперь же этот яд течёт по венам любого, кто дерзнёт противостоять низшему дракону."
 		"DOTA_Tooltip_ability_viper_viper_strike_lua_duration"								"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_viper_viper_strike_lua_damage"								"УРОН В СЕКУНДУ:"
 		"DOTA_Tooltip_ability_viper_viper_strike_lua_bonus_movement_speed"					"%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_bonus_attack_speed"					"ЗАМЕДЛЕНИЕ АТАКИ:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_cast_range_scepter"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_mana_cost_scepter"						"РАСХОД МАНЫ:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_cooldown_scepter"						"ПЕРЕЗАРЯДКА:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_scepter_description"					"Уменьшает расход маны и перезарядку. Увеличивает дальность применения."
+		"DOTA_Tooltip_ability_viper_viper_strike_lua_attack_speed_reduction"				"ЗАМЕДЛЕНИЕ АТАКИ:"
 		
-		"DOTA_Tooltip_ability_viper_nose_dive"											"Nosedive"
-		"DOTA_Tooltip_ability_viper_nose_dive_Lore"										"Считалось, что низшие драконы опускаются на землю только при смерти, однако некоторые подозревают: свидетелей более нарочных приземлений просто нет в живых."
-		"DOTA_Tooltip_ability_viper_nose_dive_Description"								"Герой обрушивается на землю, накладывая бессилие на врагов в радиусе %radius% на %effect_duration% сек. и применяя на всех в радиусе %corrosive_radius% эффект способности Corrosive Skin."
-		"DOTA_Tooltip_ability_viper_nose_dive_Note0"									"Невозможно применить под действием привязки или оцепенения."
-		"DOTA_Tooltip_ability_viper_nose_dive_AbilityCastRange"							"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
-
-		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow"						"Poison Attack"
-		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow_Description"			"Скорость передвижения уменьшена на %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Сопротивление магии уменьшено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Получает периодический урон."
-		"DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow"						"Замедление от Corrosive Skin"
-		"DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow_Description"			"Существо получает периодический урон, скорость атаки снижена на %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 		"DOTA_Tooltip_modifier_viper_viper_strike_lua_slow"							"Замедление от Viper Strike"
 		"DOTA_Tooltip_modifier_viper_viper_strike_lua_slow_Description"				"Скорость передвижения уменьшена на %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, скорость атаки уменьшена на %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
-		"DOTA_Tooltip_modifier_viper_nethertoxin_lua" 								"Nethertoxin"
-		"DOTA_Tooltip_modifier_viper_nethertoxin_lua_Description" 					"Пассивные способности отключены. Получает периодический урон."
+
 
         "npc_dota_hero_viper_str6" "Эхо Тишины"
-        "npc_dota_hero_viper_str6_description" "Ульта гадюки увеличивает получаемый целью урон от всех источников на 20%"   //  +
+        "npc_dota_hero_viper_str6_description" "x2 замедление скорости атаки Viper Strike."
         "npc_dota_hero_viper_str7" "Мгновенное Затишье"
-        "npc_dota_hero_viper_str7_description" "Коррозионная кожа также дает броню, равную скорости атаки"      //  +
+        "npc_dota_hero_viper_str7_description" "Corrosive Skin также дает броню, равную замедлению скорости атаки."      //  +
         "npc_dota_hero_viper_str8" "Мудрость Безгранична"
-        "npc_dota_hero_viper_str8_description" "Corrosive Skin увеличение области действия в 2 раза"    //  +
+        "npc_dota_hero_viper_str8_description" "х2 сопротивление магии Corrosive Skin."
         "npc_dota_hero_viper_str9" "Проклятие Изнурения"
-        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает урон, наносимый целью, на 20%"  //  +
+        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает скорость передвижения до минимальной."
         "npc_dota_hero_viper_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_viper_str10_description" "Увеличить максимальное количество стаков атаки ядом на 5"      //  +
+        "npc_dota_hero_viper_str10_description" "Снижение сопростивления магии х2 Poison Attack."      //  -
         "npc_dota_hero_viper_str11" "Щит Мудреца"
         "npc_dota_hero_viper_str11_description" "50% силы в урон Corrosive Skin"    //  +
         "npc_dota_hero_viper_str12" "Глобальный Гром"
-        "npc_dota_hero_viper_str12_description" "Corrosive Skin может накапливаться на пораженных целях до 5 раз"    //  +
-        "npc_dota_hero_viper_str12_tooltip" "за каждый стак +50% урон и замедления, стаки накладываются с кд 1 сек."
+        "npc_dota_hero_viper_str12_description" "Corrosive Skin становиться аурой"    //  +
+        "npc_dota_hero_viper_str13" "Глобальный Гром"
+        "npc_dota_hero_viper_str13_description" "Corrosive Skin может накапливаться на пораженных целях до 5 раз"    //  -
+        "npc_dota_hero_viper_str13_tooltip" "За каждый стак +50% урон и замедления, стаки накладываются после тика урона."
         
         "npc_dota_hero_viper_agi6" "Ближний Разум"
-        "npc_dota_hero_viper_agi6_description" "Тип урона Poison attack меняется на физический."    //  +
+        "npc_dota_hero_viper_agi6_description" "Poison Attack наносит в 2 раза больше урона по врагам с эффектом Viper Strike."    //  -
         "npc_dota_hero_viper_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_viper_agi7_description" "%"
+        "npc_dota_hero_viper_agi7_description" "+6 сек. длительность Nethertoxin."
         "npc_dota_hero_viper_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_viper_agi8_description" "Добавляется активная способность Corrosive Skin. Накладывает максимальный эффект на всех врагов в области действия"     //  +
+        "npc_dota_hero_viper_agi8_description" "Бонус скорости атаки герою, равная снижению скорости атаки Corrosive Skin."     //  +
         "npc_dota_hero_viper_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_viper_agi9_description" "Снижение брони Poison attack, х3 сопротивление магии"
+        "npc_dota_hero_viper_agi9_description" "2 заряда Viper Strike, возможно применить несколько эффектов одновременно."
         "npc_dota_hero_viper_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_viper_agi10_description" "+100% ловкости в макс. урон Nethertoxin"   //  +
+        "npc_dota_hero_viper_agi10_description" "Nethertoxin применяется в 3 точки."   //  +
         "npc_dota_hero_viper_agi11" "Аура Проклятия"
         "npc_dota_hero_viper_agi11_description" "Атаки по крипам с эффектом Corrosive Skin вызывают нанесение урона способности."    //  +
-        "npc_dota_hero_viper_agi11_tooltip" "наносимый урон снижен до 50%"
+        "npc_dota_hero_viper_agi11_tooltip" "Наносимый урон снижен до 50% (происходит тик урона, после атаки героя)"
         "npc_dota_hero_viper_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_viper_agi12_description" "%"
-		
+        "npc_dota_hero_viper_agi12_description" "10% шанс применить Nethertoxin при атаке."
+		"npc_dota_hero_viper_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_viper_agi13_description" "Макс. урон Nethertoxin +400%, время до макс. урон +300%."
+
         "npc_dota_hero_viper_int6" "Накопление Интеллекта"
         "npc_dota_hero_viper_int6_description" "Poison attack не тратит ману."  //  +
         "npc_dota_hero_viper_int7" "Усиленная Мудрость"
-        "npc_dota_hero_viper_int7_description" "%"
+        "npc_dota_hero_viper_int7_description" "2 заряда Nethertoxin."
         "npc_dota_hero_viper_int8" "Слово По Области"
-        "npc_dota_hero_viper_int8_description" "%"
+        "npc_dota_hero_viper_int8_description" "+100% интеллекта в урон Viper strike."
         "npc_dota_hero_viper_int9" "Стакующая Мудрость"
-        "npc_dota_hero_viper_int9_description" "+30% интеллекта в урон Poison attack"   //  +
+        "npc_dota_hero_viper_int9_description" "+30% интеллекта в урон Poison attack."   //  +
         "npc_dota_hero_viper_int10" "Командная Работа"
-        "npc_dota_hero_viper_int10_description" "+60% интеллекта в макс. урон Nethertoxin"  //  +
+        "npc_dota_hero_viper_int10_description" "+10% интеллекта в мин. урон, +50% интеллекта в макс. урон Nethertoxin."  //  +
         "npc_dota_hero_viper_int11" "Командная Работа"
-        "npc_dota_hero_viper_int11_description" "кд Viper strike 5 сек., наносит 150% урона от интеллекта в секунду."    //  +
+        "npc_dota_hero_viper_int11_description" "10 сек. перезарядка Viper strike, на всех уровнях, не требует ману для применения."    //  +
         "npc_dota_hero_viper_int12" "Удвоенный Урон"
         "npc_dota_hero_viper_int12_description" "Стак Poison attack накладывается при нанесении урона от Corrosive Skin."    //  +
-
+        "npc_dota_hero_viper_int13" "Удвоенный Урон"
+        "npc_dota_hero_viper_int13_description" "Не ограниченное число стаков Poison Attack, но эффективность каждого последующего стака на 10% ниже предыдущего."    //  -
+        "npc_dota_hero_viper_int13_tooltip" "Снижение сопротивления и замедление работает только на первые 5 стаков, с нормальной прогессией. Талант распростроняется только на урон."
 
         // ----------------------------- spirit breaker
 

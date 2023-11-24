@@ -268,16 +268,6 @@
         "talant_nrom_exp_description" "Blue experience:"
 
         "talant_don_exp_description" "Gold experience:"
-		"talant_don_exp_label"  "Gold experience" 
-
-        "talant_normal_exp_label" "EXP:"
-
-
-        "talant_game_cout_label" "Games:" 
-        "talant_games_description" "Games:"
-
-        "talant_time_description" "Time:"
-		"talant_game_time_label"        "Time"
 
 
         // Panorama
@@ -608,7 +598,7 @@
         
         "scroll_6" "Regeneration scroll"
         "dota_tooltip_ability_item_hp_aura" "Regeneration scroll"
-        "dota_tooltip_ability_item_hp_aura_description" "Using this scroll, heroes within a 1000 radius will gain 2% health regeneration. \n The buff disappears upon death."
+        "dota_tooltip_ability_item_hp_aura_description" "Using this scroll, heroes within a 1000 radius will gain 2% health and mana regeneration. \n The buff disappears upon death."
         "dota_tooltip_ability_item_hp_aura_dur" "DURATION:"
         "dota_tooltip_modifier_item_hp_aura" "Regeneration scroll Buff"
         "dota_tooltip_modifier_item_hp_aura_description" "Increased Health regeneration"
@@ -16448,67 +16438,6 @@
         "npc_dota_hero_silencer_int11_description" "Last Word damage is doubled"
         "npc_dota_hero_silencer_int12" "Doubled Damage"
         "npc_dota_hero_silencer_int12_description" "Intelligence damage multiplier is 2.5 times greater."
-
-
-        		//VIPER
-		"DOTA_Tooltip_ability_viper_poison_attack_lua"										"Poison Attack"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_Description"							"Intensifies Viper's venom, adding an effect to his normal attack that applies a stacking movement speed slow and magic resistance deduction while dealing damage over time. Stacks up to %max_stacks% times."
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_description"					"Increases max stacks, and causes Poison Attack to lower armor per stack and to affect buildings for reduced damage."
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_Lore"									"The Netherdrake's inborn toxic breath quickly drains the vitality of its afflicted."
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_duration"								"DURATION:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_damage"								"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_movement_speed"					"%MOVE SLOW:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_magic_resistance"					"%MAGIC RESISTANCE:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_max_stacks"						"MAX STACKS:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_abilitycastrange"					"CAST RANGE:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_armor_reduction"			"ARMOR REDUCTION:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_building_dmg_pct"			"%BUILDING DAMAGE:"
-		"DOTA_Tooltip_ability_viper_poison_attack_lua_shard_bonus_max_stacks"			"BONUS MAX STACKS:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua"										"Nethertoxin"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_Description"							"Viper releases a Nethertoxin at the targeted area. Units in that area take an increasing damage over time based on how long they remain in it. Disables passives of affected units."
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_Lore"									"Poison from the Nether Reaches turns wounds into fatalities, and fatigue into death."
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_min_damage"							"MIN DPS:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_max_damage"							"MAX DPS:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_max_duration"							"MAX DPS DURATION:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_radius"							"RADIUS:"
-		"DOTA_Tooltip_ability_viper_nethertoxin_lua_duration"						"DURATION:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua"										"Corrosive Skin"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Description"							"Viper exudes an infectious toxin that damages and slows the attack speed of any enemy that damages it in a %max_range_tooltip% radius. The acid exudate also increases Viper's resistance to magic."
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_scepter_Description"							"Corrosive Skin applies %effect_multiplier%x the damage and attack speed slow to enemies that are within %effect_multiplier_distance% distance of Viper."
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Lore"								"It is not unusual for sword and shield alike to corrode in the very hands of those who attack the Netherdrake."
-		
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_Note0"								"Stacks multiplicatively with other magic damage resistance sources."
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_duration"							"DURATION:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_damage"								"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_attack_speed"					"ATTACK SLOW:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_bonus_magic_resistance"				"%MAGIC RESISTANCE:"
-		"DOTA_Tooltip_ability_viper_corrosive_skin_lua_max_range_tooltip"				"MAX RANGE RADIUS:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua"										"Viper Strike"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_Description"							"Viper slows the targeted enemy unit's movement and attack speed while also dealing poison damage over time.  The slowing effect reduces over the duration of the poison."
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_Lore"									"Once used to slay his sadistic summoner, the most powerful of Netherdrake infections spreads through the veins of those foolish enough to cross Viper."
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_duration"								"DURATION:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_damage"								"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_bonus_movement_speed"					"%MOVE SLOW:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_bonus_attack_speed"					"ATTACK SLOW:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_cast_range_scepter"					"CAST RANGE:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_mana_cost_scepter"						"MANA COST:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_cooldown_scepter"						"COOLDOWN:"
-		"DOTA_Tooltip_ability_viper_viper_strike_lua_scepter_description"					"Decreases mana cost and cooldown. Increases cast range."
-		
-		"DOTA_Tooltip_ability_viper_nose_dive"											"Nosedive"
-		"DOTA_Tooltip_ability_viper_nose_dive_Lore"										"It was thought that Netherdrake wings touch ground only in death, but some surmise that those who've witnessed more intentional landings merely haven't survived to tell the tale."
-		"DOTA_Tooltip_ability_viper_nose_dive_Description"								"Viper slams into the ground, disarming each enemy in a %radius% AoE for %effect_duration% seconds and splattering everyone in a %corrosive_radius% AoE with the effect of Corrosive Skin."
-		"DOTA_Tooltip_ability_viper_nose_dive_Note0"									"Cannot be used while Leashed or Rooted."
-		"DOTA_Tooltip_ability_viper_nose_dive_AbilityCastRange"							"CAST RANGE:"
-
-		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow"						"Poison Attack"
-		"DOTA_Tooltip_modifier_viper_poison_attack_lua_slow_Description"			"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%. Taking damage over time."
-		"DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow"						"Corrosive Skin Slow"
-		"DOTA_Tooltip_modifier_viper_corrosive_skin_lua_slow_Description"			"Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% and taking damage over time."
-		"DOTA_Tooltip_modifier_viper_viper_strike_lua_slow"							"Viper Strike Slow"
-		"DOTA_Tooltip_modifier_viper_viper_strike_lua_slow_Description"				"Movement speed reduced by %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
-		"DOTA_Tooltip_modifier_viper_nethertoxin_lua" 								"Nethertoxin"
-		"DOTA_Tooltip_modifier_viper_nethertoxin_lua_Description" 					"Passive abilities disabled, and taking increasing damage over time."
 
         "dota_tooltip_ability_necrolyte_death_pulse_lua" "Death Pulse"
 		"dota_tooltip_ability_necrolyte_death_pulse_lua_base_heal" "HEAL:"

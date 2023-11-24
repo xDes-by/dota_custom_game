@@ -3,7 +3,9 @@
 	"consumables"
 	{
 		"item"		"item_tpscroll"
-		"item"		"item_clarity"	
+		"item"		"item_clarity_custom1"
+		"item"		"item_clarity_custom2"
+		"item"		"item_clarity_custom3"
 		"item"		"item_faerie_fire"				
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"

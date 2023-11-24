@@ -17,7 +17,7 @@ function modifier_arc_lightning_intrinsic:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
 		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-        MODIFIER_EVENT_ON_ATTACK_START,
+        MODIFIER_EVENT_ON_ATTACK,
 	}
 
 	return funcs
@@ -58,10 +58,10 @@ function modifier_arc_lightning_intrinsic:GetModifierOverrideAbilitySpecialValue
 	return 0
 end
 
-function modifier_arc_lightning_intrinsic:OnAttackStart(params)
+function modifier_arc_lightning_intrinsic:OnAttack(params)
     self.caster = self:GetCaster()
     self.ability = self:GetAbility()
-    if self.caster:FindAbilityByName("npc_dota_hero_zuus_agi6") and self.ability:IsFullyCastable() then
+    if params.attacker == self:GetParent() and self.caster:FindAbilityByName("npc_dota_hero_zuus_agi6") and self.ability:IsFullyCastable() then
         self.caster:SetCursorCastTarget( params.target )
         self.ability:OnSpellStart()
         self.ability:UseResources( true, false, false, true )

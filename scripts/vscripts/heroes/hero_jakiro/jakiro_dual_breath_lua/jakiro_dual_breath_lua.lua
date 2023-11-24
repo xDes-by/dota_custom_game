@@ -22,6 +22,11 @@ function jakiro_dual_breath_lua:GetCooldown( level )
 	end
 	return self.BaseClass.GetCooldown( self, level )
 end
+function jakiro_dual_breath_lua:OnUpgrade()
+    if self:GetLevel() == 1 then
+        self:RefreshCharges()
+    end
+end
 --------------------------------------------------------------------------------
 function jakiro_dual_breath_lua:FireBreath(direction_x, direction_y)
 	local caster = self:GetCaster()

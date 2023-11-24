@@ -48,19 +48,25 @@ function BattlePass:OnGameRulesStateChange()
     end
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         for pid = 0, 4 do
-            if PlayerResource:IsValidPlayer(pid) then
-                local hero = PlayerResource:GetSelectedHeroEntity(pid)
-                for hero_name, value in pairs(self.player[pid].auto_models) do
-                    if hero:GetUnitName() == hero_name and value == true then
-                        Wearable:SetAlternative(pid)
+            if PlayerResource:IsValidPlayer(pid) and PlayerResource:HasSelectedHero(pid) then
+                Timers:CreateTimer(function()
+                    if PlayerResource:GetSelectedHeroEntity( pid ) then
+                        local hero = PlayerResource:GetSelectedHeroEntity(pid)
+                        for hero_name, value in pairs(self.player[pid].auto_models) do
+                            if hero:GetUnitName() == hero_name and value == true then
+                                Wearable:SetAlternative(pid)
+                            end
+                        end
+                        if self.player[pid].auto_projectile_particle ~= "" then
+                            self:AddPariticle(pid, self.player[pid].auto_projectile_particle, self.player[pid].projectile_particles, true)
+                        end
+                        if self.player[pid].auto_following_particle ~= "" then
+                            self:AddPariticle(pid, self.player[pid].auto_following_particle, self.player[pid].following_particles, true)
+                        end
+                        return nil
                     end
-                end
-                if self.player[pid].auto_projectile_particle ~= "" then
-                    self:AddPariticle(pid, self.player[pid].auto_projectile_particle, self.player[pid].projectile_particles, true)
-                end
-                if self.player[pid].auto_following_particle ~= "" then
-                    self:AddPariticle(pid, self.player[pid].auto_following_particle, self.player[pid].following_particles, true)
-                end
+                    return 0.1
+                end)
             end
         end
     end

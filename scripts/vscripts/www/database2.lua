@@ -69,6 +69,8 @@ function DataBase:init()
 	DataBase.link.BuyGems = _G.host .. "/backend/player-actions/buy-gems?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.BuyHotOffer = _G.host .. "/backend/player-actions/buy-hot-offer?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TreasureReward = _G.host .. "/backend/player-actions/treasure-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.SaveQuestsData = _G.host .. "/backend/gameplay/save-quests-data?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.RequestTalents = _G.host .. "/backend/init-shutdown/request-talents?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
@@ -672,6 +674,7 @@ function DataBase:PlayerSetup( pid )
 		Quests:SetPlayerData(pid, obj.daily, obj.bp, obj.settings)
 		Pets:SetPlayerData(pid, obj.items, obj.settings)
 		Shop:PlayerSetup( pid, obj.items)
+		Talents:HeroSelectedListen(pid)
 		rating:PlayerSetup(pid, obj.settings)
 		BattlePass:SetPlayerData(pid, obj.battle_pass, obj.settings)
 		BattlePass:UpdatePlayerCosmeticEffects(pid, obj.items)
