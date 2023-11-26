@@ -68,7 +68,7 @@ function modifier_viper_nethertoxin_intrinsic_lua:GetModifierOverrideAbilitySpec
 		end
 		if data.ability_special_value == "max_damage" then
 			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "max_damage", data.ability_special_level )
-            if self:GetCaster():FindAbilityByName("npc_dota_hero_jakiro_agi9") then
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int10") then
                 value = value + self:GetCaster():GetIntellect() * 0.5
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi13") then

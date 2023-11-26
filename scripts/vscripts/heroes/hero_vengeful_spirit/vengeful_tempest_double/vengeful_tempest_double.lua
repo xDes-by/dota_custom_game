@@ -60,19 +60,22 @@ vengeful_tempest_double.transferable_ability = {
 	["npc_dota_hero_vengefulspirit_str9"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_str10"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_str11"]	= 	TRANSFER_PLAIN,
-	["npc_dota_hero_vengefulspirit_str_last"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_str12"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_str13"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_int6"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_int8"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_int9"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_int10"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_int11"]	= 	TRANSFER_PLAIN,
-	["npc_dota_hero_vengefulspirit_int_last"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_int12"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_int13"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_agi6"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_agi8"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_agi9"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_agi10"]	= 	TRANSFER_PLAIN,
 	["npc_dota_hero_vengefulspirit_agi11"]	= 	TRANSFER_PLAIN,
-	["npc_dota_hero_vengefulspirit_agi_last"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_agi12"]	= 	TRANSFER_PLAIN,
+	["npc_dota_hero_vengefulspirit_agi13"]	= 	TRANSFER_PLAIN,
 }
 
 vengeful_tempest_double.transferable_modifiers = {
@@ -80,7 +83,6 @@ vengeful_tempest_double.transferable_modifiers = {
 	["modifier_don2"]				=	TRANSFER_PLAIN,
 	["modifier_don3"]				=	TRANSFER_PLAIN,
 	["modifier_don4"]				=	TRANSFER_PLAIN,
-	["modifier_don5"]				=	TRANSFER_PLAIN,
 	["modifier_don6"]				=	TRANSFER_PLAIN,
 	["modifier_don7"]				=	TRANSFER_PLAIN,
 	["modifier_don8"]				=	TRANSFER_PLAIN,
@@ -88,9 +90,22 @@ vengeful_tempest_double.transferable_modifiers = {
 	["modifier_don10"]				=	TRANSFER_PLAIN,
 	["modifier_don11"]				=	TRANSFER_PLAIN,
 	["modifier_don_last"]				=	TRANSFER_PLAIN,
-	["modifier_Increase_str"]		=	TRANSFER_FULL,
-	["modifier_Increase_agi"]		=	TRANSFER_FULL,
-	["modifier_Increase_int"]		=	TRANSFER_FULL,
+	["modifier_don13"]				=	TRANSFER_PLAIN,
+	["modifier_talent_hp_per_level"]		=	TRANSFER_FULL,
+	["modifier_talent_hp_regen_level"]		=	TRANSFER_FULL,
+	["modifier_talent_sheeld"]		=	TRANSFER_FULL,
+	["modifier_talent_armor_per_level"]		=	TRANSFER_FULL,
+	["modifier_talent_increase_str"]		=	TRANSFER_FULL,
+	["modifier_talent_armor_curruption"]		=	TRANSFER_FULL,
+	["modifier_talent_dmg_per_level"]		=	TRANSFER_FULL,
+	["modifier_talent_all_evasion"]		=	TRANSFER_FULL,
+	["modifier_talent_base_attack_time"]		=	TRANSFER_FULL,
+	["modifier_talent_increase_agi"]		=	TRANSFER_FULL,
+	["modifier_talent_magic_damage"]		=	TRANSFER_FULL,
+	["modifier_talent_mp_regen_level"]		=	TRANSFER_FULL,
+	["modifier_talent_m_resist"]		=	TRANSFER_FULL,
+	["modifier_talent_manacost"]		=	TRANSFER_FULL,
+	["modifier_talent_increase_int"]		=	TRANSFER_FULL,
 
 	-- ["modifier_item_moon_shard_consumed"] 		= TRANSFER_PLAIN,
 	-- ["modifier_item_ultimate_scepter_consumed"] = TRANSFER_PLAIN,
@@ -259,6 +274,9 @@ function vengeful_tempest_double:OnSpellStart()
 
 	-- Duration dependent on having the corresponding talent levelled
 	local duration = self:GetSpecialValueFor("duration")
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi13") then
+		duration = duration + 120
+	end
 
 	caster.tempest_double_clone = clone
 
@@ -282,7 +300,7 @@ function vengeful_tempest_double:OnSpellStart()
 
 	caster:EmitSound("Hero_ArcWarden.TempestDouble")
 
-	if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_str_last") then
+	if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_str12") then
 		caster:AddNewModifier(caster, self, "modifier_vengeful_tempest_double_str30", {}):SetStackCount( caster:GetMaxHealth() * 5 )
 		clone:AddNewModifier(caster, self, "modifier_vengeful_tempest_double_str30", {}):SetStackCount( clone:GetMaxHealth() * 5 )
 	end

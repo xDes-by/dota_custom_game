@@ -20,6 +20,9 @@ function riki_blink_strike_lua:GetAbilityTextureName()
 	return "riki_blink_strike"
 end
 function riki_blink_strike_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int9") then
+		return 0
+	end
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 -------------------------------------------

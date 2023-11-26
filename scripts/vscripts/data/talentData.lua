@@ -3716,10 +3716,10 @@ heroTalentsData = {
         npc_dota_hero_vengefulspirit_str11 = {
             place = {"str 11"}, url = "/npc_dota_hero_vengefulspirit/str/4.png", name = "npc_dota_hero_vengefulspirit_str11", 
         },
-        npc_dota_hero_vengefulspirit_str_last = {
+        npc_dota_hero_vengefulspirit_str12 = {
             place = {"str 12"}, url = "/npc_dota_hero_vengefulspirit/str/4.png", name = "npc_dota_hero_vengefulspirit_str12", 
         },
-        special_bonus_unique_npc_dota_hero_vengefulspirit_str50 = {
+        npc_dota_hero_vengefulspirit_str13 = {
             place = {"str 13"}, url = "/npc_dota_hero_vengefulspirit/str/4.png", name = "npc_dota_hero_vengefulspirit_str13", 
         },
         -------------------- AGI -----------------------------------------------------------
@@ -3741,10 +3741,10 @@ heroTalentsData = {
         npc_dota_hero_vengefulspirit_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_vengefulspirit/agi/2.png", name = "npc_dota_hero_vengefulspirit_agi11", 
         },
-        npc_dota_hero_vengefulspirit_agi_last = {
+        npc_dota_hero_vengefulspirit_agi12 = {
             place = {"agi 12"}, url = "/npc_dota_hero_vengefulspirit/agi/4.png", name = "npc_dota_hero_vengefulspirit_agi12", 
         },
-        special_bonus_unique_npc_dota_hero_vengefulspirit_agi50 = {
+        npc_dota_hero_vengefulspirit_agi13 = {
             place = {"agi 13"}, url = "/npc_dota_hero_vengefulspirit/agi/4.png", name = "npc_dota_hero_vengefulspirit_agi13", 
         },
         -------------------- INT -----------------------------------------------------------
@@ -3766,10 +3766,10 @@ heroTalentsData = {
         npc_dota_hero_vengefulspirit_int11 = {
             place = {"int 11"}, url = "/npc_dota_hero_vengefulspirit/int/1.png", name = "npc_dota_hero_vengefulspirit_int11", 
         },
-        npc_dota_hero_vengefulspirit_int_last = {
+        npc_dota_hero_vengefulspirit_int12 = {
             place = {"int 12"}, url = "/npc_dota_hero_vengefulspirit/int/1.png", name = "npc_dota_hero_vengefulspirit_int12", 
         },
-        special_bonus_unique_npc_dota_hero_vengefulspirit_int50 = {
+        npc_dota_hero_vengefulspirit_int13 = {
             place = {"int 13"}, url = "/npc_dota_hero_vengefulspirit/int/1.png", name = "npc_dota_hero_vengefulspirit_int13", 
         },
     },
@@ -4179,10 +4179,10 @@ heroTalentsData = {
             place = {"str 11"}, url = "/npc_dota_hero_riki/str/1.png", name = "npc_dota_hero_riki_str11", 
         },
         npc_dota_hero_riki_str12 = {
-            place = {"str 12"}, url = "/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str12", 
+            place = {"str 12"}, url = "/npc_dota_hero_riki/str/3.png", name = "npc_dota_hero_riki_str12", 
         },
         npc_dota_hero_riki_str13 = {
-            place = {"str 13"}, url = "/npc_dota_hero_riki/str/4.png", name = "npc_dota_hero_riki_str13", 
+            place = {"str 13"}, url = "/npc_dota_hero_riki/str/3.png", name = "npc_dota_hero_riki_str13", 
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_riki_agi6 = {
@@ -4220,7 +4220,7 @@ heroTalentsData = {
             place = {"int 8"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int8", 
         },
         npc_dota_hero_riki_int9 = {
-            place = {"int 9"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int9", 
+            place = {"int 9"}, url = "/npc_dota_hero_riki/int/5.png", name = "npc_dota_hero_riki_int9", 
         },
         npc_dota_hero_riki_int10 = {
             place = {"int 10"}, url = "/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int10", 
@@ -4229,10 +4229,10 @@ heroTalentsData = {
             place = {"int 11"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int11", 
         },  
         npc_dota_hero_riki_int12 = {
-            place = {"int 12"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int12", 
+            place = {"int 12"}, url = "/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int12", 
         },
         npc_dota_hero_riki_int13 = {
-            place = {"int 13"}, url = "/npc_dota_hero_riki/int/3.png", name = "npc_dota_hero_riki_int13", 
+            place = {"int 13"}, url = "/npc_dota_hero_riki/int/4.png", name = "npc_dota_hero_riki_int13", 
         },
     },
     npc_dota_hero_leshrac = {

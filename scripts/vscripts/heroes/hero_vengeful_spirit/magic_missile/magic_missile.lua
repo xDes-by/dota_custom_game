@@ -50,16 +50,10 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
         local magic_missile_stun = ExtraData.magic_missile_stun
 
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str6") then
-            local min_value = 35
-            local max_value = 110
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetStrength()) -- талант 30->120 силы в урон
+            damage = damage + self:GetCaster():GetStrength() * 0.5
         end
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_int8") then
-            local min_value = 35
-            local max_value = 90
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetStrength()) -- талант 30->120 силы в урон
+            damage = damage + self:GetCaster():GetIntellect() * 0.5
         end
         if Target:TriggerSpellAbsorb(self) then
             return false
@@ -142,7 +136,9 @@ modifier_vengeful_spirit_magic_missile = class({
 function modifier_vengeful_spirit_magic_missile:OnAttack( params )
     caster = self:GetCaster()
     if params.attacker == self:GetParent() then
-        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int_last") and RollPseudoRandomPercentage(9, caster:entindex(), caster) then
+        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int13") and RollPercentage(12) then
+            self:GetAbility():OnSpellStart(params.target)
+        elseif caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int12") and RollPercentage(7) then
             self:GetAbility():OnSpellStart(params.target)
         end
     end

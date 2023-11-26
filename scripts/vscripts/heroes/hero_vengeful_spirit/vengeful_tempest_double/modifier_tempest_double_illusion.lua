@@ -38,7 +38,7 @@ function modifier_tempest_double_illusion:OnCreated( kv )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str8") then
 		self.incoming_damage = self.incoming_damage - 35
 	end
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi_last") then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi12") then
 		self.outgoing_damage = 80
 	end
 end

@@ -72,7 +72,6 @@ function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 	damage_flags = DOTA_DAMAGE_FLAG_MAGIC_AUTO_ATTACK
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_agi50") then
 		damage_type = DAMAGE_TYPE_PHYSICAL
-		damage_flags = 0
 	end
 	local damageTable = {
 		victim = target,

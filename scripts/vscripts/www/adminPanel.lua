@@ -134,8 +134,11 @@ function AdminPanel:GiveBooks(t)
 end
 
 function AdminPanel:Talents(t)
-    talants.testing[t.PlayerID] = true
-	talants:fillTabel(t.PlayerID, true, false)
+    local pid = t.PlayerID
+    Talents:RemoveAllTalentsCheat(t)
+    Talents:FillTablesFromDatabase(pid, Talents.data_base[pid], true)
+    Talents.player[pid].index = PlayerResource:GetSelectedHeroEntity( pid ):entindex()
+    Talents:UpdateTable(pid)
 end
 
 function AdminPanel:TalentsDrop(t)

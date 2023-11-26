@@ -9,7 +9,7 @@
 		"AbilityTextureName"			"riki_tricks_of_the_trade"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
 		"FightRecapLevel"				"1"
@@ -21,7 +21,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"39 38 37 36 35 34 33 32 31 30 29 28 27 26 25"
+		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -42,14 +42,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"area_of_effect"				"450"
+			"area_of_effect"				"400 410 420 430 440 450 460 470 480 490 500 510 520 530 540"
 			"attack_count"					"5 5 6 6 7 7 8 8 9 9 10 10 11 11 12"
 			"channel_duration"				"5"
 			"dmg_perc"						"62 64 66 68 70 72 74 76 78 80 82 84 86 88 90"
 			"extra_agility"					"11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"
 			"target_count"					"2"
 			"AbilityCharges"				"0"
-			"AbilityChargeRestoreTime"		"39 38 37 36 35 34 33 32 31 30 29 28 27 26 25"
+			"AbilityChargeRestoreTime"		"20"
 		}
 	}
 }

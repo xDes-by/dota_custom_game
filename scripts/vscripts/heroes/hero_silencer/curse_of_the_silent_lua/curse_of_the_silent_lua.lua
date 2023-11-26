@@ -194,7 +194,6 @@ function modifier_silencer_curse_of_the_silent_lua:OnIntervalThink()
 	else
 		self.damageTable.damage = self.damage
 	end
-	
 	ApplyDamage( self.damageTable )
 
 	EmitSoundOn( "Hero_Silencer.Curse_Tick", self:GetParent() )
@@ -231,13 +230,6 @@ end
 function modifier_silencer_curse_of_the_silent_aura:OnCreated()
 	if not IsServer() then
 		return
-	end
-	self:StartIntervalThink(10)
-end
-
-function modifier_silencer_curse_of_the_silent_aura:OnIntervalThink()
-	if not self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
-		self:Destroy()
 	end
 end
 

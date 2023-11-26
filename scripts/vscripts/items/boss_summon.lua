@@ -1,4 +1,10 @@
-﻿if not IsServer() then
+﻿LinkLuaModifier( "modifier_item_boss_summon_cd", "items/boss_summon", LUA_MODIFIER_MOTION_NONE )
+modifier_item_boss_summon_cd = class({})
+function modifier_item_boss_summon_cd:IsHidden() return false end
+function modifier_item_boss_summon_cd:IsDebuff() return false end
+function modifier_item_boss_summon_cd:IsPurgable() return false end
+
+if not IsServer() then
 	require("creep_spawner")
 end
 
@@ -22,10 +28,15 @@ local bossTable = {
 
 function item_boss_summon:OnSpellStart()
 	if #_G.don_bosses_count < 5 then
-		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_item_boss_summon_cd", {duration = self:GetCooldown(self:GetLevel())* self:GetCaster():GetCooldownReduction()})
+		print(self:GetCaster():GetCooldownReduction())
+		print(self:GetCooldown(self:GetLevel()))
 		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
 			spawn_level = _G.don_spawn_level,
 		} )
+		self.caster = self:GetCaster()
+		local duration = self:GetCooldown(self:GetLevel())* self.caster:GetCooldownReduction()
+		local cd = self.caster:AddNewModifier(self.caster, self, "modifier_item_boss_summon_cd", {duration = duration})
+		cd:SetDuration(duration, true)
 		if self:GetCurrentCharges() > 1 then
 			self:SetCurrentCharges(self:GetCurrentCharges() - 1)
 		else
@@ -52,11 +63,7 @@ function item_boss_summon:OnSpellStart()
 	-- end
 end
 
-LinkLuaModifier( "modifier_item_boss_summon_cd", "items/boss_summon", LUA_MODIFIER_MOTION_NONE )
-modifier_item_boss_summon_cd = class({})
-function modifier_item_boss_summon_cd:IsHidden() return true end
-function modifier_item_boss_summon_cd:IsDebuff() return false end
-function modifier_item_boss_summon_cd:IsPurgable() return false end
+
 
 -- local bossTable = {
 --     [1] = "npc_forest_boss_fake",

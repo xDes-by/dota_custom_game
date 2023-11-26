@@ -9,9 +9,6 @@ function Shop:init()
     CustomGameEventManager:RegisterListener("takeOffEffect", Dynamic_Wrap( Shop, 'takeOffEffect' ))
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap( Shop, 'OnPlayerReconnected' ), self)
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( Shop, 'OnGameRulesStateChange'), self)
-	CustomGameEventManager:RegisterListener("GetPets",function(_, keys)
-        Shop:GetPets(keys)
-    end)
 	CustomGameEventManager:RegisterListener("UpdatePetButton",function(_, keys)
         Shop:UpdatePetButton(keys)
     end)
@@ -41,80 +38,12 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("CustomShopStash_ReturnItem",function(_, keys)
         Shop:CustomShopStash_ReturnItem(keys)
     end)
-	CustomGameEventManager:RegisterListener("ActivateTrialPeriod_Pet",function(_, keys)
-        Shop:ActivateTrialPeriod_Pet(keys)
-    end)
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( Shop, "OnItemPickUp"), self)
 	Shop.Auto_Pet = {}
 	Shop.Change_Available = {}
 	Shop.sprayCategory = 4
 	Shop.spray = {}
 	Shop.stashItems = {"item_boss_summon","item_ticket","item_forever_ward","item_armor_aura","item_base_damage_aura","item_expiriance_aura","item_move_aura","item_attack_speed_aura","item_hp_aura"}
-end
-
-function Shop:GetPets(keys)
-	if RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ] ~= nil then
-		Shop:ActivateTrialPeriod_Pet({
-			PlayerID = keys.PlayerID,
-			affordable_pet = {"pet_15", "pet_13", "pet_14"},
-		})
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "GetPets_Js", {
-		shop = Shop.pShop[keys.PlayerID],
-		exp = pets_exp,
-		auto_pet = Shop.Auto_Pet[keys.PlayerID],
-		pet_trial = {
-			available = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_available" ],
-			ends = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ],
-			affordable_pet = {"pet_15", "pet_13", "pet_14"},
-		},
-	} )
-end
-
-function Shop:OnChat( event )
-    local text = event.text
-	local pid = event.playerid
-	local steamID = PlayerResource:GetSteamAccountID(pid)
-	if steamID == 169401485 or steamID == 1062658804 or steamID == 455872541 or steamID == 393187346 or steamID == 1250222698 then
-		if text == "pet" then
-			Shop:RefreshPet(pid)
-		end
-	end
-end
-
-function Shop:RefreshPet(PlayerID)
-	local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
-	item = hero:GetItemInSlot( 16 )
-	if item == nil then
-		return
-	end
-	hero:RemoveItem(item)
-
-	for _,v in pairs(Shop.pShop[PlayerID][1]) do
-		if type(v) == 'table' then
-			if v.status == "issued" then
-				v.status = "taik"
-				break
-			end
-		end
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( PlayerID ), "shop_refresh_pets", Shop.pShop[PlayerID] )
-end
-
-function Shop:ActivateTrialPeriod_Pet(t)
-	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
-		for itemKey, item in ipairs(category) do
-			for _, trialPetName in pairs(t.affordable_pet) do
-				if item.name == trialPetName then
-					item.onStart = 13501
-					item.now = 13501
-				end
-			end
-		end
-	end
-	if RATING[ "rating" ][ t.PlayerID ][ "pet_trial_ends" ] == nil then
-		DataBase:ActivateTrialPeriodPet(t)
-	end
 end
 
 function Shop:OnGameRulesStateChange(keys)
@@ -246,6 +175,8 @@ function Shop:PlayerSetup( pid, items )
 	end
 	arr.auto_quest_trial = temp.auto_quest_trial.value
 	arr.golden_branch = temp.golden_branch or false
+	arr.talents_refresh = 0
+	if temp.talents_refresh then arr.talents_refresh = temp.talents_refresh.value end
 	arr.gems = {
 		[1] = _G.SHOP[pid]["gem_1"],
 		[2] = _G.SHOP[pid]["gem_2"],
@@ -704,7 +635,7 @@ end
 
 function ChangeHero:SetDonateHeroesDate(pid, items)
 	for heroName, heroData in pairs(self.heroes) do
-		heroData.trialCount[pid] = items[heroData.trialName]
+		heroData.trialCount[pid] = items[heroData.trialName].value
 		if Shop.pShop[pid].totaldonate >= heroData.minimumTotal then
 			heroData.trialCount[pid] = -1
 		end

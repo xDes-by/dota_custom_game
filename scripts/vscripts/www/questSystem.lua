@@ -60,7 +60,7 @@ function QuestSystem:PlayerConnectFull()
 end
 
 function QuestSystem:OnRunePickup(t)
-	QuestSystem:UpdateCounter("bonus", 1, 1, t.PlayerID)
+	-- QuestSystem:UpdateCounter("bonus", 1, 1, t.PlayerID)
 end
 
 function QuestSystem:OnPlayerReconnected(keys)
@@ -191,7 +191,7 @@ function QuestSystem:UpdateCounter(type, number, task, id, kol)
 			CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 		else
 			if tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"]) < tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["HowMuch"]) then
-				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "PlayCompletionSound", {})
+				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(id), "PlayCompletionSound", {})
 			end
 			player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"] = player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["HowMuch"]
 			CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)

@@ -5,14 +5,9 @@ function modifier_riki_tricks_of_the_trade_lua:IsHidden() return false end
 
 function modifier_riki_tricks_of_the_trade_lua:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
 		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 	}
-end
-
-function modifier_riki_tricks_of_the_trade_lua:GetModifierAttackRangeBonus()
-	return self.area_of_effect
 end
 function modifier_riki_tricks_of_the_trade_lua:GetModifierDamageOutgoing_Percentage()
 	return -100 + self.dmg_perc
@@ -24,12 +19,9 @@ function modifier_riki_tricks_of_the_trade_lua:CheckState()
 	local state = {	
 		[MODIFIER_STATE_INVULNERABLE] = true,
 		[MODIFIER_STATE_UNSELECTABLE] = true,
-		[MODIFIER_STATE_OUT_OF_GAME] = false,
+		[MODIFIER_STATE_OUT_OF_GAME] = self.npc_dota_hero_riki_str12 == nil,
 		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
-		[MODIFIER_STATE_ATTACK_IMMUNE] = true,
-		[MODIFIER_STATE_UNTARGETABLE] = true,
 	}
 	return state
 end
@@ -37,7 +29,7 @@ end
 function modifier_riki_tricks_of_the_trade_lua:OnCreated()
 	local ability = self:GetAbility()
 
-	self.area_of_effect	= ability:GetSpecialValueFor("area_of_effect")
+	self.npc_dota_hero_riki_str12 = self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str12")
 	self.dmg_perc = ability:GetSpecialValueFor("dmg_perc")
 	self.agi = ability:GetSpecialValueFor("extra_agility") / 100 * self:GetParent():GetAgility()
 	self.radius = ability:GetSpecialValueFor("area_of_effect")
@@ -47,9 +39,9 @@ function modifier_riki_tricks_of_the_trade_lua:OnCreated()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi12") then
 		self.attack_count = self.attack_count + duration / (1 / (self:GetCaster():GetAttacksPerSecond() / 2))
 	end
-	self.attack_count = self.attack_count - 1
+	self.current_attack_count = self.attack_count
 	self.attack_speed = duration / self.attack_count
-	self.current_interval = self.attack_speed
+	self.current_interval = 0
 	if IsServer() then
 		local particle_start = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_tricks_cast.vpcf", PATTACH_WORLDORIGIN, nil)
         self.particle_radius = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_tricks.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -57,7 +49,9 @@ function modifier_riki_tricks_of_the_trade_lua:OnCreated()
         ParticleManager:SetParticleControl(self.particle_radius, 1, Vector(self.radius, 0, self.radius))
         ParticleManager:SetParticleControl(self.particle_radius, 2, Vector(self.radius, 0, self.radius))
         self:AddParticle(self.particle_radius, false, false, -1, false, false)
-		self:GetParent():AddNoDraw()
+		if self.npc_dota_hero_riki_str12 == nil then
+			self:GetParent():AddNoDraw()
+		end
 		self:OnIntervalThink()
         self:StartIntervalThink(FrameTime())
 	end
@@ -66,7 +60,9 @@ end
 function modifier_riki_tricks_of_the_trade_lua:OnDestroy()
     if not IsServer() then return end
     FindClearSpaceForUnit(self:GetParent(), self:GetParent():GetAbsOrigin(), true)
-    self:GetParent():RemoveNoDraw()
+	if self.npc_dota_hero_riki_str12 == nil then
+    	self:GetParent():RemoveNoDraw()
+	end
     local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_riki/riki_tricks_end.vpcf", PATTACH_ABSORIGIN, self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
 end
@@ -81,12 +77,32 @@ function modifier_riki_tricks_of_the_trade_lua:OnIntervalThink()
 		for _, target in pairs(targets) do
 			if target:IsAlive() and not target:IsAttackImmune() and attacks < self.target_count then
 				attacks = attacks + 1
+				self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_riki_tricks_of_the_trade_attack_range_lua", {})
 				self:GetParent():PerformAttack(target, true, true, true, false, false, false, false)
+				self:GetParent():RemoveModifierByName("modifier_riki_tricks_of_the_trade_attack_range_lua")
 			end
 		end
-        self.attack_count = self.attack_count - 1
-        if self.attack_count <= 0 then
+        self.current_attack_count = self.current_attack_count - 1
+        if self.current_attack_count <= 0 then
             self:Destroy()
         end
+		local duration = self:GetAbility():GetSpecialValueFor("channel_duration")
+		self.attack_speed = duration / self.attack_count
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi13") and #targets <= 1 then
+			self.attack_speed = self.attack_speed / 2
+		end
     end
+end
+
+modifier_riki_tricks_of_the_trade_attack_range_lua = class({})
+function modifier_riki_tricks_of_the_trade_attack_range_lua:IsPurgable() return false end
+function modifier_riki_tricks_of_the_trade_attack_range_lua:IsDebuff() return false end
+function modifier_riki_tricks_of_the_trade_attack_range_lua:IsHidden() return true end
+function modifier_riki_tricks_of_the_trade_attack_range_lua:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
+	}
+end
+function modifier_riki_tricks_of_the_trade_attack_range_lua:GetModifierAttackRangeBonus()
+	return self:GetAbility():GetSpecialValueFor("area_of_effect")
 end

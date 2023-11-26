@@ -24,7 +24,11 @@ function Talents:init()
     CustomGameEventManager:RegisterListener("RestartMiniGame",function(_, keys)
         self:RestartAFKGame(keys)
     end)
-    
+    CustomGameEventManager:RegisterListener("TalentsShopRefresh",function(_, keys)
+        self:RemoveShopButton(keys)
+    end)
+    ListenToGameEvent("game_end", Dynamic_Wrap( self, "OnGameEnd" ), self)
+    ListenToGameEvent("player_disconnect", Dynamic_Wrap( self, "OnPlayerDisconnect" ), self)
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
     ListenToGameEvent("player_reconnected", Dynamic_Wrap( self, 'OnPlayerReconnected' ), self)
     self.shop = talents_shop
@@ -52,9 +56,19 @@ function Talents:OnGameRulesStateChange()
                     if self.player[pid] ~= nil and PlayerResource:GetSelectedHeroEntity( pid ) then
                         self.player[pid].index = PlayerResource:GetSelectedHeroEntity( pid ):entindex()
                         self:UpdateTable(pid)
+                        for _, i in pairs({'str','agi','int','don'}) do
+                            for j = 1, 13 do
+                                if self.player[pid][i..j].value > 0 then
+                                    self:AddAbility(pid, i, j)
+                                end
+                            end
+                        end
                         return nil
                     end
                     return 0.1
+                end)
+                Timers:CreateTimer(30*60, function()
+                    self:ExperienceTicker(pid)
                 end)
             end
         end
@@ -93,6 +107,8 @@ function Talents:FillTablesFromDatabase(pid, data, is_cheat_mode)
     self.player[pid].gametime = data['gametime']
     self.player[pid].gamecout = data['gamecout']
     self.player[pid].totaldonexp = data['totaldonexp']
+    self.player[pid].shop_refresh_count = Shop.pShop[pid].talents_refresh
+    self.player[pid].hero_refresh_count = data['refresh_count']
     if is_cheat_mode then
         for k,v in pairs({'agi','int','don','str'}) do
             for i = 1, 13 do
@@ -133,9 +149,7 @@ function Talents:FillTablesFromDatabase(pid, data, is_cheat_mode)
             elseif v == "don" then
                 self.player[pid].freedonpoints = self.player[pid].freedonpoints - data[arg]
             end
-            if DataBase:IsCheatMode() == false and diff_wave.wavedef == "Easy" and i == 12 then
-                self.player[pid][arg].value = 0
-            elseif v == "don" and DataBase:IsCheatMode() == false and not self:IsPatron(pid) then
+            if v == "don" and DataBase:IsCheatMode() == false and not self:IsPatron(pid) then
                 self.player[pid][arg].value = 0
             else
                 self.player[pid][arg].value = data[arg]
@@ -219,25 +233,23 @@ function Talents:OnExplore(t)
     if t.i == 'don' and self.player[pid].freedonpoints < #talents_to_explore then return end
     if t.i ~= 'don' and self.player[pid].freepoints < #talents_to_explore then return end
     -------------------------------------------------------
+    local send = {}
+    send.hero_name = PlayerResource:GetSelectedHeroName(pid)
+    send.list = {}
     for _, f in pairs(talents_to_explore) do
         self:Explore(pid, t.i, f)
+        table.insert(send.list, t.i..f)
     end
+    DataBase:Send(DataBase.link.TalentsExplore, "GET", send, pid, not DataBase:IsCheatMode() and self.player[pid].testing ~= true, nil)
 end
 function Talents:Explore(pid, i, f)
-    print('Explore')
     if i ~= 'don' and f <= 5 and self.player[pid][i..f].value >= 6 then return end
     if i == 'don' and self.player[pid][i..f].value >= 1 then return end
     if i ~= 'don' and (f > 5 and self.player[pid][i..f].value >= 1) then return end
     if i == 'don' and self.player[pid].freedonpoints <= 0 then return end
     if i ~= 'don' and self.player[pid].freepoints <= 0 then return end
-    print('4567')
-    local hero = PlayerResource:GetSelectedHeroEntity(pid)
     self.player[pid][i..f].value = self.player[pid][i..f].value + 1
-    if i == "don" or f <= 5 then
-        self:AddModifierFiltered(hero, self.player[pid][i..f].ability, f, self.player[pid][i..f].value)
-    elseif i ~= "don" then
-        self:AddAbilityFiltered(hero, self.player[pid][i..f].ability, f)
-    end
+    self:AddAbility(pid, i, f)
     if i == "don" then
         self.player[pid].freedonpoints = self.player[pid].freedonpoints - 1
     elseif i ~= "don" then
@@ -271,16 +283,18 @@ function Talents:GetExplorePath(j)
     end
     return path
 end
-function Talents:AddAbilityFiltered(hero, skillname, place)
-    if diff_wave.rating_scale == 0 and place == 12 then return end
-
-    ability = hero:AddAbility(skillname)
-    ability:SetLevel(1)
-end
-function Talents:AddModifierFiltered(hero, skillname, place, level)
-    if diff_wave.rating_scale == 0 and place == 12 then return end
-    modifier = hero:AddNewModifier( hero, nil, skillname, {} )
-    modifier:SetStackCount(level)
+function Talents:AddAbility(pid, i, j)
+    if j == 12 and table.has_value({'Easy'}, diff_wave.wavedef) then return end
+    if j == 13 and table.has_value({'Easy', 'Normal', 'Hard'}, diff_wave.wavedef) then return end
+    local hero = PlayerResource:GetSelectedHeroEntity(pid)
+    local arg = i..j
+    if i == "don" or j <= 5 then
+        local modifier = hero:AddNewModifier( hero, nil, self.player[pid][arg].ability, {} )
+        modifier:SetStackCount(self.player[pid][arg].value)
+    elseif i ~= "don" then
+        ability = hero:AddAbility(self.player[pid][arg].ability)
+        ability:SetLevel(self.player[pid][arg].value)
+    end
 end
 function Talents:ExploreAmount(t)
     local pid = t.PlayerID
@@ -314,20 +328,35 @@ function Talents:OnBuy(t)
     if currency == 'rp' and not (item.price.rp ~= nil and Shop.pShop[pid]["mmrpoints"] >= item.price.rp * amount) then
         return
     end
+    local send = {}
+    send.hero_name = PlayerResource:GetSelectedHeroName(pid)
+    if currency == "rp" then
+        Shop.pShop[pid]["mmrpoints"] = Shop.pShop[pid]["mmrpoints"] - item.price.rp * amount
+        send.rp = item.price.rp * amount
+    end
+    if currency == "don" then
+        Shop.pShop[pid]["coins"] = Shop.pShop[pid]["coins"] - item.price.don * amount
+        send.don = item.price.don * amount
+    end
     if item.type == 'normal' then
         local experience = item.value * amount
         self:AddExperience(pid, experience, false)
         self.player[pid].earnedexp = self.player[pid].earnedexp - experience
-        self:UpdateTable(pid)
+        send.experience_normal = experience
     end
     if item.type == 'golden' then
         local experience = item.value * amount
         self:AddExperienceDonate(pid, experience, false)
         self.player[pid].earneddonexp = self.player[pid].earneddonexp - experience
-        self:UpdateTable(pid)
+        send.experience_golden = experience
     end
-    print('OnBuy')
-    DeepPrintTable(t)
+    if item.type == 'refresh' then
+        self.player[pid].shop_refresh_count = self.player[pid].shop_refresh_count + amount
+        send.refresh = amount
+    end
+    self:UpdateTable(pid)
+    CustomShop:UpdateShopInfoTable(pid)
+    DataBase:Send(DataBase.link.TalentsBuy, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 function Talents:AddExperience(pid, value, multiply)
     if multiply then
@@ -394,6 +423,7 @@ function Talents:CalculateFreePointsNormal(pid)
     return self.player[pid].level - count
 end
 function Talents:CalculateFreePointsGolden(pid)
+    local points_max = self.player[pid].donlevel
     if self.player[pid].donlevel > 7 and self.player[pid].donlevel < 30 then
         points_max = 7
     elseif self.player[pid].donlevel >= 30 and self.player[pid].donlevel < 50 then
@@ -464,5 +494,79 @@ end
 function Talents:DisableAFKGame(pid)
     self.afk_game[pid].enable = false
     self:UpdateGainValue(pid, 0, false)
+end
+function Talents:RemoveShopButton(t)
+    local pid = t.PlayerID
+    if self.player[pid].shop_refresh_count == 0 and self.player[pid].hero_refresh_count == 0 then return end
+    if self.player[pid].hero_refresh_count > 0 then
+        self.player[pid].hero_refresh_count = self.player[pid].hero_refresh_count - 1
+    else
+        self.player[pid].shop_refresh_count = self.player[pid].shop_refresh_count - 1
+    end
+    for _, i in pairs({'str','agi','int','don'}) do
+        for j = 1, 13 do
+            self:RemoveTalent(pid, i..j)
+        end
+    end
+    self.player[pid].freedonpoints = self:CalculateFreePointsGolden(pid)
+    self.player[pid].freepoints = self:CalculateFreePointsNormal(pid)
+    self:UpdateTable(pid)
+    local send = {}
+    send.hero_name = PlayerResource:GetSelectedHeroName(pid)
+    DataBase:Send(DataBase.link.TalentsDrop, "GET", send, pid, not DataBase:IsCheatMode(), nil)
+end
+function Talents:ActivateGoldenBranch(pid)
+    self.player[pid].patron = true
+    for i = 1, 13 do
+        if self.data_base[pid]['don'..i] ~= nil and self.data_base[pid]['don'..i] > 0 then
+            self.player[pid]['don'..i].value = self.data_base[pid]['don'..i]
+            self:AddAbility(pid, 'don', j)
+        end
+    end
+    self:UpdateTable(pid)
+end
+function Talents:ExperienceTicker(pid)
+    local streek = self.player[pid].gamecout
+    local gain = 1
+    if streek > 0 then
+        streek = streek * 0.05
+        if streek > 1.1 then
+            gain = gain + 1.1
+        else
+            gain = gain + streek
+        end
+    end
+    gain = gain * diff_wave.talent_scale
+    self:UpdateGainValue(pid, gain, true)
+    self:AddExperience(pid, gain, true)
+    if self:IsPatron(pid) then
+        self:AddExperienceDonate(pid, gain, true)
+    end
+    Timers:CreateTimer(1, function()
+        self:ExperienceTicker(pid)
+    end)
+end
+function Talents:OnGameEnd()
+    for i = 0, 4 do
+        if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_CONNECTED then
+            self:SaveData(i)
+        end
+    end
+end
+function Talents:OnPlayerDisconnect(t)
+    self:SaveData(t.PlayerID)
+end
+function Talents:SaveData(pid)
+    local send = {
+        hero_name = PlayerResource:GetSelectedHeroName(pid),
+        normal = self.player[pid].earnedexp,
+        golden = self.player[pid].earneddonexp,
+    }
+    self.player[pid].earnedexp = 0
+    self.player[pid].earneddonexp = 0
+    self:UpdateTable(pid)
+    DataBase:Send(DataBase.link.TalentsSave, "GET", {
+        data = self:GetServerDataArray(pid),
+    }, pid, not DataBase:IsCheatMode(), nil)
 end
 Talents:init()

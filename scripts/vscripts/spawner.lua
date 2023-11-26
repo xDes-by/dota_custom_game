@@ -76,20 +76,20 @@ function Spawn_system()
 	Timers:CreateTimer(function()
 		local barack = Entities:FindByName( nil, "badguys_creeps")  
 		if barack == nil then 
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 			wave_count = 0
 		end
 		
 		local barack = Entities:FindByName( nil, "badguys_comandirs")  
 		if barack == nil then 
 			wave_count = 0
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 		end
 		
 		local barack = Entities:FindByName( nil, "badguys_boss")  
 		if barack == nil then 
 			wave_count = 0
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 		end
 		wave = wave + 1
 		rat = rat + wave_count * 2

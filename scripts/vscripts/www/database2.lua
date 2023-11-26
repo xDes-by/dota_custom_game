@@ -71,6 +71,10 @@ function DataBase:init()
 	DataBase.link.TreasureReward = _G.host .. "/backend/player-actions/treasure-reward?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.SaveQuestsData = _G.host .. "/backend/gameplay/save-quests-data?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.RequestTalents = _G.host .. "/backend/init-shutdown/request-talents?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsBuy = _G.host .. "/backend/player-actions/talents-buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsDrop = _G.host .. "/backend/player-actions/talents-drop?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsExplore = _G.host .. "/backend/player-actions/talents-explore?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsSave = _G.host .. "/backend/player-actions/talents-save?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
@@ -249,29 +253,23 @@ function DataBase:GameSetup()
 		history = {},
 	}
 	_G.SHOP = {}
-	local req = CreateHTTPRequestScriptVM( "GET", DataBase.link.GameSetup )
-	req:SetHTTPRequestAbsoluteTimeoutMS(100000)
-	req:Send(function(res)
-		print("GameSetup")
-		print("StatusCode: ", res.StatusCode)
-		print("Body: ", res.Body)
-		if res.StatusCode == 200 and res.Body ~= nil then
-			local obj = json.decode(res.Body)
-			_G.RATING.top = obj.top
-			_G.RATING.bg = obj.bg
-			_G.RATING.seasons = obj.seasons
-			BattlePass.current_season = obj.current_season
-			Pets:AddBattlePassPetsToPetList()
-			BattlePass:UpdateRewardsForCurrentSeason()
-			BattlePass.vote = obj.vote
-			Timers:CreateTimer(0 ,function()
-				if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-					rating:pickInit(t)
-					return nil
-				end
-				return 0.1
-			end)
-		end
+	DataBase:Send(DataBase.link.GameSetup, "GET", {}, nil, true, function(body)
+		local obj = json.decode(body)
+		_G.RATING.top = obj.top
+		_G.RATING.bg = obj.bg
+		_G.RATING.seasons = obj.seasons
+		BattlePass.current_season = obj.current_season
+		Pets:AddBattlePassPetsToPetList()
+		BattlePass:UpdateRewardsForCurrentSeason()
+		BattlePass:SetVoteList(obj.vote)
+		CustomNetTables:SetTableValue("GameInfo", 'is_cheat_mode', {value = DataBase:IsCheatMode()})
+		Timers:CreateTimer(0 ,function()
+			if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+				rating:pickInit(t)
+				return nil
+			end
+			return 0.1
+		end)
 	end)
 
 
@@ -694,9 +692,12 @@ function DataBase:EndGameSession(pid, rating_change)
 		game_over = game_over,
 	}
 	local talents = {
-		normal_experience = talants.tab[pid].gameNormalExp or 0,
-		golden_experience = talants.tab[pid].gameDonatExp or 0,
+		normal_experience = Talents.player[pid].earnedexp,
+		golden_experience = Talents.player[pid].earneddonexp,
 	}
+	Talents.player[pid].earnedexp = 0
+    Talents.player[pid].earneddonexp = 0
+	Talents:UpdateTable(pid)
 	local trial = {
 		hero_marci_trial = ChangeHero:GetMarciTrial(pid),
 		hero_silencer_trial = ChangeHero:GetSilencerTrial(pid),
@@ -711,7 +712,7 @@ function DataBase:EndGameSession(pid, rating_change)
 	if _G.kill_invoker == false then 
 		game.diff = 0
 	end
-	if PlayerResource:GetSelectedHeroEntity(pid):HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or talants.testing[pid] then
+	if PlayerResource:GetSelectedHeroEntity(pid):HasModifier("modifier_silent2") or GameRules:GetGameTime() < 360 or Talents.player[pid].testing then
 		talents.normal_experience = 0
 		talents.golden_experience = 0
 	end
@@ -747,8 +748,10 @@ function DataBase:Send(path, method, data, pid, check, callback)
 		end
 	end
 	if pid then
-		req:SetHTTPRequestGetOrPostParameter("sid", tostring(PlayerResource:GetSteamAccountID(pid)))
+		local sid = PlayerResource:GetSteamAccountID(pid)
+		req:SetHTTPRequestGetOrPostParameter("sid", tostring(sid))
 	end
+	req:SetHTTPRequestGetOrPostParameter("rda_test", "1")
 	req:Send(function(res)
 		print("SendStatusCode:", res.StatusCode)
 		if res.StatusCode == 200 and res.Body ~= nil then

@@ -24,16 +24,10 @@ end
 
 function modifier_riki_tricks_of_the_trade_intrinsic_lua:GetModifierOverrideAbilitySpecial(data)
 	if data.ability and data.ability == self:GetAbility() then
-		if data.ability_special_value == "AbilityChargeRestoreTime" then
-			return 1
-		end
-		if data.ability_special_value == "AbilityCharges" then
-			return 1
-		end
 		if data.ability_special_value == "area_of_effect" then
 			return 1
 		end
-		if data.ability_special_value == "attack_count2" then
+		if data.ability_special_value == "target_count" then
 			return 1
 		end
 		if data.ability_special_value == "dmg_perc" then
@@ -42,26 +36,21 @@ function modifier_riki_tricks_of_the_trade_intrinsic_lua:GetModifierOverrideAbil
 		if data.ability_special_value == "extra_agility" then
 			return 1
 		end
+		if data.ability_special_value == "AbilityCharges" then
+			return 1
+		end
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			return 1
+		end
+		if data.ability_special_value == "target_count" then
+			return 1
+		end
 	end
 	return 0
 end
 
 function modifier_riki_tricks_of_the_trade_intrinsic_lua:GetModifierOverrideAbilitySpecialValue(data)
 	if data.ability and data.ability == self:GetAbility() then
-		if data.ability_special_value == "AbilityChargeRestoreTime" then
-			local AbilityChargeRestoreTime = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityChargeRestoreTime", data.ability_special_level )
-            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int6") then
-                AbilityChargeRestoreTime = AbilityChargeRestoreTime /2
-            end
-            return AbilityChargeRestoreTime
-		end
-		if data.ability_special_value == "AbilityCharges" then
-			local AbilityCharges = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityCharges", data.ability_special_level )
-            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int9") then
-                AbilityCharges = 2
-            end
-            return AbilityCharges
-		end
 		if data.ability_special_value == "area_of_effect" then
 			local area_of_effect = self:GetAbility():GetLevelSpecialValueNoOverride( "area_of_effect", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int11") then
@@ -69,18 +58,15 @@ function modifier_riki_tricks_of_the_trade_intrinsic_lua:GetModifierOverrideAbil
             end
             return area_of_effect
 		end
-		if data.ability_special_value == "attack_count2" then
-			local attack_count2 = self:GetAbility():GetLevelSpecialValueNoOverride( "attack_count2", data.ability_special_level )
+		if data.ability_special_value == "target_count" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "target_count", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int8") then
-                attack_count2 = attack_count2 + 2
+                value = 999
             end
-            return attack_count2
+            return value
 		end
 		if data.ability_special_value == "dmg_perc" then
 			local dmg_perc = self:GetAbility():GetLevelSpecialValueNoOverride( "dmg_perc", data.ability_special_level )
-            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi6") then
-                dmg_perc = dmg_perc + 40
-            end
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str13") then
 				dmg_perc = dmg_perc + 300
 			end
@@ -92,6 +78,27 @@ function modifier_riki_tricks_of_the_trade_intrinsic_lua:GetModifierOverrideAbil
                 extra_agility = extra_agility + 60
             end
             return extra_agility
+		end
+		if data.ability_special_value == "AbilityCharges" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityCharges", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi6") then
+                value = 2
+            end
+            return value
+		end
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityChargeRestoreTime", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int6") then
+                value = value / 2
+            end
+            return value
+		end
+		if data.ability_special_value == "target_count" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "target_count", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int8") then
+                value = 999
+            end
+            return value
 		end
 	end
 	return 0

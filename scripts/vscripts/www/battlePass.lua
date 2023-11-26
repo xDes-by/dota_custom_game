@@ -31,10 +31,6 @@ function BattlePass:init()
         self.ExpToLevelUp[i] = self.ExpToLevelUp[i-1] + battlePassLevelExperience[i]
     end
     self.voting_heroes_list = {}
-    for key, value in pairs(voting_heroes_list) do
-        self.voting_heroes_list[key] = value
-        self.voting_heroes_list[key].index = key
-    end
     self.pet_exclusive = 29
     self.effect = {{'free', 9},{'free', 19},{'free', 29},{'premium', 9},{'premium', 19},{'premium', 27}}
     self.hero_model = { 10,20,30 }
@@ -44,13 +40,12 @@ function BattlePass:OnGameRulesStateChange()
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         CustomNetTables:SetTableValue('BattlePass', "dataReward", self.dataReward)
         CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", self.ExpToLevelUp)
-        CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     end
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         for pid = 0, 4 do
             if PlayerResource:IsValidPlayer(pid) and PlayerResource:HasSelectedHero(pid) then
                 Timers:CreateTimer(function()
-                    if PlayerResource:GetSelectedHeroEntity( pid ) then
+                    if PlayerResource:GetSelectedHeroEntity( pid ) and self.player[pid] ~= nil then
                         local hero = PlayerResource:GetSelectedHeroEntity(pid)
                         for hero_name, value in pairs(self.player[pid].auto_models) do
                             if hero:GetUnitName() == hero_name and value == true then
@@ -90,6 +85,18 @@ function BattlePass:SetPlayerData(pid, obj, settings)
     end
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
     CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+end
+function BattlePass:SetVoteList(db_vote)
+    self.voting_heroes_list = {}
+    for _, name in pairs(battle_pass_vote[BattlePass.current_season]) do
+        self.voting_heroes_list[name] = 0
+    end
+    for _, value in pairs(db_vote) do
+        if self.voting_heroes_list[value.vote] then
+            self.voting_heroes_list[value.vote] = tonumber(value.vote_count)
+        end
+    end
+    CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
 end
 ----------------- ACTION FUNCTIONS ----------------------------
 function BattlePass:ActivatePremium(pid)
@@ -394,16 +401,16 @@ function BattlePass:CalculateAvailableRewardsCount(pid)
     return count
 end
 function BattlePass:DecrementVoteCount(hero_name)
-    for _, value in pairs(self.voting_heroes_list) do
-        if value.name == hero_name then
-            value.vote = value.vote -1
+    for name, value in pairs(self.voting_heroes_list) do
+        if name == hero_name then
+            self.voting_heroes_list[name] = self.voting_heroes_list[name] -1
         end
     end
 end
 function BattlePass:IncrementVoteCount(hero_name)
-    for _, value in pairs(self.voting_heroes_list) do
-        if value.name == hero_name then
-            value.vote = value.vote +1
+    for name, value in pairs(self.voting_heroes_list) do
+        if name == hero_name then
+            self.voting_heroes_list[name] = self.voting_heroes_list[name] +1
         end
     end
 end
@@ -753,8 +760,7 @@ function BattlePass:GoldenBranch(reward_data, send_data, pid)
         table.insert(send_data.golden_branch, data)
         Shop.pShop[pid].golden_branch = true
         if RATING["rating"][pid]["patron"] ~= 1 then
-
-
+            Talents:ActivateGoldenBranch(pid)
         end
     end
     return send_data

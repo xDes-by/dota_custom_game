@@ -1,4 +1,10 @@
-﻿LinkLuaModifier( "modifier_unselect", "modifiers/modifier_unselect", LUA_MODIFIER_MOTION_NONE )
+﻿LinkLuaModifier( "modifier_item_forever_ward_cd", "items/item_forever_ward", LUA_MODIFIER_MOTION_NONE )
+modifier_item_forever_ward_cd = class({})
+function modifier_item_forever_ward_cd:IsHidden() return true end
+function modifier_item_forever_ward_cd:IsDebuff() return false end
+function modifier_item_forever_ward_cd:IsPurgable() return false end
+
+LinkLuaModifier( "modifier_unselect", "modifiers/modifier_unselect", LUA_MODIFIER_MOTION_NONE )
 
 item_forever_ward = class({})
 
@@ -28,9 +34,3 @@ function item_forever_ward:OnSpellStart()
 		self:GetCaster():RemoveItem(self)
 	end
 end
-
-LinkLuaModifier( "modifier_item_forever_ward_cd", "items/item_forever_ward", LUA_MODIFIER_MOTION_NONE )
-modifier_item_forever_ward_cd = class({})
-function modifier_item_forever_ward_cd:IsHidden() return true end
-function modifier_item_forever_ward_cd:IsDebuff() return false end
-function modifier_item_forever_ward_cd:IsPurgable() return false end

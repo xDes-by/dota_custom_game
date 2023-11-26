@@ -160,7 +160,7 @@ function modifier_huskar_burning_spear_lua:CalculateDamage()
 		damage = damage * 1.4
 	end
 	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_huskar_int50") then
-		damage = damage + self:GetCaster():GetHealth() * 0.1
+		damage = damage + self:GetCaster():GetHealth() * 0.015
 	end
 	return self:GetStackCount() * damage * self.interval
 end

@@ -169,8 +169,8 @@ PatroolWave = {
 
 PatroolPoints = {point_forest,point_village,point_mines,point_dust,point_cemetery,point_swamp,point_snow,point_last,point_magma}
 battlePassTasks = {
-	[1] = { event = "kill", target = {"any"}, count = 100000, count_after_victory = true},
-	[2] = { event = "assistance", target = bosses_names, count = 500, count_after_victory = true},
+	[1] = { event = "kill", target = {"any"}, count = 10000, count_after_victory = true},
+	[2] = { event = "assistance", target = bosses_names, count = 250, count_after_victory = true},
 }
 dailyTasks = {
 	[1] = { event = "kill", target = {"npc_forest_boss", "npc_forest_boss_fake"}, count = 25, count_after_victory = true},
