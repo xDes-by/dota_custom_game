@@ -1,4 +1,4 @@
-﻿if not IsServer() then
+﻿if IsServer() then
 	require("creep_spawner")
 end
 

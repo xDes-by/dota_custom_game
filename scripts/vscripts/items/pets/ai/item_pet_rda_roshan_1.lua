@@ -26,7 +26,7 @@ function BanditArcherThink()
 	
 	local owner = thisEntity:GetOwner()
 	
-	if owner:HasModifier("modifier_item_pet_RDA_250_phys_dmg_reducrion") then
+	if owner:HasModifier("modifier_pet_rda_roshan_1") then
 		thisEntity:SetModel("models/development/invisiblebox.vmdl")
 	else
 		thisEntity:SetModel("models/items/courier/premier_league_wyrmeleon/premier_league_wyrmeleon.vmdl")	

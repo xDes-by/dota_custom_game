@@ -111,7 +111,7 @@ end
 
 function modifier_sheepstick_lua:GetModifierProcAttack_Feedback(data)
 	if data.target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil then
-		if not self:GetParent():PassivesDisabled() then
+		if not self:GetParent():PassivesDisabled() and not data.target:IsBuilding() or data.target:IsMagicImmune() then
 			data.target:AddNewModifier(self:GetAbility():GetCaster(), self:GetAbility(), "modifier_sheepstick_lua_flame", { duration = 3.1 })
 		end
 	end

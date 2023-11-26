@@ -1,8 +1,8 @@
-LinkLuaModifier( "modifier_pet_rda_roshan_2", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_pet_rda_roshan_2", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pet_rda_roshan_2", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_pet_rda_roshan_2", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_custompet_bkb", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_custompet_delay", "items/pets/pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_custompet_bkb", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_custompet_delay", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_pet_rda_250_minus_armor_debuff", "items/pets/item_pet_RDA_250_minus_armor", LUA_MODIFIER_MOTION_NONE )
 
 spell_item_pet_rda_roshan_2 = class({})
@@ -62,15 +62,16 @@ function modifier_item_pet_rda_roshan_2:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA
 	}
 end
 
-function modifier_pet_rda_250_regen:GetModifierTotalPercentageManaRegen()
+function modifier_item_pet_rda_roshan_2:GetModifierTotalPercentageManaRegen()
 	return self:GetAbility():GetSpecialValueFor("regen")
 end
 
-function modifier_pet_rda_250_regen:GetModifierHealthRegenPercentage()
+function modifier_item_pet_rda_roshan_2:GetModifierHealthRegenPercentage()
 	return self:GetAbility():GetSpecialValueFor("regen")
 end
 
@@ -131,6 +132,10 @@ end
 
 function modifier_item_pet_rda_roshan_2:GetModifierBonusStats_Intellect()
 	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
+end
+
+function modifier_item_pet_rda_roshan_2:GetVisualZDelta()
+	return 100
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
