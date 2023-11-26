@@ -52,7 +52,10 @@ function modifier_riki_cloak_and_dagger_lua:GetModifierPreAttack_BonusDamage(key
 		if not self:GetParent():PassivesDisabled() and not keys.target:IsBuilding() and not keys.target:IsOther() and math.abs(AngleDiff(VectorToAngles(keys.target:GetForwardVector()).y, VectorToAngles(self:GetParent():GetForwardVector()).y)) <= self:GetAbility():GetSpecialValueFor("backstab_angle") then
 			self.bBackstab = true
 		end
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str10") and keys.target:HasModifier("modifier_riki_smoke_screen_lua") then
+		if not self:GetParent():PassivesDisabled() and self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str10") and keys.target:HasModifier("modifier_riki_smoke_screen_lua") then
+			self.bBackstab = true
+		end
+		if not self:GetParent():PassivesDisabled() and self:GetCaster():HasModifier("modifier_riki_tricks_of_the_trade_lua") then
 			self.bBackstab = true
 		end
 		if self.bBackstab then

@@ -59,19 +59,6 @@ end
 
 function Forge:OnGameStateChanged(t)
     local state = GameRules:State_Get()
-    if state >= DOTA_GAMERULES_STATE_PRE_GAME then
-        Timers:CreateTimer(3, function()
-            for nPlayerID = 0, PlayerResource:GetPlayerCount()-1 do
-                gems[nPlayerID] = {}
-                for i = 1, 5 do
-                    gems[nPlayerID][i] = _G.SHOP[nPlayerID]['gem_'..i] or 0
-                end
-                if PlayerResource:GetConnectionState(nPlayerID) == DOTA_CONNECTION_STATE_CONNECTED then
-                    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( nPlayerID ), "update_gems_js",  gems[nPlayerID])
-                end
-            end
-		end)
-    end
 end
 function Forge:GetItemUpgradeCost(level)
     if DataBase:IsCheatMode() then return 0 end

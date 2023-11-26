@@ -258,19 +258,19 @@ function Shop:PlayerSetup( pid, items )
 
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray
 	Shop.Change_Available[pid] = true
-	Timers:CreateTimer(function()
-		if PlayerResource:GetPlayer(pid) == nil then
-			return nil
-		end
-		if PlayerResource:HasSelectedHero(pid) then
-			local heroName = PlayerResource:GetSelectedHeroName(pid)
-			talants:pickinfo(pid,false)
-			return nil
-		else
-		  --  print(PlayerResource:HasSelectedHero(i))
-		end
-		return 1.0
-	end)
+	-- Timers:CreateTimer(function()
+	-- 	if PlayerResource:GetPlayer(pid) == nil then
+	-- 		return nil
+	-- 	end
+	-- 	if PlayerResource:HasSelectedHero(pid) then
+	-- 		local heroName = PlayerResource:GetSelectedHeroName(pid)
+	-- 		talants:pickinfo(pid,false)
+	-- 		return nil
+	-- 	else
+	-- 	  --  print(PlayerResource:HasSelectedHero(i))
+	-- 	end
+	-- 	return 1.0
+	-- end)
 	ChangeHero:SetDonateHeroesDate(pid, temp)
 	if ChangeHero:IsMarciAvailable_PickStage(pid) then
 		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )

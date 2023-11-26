@@ -1,6 +1,5 @@
 LinkLuaModifier( "modifier_viper_corrosive_skin_lua", "heroes/hero_viper/corrosive_skin/corrosive_skin.lua" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_viper_corrosive_skin_lua_slow", "heroes/hero_viper/corrosive_skin/corrosive_skin.lua" ,LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_viper_corrosive_skin_lua_cd", "heroes/hero_viper/corrosive_skin/corrosive_skin.lua" ,LUA_MODIFIER_MOTION_NONE )
 
 if viper_corrosive_skin_lua == nil then
     viper_corrosive_skin_lua = class({})
@@ -12,46 +11,37 @@ function viper_corrosive_skin_lua:GetIntrinsicModifierName()
     return "modifier_viper_corrosive_skin_lua"
 end
 
-function viper_corrosive_skin_lua:GetCastRange(vLocation, hTarget)
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str8") then
-        return self:GetSpecialValueFor("max_range_tooltip") * 2
-    end
-end
-
 function viper_corrosive_skin_lua:GetBehavior()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
-        return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str12") then
+        return DOTA_ABILITY_BEHAVIOR_TOGGLE
     end
 end
 
-function viper_corrosive_skin_lua:GetManaCost()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
-        return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
-    end
+function viper_corrosive_skin_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
 end
 
-function viper_corrosive_skin_lua:GetCooldown()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
-        return 40
-    end
+function viper_corrosive_skin_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
 end
 
-function viper_corrosive_skin_lua:OnSpellStart()
-    local radius = self:GetSpecialValueFor("max_range_tooltip")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
-        radius = radius * 2
-    end
-    local stack = 0
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str_last") then
-        stack = 5
-    end
-    local duration = self:GetSpecialValueFor("duration")
-    local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
-    for _,enemy in pairs(enemies) do
-        local modifier = enemy:AddNewModifier(self:GetCaster(), self, "modifier_viper_corrosive_skin_lua_slow", {duration = duration})
-        modifier:SetStackCount(stack)
-    end
+function viper_corrosive_skin_lua:OnToggle()
+	if not IsServer() then return end
 end
+
+function viper_corrosive_skin_lua:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str12") then 
+	    return 1
+	end
+	return self.BaseClass.GetCooldown(self, level)
+end
+
+function viper_corrosive_skin_lua:GetCastRange(vLocation, hTarget)
+    return self:GetSpecialValueFor("aura_radius")
+end
+
 
 --------------------------------------------------------------------------------
 
@@ -68,6 +58,9 @@ modifier_viper_corrosive_skin_lua = class({
             MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
             MODIFIER_EVENT_ON_TAKEDAMAGE,
             MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
+            MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+            MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
         }
     end,
 })
@@ -75,21 +68,101 @@ modifier_viper_corrosive_skin_lua = class({
 
 --------------------------------------------------------------------------------
 
+function modifier_viper_corrosive_skin_lua:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "bonus_arrmor" then
+			return 1
+		end
+		if data.ability_special_value == "bonus_magic_resistance" then
+			return 1
+		end
+        if data.ability_special_value == "damage" then
+			return 1
+		end
+        if data.ability_special_value == "aura_radius" then
+			return 1
+		end
+        if data.ability_special_value == "bonus_attack_speed" then
+			return 1
+		end
+	end
+	return 0
+end
+
+function modifier_viper_corrosive_skin_lua:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "bonus_arrmor" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "bonus_arrmor", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str7") then
+                value = self:GetAbility():GetSpecialValueFor("attack_speed_reduction")
+            end
+            return value
+		end
+		if data.ability_special_value == "bonus_magic_resistance" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "bonus_magic_resistance", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str8") then
+                value = value * 2
+            end
+            return value
+		end
+        if data.ability_special_value == "damage" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "damage", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str11") then
+                value = value + self:GetCaster():GetStrength() * 0.5
+            end
+            return value
+		end
+        if data.ability_special_value == "aura_radius" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "aura_radius", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str12") then
+                value = 800
+            end
+            return value
+		end
+        if data.ability_special_value == "bonus_attack_speed" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "bonus_attack_speed", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi8") then
+                value = self:GetAbility():GetSpecialValueFor("attack_speed_reduction")
+            end
+            return value
+		end
+	end
+	return 0
+end
+
+function modifier_viper_corrosive_skin_lua:IsAura()
+	return self:GetAbility():GetToggleState()
+end
+
+function modifier_viper_corrosive_skin_lua:GetModifierAura() 
+	return "modifier_viper_corrosive_skin_lua_slow" 
+end
+
+function modifier_viper_corrosive_skin_lua:GetAuraRadius()
+	return self:GetAbility():GetSpecialValueFor("aura_radius")
+end
+
+function modifier_viper_corrosive_skin_lua:GetAuraSearchFlags() 
+	return DOTA_UNIT_TARGET_FLAG_NONE 
+end
+
+function modifier_viper_corrosive_skin_lua:GetAuraSearchTeam() 
+	return DOTA_UNIT_TARGET_TEAM_ENEMY 
+end
+
+function modifier_viper_corrosive_skin_lua:GetAuraSearchType() 
+	return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
+end
+
 function modifier_viper_corrosive_skin_lua:OnCreated()
-    self.bonus_magic_resistance = self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
     self.duration = self:GetAbility():GetSpecialValueFor("duration")
-    self.max_range_tooltip = self:GetAbility():GetSpecialValueFor("max_range_tooltip")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str8") then
-        self.max_range_tooltip = self.max_range_tooltip * 2
-    end
-    self.as = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
-function modifier_viper_corrosive_skin_lua:OnRefresh()
-    self:OnCreated()
-end
+modifier_viper_corrosive_skin_lua.OnRefresh = modifier_viper_corrosive_skin_lua.OnCreated
 
-function modifier_viper_corrosive_skin_lua:GetModifierMagicalResistanceBonus(k) if not self:GetParent():IsIllusion() then return self.bonus_magic_resistance end end
+function modifier_viper_corrosive_skin_lua:GetModifierMagicalResistanceBonus(k) 
+    return self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
+end
 
 function modifier_viper_corrosive_skin_lua:OnTakeDamage(k)
     if not IsServer() then return end
@@ -99,24 +172,18 @@ function modifier_viper_corrosive_skin_lua:OnTakeDamage(k)
     local damage_flags = k.damage_flags
 
     if target == caster and not caster:PassivesDisabled() and not attacker:IsOther() and not attacker:IsMagicImmune() and bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) ~= DOTA_DAMAGE_FLAG_HPLOSS then
-        local distance = (attacker:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
-
-        if distance < self.max_range_tooltip then
+        if not self:GetAbility():GetToggleState() then
             local mod = attacker:AddNewModifier(caster, self:GetAbility(), "modifier_viper_corrosive_skin_lua_slow", {duration=self.duration})
-            if mod:GetStackCount() < 5 and self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str_last") and not self:GetCaster():HasModifier("modifier_viper_corrosive_skin_lua_cd") then
-                self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_viper_corrosive_skin_lua_cd", {duration = 1})
-                mod:IncrementStackCount()
-            end
         end
     end
 end
 
-function modifier_viper_corrosive_skin_lua:GetModifierPhysicalArmorBonusUnique(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str7") then
-        return self.as
-    end
+function modifier_viper_corrosive_skin_lua:GetModifierPhysicalArmorBonusUnique()
+	return self:GetAbility():GetSpecialValueFor("bonus_arrmor")
 end
-
+function modifier_viper_corrosive_skin_lua:GetModifierAttackSpeedBonus_Constant(k) 
+    return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+end
 --------------------------------------------------------------------------------
 
 
@@ -141,7 +208,6 @@ modifier_viper_corrosive_skin_lua_slow = class({
 --------------------------------------------------------------------------------
 
 function modifier_viper_corrosive_skin_lua_slow:OnCreated()
-    self:CalculateDamage()
     self:CalculateSpeed()
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
@@ -155,27 +221,26 @@ end
 
 function modifier_viper_corrosive_skin_lua_slow:OnRefresh()
     self:CalculateSpeed()
-    self:CalculateDamage()
 end
 
 function modifier_viper_corrosive_skin_lua_slow:CalculateDamage()
-    self.damage = self:GetAbility():GetSpecialValueFor("damage")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str11") then
-        self.damage = self.damage + self:GetCaster():GetStrength() * 0.5
-    end
+    local damage = self:GetAbility():GetSpecialValueFor("damage")
     if self:GetStackCount() > 0 then
-        self.damage = self.damage + self.damage * self:GetStackCount() * 0.5
+        damage = damage + damage * self:GetStackCount() * 0.5
     end
+    return damage * self.dmgMulti
 end
 
 function modifier_viper_corrosive_skin_lua_slow:CalculateSpeed()
-    self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed") * (-1)
+    self.attack_speed_reduction = self:GetAbility():GetSpecialValueFor("attack_speed_reduction") * (-1)
     if self:GetStackCount() > 0 then
-        self.bonus_attack_speed = self.bonus_attack_speed + self.bonus_attack_speed * self:GetStackCount() * 0.5
+        self.attack_speed_reduction = self.attack_speed_reduction + self.attack_speed_reduction * self:GetStackCount() * 0.5
     end
 end
 
-function modifier_viper_corrosive_skin_lua_slow:GetModifierAttackSpeedBonus_Constant(k) return self.bonus_attack_speed end
+function modifier_viper_corrosive_skin_lua_slow:GetModifierAttackSpeedBonus_Constant(k) 
+    return self.attack_speed_reduction 
+end
 
 function modifier_viper_corrosive_skin_lua_slow:OnAttackLanded( params )
 	if IsServer() then
@@ -189,7 +254,7 @@ end
 
 function modifier_viper_corrosive_skin_lua_slow:OnIntervalThink()
     if IsServer() then
-        if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int_last") then
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int12") then
             local poison_attack = self.caster:FindAbilityByName("viper_poison_attack_lua")
             if poison_attack then
                 local duration = poison_attack:GetSpecialValueFor( "duration" )
@@ -197,28 +262,19 @@ function modifier_viper_corrosive_skin_lua_slow:OnIntervalThink()
                 modif:IncrementStackCount()
             end
         end
+        local damage = self:CalculateDamage()
         ApplyDamage({
             victim = self:GetParent(),
             attacker = self:GetCaster(),
-            damage = self.damage * self.dmgMulti,
+            damage = damage,
             damage_type = self:GetAbility():GetAbilityDamageType(),
             damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
             ability = self:GetAbility()
         })
-
-        SendOverheadEventMessage( self:GetParent(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, self:GetParent(), self.damage * self.dmgMulti, nil )
+        SendOverheadEventMessage( self:GetParent(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, self:GetParent(), damage, nil )
+        if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str13") and self:GetStackCount() < 5 then
+            self:IncrementStackCount()
+        end
         self:StartIntervalThink(1.0)
     end
 end
-
-function modifier_viper_corrosive_skin_lua_slow:GetSlowValue()
-end
-
-modifier_viper_corrosive_skin_lua_cd = class({
-    IsHidden                = function(self) return true end,
-    IsPurgable              = function(self) return true end,
-    IsPurgeException        = function(self) return true end,
-    IsDebuff                = function(self) return true end,
-    IsBuff                  = function(self) return false end,
-    RemoveOnDeath           = function(self) return true end,
-})

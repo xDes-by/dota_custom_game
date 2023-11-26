@@ -40,6 +40,12 @@ function silencer_curse_of_the_silent_lua:GetBehavior()
 	end
 end
 
+function silencer_curse_of_the_silent_lua:GetCooldown()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_silencer_agi11") then
+		return 0
+	end
+end
+
 function silencer_curse_of_the_silent_lua:OnToggle()
 	if not IsServer() then return end
 	

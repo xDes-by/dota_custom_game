@@ -15,6 +15,7 @@ require('towershop')
 require('data/data')
 require("data/talentData")
 require("data/battlePassStatic")
+require("data/talents")
 require('plugins')
 require('tp')
 require("damage")
@@ -24,7 +25,7 @@ require("wearable")
 
 _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = true and IsInToolsMode() -- false
+_G.devmode = false and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
 _G.spawnCreeps = not IsInToolsMode() -- true
 
@@ -50,7 +51,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(60)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
-	GameRules:SetPreGameTime(3)
+	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(60)
@@ -1514,7 +1515,7 @@ function OnEndMiniGame(eventIndex, data)
 		mod.modifier1:Destroy()
 		mod.modifier2:Destroy()
 	end
-	talants:DisableHellGame(data.PlayerID)
+	Talents:DisableAFKGame(data.PlayerID)
 end
 
 function ItemBossSummonChoice(eventIndex, data)

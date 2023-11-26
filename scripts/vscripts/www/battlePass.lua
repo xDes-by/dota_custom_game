@@ -48,19 +48,25 @@ function BattlePass:OnGameRulesStateChange()
     end
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         for pid = 0, 4 do
-            if PlayerResource:IsValidPlayer(pid) then
-                local hero = PlayerResource:GetSelectedHeroEntity(pid)
-                for hero_name, value in pairs(self.player[pid].auto_models) do
-                    if hero:GetUnitName() == hero_name and value == true then
-                        Wearable:SetAlternative(pid)
+            if PlayerResource:IsValidPlayer(pid) and PlayerResource:HasSelectedHero(pid) then
+                Timers:CreateTimer(function()
+                    if PlayerResource:GetSelectedHeroEntity( pid ) then
+                        local hero = PlayerResource:GetSelectedHeroEntity(pid)
+                        for hero_name, value in pairs(self.player[pid].auto_models) do
+                            if hero:GetUnitName() == hero_name and value == true then
+                                Wearable:SetAlternative(pid)
+                            end
+                        end
+                        if self.player[pid].auto_projectile_particle ~= "" then
+                            self:AddPariticle(pid, self.player[pid].auto_projectile_particle, self.player[pid].projectile_particles, true)
+                        end
+                        if self.player[pid].auto_following_particle ~= "" then
+                            self:AddPariticle(pid, self.player[pid].auto_following_particle, self.player[pid].following_particles, true)
+                        end
+                        return nil
                     end
-                end
-                if self.player[pid].auto_projectile_particle ~= "" then
-                    self:AddPariticle(pid, self.player[pid].auto_projectile_particle, self.player[pid].projectile_particles, true)
-                end
-                if self.player[pid].auto_following_particle ~= "" then
-                    self:AddPariticle(pid, self.player[pid].auto_following_particle, self.player[pid].following_particles, true)
-                end
+                    return 0.1
+                end)
             end
         end
     end
@@ -514,17 +520,17 @@ function BattlePass:GemsReward(reward_data, send_data, pid)
 end
 function BattlePass:TalentNormalExperience(pid, reward_data, send_data)
     if reward_data.reward_type == "experience_common" then
-        talants:AddExperience(pid, reward_data.data.value)
+        Talents:AddExperience(pid, reward_data.data.value, false)
     end
     return send_data
 end
 function BattlePass:TalentGoldenExperience(reward_data, send_data, pid, choice_index)
     if reward_data.reward_type == "experience_choice" then
         if reward_data.data.choice[choice_index] == 'experience_common' then
-            talants:AddExperience(pid, reward_data.data.value)
+            Talents:AddExperience(pid, reward_data.data.value)
         end
         if reward_data.data.choice[choice_index] == 'experience_golden' then
-            talants:AddExperienceDonate(pid, reward_data.data.value)
+            Talents:AddExperienceDonate(pid, reward_data.data.value, false)
         end
     end
     return send_data

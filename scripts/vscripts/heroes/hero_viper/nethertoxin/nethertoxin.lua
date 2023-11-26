@@ -1,3 +1,4 @@
+LinkLuaModifier( "modifier_viper_nethertoxin_intrinsic_lua", "heroes/hero_viper/nethertoxin/nethertoxin_intrinsic" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_viper_nethertoxin_lua", "heroes/hero_viper/nethertoxin/nethertoxin" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_viper_nethertoxin_lua_thinker", "heroes/hero_viper/nethertoxin/nethertoxin" ,LUA_MODIFIER_MOTION_NONE )
 
@@ -6,18 +7,53 @@ if viper_nethertoxin_lua == nil then
 end
 
 --------------------------------------------------------------------------------
+function viper_nethertoxin_lua:GetIntrinsicModifierName()
+    return "modifier_viper_nethertoxin_intrinsic_lua"
+end
+function viper_nethertoxin_lua:OnUpgrade()
+    if self:GetLevel() == 1 then
+        self:RefreshCharges()
+    end
+end
+
+function viper_nethertoxin_lua:GetCooldown( level )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int7") then
+		return 0.1
+	end
+
+	return self.BaseClass.GetCooldown( self, level )
+end
 
 function viper_nethertoxin_lua:GetAOERadius()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi10") then
+        return 600
+    end
     return self:GetSpecialValueFor("radius")
 end
 
-function viper_nethertoxin_lua:OnSpellStart()
+function viper_nethertoxin_lua:OnSpellStart(attack)
     local caster = self:GetCaster()
     local point = self:GetCursorPosition()
-    local projectile_speed = self:GetSpecialValueFor("projectile_speed")
+    
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi10") and attack == nil then
+        for i = 1, 3 do
+            local angle_gaps = 360 / 3
+            local qangle = QAngle(0, (i-1)*angle_gaps, 0)
+            local direction = (point - caster:GetAbsOrigin()):Normalized()
+            local spawn_point = point + direction * 200
+            local mini_blast_center = RotatePosition(point, qangle, spawn_point)
+            self:ApplyAbilityOnPoint(mini_blast_center)
+        end
+    else
+        self:ApplyAbilityOnPoint(point)
+    end
+    EmitSoundOn("Hero_Viper.Nethertoxin.Cast", caster)
+end
 
+function viper_nethertoxin_lua:ApplyAbilityOnPoint(point)
+    local caster = self:GetCaster()
     local vector = point-caster:GetOrigin()
-
+    local projectile_speed = self:GetSpecialValueFor("projectile_speed")
     local projectile_distance = vector:Length2D()
     local projectile_direction = vector
     projectile_direction.z = 0
@@ -49,8 +85,6 @@ function viper_nethertoxin_lua:OnSpellStart()
     ParticleManager:SetParticleControlEnt(fx, 0, caster, PATTACH_POINT, "attach_attack1", caster:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(fx, 1, Vector(projectile_speed,0,0))
     ParticleManager:SetParticleControl(fx, 5, point)
-
-    EmitSoundOn("Hero_Viper.Nethertoxin.Cast", caster)
 end
 
 function viper_nethertoxin_lua:OnProjectileHit(Target, Location)
@@ -138,7 +172,6 @@ modifier_viper_nethertoxin_lua = class({
     DeclareFunctions        = function(self)
         return {
             MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-            MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
         }
     end,
 })
@@ -149,14 +182,7 @@ modifier_viper_nethertoxin_lua = class({
 function modifier_viper_nethertoxin_lua:OnCreated()
     self.min_damage = self:GetAbility():GetSpecialValueFor("min_damage")
     self.max_damage = self:GetAbility():GetSpecialValueFor("max_damage")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi10") then
-        self.min_damage = self.min_damage + self:GetCaster():GetAgility() * 0.4
-        self.max_damage = self.max_damage + self:GetCaster():GetAgility() * 1.0
-    end
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int10") then
-        self.min_damage = self.min_damage + self:GetCaster():GetIntellect() * 0.25
-        self.max_damage = self.max_damage + self:GetCaster():GetIntellect() * 0.6
-    end
+
     self.max_duration = self:GetAbility():GetSpecialValueFor("max_duration")
     self.duration = self:GetAbility():GetSpecialValueFor("duration")
     self.damage_mid_per_tick = (self.max_damage - self.min_damage) / (self.duration / 0.5)
@@ -196,8 +222,8 @@ function modifier_viper_nethertoxin_lua:OnIntervalThink()
 end
 end
 
-function modifier_viper_nethertoxin_lua:GetModifierDamageOutgoing_Percentage()
+function modifier_viper_nethertoxin_lua:GetModifierMoveSpeedBonus_Percentage()
     if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str9") then
-        return -20
+        return -self:GetAbility():GetSpecialValueFor("move_slow")
     end
 end

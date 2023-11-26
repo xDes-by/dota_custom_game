@@ -74,7 +74,7 @@
 		"ItemInitialStockTime"			"2.0"  
 	}		
 	
-"item_cheese_lua"
+	"item_cheese_lua"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
         "BaseClass"						"item_lua"
@@ -106,7 +106,113 @@
 		{
 
 		}
-	}	
+	}
+	"item_clarity_custom1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"clarity_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"100"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemStockTime"    "300.0" // Время перезарядки для основных слотов
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "1"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
+	"item_clarity_custom2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"greater_clarity_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"1000"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "2"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
+	"item_clarity_custom3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"greater_clarity2_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"10000"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "3"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
 //============================================================================================================================================================================================================================================================	
 
 "item_greed_str"

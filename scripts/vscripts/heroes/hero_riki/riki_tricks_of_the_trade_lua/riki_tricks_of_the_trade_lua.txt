@@ -9,7 +9,7 @@
 		"AbilityTextureName"			"riki_tricks_of_the_trade"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
 		"FightRecapLevel"				"1"
@@ -47,86 +47,9 @@
 			"channel_duration"				"5"
 			"dmg_perc"						"62 64 66 68 70 72 74 76 78 80 82 84 86 88 90"
 			"extra_agility"					"11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"
-			"attack_count2"					"2"
+			"target_count"					"2"
 			"AbilityCharges"				"0"
 			"AbilityChargeRestoreTime"		"39 38 37 36 35 34 33 32 31 30 29 28 27 26 25"
-		}
-	}
-	"riki_tricks_of_the_trade_custom"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/hero_riki/riki_tricks_of_the_trade_lua/riki_tricks_of_the_trade_custom"
-		"AbilityTextureName"			"riki_tricks_of_the_trade"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"		
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"				"1"
-		"MaxLevel"						"15"
-		"AbilityCastRange"				"400"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------		
-		"AbilityCastPoint"				"0.3"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"39 38 37 36 35 34 33 32 31 30 29 28 27 26 25"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"		
-
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
-			"particle"					"particles/units/heroes/hero_riki/riki_tricks_cast.vpcf"
-			"particle"					"particles/units/heroes/hero_riki/riki_tricks_end.vpcf"
-			"particle"					"particles/units/heroes/hero_riki/riki_tricks.vpcf"
-			"particle"					"particles/hero/riki/riki_martyr_dagger_start_pos.vpcf"
-		}
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"	"5"
-			"AbilityCooldown"				
-			{
-				"value"		"18 16 14 12"
-			}
-			"radius"
-			{
-				"value"		"450"
-			}
-			"attack_count"	"4"
-			"damage_pct"	"40"
-			"agility_pct"
-			{
-				"value" 				"70 80 90 100"
-			}
-			"scepter_duration"				
-			{
-				"value"			"2"
-			}
-			"scepter_attacks"
-			{
-				"value"		"5"
-			}
-			"scepter_cast_range"
-			{
-				"value"		"700"
-			}
-			"dispel"
-			{
-				"value"				"0"
-			}
 		}
 	}
 }

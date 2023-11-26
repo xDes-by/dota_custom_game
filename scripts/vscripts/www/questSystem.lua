@@ -190,6 +190,9 @@ function QuestSystem:UpdateCounter(type, number, task, id, kol)
         	player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"] = player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"] + n
 			CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 		else
+			if tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"]) < tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["HowMuch"]) then
+				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "PlayCompletionSound", {})
+			end
 			player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["have"] = player_info[tostring(steamID)][tostring(type)][tostring(number)]["tasks"][tostring(task)]["HowMuch"]
 			CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 			if QuestSystem.auto[id] then
@@ -600,8 +603,9 @@ function QuestSystem:auto_quest_toggle(t)
 	if RATING["rating"][t.PlayerID]["patron"] and RATING["rating"][t.PlayerID]["patron"] == 1 then
 		subscribe = true
 	end
+	print(QuestSystem.trialPeriodCount[t.PlayerID])
 	if subscribe == false and QuestSystem.trialPeriodCount[t.PlayerID] > 0 then
-		QuestSystem.trialPeriodCount[t.PlayerID] = RATING["rating"][t.PlayerID]['auto_quest_trial'] - 1
+		QuestSystem.trialPeriodCount[t.PlayerID] = QuestSystem.trialPeriodCount[t.PlayerID] - 1
 		QuestSystem.auto[t.PlayerID] = t.toggle_state == 1
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(t.PlayerID),"change_auto_quest_toggle_state",{
 			toggle_state = QuestSystem.auto[t.PlayerID], 
@@ -1029,7 +1033,10 @@ function QuestSystem:giveReward(type, number, task, pid)
 	-- end
 	if player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'] then
 		local experience = tonumber(player_info[tostring(steamID)][tostring(type)][tostring(number)]['talentExperience'])
-		talants:giveExperienceFromQuest(pid, experience)
+		Talents:AddExperience(pid, experience, true)
+		if Talents:IsPatron(pid) then
+			Talents:AddExperienceDonate(pid, experience, true)
+		end
 	end
 	
 	--print('give revard')
@@ -1199,7 +1206,7 @@ function QuestSystem:OnEntityKilled( keys )
 								player_info_changed = true
 								CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 								if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] == player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
-									print("QuestSystem.auto:",QuestSystem.auto[playerID])
+									CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "PlayCompletionSound", {})
 									if QuestSystem.auto[playerID] then
 										QuestSystem:AutoComplete({
 											pid = playerID,
@@ -1227,6 +1234,7 @@ function QuestSystem:OnEntityKilled( keys )
 								player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] = player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] + 1
 								CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 								if player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['have'] == player_info[tostring(steamID)][tostring(type)][tostring(number)]['tasks'][tostring(task)]['HowMuch'] then
+									CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "PlayCompletionSound", {})
 									if QuestSystem.auto[playerID] then
 										QuestSystem:AutoComplete({
 											pid = playerID,
@@ -1381,6 +1389,7 @@ function QuestSystem:updateItems(id)
 									CustomNetTables:SetTableValue("player_info",  tostring(steamID), player_info)
 									QuestSystem:updateParticle()
 									if player_info[tostring(steamID)][k1][k2]['tasks'][k3]['have'] == player_info[tostring(steamID)][k1][k2]['tasks'][k3]['HowMuch'] then
+										CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(id), "PlayCompletionSound", {})
 										QuestSystem:updateMinimap(id, {k1,k2,k3})
 										if QuestSystem.auto[id] then
 											QuestSystem:AutoComplete({

@@ -61,10 +61,14 @@ end
 function modifier_item_hp_aura:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
 		}
 	return funcs
 end
 
 function modifier_item_hp_aura:GetModifierHealthRegenPercentage()
+	return 2 
+end
+function modifier_item_hp_aura:GetModifierTotalPercentageManaRegen()
 	return 2 
 end

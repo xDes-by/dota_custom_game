@@ -57,7 +57,8 @@
 	}
 	"npc_dota_hero_viper_agi9"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_viper/npc_dota_hero_viper_agi9"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -82,7 +83,8 @@
 	}
 	"npc_dota_hero_viper_int7"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_viper/npc_dota_hero_viper_int7"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
@@ -113,19 +115,37 @@
 
 
 	//last
-	"npc_dota_hero_viper_str_last"
+	"npc_dota_hero_viper_str12"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_viper_agi_last"
+	"npc_dota_hero_viper_agi12"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"npc_dota_hero_viper_int_last"
+	"npc_dota_hero_viper_int12"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}	
+	"npc_dota_hero_viper_str13"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_viper_agi13"
+	{
+		"BaseClass"             		"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	"npc_dota_hero_viper_int13"
 	{
 		"BaseClass"             		"special_bonus_undefined"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

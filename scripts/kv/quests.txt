@@ -23,7 +23,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_4"
+					"UnitName"	"npc_28"
 					// "abs"
 					// {
 					// 	"1"
@@ -96,7 +96,7 @@
 		}
 		"2"
 		{
-			"UnitName"	"npc_4"
+			"UnitName"	"npc_28"
 			"unlock"
 			{
 				"1"
@@ -164,7 +164,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_3"
+					"UnitName"	"npc_6"
 					"mapoverlay"	"2"
 					"kill"
 					{
@@ -187,7 +187,7 @@
 		// 2 локация
 		"4"
 		{
-			"UnitName"	"npc_3"
+			"UnitName"	"npc_6"
 			"reward"
 			{
 				"experience"
@@ -331,7 +331,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_13"
+					"UnitName"	"npc_11"
 					"mapoverlay"	"5"
 					"kill"
 					{
@@ -379,7 +379,7 @@
 		}
 		"7"
 		{
-			"UnitName"	"npc_13"
+			"UnitName"	"npc_11"
 			"reward"
 			{
 				"experience"
@@ -398,7 +398,7 @@
 			{
 				"1"
 				{
-					"UnitName"				"npc_13"
+					"UnitName"				"npc_12"
 					"mapoverlay"	"5"
 					"custom"
 					{
@@ -412,7 +412,7 @@
 		}
 		"8"
 		{
-			"UnitName"	"npc_13"
+			"UnitName"	"npc_12"
 			"reward"
 			{
 				"experience"
@@ -431,7 +431,7 @@
 			{
 				"1"
 				{
-					"UnitName"				"npc_14"
+					"UnitName"				"npc_12"
 					"mapoverlay"	"6"
 					"kill"
 					{
@@ -455,7 +455,7 @@
 		// 4 локация
 		"9"
 		{
-			"UnitName"	"npc_14"
+			"UnitName"	"npc_17"
 			"reward"
 			{
 				"experience"
@@ -555,7 +555,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_16"
+					"UnitName"	"npc_19"
 					"mapoverlay"	"8"
 					"kill"
 					{
@@ -579,7 +579,7 @@
 		// 5 локация
 		"11"
 		{
-			"UnitName"	"npc_16"
+			"UnitName"	"npc_19"
 			"reward"
 			{
 				"experience"
@@ -599,7 +599,7 @@
 				
 				"1"
 				{
-					"UnitName"	"npc_19"
+					"UnitName"	"npc_22"
 					"mapoverlay"	"9"
 					"kill"
 					{
@@ -643,7 +643,7 @@
 		}
 		"12"
 		{
-			"UnitName"	"npc_19"
+			"UnitName"	"npc_22"
 			"reward"
 			{
 				"experience"
@@ -662,7 +662,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_23"
+					"UnitName"	"npc_21"
 					"mapoverlay"	"10"
 					"kill"
 					{
@@ -686,7 +686,7 @@
 		// 6 локация
 		"13"
 		{
-			"UnitName"	"npc_23"
+			"UnitName"	"npc_21"
 			"reward"
 			{
 				"experience"
@@ -821,7 +821,7 @@
 				
 				"1"
 				{
-					"UnitName"	"npc_29"
+					"UnitName"	"npc_31"
 					"mapoverlay"	"13"
 					"kill"
 					{
@@ -847,7 +847,7 @@
 		}
 		"16"
 		{
-			"UnitName"	"npc_29"
+			"UnitName"	"npc_30"
 			"reward"
 			{
 				"experience"
@@ -866,7 +866,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_30"
+					"UnitName"	"npc_31"
 					"mapoverlay"	"14"
 					"kill"
 					{
@@ -890,7 +890,7 @@
 		// 8 локация
 		"17"
 		{
-			"UnitName"	"npc_30"
+			"UnitName"	"npc_31"
 			"reward"
 			{
 				"experience"
@@ -936,7 +936,7 @@
 		}
 		"18"
 		{
-			"UnitName"	"npc_31"
+			"UnitName"	"npc_32"
 			"reward"
 			{
 				"experience"
@@ -1438,7 +1438,7 @@
 			}
 
 
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1457,7 +1457,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1486,7 +1486,7 @@
 					"number"	"20"
 				}
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1505,7 +1505,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1540,7 +1540,7 @@
 					"number"	"12"
 				}
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1577,7 +1577,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"item"
 					{
 						"use_type"	"random"
@@ -1644,7 +1644,7 @@
 				"lock_item_select"	"0"
 				"available"			"0"
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1681,7 +1681,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1715,7 +1715,7 @@
 				"lock_item_select"	"0"
 				"available"			"0"
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1752,7 +1752,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1795,7 +1795,7 @@
 					"number"	"15"
 				}
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1833,7 +1833,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -1894,7 +1894,7 @@
 			{
 				"lock_item_select"	"0"
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1931,7 +1931,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"custom"
 					{
 						"min"				"2"
@@ -1952,7 +1952,7 @@
 					"number"	"17"
 				}
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -1989,7 +1989,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -2044,7 +2044,7 @@
 					"number"	"18"
 				}
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -2081,7 +2081,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"custom"
 					{
 						"min"				"3"
@@ -2106,7 +2106,7 @@
 			{
 				"lock_item_select"	"0"
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -2143,7 +2143,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -2192,7 +2192,7 @@
 		}
 		"19" // танк основной 10
 		{
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"reward"
 			{
 				"experience"
@@ -2211,7 +2211,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"kill"
 					{
 						"use_type"	"random"
@@ -2232,7 +2232,7 @@
 		}
 		"20" // мид дополнительный
 		{
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_4"
 			"unlock"
 			{
 				"1"
@@ -2259,7 +2259,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_4"
 					"item"
 					{
 						"use_type"	"random"
