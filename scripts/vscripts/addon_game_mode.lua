@@ -55,7 +55,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(60)
-	
+	GameRules:SetUseUniversalShopMode(true)
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
@@ -1542,12 +1542,3 @@ function ItemBossSummonChoice(eventIndex, data)
 		Rules:difficality_modifier(unit)
 	end
 end
-
-Convars:RegisterCommand( "test_abi", function( cmd, arg ) 
-    local hero = PlayerResource:GetSelectedHeroEntity(0)
-	if hero then
-		local abi = hero:AddAbility("spell_item_pet_rda_secret_" .. arg)
-		abi:SetHidden(false)
-	end
-    end, "test_abi", FCVAR_CHEAT
-)

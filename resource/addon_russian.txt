@@ -1870,7 +1870,7 @@
         "dota_tooltip_ability_item_radiance_lua_description" "<h1>Переключаемая: Burn</h1> Если включена, каждую секунду наносит противникам %aura_damage% магического урона и ослепляет их, вынуждая промахиваться в %blind_pct%%% случаев. На иллюзиях наносит %aura_damage_illusions% магического урона в секунду.<br><br>Радиус: %aura_radius%"
         "dota_tooltip_ability_item_radiance_lua_lore" "Божественный меч, окружающий владельца ярким сиянием, которое обращает в пепел всех врагов вокруг."
         "dota_tooltip_ability_item_radiance_lua_bonus_damage" "+$damage"
-        "dota_tooltip_ability_item_radiance_lua_stats_damage" "УРОН ОТ АТТРИБУТОВ:"
+        "dota_tooltip_ability_item_radiance_lua_stats_damage" "%УРОН ОТ АТТРИБУТОВ:"
         "dota_tooltip_modifier_item_radiance_lua_debuff" "Burn Damage"
         "dota_tooltip_modifier_item_radiance_lua_debuff_description" "Получает 60 урона в секунду и промахивается в %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% случаев."
 

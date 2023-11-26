@@ -109,7 +109,7 @@ function modifier_ai_sand_boss_return:OnCreated()
     if not IsServer() then
         return
     end
-    self.spawn_pos = self:GetAbility().spawn_pos
+    self.spawn_pos = self:GetParent():GetAbsOrigin()
     self:StartIntervalThink(FrameTime())
 end
 

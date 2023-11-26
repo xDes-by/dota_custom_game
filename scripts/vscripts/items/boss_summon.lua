@@ -10,9 +10,6 @@ end
 
 item_boss_summon = class({})
 
---------------------------------------------------------------------------------
-_G.don_bosses_count = {}
-
 local bossTable = {
     [0] = "npc_forest_boss_fake",
     [1] = "npc_forest_boss_fake",

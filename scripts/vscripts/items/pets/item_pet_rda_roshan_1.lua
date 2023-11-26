@@ -1,10 +1,10 @@
-LinkLuaModifier( "modifier_pet_rda_secret_1", "items/pets/item_pet_rda_secret_1", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_pet_rda_secret_1", "items/pets/item_pet_rda_secret_1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pet_rda_secret_1", "items/pets/item_pet_rda_roshan_1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_pet_rda_roshan_1", "items/pets/item_pet_rda_roshan_1", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
 
-spell_item_pet_rda_secret_1 = class({})
+spell_item_pet_rda_roshan_1 = class({})
 
-function spell_item_pet_rda_secret_1:OnSpellStart()
+function spell_item_pet_rda_roshan_1:OnSpellStart()
 	if IsServer() then
 		self.caster = self:GetCaster()
 		
@@ -17,37 +17,34 @@ function spell_item_pet_rda_secret_1:OnSpellStart()
 	end
 end
 
-function spell_item_pet_rda_secret_1:GetIntrinsicModifierName()
-	return "modifier_item_pet_rda_secret_1"
+function spell_item_pet_rda_roshan_1:GetIntrinsicModifierName()
+	return "modifier_item_pet_rda_roshan_1"
 end
 
-modifier_item_pet_rda_secret_1 = class({})
+modifier_item_pet_rda_roshan_1 = class({})
 
-function modifier_item_pet_rda_secret_1:IsHidden()
+function modifier_item_pet_rda_roshan_1:IsHidden()
 	return true
 end
 
-function modifier_item_pet_rda_secret_1:IsPurgable()
+function modifier_item_pet_rda_roshan_1:IsPurgable()
 	return false
 end
 
-function modifier_item_pet_rda_secret_1:OnCreated( kv )
+function modifier_item_pet_rda_roshan_1:OnCreated( kv )
 	if IsServer() then
 		local point = self:GetCaster():GetAbsOrigin()
 		if not self:GetCaster():IsIllusion() then
-			self.pet = CreateUnitByName("pet_rda_secret_1", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			self.pet = CreateUnitByName("pet_rda_roshan_1", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
 			self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
 			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 			self.pet:SetOwner(self:GetCaster())
-
-			print("------------------------------")
-			print(self:GetParent():GetLevel())
 			self:StartIntervalThink(1)
 		end
 	end
 end
 
-function modifier_item_pet_rda_secret_1:OnIntervalThink()
+function modifier_item_pet_rda_roshan_1:OnIntervalThink()
 	if IsServer() then
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
@@ -56,32 +53,34 @@ function modifier_item_pet_rda_secret_1:OnIntervalThink()
 	end
 end
 
-function modifier_item_pet_rda_secret_1:OnDestroy()
+function modifier_item_pet_rda_roshan_1:OnDestroy()
 	UTIL_Remove(self.pet)
 end
 
-function modifier_item_pet_rda_secret_1:DeclareFunctions()
+function modifier_item_pet_rda_roshan_1:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_BASE_ATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_EXP_RATE_BOOST,
+		MODIFIER_PROPERTY_GOLD_RATE_BOOST 
 	}
 end
 
-function modifier_item_pet_rda_secret_1:GetModifierBaseAttack_BonusDamage( params )
+function modifier_item_pet_rda_roshan_1:GetModifierBaseAttack_BonusDamage( params )
 	return self:GetAbility():GetSpecialValueFor( "dmg" ) * self:GetCaster():GetLevel()
 end
 
-function modifier_item_pet_rda_secret_1:GetModifierHealthBonus()
-	return self:GetAbility():GetSpecialValueFor("bonus_health")
+function modifier_item_pet_rda_roshan_1:GetModifierHealthBonus()
+	return self:GetAbility():GetSpecialValueFor("bonus_health") * self:GetCaster():GetLevel()
 end
 
-function modifier_item_pet_rda_secret_1:GetModifierIncomingDamage_Percentage()
+function modifier_item_pet_rda_roshan_1:GetModifierIncomingDamage_Percentage()
 	return - self:GetAbility():GetSpecialValueFor( "block" )
 end
 
-function modifier_item_pet_rda_secret_1:OnAttackLanded(keys)
+function modifier_item_pet_rda_roshan_1:OnAttackLanded(keys)
     if not (
         IsServer()
         and self:GetParent() == keys.attacker
@@ -102,28 +101,29 @@ function modifier_item_pet_rda_secret_1:OnAttackLanded(keys)
 	direction.z = 0
 	direction = direction:Normalized()
 	local range = self:GetParent():GetOrigin() + direction*radius/2
-	
-	local reduse, item = check_desolator(self:GetParent())
 					
 	local enemies = FindUnitsInCone( self:GetParent():GetTeamNumber(), keys.target:GetOrigin(), self:GetParent():GetOrigin(), range, 150, 360, nil, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	for _,enemy in pairs(enemies) do
 		if enemy ~= keys.target then
-			if reduse ~= nil then 
-				if not enemy:HasModifier("modifier_item_bfury_lua_debuff") then
-					enemy:AddNewModifier(self:GetParent(), item, "modifier_item_bfury_lua_debuff", {duration = 5})
-				end
-			end
 			ApplyDamage({victim = enemy, attacker = self:GetParent(), damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION})
 		end
 	end
 	self:PlayEffects1(direction )
 end
 
-function modifier_item_pet_rda_secret_1:PlayEffects1(direction )
+function modifier_item_pet_rda_roshan_1:PlayEffects1(direction )
 	local effect_cast = ParticleManager:CreateParticle( "particles/econ/items/sven/sven_ti7_sword/sven_ti7_sword_spell_great_cleave.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
+end
+
+function modifier_item_pet_rda_roshan_1:GetModifierPercentageGoldRateBoost()
+	return self:GetAbility():GetSpecialValueFor("goex")
+end
+
+function modifier_item_pet_rda_roshan_1:GetModifierPercentageExpRateBoost()
+	return self:GetAbility():GetSpecialValueFor("goex")
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
