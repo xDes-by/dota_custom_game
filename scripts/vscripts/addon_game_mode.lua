@@ -55,7 +55,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(60)
-	
+	GameRules:SetUseUniversalShopMode(true)
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)

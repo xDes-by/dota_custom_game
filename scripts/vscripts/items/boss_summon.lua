@@ -4,9 +4,6 @@ end
 
 item_boss_summon = class({})
 
---------------------------------------------------------------------------------
-_G.don_bosses_count = {}
-
 local bossTable = {
     [0] = "npc_forest_boss_fake",
     [1] = "npc_forest_boss_fake",
@@ -21,16 +18,14 @@ local bossTable = {
 }
 
 function item_boss_summon:OnSpellStart()
-	if #_G.don_bosses_count < 5 then
-		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_item_boss_summon_cd", {duration = self:GetCooldown(self:GetLevel())* self:GetCaster():GetCooldownReduction()})
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
-			spawn_level = _G.don_spawn_level,
-		} )
-		if self:GetCurrentCharges() > 1 then
-			self:SetCurrentCharges(self:GetCurrentCharges() - 1)
-		else
-			self:GetCaster():RemoveItem(self)
-		end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_item_boss_summon_cd", {duration = self:GetCooldown(self:GetLevel())* self:GetCaster():GetCooldownReduction()})
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
+		spawn_level = _G.don_spawn_level,
+	} )
+	if self:GetCurrentCharges() > 1 then
+		self:SetCurrentCharges(self:GetCurrentCharges() - 1)
+	else
+		self:GetCaster():RemoveItem(self)
 	end
 
 	-- local boss_spawn = bossTable[_G.don_spawn_level]
