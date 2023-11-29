@@ -14,6 +14,7 @@ end
 
 function modifier_talent_m_resist:OnCreated( kv )
 	self.value = {10, 15, 20, 25, 30, 35}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

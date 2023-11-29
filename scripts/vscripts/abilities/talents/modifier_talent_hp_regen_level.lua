@@ -14,6 +14,7 @@ end
 
 function modifier_talent_hp_regen_level:OnCreated( kv )
 	self.value = {1, 2, 3, 4, 5, 6}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

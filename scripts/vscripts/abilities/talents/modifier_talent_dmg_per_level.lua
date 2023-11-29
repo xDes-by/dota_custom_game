@@ -14,6 +14,7 @@ end
 
 function modifier_talent_dmg_per_level:OnCreated( kv )
 	self.value = {6, 8, 10, 12, 14, 16}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

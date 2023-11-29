@@ -14,6 +14,7 @@ end
 
 function modifier_talent_hp_per_level:OnCreated()
 	self.value = {150, 200, 250, 300, 350, 400}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

@@ -14,6 +14,7 @@ end
 
 function modifier_talent_all_evasion:OnCreated()
 	self.value = {10, 15, 20, 25, 30, 35}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

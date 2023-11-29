@@ -14,6 +14,7 @@ end
 
 function modifier_talent_manacost:OnCreated( kv )
 	self.value = {0.075, 0.1, 0.125, 0.15, 0.175, 0.2}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 
