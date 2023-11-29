@@ -15,36 +15,33 @@ end
 function modifier_talent_sheeld:OnCreated( kv )
 	self.value = {7.5, 10, 12.5, 15, 17.5, 20}
 	self:SetStackCount(1)
-	self.parent = self:GetParent()
 	self.IsBroken = false
-	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self:GetParent():GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
 	self.current_sheeld_health = self.sheeld_max
 	if not IsServer() then
 		return
 	end
-	self.iPlayerID = self.parent:GetPlayerID()
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(self, "LevelUP"), self)
+	self.iPlayerID = self:GetParent():GetPlayerID()
 	self:SetHasCustomTransmitterData( true )
 end
 
 function modifier_talent_sheeld:OnRefresh( kv )
-	print("refresh")
-	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self:GetParent():GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
 end
 
 function modifier_talent_sheeld:OnStackCountChanged()
-	print("stack")
-	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self:GetParent():GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
-	self:ForceRefresh()
 end
 
 function modifier_talent_sheeld:LevelUP(data)
 	if data.player_id == self.iPlayerID or data.PlayerID == self.iPlayerID then
-		print("LevelUP")
-		self:ForceRefresh()
+		self:SetStackCount(self:GetStackCount())
+		self.IsBroken = true
+		self:StartIntervalThink(FrameTime())
 	end
 end
 
@@ -86,6 +83,7 @@ function modifier_talent_sheeld:GetModifierIncomingDamageConstant(data)
             self.current_sheeld_health = self.current_sheeld_health - data.damage
 			self.IsBroken = false
 			self:StartIntervalThink(5)
+			self:SetStackCount(self:GetStackCount())
 			self:SendBuffRefreshToClients()
 			return -data.damage
         else
@@ -93,6 +91,7 @@ function modifier_talent_sheeld:GetModifierIncomingDamageConstant(data)
 			self:StartIntervalThink(FrameTime())
             local p = data.damage - self.current_sheeld_health
             self.current_sheeld_health = 0
+			self:SetStackCount(self:GetStackCount())
 			self:SendBuffRefreshToClients()
 			return -p
         end

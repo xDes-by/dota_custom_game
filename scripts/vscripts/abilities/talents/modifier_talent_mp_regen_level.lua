@@ -25,5 +25,5 @@ function modifier_talent_mp_regen_level:DeclareFunctions()
 end
 
 function modifier_talent_mp_regen_level:GetModifierConstantManaRegen()
-	return self.value[self:GetStackCount()] * self.parent:GetLevel()
+	return self.value[self:GetStackCount()] * self:GetParent():GetLevel()
 end

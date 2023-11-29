@@ -25,5 +25,5 @@ function modifier_talent_hp_regen_level:DeclareFunctions()
 end
 
 function modifier_talent_hp_regen_level:GetModifierConstantHealthRegen()
-	return self.value[self:GetStackCount()]	 * self.parent:GetLevel()
+	return self.value[self:GetStackCount()]	 * self:GetParent():GetLevel()
 end

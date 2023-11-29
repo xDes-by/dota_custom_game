@@ -33,8 +33,8 @@ end
 
 function Wearable:HasAlternativeSkin(sHreoName)
     local t = {
-        ["npc_dota_hero_juggernaut"] = true,
-        ["npc_dota_hero_slark"] = true,
+        -- ["npc_dota_hero_juggernaut"] = true,
+        -- ["npc_dota_hero_slark"] = true,
         ["npc_dota_hero_nevermore"] = true,
         ["npc_dota_hero_pudge"] = true,
         ["npc_dota_hero_spectre"] = true
@@ -92,7 +92,7 @@ function Wearable:ClearWear(Value)
         print("Unit already clear")
         return
     end
-    if hUnit:GetUnitName() == "npc_dota_hero_nevermore" then
+    if hUnit:GetUnitName() == "npc_dota_hero_pudge" then
         local t = {
             ["models/heroes/pudge/righthook.vmdl"] = true,
             ["models/heroes/pudge/hair.vmdl"] = true,
