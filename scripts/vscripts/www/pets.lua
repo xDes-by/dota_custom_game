@@ -105,12 +105,12 @@ end
 function Pets:EquipPanoramaEvent(t)
     local pid = t.PlayerID
     local name = t.name
-    if self.player[pid].pets[name] == nil or self.player[pid].pets[name].value <= 0 then 
-        self:SendToPlayerError(pid, "#error_no_pet")
+    if self.player[pid].pets[name] == nil or self.player[pid].pets[name].value <= 0 then
+        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "mountain_dota_hud_show_hud_error", { message = "#error_no_pet", })
         return
     end
-    if self.change_limit[pid] == 0 and Shop.pShop[pid].pet_change ~= 1 then 
-        self:SendToPlayerError(pid, "#error_change_limit")
+    if self.change_limit[pid] == 0 and Shop.pShop[pid].pet_change ~= 1 then
+        CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "mountain_dota_hud_show_hud_error", { message = "#error_change_limit", })
         return 
     end
     local current_pet_name = self.current_pet_name[pid]
@@ -278,8 +278,5 @@ function Pets:AddBattlePassPetsToPetList()
         end
     end
     CustomNetTables:SetTableValue('Pets', "list", self.list)
-end
-function Pets:SendToPlayerError(pid, error)
-    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "SendToPlayerError", { error = error, })
 end
 Pets:init()

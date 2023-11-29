@@ -87,7 +87,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	-------------------------------------------------------------------------------------------
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
-	CustomGameEventManager:RegisterListener( "ItemBossSummonChoice", function(...) return ItemBossSummonChoice( ... ) end )
+	CustomGameEventManager:RegisterListener( "item_boss_summon_choice", function(...) return ItemBossSummonChoice( ... ) end )
 	
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
@@ -1532,7 +1532,9 @@ function ItemBossSummonChoice(eventIndex, data)
 		[8] = "npc_boss_location8_fake",
 		[9] = "npc_boss_magma_fake"
 	}
+	print(data.index)
 	local boss_spawn = bossTable[tonumber(data.index)]
+	print(boss_spawn)
 	if boss_spawn then
 		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
