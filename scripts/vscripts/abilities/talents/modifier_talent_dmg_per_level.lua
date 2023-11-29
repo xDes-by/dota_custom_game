@@ -25,5 +25,5 @@ function modifier_talent_dmg_per_level:DeclareFunctions()
 end
 
 function modifier_talent_dmg_per_level:GetModifierBaseAttack_BonusDamage()
-	return self.value[self:GetStackCount()] * self.parent:GetLevel()
+	return self.value[self:GetStackCount()] * self:GetParent():GetLevel()
 end

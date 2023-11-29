@@ -25,7 +25,7 @@ require("wearable")
 
 _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = true and IsInToolsMode() -- false
+_G.devmode = false and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
 _G.spawnCreeps =  not IsInToolsMode() -- true
 
@@ -984,8 +984,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
 		hRelay:Trigger(nil,nil)
+		_G.kill_invoker = true
 		if not DataBase:IsCheatMode() then
-			_G.kill_invoker = true
 			for pid = 0, PlayerResource:GetPlayerCount()-1 do
 				Quests:UpdateCounter("daily", pid, 28)
 			end

@@ -25,5 +25,5 @@ function modifier_talent_hp_per_level:DeclareFunctions()
 end
 
 function modifier_talent_hp_per_level:GetModifierExtraHealthBonus()
-	return self.value[self:GetStackCount()] * self.parent:GetLevel()
+	return self.value[self:GetStackCount()] * self:GetParent():GetLevel()
 end
