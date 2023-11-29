@@ -120,7 +120,10 @@ heroTalentsData = {
         },
         npc_dota_hero_axe_str_last = {
             place = {"str 12"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str_12",
-        },       
+        },   
+        special_bonus_unique_npc_dota_hero_axe_str50 = {
+            place = {"str 13"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str_13",
+        },    
         -------------------- AGI -----------------------------------------------------------	
         npc_dota_hero_axe_agi6 = {
             place = {"agi 6"}, url = "/npc_dota_hero_axe/agi/agi-talant-9.png", name = "npc_dota_hero_axe_agi6", 

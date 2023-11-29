@@ -23,16 +23,29 @@ function modifier_talent_sheeld:OnCreated( kv )
 	if not IsServer() then
 		return
 	end
+	self.iPlayerID = self.parent:GetPlayerID()
+	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(self, "LevelUP"), self)
 	self:SetHasCustomTransmitterData( true )
 end
 
 function modifier_talent_sheeld:OnRefresh( kv )
+	print("refresh")
 	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
 	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
 end
 
 function modifier_talent_sheeld:OnStackCountChanged()
-	self:OnRefresh()
+	print("stack")
+	self.sheeld_max = self.value[self:GetStackCount()] * 0.01 * self.parent:GetMaxHealth()
+	self.sheeld_regen = self.sheeld_max / 5 * FrameTime()
+	self:ForceRefresh()
+end
+
+function modifier_talent_sheeld:LevelUP(data)
+	if data.player_id == self.iPlayerID or data.PlayerID == self.iPlayerID then
+		print("LevelUP")
+		self:ForceRefresh()
+	end
 end
 
 function modifier_talent_sheeld:OnIntervalThink()

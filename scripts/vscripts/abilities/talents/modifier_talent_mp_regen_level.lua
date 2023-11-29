@@ -14,6 +14,7 @@ end
 
 function modifier_talent_mp_regen_level:OnCreated( kv )
 	self.value = {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 

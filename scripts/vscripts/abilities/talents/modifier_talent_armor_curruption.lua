@@ -14,6 +14,7 @@ end
 
 function modifier_armor_curruption:OnCreated( kv )
 	self.value = {0.1, 0.12, 0.14, 0.16, 0.18, 0.2}
+	self:SetStackCount(1)
 	self.parent = self:GetParent()
 end
 
