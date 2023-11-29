@@ -116,7 +116,8 @@
 //last
 	"npc_dota_hero_vengefulspirit_str12"
 	{
-		"BaseClass"             		"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_vengeful_spirit/vengeful_tempest_double/npc_dota_hero_vengefulspirit_str12"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

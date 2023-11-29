@@ -170,13 +170,13 @@ function Shop:PlayerSetup( pid, items )
 	arr.feed = _G.SHOP[pid].feed or 0
 	arr.ban = _G.SHOP[pid].other_60 or 0
 	arr.pet_change = 0
-	if temp.pet_change and temp.pet_change.value > 0 then
-		arr.pet_change = temp.pet_change.value
+	if items.pet_change and items.pet_change.value > 0 then
+		arr.pet_change = items.pet_change.value
 	end
-	arr.auto_quest_trial = temp.auto_quest_trial.value
-	arr.golden_branch = temp.golden_branch or false
+	arr.auto_quest_trial = items.auto_quest_trial.value
+	arr.golden_branch = items.golden_branch or false
 	arr.talents_refresh = 0
-	if temp.talents_refresh then arr.talents_refresh = temp.talents_refresh.value end
+	if items.talents_refresh then arr.talents_refresh = items.talents_refresh.value end
 	arr.gems = {
 		[1] = _G.SHOP[pid]["gem_1"],
 		[2] = _G.SHOP[pid]["gem_2"],
@@ -185,6 +185,7 @@ function Shop:PlayerSetup( pid, items )
 		[5] = _G.SHOP[pid]["gem_5"],
 	}
 	Shop.pShop[pid] = arr
+	Shop.pShop[pid].items = items
 	CustomShop:UpdateShopInfoTable(pid)
 
 	Shop.spray[pid] = _G.SHOP[pid].auto_spray
@@ -311,13 +312,8 @@ function Shop:buyItem(t)
 	CustomShop:UpdateShopInfoTable(pid)
 
 	if shop_type == "talant" then
-		talants:sendServer({PlayerID = pid, changename = "cout", value = 2, changetype = "set", chartype = "int", win_lose = nil, heroname = Shop.pShop[pid][i][n]["hero"]})
 		if Shop.pShop[pid][i][n]["hero"] == PlayerResource:GetSelectedHeroName(pid) then
-			local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
-			tab["cout"] = 2
-			talants.tab[pid].count = 2
-			-- progress[pid] = tab
-			CustomNetTables:SetTableValue("talants", tostring(pid), tab)
+			Talents:ActivateSecondBranch(pid)
 		end
 	end
 	if shop_type == "gem" then

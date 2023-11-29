@@ -75,6 +75,8 @@ function DataBase:init()
 	DataBase.link.TalentsDrop = _G.host .. "/backend/player-actions/talents-drop?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TalentsExplore = _G.host .. "/backend/player-actions/talents-explore?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TalentsSave = _G.host .. "/backend/player-actions/talents-save?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsBuySecondBranch = _G.host .. "/backend/player-actions/talents-buy-second-branch?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.GameSettingsToggle = _G.host .. "/backend/player-actions/game-settings-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( DataBase, 'OnGameRulesStateChange'), self)
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))

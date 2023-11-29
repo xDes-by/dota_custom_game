@@ -145,7 +145,8 @@
 	}
 	"special_bonus_unique_npc_dota_hero_alchemist_agi50"
 	{
-		"BaseClass"						"special_bonus_undefined"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_alchemist/gold_damage_bank"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

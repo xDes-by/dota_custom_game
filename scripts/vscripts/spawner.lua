@@ -115,7 +115,7 @@ function Spawner:settings()
 	health = health * 1.16
 	damage_creeps = damage_creeps * 1.16
 
-	set_health = math.floor(health + health*(wave_new/2)) * 2
+	set_health = math.floor(health + health*(wave_new/2))
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -132,7 +132,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2)) * 2
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2))
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -344,7 +344,6 @@ function CreatePatroolWave()
 	if _G.don_spawn_level == 0 then
 		-- return
 	end
-	--@todo:патруль нотификейшн
 	local gold = {[0] = 60,[1] = 150,[2] = 250,[3] = 400,[4] = 550,[5] = 650,[6] = 1000,[7] = 1500,[8] = 50}
 	local corners = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(-1376, -3935,0), nil, 99999, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 	local points = {}
@@ -355,25 +354,28 @@ function CreatePatroolWave()
 	local rand = r[RandomInt(1, #r)]
 	local pos = Vector(rand[1], rand[2], rand[3])
 	if _G.kill_invoker then
-		for k,name in pairs(PatroolWave[10]) do
-			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
-			unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
-			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-			unit:SetPhysicalArmorBaseValue(set_armor)
-			unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
-			unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-			unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-			unit.corners = corners
-			unit.CornerID = 1
-			unit:SetContextThink( "Think", function()
-				MoveToNextCornerThink(unit, unit.CornerID)
-			end, 0.1 )
-		end
+		-- for k,name in pairs(PatroolWave[10]) do
+		-- 	local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+		-- 	unit:AddNewModifier(unit, nil, "modifier_custom_vision", {})
+		-- 	unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
+		-- 	unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
+		-- 	unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+		-- 	unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+		-- 	unit:SetPhysicalArmorBaseValue(set_armor)
+		-- 	unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
+		-- 	unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+		-- 	unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+		-- 	unit.corners = corners
+		-- 	unit.CornerID = 1
+		-- 	unit:SetContextThink( "Think", function()
+		-- 		MoveToNextCornerThink(unit, unit.CornerID)
+		-- 	end, 0.1 )
+		-- end
 	else
+		CustomGameEventManager:Send_ServerToAllClients( "RandomWaveNoification", {} )
 		for k,name in pairs(PatroolWave[_G.don_spawn_level]) do
 			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:AddNewModifier(unit, nil, "modifier_custom_vision", {})
 			unit:SetMaxHealth(set_health)
 			unit:SetHealth(set_health)
 			unit:SetBaseDamageMin(set_damage)

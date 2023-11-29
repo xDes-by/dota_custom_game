@@ -35,7 +35,7 @@ function modifier_spirit_breaker_nether_strike_intrinsic_lua:GetModifierOverride
 end
 
 function modifier_spirit_breaker_nether_strike_intrinsic_lua:GetModifierOverrideAbilitySpecialValue(data)
-	if data.ability and data.ability == self.ability then
+	if data.ability and data.ability == self:GetAbility() then
 		if data.ability_special_value == "damage" then
 			local damage = self:GetAbility():GetLevelSpecialValueNoOverride( "damage", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_int8") then

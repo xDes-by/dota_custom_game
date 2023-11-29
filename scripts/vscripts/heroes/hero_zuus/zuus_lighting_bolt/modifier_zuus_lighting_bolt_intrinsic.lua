@@ -62,7 +62,7 @@ end
 
 function modifier_zuus_lighting_bolt_intrinsic:OnCreated( kv )
     if not IsServer() then return end
-    self:StartIntervalThink(1)
+    self:StartIntervalThink(3)
     self:OnIntervalThink()
 end
 

@@ -181,7 +181,7 @@ end
 function Forge:UpdgradeGemsButton(t)
     local item = EntIndexToHScript( t.entindex )
     local cost = t.gemsNumber - (item.gemsNumber or 0 )
-    if gems[t.PlayerID][t.gemType] and cost > gems[t.PlayerID][t.gemType] then
+    if Shop.pShop[t.PlayerID].gems[t.gemType] and cost > Shop.pShop[t.PlayerID].gems[t.gemType] then
         return
     end
     if item.gemType ~= nil and item.gemType ~= t.gemType then

@@ -136,10 +136,14 @@ modifier_vengeful_spirit_magic_missile = class({
 function modifier_vengeful_spirit_magic_missile:OnAttack( params )
     caster = self:GetCaster()
     if params.attacker == self:GetParent() then
-        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int13") and RollPercentage(12) then
-            self:GetAbility():OnSpellStart(params.target)
-        elseif caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int12") and RollPercentage(7) then
-            self:GetAbility():OnSpellStart(params.target)
+        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int13") then
+            if RollPercentage(9) and not caster:IsSilenced() and self:GetAbility():IsActivated() then
+                self:GetAbility():OnSpellStart(params.target)
+            end
+        elseif caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int12") then
+            if RollPercentage(5) and not caster:IsSilenced() and self:GetAbility():IsActivated() then
+                self:GetAbility():OnSpellStart(params.target)
+            end
         end
     end
 end
@@ -156,6 +160,6 @@ modifier_vengeful_spirit_magic_missile_criticalstrike = class({
         }
     end,
     GetModifierPreAttack_CriticalStrike = function(self)
-        return 150 * self:GetAbility():GetLevel()
+        return 100 + 75 * self:GetAbility():GetLevel()
     end,
 })

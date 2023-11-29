@@ -37,23 +37,13 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"27 28 29 30 31 32 33 34 35 36"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"incoming_damage"		"375 350 325 300 275 250 225 200 175 150"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"outgoing_damage"		"25 30 35 40 45 50 55 60 65 70"
-			}
+			"duration"					"27 28 29 30 31 32 33 34 35 36"
+			"incoming_damage"					"375 350 325 300 275 250 225 200 175 150"
+			"outgoing_damage"					"25 30 35 40 45 50 55 60 65 70"
+			"AbilityCharges"				"0"
+			"AbilityChargeRestoreTime"		"40"
 		}
 	}
 }

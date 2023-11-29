@@ -321,7 +321,7 @@
     {
 		"vscripts"       			"items/pets/ai/item_pet_rda_roshan_1.lua"
 		"BaseClass" 				"npc_dota_creature"
-		"Model" 					"models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
+		"Model" 					"models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
 		"Ability1"					"pet_ability"
 		"AttackCapabilities" 		"DOTA_UNIT_CAP_NO_ATTACK" 
 		"MovementCapabilities"   	"DOTA_UNIT_CAP_MOVE_GROUND"

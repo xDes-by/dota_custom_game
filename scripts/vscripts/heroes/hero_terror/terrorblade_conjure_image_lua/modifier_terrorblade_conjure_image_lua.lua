@@ -21,6 +21,12 @@ function modifier_terrorblade_conjure_image_lua:IsPurgable()
 	return false
 end
 
+function modifier_terrorblade_conjure_image_lua:CheckState()
+	local state = {	
+		[MODIFIER_STATE_INVULNERABLE] = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_agi50") ~= nil,
+	}
+	return state
+end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_terrorblade_conjure_image_lua:OnCreated( kv )

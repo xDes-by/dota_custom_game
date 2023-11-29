@@ -688,9 +688,10 @@ function ChatCommands:TestTalents(pid, text)
         return
     end
     if not table.has_value(keyword, text) then return end
-	talants.testing[pid] = true
-	talants:unset({PlayerID = pid})
-	talants:fillTabel(pid, true, false)
+    Talents:RemoveAllTalentsCheat({PlayerID = pid})
+    Talents:FillTablesFromDatabase(pid, Talents.data_base[pid], true)
+    Talents.player[pid].index = PlayerResource:GetSelectedHeroEntity( pid ):entindex()
+    Talents:UpdateTable(pid)
 end
 function ChatCommands:TestTalentsMessage(keyword)
     local message = self:Font()

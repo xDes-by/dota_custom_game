@@ -36,6 +36,16 @@ function AdminPanel:init()
     CustomGameEventManager:RegisterListener("AdminPanelBattlePassPremium",function(_, keys)
         self:BattlePassPremium(keys)
     end)
+    CustomGameEventManager:RegisterListener("AdminPanelAddCoins",function(_, keys)
+        self:AddCoins(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelMidOff",function(_, keys)
+        self:MidOff(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelMidOn",function(_, keys)
+        self:MidOn(keys)
+    end)
+    
 end
 
 
@@ -166,5 +176,16 @@ function AdminPanel:BattlePassDrop(t)
 end
 function AdminPanel:BattlePassPremium(t)
     BattlePass:ActivatePremium(t.PlayerID)
+end
+function AdminPanel:AddCoins(t)
+    CustomShop:AddCoins(t.PlayerID, 100, true, true)
+end
+function AdminPanel:MidOff(t)
+    _G.spawnCreeps = false
+    CustomGameEventManager:Send_ServerToAllClients( "SendToPlayerError", {error = "МИД ВЫКЛ"} )
+end
+function AdminPanel:MidOn(t)
+    _G.spawnCreeps = true
+    CustomGameEventManager:Send_ServerToAllClients( "SendToPlayerError", {error = "МИД ВКЛ"} )
 end
 AdminPanel:init()

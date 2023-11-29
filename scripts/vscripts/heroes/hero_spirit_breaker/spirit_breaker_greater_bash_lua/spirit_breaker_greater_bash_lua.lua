@@ -24,9 +24,6 @@ end
 function spirit_breaker_greater_bash_lua:Spawn()
 	if not IsServer() then return end
 end
-function spirit_breaker_greater_bash_lua:GetManaCost(iLevel)
-    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
-end
 --------------------------------------------------------------------------------
 -- Passive Modifier
 function spirit_breaker_greater_bash_lua:GetIntrinsicModifierName()

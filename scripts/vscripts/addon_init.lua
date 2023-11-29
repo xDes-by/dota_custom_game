@@ -51,6 +51,7 @@ LinkLuaModifier( "effect_projectile_change1", "modifiers/effect_projectile_chang
 LinkLuaModifier( "effect_projectile_change2", "modifiers/effect_projectile_change2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "effect_projectile_change3", "modifiers/effect_projectile_change3", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "modifier_custom_vision", "modifiers/modifier_custom_vision", LUA_MODIFIER_MOTION_NONE )
 
 --таланты
 LinkLuaModifier( "modifier_don1", "abilities/talents/modifiers/modifier_don1", LUA_MODIFIER_MOTION_NONE )
@@ -65,6 +66,7 @@ LinkLuaModifier( "modifier_don9", "abilities/talents/modifiers/modifier_don9", L
 LinkLuaModifier( "modifier_don10", "abilities/talents/modifiers/modifier_don10", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_don11", "abilities/talents/modifiers/modifier_don11", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_don_last", "abilities/talents/modifiers/modifier_don_last", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don13", "abilities/talents/modifiers/modifier_don13", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_sheeld", "abilities/talents/modifier_talent_sheeld", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption_effect", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )

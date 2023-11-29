@@ -1,23 +1,31 @@
 modifier_tempest_double_illusion = class({})
 
-function modifier_tempest_double_illusion:IsHidden() return false end
+function modifier_tempest_double_illusion:IsHidden() return true end
 function modifier_tempest_double_illusion:IsPurgable() return false end
 
 function modifier_tempest_double_illusion:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_LIFETIME_FRACTION, -- GetUnitLifetimeFraction
-		-- MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_PROPERTY_TOOLTIP,
 		MODIFIER_PROPERTY_TOOLTIP2,
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
 	}
 end
 
-function modifier_tempest_double_illusion:CheckState()
-	if not self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_int6") then
-    	return { [MODIFIER_STATE_SILENCED] = true }
+function modifier_tempest_double_illusion:GetModifierMoveSpeedBonus_Constant()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi9") then
+		return 70 * self:GetAbility():GetLevel()
 	end
+end
+
+function modifier_tempest_double_illusion:GetModifierIgnoreMovespeedLimit()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi9") then
+		return 1
+	end
+	return 0
 end
 
 function modifier_tempest_double_illusion:OnTooltip()
@@ -39,7 +47,7 @@ function modifier_tempest_double_illusion:OnCreated( kv )
 		self.incoming_damage = self.incoming_damage - 35
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi12") then
-		self.outgoing_damage = 80
+		self.outgoing_damage = 100
 	end
 end
 
@@ -57,9 +65,6 @@ function modifier_tempest_double_illusion:OnDestroy()
 		callback = function()
 			ParticleManager:DestroyParticle(particle, true)
 			ParticleManager:ReleaseParticleIndex(particle)
-
-			parent:AddEffects(EF_NODRAW)
-			parent:SetAbsOrigin(Vector(-8000, -8000, -8000))
 		end
 	})
 end

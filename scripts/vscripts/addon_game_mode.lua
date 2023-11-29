@@ -13,9 +13,9 @@ require("spawner")
 require("rules")
 require('towershop')
 require('data/data')
-require("data/talentData")
+require("data/heroesTalents")
 require("data/battlePassStatic")
-require("data/talents")
+require("data/talentsData")
 require('plugins')
 require('tp')
 require("damage")
@@ -27,7 +27,7 @@ _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
-_G.spawnCreeps = not IsInToolsMode() -- true
+_G.spawnCreeps =  not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -313,9 +313,9 @@ function LevelUp (eventInfo)
 	if not hero then
 		return 0.1
 	end	
-	for _,mod in pairs(hero:FindAllModifiers()) do
-		mod:ForceRefresh()
-	end
+	-- for _,mod in pairs(hero:FindAllModifiers()) do
+	-- 	mod:ForceRefresh()
+	-- end
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
@@ -1532,7 +1532,7 @@ function ItemBossSummonChoice(eventIndex, data)
 		[8] = "npc_boss_location8_fake",
 		[9] = "npc_boss_magma_fake"
 	}
-	local boss_spawn = bossTable[data.index]
+	local boss_spawn = bossTable[tonumber(data.index)]
 	if boss_spawn then
 		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)

@@ -128,6 +128,7 @@ function BattlePass:ClaimReward(t)
     local reward_type = self:DetermineRewardType(t.number_type)
     local reward_index = self:DetermineRewardIndex(t.number_type, t.reward_level)
     if not self:IsRewardAvailable(pid, reward_type, reward_index) then return end
+    if self.player[pid].rewards[reward_index].claimed == 1 then return end
     local reward_data = self:DetermineRewardDataByIndex(reward_index)
     self.player[pid].rewards[reward_index].claimed = 1
     self.player[pid].rewardCount = self:CalculateAvailableRewardsCount(pid)
@@ -167,6 +168,7 @@ function BattlePass:SelectReward(t)
     local choice_index = t.choice_index
     local reward_index = self:DetermineRewardIndex(t.number_type, t.reward_level)
     local data = self:DetermineRewardDataByIndex(reward_index)
+    if self.player[pid].rewards[reward_index].claimed == 1 then return end
     self.player[pid].rewards[reward_index].choice_count = self.player[pid].rewards[reward_index].choice_count + 1
     if self.player[pid].rewards[reward_index].choice_count >= data.data.choice_count then
         self.player[pid].rewards[reward_index].claimed = 1

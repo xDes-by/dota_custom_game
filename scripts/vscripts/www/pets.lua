@@ -20,7 +20,6 @@ function Pets:init()
     CustomGameEventManager:RegisterListener("ChangeAutoPet",function(_, keys)
         self:ChangeAutoPet(keys)
     end)
-    
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
     self.list = pets_list
     self.experience_levels = pets_exp
@@ -106,21 +105,29 @@ end
 function Pets:EquipPanoramaEvent(t)
     local pid = t.PlayerID
     local name = t.name
-    if self.player[pid].pets[name] == nil or self.player[pid].pets[name].value <= 0 then return end
-    if not (self.change_limit[pid] > 0 or Shop.pShop[pid].pet_change == 1) then return end
+    if self.player[pid].pets[name] == nil or self.player[pid].pets[name].value <= 0 then 
+        self:SendToPlayerError(pid, "#error_no_pet")
+        return
+    end
+    if self.change_limit[pid] == 0 and Shop.pShop[pid].pet_change ~= 1 then 
+        self:SendToPlayerError(pid, "#error_change_limit")
+        return 
+    end
+    local current_pet_name = self.current_pet_name[pid]
     local equip = self:Equip(pid, name)
-    if equip and Shop.pShop[pid].pet_change == 0 then
+    if current_pet_name ~= "spell_item_pet" and equip == true and Shop.pShop[pid].pet_change ~= 1 then
         self.change_limit[pid] = self.change_limit[pid] -1
     end
 end
 function Pets:Equip(pid, name)
     local hero = PlayerResource:GetSelectedHeroEntity(pid)
     if not hero then return end
+    print('Equip')
     local equip = false
     local spell = "spell_item_pet"
     local level = 1
     hero:RemoveAbility(self.current_pet_spell[pid])
-    if self.current_pet_name[pid] ~= 'spell_item_pet' and self.current_pet_name[pid] ~= name then
+    if self.current_pet_name[pid] ~= name then
         spell = self:FindSpellNameByName(name)
         level = self:CalculateLevelFromExperience(self.player[pid].pets[name].value)
         equip = true
@@ -271,5 +278,8 @@ function Pets:AddBattlePassPetsToPetList()
         end
     end
     CustomNetTables:SetTableValue('Pets', "list", self.list)
+end
+function Pets:SendToPlayerError(pid, error)
+    CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "SendToPlayerError", { error = error, })
 end
 Pets:init()

@@ -27,11 +27,15 @@ function Talents:init()
     CustomGameEventManager:RegisterListener("TalentsShopRefresh",function(_, keys)
         self:RemoveShopButton(keys)
     end)
+    CustomGameEventManager:RegisterListener("TalentsBuySecondBranch",function(_, keys)
+        self:BuySecondBranch(keys)
+    end)
     ListenToGameEvent("game_end", Dynamic_Wrap( self, "OnGameEnd" ), self)
     ListenToGameEvent("player_disconnect", Dynamic_Wrap( self, "OnPlayerDisconnect" ), self)
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
     ListenToGameEvent("player_reconnected", Dynamic_Wrap( self, 'OnPlayerReconnected' ), self)
     self.shop = talents_shop
+    self.second_branch = talents_second_branch
     self.barracks_destroyed = false
     self.hell_game = {}
     self.levelMax = 50
@@ -48,6 +52,7 @@ end
 function Talents:OnGameRulesStateChange()
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
         CustomNetTables:SetTableValue("talants", "talents_experience", self.calculated_levels)
+        CustomNetTables:SetTableValue("talants", "second_branch", self.second_branch)
     end
     if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
         for pid = 0, 4 do
@@ -125,29 +130,15 @@ function Talents:FillTablesFromDatabase(pid, data, is_cheat_mode)
         self.player[pid].cout = 2
     end
     self.player[pid].level = self:CalculateLevelFromExperience(self.player[pid].totalexp)
-    self.player[pid].freepoints = self.player[pid].level
     self.player[pid].donlevel = self:CalculateLevelFromExperience(self.player[pid].totaldonexp)
-    self.player[pid].freedonpoints = self.player[pid].donlevel
     self.player[pid].earnedexp = 0
     self.player[pid].earneddonexp = 0
-    if self.player[pid].donlevel > 7 and self.player[pid].donlevel < 30 then
-        self.player[pid].freedonpoints = 7
-    elseif self.player[pid].donlevel >= 30 and self.player[pid].donlevel < 50 then
-        self.player[pid].freedonpoints = 8
-    elseif self.player[pid].donlevel >= 50 then
-        self.player[pid].freedonpoints = 9
-    end
     for k,v in pairs({"int","str","agi","don"}) do
         for i = 1, 13 do
             local arg = v..i
             self.player[pid][arg] = {}
             if data[arg] == nil then
                 data[arg] = 0
-            end
-            if v ~= "don" then
-                self.player[pid].freepoints = self.player[pid].freepoints - data[arg]
-            elseif v == "don" then
-                self.player[pid].freedonpoints = self.player[pid].freedonpoints - data[arg]
             end
             if v == "don" and DataBase:IsCheatMode() == false and not self:IsPatron(pid) then
                 self.player[pid][arg].value = 0
@@ -156,6 +147,8 @@ function Talents:FillTablesFromDatabase(pid, data, is_cheat_mode)
             end
         end
     end
+    self.player[pid].freepoints = self:CalculateFreePointsNormal(pid)
+    self.player[pid].freedonpoints = self:CalculateFreePointsGolden(pid)
     local hero_name = PlayerResource:GetSelectedHeroName(pid)
     local talents_data = GetHeroTalentsData(hero_name)
     for ability_name, data in pairs(talents_data) do
@@ -176,10 +169,13 @@ function Talents:CalculateLevelFromExperience(experience)
     return self.levelMax
 end
 function Talents:IsSecondBranchActive(pid)
+    if self.player[pid].cout == 2 then
+        return true
+    end
     local hero_name = PlayerResource:GetSelectedHeroName(pid)
-    for k, v in ipairs(Shop.pShop[pid]) do
-		for key, item in ipairs(v) do
-            if item.hero and item.hero == hero_name and item.now > 0 then
+    for k, v in pairs(self.second_branch) do
+        if v.hero_name == hero_name then
+            if Shop.pShop[pid].items[k] and Shop.pShop[pid].items[k].value > 0 then
                 return true
             end
         end
@@ -187,7 +183,7 @@ function Talents:IsSecondBranchActive(pid)
     return false
 end
 function Talents:IsPatron(pid)
-    if RATING["rating"][pid]["patron"] == 1 or Shop.pShop[pid].golden_branch then
+    if RATING["rating"][pid]["patron"] == 1 or Shop.pShop[pid].golden_branch or self.player[pid].testing == true then
         return true
     end
     return false
@@ -223,7 +219,7 @@ function Talents:OnExplore(t)
         table.insert(talents_to_explore, j)
     -- изучение 12, 13 таланта
     elseif self.player[pid][arg].value == 0 and j == 12
-    and (self.player[pid][t.i .. 11].value + self.player[pid][t.i .. 10].value + self.player[pid][t.i .. 11].value) == 1 
+    and (self.player[pid][t.i .. 11].value + self.player[pid][t.i .. 10].value + self.player[pid][t.i .. 9].value) == 1 
     and (t.i == 'don' or (self.player[pid]['agi12'].value + self.player[pid]['str12'].value + self.player[pid]['int12'].value) == 0)
     then
         table.insert(talents_to_explore, j)
@@ -242,19 +238,17 @@ function Talents:OnExplore(t)
     end
     DataBase:Send(DataBase.link.TalentsExplore, "GET", send, pid, not DataBase:IsCheatMode() and self.player[pid].testing ~= true, nil)
 end
-function Talents:Explore(pid, i, f)
-    if i ~= 'don' and f <= 5 and self.player[pid][i..f].value >= 6 then return end
-    if i == 'don' and self.player[pid][i..f].value >= 1 then return end
-    if i ~= 'don' and (f > 5 and self.player[pid][i..f].value >= 1) then return end
+function Talents:Explore(pid, i, j)
+    if i ~= 'don' and j <= 5 and self.player[pid][i..j].value >= 6 then return end
+    if i == 'don' and self.player[pid][i..j].value >= 1 then return end
+    if i ~= 'don' and (j > 5 and self.player[pid][i..j].value >= 1) then return end
     if i == 'don' and self.player[pid].freedonpoints <= 0 then return end
     if i ~= 'don' and self.player[pid].freepoints <= 0 then return end
-    self.player[pid][i..f].value = self.player[pid][i..f].value + 1
-    self:AddAbility(pid, i, f)
-    if i == "don" then
-        self.player[pid].freedonpoints = self.player[pid].freedonpoints - 1
-    elseif i ~= "don" then
-        self.player[pid].freepoints = self.player[pid].freepoints - 1
-    end
+    self.player[pid][i..j].value = self.player[pid][i..j].value + 1
+    self:AddAbility(pid, i, j)
+    self:ExploreMirror(pid, i, j)
+    self.player[pid].freedonpoints = self:CalculateFreePointsGolden(pid)
+    self.player[pid].freepoints = self:CalculateFreePointsNormal(pid)
     self:UpdateTable(pid)
 end
 function Talents:GetExplorePath(j)
@@ -289,11 +283,36 @@ function Talents:AddAbility(pid, i, j)
     local hero = PlayerResource:GetSelectedHeroEntity(pid)
     local arg = i..j
     if i == "don" or j <= 5 then
-        local modifier = hero:AddNewModifier( hero, nil, self.player[pid][arg].ability, {} )
+        local modifier = hero:FindModifierByName(self.player[pid][arg].ability)
+        if modifier == nil then
+            modifier = hero:AddNewModifier( hero, nil, self.player[pid][arg].ability, {} )
+        end
         modifier:SetStackCount(self.player[pid][arg].value)
     elseif i ~= "don" then
-        ability = hero:AddAbility(self.player[pid][arg].ability)
+        local ability = hero:FindAbilityByName(self.player[pid][arg].ability)
+        if ability == nil then
+            ability = hero:AddAbility(self.player[pid][arg].ability)
+        end
         ability:SetLevel(self.player[pid][arg].value)
+    end
+end
+function Talents:ExploreMirror(pid, i, j)
+    if i == "don" or j > 5 then return end
+    local max = 0
+    for _,f in pairs({'agi','int','str'}) do
+        if self.player[pid][f..j].value > max then
+            max = self.player[pid][f..j].value
+        end
+    end
+    for _,f in pairs({'agi','int','str'}) do
+        if self.player[pid][f..j].value >= 1 and self.player[pid][f..j].value < max then
+            self.player[pid][f..j].value = max
+            self:AddAbility(pid, f, j)
+            local send = {}
+            send.hero_name = PlayerResource:GetSelectedHeroName(pid)
+            send.list = {f..j}
+            DataBase:Send(DataBase.link.TalentsExplore, "GET", send, pid, not DataBase:IsCheatMode() and self.player[pid].testing ~= true, nil)
+        end
     end
 end
 function Talents:ExploreAmount(t)
@@ -415,14 +434,40 @@ function Talents:UpdateGainValue(pid, value, multiply)
 end
 function Talents:CalculateFreePointsNormal(pid)
     local count = 0
+    for j = 1, 5 do
+        local max = 0
+        local branches = 0
+        for _,i in pairs({"agi","int","str"}) do
+            if self.player[pid][i..j].value > max then
+                max = self.player[pid][i..j].value
+            end
+            if self.player[pid][i..j].value > 0 then
+                branches = branches + 1
+            end
+        end
+        count = count + max
+        if branches > 1 then
+            count = count + 1
+        end
+    end
     for _, t in pairs({"agi","int","str"}) do
-        for i = 1, 13 do
+        for i = 6, 13 do
             count = count + self.player[pid][t..i].value
         end
     end
-    return self.player[pid].level - count
+    local points_max = self.player[pid].level
+    if self.player[pid].level > 40 and self.player[pid].level < 50 then
+        points_max = 40
+    elseif self.player[pid].level >= 50 then
+        points_max = 41
+    end
+    return points_max - count
 end
 function Talents:CalculateFreePointsGolden(pid)
+    local count = 0
+    for i = 1, 13 do
+        count = count + self.player[pid]["don"..i].value
+    end
     local points_max = self.player[pid].donlevel
     if self.player[pid].donlevel > 7 and self.player[pid].donlevel < 30 then
         points_max = 7
@@ -430,10 +475,6 @@ function Talents:CalculateFreePointsGolden(pid)
         points_max = 8
     elseif self.player[pid].donlevel >= 50 then
         points_max = 9
-    end
-    local count = 0
-    for i = 1, 13 do
-        count = count + self.player[pid]["don"..i].value
     end
 
     return points_max - count
@@ -568,5 +609,34 @@ function Talents:SaveData(pid)
     DataBase:Send(DataBase.link.TalentsSave, "GET", {
         data = self:GetServerDataArray(pid),
     }, pid, not DataBase:IsCheatMode(), nil)
+end
+function Talents:ActivateSecondBranch(pid)
+    if self:IsSecondBranchActive(pid) then
+        self.player[pid].cout = 2
+        self:UpdateTable(pid)
+    end
+end
+function Talents:BuySecondBranch(t)
+    local pid = t.PlayerID
+    local name = t.name
+    local currency = t.currency
+    if self.second_branch[name] == nil then return end
+    if self.player[pid].cout == 2 then return end
+    if currency == 'don' and not (self.second_branch[name].price.don ~= nil and Shop.pShop[pid]["coins"] >= self.second_branch[name].price.don) then return end
+    if currency == 'rp' and not (self.second_branch[name].price.rp ~= nil and Shop.pShop[pid]["mmrpoints"] >= self.second_branch[name].price.rp) then return end
+    local send = {}
+    send.item_name = name
+    if currency == "rp" then
+        Shop.pShop[pid]["mmrpoints"] = Shop.pShop[pid]["mmrpoints"] - self.second_branch[name].price.rp
+        send.rp = self.second_branch[name].price.rp
+    end
+    if currency == "don" then
+        Shop.pShop[pid]["coins"] = Shop.pShop[pid]["coins"] - self.second_branch[name].price.don
+        send.don = self.second_branch[name].price.don
+    end
+    self.player[pid].cout = 2
+    self:UpdateTable(pid)
+    CustomShop:UpdateShopInfoTable(pid)
+    DataBase:Send(DataBase.link.TalentsBuySecondBranch, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 Talents:init()

@@ -170,7 +170,7 @@ end
 
 
 function modifier_pet_rda_secret_1:GetModifierModelChange(params)
- return "models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
+ return "models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
 end
 
 function modifier_pet_rda_secret_1:GetModifierMoveSpeed_Absolute()
@@ -211,7 +211,7 @@ function modifier_pet_rda_secret_1:OnSpentMana( params )
 	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_secret_1", self:GetParent() )
 	if not modifier then return end
 	
-	modifier:Destroy()
+	-- modifier:Destroy()
 end
 end
 end

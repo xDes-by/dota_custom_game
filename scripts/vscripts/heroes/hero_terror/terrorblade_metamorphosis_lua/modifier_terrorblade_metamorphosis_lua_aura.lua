@@ -65,7 +65,7 @@ function modifier_terrorblade_metamorphosis_lua_aura:GetAuraSearchType()
 end
 
 function modifier_terrorblade_metamorphosis_lua_aura:GetAuraSearchFlags()
-	return 0
+	return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
 end
 
 function modifier_terrorblade_metamorphosis_lua_aura:GetAuraEntityReject( hEntity )

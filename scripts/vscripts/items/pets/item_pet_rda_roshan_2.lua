@@ -2,7 +2,6 @@ LinkLuaModifier( "modifier_pet_rda_roshan_2", "items/pets/item_pet_rda_roshan_2"
 LinkLuaModifier( "modifier_item_pet_rda_roshan_2", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_custompet_bkb", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_custompet_delay", "items/pets/item_pet_rda_roshan_2", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_pet_rda_250_minus_armor_debuff", "items/pets/item_pet_RDA_250_minus_armor", LUA_MODIFIER_MOTION_NONE )
 
 spell_item_pet_rda_roshan_2 = class({})
@@ -91,15 +90,7 @@ function modifier_item_pet_rda_roshan_2:OnAbilityFullyCast(keys)
 end
 
 function modifier_item_pet_rda_roshan_2:GetModifierTotalDamageOutgoing_Percentage(keys)
-	if self.cast == 1 then
-		return 0
-	end
-	if keys.damage_type == 4 then
-		return 1
-	end
-	if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == 2 then
-		return -100 or self.cast
-	else
+	if keys.damage_type == DAMAGE_TYPE_PHYSICAL then
 		return self:GetAbility():GetSpecialValueFor("phys_percent")
 	end
 end
@@ -135,7 +126,10 @@ function modifier_item_pet_rda_roshan_2:GetModifierBonusStats_Intellect()
 end
 
 function modifier_item_pet_rda_roshan_2:GetVisualZDelta()
-	return 100
+	if self:GetParent():HasModifier("modifier_pet_rda_roshan_2") then
+		return 100
+	end
+	return 0
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -182,7 +176,7 @@ end
 
 
 function modifier_pet_rda_roshan_2:GetModifierModelChange(params)
- return "models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
+ return "models/courier/baby_rosh/babyroshan_ti10_flying.vmdl"
 end
 
 function modifier_pet_rda_roshan_2:GetModifierMoveSpeed_Absolute()
@@ -197,9 +191,8 @@ function modifier_pet_rda_roshan_2:OnAttack( params )
 	if IsServer() then
 	if params.attacker~=self:GetParent() then return end
 	--if params.target:GetTeamNumber()==self:GetParent():GetTeamNumber() then return end
-	EmitSoundOn("DOTA_Item.BlackKingBar.Activate", self.caster)
+	-- EmitSoundOn("DOTA_Item.BlackKingBar.Activate", self.caster)
 	self.caster:AddNewModifier(self:GetParent(), nil, "modifier_custompet_bkb", {duration = self:GetAbility():GetSpecialValueFor("bkb")})
-	self.caster:AddNewModifier(self:GetParent(), nil, "modifier_custompet_delay", {duration = 30})
 	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_2", self:GetParent() )
 	if not modifier then return end
 	
@@ -225,18 +218,11 @@ function modifier_pet_rda_roshan_2:OnSpentMana( params )
 	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_2", self:GetParent() )
 	if not modifier then return end
 	
-	modifier:Destroy()
+	-- modifier:Destroy()
 end
 end
 end
 end
-
-modifier_custompet_delay = class({})
-
-function modifier_custompet_delay:IsHidden() return false end
-function modifier_custompet_delay:IsPurgable() return false end
-function modifier_custompet_delay:RemoveOnDeath() return false end
-
 ---------------------------------------------------------------------
 
 modifier_custompet_bkb = class({})

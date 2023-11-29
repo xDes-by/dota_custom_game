@@ -250,7 +250,7 @@ function modifier_medusa_split_shot_lua:SplitShotNoModifier( target )
 
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_agi50")                   
 	if abil ~= nil then 
-		self.count = self.count = 2
+		self.count = self.count + 2
 	end
 
 	local count = 0

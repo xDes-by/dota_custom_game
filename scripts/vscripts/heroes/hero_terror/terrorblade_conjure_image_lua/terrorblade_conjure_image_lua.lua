@@ -25,7 +25,7 @@ function modifier_terrorblade_conjure_image_hit_lua:OnAttackLanded(params)
 		if params.attacker:IsRealHero() and params.attacker == self:GetParent() and not params.attacker:IsIllusion() and RandomInt(1, 100) <= 5 then
 		local abil = self:GetCaster():FindAbilityByName("terrorblade_conjure_image_lua") 
 			if abil ~= nil and abil:GetLevel() >= 1 then
-				abil:OnSpellStart()
+				abil:OnSpellStart(10)
 			end
 		end
 	end
@@ -46,9 +46,11 @@ function terrorblade_conjure_image_lua:GetManaCost(iLevel)
 	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
 end
 
-function terrorblade_conjure_image_lua:OnSpellStart()
+function terrorblade_conjure_image_lua:OnSpellStart(duration)
 	local caster = self:GetCaster()
-	local duration = self:GetSpecialValueFor( "illusion_duration" )
+	if not duration then
+		duration = self:GetSpecialValueFor( "illusion_duration" )
+	end
 	local outgoing = self:GetSpecialValueFor( "illusion_outgoing_tooltip" ) - 100
 	local incoming = self:GetSpecialValueFor( "illusion_incoming_damage" )
 	local distance = 72
@@ -68,10 +70,6 @@ function terrorblade_conjure_image_lua:OnSpellStart()
 	if abil ~= nil then
 	count = 2
 	end
-	
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_str50") then
-		incoming = 0
-	end	
 	for i = 1, count do
 	
 	-- create illusion
@@ -90,7 +88,13 @@ function terrorblade_conjure_image_lua:OnSpellStart()
 		true -- bFindClearSpace
 	)
 	local illusion = illusions[1]
-
+	for index = DOTA_ITEM_SLOT_1 , DOTA_ITEM_SLOT_9 do
+		local caster_item = caster:GetItemInSlot(index)
+		local illusion_item = illusion:GetItemInSlot(index)
+		if caster_item and not caster_item:IsNull() and illusion_item and not illusion_item:IsNull() then
+			illusion_item:SetLevel(caster_item:GetLevel())
+		end
+	end
 	self:SetContextThink( DoUniqueString( "terrorblade_conjure_image_lua" ),function()
 		illusion:AddNewModifier(
 			caster, -- player source

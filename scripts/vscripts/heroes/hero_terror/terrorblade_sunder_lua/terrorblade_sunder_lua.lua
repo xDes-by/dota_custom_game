@@ -48,10 +48,6 @@ function terrorblade_sunder_lua:OnSpellStart()
 		caster:SetModifierStackCount("modifier_terrorblade_sunder_lua", caster, #enemies)
 		damage_type = DAMAGE_TYPE_PURE
 		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_int50") then
-			damage_type = DAMAGE_TYPE_MAGICAL
-			damage_flags = 0
-		end
 	for _,enemy in pairs(enemies) do
 		ApplyDamage({victim = enemy, attacker = self:GetCaster(), ability = ability, damage = sunderdamage, damage_type = damage_type, damage_flags = damage_flags})
 	end

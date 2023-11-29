@@ -418,6 +418,7 @@
 
 
         "dota_don_shop_error"               "Вам не хватает кристаллов! О том, как получить кристаллы, вы можете узнать в Дискорде!"
+        "dota_rp_shop_error"                "Вам не хватает щитков! Вы можете получить их за победу в игре!"
 
         "DailyTaskDescription_Lable1"                            "Убить боссов за 40 сек <font color='green'>0/4</font>"
         "DailyTaskDescription_Lable2"                            "Убить драконов <font color='green'>148/1000</font>"
@@ -558,6 +559,8 @@
         "pets_trial_end_date"                           "доступен до ##date##"
         "pets_buy_unavailible"                          "недоступен"
         "pets_buy_unavailible_tooltip"                  "Возможно получить в качестве награды из боевого пропуска или сокровищницы."
+        "error_change_limit"                            "Достигнут лимит смены питомцев, 1 раз за игру. Купите PET CANGE для отключения лимита."
+        "error_no_pet"                                  "У вас нет этого питомца."
         /// ------------------- /PETS --------------------------------------
         /// ------------------- TALENTS -----------------------------------
         "talent_level_label"                            "Ур."
@@ -579,6 +582,10 @@
         "talents_use_button_label"                      "Использовать"
         "talents_strategy_tab_name_label"               "Таланты"
         "talents_strategy_level_label"                  "Уровень <font color='green'>##1##</font> / <font color='gold'>##2##</font>"
+        "talents_rp_tooltip"                            "У вас ##count## щитков."
+        "talents_don_tooltip"                           "У вас ##count## кристаллов."
+        "talents_activate_second_branch"                "Активируй вторую ветку талантов!"
+        "talents_activate_second_branch_error"          "Мы забыли добавить"
         /// ------------------- /TALENTS -----------------------------------
         /// ------------------- MINIGAME -----------------------------------
         "minigame_label_1"                              "АДСКАЯ МИНИ ИГРА!"
@@ -991,7 +998,8 @@
 		"description_creep_9" "Чудики снижают броню своих врагов!"		
 		"wave_creep_10" "Лучница и Титан"
 		"description_creep_10" "Титана в лоб не пробить!"				
-		
+		"random_wave_notification"      "Приближается бродячая волна!"
+
         "creep_1" "Мини Урса"
         "comandir_creep_1" "Урса Командир"
         "creep_2" "Мертвый Таск"
@@ -1437,7 +1445,7 @@
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1" "<font color='#ffa500'>Baby Rosh</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_lore" "Питомец может преодолевать большие расстояния за меньшее время. <font color='green'>При использовании заклинания, вы не превратитесь обратно в себя</font>."
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_bonus_health" "БОНУС К ЗДОРОВЬЮ ЗА ЛВЛ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_amount" "%УРОН ОТ СПЛЕША:"
@@ -1450,7 +1458,7 @@
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2" "<font color='#ffa500'>Baby Rosh</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_lore" "Питомец может преодолевать большие расстояния за меньшее время. <font color='green'>При использовании заклинания, вы не превратитесь обратно в себя</font>."
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_stats_bonus" "БОНУС АТРИБУТОВ ЗА УРОВЕНЬ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_minus_armor" "CНИЖЕНИЕ АРМОРА ЗА УРОВЕНЬ:"
@@ -5295,7 +5303,7 @@
         "npc_dota_hero_zuus_agi6" "Окружение смертных"
         "npc_dota_hero_zuus_agi6_description" "Arc Lightning возможно поставить на авто-каст, тогда способность будет срабатывать при авто атаках."
         "npc_dota_hero_zuus_agi7" "Бог, просто бог"
-        "npc_dota_hero_zuus_agi7_description" "Каждые 1 сек Lightning Bolt применяется случайному врагу в радиусе 700."
+        "npc_dota_hero_zuus_agi7_description" "Каждые 3 сек Lightning Bolt применяется случайному врагу в радиусе 700."
         "npc_dota_hero_zuus_agi8" "Сила молнии"
         "npc_dota_hero_zuus_agi8_description" "+300 дальность применения заклинаний."
         "npc_dota_hero_zuus_agi9" "Раздвоенная молния"
@@ -5902,7 +5910,7 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_lua_boss_multiplier"			"МНОЖИТЕЛЬ ВОССТАНОВЛЕНИЯ ПРИ УБИЙСТВЕ БОССА:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_lua_regen_duration"			"ДЛИТЕЛЬНОСТЬ ВОССТАНОВЛЕНИЯ:"
         "DOTA_Tooltip_modifier_necrolyte_heartstopper_aura_buff"					    "Heartstopper Aura"
-		"DOTA_Tooltip_modifier_necrolyte_heartstopper_aura_buff_Description"		    "Восстановление здоровья %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%, восстановление маны %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%."
+		"DOTA_Tooltip_modifier_necrolyte_heartstopper_aura_buff_Description"		    "Восстановление здоровья %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%, восстановление маны %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
         "DOTA_Tooltip_modifier_necrolyte_heartstopper_aura_intrinsic"					    "Heartstopper Aura"
 		"DOTA_Tooltip_modifier_necrolyte_heartstopper_aura_intrinsic_Description"		    "Восстановление здоровья %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%%."
 
@@ -5910,6 +5918,11 @@
 		"dota_tooltip_ability_necrolyte_reapers_scythe_lua_description" "Оглушает выбранного вражеского героя на %stun_duration% сек., а затем наносит ему урон. Урон увеличивает за каждый процент отсутствующего здоровья."
 		"dota_tooltip_ability_necrolyte_reapers_scythe_lua_damage" "УРОН:"
 		"dota_tooltip_ability_necrolyte_reapers_scythe_lua_damage_increase" "%УВЕЛИЧЕНИЕ УРОНА ЗА КАЖДЫЙ ПРОЦЕНТ ОТСУТСТВУЮЩЕГО ЗДОРОВЬЯ:"
+		"dota_tooltip_ability_necrolyte_reapers_scythe_lua_hp_regen" "СТАК РЕГЕНЕРАЦИИ ЗДОРОВЬЯ:"
+		"dota_tooltip_ability_necrolyte_reapers_scythe_lua_mp_regen" "СТАК РЕГЕНЕРАЦИИ МАНЫ:"
+
+        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua"                  "Reaper's Scythe"
+        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua_description"       "Восстановление здоровья %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%, восстановление маны %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 
         "npc_dota_hero_necrolyte_str6" "Эхо Тишины"
         "npc_dota_hero_necrolyte_str6_description" "Восстановление от стаков Heartstopper Aura +40%."
@@ -5977,7 +5990,7 @@
 		"DOTA_Tooltip_ability_vengeful_spirit_wave_of_terror_abilityduration"			"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
 		"DOTA_Tooltip_ability_vengeful_spirit_wave_of_terror_vision_duration"			"ДЛИТЕЛЬНОСТЬ ОБЗОРА:"
 		"DOTA_Tooltip_ability_vengeful_spirit_command_aura"								"Vengeance Aura"
-		"DOTA_Tooltip_ability_vengeful_spirit_command_aura_Description"					"Присутствие героя увеличивает урон союзных героев неподалёку. Эффект на владельца в %self_multi% раза сильнее."
+		"DOTA_Tooltip_ability_vengeful_spirit_command_aura_Description"					"Присутствие героя увеличивает урон союзных героев неподалёку. Эффективность ауры для союзников %self_multi%."
 		"DOTA_Tooltip_ability_vengeful_spirit_command_aura_scepter_description"  		"После смерти на месте героя появляется сильная иллюзия, которая может применять все способности, наносит и получает 100%% урона, не умирает от заклинаний, мгновенно убивающих иллюзии, а также передвигается на %scepter_illusion_ms_bonus_pct%%% быстрее. Если иллюзия жива в момент возрождения героя, он займёт её место. Опыт, зарабатываемый иллюзией, передаётся её владельцу."
 		"DOTA_Tooltip_ability_vengeful_spirit_command_aura_Lore"							"Отнюдь не все разделяют всепоглощающую жажду мести, однако чрезмерный фанатизм воодушевляет на подвиги."
 		"DOTA_Tooltip_ability_vengeful_spirit_command_aura_bonus_base_damage"			"%ДОП. БАЗОВЫЙ УРОН:"
@@ -6011,35 +6024,37 @@
         "npc_dota_hero_vengefulspirit_str6" "Эхо Тишины"
         "npc_dota_hero_vengefulspirit_str6_description" "50% силы в урон Magic Missile."
         "npc_dota_hero_vengefulspirit_str7" "Мгновенное Затишье"
-        "npc_dota_hero_vengefulspirit_str7_description" "Vengeance Aura дает 17% силы."
+        "npc_dota_hero_vengefulspirit_str7_description" "Vengeance Aura дает 30% силы."
         "npc_dota_hero_vengefulspirit_str8" "Мудрость Безгранична"
         "npc_dota_hero_vengefulspirit_str8_description" "Avatars of Vengeance получает на 35% меньше урона."
         "npc_dota_hero_vengefulspirit_str9" "Проклятие Изнурения"
         "npc_dota_hero_vengefulspirit_str9_description" "Wave of Terror снижает урон противников на 30%"    // +
         "npc_dota_hero_vengefulspirit_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_vengefulspirit_str10_description" "Vengeance Aura даёт 2% хп регена."
+        "npc_dota_hero_vengefulspirit_str10_description" "Vengeance Aura даёт 3% хп регена."
         "npc_dota_hero_vengefulspirit_str11" "Щит Мудреца"
         "npc_dota_hero_vengefulspirit_str11_description" "Герой и Аватар получают 15% общего вампиризма от атак. "
         "npc_dota_hero_vengefulspirit_str12" "Глобальный Гром"
-        "npc_dota_hero_vengefulspirit_str12_description" "Герой и Аватар получают щит на 500% здоровья после призыва." // +- ХЗ
-        
+        "npc_dota_hero_vengefulspirit_str12_description" "3 заряда Аватар."
+        "npc_dota_hero_vengefulspirit_str13" "Глобальный Гром"
+        "npc_dota_hero_vengefulspirit_str13_description" "120 сек. время жизни клона на всех уровнях."
+
         "npc_dota_hero_vengefulspirit_agi6" "Ближний Разум"
         "npc_dota_hero_vengefulspirit_agi6_description" "Эффект сниженя брони стакается на враге, длительность эффекта +5сек."
         "npc_dota_hero_vengefulspirit_agi6_tooltip" "1-й стак снижает броню на 100% базового значения, каждый последующий - на 20%, макс. 6 стаков."
         "npc_dota_hero_vengefulspirit_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_vengefulspirit_agi7_description" "+17% Увеличение урона Vengeance Aura."
+        "npc_dota_hero_vengefulspirit_agi7_description" "После смерти героя появляется Avatar, герой возражается на месте аватара."
         "npc_dota_hero_vengefulspirit_agi8" "Разделенная Мудрость"
         "npc_dota_hero_vengefulspirit_agi8_description" "Wave of Terror применяется в 3 направления."
         "npc_dota_hero_vengefulspirit_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_vengefulspirit_agi9_description" "Перезарядка Аватара -10 сек" // +
+        "npc_dota_hero_vengefulspirit_agi9_description" "+70 скорости передвижения для Аватара, за уровень способности." // +
         "npc_dota_hero_vengefulspirit_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_vengefulspirit_agi10_description" "Стан наносит крит. атаку\n150 * ур.способности %." // +
+        "npc_dota_hero_vengefulspirit_agi10_description" "Стан наносит крит. атаку\n100 + 75 * уровень способности." // +
         "npc_dota_hero_vengefulspirit_agi11" "Аура Проклятия"
         "npc_dota_hero_vengefulspirit_agi11_description" "50% ловкости в урон Wave of Terror."
         "npc_dota_hero_vengefulspirit_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 80%."
+        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 100%."
         "npc_dota_hero_vengefulspirit_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_vengefulspirit_agi13_description" "+120 сек. длительность Аватара."
+        "npc_dota_hero_vengefulspirit_agi13_description" "x3 урон Vengeance Aura, повышает не только на базовый урон."
 		
         "npc_dota_hero_vengefulspirit_int6" "Накопление Интеллекта"
         "npc_dota_hero_vengefulspirit_int6_description" "Avatars of Vengeance может использовать способности."
@@ -6056,11 +6071,11 @@
         "npc_dota_hero_vengefulspirit_int11" "Удвоенное Слово"
         "npc_dota_hero_vengefulspirit_int11_description" "Magic Missile отскакивает один раз."
         "npc_dota_hero_vengefulspirit_int12" "Удвоенный Урон"
-        "npc_dota_hero_vengefulspirit_int12_description" "Magic Missile 7% сработать при атаке."
+        "npc_dota_hero_vengefulspirit_int12_description" "Magic Missile 5% сработать при атаке."
         "npc_dota_hero_vengefulspirit_int12_tooltip" "Magic Missile эффект оглушения не работает."
-        "npc_dota_hero_vengefulspirit_int12" "Удвоенный Урон"
-        "npc_dota_hero_vengefulspirit_int12_description" "Magic Missile 12% сработать при атаке."
-        "npc_dota_hero_vengefulspirit_int12_tooltip" "Magic Missile эффект оглушения не работает."
+        "npc_dota_hero_vengefulspirit_int13" "Удвоенный Урон"
+        "npc_dota_hero_vengefulspirit_int13_description" "Magic Missile 9% сработать при атаке."
+        "npc_dota_hero_vengefulspirit_int13_tooltip" "Magic Missile эффект оглушения не работает."
         
         
         //RAZOR
@@ -7047,7 +7062,10 @@
         "modifier_don11_description" "Мультикаст"
         "modifier_don12" "Божественный укус"
         "modifier_don12_description" "+5 к атрибутам за уровень"
-        
+        "modifier_don13"              "Один за всех!"
+        "modifier_don13_description"    "Герой получает <font color='LimeGreen'>200</font>, <font color='DarkTurquoise'>300</font>, <font color='Red'>400</font> всех статов со старта, на уровнях сложности <font color='LimeGreen'>Ultra</font>, <font color='DarkTurquoise'>Insane</font>, <font color='Red'>Impossible</font>. За каждый уровень героя +0.6% исходящий урон, -0.05% входящий урон."
+        "DOTA_Tooltip_modifier_don13"  "Один за всех!"
+        "DOTA_Tooltip_modifier_don13_description"  "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE% исходящий урон, %fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE% входящий урон."
 //======================================================================================================================================
 
         // "dota_tooltip_modifier_npc_dota_hero_sven_agi6_description" "Получает бонусный урон равный колличеству стаков"

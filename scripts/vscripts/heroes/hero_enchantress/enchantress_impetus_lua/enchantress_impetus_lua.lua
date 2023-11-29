@@ -79,7 +79,7 @@ function enchantress_impetus_lua:OnProjectileHit(target, location)
 			damage = damage + self:GetCaster():GetIntellect() * 0.3
 		end
 
-		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_enchantress_agi50") ~= nil then
+		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_enchantress_int50") ~= nil then
 			damage = damage * 3
 		end
 

@@ -3,6 +3,7 @@
 -------------------------------------------
 necrolyte_reapers_scythe_lua = class({})
 LinkLuaModifier("modifier_reapers_scythe_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_reapers_scythe_stack_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_necrolyte_reapers_scythe_intrinsic_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/modifier_necrolyte_reapers_scythe_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
 
 function necrolyte_reapers_scythe_lua:GetAbilityTextureName()
@@ -12,7 +13,7 @@ function necrolyte_reapers_scythe_lua:GetIntrinsicModifierName()
 	return "modifier_necrolyte_reapers_scythe_intrinsic_lua"
 end
 function necrolyte_reapers_scythe_lua:GetManaCost(iLevel)
-    return 170 + math.min(65000, self:GetCaster():GetIntellect() / 25)
+    return 200 + math.min(65000, self:GetCaster():GetIntellect() / 20)
 end
 function necrolyte_reapers_scythe_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi12") or self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi13") then
@@ -60,6 +61,10 @@ function modifier_reapers_scythe_lua:IsPurgable()
 	return false
 end
 
+function modifier_reapers_scythe_lua:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_reapers_scythe_lua:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
@@ -77,6 +82,13 @@ function modifier_reapers_scythe_lua:OnCreated()
 		ParticleManager:SetParticleControlEnt(scythe_fx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(scythe_fx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(scythe_fx)
+		local modifier = self:GetCaster():FindModifierByName("modifier_reapers_scythe_stack_lua")
+		if modifier == nil then
+			modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_reapers_scythe_stack_lua", {})
+		end
+		if self:GetParent():GetUnitName() ~= "npc_dota_hero_target_dummy" then 
+			modifier:IncrementStackCount()
+		end
 	end
 end
 
@@ -97,6 +109,13 @@ function modifier_reapers_scythe_lua:OnRefresh()
 		ParticleManager:SetParticleControlEnt(scythe_fx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(scythe_fx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(scythe_fx)
+		local modifier = self:GetCaster():FindModifierByName("modifier_reapers_scythe_stack_lua")
+		if modifier == nil then
+			modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_reapers_scythe_stack_lua", {})
+		end
+		if self:GetParent():GetUnitName() ~= "npc_dota_hero_target_dummy" then 
+			modifier:IncrementStackCount()
+		end
 	end
 end
 
@@ -156,4 +175,43 @@ function modifier_reapers_scythe_lua:OnRemoved()
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, target, actually_dmg, nil)
 		end
 	end
+end
+
+modifier_reapers_scythe_stack_lua = class({})
+
+function modifier_reapers_scythe_stack_lua:IsHidden()
+    return false
+end
+
+function modifier_reapers_scythe_stack_lua:IsDebuff()
+    return false
+end
+
+function modifier_reapers_scythe_stack_lua:IsPurgable()
+    return false
+end
+
+function modifier_reapers_scythe_stack_lua:RemoveOnDeath()
+    return false
+end
+
+function modifier_reapers_scythe_stack_lua:OnCreated( kv )
+end
+
+function modifier_reapers_scythe_stack_lua:OnRefresh( kv )
+end
+
+function modifier_reapers_scythe_stack_lua:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+	}
+end
+
+function modifier_reapers_scythe_stack_lua:GetModifierConstantManaRegen()
+	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("hp_regen")
+end
+
+function modifier_reapers_scythe_stack_lua:GetModifierConstantHealthRegen()
+	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("mp_regen")
 end
