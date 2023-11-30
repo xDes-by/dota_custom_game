@@ -1196,7 +1196,7 @@ heroTalentsData = {
             place = {"str 12"}, url = "/npc_dota_hero_phantom_assassin/str/str-talant-12.png", name = "npc_dota_hero_phantom_assassin_str12",
         },
         special_bonus_unique_npc_dota_hero_phantom_assassin_str50 = {
-            place = {"str 13"}, url = "/npc_dota_hero_phantom_assassin/str/str-talant-12.png", name = "npc_dota_hero_phantom_assassin_str13",
+            place = {"str 13"}, url = "/npc_dota_hero_phantom_assassin/str/str-talant-6.png", name = "npc_dota_hero_phantom_assassin_str13",
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_phantom_assassin_agi6 = {

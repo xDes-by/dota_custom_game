@@ -4091,7 +4091,7 @@
         "npc_dota_hero_phantom_assassin_agi12" "Критический шанс критической атаки"
         "npc_dota_hero_phantom_assassin_agi12_description" "+35% к шансу ультимейта"
         "npc_dota_hero_phantom_assassin_agi13" "Fatality"
-        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - убийство босса/крипа с критом дает 50% урона от крита на 2 мин, стакается навсегда"
+        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - при добивании босса критом Coup de Grace, увеличивает критический урон на +50%, навсегда."
 
         "npc_dota_hero_phantom_assassin_int6" "Точно в цель"
         "npc_dota_hero_phantom_assassin_int6_description" "Выпускает два дополнительных кинжала от Stifling Dagger"

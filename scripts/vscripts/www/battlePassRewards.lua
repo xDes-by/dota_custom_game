@@ -16,8 +16,8 @@ battle_pass_effects = {
 }
 battle_pass_models = {
     [30] = { 
-        [1] = { name = "model_juggernaut", hero_name = "npc_dota_hero_juggernaut", image = "models/jug.png"},
-        [2] = { name = "model_slark", hero_name = "npc_dota_hero_slark", image = "models/slark.png" },
+        [1] = { name = "model_pudge", hero_name = "npc_dota_hero_pudge", image = "models/pudge.png"},
+        [2] = { name = "model_spectre", hero_name = "npc_dota_hero_spectre", image = "models/spectre.png" },
         [3] = { name = "model_nevermore", hero_name = "npc_dota_hero_nevermore", image = "models/nevermor.png" },
     }
 }

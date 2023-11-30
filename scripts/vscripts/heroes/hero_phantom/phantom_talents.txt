@@ -145,7 +145,6 @@
 	"special_bonus_unique_npc_dota_hero_phantom_assassin_agi50"
 	{
 		"BaseClass"             		"special_bonus_base"
-		// "ScriptFile"					"heroes/hero_phantom/phantom_assassin_coup_de_grace_lua/special_bonus_unique_npc_dota_hero_phantom_assassin_agi50"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
