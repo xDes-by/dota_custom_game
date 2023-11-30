@@ -2820,7 +2820,7 @@
         "npc_dota_hero_legion_commander_agi12" "Нападайте все разом"
         "npc_dota_hero_legion_commander_agi12_description" "- 0.5 секунд задержки Moment of Courage"
         "npc_dota_hero_legion_commander_agi13" "Боевая Тактика"
-        "npc_dota_hero_legion_commander_agi13_description" "Каждое действие пассивки "Momentum" уменьшает броню цели на -1...-15 в течение 10 с и максимум 5 стаков"
+        "npc_dota_hero_legion_commander_agi13_description" "Каждое действие пассивки Momentum уменьшает броню цели на -1...-15 в течение 10 с и максимум 5 стаков"
 
         "npc_dota_hero_legion_commander_int6" "Стратегический подход"
         "npc_dota_hero_legion_commander_int6_description" "Press the attack действует по всей карте"
@@ -5049,7 +5049,7 @@
         "npc_dota_hero_pugna_agi12" "Бласт нечисти"
         "npc_dota_hero_pugna_agi12_description" "10% срабатывания Nether Blast при атаке"
         "npc_dota_hero_pugna_agi13" "Дать подзатыльник"
-        "npc_dota_hero_pugna_agi13_description" "Увеличивает шанс наложения заклинания "Ослепление" (1-е умение) на 15% при атаке (отключить стан)"
+        "npc_dota_hero_pugna_agi13_description" "Увеличивает шанс наложения заклинания Ослепление (1-е умение) на 15% при атаке (отключить стан)"
 
         "npc_dota_hero_pugna_int6" "Разлив скверны"
         "npc_dota_hero_pugna_int6_description" "+5 целей у Nether Ward"
