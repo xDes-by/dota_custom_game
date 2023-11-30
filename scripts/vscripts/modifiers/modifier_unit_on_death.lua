@@ -34,7 +34,9 @@ function modifier_unit_on_death:OnDeath(event)
     if not IsServer() then return end
     local creep = event.unit
     if creep ~= self:GetParent() then return end
-	clear(creep)
+	if self.unitName ~= "farm_zone_dragon" then
+		clear(creep)
+	end
 	
 	if creep.donate then
 		amountTime = 1

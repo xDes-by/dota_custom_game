@@ -33,9 +33,7 @@ end
 
 function warlock_ripping:CastFilterResultTarget( hTarget )
 	self.max_golems = 5
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50") ~= nil then
-		self.max_golems = self.max_golems + 1
-	end
+
 	if self:GetCaster():GetModifierStackCount( "modifier_golems", self) == self.max_golems then 
 		local nResult = UnitFilter(
 		hTarget,
@@ -88,9 +86,6 @@ function warlock_ripping:OnSpellStart()
 	local damage = ability:GetSpecialValueFor("damage")
 	
 	count = 3
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50") ~= nil then
-		count = count + 1
-	end
 	local modifier = caster:AddNewModifier(caster, ability,  "modifier_golems", nil)
 	local currentStacks = caster:GetModifierStackCount( "modifier_golems", ability)
 	
@@ -122,7 +117,7 @@ function warlock_ripping:OnSpellStart()
 
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_int50")
 	if abil ~= nil	then 
-		damage = damage * self:GetCaster():GetIntellect()
+		damage = damage + self:GetCaster():GetIntellect()
 	end
 
 	 local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target_point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -156,9 +151,7 @@ function warlock_ripping:OnSpellStart()
 	ParticleManager:SetParticleControl(particle_start_fx2, 0, target_point)
 	ParticleManager:ReleaseParticleIndex(particle_start_fx2)
 	
-	local creep = CreateUnitByName( "mini_golem", target_point + RandomVector( RandomFloat( 50, 50 )), true, nil, nil, DOTA_TEAM_GOODGUYS )
-	creep:SetControllableByPlayer(caster:GetPlayerID(), true)
-	creep:SetOwner(caster)
+
 	
 	mnozhitel = 1
 	dmg = 1
@@ -188,30 +181,35 @@ function warlock_ripping:OnSpellStart()
 			dmg = 3
 			hpa = 0.5
 	end
-	
-	creep:SetBaseDamageMin(creep_damage_min * dmg)
-	creep:SetBaseDamageMax(creep_damage_max * dmg)
-	creep:SetPhysicalArmorBaseValue(creep_armor * hpa)
-	creep:SetBaseMagicalResistanceValue(creep_resist * hpa)
-	creep:SetMaxHealth(creep_max_hp * hpa)
-	creep:SetBaseMaxHealth(creep_base_hp * hpa)
-	creep:SetHealth(creep_hp * hpa)		
-	-----------------------------------------------------
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_agi10")
-		if abil ~= nil	then 
-		creep:AddNewModifier(self:GetCaster(), self, "modifier_cleave", {})	
-	end
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_str7")
-		if abil ~= nil	then 
-		creep:AddNewModifier(self:GetCaster(), self, "modifier_magic_immune", {})	
-	end
-	
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_agi9")
-		if abil ~= nil	then 
-		creep:AddNewModifier(self:GetCaster(), self, "modifier_golem_lifesteal", {})	
-	end
-	
+	for i=1, (self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_warlock_str50") and 2 or 1) do
+		local creep = CreateUnitByName( "mini_golem", target_point + RandomVector( RandomFloat( 50, 50 )), true, nil, nil, DOTA_TEAM_GOODGUYS )
+		creep:SetControllableByPlayer(caster:GetPlayerID(), true)
+		creep:SetOwner(caster)
+
+		creep:SetBaseDamageMin(creep_damage_min * dmg)
+		creep:SetBaseDamageMax(creep_damage_max * dmg)
+		creep:SetPhysicalArmorBaseValue(creep_armor * hpa)
+		creep:SetBaseMagicalResistanceValue(creep_resist * hpa)
+		creep:SetMaxHealth(creep_max_hp * hpa)
+		creep:SetBaseMaxHealth(creep_base_hp * hpa)
+		creep:SetHealth(creep_hp * hpa)		
+		-----------------------------------------------------
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_agi10")
+			if abil ~= nil	then 
+			creep:AddNewModifier(self:GetCaster(), self, "modifier_cleave", {})	
+		end
+		
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_str7")
+			if abil ~= nil	then 
+			creep:AddNewModifier(self:GetCaster(), self, "modifier_magic_immune", {})	
+		end
+		
+		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_warlock_agi9")
+			if abil ~= nil	then 
+			creep:AddNewModifier(self:GetCaster(), self, "modifier_golem_lifesteal", {})	
+		end
+		
+		end
 	end
 	end
 end

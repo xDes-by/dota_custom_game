@@ -56,7 +56,7 @@ end
 	end
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_agi50")	
 	if abil ~= nil then 
-		damage = damage + self:GetCaster():GetIntellect()
+		damage = damage + self:GetCaster():GetIntellect() + self:GetCaster():GetHealth()
 		damage_flags = DOTA_DAMAGE_FLAG_NONE
 	end
 	 local damage_table 		= {}

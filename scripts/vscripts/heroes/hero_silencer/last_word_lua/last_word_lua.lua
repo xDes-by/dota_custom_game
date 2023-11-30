@@ -238,17 +238,6 @@ function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:DestroyOnExp
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self.special_bonus_unique_npc_dota_hero_silencer_str50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_str50")
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:OnRefresh()
-	self:OnCreated()
-end
-
 function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
@@ -256,8 +245,12 @@ function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:DeclareFunct
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_silencer_str50:GetModifierDamageOutgoing_Percentage(data)
-	if self.special_bonus_unique_npc_dota_hero_silencer_str50 and data.target:IsSilenced() then
-		return 200
+	if IsClient() then
+		return 0
 	end
-	return 100
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_str50") and data.target and data.target:IsSilenced() then
+		print("silence")
+		return 100
+	end
+	return 0
 end

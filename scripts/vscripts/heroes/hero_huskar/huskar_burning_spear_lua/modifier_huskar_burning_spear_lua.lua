@@ -150,17 +150,15 @@ function modifier_huskar_burning_spear_lua:CalculateDamage()
 	if caster:FindAbilityByName("npc_dota_hero_huskar_agi_last") then
 		damage = damage + self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 0.25
 		self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
-		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_huskar_agi50") then
-			self.damageTable.damage_flags = 0
-		else
-			self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-		end
 	end
 	if caster:FindAbilityByName("npc_dota_hero_huskar_int_last") then
 		damage = damage * 1.4
 	end
 	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_huskar_int50") then
-		damage = damage + self:GetCaster():GetHealth() * 0.015
+		damage = damage + self:GetCaster():GetHealth() * 0.01
+	end
+	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_huskar_agi50") then
+		damage = damage * self:GetCaster():GetSpellAmplification(false) * 0.10 + damage
 	end
 	return self:GetStackCount() * damage * self.interval
 end

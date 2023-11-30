@@ -99,7 +99,11 @@ function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 		modifier_shild:SetStackCount( modifier_shild:GetStackCount() + damage)
 	end
 	if caster:FindAbilityByName("npc_dota_hero_silencer_int6") then
-		if caster:FindAbilityByName("npc_dota_hero_silencer_int9") and RollPseudoRandomPercentage(17, caster:entindex(), caster) then
+		rand = 17
+		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_int50") then
+			rand = rand + 23
+		end
+		if caster:FindAbilityByName("npc_dota_hero_silencer_int9") and RollPseudoRandomPercentage(rand, caster:entindex(), caster) then
 			local modifier_silencer_glaives_of_wisdom_lua = caster:FindModifierByName("modifier_silencer_glaives_of_wisdom_lua")
 			modifier_silencer_glaives_of_wisdom_lua:IncrementStackCount()
 		else
@@ -618,7 +622,7 @@ end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_silencer_glaives_of_wisdom_shild:OnCreated( kv )
-	self.max = self:GetCastCount()
+	self.max = self:GetStackCount()
 end
 
 function modifier_silencer_glaives_of_wisdom_shild:DeclareFunctions()

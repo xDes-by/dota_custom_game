@@ -31,14 +31,15 @@ function modifier_item_pet_RDA_dmg_com:IsPurgable()
 end
 
 function modifier_item_pet_RDA_dmg_com:OnCreated( kv )
-		if IsServer() then
-		local point = self:GetCaster():GetAbsOrigin()
-		if not self:GetCaster():IsIllusion() then
-	self.self.pet = CreateUnitByName("pet_rda_dmg_com", point, true, nil, nil, DOTA_TEAM_GOODGUYS)
-	self.self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
-	self.self.pet:SetOwner(self:GetCaster())
-		end
-end
+	if not IsServer() then
+		return
+	end
+	local point = self:GetCaster():GetAbsOrigin()
+	if not self:GetCaster():IsIllusion() then
+		self.pet = CreateUnitByName("pet_rda_dmg_com", point, true, self:GetCaster(), self:GetCaster(), DOTA_TEAM_GOODGUYS)
+		self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
+		self.pet:SetOwner(self:GetCaster())
+	end
 end
 
 function modifier_item_pet_RDA_dmg_com:OnDestroy()

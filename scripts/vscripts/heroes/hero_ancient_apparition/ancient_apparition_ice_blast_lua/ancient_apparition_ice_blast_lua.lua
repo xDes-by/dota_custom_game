@@ -21,7 +21,17 @@ function modifier_ancient_apparition_ice_blast_lua:IsPurgable()
 end
 
 function modifier_ancient_apparition_ice_blast_lua:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50", {})
+end
 
+function modifier_ancient_apparition_ice_blast_lua:OnRefresh()
+	if not IsServer() then
+		return
+	end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50", {})
 end
 
 function modifier_ancient_apparition_ice_blast_lua:DeclareFunctions()
@@ -63,13 +73,6 @@ function modifier_ancient_apparition_ice_blast_lua:AddDebuff(target)
 		end
 
 		target:Kill(nil, caster)
-		if caster:FindAbilityByName("npc_dota_hero_ancient_apparition_agi50") ~= nil then
-			if IsBoss(target:GetUnitName()) then
-				self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50", {value = 5000, duration = 60})
-			else
-				self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50", {value = 1000, duration = 60})
-			end
-		end
 		-- self:GetParent():EmitSound("Hero_Ancient_Apparition.IceBlast.Target")
 		local ice_blast_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:ReleaseParticleIndex(ice_blast_particle)
@@ -164,20 +167,30 @@ function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:De
 	return true
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:OnCreated(data)
-	self.damage = data.value
-end
-
 function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+		MODIFIER_EVENT_ON_ATTACK
 	}
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:GetModifierBaseAttack_BonusDamage()
-	return self.damage
+function modifier_special_bonus_unique_npc_dota_hero_ancient_apparition_agi50:OnAttack( params )
+	if params.attacker ~= self:GetParent() and params.no_attack_cooldown and self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_ancient_apparition_agi50") then
+		return
+	end
+
+	local attack_range = params.attacker:Script_GetAttackRange() + 250
+	local arrow_count = 1
+
+	local units = FindUnitsInRadius(params.attacker:GetTeamNumber(),params.attacker:GetAbsOrigin(),nil,attack_range,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,FIND_CLOSEST, false) 
+	
+	for number,unit in pairs(units) do
+		if number > arrow_count then
+			break
+		end
+		if unit ~= params.target then
+			params.attacker:PerformAttack(unit, false, true, true, false, true, false, false)
+		else
+			arrow_count = arrow_count - 1
+		end
+	end
 end

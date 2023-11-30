@@ -84,6 +84,9 @@ function diff_wave:OnGameStateChanged(t)
 				vote_count = diff[i]
 			end
 		end
+		if IsInToolsMode() then
+			diff_index = 5
+		end
 		for i, mode in pairs({"Easy", "Normal", "Hard", "Ultra", "Insane", "Impossible"}) do
 			if i == diff_index then
 				self.wavedef = mode
