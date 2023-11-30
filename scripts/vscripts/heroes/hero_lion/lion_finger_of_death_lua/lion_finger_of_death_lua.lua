@@ -138,7 +138,7 @@ function modifier_lion_finger_of_death_intrinsic_lua:OnAttack(params)
     self.caster = self:GetCaster()
     self.ability = self:GetAbility()
     if params.attacker == self:GetParent() and self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_int50") and RandomInt(1, 100) <= 10 then
-        self.caster:SetCursorCastTarget( params.target )
+		self.caster:SetCursorCastTarget( params.target )
         self.ability:OnSpellStart()
     end
 end

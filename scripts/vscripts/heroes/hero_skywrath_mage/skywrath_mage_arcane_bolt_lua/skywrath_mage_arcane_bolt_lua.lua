@@ -195,7 +195,7 @@ function skywrath_mage_arcane_bolt_lua:OnProjectileHit_ExtraData( target, locati
 		false --bObstructedVision
 	)
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skywrath_mage_agi50") then
-		local m = target:FindModifierByName("special_bonus_unique_npc_dota_hero_skywrath_mage_agi50")
+		local m = target:FindModifierByName("modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_agi50")
 		if m then
 			m:IncrementStackCount()
 		else

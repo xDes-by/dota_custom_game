@@ -62,7 +62,7 @@ function modifier_dazzle_custom_badjuju:GetModifierBaseAttack_BonusDamage()
 	return self.bonus
 end
 
-function modifier_dazzle_custom_badjuju:OnDeath( params )
+function modifier_dazzle_custom_badjuju:OnDeath(data)
 	if data.attacker ~= self:GetParent() then
 		return
 	end

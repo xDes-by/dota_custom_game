@@ -74,16 +74,26 @@ function modifier_drow_ranger_marksmanship_lua_effect:GetModifierBonusStats_Agil
 		self.lock1 = false
 
 		local bonus = self.agility*agi/100
-
-		return bonus * 2
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
+			bonus = bonus * 2
+		end
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_str50") ~= nil then
+			bonus =  bonus * 3
+		end
+		return bonus
 	else
 		-- this agi includes bonus from this ability, which should be excluded
 		local agi = self:GetCaster():GetAgility()
 		agi = 100/(100+self.agility)*agi
 
 		local bonus = self.agility*agi/100
-
-		return bonus * 2
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
+			bonus = bonus * 2
+		end
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_str50") ~= nil then
+			bonus =  bonus * 3
+		end
+		return bonus
 	end
 	else
         	if self:GetCaster()==self:GetParent() then
@@ -130,7 +140,10 @@ function modifier_drow_ranger_marksmanship_lua_effect:GetModifierBonusStats_Stre
 
 			local bonus = self.str*str/100
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
-				return bonus * 2
+				bonus = bonus * 2
+			end
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_str50") ~= nil then
+				bonus =  bonus * 3
 			end
 			return bonus
 		else
@@ -139,7 +152,12 @@ function modifier_drow_ranger_marksmanship_lua_effect:GetModifierBonusStats_Stre
 			str = 100/(100+self.str)*str
 
 			local bonus = self.str*str/100
-
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_drow_ranger_str_last") ~= nil then
+				bonus = bonus * 2
+			end
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_drow_ranger_str50") ~= nil then
+				bonus =  bonus * 3
+			end
 			return bonus
 		end
 		

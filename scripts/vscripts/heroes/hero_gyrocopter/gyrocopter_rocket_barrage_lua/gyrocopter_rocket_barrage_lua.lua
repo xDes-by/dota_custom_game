@@ -79,7 +79,7 @@ function gyrocopter_rocket_barrage_lua:OnProjectileHit(target, location)
 			damage = self:GetSpecialValueFor("rocket_damage") + self:GetCaster():GetLevel() * 5
 		end
 		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_gyrocopter_int50") ~= nil then 
-			damage = damage + self:GetCaster():GetIntellect() * 2
+			damage = damage + self:GetCaster():GetIntellect()
 		end
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int10") ~= nil then 
 			if self:GetCaster():GetIntellect() > self:GetCaster():GetStrength() and self:GetCaster():GetIntellect() > self:GetCaster():GetAgility() then

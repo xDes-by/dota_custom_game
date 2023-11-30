@@ -633,7 +633,10 @@ heroTalentsData = {
         },  
         npc_dota_hero_drow_ranger_int_last = {
             place = {"int 12"}, url = "/npc_dota_hero_drow_ranger/int/int-talant-12.png", name = "npc_dota_hero_drow_ranger_int_12",
-        },  
+        }, 
+        special_bonus_unique_npc_dota_hero_drow_ranger_int50 = {
+            place = {"int 13"}, url = "/npc_dota_hero_drow_ranger/int/int-talant-12.png", name = "npc_dota_hero_drow_ranger_int13",
+        }, 
     },
     npc_dota_hero_enchantress = {      
         -------------------- STR -----------------------------------------------------------
@@ -859,6 +862,9 @@ heroTalentsData = {
         npc_dota_hero_lina_int_last = {
             place = {"int 12"}, url = "/npc_dota_hero_lina/int/int-talant-12.png", name = "npc_dota_hero_lina_int_12",
         },  
+        special_bonus_unique_npc_dota_hero_lina_int50 = {
+            place = {"int 13"}, url = "/npc_dota_hero_lina/int/int-talant-12.png", name = "npc_dota_hero_lina_int13",
+        },
     },
     npc_dota_hero_lion = {
         -------------------- STR -----------------------------------------------------------
@@ -2576,7 +2582,7 @@ heroTalentsData = {
         npc_dota_hero_skywrath_mage_str_last = {
             place = {"str 12"}, url = "/npc_dota_hero_skywrath_mage/str/str-talant-12.png", name = "npc_dota_hero_skywrath_mage_str12",
         },
-         npc_dota_hero_skywrath_mage_str50 = {
+        special_bonus_unique_npc_dota_hero_skywrath_mage_str50 = {
             place = {"str 13"}, url = "/npc_dota_hero_skywrath_mage/str/str-talant-12.png", name = "npc_dota_hero_skywrath_mage_str13",
         },
         -------------------- AGI -----------------------------------------------------------

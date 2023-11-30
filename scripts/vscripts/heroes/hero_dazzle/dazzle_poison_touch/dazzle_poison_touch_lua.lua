@@ -102,7 +102,15 @@ function dazzle_poison_touch_lua:OnProjectileHit( target, location )
 
 	-- get data
 	local duration = self:GetSpecialValueFor( "duration" )
-
+	local count = 0
+	for _,mod in pairs(target:FindAllModifiers()) do
+		if mod:GetName() == "modifier_dazzle_poison_touch_lua" then
+			count = count+1
+		end
+	end
+	if count >= 5 then
+		return
+	end
 	-- add debuff
 	target:AddNewModifier(
 		self:GetCaster(), -- player source

@@ -31,15 +31,17 @@ function modifier_item_pet_RDA_hp_com:IsPurgable()
 end
 
 function modifier_item_pet_RDA_hp_com:OnCreated( kv )
-		if IsServer() then
-		local point = self:GetCaster():GetAbsOrigin()
-		if not self:GetCaster():IsIllusion() then
-	self.self.pet = CreateUnitByName("pet_rda_hp_com", point , true, nil, nil, DOTA_TEAM_GOODGUYS)
-	self.self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
-	self.self.pet:SetOwner(self:GetCaster())
-		end
+	if not IsServer() then
+		return
+	end
+	local point = self:GetCaster():GetAbsOrigin()
+	if not self:GetCaster():IsIllusion() then
+		self.pet = CreateUnitByName("pet_rda_hp_com", point , true, self:GetCaster(), self:GetCaster(), DOTA_TEAM_GOODGUYS)
+		self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
+		self.pet:SetOwner(self:GetCaster())
+	end
 end
-end
+
 function modifier_item_pet_RDA_hp_com:OnDestroy()
 	UTIL_Remove(self.pet)
 end
@@ -131,7 +133,6 @@ end
 end
 
 function modifier_rda_pet_hp:OnSpentMana( params )
-	if IsServer() then
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
 
@@ -149,7 +150,6 @@ function modifier_rda_pet_hp:OnSpentMana( params )
 	if not modifier then return end
 	
 	modifier:Destroy()
-end
 end
 end
 end

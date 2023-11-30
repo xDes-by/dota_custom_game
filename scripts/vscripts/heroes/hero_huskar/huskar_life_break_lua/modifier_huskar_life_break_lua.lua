@@ -72,7 +72,7 @@ function modifier_huskar_life_break_lua:OnDestroy()
 		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_huskar_str50") then
 			if self.target:GetUnitName() ~= "npc_boss_plague_squirrel" or self.target:GetUnitName() ~= "npc_invoker_boss" then
 				if self.target:GetHealthPercent() > 95 then
-					self.damage = self.damage + self:GetCaster():GetHealth() * 0.4
+					self.damage = self.damage + self.target:GetHealth() * 0.4
 					damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 				end
 			end
@@ -86,7 +86,7 @@ function modifier_huskar_life_break_lua:OnDestroy()
 			ability = self:GetAbility(), --Optional.
 			damage_flags = damage_flags, --Optional.
 		}
-		ApplyDamage(damageTable)
+		print(ApplyDamage(damageTable))
 		local burning_spear = self:GetCaster():FindAbilityByName("huskar_burning_spear_lua")
 		-- percentage self damage
 		damageTable.victim = self:GetCaster()

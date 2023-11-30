@@ -9,7 +9,6 @@ function skywrath_mage_ancient_seal_lua:Spawn()
 	if not IsServer() then
 		return
 	end
-	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50", {})
 end
 
 function skywrath_mage_ancient_seal_lua:GetIntrinsicModifierName()
@@ -135,6 +134,13 @@ function modifier_skywrath_mage_int_per_cast:GetModifierBonusStats_Intellect(par
     return math.floor(self:GetStackCount() / 2)
 end
 
+function modifier_skywrath_mage_int_per_cast:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50", {})
+end
+
 function modifier_skywrath_mage_int_per_cast:IsHidden()
 	return false
 end
@@ -181,13 +187,13 @@ end
 --------------------------------------------------------------------------------
 -- Aura Effects
 function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:IsAura()
-	return true
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_skywrath_mage_int50") then
+		return true
+	end
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetModifierAura()
-	if self:GetCaster():FindAbilityByName("modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50") then
 		return "modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_effect"
-	end
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50:GetAuraRadius()
@@ -259,7 +265,7 @@ function modifier_special_bonus_unique_npc_dota_hero_skywrath_mage_int50_aura_ef
 	ApplyDamage({
 		victim = self.parent,
 		attacker = self.caster,
-		damage = sself.damage,
+		damage = self.damage,
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		damage_flags = 0,
 		ability = self.ability
