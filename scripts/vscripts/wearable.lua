@@ -7,7 +7,6 @@ function Wearable:InitWearables()
     for i=0, 4 do
         self.wear[i] = {}
     end
-    self.abilities_particles = {}
     self.items = {}
     self.wearable_particles = {}
     local WearableTable = LoadKeyValues("scripts/npc/cosmetics.txt")
