@@ -2,7 +2,7 @@ LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_a
 special_bonus_unique_npc_dota_hero_phantom_assassin_agi50 = class({})
 
 function special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:GetIntrinsicModifierName()
-	return "modifier_phantom_assassin_coup_de_grace_lua"
+	return "modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50"
 end
 
 

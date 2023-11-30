@@ -1,7 +1,7 @@
 modifier_phantom_assassin_phantom_strike_crit = class({})
 
 function modifier_phantom_assassin_phantom_strike_crit:IsHidden()
-	return false
+	return self:GetStackCount() == 0
 end
 
 function modifier_phantom_assassin_phantom_strike_crit:IsPurgable()
@@ -121,3 +121,4 @@ function modifier_phantom_assassin_phantom_strike_crit:PlayEffects( target )
 
 	EmitSoundOn( sound_cast, target )
 end
+

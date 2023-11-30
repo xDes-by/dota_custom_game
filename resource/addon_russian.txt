@@ -3945,7 +3945,8 @@
         "dota_tooltip_ability_phantom_assassin_coup_de_grace_lua_lore" "Погибнуть от судьбоносного удара Мортред — честь для её врагов."
         "dota_tooltip_ability_phantom_assassin_coup_de_grace_lua_crit_chance" "%ШАНС КРИТИЧЕСКОЙ АТАКИ:"
         "dota_tooltip_ability_phantom_assassin_coup_de_grace_lua_crit_bonus" "%КРИТИЧЕСКИЙ УРОН:"
-
+        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua"              "Coup de Grace"
+        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua_description"              "Критический урон +%dMODIFIER_PROPERTY_TOOLTIP%%%"
         "npc_dota_hero_phantom_assassin_str6" "Прыжок вуали"
         "npc_dota_hero_phantom_assassin_str6_description" "Phantom Strike станит цель на 3 секунды"
         "npc_dota_hero_phantom_assassin_str7" "Сила сестер"
