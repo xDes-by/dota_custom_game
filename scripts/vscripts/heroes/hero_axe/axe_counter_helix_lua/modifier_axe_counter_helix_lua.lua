@@ -49,7 +49,7 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 			damage_type = DAMAGE_TYPE_PURE
 			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 			
-			if self:GetAbility():GetToggleState() then
+			if self:GetAbility():GetAutoCastState() then
 				damage_type = DAMAGE_TYPE_MAGICAL
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
 				if caster:FindAbilityByName("npc_dota_hero_axe_str9") then 
@@ -83,11 +83,10 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 			if caster:FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
 				self.chance = self.chance + 15
 			end
-			if RandomInt(1,100) <= self.chance then 
-
-			if caster:FindAbilityByName("npc_dota_hero_axe_int6") ~= nil then 
-				self.damage = self.damage * RandomFloat(3, 5)
+			if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_int50") ~= nil then 
+				self.damage = self.damage * 3
 			end
+			if RandomInt(1,100) <= self.chance then 
 				-- find enemies
 				local enemies = FindUnitsInRadius(
 					caster:GetTeamNumber(),	-- int, your team number
@@ -121,7 +120,7 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 					end
 					self.damageTable.victim = enemy
 					ApplyDamage( self.damageTable )
-					if caster:FindAbilityByName("npc_dota_hero_axe_agi_last") and not self:GetAbility():GetToggleState() then
+					if caster:FindAbilityByName("npc_dota_hero_axe_agi_last") and not self:GetAbility():GetAutoCastState() then
 						caster:PerformAttack(
 							enemy, -- hTarget
 							false, -- bUseCastAttackOrb

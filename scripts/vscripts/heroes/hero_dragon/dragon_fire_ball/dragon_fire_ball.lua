@@ -5,6 +5,10 @@ function dragon_fire_ball_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
+function dragon_fire_ball_lua:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function dragon_fire_ball_lua:OnSpellStart()
 
 	local caster = self:GetCaster()

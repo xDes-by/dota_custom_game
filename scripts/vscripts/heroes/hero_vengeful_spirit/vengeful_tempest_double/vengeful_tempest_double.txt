@@ -13,7 +13,7 @@
 		"AbilitySound"					"Hero_ArcWarden.TempestDouble"
 		"HasScepterUpgrade"				"1"
 		"MaxLevel"						"10"
-		"AbilityTextureName"			"arc_warden_tempest_double"
+		"AbilityTextureName"			"venga_ult4"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

@@ -5,6 +5,7 @@ function modifier_bus_rush_unit_lua:GetTexture()
 end
 
 function modifier_bus_rush_unit_lua:OnCreated(kv)
+	if not IsServer() then return end
 	self.magic_damage_amplification = kv.magic_damage_amplification
 end
 
@@ -15,7 +16,7 @@ function modifier_bus_rush_unit_lua:DeclareFunctions()
 end
 
 function modifier_bus_rush_unit_lua:GetModifierMagicDamageOutgoing_Percentage()
-    return 1000
+    return 100 + self.magic_damage_amplification
 end
 
 function modifier_bus_rush_unit_lua:CheckState()

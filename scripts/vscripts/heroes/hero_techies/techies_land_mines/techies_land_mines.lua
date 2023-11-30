@@ -3,6 +3,7 @@ techies_land_mines_lua = class({})
 LinkLuaModifier("modifier_land_mines", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_land_mines_explose_delay", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dummy_thinker", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("techies_land_mines_intrinsic", "heroes/hero_techies/techies_land_mines/techies_land_mines_intrinsic.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_dummy_thinker = {}
 
@@ -11,6 +12,9 @@ function techies_land_mines_lua:IsRefreshable() 			return true end
 function techies_land_mines_lua:IsStealable() 				return true end
 function techies_land_mines_lua:IsNetherWardStealable()	return false end
 function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("small_radius") end
+function techies_land_mines_lua:GetIntrinsicModifierName()
+	return "techies_land_mines_intrinsic"
+end
 
 function techies_land_mines_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)

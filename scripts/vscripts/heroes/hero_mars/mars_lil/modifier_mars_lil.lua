@@ -110,6 +110,16 @@ function modifier_mars_lil:OnAttackLanded( params )
 			"modifier_mars_lil_debuff", -- modifier name
 			{ duration = self.slow } -- kv
 		)
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_int50") then
+			ApplyDamage( {
+				victim = params.target,
+				attacker = self:GetCaster(),
+				damage = self:GetCaster():GetIntellect() / 2,
+				damage_type = DAMAGE_TYPE_MAGICAL,
+				ability = self:GetAbility(),
+				damage_flags = DOTA_DAMAGE_FLAG_NONE
+			})
+		end
 	end
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_mars_int_last") ~= nil and RandomInt(1, 100) <= 10 and params.attacker:FindAbilityByName("mars_gods_rebuke_lua") ~= nil and self:GetCaster():FindModifierByName("modifier_mars_lil") ~= nil then
@@ -155,13 +165,6 @@ end
 function modifier_mars_lil:GetModifierBaseAttackTimeConstant()
 	if self:GetStackCount()<=0 then return end
 	return self.bat
-end
-
-function modifier_mars_lil:GetModifierProcAttack_BonusDamage_Magical()
-	if self:GetStackCount()<=0 then return end
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_mars_int50") ~= nil then
-		return self:GetCaster():GetIntellect() / 2
-	end
 end
 
 --------------------------------------------------------------------------------

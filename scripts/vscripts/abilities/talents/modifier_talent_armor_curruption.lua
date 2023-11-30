@@ -25,15 +25,14 @@ function modifier_talent_armor_curruption:DeclareFunctions()
 end
 
 function modifier_talent_armor_curruption:GetModifierProcAttack_Feedback(data)
-	local m = data.target:FindModifierByName("modifier_talent_armor_curruption_effect")
-	if m then
-		m:IncrementStackCount()
-	else
-		data.target:AddNewModifier(self.parent, nil, "modifier_talent_armor_curruption_effect", {duration = 3, armor_curruption = self.value[self:GetStackCount()] * self:GetParent():GetLevel()})
-	end
+	data.target:AddNewModifier(self.parent, nil, "modifier_talent_armor_curruption_effect", {duration = 3, armor_curruption = self.value[self:GetStackCount()] * self:GetParent():GetLevel()})
 end
 
 modifier_talent_armor_curruption_effect = class({})
+
+function modifier_talent_armor_curruption_effect:GetTexture()
+	return "talents/agi1"
+end
 --Classifications template
 function modifier_talent_armor_curruption_effect:IsHidden()
 	return false
@@ -44,15 +43,6 @@ function modifier_talent_armor_curruption_effect:IsDebuff()
 end
 
 function modifier_talent_armor_curruption_effect:IsPurgable()
-	return false
-end
-
-function modifier_talent_armor_curruption_effect:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_talent_armor_curruption_effect:IsStunDebuff()
 	return false
 end
 
@@ -69,7 +59,6 @@ function modifier_talent_armor_curruption_effect:OnCreated(data)
 		return
 	end
 	self.armor_curruption = data.armor_curruption
-	self:SetStackCount(1)
 	self:SetHasCustomTransmitterData( true )
 end
 
@@ -77,6 +66,7 @@ function modifier_talent_armor_curruption_effect:OnRefresh(data)
 	if not IsServer() then
 		return
 	end
+	self:SetDuration(3, true)
 	self.armor_curruption = data.armor_curruption
 	self:SendBuffRefreshToClients()
 end
@@ -88,7 +78,7 @@ function modifier_talent_armor_curruption_effect:DeclareFunctions()
 end
 
 function modifier_talent_armor_curruption_effect:GetModifierPhysicalArmorBonus()
-	return self:GetStackCount() * self.armor_curruption * -1
+	return self.armor_curruption * -1
 end
 
 function modifier_talent_armor_curruption_effect:AddCustomTransmitterData()

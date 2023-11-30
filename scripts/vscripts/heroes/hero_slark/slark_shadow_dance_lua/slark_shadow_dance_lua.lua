@@ -9,11 +9,12 @@ function slark_shadow_dance_lua:GetIntrinsicModifierName()
 end
 
 function slark_shadow_dance_lua:GetBehavior()
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_str50") then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
-	else
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
-	end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_str50") then
+	-- 	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
+	-- else
+	-- 	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+	-- end
+	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 end
 
 function slark_shadow_dance_lua:GetManaCost(iLevel)

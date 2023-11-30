@@ -111,9 +111,13 @@ function modifier_item_radiance_burn_lua:OnCreated()
 		return 
 	end
 	self.hero = self:GetAuraOwner()
-	self.stats_damage = self.hero:GetPrimaryStatValue()
+	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage")
 	self.stats_damage = self:GetAbility():GetSpecialValueFor("stats_damage") / 100
-	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage") + self.hero:GetPrimaryStatValue() * self.stats_damage
+	if self.hero:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+		self.damage = self.damage + (self.hero:GetStrength() + self.hero:GetAgility() + self.hero:GetIntellect()) * self.stats_damage
+	else
+		self.damage = self.damage + self.hero:GetPrimaryStatValue() * self.stats_damage
+	end
 	self.blind = self:GetAbility():GetSpecialValueFor("blind_pct")
 	if self.particle == nil then
 		self.particle = ParticleManager:CreateParticle("particles/items2_fx/radiance.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

@@ -31,17 +31,9 @@ end
 function modifier_npc_dota_hero_techies_agi9:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ATTACK,
-		MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE
 	}
 end
 
-function modifier_npc_dota_hero_techies_agi9:GetModifierPreAttack_CriticalStrike()
-	if self.special_bonus_unique_npc_dota_hero_techies_agi50 then
-		if RollPercentage(20) then
-			return 1000
-		end
-	end
-end
 --------------------------------------------------------------------------------
 
 function modifier_npc_dota_hero_techies_agi9:OnAttack( params )
@@ -71,13 +63,9 @@ function modifier_npc_dota_hero_techies_agi9:OnAttack( params )
 
 		local index = 1
 		local arrow_deal = 0
-		self.special_bonus_unique_npc_dota_hero_techies_agi50 = false
-		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_techies_agi50") then
-			self.special_bonus_unique_npc_dota_hero_techies_agi50 = true
-		end
 		while arrow_deal < arrow_count   do
 			if units[index] ~= target then
-				caster:PerformAttack(units[ index ], self.special_bonus_unique_npc_dota_hero_techies_agi50, true, true, false, true, false, false)
+				caster:PerformAttack(units[ index ], true, true, true, false, true, false, false)
 				arrow_deal = arrow_deal + 1
 			end	
 			index = index + 1

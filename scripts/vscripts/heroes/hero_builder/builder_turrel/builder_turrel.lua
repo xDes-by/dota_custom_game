@@ -27,10 +27,6 @@ function build(data)
 	dummy_unit_turret = CreateUnitByName("npc_turret", position, true, caster, nil, caster:GetTeam())
 	dummy_unit_turret:SetControllableByPlayer(caster:GetPlayerID(), true)
 	dummy_unit_turret:SetOwner(caster)
-	if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_tinker_str50") ~= nil then
-		dummy_unit_turret:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
-		dummy_unit_turret:SetBaseMoveSpeed(300)
-	end
 	local hero_health = caster:GetMaxHealth() / 2
 	
 		local abil = caster:FindAbilityByName("npc_dota_hero_tinker_str7")
@@ -109,3 +105,4 @@ function die(data)
 	end
 end
 -------------------------------------------------------------------------------------------------------
+

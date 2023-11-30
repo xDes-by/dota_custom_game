@@ -147,7 +147,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}
-	"special_bonus_base_npc_dota_hero_treant_int50"
+	"special_bonus_unique_npc_dota_hero_treant_int50"
 	{
 		"BaseClass"             		"special_bonus_base"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"

@@ -27,7 +27,6 @@ function modifier_shadow_fiend_necromastery_lua:OnCreated( kv )
 		return
 	end
 	self:SetStackCount(0)
-	self.special_bonus_unique_npc_dota_hero_nevermore_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_agi50")
 end
 
 function modifier_shadow_fiend_necromastery_lua:OnRefresh( kv )
@@ -36,7 +35,6 @@ function modifier_shadow_fiend_necromastery_lua:OnRefresh( kv )
 	if not IsServer() then
 		return
 	end
-	self.special_bonus_unique_npc_dota_hero_nevermore_agi50 = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_agi50")
 end
 
 --------------------------------------------------------------------------------
@@ -173,7 +171,7 @@ function modifier_shadow_fiend_necromastery_lua:KillLogic( params )
 		end
 	end
 	local stack = 1
-	if self.special_bonus_unique_npc_dota_hero_nevermore_agi50 then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_agi50") then
 		stack = 2
 	end
 	if pass and (not self:GetParent():PassivesDisabled()) then

@@ -88,18 +88,12 @@ function modifier_nevermore_aura_effect:OnCreated( kv )
 	if not IsServer() then
 		return
 	end
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_str50") then
-		self.reduction = self.reduction * 3
-	end
 end
 
 function modifier_nevermore_aura_effect:OnRefresh( kv )
 	self.reduction = self:GetAbility():GetSpecialValueFor( "reduction" )
 	if not IsServer() then
 		return
-	end
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_str50") then
-		self.reduction = self.reduction * 3
 	end
 end
 
@@ -118,20 +112,24 @@ function modifier_nevermore_aura_effect:GetModifierPhysicalArmorBonus()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_nevermore_agi6") ~= nil then 
 		tal = 1.5
 	end
+	local reduction = self.reduction
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_nevermore_str50") then
+		reduction = self.reduction * 3
+	end
 	local distance = (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
 	if distance < 250 then
-		return 5 * self.reduction * (-1) * tal
+		return 5 * reduction * (-1) * tal
 	end
 	if distance >= 250 and  distance < 400 then
-		return 4 * self.reduction * (-1) * tal
+		return 4 * reduction * (-1) * tal
 	end
 	if distance >= 400 and  distance < 550 then
-		return 3 * self.reduction * (-1) * tal
+		return 3 * reduction * (-1) * tal
 	end
 	if distance >= 550 and  distance < 700 then
-		return 2 * self.reduction * (-1) * tal
+		return 2 * reduction * (-1) * tal
 	end
 	if distance >= 700 and  distance < 850 then
-		return 1 * self.reduction * (-1) * tal
+		return 1 * reduction * (-1) * tal
 	end
 end

@@ -1,5 +1,4 @@
 LinkLuaModifier( "modifier_sand_caustic_debuff", "heroes/hero_sand/sand_caustic/modifier_sand_caustic_debuff", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_sand_king_str50", "heroes/hero_sand/sand_caustic/modifier_sand_caustic_debuff", LUA_MODIFIER_MOTION_NONE )
 
 function sandking_waves(keys)
 	local caster = keys.caster
@@ -84,10 +83,6 @@ function talent(keys)
 		sand_ult_damage = ability:GetSpecialValueFor("damage") + caster:GetStrength() * 0.5
 		end
 
-		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_sand_king_str50") ~= nil then 
-			caster:AddNewModifier( caster, ability, "modifier_special_bonus_unique_npc_dota_hero_sand_king_str50", {} )
-		end
-
 		if caster:FindAbilityByName("npc_dota_hero_sand_king_str_last") ~= nil then 
 		sand_ult_damage = sand_ult_damage + caster:GetStrength() * 2
 		end
@@ -118,66 +113,4 @@ function talent(keys)
 				ParticleManager:SetParticleControlEnt(caster.ShieldParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 			end)
 		end
-end
-
-modifier_special_bonus_unique_npc_dota_hero_sand_king_str50 = class({})
---Classifications template
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:IsHidden()
-	if self:GetStackCount() == 0 then
-		return true
-	end
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:IsDebuff()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:IsPurgable()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:IsPurgeException()
-	return true
-end
-
--- Optional Classifications
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:IsStunDebuff()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:RemoveOnDeath()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:DestroyOnExpire()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetStackCount(0)
-	self:StartIntervalThink(0.2)
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:OnIntervalThink()
-	if self:GetCaster():IsMoving() then
-		self:SetStackCount(0)
-	else
-		if self:GetStackCount() < 50 then
-			self:IncrementStackCount()
-		end
-	end
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
-	}
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_sand_king_str50:GetModifierDamageOutgoing_Percentage()
-	return 100 + self:GetStackCount()
 end

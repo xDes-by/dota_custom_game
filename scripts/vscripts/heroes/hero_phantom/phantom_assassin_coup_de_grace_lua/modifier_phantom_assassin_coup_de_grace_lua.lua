@@ -139,20 +139,7 @@ function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:IsPu
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:IsStunDebuff()
-	return false
-end
-
 function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:RemoveOnDeath()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:DestroyOnExpire()
 	return false
 end
 
@@ -189,7 +176,7 @@ end
 function modifier_special_bonus_unique_npc_dota_hero_phantom_assassin_agi50:OnIntervalThink()
 	self:DecrementStackCount()
 	if self:GetStackCount() == 0 then
-		self.self.interval = false
+		self.interval = false
 		self:StartIntervalThink(-1)
 	end
 end

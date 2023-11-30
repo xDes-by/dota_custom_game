@@ -21,9 +21,9 @@ function dragon_form_lua:OnSpellStart()
 
 	local caster = self:GetCaster()
 	duration = self:GetSpecialValueFor("duration")
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
-		duration = -1
-	end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
+	-- 	duration = -1
+	-- end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi11") 
 		if abil ~= nil then
 		duration = 180

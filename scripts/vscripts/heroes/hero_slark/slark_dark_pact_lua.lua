@@ -95,7 +95,7 @@ function modifier_slark_dark_pact_lua:OnCreated( kv )
 		-- play effects
 		self:PlayEffects1()
 	end
-	self.special_bonus_unique_npc_dota_hero_slark_int50 = self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_int50")
+	-- self.special_bonus_unique_npc_dota_hero_slark_int50 = self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_int50")
 	_G.slarkdelay = nil 
 end
 

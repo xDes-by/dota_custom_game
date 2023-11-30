@@ -119,10 +119,10 @@ heroTalentsData = {
             place = {"str 11"}, url = "/npc_dota_hero_axe/str/str-talant-11.png", name = "npc_dota_hero_axe_str11",
         },
         npc_dota_hero_axe_str_last = {
-            place = {"str 12"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str_12",
+            place = {"str 12"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str12",
         },       
         special_bonus_unique_npc_dota_hero_axe_str50 = {
-            place = {"str 13"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str_13",
+            place = {"str 13"}, url = "/npc_dota_hero_axe/str/str-talant-13.png", name = "npc_dota_hero_axe_str13",
         },       
         -------------------- AGI -----------------------------------------------------------	
         npc_dota_hero_axe_agi6 = {
@@ -172,7 +172,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_axe/int/int-talant-12.png", name = "npc_dota_hero_axe_int12",
         },
         special_bonus_unique_npc_dota_hero_axe_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_axe/int/int-talant-12.png", name = "npc_dota_hero_axe_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_axe/int/int-talant-6.png", name = "npc_dota_hero_axe_int13",
         },
     },
     npc_dota_hero_arc_warden = {
@@ -277,7 +277,7 @@ heroTalentsData = {
             place = {"str 12"}, url = "/npc_dota_hero_bristleback/str/str-talant-12.png", name = "npc_dota_hero_bristleback_str12",
         },
         special_bonus_unique_npc_dota_hero_bristleback_str50 = {
-            place = {"str 13"}, url = "/npc_dota_hero_bristleback/str/str-talant-12.png", name = "npc_dota_hero_bristleback_str13",
+            place = {"str 13"}, url = "/npc_dota_hero_bristleback/str/str-talant-10.png", name = "npc_dota_hero_bristleback_str13",
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_bristleback_agi6 = {
@@ -354,7 +354,7 @@ heroTalentsData = {
             place = {"str 12"}, url = "/npc_dota_hero_centaur/str/str-talant-12.png", name = "npc_dota_hero_centaur_str12",
         },
         special_bonus_unique_npc_dota_hero_centaur_str50 = {
-            place = {"str 13"}, url = "/npc_dota_hero_centaur/str/str-talant-12.png", name = "npc_dota_hero_centaur_str13",
+            place = {"str 13"}, url = "/npc_dota_hero_centaur/str/str-talant-8.png", name = "npc_dota_hero_centaur_str13",
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_centaur_agi6 = {
@@ -1009,7 +1009,7 @@ heroTalentsData = {
             place = {"int 11"}, url = "/npc_dota_hero_luna/int/int-talant-11.png", name = "npc_dota_hero_luna_int11", 
         },  
         npc_dota_hero_luna_int_last = {
-            place = {"int 12"}, url = "/npc_dota_hero_luna/int/int-talant-12.png", name = "npc_dota_hero_luna_int_12",
+            place = {"int 12"}, url = "/npc_dota_hero_luna/int/int-talant-12.png", name = "npc_dota_hero_luna_int12",
         },  
     },
     npc_dota_hero_mars = {
@@ -1061,7 +1061,7 @@ heroTalentsData = {
             place = {"agi 12"}, url = "/npc_dota_hero_mars/agi/agi-talant-12.png", name = "npc_dota_hero_mars_agi12",
         },
         special_bonus_unique_npc_dota_hero_mars_agi50 = {
-            place = {"agi 13"}, url = "/npc_dota_hero_mars/agi/agi-talant-12.png", name = "npc_dota_hero_mars_agi13",
+            place = {"agi 13"}, url = "/npc_dota_hero_mars/agi/agi-talant-8.png", name = "npc_dota_hero_mars_agi13",
         },
         -------------------- INT -----------------------------------------------------------
         npc_dota_hero_mars_int6 = {
@@ -1083,8 +1083,11 @@ heroTalentsData = {
             place = {"int 11"}, url = "/npc_dota_hero_mars/int/int-talant-11.png", name = "npc_dota_hero_mars_int11", 
         },  
         npc_dota_hero_mars_int_last = {
-            place = {"int 12"}, url = "/npc_dota_hero_mars/int/int-talant-12.png", name = "npc_dota_hero_mars_int_12",
+            place = {"int 12"}, url = "/npc_dota_hero_mars/int/int-talant-12.png", name = "npc_dota_hero_mars_int12",
         },  
+        special_bonus_unique_npc_dota_hero_mars_int50 = {
+            place = {"int 13"}, url = "/npc_dota_hero_mars/int/str-talant-7.png", name = "npc_dota_hero_mars_int13",
+        },
     },
     npc_dota_hero_nevermore = {
         -------------------- STR -----------------------------------------------------------
@@ -1120,7 +1123,7 @@ heroTalentsData = {
             place = {"agi 7"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-7.png", name = "npc_dota_hero_nevermore_agi7",
         },
         npc_dota_hero_nevermore_agi8 = {
-            place = {"agi 8"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-8.png", name = "npc_dota_hero_nevermore_agi8",
+            place = {"agi 8"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-8.png", name = "npc_dota_hero_nevermore_agi12",
         },
         npc_dota_hero_nevermore_agi9 = {
             place = {"agi 9"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-9.png", name = "npc_dota_hero_nevermore_agi9",
@@ -1131,11 +1134,11 @@ heroTalentsData = {
         npc_dota_hero_nevermore_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-11.png", name = "npc_dota_hero_nevermore_agi11",
         },
-        npc_dota_hero_nevermore_agi8 = {
-            place = {"agi 12"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-12.png", name = "npc_dota_hero_nevermore_agi8",
+        npc_dota_hero_nevermore_agi_last = {
+            place = {"agi 12"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-10.png", name = "npc_dota_hero_nevermore_agi8",
         },
         special_bonus_unique_npc_dota_hero_nevermore_agi50 = {
-            place = {"agi 13"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-12.png", name = "npc_dota_hero_nevermore_agi13",
+            place = {"agi 13"}, url = "/npc_dota_hero_nevermore/agi/agi-talant-10.png", name = "npc_dota_hero_nevermore_agi13",
         },
         -------------------- INT -----------------------------------------------------------
         npc_dota_hero_nevermore_int6 = {
@@ -1157,10 +1160,10 @@ heroTalentsData = {
             place = {"int 11"}, url = "/npc_dota_hero_nevermore/int/int-talant-11.png", name = "npc_dota_hero_nevermore_int11",
         },
         npc_dota_hero_nevermore_int_last = {
-            place = {"int 12"}, url = "/npc_dota_hero_nevermore/int/int-talant-12.png", name = "npc_dota_hero_nevermore_int12",
+            place = {"int 12"}, url = "/npc_dota_hero_nevermore/int/int-talant-10.png", name = "npc_dota_hero_nevermore_int12",
         },
         special_bonus_unique_npc_dota_hero_nevermore_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_nevermore/int/int-talant-12.png", name = "npc_dota_hero_nevermore_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_nevermore/int/int-talant-10.png", name = "npc_dota_hero_nevermore_int13",
         },
     },
     npc_dota_hero_phantom_assassin = {
@@ -1391,7 +1394,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_sand_king/int/int-talant-12.png", name = "npc_dota_hero_sand_king_int12",
         },
         special_bonus_unique_npc_dota_hero_sand_king_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_sand_king/int/int-talant-12.png", name = "npc_dota_hero_sand_king_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_sand_king/int/int-talant-6.png", name = "npc_dota_hero_sand_king_int13",
         },
     },
     npc_dota_hero_shadow_shaman = {
@@ -1545,7 +1548,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_skeleton_king/int/int-talant-12.png", name = "npc_dota_hero_skeleton_king_int12",
         },
         special_bonus_unique_npc_dota_hero_skeleton_king_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_skeleton_king/int/int-talant-12.png", name = "npc_dota_hero_skeleton_king_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_skeleton_king/int/int-talant-6.png", name = "npc_dota_hero_skeleton_king_int13",
         },
     },
     npc_dota_hero_slark = {
@@ -1828,7 +1831,7 @@ heroTalentsData = {
             place = {"agi 12"}, url = "/npc_dota_hero_sven/agi/agi-talant-12.png", name = "npc_dota_hero_sven_agi12",
         },
         special_bonus_unique_npc_dota_hero_sven_agi50 = {
-            place = {"agi 13"}, url = "/npc_dota_hero_sven/agi/agi-talant-12.png", name = "npc_dota_hero_sven_agi13",
+            place = {"agi 13"}, url = "/npc_dota_hero_sven/agi/agi-talant-7.png", name = "npc_dota_hero_sven_agi13",
         },
         -------------------- INT -----------------------------------------------------------
         npc_dota_hero_sven_int6 = {
@@ -2007,7 +2010,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_tinker/int/int-talant-12.png", name = "npc_dota_hero_tinker_int12",
         },
         special_bonus_unique_npc_dota_hero_tinker_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_tinker/int/int-talant-12.png", name = "npc_dota_hero_tinker_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_tinker/int/int-talant-8.png", name = "npc_dota_hero_tinker_int13",
         },
     },
     npc_dota_hero_treant = {
@@ -2033,7 +2036,7 @@ heroTalentsData = {
         npc_dota_hero_treant_str_last = {
             place = {"str 12"}, url = "/npc_dota_hero_treant/str/str-talant-12.png", name = "npc_dota_hero_treant_str12",
         },
-        special_bonus_unique_npc_dota_hero_treant_str50 = {
+        special_bonus_base_npc_dota_hero_treant_str50 = {
             place = {"str 13"}, url = "/npc_dota_hero_treant/str/str-talant-12.png", name = "npc_dota_hero_treant_str13",
         },
         -------------------- AGI -----------------------------------------------------------
@@ -2058,7 +2061,7 @@ heroTalentsData = {
         npc_dota_hero_treant_agi_last = {
             place = {"agi 12"}, url = "/npc_dota_hero_treant/agi/agi-talant-12.png", name = "npc_dota_hero_treant_agi12",
         },
-        special_bonus_unique_npc_dota_hero_treant_agi50 = {
+        special_bonus_base_npc_dota_hero_treant_agi50 = {
             place = {"agi 13"}, url = "/npc_dota_hero_treant/agi/agi-talant-12.png", name = "npc_dota_hero_treant_agi13",
         },
         -------------------- INT -----------------------------------------------------------
@@ -2262,7 +2265,7 @@ heroTalentsData = {
             place = {"str 11"}, url = "/npc_dota_hero_wisp/str/str-talant-11.png", name = "npc_dota_hero_wisp_str11",
         },
         npc_dota_hero_wisp_str_last = {
-            place = {"str 12"}, url = "/npc_dota_hero_wisp/str/life_stealer_infest.png", name = "lifestealer_infest_bh",
+            place = {"str 12"}, url = "/npc_dota_hero_wisp/str/life_stealer_infest.png", name = "npc_dota_hero_wisp_str12",
         },
         special_bonus_unique_npc_dota_hero_wisp_str50 = {
             place = {"str 13"}, url = "/npc_dota_hero_wisp/str/life_stealer_infest.png", name = "lifestealer_infest_hp",
@@ -2546,7 +2549,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_legion_commander/int/int-talant-8.png", name = "npc_dota_hero_legion_commander_int12",
         },
         special_bonus_unique_npc_dota_hero_legion_commander_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_legion_commander/int/int-talant-12.png", name = "npc_dota_hero_legion_commander_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_legion_commander/int/int-talant-10.png", name = "npc_dota_hero_legion_commander_int13",
         },
         
     },
@@ -2855,7 +2858,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_techies/int/int-talant-12.png", name = "npc_dota_hero_techies_int12",
         },
         special_bonus_unique_npc_dota_hero_techies_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_techies/int/int-talant-12.png", name = "npc_dota_hero_techies_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_techies/int/int-talant-6.png", name = "npc_dota_hero_techies_int13",
         },
     },
     npc_dota_hero_marci = {
@@ -2959,7 +2962,7 @@ heroTalentsData = {
             place = {"str 12"}, url = "/npc_dota_hero_crystal/str/str-talant-12.png", name = "npc_dota_hero_crystal_maiden_str12",
         },
         special_bonus_unique_npc_dota_hero_crystal_maiden_str50 = {
-            place = {"str 13"}, url = "/npc_dota_hero_crystal/str/str-talant-12.png", name = "npc_dota_hero_crystal_maiden_str13",
+            place = {"str 13"}, url = "/npc_dota_hero_crystal/str/str-talant-11.png", name = "npc_dota_hero_crystal_maiden_str13",
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_crystal_maiden_agi6 = {
@@ -3086,7 +3089,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_alchemist/int/int-talant-12.png", name = "npc_dota_hero_alchemist_int12",
         },
         special_bonus_unique_npc_dota_hero_alchemist_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_alchemist/int/int-talant-12.png", name = "npc_dota_hero_alchemist_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_alchemist/int/alchemist_corrosive_weaponry.png", name = "npc_dota_hero_alchemist_int13",
         },
     },
     npc_dota_hero_troll_warlord = {
@@ -3163,7 +3166,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_troll_warlord/int/int-talant-12.png", name = "npc_dota_hero_troll_warlord_int12",
         },
         special_bonus_unique_npc_dota_hero_troll_warlord_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_troll_warlord/int/int-talant-12.png", name = "npc_dota_hero_troll_warlord_int13",
+            place = {"int 13"}, url = "/npc_dota_hero_troll_warlord/int/int-talant-7.png", name = "npc_dota_hero_troll_warlord_int13",
         },
     },
     npc_dota_hero_gyrocopter = {
@@ -3471,7 +3474,7 @@ heroTalentsData = {
             place = {"int 12"}, url = "/npc_dota_hero_magnataur/int/int-talant-12.png", name = "npc_dota_hero_magnataur_int12", 
         },
         special_bonus_unique_npc_dota_hero_magnataur_int50 = {
-            place = {"int 13"}, url = "/npc_dota_hero_magnataur/int/int-talant-12.png", name = "npc_dota_hero_magnataur_int13", 
+            place = {"int 13"}, url = "/npc_dota_hero_magnataur/int/int-talant-10.png", name = "npc_dota_hero_magnataur_int13", 
         },
     },
     npc_dota_hero_huskar = {

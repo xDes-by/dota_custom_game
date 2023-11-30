@@ -185,7 +185,7 @@ end
 
 function modifier_slark_passive:GetModifierPreAttack_BonusDamage()
 	if self.special_bonus_unique_npc_dota_hero_slark_agi50 then
-		return self:GetStackCount() * 3
+		return self:GetStackCount() * 4
 	end
 end
 

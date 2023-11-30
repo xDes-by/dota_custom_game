@@ -99,7 +99,7 @@ function modifier_wraith_king_reincarnation_lua:Reincarnate()
 				self:GetParent(),
 				self:GetAbility(),
 				"modifier_special_bonus_unique_npc_dota_hero_skeleton_king_str50",
-				{ duration = 5 }
+				{}
 			)
 		end)
 	end

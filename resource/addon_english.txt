@@ -13897,7 +13897,7 @@
         "npc_dota_hero_magnataur_agi8" "Enhanced Waves"
         "npc_dota_hero_magnataur_agi8_description" "Shockwave targets also receive physical damage equal to 2x the hero's damage"
         "npc_dota_hero_magnataur_agi9" "Infinite Power"
-        "npc_dota_hero_magnataur_agi9_description" "Unlimited Empower attacks\n+20 seconds duration"
+        "npc_dota_hero_magnataur_agi9_description" "+20 seconds duration"
         "npc_dota_hero_magnataur_agi10" "Enhanced Attack"
         "npc_dota_hero_magnataur_agi10_description" "Empower effects are 50% stronger"
         "npc_dota_hero_magnataur_agi11" "Explosive Power"

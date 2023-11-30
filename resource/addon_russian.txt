@@ -2284,6 +2284,14 @@
 		"DOTA_Tooltip_ability_alchemist_greevils_greed_lua_Description"					"Позволяет синтезировать больше золота из врагов. Применив способность герой выкопает перед собой рандомную руну."
 		"DOTA_Tooltip_ability_alchemist_greevils_greed_lua_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
 
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua"								"CORROSIVE WEAPONRY"
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_Description"					"Покрытое кислотой оружие героя каждой атакой снижает сопротивление эффектам и наносит периодический урон."
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_max_stacks"			    "МАКС.СТАКОВ:"
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_resistance"			    "%СНИЖЕНИЕ СОПРОТИВЛЕНИЯ ЭФФЕКТАМ ЗА ЭФФЕКТ:"
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_damage"			        "%УРОН ОТ ИНТЕЛЛЕКТА ЗА ЭФФЕКТ:"
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_duration"			    "ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_interval"			    "ИНТЕРВАЛ:"
+
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_lua"									"Chemical Rage"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_lua_Description"						"Особая химическая смесь разъяряет героя, отчего задержка перед его атакой уменьшается, а скорость его передвижения и восстановление здоровья и маны увеличиваются."
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_lua_duration"							"ДЛИТЕЛЬНОСТЬ:"
@@ -2679,6 +2687,9 @@
         "dota_tooltip_ability_sandking_custom_trembling_waves_damage" "БАЗОВЫЙ УРОН:"
         "dota_tooltip_ability_sandking_custom_trembling_waves_str_damage" "УРОН ОТ СИЛЫ:"
         "dota_tooltip_ability_sandking_custom_trembling_waves_chance" "%ШАНС:"
+
+        "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50"          "Талант"
+        "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50_description"          "Исходящий урон %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
 
         "npc_dota_hero_sand_king_str6" "Печинка к песчинке"
         "npc_dota_hero_sand_king_str6_description" "+5 хп регена за уровень в Sand Storm"
@@ -3090,7 +3101,9 @@
         "DOTA_Tooltip_modifier_magnataur_talent_str12_Description"          "Весь входящий урон снижен на 25%%"
         "DOTA_Tooltip_modifier_magnataur_talent_agi6"                       "Критические атаки"
         "DOTA_Tooltip_modifier_magnataur_talent_agi6_Description"           "Добавлен шанс %dMODIFIER_PROPERTY_TOOLTIP%%% нанести критическую атаку %dMODIFIER_PROPERTY_TOOLTIP2%%%"
-
+        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50"                       "Увеличение атрибутов"
+        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50_Description"           "Все атрибуты увеличены на %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%"
+        
         "npc_dota_hero_magnataur_str6" "Восстанавливающий рывок"
         "npc_dota_hero_magnataur_str6_description" "После применения способности Bus Rush герой получает дополнительную регенирацию здоровья равную 1% * ур.способности от макс.хп на 5 сек"
         "npc_dota_hero_magnataur_str7" "Укрепление здоровья"
@@ -3113,7 +3126,7 @@
         "npc_dota_hero_magnataur_agi8" "Усиленные волны"
         "npc_dota_hero_magnataur_agi8_description" "Цели Shockwave также получают физический урон равный 2х урона героя"
         "npc_dota_hero_magnataur_agi9" "Бесконечная мощь"
-        "npc_dota_hero_magnataur_agi9_description" "Неограниченное число атак Empower\n+20 сек длительность"
+        "npc_dota_hero_magnataur_agi9_description" "+20 сек длительность"
         "npc_dota_hero_magnataur_agi10" "Усиленная атака"
         "npc_dota_hero_magnataur_agi10_description" "Эффекты от Empower на 50% сильнее"
         "npc_dota_hero_magnataur_agi11" "Взрывная мощь"
@@ -3302,6 +3315,11 @@
         "dota_tooltip_ability_wisp_tether_lua_movespeed" "%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_wisp_tether_lua_tether_heal_amp_tool" "%ЗДОРОВЬЯ В СЕК:"
 
+        "dota_tooltip_modifier_wisp_tether_lua_bonus_strength"                      "Сила"
+        "dota_tooltip_modifier_wisp_tether_lua_bonus_agility"                       "Ловкость"
+        "dota_tooltip_modifier_wisp_tether_lua_bonus_intellect"                     "Интеллект"
+        
+
         "dota_tooltip_ability_wisp_spirits_bh" "Spirits"
         "dota_tooltip_ability_wisp_spirits_bh_description" "Призывает пять духов, которые кружатся вокруг героя. При столкновении с врагом духи наносят немного урона."
         "dota_tooltip_ability_wisp_spirits_bh_damage_end" "УРОН:"
@@ -3320,51 +3338,8 @@
         "dota_tooltip_ability_wisp_relocate_lua_radius" "РАДИУС УРОНА:"
         "dota_tooltip_ability_wisp_relocate_lua_damage" "УРОН:"
 
-        // "npc_dota_hero_wisp_str6" "Сила духов"
-        // "npc_dota_hero_wisp_str6_description" "Восстановление здоровья от Tether +130%"
-        // "npc_dota_hero_wisp_str7" "Духовная поддержка"
-        // "npc_dota_hero_wisp_str7_description" "Owercharge становится глобальной аурой"
-        // "npc_dota_hero_wisp_str8" "Падшие души"
-        // "npc_dota_hero_wisp_str8_description" "+150 здоровья за уровень"
-        // "npc_dota_hero_wisp_str9" "Духовная связь"
-        // "npc_dota_hero_wisp_str9_description" "Получает возможность восполнять здоровье под эффектом Tether"
-        // "npc_dota_hero_wisp_str10" "Сущность вселенной"
-        // "npc_dota_hero_wisp_str10_description" "Потеря хп от Owercharge в 2 раза меньше"
-        // "npc_dota_hero_wisp_str11" "Пришелец из миров"
-        // "npc_dota_hero_wisp_str11_description" "Relocate наносит урон от здоровья героя"
-        // "npc_dota_hero_wisp_str12" "Духовный спаситель" 
-        // "npc_dota_hero_wisp_str12_description" "Под действием Owercharge входящий урон минус 30%"
-
-        // "npc_dota_hero_wisp_agi6" "Невообразимая сила"
-        // "npc_dota_hero_wisp_agi6_description" "+базовый урон героя к урону Stirits"
-        // "npc_dota_hero_wisp_agi7" "Загадка вселенной"
-        // "npc_dota_hero_wisp_agi7_description" "Получает бонус к скорости атаки равный 5*уровень героя"
-        // "npc_dota_hero_wisp_agi8" "Силы притяжения"
-        // "npc_dota_hero_wisp_agi8_description" "+5 урон за уровень"
-        // "npc_dota_hero_wisp_agi9" "Пение вселенной"
-        // "npc_dota_hero_wisp_agi9_description" "Под эффектом Owercharge атакует 2 цели"
-        // "npc_dota_hero_wisp_agi10" "Пение вселенной"
-        // "npc_dota_hero_wisp_agi10_description" "Tether дает цели бонус к скорости атаки равный 25% ловкости Wisp"
-        // "npc_dota_hero_wisp_agi11" "Зов вселенной"
-        // "npc_dota_hero_wisp_agi11_description" "х2 бонус к скорости атаки от Owercharge"
-        // "npc_dota_hero_wisp_agi12" "Долгожданное воссоединение"
-        // "npc_dota_hero_wisp_agi12_description" "Висп и цель тизера получает бонусный урон и атакспид равный х10 скорости передвижения"
-
-        // "npc_dota_hero_wisp_int6" "Искривление силы"
-        // "npc_dota_hero_wisp_int6_description" "Relocate наносит урон равный интеллекту"
-        // "npc_dota_hero_wisp_int7" "Сила созидания"
-        // "npc_dota_hero_wisp_int7_description" "Не теряет ману от Owercharge"
-        // "npc_dota_hero_wisp_int8" "Чудо созидания"
-        // "npc_dota_hero_wisp_int8_description" "Tether дает цели 50% интеллекта Wisp"
-        // "npc_dota_hero_wisp_int9" "Сила вселенной"
-        // "npc_dota_hero_wisp_int9_description" "Spirits атакуют"
-        // "npc_dota_hero_wisp_int10" "Покинуть вселенную"
-        // "npc_dota_hero_wisp_int10_description" "Relocate кд 5 сек"
-        // "npc_dota_hero_wisp_int11" "Духовное поглощение"
-        // "npc_dota_hero_wisp_int11_description" "Spirits наносят магический урон"
-        // "npc_dota_hero_wisp_int12" "Бесконечный цикл духов"
-        // "npc_dota_hero_wisp_int12_description" "+50% интеллекта к урону Stirits"
-
+        "dota_tooltip_ability_lifestealer_infest_bh"                 "Infest" 
+        "dota_tooltip_ability_lifestealer_infest_bh_description"     "Герой забирается в тело выбранного союзного героя.<br><br><font color='gold'>Все золото полученное героем за убийство перенаправляется цели.<br><br>Герой получает 30% золота полученного целью. Получаемое золото цели не снижается.</font>" 
 
         "npc_dota_hero_wisp_str6" "Сила духов"
         "npc_dota_hero_wisp_str6_description" "Восстановление здоровья от Tether +130%"
@@ -3518,6 +3493,10 @@
         "dota_tooltip_ability_wraith_king_reincarnation_lua_movespeed" "%ЗАМЕДЛЕНИЕ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_wraith_king_reincarnation_lua_attackslow" "ЗАМЕДЛЕНИЕ АТАКИ:"
         "dota_tooltip_ability_wraith_king_reincarnation_lua_slow_duration" "ДЛИТЕЛЬНОСТЬ ЗАМЕДЛЕНИЯ:"
+
+        
+        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50"                     "Талант"
+        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50_description"                     "Бонус атрибутов"
 
         "npc_dota_hero_skeleton_king_str6" "Из костей"
         "npc_dota_hero_skeleton_king_str6_description" "+150 здоровья за уровень"
@@ -7022,6 +7001,9 @@
         "modifier_talent_base_attack_time_description" "Снижение базового интервала атак"
         "modifier_talent_increase_agi" "Охота в одиночку"
         "modifier_talent_increase_agi_description" "С каждым убитым врагом вы накапливаете стаки ловкости"
+
+        "dota_tooltip_modifier_talent_armor_curruption_effect"           "Снижение брони"
+        "dota_tooltip_modifier_talent_armor_curruption_effect_description"           "Броня снижена на %fMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
         //Int//
 		

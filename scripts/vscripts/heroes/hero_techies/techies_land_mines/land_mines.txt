@@ -16,14 +16,15 @@
 
 		"AbilityValues"
 		{
-			"AbilityCooldown"	
-			{
-				"value"					"20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
-				"special_bonus_unique_npc_dota_hero_techies_int50" "-2.5"
-			}
+			"AbilityCooldown"	"0.1"
 			"damage"					"200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400 2600 2800 3000"
 			"small_radius"				"300"
 			"activation_time"			"1.0"
+			"AbilityCharges"
+			{
+				"value" "3"
+			}
+			"AbilityChargeRestoreTime" "20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5"
 		}
 	}
 }

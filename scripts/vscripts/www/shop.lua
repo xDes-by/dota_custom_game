@@ -18,8 +18,6 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("SprayToggleActivate",function(_, keys)
         Shop:SprayToggleActivate(keys)
     end)
-	
-	ListenToGameEvent("player_chat", Dynamic_Wrap( Shop, "OnChat" ), self )
 	Shop.marci = {name = "change_hero_marci", hero_name = "npc_dota_hero_marci", available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
 	Shop.pango = {name = "change_hero_pangolier", hero_name = "npc_dota_hero_pangolier",available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
 	Shop.pet = {}
@@ -95,7 +93,6 @@ function Shop:OnPlayerReconnected(keys)
 		Timers:CreateTimer(2, function() 
 			local sid = PlayerResource:GetSteamAccountID( keys.PlayerID )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "initShop", Shop.pShop[keys.PlayerID] )
-			Shop:GetPets(keys)
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {
 				can_change = Shop.Change_Available[keys.PlayerID],
 			} )

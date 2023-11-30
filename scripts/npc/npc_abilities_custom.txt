@@ -1900,6 +1900,7 @@
 #base "../vscripts/heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_unstable_concoction_lua/alchemist_unstable_concoction_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua.txt"
+#base "../vscripts/heroes/hero_alchemist/alchemist_corrosive_weaponry_lua/alchemist_corrosive_weaponry_lua.txt"
 
 //=====================================================================================================BLOODSEEKER=====================================================================================================================================================
 

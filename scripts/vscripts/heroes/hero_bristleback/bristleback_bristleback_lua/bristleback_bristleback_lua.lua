@@ -56,7 +56,7 @@ function modifier_bristleback_bristleback_lua:GetModifierIncomingDamage_Percenta
 
 		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_bristleback_str10")
 		if abil ~= nil then 
-			self.side_damage_reduction = self.side_damage_reduction
+			self.side_damage_reduction = self.back_damage_reduction
 		end
 
 		local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_agi50")
@@ -74,7 +74,7 @@ function modifier_bristleback_bristleback_lua:GetModifierIncomingDamage_Percenta
 			return self.back_damage_reduction * (-1)
 		end
 
-	if (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bristleback_str50") or (difference <= (self.back_angle / 2)) or (difference >= (360 - (self.back_angle / 2))) then
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControl(particle, 1, self:GetParent():GetAbsOrigin())
 		ParticleManager:SetParticleControlEnt(particle, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_hitloc", self:GetParent():GetAbsOrigin(), true)

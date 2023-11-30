@@ -3,16 +3,43 @@ LinkLuaModifier( "modifier_sven_gods_strength_lua", "heroes/hero_sven/sven_gods_
 LinkLuaModifier( "modifier_sven_gods_magic_debuff", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_magic_debuff", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sven_gods_magic_buff", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_magic_buff", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_sven_gods_strength_child_lua", "heroes/hero_sven/sven_gods_strength_lua/modifier_sven_gods_strength_child_lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_sven_gods_strength_int50", "heroes/hero_svevn/sven_gods_strength_lua/sven_gods_strength_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_sven_gods_strength_talents", "heroes/hero_sven/sven_gods_strength_lua/sven_gods_strength_lua", LUA_MODIFIER_MOTION_NONE )
 
 
 --------------------------------------------------------------------------------
 function sven_gods_strength_lua:GetIntrinsicModifierName()
-    return "modifier_sven_gods_strength_int50"
+    return "modifier_sven_gods_strength_talents"
 end
 
 function sven_gods_strength_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
+		return 0.0
+	end
     return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
+end
+
+function sven_gods_strength_lua:OnOwnerSpawned()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
+		local mod = self:GetCaster():FindModifierByName("modifier_sven_gods_strength_talents")
+		mod.str50 = self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_sven_gods_strength_lua", {})
+	end
+end
+
+function sven_gods_strength_lua:GetCooldown(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
+		return 0.0
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_int50") then
+		return 0.1
+	end
+	return self.BaseClass.GetCooldown( self, iLevel ) - 0.5
+end
+
+function sven_gods_strength_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
+		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+	end
+	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 end
 
 function sven_gods_strength_lua:OnSpellStart()
@@ -67,66 +94,83 @@ function sven_gods_strength_lua:OnSpellStart()
 	end
 end
 
-modifier_sven_gods_strength_int50 = class({})
+modifier_sven_gods_strength_talents = class({})
 --Classifications template
-function modifier_sven_gods_strength_int50:IsHidden()
+function modifier_sven_gods_strength_talents:IsHidden()
 	return true
 end
 
-function modifier_sven_gods_strength_int50:IsDebuff()
+function modifier_sven_gods_strength_talents:IsDebuff()
 	return false
 end
 
-function modifier_sven_gods_strength_int50:IsPurgable()
+function modifier_sven_gods_strength_talents:IsPurgable()
 	return false
 end
 
-function modifier_sven_gods_strength_int50:IsPurgeException()
+function modifier_sven_gods_strength_talents:RemoveOnDeath()
 	return false
 end
 
--- Optional Classifications
-function modifier_sven_gods_strength_int50:IsStunDebuff()
-	return false
+function modifier_sven_gods_strength_talents:OnCreated( kv )
+	if not IsServer() then return end
+	self:StartIntervalThink(0.5)
 end
 
-function modifier_sven_gods_strength_int50:RemoveOnDeath()
-	return false
-end
-
-function modifier_sven_gods_strength_int50:DestroyOnExpire()
-	return false
-end
-
-function modifier_sven_gods_strength_int50:OnCreated()
-	if not IsServer() then
-		return
-	end
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
-		self.mod = self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_sven_gods_strength_lua", {})
-	end
-	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sven_int11")
-	if abil ~= nil then 
-		self:StartIntervalThink(1)
+function modifier_sven_gods_strength_talents:OnRefresh( kv )
+	if not IsServer() then return end
+	if self.str50 ~= nil then
+		self.str50:Destroy()
+		self.str50 = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_sven_gods_strength_lua", {})
 	end
 end
 
-function modifier_sven_gods_strength_int50:OnRefresh()
-	if not IsServer() then
-		return
+function modifier_sven_gods_strength_talents:OnIntervalThink()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") and self.str50 == nil then
+		self.str50 = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_sven_gods_strength_lua", {})
+	elseif not self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") and self.str50 ~= nil then
+		self.str50:Destroy()
+		self.str50 = nil
 	end
-	self.mod:ForceRefresh()
 end
 
-function modifier_sven_gods_strength_int50:OnIntervalThink()
-	local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(),self:GetCaster():GetAbsOrigin(),nil,700,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
-	for _,enemy in pairs(enemies) do
-		ApplyDamage({
-			attacker = self:GetCaster(), 
-			victim = enemy, 
-			ability = self, 
-			damage = self:GetCaster():GetIntellect()*5, 
-			damage_type = DAMAGE_TYPE_MAGICAL 
-		})
+function modifier_sven_gods_strength_talents:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
+	}
+
+	return funcs
+end
+
+function modifier_sven_gods_strength_talents:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "AbilityCharges" then
+			return 1
+		end
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			return 1
+		end
 	end
+	return 0
+end
+
+function modifier_sven_gods_strength_talents:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "AbilityCharges" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityCharges", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_int50") then
+                value = 3
+            end
+            return value
+		end
+		if data.ability_special_value == "AbilityChargeRestoreTime" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "AbilityChargeRestoreTime", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_sven_int8") then
+                value = value / 2
+            end
+            return value
+		end
+	end
+	return 0
 end
