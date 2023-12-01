@@ -7052,7 +7052,7 @@
         "modifier_don13"              "Один за всех!"
         "modifier_don13_description"    "Герой получает <font color='LimeGreen'>100</font>, <font color='DarkTurquoise'>200</font>, <font color='Red'>300</font> всех статов со старта, на уровнях сложности <font color='LimeGreen'>Ultra</font>, <font color='DarkTurquoise'>Insane</font>, <font color='Red'>Impossible</font>. За каждый уровень героя +0.6% исходящий урон, -0.05% входящий урон."
         "DOTA_Tooltip_modifier_don13"  "Один за всех!"
-        "DOTA_Tooltip_modifier_don13_description"  "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE% исходящий урон, %fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE% входящий урон."
+        "DOTA_Tooltip_modifier_don13_description"  "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% исходящий урон, -%fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% входящий урон."
 //======================================================================================================================================
 
         // "dota_tooltip_modifier_npc_dota_hero_sven_agi6_description" "Получает бонусный урон равный колличеству стаков"

@@ -27,8 +27,9 @@ function ark_spark_lua:OnSpellStart()
 		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_arc_warden_int50") then
 			count = 2
 		end
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-		for i=1,count do
+		Timers:CreateTimer(0, function()
+			count = count -1
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster_loc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 			for _,enemy in pairs(enemies) do
 			
 				enemy = enemies[1]
@@ -45,7 +46,10 @@ function ark_spark_lua:OnSpellStart()
 					iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
 				})
 			end
-		end
+			if count > 0 then
+				return 0.3
+			end
+		end	)
 	end
 end
 

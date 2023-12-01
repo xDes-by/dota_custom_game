@@ -6,6 +6,12 @@ function luna_lunar_blessing_lua:GetIntrinsicModifierName()
 	return "modifier_luna_lunar_blessing_lua"
 end
 
+function luna_lunar_blessing_lua:GetCastRange(vLocation, hTarget)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_luna_agi50") then
+		return 0
+	end
+end
+
 ---------------------------------------------------------------------
 
 modifier_luna_lunar_blessing_lua = class({})
@@ -122,8 +128,12 @@ if IsServer() then
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_luna_agi11")
 		if abil ~= nil then 
 		if self:GetParent():PassivesDisabled() then return 0 end
-		if  self:GetParent()==self:GetCaster() then return self:GetCaster():GetAgility() end
-		if  self:GetParent()~=self:GetCaster() then return 0 end
+		if  self:GetParent()==self:GetCaster() then return  self:GetCaster():GetAgility()  end
+		if  self:GetParent()~=self:GetCaster() then 
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_luna_agi50") then
+				return self:GetParent():GetAgility()
+			end
+		end
 		end
 	end
 	
@@ -157,6 +167,9 @@ end
 
 function modifier_luna_lunar_blessing_lua:GetAuraRadius()
 	if self:GetParent():PassivesDisabled() then return 0 end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_luna_agi50") then
+		return FIND_UNITS_EVERYWHERE
+	end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_luna_str8")
 	if abil ~= nil then 
 		return self.radius + 700

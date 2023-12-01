@@ -58,19 +58,19 @@ function modifier_arc_flux_lua_debuff:DeclareFunctions()
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-		
 	}
 
 	return funcs
 end
 
 function modifier_arc_flux_lua_debuff:GetModifierIncomingDamage_Percentage()
-local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi8")
-	if abil ~= nil then
-	return 25
-	else
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_arc_warden_str50") then
+		return 50
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_arc_warden_agi8") then
+		return 25
+	end
 	return 0
-	end	
 end
 
 function modifier_arc_flux_lua_debuff:GetModifierMoveSpeedBonus_Constant()

@@ -34,7 +34,7 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				
-				"ThinkInterval"  "1"
+				"ThinkInterval"  "0.2"
 
 				"OnIntervalThink"
 				{
