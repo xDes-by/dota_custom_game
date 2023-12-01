@@ -37,12 +37,27 @@ function legion_ult:GetIntrinsicModifierName()
 	return "modifier_legion_ult"
 end
 
+function legion_ult:Spawn()
+	if not IsServer() then return end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_str50") then
+	-- 	self:SetLevel(1)
+	-- end
+end
+
 function legion_ult:OnUpgrade()
 	legion_ult2 = self:GetCaster():FindAbilityByName("legion_ult2")
 	level = self:GetLevel()
 	if level > legion_ult2:GetLevel() then
 		legion_ult2:SetLevel(level)
 	end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_str50") then
+	-- 	if self.added_stack == nil then self.added_stack = 0 end
+	-- 	if self:GetLevel() > self.added_stack / 10 then
+	-- 		local modifier = self:GetCaster():FindModifierByName("modifier_legion_ult")
+	-- 		modifier:SetStackCount( modifier:GetStackCount() + (self:GetLevel() * 10 - self.added_stack) )
+	-- 		self.added_stack = self:GetLevel() * 10
+	-- 	end
+	-- end
 end
 
 modifier_legion_ult = class({})

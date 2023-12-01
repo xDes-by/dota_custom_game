@@ -14207,9 +14207,9 @@
         "npc_dota_hero_dragon_knight_agi10" "Bloodthirstiness"
         "npc_dota_hero_dragon_knight_agi10_description" "Gain 25% life steal"
         "npc_dota_hero_dragon_knight_agi11" "Merge"
-        "npc_dota_hero_dragon_knight_agi11_description" "Dragon Form now lasts 180 seconds."
+        "npc_dota_hero_dragon_knight_agi11_description" "Dragon Sword effect works on all targets in the form"
         "npc_dota_hero_dragon_knight_agi12" "Dragon Sizzle"
-        "npc_dota_hero_dragon_knight_agi12_description" "Dragon Sword effect works on all targets in the form"
+        "npc_dota_hero_dragon_knight_agi12_description" "Elder Dragon Form is a toggle ability."
 
         "npc_dota_hero_dragon_knight_int6" "Power of the Emerald Dragons"
         "npc_dota_hero_dragon_knight_int6_description" "Gain 25% cooldown reduction"

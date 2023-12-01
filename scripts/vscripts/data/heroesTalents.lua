@@ -527,10 +527,10 @@ heroTalentsData = {
             place = {"agi 10"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-10.png", name = "npc_dota_hero_dragon_knight_agi10",
         },
         npc_dota_hero_dragon_knight_agi11 = {
-            place = {"agi 11"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-11.png", name = "npc_dota_hero_dragon_knight_agi11",
+            place = {"agi 11"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-12.png", name = "npc_dota_hero_dragon_knight_agi11",
         },
         npc_dota_hero_dragon_knight_agi_last = {
-            place = {"agi 12"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-12.png", name = "npc_dota_hero_dragon_knight_agi12",
+            place = {"agi 12"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-11.png", name = "npc_dota_hero_dragon_knight_agi12",
         },
         special_bonus_unique_npc_dota_hero_dragon_knight_agi50 = {
             place = {"agi 13"}, url = "/npc_dota_hero_dragon_knight/agi/agi-talant-12.png", name = "npc_dota_hero_dragon_knight_agi13",
