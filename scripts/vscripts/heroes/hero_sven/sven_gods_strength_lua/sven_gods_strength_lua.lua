@@ -11,12 +11,6 @@ function sven_gods_strength_lua:GetIntrinsicModifierName()
     return "modifier_sven_gods_strength_talents"
 end
 
-function sven_gods_strength_lua:OnUpgrade()
-	if self:GetLevel() == 1 then
-		self:RefreshCharges()
-	end
-end
-
 function sven_gods_strength_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") then
 		return 0.0

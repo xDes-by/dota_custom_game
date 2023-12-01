@@ -30,13 +30,13 @@ function modifier_don13:OnCreated()
     if IsServer() then
         self.stats = 0
         if diff_wave.wavedef == 'Ultra' then
-            self.stats = 100
-        end
-        if diff_wave.wavedef == 'Insane' then
             self.stats = 200
         end
-        if diff_wave.wavedef == 'Impossible' then
+        if diff_wave.wavedef == 'Insane' then
             self.stats = 300
+        end
+        if diff_wave.wavedef == 'Impossible' then
+            self.stats = 400
         end
     end
     self:SetStackCount(0)

@@ -753,7 +753,7 @@ function DataBase:Send(path, method, data, pid, check, callback)
 		local sid = PlayerResource:GetSteamAccountID(pid)
 		req:SetHTTPRequestGetOrPostParameter("sid", tostring(sid))
 	end
-	-- req:SetHTTPRequestGetOrPostParameter("rda_test", "1")
+	req:SetHTTPRequestGetOrPostParameter("rda_test", "1")
 	req:Send(function(res)
 		print("SendStatusCode:", res.StatusCode)
 		if res.StatusCode == 200 and res.Body ~= nil then

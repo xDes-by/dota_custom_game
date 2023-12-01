@@ -3,15 +3,6 @@ LinkLuaModifier( "modifier_dragon_form_lua", "heroes/hero_dragon/dragon_form_lua
 LinkLuaModifier( "modifier_dragon_form_lua_corrosive", "heroes/hero_dragon/dragon_form_lua/modifier_dragon_form_lua_corrosive", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_dragon_form_lua_frost", "heroes/hero_dragon/dragon_form_lua/modifier_dragon_form_lua_frost", LUA_MODIFIER_MOTION_NONE )
 
-function dragon_form_lua:OnOwnerSpawned()
-	if self.toggle_state then
-		self:ToggleAbility()
-	end
-end
-
-function dragon_form_lua:OnOwnerDied()
-	self.toggle_state = self:GetToggleState()
-end
 
 function dragon_form_lua:GetManaCost(iLevel)
     return 150 + math.min(65000, self:GetCaster():GetIntellect()/30)
@@ -19,34 +10,10 @@ end
 
 function dragon_form_lua:GetCooldown( level )
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int6") 
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi_last") then
-		return 0.1
-	end
 	if abil ~= nil then
 		return self.BaseClass.GetCooldown(self, level) - self.BaseClass.GetCooldown(self, level) * 0.25
 	else
 		return self.BaseClass.GetCooldown(self, level)
-	end
-end
-
-function dragon_form_lua:GetBehavior()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi_last") then
-		return DOTA_ABILITY_BEHAVIOR_TOGGLE
-	end
-	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
-end
-
-function dragon_form_lua:OnToggle()
-	local caster = self:GetCaster()
-	if self:GetToggleState() then
-		caster:AddNewModifier(
-			caster, -- player source
-			self, -- ability source
-			"modifier_dragon_form_lua", -- modifier name
-			{} -- kv
-		)
-	else
-		caster:RemoveModifierByNameAndCaster("modifier_dragon_form_lua", caster)
 	end
 end
 
@@ -57,6 +24,10 @@ function dragon_form_lua:OnSpellStart()
 	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
 	-- 	duration = -1
 	-- end
+	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi11") 
+		if abil ~= nil then
+		duration = 180
+		end
 	caster:AddNewModifier(
 		caster, -- player source
 		self, -- ability source

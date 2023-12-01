@@ -26,6 +26,7 @@
 			"duration"
 			{
 				"value" "5"
+				"special_bonus_unique_npc_dota_hero_legion_commander_str50" "x3"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
