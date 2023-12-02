@@ -57,7 +57,7 @@ function modifier_leshrac_pulse_nova_lua:OnCreated( kv )
 	self.manacost = self:GetAbility():GetSpecialValueFor( "mana_cost_per_second" )
 	self.interval = self:GetAbility():GetSpecialValueFor("interval")
 	
-	self:StartIntervalThink( self.interval )
+	self:StartIntervalThink( 1 )
 
 	-- play effects
 	local sound_loop = "Hero_Leshrac.Pulse_Nova"
