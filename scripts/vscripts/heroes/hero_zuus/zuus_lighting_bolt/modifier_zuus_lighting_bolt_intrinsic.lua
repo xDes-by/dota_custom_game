@@ -45,7 +45,7 @@ function modifier_zuus_lighting_bolt_intrinsic:GetModifierOverrideAbilitySpecial
                 damage = damage + self:GetCaster():GetIntellect() * 1.0
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int13") then
-                damage = damage + self:GetCaster():GetIntellect() * 1.0
+                damage = damage + self:GetCaster():GetIntellect() * 0.5
             end
             return damage
 		end

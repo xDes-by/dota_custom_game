@@ -38,6 +38,13 @@ function modifier_leshrac_pulse_nova_lua:GetAuraSearchType()
 	return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 end
 
+-- function modifier_leshrac_pulse_nova_lua:GetAuraDuration() 
+-- 	if slef:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_agi6") then
+-- 		return 2
+-- 	end
+-- 	return 0.5
+-- end
+-- -- 
 
 
 --------------------------------------------------------------------------------
@@ -50,7 +57,7 @@ function modifier_leshrac_pulse_nova_lua:OnCreated( kv )
 	self.manacost = self:GetAbility():GetSpecialValueFor( "mana_cost_per_second" )
 	self.interval = self:GetAbility():GetSpecialValueFor("interval")
 	
-	self:StartIntervalThink( self.interval )
+	self:StartIntervalThink( 1 )
 
 	-- play effects
 	local sound_loop = "Hero_Leshrac.Pulse_Nova"
@@ -58,6 +65,9 @@ function modifier_leshrac_pulse_nova_lua:OnCreated( kv )
 end
 
 function modifier_leshrac_pulse_nova_lua:OnRefresh( kv )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_agi12") then
+		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_leshrac_pulse_nova_burn_lua", {duration = 2})
+	end
 end
 
 function modifier_leshrac_pulse_nova_lua:OnRemoved()

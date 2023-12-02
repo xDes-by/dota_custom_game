@@ -45,12 +45,12 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"heal_regen_to_damage"		"33"
+				"heal_regen_to_damage"		"10"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"health_regen"				"7.5 15 22.5 30 37.5 45 52.5 60 67.5 75 82.5 90 97.5 105 112.5"
+				"health_regen"				"4 8 12 16 20 24 28 32 36 40 44 48 52 56 40"
 			}
 			"05"
 			{

@@ -17,7 +17,7 @@ function leshrac_pulse_nova_lua:GetManaCost(iLevel)
 end
 function leshrac_pulse_nova_lua:GetCastRange(vLocation, hTarget)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_str10") then
-		return 1000
+		return 800
 	end
 end
 

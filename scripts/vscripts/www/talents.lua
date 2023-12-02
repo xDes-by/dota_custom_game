@@ -82,9 +82,16 @@ end
 function Talents:OnPlayerReconnected(t)
 
 end
+function Talents:CheckConnectionState(pid)
+    local connection_state = PlayerResource:GetConnectionState(pid)
+    if connection_state == DOTA_CONNECTION_STATE_UNKNOWN then return false end
+    if connection_state == DOTA_CONNECTION_STATE_ABANDONED then return false end
+    if connection_state == DOTA_CONNECTION_STATE_FAILED then return false end
+    return true
+end
 function Talents:HeroSelectedListen(pid)
     Timers:CreateTimer(function()
-		if PlayerResource:GetPlayer(pid) == nil then
+		if Talents:CheckConnectionState(pid) == false then
 			return nil
 		end
 		if PlayerResource:HasSelectedHero(pid) then
@@ -606,6 +613,7 @@ function Talents:SaveData(pid)
     self.player[pid].earnedexp = 0
     self.player[pid].earneddonexp = 0
     self:UpdateTable(pid)
+    send.data = Shop.pShop[pid].earned_gems
     DataBase:Send(DataBase.link.TalentsSave, "GET", {
         data = self:GetServerDataArray(pid),
     }, pid, not DataBase:IsCheatMode(), nil)

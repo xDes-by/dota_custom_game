@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_pet_rda_secret_1", "items/pets/item_pet_rda_roshan_1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_pet_rda_roshan_1", "items/pets/item_pet_rda_roshan_1", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_pet_rda_roshan_1", "items/pets/item_pet_rda_roshan_1", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_take_drop_gem", "modifiers/modifier_take_drop_gem", LUA_MODIFIER_MOTION_NONE )
 
@@ -11,7 +11,7 @@ function spell_item_pet_rda_roshan_1:OnSpellStart()
 		self.caster:AddNewModifier(
 		self.caster,
 		self,
-		"modifier_pet_rda_secret_1", 
+		"modifier_pet_rda_roshan_1", 
 		{})
 		EmitSoundOn( "Hero_Lion.Voodoo", self:GetCaster() )
 	end
@@ -64,8 +64,16 @@ function modifier_item_pet_rda_roshan_1:DeclareFunctions()
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
 		MODIFIER_PROPERTY_EXP_RATE_BOOST,
-		MODIFIER_PROPERTY_GOLD_RATE_BOOST 
+		MODIFIER_PROPERTY_GOLD_RATE_BOOST,
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA,
 	}
+end
+
+function modifier_item_pet_rda_roshan_1:GetVisualZDelta()
+	if self:GetParent():HasModifier("modifier_pet_rda_roshan_1") then
+		return 100
+	end
+	return 0
 end
 
 function modifier_item_pet_rda_roshan_1:GetModifierBaseAttack_BonusDamage( params )
@@ -128,35 +136,35 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-modifier_pet_rda_secret_1 = class({})
+modifier_pet_rda_roshan_1 = class({})
 
-function modifier_pet_rda_secret_1:IsHidden()
+function modifier_pet_rda_roshan_1:IsHidden()
 	return true
 end
 
-function modifier_pet_rda_secret_1:IsDebuff()
+function modifier_pet_rda_roshan_1:IsDebuff()
 	return false
 end
 
-function modifier_pet_rda_secret_1:IsPurgable()
+function modifier_pet_rda_roshan_1:IsPurgable()
 	return false
 end
 
-function modifier_pet_rda_secret_1:OnCreated( kv ) 
+function modifier_pet_rda_roshan_1:OnCreated( kv ) 
 	self.caster = self:GetCaster()
 	
 	self.speed = self:GetAbility():GetSpecialValueFor( "speed" )
 
 end
 
-function modifier_pet_rda_secret_1:CheckState()
+function modifier_pet_rda_roshan_1:CheckState()
 	local state = {
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 	return state
 end
 
-function modifier_pet_rda_secret_1:DeclareFunctions()
+function modifier_pet_rda_roshan_1:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
@@ -169,31 +177,31 @@ end
 
 
 
-function modifier_pet_rda_secret_1:GetModifierModelChange(params)
- return "models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
+function modifier_pet_rda_roshan_1:GetModifierModelChange(params)
+ return "models/courier/baby_rosh/babyroshan_ti10_flying.vmdl"
 end
 
-function modifier_pet_rda_secret_1:GetModifierMoveSpeed_Absolute()
+function modifier_pet_rda_roshan_1:GetModifierMoveSpeed_Absolute()
 	return self.speed
 end
 
-function modifier_pet_rda_secret_1:GetModifierIncomingDamage_Percentage()
+function modifier_pet_rda_roshan_1:GetModifierIncomingDamage_Percentage()
 	return 300
 end
 
-function modifier_pet_rda_secret_1:OnAttack( params )
+function modifier_pet_rda_roshan_1:OnAttack( params )
 	if IsServer() then
 	if params.attacker~=self:GetParent() then return end
 	--if params.target:GetTeamNumber()==self:GetParent():GetTeamNumber() then return end
 
-	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_secret_1", self:GetParent() )
+	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_1", self:GetParent() )
 	if not modifier then return end
 	
 	modifier:Destroy()
 end
 end
 
-function modifier_pet_rda_secret_1:OnSpentMana( params )
+function modifier_pet_rda_roshan_1:OnSpentMana( params )
 	if IsServer() then
 	local ability = self:GetAbility()
 	local parent = self:GetParent()
@@ -208,7 +216,7 @@ function modifier_pet_rda_secret_1:OnSpentMana( params )
     self.mana_loss = self.mana_loss + params.cost
 	if self.mana_loss >= 10 then
 
-	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_secret_1", self:GetParent() )
+	local modifier = self:GetParent():FindModifierByNameAndCaster( "modifier_pet_rda_roshan_1", self:GetParent() )
 	if not modifier then return end
 	
 	-- modifier:Destroy()

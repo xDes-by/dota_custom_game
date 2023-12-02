@@ -41,7 +41,7 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "drain_duration"      "120"
+        "drain_duration"      "90"
       }
       "04"
       {

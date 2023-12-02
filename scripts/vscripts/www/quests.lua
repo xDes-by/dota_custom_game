@@ -186,8 +186,13 @@ function Quests:OnEntityKilled(keys)
     end
 	local unitName = killedUnit:GetUnitName()
     
-    if not killerEntity.GetPlayerOwnerID then return end
-    local PlayerID = killerEntity:GetPlayerOwnerID()
+    if not killerEntity.GetPlayerOwnerID and not killerEntity.GetPlayerID then return end
+    if killerEntity.GetPlayerOwnerID then
+        PlayerID = killerEntity:GetPlayerOwnerID()
+    end
+    if killerEntity.GetPlayerID then
+        PlayerID = killerEntity:GetPlayerID()
+    end
     -- Обновление счетчика для убийцы
     for _, data in pairs(self.daily[PlayerID]) do
         if data.event and table.has_value({"kill", "assistance"}, data.event) and (table.has_value(data.target, unitName) or table.has_value(data.target, "any")) then

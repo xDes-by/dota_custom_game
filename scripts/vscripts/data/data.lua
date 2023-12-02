@@ -30,7 +30,7 @@ scroll_item_lvl_2 = {"item_up_ability_tower2"}
 scroll_item_lvl_3 = {"item_up_ability_tower3"}
 scroll_item_lvl_4 = {"item_up_ability_tower4"}
 
-bosses_names = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dust_boss","npc_swamp_boss","npc_snow_boss","npc_forest_boss_fake","npc_village_boss_fake","npc_mines_boss_fake","npc_dust_boss_fake","npc_swamp_boss_fake","npc_snow_boss_fake","boss_1","boss_2","boss_3","boss_4","boss_5","boss_6","boss_7","boss_8","boss_9","boss_10","boss_11","boss_12","boss_13","boss_14","boss_15","boss_16","boss_17","boss_18","boss_19","boss_20", "npc_boss_location8", "npc_boss_location8_fake"}
+bosses_names = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dust_boss","npc_swamp_boss","npc_snow_boss","npc_forest_boss_fake","npc_village_boss_fake","npc_mines_boss_fake","npc_dust_boss_fake","npc_swamp_boss_fake","npc_snow_boss_fake","boss_1","boss_2","boss_3","boss_4","boss_5","boss_6","boss_7","boss_8","boss_9","boss_10","boss_11","boss_12","boss_13","boss_14","boss_15","boss_16","boss_17","boss_18","boss_19","boss_20", "npc_boss_location8", "npc_boss_location8_fake", "npc_invoker_boss", "npc_bara_boss_main","npc_sand_king_boss","npc_dota_monkey_king_boss","npc_titan_boss","npc_appariion_boss","npc_crystal_boss","npc_mega_boss","npc_boss_plague_squirrel","npc_cemetery_boss_fake","npc_cemetery_boss","npc_boss_magma_fake"}
 bosses_ability = {"boss_ursa_earthshock_lua","boss_ursa_overpower_lua","ursa_enrage_lua","boss_2_spray","boss_2_heart","boss_2_spawn","boss_2_poison","boss_3_frost_blast","boss_3_chain_frost","boss_3_shards","boss_3_slow","boss_4_hole",
 "boss_4_eva","boss_4_midnignt","boss_4_eidolon","boss_5_lighting","boss_5_passive","boss_5_bolt","boss_5_passive2","boss_6_torrent","boss_6_armor","boss_6_ravage","boss_6_gush","boss_7_flux","boss_7_magnetic_field","boss_7_spark_wraith","boss_7_hide",
 "boss_8_chrono","boss_8_time_delay","boss_8_illusion","boss_8_lock","boss_9_pssive","boss_9_orbs","boss_9_drain","boss_9_aura","boss_10_passive","boss_10_flame","boss_10_macropyre","boss_10_chain", "ability_npc_boss_barrack1_spell1", "ability_npc_boss_barrack1_spell2", "ability_npc_boss_barrack1_spell3", "ability_npc_boss_barrack1_spell4", "ability_npc_boss_barrack2_spell1", "ability_npc_boss_barrack2_spell2", "ability_npc_boss_barrack2_spell3", "ability_npc_boss_barrack2_spell4","npc_byorrocktar_spell1","npc_byorrocktar_spell2","npc_byorrocktar_spell3","npc_byorrocktar_spell4","npc_byorrocktar_spell5","zuus_boss_circle_lua","zuus_boss_nimbus", "hero_destroyer_first_skill_totem", "hero_destroyer_second_skill", "hero_destroyer_third_skill", "hero_destroyer_ult", "hero_destroyer_fourth_skill", "hero_destroyer_fifth_skill",
@@ -42,10 +42,10 @@ creep_ability = {"polar_furbolg_ursa_warrior_thunder_clap_lane_creep","ogreseal_
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-avaliable_creeps_items = {"item_crimson_guard_lua","item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_bfury_lua","item_greater_crit_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
+avaliable_creeps_items = {"item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_bfury_lua","item_greater_crit_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
 
 
-items_level_inv = {"item_crimson_guard_lua","item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
+items_level_inv = {"item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

@@ -245,8 +245,10 @@ function modifier_spirit_breaker_greater_bash_lua:Bash( target, dmg_multi )
 	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int12") then
 		local enemies = FindUnitsInRadius( self.parent:GetTeamNumber(), target:GetOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 		for _, enemy in pairs(enemies) do
-			damageTable.target = enemy
-			ApplyDamage(damageTable)
+			if not (enemy ~= target and enemy:HasModifier("modifier_spirit_breaker_charge_of_darkness_m_resist_debuff")) then
+				damageTable.victim = enemy
+				ApplyDamage(damageTable)
+			end
 		end
 	else
 		ApplyDamage(damageTable)

@@ -11,6 +11,7 @@ Ability checklist (erase if done/checked):
 --------------------------------------------------------------------------------
 razor_plasma_field_lua = class({})
 LinkLuaModifier( "modifier_razor_plasma_field_lua", "heroes/hero_razor/razor_plasma_field_lua/modifier_razor_plasma_field_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_razor_plasma_field_lua_intrinsic", "heroes/hero_razor/razor_plasma_field_lua/razor_plasma_field_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_ring_lua", "heroes/generic/modifier_generic_ring_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
@@ -19,7 +20,9 @@ function razor_plasma_field_lua:Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_razor.vsndevts", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_razor/razor_plasmafield.vpcf", context )
 end
-
+function razor_plasma_field_lua:GetIntrinsicModifierName()
+	return "modifier_razor_plasma_field_lua_intrinsic"
+end
 function razor_plasma_field_lua:Spawn()
 	if not IsServer() then return end
 end
@@ -34,12 +37,12 @@ end
 
 --------------------------------------------------------------------------------
 -- Ability Start
-function razor_plasma_field_lua:OnSpellStart()
+function razor_plasma_field_lua:OnSpellStart(not_double)
 	
 
 	-- unit identifier
 	local caster = self:GetCaster()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int11") ~= nil and not razor_plasma_field_lua.double_snake then
+	if not not_double and self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int11") ~= nil and not razor_plasma_field_lua.double_snake then
 		Timers:CreateTimer(0.8, function()
 			razor_plasma_field_lua.double_snake = true
 			self:OnSpellStart()
@@ -191,3 +194,23 @@ function razor_plasma_field_lua:PlayEffects( radius, speed )
 
 	return effect_cast
 end
+
+modifier_razor_plasma_field_lua_intrinsic = class({})
+
+function modifier_razor_plasma_field_lua_intrinsic:IsHidden() return true end
+function modifier_razor_plasma_field_lua_intrinsic:IsPurgable() return false end
+function modifier_razor_plasma_field_lua_intrinsic:RemoveOnDeath() return false end
+
+function modifier_razor_plasma_field_lua_intrinsic:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK,
+	}
+end
+
+function modifier_razor_plasma_field_lua_intrinsic:OnAttack(params)
+    self.caster = self:GetCaster()
+    if params.attacker == self:GetParent() and self.caster:FindAbilityByName("npc_dota_hero_razor_int_last") and RollPercentage(10) then
+        self:GetAbility():OnSpellStart(self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_razor_int50") == nil)
+    end
+end
+-- 

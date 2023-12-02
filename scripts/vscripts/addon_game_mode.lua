@@ -25,9 +25,9 @@ require("wearable")
 
 _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = false and IsInToolsMode() -- false
+_G.devmode = true and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
-_G.spawnCreeps =  not IsInToolsMode() -- true
+_G.spawnCreeps =  false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -492,7 +492,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 			end
 		end
 	end
-	if diff_wave.wavedef == "Insane" then
+	if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
 			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
 		end
@@ -858,7 +858,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		else
 			killedUnit:SetTimeUntilRespawn( 10 )
 		end
-		if diff_wave.wavedef == "Insane" then
+		if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
 			local mod = killedUnit:FindModifierByName("modifier_insane_lives")
 			if mod ~= nil then
 				mod:DecrementStackCount()
@@ -1018,9 +1018,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:GetUnitName() == "npc_dota_monkey_king_boss" or
 		killedUnit:GetUnitName() == "npc_titan_boss" or
 		killedUnit:GetUnitName() == "npc_appariion_boss" or
-		killedUnit:GetUnitName() == "npc_crystal_boss") and
-
-		not DataBase:IsCheatMode() then
+		killedUnit:GetUnitName() == "npc_crystal_boss")
+		then
 		--@todo: add 5 boss revard
 		return
 	end
@@ -1088,6 +1087,11 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 				new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 				invoker:AddAbility(new_abil_passive):SetLevel(4)
 			end	
+			if diff_wave.wavedef == "Impossible" then
+				invoker:AddNewModifier(invoker, nil, "modifier_impossible", {})
+				new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+				invoker:AddAbility(new_abil_passive):SetLevel(4)
+			end	
 		else
 			invoker:SetBaseMaxHealth(porog_hp)
 			invoker:SetMaxHealth(porog_hp)
@@ -1109,7 +1113,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			if diff_wave.wavedef == "Insane" then
 				invoker:AddNewModifier(invoker, nil, "modifier_insane", {})
 			end  
-		end	
+			if diff_wave.wavedef == "Impossible" then
+				invoker:AddNewModifier(invoker, nil, "modifier_impossible", {})
+			end  
+		end
 		return
 	end
 	
@@ -1151,7 +1158,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_mines_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 1500, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 	
@@ -1159,7 +1166,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_dust_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2000, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 
@@ -1167,7 +1174,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_cemetery_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2500, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 
@@ -1183,7 +1190,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_snow_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 3500, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)	
 		return
 	end
 	
@@ -1401,6 +1408,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
+		if diff_wave.wavedef == "Impossible" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
 		return
 	end
 	
@@ -1420,6 +1430,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end	
 		if diff_wave.wavedef == "Insane" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
+		if diff_wave.wavedef == "Impossible" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
 		return
@@ -1525,9 +1538,7 @@ function ItemBossSummonChoice(eventIndex, data)
 		[8] = "npc_boss_location8_fake",
 		[9] = "npc_boss_magma_fake"
 	}
-	print(data.index)
 	local boss_spawn = bossTable[tonumber(data.index)]
-	print(boss_spawn)
 	if boss_spawn then
 		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)

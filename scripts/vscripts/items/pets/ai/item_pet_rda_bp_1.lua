@@ -29,7 +29,11 @@ function BanditArcherThink()
 	if owner:HasModifier("modifier_pet_rda_bp_1") then
 		thisEntity:AddNoDraw()
 	else
+<<<<<<< HEAD
+		thisEntity:SetModel("models/items/courier/weplay_beaver/weplay_beaver.vmdl")	
+=======
 		thisEntity:RemoveNoDraw()
+>>>>>>> e536cf5847f43dc66131a3b41497e759a19c3f51
 	end	
 	
 	local flDist = ( thisEntity:GetOwner():GetOrigin() - thisEntity:GetOrigin() ):Length2D()

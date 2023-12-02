@@ -107,7 +107,8 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
                     iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
                     ExtraData =
                     {
-                        usedByPlayer			= 0
+                        usedByPlayer			= 0,
+                        magic_missile_stun = magic_missile_stun,
                     }
                 }
                 ProjectileManager:CreateTrackingProjectile(projectile)
@@ -135,7 +136,7 @@ modifier_vengeful_spirit_magic_missile = class({
 
 function modifier_vengeful_spirit_magic_missile:OnAttack( params )
     caster = self:GetCaster()
-    if params.attacker == self:GetParent() then
+    if params.attacker == self:GetParent() and not params.target:IsMagicImmune() and not params.target:IsBuilding() then
         if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int13") then
             if RollPercentage(9) and not caster:IsSilenced() and self:GetAbility():IsActivated() then
                 self:GetAbility():OnSpellStart(params.target)

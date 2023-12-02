@@ -34,8 +34,8 @@ function teleport_in_donate(event)
         local shop = Shop.pShop[pid]
         for categoryKey, category in pairs(shop) do
             if type(category) == 'table' then
-                for itemKey, item in pairs(category) do
-                    if item.itemname and item.itemname == "item_ticket" and item.now > 0 then
+                for itemKey, item in ipairs(category) do
+                    if type(item) == 'table' and item.itemname and item.itemname == "item_ticket" and item.now > 0 then
                         item.now = item.now - 1
                         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(unit:GetPlayerID()), "SetShopItemCount", { categoryKey = categoryKey, itemKey = itemKey, count = item.now })
                         pass = true

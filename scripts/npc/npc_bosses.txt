@@ -928,6 +928,8 @@
 			"Wearable7" {"ItemDef" "8999"}
 			}			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_forest_boss"	
 	{
@@ -1005,6 +1007,8 @@
 			"Wearable7" {"ItemDef" "8999"}
 			}			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 		"npc_pen"
 	{
@@ -1159,6 +1163,8 @@
 			"Wearable7" {"ItemDef" "7933"}//("Hook of the Royal Butcher")
 			}	
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_village_boss"	
 	{
@@ -1236,6 +1242,8 @@
 			"Wearable7" {"ItemDef" "7933"}//("Hook of the Royal Butcher")
 			}	
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Mines
@@ -1314,6 +1322,8 @@
 				"Wearable6" { "ItemDef" "6061" }
 			}	
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_mines_boss"	
 	{
@@ -1392,6 +1402,8 @@
 				"Wearable6" { "ItemDef" "6061" }
 			}	
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Dust
@@ -1470,6 +1482,8 @@
 				"Wearable4" { "ItemDef" "8117" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_dust_boss"	
 	{
@@ -1546,6 +1560,8 @@
 				"Wearable4" { "ItemDef" "8117" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Cemetery
@@ -1623,6 +1639,8 @@
 		{	
 			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_cemetery_boss_fake"
 	{
@@ -1697,6 +1715,8 @@
 		{	
 			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Swamp
@@ -1777,6 +1797,8 @@
 			"Wearable5" {"ItemDef" "9338"}//tail("Tail of the Virulent Krait")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_swamp_boss"
 	{
@@ -1855,6 +1877,8 @@
 			"Wearable5" {"ItemDef" "9338"}//tail("Tail of the Virulent Krait")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	
 "medusa_ward"
@@ -1974,6 +1998,8 @@
 			}
 
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_snow_boss"
 	{
@@ -2041,6 +2067,8 @@
 				}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_snow_boss_feeld_caster"
     {
@@ -2162,6 +2190,8 @@
 				"Wearable5" {"ItemDef" "695"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	"npc_boss_location8"
 	{	
@@ -2236,6 +2266,8 @@
 				"Wearable5" {"ItemDef" "695"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	///////////////////////////////////////////////////////////////////////////////
 	//Magma
@@ -2310,6 +2342,8 @@
 				"Wearable7" {"ItemDef" "12270"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_boss_magma_fake"
 	{
@@ -2381,6 +2415,8 @@
 				"Wearable7" {"ItemDef" "12270"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Invoker
@@ -2479,6 +2515,8 @@
 				}				
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	///////////////////////////////////////////////////////////////////////////////
 	//Roshan
@@ -2668,6 +2706,8 @@
 				"Wearable4" {"ItemDef" "23249"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Bara
@@ -2741,6 +2781,8 @@
 				"Wearable7" {"ItemDef" "106"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_bara_boss_kabanchik"
 	{
@@ -2834,6 +2876,8 @@
 			"Wearable6" {"ItemDef" "12819"}//arms("Claws of the Frostbite Dunes")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_dota_monkey_clone_custom"
     {
@@ -3028,6 +3072,8 @@
                 "Wearable4" { "ItemDef" "657" }         // shoulders
             }
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
     }
 	"npc_titan_boss"
 	{
@@ -3095,6 +3141,8 @@
 				"Wearable4" {"ItemDef" "13174"}//back("Shards of the Monument of Ruin")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_elder_spirit"
 	{
@@ -3105,6 +3153,8 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"Ability1"					"ability_npc_titan_boss_stomp"
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_appariion_boss"
 	{
@@ -3169,6 +3219,8 @@
 
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_apparition_snowman"
 	{
@@ -3246,6 +3298,8 @@
                 "Wearable4" { "ItemDef" "4444" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_crystal_spire"
 	{
@@ -3329,6 +3383,8 @@
                 "Wearable4" { "ItemDef" "708" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 
 

@@ -10,7 +10,7 @@ function item_gems_1:OnSpellStart()
 			if self:GetCaster():IsRealHero() then
 					self:GetCaster():EmitSoundParams( "DOTA_Item.InfusedRaindrop", 0, 0.5, 0)
 					local pid = self:GetCaster():GetPlayerID()
-					CustomShop:AddGems(pid, { [1] = RandomInt(40,80) }, not DataBase:IsCheatMode() )
+					CustomShop:AddGems(pid, { [1] = RandomInt(40,80) }, false )
 				UTIL_Remove(self)	
 			end
 		end

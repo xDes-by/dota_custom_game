@@ -62,7 +62,8 @@ function modifier_item_pet_rda_roshan_2:DeclareFunctions()
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_VISUAL_Z_DELTA
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA,
+		MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
 end
 
@@ -176,7 +177,7 @@ end
 
 
 function modifier_pet_rda_roshan_2:GetModifierModelChange(params)
- return "models/courier/baby_rosh/babyroshan_ti10_flying.vmdl"
+ return "models/courier/baby_rosh/babyroshan_ti10_dire_flying.vmdl"
 end
 
 function modifier_pet_rda_roshan_2:GetModifierMoveSpeed_Absolute()

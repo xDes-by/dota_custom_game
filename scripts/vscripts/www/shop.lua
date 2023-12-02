@@ -181,6 +181,13 @@ function Shop:PlayerSetup( pid, items )
 		[4] = _G.SHOP[pid]["gem_4"],
 		[5] = _G.SHOP[pid]["gem_5"],
 	}
+	arr.earned_gems = {
+		[1] = 0,
+		[2] = 0,
+		[3] = 0,
+		[4] = 0,
+		[5] = 0,
+	}
 	Shop.pShop[pid] = arr
 	Shop.pShop[pid].items = items
 	CustomShop:UpdateShopInfoTable(pid)

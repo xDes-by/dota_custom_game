@@ -75,7 +75,7 @@ end
 --------------------------------------------------------------------------------
 -- Interval Effects
 function modifier_leshrac_diabolic_edict_lua:OnIntervalThink()
-	-- find enemies
+	if not self:GetCaster():IsAlive() then return end
 	local enemies = FindUnitsInRadius(
 		self.parent:GetTeamNumber(),	-- int, your team number
 		self.parent:GetOrigin(),	-- point, center point
@@ -191,5 +191,5 @@ function modifier_leshrac_diabolic_edict_permanent_lua:OnIntervalThink()
 
 	local explosion = self:GetAbility():GetSpecialValueFor( "num_explosions" )
 	local duration = self:GetAbility():GetSpecialValueFor( "duration_tooltip" )
-	self:StartIntervalThink( duration/explosion*2 )
+	self:StartIntervalThink( duration/explosion )
 end

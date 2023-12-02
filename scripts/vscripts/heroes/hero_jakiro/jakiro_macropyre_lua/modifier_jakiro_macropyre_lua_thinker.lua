@@ -89,17 +89,19 @@ function modifier_jakiro_macropyre_lua_thinker:OnIntervalThink()
 
 	for _,enemy in pairs(enemies) do
 		-- add modifier
-		enemy:AddNewModifier(
-			self.caster, -- player source
-			self:GetAbility(), -- ability source
-			"modifier_jakiro_macropyre_lua", -- modifier name
-			{
-				duration = self.duration,
-				interval = self.interval,
-				damage = self.damage * self.interval,
-				damage_type = self.abilityDamageType,
-			} -- kv
-		)
+		if not enemy:IsBuilding() then
+			enemy:AddNewModifier(
+				self.caster, -- player source
+				self:GetAbility(), -- ability source
+				"modifier_jakiro_macropyre_lua", -- modifier name
+				{
+					duration = self.duration,
+					interval = self.interval,
+					damage = self.damage * self.interval,
+					damage_type = self.abilityDamageType,
+				} -- kv
+			)
+		end
 	end
 
 end
