@@ -5507,7 +5507,7 @@
         "npc_dota_hero_zuus_agi13_tooltip"      "Длительность 50сек., интервал 1.0, радиус 1200, дальность применения 3000"
 
         "npc_dota_hero_zuus_int6" "С небес"
-        "npc_dota_hero_zuus_int6_description" "25% интеллекта в урон Arc Lightning."
+        "npc_dota_hero_zuus_int6_description" "50% интеллекта в урон Arc Lightning."
         "npc_dota_hero_zuus_int7" "Шторм"
         "npc_dota_hero_zuus_int7_description" "100% интеллекта в урон Lightning Bolt."
         "npc_dota_hero_zuus_int8" "Буря"
@@ -5930,7 +5930,7 @@
         "npc_dota_hero_huskar_int12" "Искупительный огонь"
         "npc_dota_hero_huskar_int12_description" "Конечный урон Burning Spear увеличен на 40%."
         "npc_dota_hero_huskar_int13" "Жертвенное Копье"
-        "npc_dota_hero_huskar_int13_description" "Копья использует 0.1% вашего здоровья, урон может быть усилен"
+        "npc_dota_hero_huskar_int13_description" "Копья использует 1% вашего здоровья, урон может быть усилен"
 
         //Broodmother//
 		
@@ -6386,15 +6386,16 @@
         "npc_dota_hero_razor_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_razor_agi7_description" "Урон за стак Static link для героя х2."
         "npc_dota_hero_razor_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_razor_agi8_description" "Static link вы получаете все атрибуты, по 1 всех атрибутов в секунду, длительность 1 * уровень способности."
+        "npc_dota_hero_razor_agi8_description" "Static link вы получаете все атрибуты, по 1 * уровень способности в секунду."
+        "npc_dota_hero_razor_agi8_tooltip" "Вы получаете атрибуты только в течении 5 сек. "
         "npc_dota_hero_razor_agi9" "Интеллектуальная Быстрота"
         "npc_dota_hero_razor_agi9_description" "Герой атакует цели связки Static link c интервалом х3 интервал между атаками героя, макс. интервал 1.5 сек."
         "npc_dota_hero_razor_agi10" "Усиленное Проклятие"
         "npc_dota_hero_razor_agi10_description" "Длительность стаков Static link для героя х2."
         "npc_dota_hero_razor_agi11" "Аура Проклятия"
-        "npc_dota_hero_razor_agi11_description" "1/5 суммы всех атрибутов в урон Eye of the Storm"  // +
+        "npc_dota_hero_razor_agi11_description" "1/3 суммы всех атрибутов в урон Eye of the Storm"  // +
         "npc_dota_hero_razor_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_razor_agi12_description" "5% шанс получить стак навсегда."
+        "npc_dota_hero_razor_agi12_description" "15% шанс получить стак навсегда."
         "npc_dota_hero_razor_agi12_tooltip" "Кража урона через такую связку на 40% медленней."
         "npc_dota_hero_razor_agi13"	"Всепроникающая Мудрость"
         "npc_dota_hero_razor_agi13_description"	"Static link - аура, работает на всех врагов в радиусе."
@@ -6407,7 +6408,7 @@
         "npc_dota_hero_razor_int8" "Слово По Области"
         "npc_dota_hero_razor_int8_description" "50% интеллекта в урон Plasma Field" //+
         "npc_dota_hero_razor_int9" "Стакующая Мудрость"
-        "npc_dota_hero_razor_int9_description" "+75% интеллекта в урон Eye of the Storm."  // +
+        "npc_dota_hero_razor_int9_description" "+100% интеллекта в урон Eye of the Storm."  // +
         "npc_dota_hero_razor_int10" "Командная Работа"
         "npc_dota_hero_razor_int10_description" "50% интеллекта в урон Storm Surge."    //  +
         "npc_dota_hero_razor_int11" "Командная Работа"
@@ -6775,7 +6776,7 @@
         "npc_dota_hero_leshrac_str9" "Проклятие Изнурения"
         "npc_dota_hero_leshrac_str9_description" "Split Earth срабатывает в том же месте ещё 3 раза с промежутком в 5 сек. При каждом срабатывании радиус увеличивается на 55."     // +
         "npc_dota_hero_leshrac_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 800." //
+        "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 1000." //
         "npc_dota_hero_leshrac_str11" "Щит Мудреца"
         "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не найдено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 50%." // +
         "npc_dota_hero_leshrac_str12" "Глобальный Гром"
@@ -6784,7 +6785,7 @@
         "npc_dota_hero_leshrac_str13_description" "Lightning Storm бьет каждую цель по 2 раза."     //  +
 
         "npc_dota_hero_leshrac_agi6" "Ближний Разум"
-        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 2 сек. после того как цель покинула ауру." //
+        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 5 сек. после того как цель покинула ауру." //
         "npc_dota_hero_leshrac_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_leshrac_agi7_description" "Split Earth можно применить на область 700, удары будут срабатывать в случайных местах это области 10 раз, с задержкой между ударами 0.5сек." // +
         "npc_dota_hero_leshrac_agi7_tooltip" "Талант возможно отключить, если отключить авто-каста."
@@ -7029,7 +7030,7 @@
         "npc_dota_hero_riki_agi12" "Всепроникающая Мудрость"
         "npc_dota_hero_riki_agi12_description" "Tricks of the Trade интервал атак снижен, +50% скорости атаки героя." // +
         "npc_dota_hero_riki_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_riki_agi13_description" "x2 скорость атаки в Tricks of the Trade" // +
+        "npc_dota_hero_riki_agi13_description" "Атаки в 2 раза чаще, если внутри Tricks of the Trade только одна цель." // +
 		
         "npc_dota_hero_riki_int6" "Накопление Интеллекта"
         "npc_dota_hero_riki_int6_description" "-50% перезарядка Tricks of the Trade." // +

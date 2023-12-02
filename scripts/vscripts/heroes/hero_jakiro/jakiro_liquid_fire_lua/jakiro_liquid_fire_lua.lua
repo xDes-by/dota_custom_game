@@ -33,6 +33,7 @@ function jakiro_liquid_fire_lua:OnOrbFire( params )
 end
 
 function jakiro_liquid_fire_lua:OnOrbImpact( params )
+	if params.target:IsBuilding() then return end
 	local caster = self:GetCaster()
 
 	-- get data

@@ -3829,7 +3829,7 @@ heroTalentsData = {
             place = {"agi 6"}, url = "/npc_dota_hero_razor/agi/4.png", name = "npc_dota_hero_razor_agi6", 
         },
         npc_dota_hero_razor_agi7 = {
-            place = {"agi 7"}, url = "/npc_dota_hero_razor/agi/0.png", name = "npc_dota_hero_razor_agi7", 
+            place = {"agi 7"}, url = "/npc_dota_hero_razor/agi/2.png", name = "npc_dota_hero_razor_agi7", 
         },
         npc_dota_hero_razor_agi8 = {
             place = {"agi 8"}, url = "/npc_dota_hero_razor/agi/2.png", name = "npc_dota_hero_razor_agi8", 
@@ -3838,7 +3838,7 @@ heroTalentsData = {
             place = {"agi 9"}, url = "/npc_dota_hero_razor/agi/2.png", name = "npc_dota_hero_razor_agi9", 
         },
         npc_dota_hero_razor_agi10 = {
-            place = {"agi 10"}, url = "/npc_dota_hero_razor/agi/0.png", name = "npc_dota_hero_razor_agi10", 
+            place = {"agi 10"}, url = "/npc_dota_hero_razor/agi/2.png", name = "npc_dota_hero_razor_agi10", 
         },
         npc_dota_hero_razor_agi11 = {
             place = {"agi 11"}, url = "/npc_dota_hero_razor/agi/4.png", name = "npc_dota_hero_razor_agi11", 
@@ -3903,7 +3903,7 @@ heroTalentsData = {
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_death_prophet_agi6 = {
-            place = {"agi 6"}, url = "/npc_dota_hero_death_prophet/agi/0.png", name = "npc_dota_hero_death_prophet_agi6", 
+            place = {"agi 6"}, url = "/npc_dota_hero_death_prophet/agi/4.png", name = "npc_dota_hero_death_prophet_agi6", 
         },
         npc_dota_hero_death_prophet_agi7 = {
             place = {"agi 7"}, url = "/npc_dota_hero_death_prophet/agi/1.png", name = "npc_dota_hero_death_prophet_agi7", 

@@ -39,6 +39,9 @@ function modifier_riki_tricks_of_the_trade_lua:OnCreated()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi12") then
 		self.attack_count = self.attack_count + duration / (1 / (self:GetCaster():GetAttacksPerSecond() / 2))
 	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi13") then
+		self.attack_count = self.attack_count * 2
+	end
 	self.current_attack_count = self.attack_count
 	self.attack_speed = duration / self.attack_count
 	self.current_interval = 0
@@ -87,10 +90,6 @@ function modifier_riki_tricks_of_the_trade_lua:OnIntervalThink()
             self:Destroy()
         end
 		local duration = self:GetAbility():GetSpecialValueFor("channel_duration")
-		self.attack_speed = duration / self.attack_count
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi13") and #targets <= 1 then
-			self.attack_speed = self.attack_speed / 2
-		end
     end
 end
 

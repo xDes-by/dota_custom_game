@@ -178,7 +178,7 @@ function modifier_lina_fiery_soul_lua:PlayEffects()
 end
 
 function modifier_lina_fiery_soul_lua:OnAttackLanded(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_agi_last") ~= nil and RandomInt(1, 100) <= 5 and params.attacker:FindAbilityByName("lina_laguna_blade_lua") ~= nil then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_agi_last") ~= nil and RandomInt(1, 100) <= 5 and params.attacker:FindAbilityByName("lina_laguna_blade_lua") ~= nil and not params.attacker:IsMagicImmune() and not params.attacker:IsBuilding() then
 		if params.attacker:FindAbilityByName("lina_laguna_blade_lua"):IsTrained() then
 			_G.lagunatarget = params.target
 			params.attacker:FindAbilityByName("lina_laguna_blade_lua"):OnSpellStart()

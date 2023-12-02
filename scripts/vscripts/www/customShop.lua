@@ -56,8 +56,12 @@ end
 function CustomShop:AddGems(pid, info, sendToServer)
     for i = 1, 5 do
         Shop.pShop[pid].gems[i] = Shop.pShop[pid].gems[i] + (info[i] or 0)
+        if sendToServer == false then
+            Shop.pShop[pid].earned_gems[i] = Shop.pShop[pid].earned_gems[i] + (info[i] or 0)
+        end
     end
     self:UpdateShopInfoTable(pid)
+    
     DataBase:Send(DataBase.link.AddGems, "GET", {
         data = {
             [1] = info[1] or 0,

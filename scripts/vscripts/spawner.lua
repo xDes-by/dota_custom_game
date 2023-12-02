@@ -115,7 +115,7 @@ function Spawner:settings()
 	health = health * 1.16
 	damage_creeps = damage_creeps * 1.16
 
-	set_health = math.floor(health + health*(wave_new/2))
+	set_health = math.floor(health + health*(wave_new/2)) * 2
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -132,7 +132,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2))
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2)) * 2
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -167,7 +167,7 @@ end
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function Spawner:SpawnCreeps(name)   	
+function Spawner:SpawnCreeps(name)
 	local barack = Entities:FindByName( nil, "badguys_creeps")  
 	if barack ~= nil then 		
 		for i = 1, count_creeps do
@@ -320,7 +320,7 @@ function creeps_line_notification()
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = count_creeps + count_comandir
-	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
+	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
 end
 
 function bosses_line_notification(creeps_name)
@@ -337,7 +337,7 @@ function bosses_line_notification(creeps_name)
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = 1
-	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
+	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
 end
 
 function CreatePatroolWave()
@@ -372,7 +372,7 @@ function CreatePatroolWave()
 		-- 	end, 0.1 )
 		-- end
 	else
-		CustomGameEventManager:Send_ServerToAllClients( "RandomWaveNoification", {} )
+		Notifications:TopToAll({text="random_wave_notification",style={color="red",["font-size"]="60px"}, duration=10})
 		for k,name in pairs(PatroolWave[_G.don_spawn_level]) do
 			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
 			unit:AddNewModifier(unit, nil, "modifier_custom_vision", {})

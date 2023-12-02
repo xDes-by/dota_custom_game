@@ -65,7 +65,7 @@ function modifier_leshrac_pulse_nova_intrinsic_lua:GetModifierOverrideAbilitySpe
 		if data.ability_special_value == "radius" then
 			local radius = self:GetAbility():GetLevelSpecialValueNoOverride( "radius", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_str10") then
-                radius = 1000
+                radius = 800
             end
             return radius
 		end

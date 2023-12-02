@@ -40,10 +40,10 @@ function modifier_arc_lightning_intrinsic:GetModifierOverrideAbilitySpecialValue
 		if data.ability_special_value == "arc_damage" then
 			local arc_damage = self:GetAbility():GetLevelSpecialValueNoOverride( "arc_damage", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int6") then
-                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.5
+                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.25
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int13") then
-                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 1.0
+                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.5
             end
             return arc_damage
 		end
@@ -61,7 +61,7 @@ end
 function modifier_arc_lightning_intrinsic:OnAttack(params)
     self.caster = self:GetCaster()
     self.ability = self:GetAbility()
-    if params.attacker == self:GetParent() and self.caster:FindAbilityByName("npc_dota_hero_zuus_agi6") and self.ability:IsFullyCastable() then
+    if params.attacker == self:GetParent() and self.caster:FindAbilityByName("npc_dota_hero_zuus_agi6") and self.ability:IsFullyCastable() and not params.target:IsMagicImmune() and not params.target:IsBuilding() then
         self.caster:SetCursorCastTarget( params.target )
         self.ability:OnSpellStart()
         self.ability:UseResources( true, false, false, true )

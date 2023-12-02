@@ -25,9 +25,6 @@ function modifier_leshrac_pulse_nova_burn_lua:OnIntervalThink()
 end
 
 function modifier_leshrac_pulse_nova_burn_lua:OnDestroy()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_agi6") then
-        self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_leshrac_pulse_nova_burn2_lua", {duration = 5})
-    end
 end
 
 modifier_leshrac_pulse_nova_burn2_lua = class({})

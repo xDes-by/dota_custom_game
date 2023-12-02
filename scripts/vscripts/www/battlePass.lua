@@ -349,6 +349,7 @@ function BattlePass:OnInventorySelection(t)
         if data.hero_name == PlayerResource:GetSelectedHeroName(pid) and checked == true then
             Wearable:SetAlternative( pid )
         elseif data.hero_name == PlayerResource:GetSelectedHeroName(pid) and checked == false then
+            Wearable:ClearWear(pid)
             Wearable:SetDefault( pid )
         end
     end
@@ -523,7 +524,7 @@ function BattlePass:GemsReward(reward_data, send_data, pid)
         send_data.gems[3] = send_data.gems[3] + add_value
         send_data.gems[4] = send_data.gems[4] + add_value
         send_data.gems[5] = send_data.gems[5] + add_value
-        CustomShop:AddGems(pid, send_data.gems, false)
+        CustomShop:AddGems(pid, send_data.gems, not DataBase:IsCheatMode())
     end
     return send_data
 end

@@ -161,9 +161,11 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 			end
 			for _, enemy in pairs(enemies) do
 				if enemy == target then
-					ability:DealDamage( caster, enemy, damage, {damage_type = self.damageType} )
-					if critical_strike then
-						SendOverheadEventMessage( parent, OVERHEAD_ALERT_DEADLY_BLOW , enemy, damage, nil )
+					if not enemy:IsBuilding() then
+						ability:DealDamage( caster, enemy, damage, {damage_type = self.damageType} )
+						if critical_strike then
+							SendOverheadEventMessage( parent, OVERHEAD_ALERT_DEADLY_BLOW , enemy, damage, nil )
+						end
 					end
 					if caster:FindAbilityByName("npc_dota_hero_death_prophet_agi_last") then
 						caster:PerformAttack(
@@ -179,7 +181,9 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 					end
 					
 				else
-					ability:DealDamage( caster, enemy, damage * 0.7, {damage_type = self.damageType} )
+					if not enemy:IsBuilding() then
+						ability:DealDamage( caster, enemy, damage * 0.7, {damage_type = self.damageType} )
+					end
 				end
 			end
 		end

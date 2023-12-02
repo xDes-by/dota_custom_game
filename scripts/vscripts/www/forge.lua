@@ -23,7 +23,7 @@ local upgradeCost = {
     [8] = { gold = 100000, soul = "item_divine_soul", max_gems = 1200},
     [9] = { gold = 180000, soul = "item_magma_soul", max_gems = 1350},
     [10] = { gold = 500000, soul = "item_antimage_soul", max_gems = 1500},
-    [11] = {                                         max_gems = 100000},
+    [11] = {                                         max_gems = 2000},
 }
 local midItems = {
     item_tank_cuirass = "item_dragon_soul",
@@ -192,7 +192,7 @@ function Forge:UpdgradeGemsButton(t)
     end
     item.gemType = t.gemType
     item.gemsNumber = (item.gemsNumber or 0) + cost
-    CustomShop:AddGems(t.PlayerID, {[item.gemType] = -cost}, not DataBase:IsCheatMode())
+    CustomShop:AddGems(t.PlayerID, {[item.gemType] = -cost}, false)
     self:ApplyGemModifierToPlayer(t.PlayerID, item, cost)
     self:UpdateItemData(t.PlayerID, t.entindex)
     self:CreateOrUpdateUpgardeItemPanel(t.PlayerID)

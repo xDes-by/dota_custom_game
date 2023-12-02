@@ -45,7 +45,12 @@ function AdminPanel:init()
     CustomGameEventManager:RegisterListener("AdminPanelMidOn",function(_, keys)
         self:MidOn(keys)
     end)
-    
+    CustomGameEventManager:RegisterListener("AdminPanelLocalize",function(_, keys)
+        self:Localize(keys)
+    end)
+    CustomGameEventManager:RegisterListener("AdminPanelCreateBot",function(_, keys)
+        self:CreateBot(keys)
+    end)
 end
 
 
@@ -187,5 +192,60 @@ end
 function AdminPanel:MidOn(t)
     _G.spawnCreeps = true
     CustomGameEventManager:Send_ServerToAllClients( "SendToPlayerError", {error = "МИД ВКЛ"} )
+end
+function AdminPanel:Localize(t)
+    -- local main_file = "addon_russian"
+    -- local compare_to = "addon_english"
+    -- print(LoadKeyValues("scripts/kv/addon_english.txt"))
+    -- print(LoadKeyValues("scripts/kv/addon_russian2.txt"))
+    local main_kv = LoadKeyValues("scripts/kv/addon_russian.txt")["Tokens"]
+    local compare_kv = LoadKeyValues("scripts/kv/addon_english.txt")["Tokens"]
+    for k,v in pairs(main_kv) do
+        if compare_kv[k] == nil then
+            print('"'..k..'"','"'..v..'"')
+        end
+    end
+end
+function AdminPanel:CreateBot(t)
+    local pid = t.PlayerID
+    local hero = PlayerResource:GetSelectedHeroEntity(pid)
+    -- local unit = CreateUnitByName( "npc_dota_hero_axe", Vector(-1295.685547, 4705.719727, 384.000000), true, nil, nil, DOTA_TEAM_GOODGUYS )
+    -- unit:SetControllableByPlayer(pid, true)
+    -- unit:SetOwner(hero)
+    -- unit:SetLevel(500)
+    local unit = CreateUnitByName("npc_dota_hero_axe", Vector(-1295.685547, 4705.719727, 384.000000), false, nil, nil, DOTA_TEAM_GOODGUYS)
+    -- unit:AddItemByName("item_heart_lua"):SetLevel(11)
+    unit:AddItemByName("item_assault_lua"):SetLevel(11)
+    unit:AddItemByName("item_desolator_lua"):SetLevel(11)
+    unit:AddItemByName("item_heart_lua"):SetLevel(11)
+    unit:AddItemByName("item_radiance_lua"):SetLevel(11)
+    unit:AddItemByName("item_kaya_custom_lua"):SetLevel(11)
+    unit:AddItemByName("item_bloodstone_lua"):SetLevel(11)
+
+    -- b1 = 0
+    -- while b1 < 6 do
+    --     add_item = avaliable_creeps_items[RandomInt(1,#avaliable_creeps_items)]
+    --     while not unit:HasItemInInventory(add_item) do
+    --         b1 = b1 + 1
+    --         unit:AddItemByName(add_item):SetLevel(5)
+    --     end
+    -- end
+    -- Timers:CreateTimer(1, function()
+    --     
+    --     unit:AddItemByName("item_assault_lua"):SetLevel(11)
+    --     unit:AddItemByName("item_desolator_lua"):SetLevel(11)
+    --     unit:AddItemByName("item_heart_lua"):SetLevel(11)
+    --     unit:AddItemByName("item_radiance_lua"):SetLevel(11)
+    --     unit:AddItemByName("item_kaya_custom_lua"):SetLevel(11)
+    --     unit:AddItemByName("item_bloodstone_lua"):SetLevel(11)
+    -- end)
+    -- Timers:CreateTimer(0, function()
+    --     ExecuteOrderFromTable({
+    --         UnitIndex = unit:entindex(),
+    --         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+    --         Position = Vector(-1295.685547, 4705.719727, 384.000000),
+    --     })
+    --     return 10
+    -- end)
 end
 AdminPanel:init()

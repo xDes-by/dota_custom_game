@@ -171,7 +171,7 @@ function modifier_viper_corrosive_skin_lua:OnTakeDamage(k)
     local caster = self:GetCaster()
     local damage_flags = k.damage_flags
 
-    if target == caster and not caster:PassivesDisabled() and not attacker:IsOther() and not attacker:IsMagicImmune() and bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) ~= DOTA_DAMAGE_FLAG_HPLOSS then
+    if target == caster and not attacker:IsBuilding() and not caster:PassivesDisabled() and not attacker:IsOther() and not attacker:IsMagicImmune() and bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION and bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) ~= DOTA_DAMAGE_FLAG_HPLOSS then
         if not self:GetAbility():GetToggleState() then
             local mod = attacker:AddNewModifier(caster, self:GetAbility(), "modifier_viper_corrosive_skin_lua_slow", {duration=self.duration})
         end

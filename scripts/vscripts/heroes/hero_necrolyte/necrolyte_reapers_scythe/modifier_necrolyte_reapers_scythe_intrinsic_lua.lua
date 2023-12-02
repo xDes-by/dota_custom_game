@@ -71,7 +71,7 @@ function modifier_necrolyte_reapers_scythe_intrinsic_lua:OnAttack( data )
 		if self.caster:FindAbilityByName("npc_dota_hero_necrolyte_agi13") then
 			chance = 12
 		end
-		if RandomInt(1, 100) <= chance and self:GetAbility():GetAutoCastState() then
+		if RandomInt(1, 100) <= chance and self:GetAbility():GetAutoCastState() and not data.target:IsMagicImmune() and not data.target:IsBuilding() then
 			local mana_cost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel())
 			if mana_cost <= self:GetCaster():GetMana() then 
 				self.caster:SetCursorCastTarget( data.target )

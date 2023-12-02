@@ -27,7 +27,7 @@ function Rules:difficality_modifier(unit)
 	end		
 end	
 
-timer_spawn_time_don = 13
+timer_spawn_time_don = 2
 
 function Rules:spawn_creeps_don()
 	Timers:CreateTimer(function()

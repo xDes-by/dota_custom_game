@@ -213,10 +213,10 @@ _G.basicshop = {
 		[58] = {name = "treasurie4_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/57.png", spray_path = "particles/spray/57.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie4" }},
 		[59] = {name = "treasurie4_spray11", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/58.png", spray_path = "particles/spray/58.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie4" }},
 		[60] = {name = "treasurie4_spray12", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/59.png", spray_path = "particles/spray/59.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie4" }},
-		[61] = {name = "rp_reward_1000", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_1000.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
+		[61] = {name = "rp_reward_100", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_100.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		[62] = {name = "gems_reward_50", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_50.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		[63] = {name = "gems_reward_500", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_500.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
-		[64] = {name = "roshan_reward_1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_1.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
+		[64] = {name = "roshan_reward_1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_2.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		[65] = {name = "treasurie5_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/60.png", spray_path = "particles/spray/60.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
 		[66] = {name = "treasurie5_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/61.png", spray_path = "particles/spray/61.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
@@ -230,10 +230,10 @@ _G.basicshop = {
 		[74] = {name = "treasurie5_spray10", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/69.png", spray_path = "particles/spray/69.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
 		[75] = {name = "treasurie5_spray11", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/70.png", spray_path = "particles/spray/70.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
 		[76] = {name = "treasurie5_spray12", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/71.png", spray_path = "particles/spray/71.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
-		[77] = {name = "rp_reward_1500", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_1500.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
+		[77] = {name = "rp_reward_150", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_150.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		[78] = {name = "gems_reward_75", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_75.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		[79] = {name = "gems_reward_750", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_750.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
-		[80] = {name = "roshan_reward_2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_2.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
+		[80] = {name = "roshan_reward_2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_1.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		
 	},
 	[5] = {

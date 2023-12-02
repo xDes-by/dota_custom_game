@@ -736,7 +736,7 @@
         "SoundSet"          "Creep_Good_Range"          // Name of sound set.
         "Level"           "5"
 		"MinimapIcon"        "minimap_empty"
-		"MinimapIconSize"    "700"
+		"MinimapIconSize"    "500"
 		"MinimapDisableTint" "1"
         "UnitLabel"         "healing_ward"
         "ArmorPhysical"       "0"     // Physical protection.
