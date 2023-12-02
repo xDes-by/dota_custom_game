@@ -65,7 +65,10 @@ function modifier_juggernaut_fervor_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
 		MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
-		MODIFIER_EVENT_ON_ATTACK
+		MODIFIER_EVENT_ON_ATTACK,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
 	}
 	return funcs
 end
@@ -104,7 +107,9 @@ function modifier_juggernaut_fervor_lua:OnAttack( params )
 			if self.currentTarget==params.target then
 				self:AddStack()
 			else
-				if not abil then
+				if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_agi50")  then
+					self:SetStackCount(self:GetStackCount() * 0.7)
+				else
 					self:ResetStack()
 				end
 				self.currentTarget = params.target
@@ -166,5 +171,23 @@ end
 function modifier_juggernaut_fervor_lua:ResetStack()
 	if not self:GetParent():PassivesDisabled() then
 		self:SetStackCount(0)
+	end
+end
+
+function modifier_juggernaut_fervor_lua:GetModifierBonusStats_Strength()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_agi50") then
+		return self:GetAbility():GetLevel() * 10 * self:GetStackCount()
+	end
+end
+
+function modifier_juggernaut_fervor_lua:GetModifierBonusStats_Agility()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_agi50") then
+		return self:GetAbility():GetLevel() * 10 * self:GetStackCount()
+	end
+end
+
+function modifier_juggernaut_fervor_lua:GetModifierBonusStats_Intellect()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_agi50") then
+		return self:GetAbility():GetLevel() * 10 * self:GetStackCount()
 	end
 end

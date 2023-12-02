@@ -17,7 +17,7 @@ local special_bonus_unique_npc_dota_hero_luna_int50 = caster:FindAbilityByName("
 		damage = caster:GetStrength()
 	end
  	if special_bonus_unique_npc_dota_hero_luna_int50 then
-		damage = damage + caster:GetIntellect()*2
+		damage = damage + caster:GetIntellect()
 	end
 	local enemy = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		if ability:IsFullyCastable() then		
@@ -46,7 +46,7 @@ local special_bonus_unique_npc_dota_hero_luna_int50 = caster:FindAbilityByName("
 				ApplyDamage(damageTable)	
 				
 				local abil = caster:FindAbilityByName("npc_dota_hero_luna_int7")
-				if abil ~= nil then 
+				if abil ~= nil and special_bonus_unique_npc_dota_hero_luna_int50 == nil then 
 					target_enemy:AddNewModifier(target_enemy,self,"modifier_generic_stunned_lua",{ duration = 1 })
 				end
 			end
