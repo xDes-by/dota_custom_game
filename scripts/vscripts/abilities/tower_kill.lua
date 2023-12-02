@@ -12,6 +12,7 @@ end
 function tower_kill:OnOwnerDied()
     local unit = table.random(_G.Miniboses)
     _G.Miniboses = table.remove_item(_G.Miniboses, unit)
+    GameRules:SendCustomMessage("try spawn unit " .. unit,0,0)
     CreateUnitByNameAsync(unit, self:GetCaster():GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS, function(creep)
         creep:SetBaseDamageMin(10000)
         creep:SetBaseDamageMax(12000)

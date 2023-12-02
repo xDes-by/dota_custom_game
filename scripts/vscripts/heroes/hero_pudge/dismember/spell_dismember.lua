@@ -1,8 +1,15 @@
 pudge_dismember_hero_lua = class({})
+
 LinkLuaModifier( "modifier_dismember_lua", "heroes/hero_pudge/dismember/spell_dismember.lua" ,LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_dismember_lua_aura", "heroes/hero_pudge/dismember/spell_dismember.lua" ,LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_pudge_agi50", "heroes/hero_pudge/dismember/spell_dismember.lua" ,LUA_MODIFIER_MOTION_NONE )
 
 
 --------------------------------------------------------------------------------
+
+function pudge_dismember_hero_lua:GetIntrinsicModifierName()
+	return "modifier_dismember_lua_aura"
+end
 
 function pudge_dismember_hero_lua:GetConceptRecipientType()
 	return DOTA_SPEECH_USER_ALL
@@ -17,6 +24,20 @@ function pudge_dismember_hero_lua:GetChannelTime()
 	return self.duration
 end
 
+function pudge_dismember_hero_lua:GetCastRange()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") then
+		return 400
+	end
+	return 160
+end
+
+function pudge_dismember_hero_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") then
+		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+	end
+	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+end
+
 function pudge_dismember_hero_lua:OnAbilityPhaseStart()
 	if IsServer() then
 		self.hVictim = self:GetCursorTarget()
@@ -26,6 +47,9 @@ function pudge_dismember_hero_lua:OnAbilityPhaseStart()
 end
 
 function pudge_dismember_hero_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") then
+		return 0
+	end
 	return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
@@ -131,4 +155,127 @@ end
 
 function modifier_dismember_lua:GetModifierPhysicalArmorBonus()
 	return self.armor or 0
+end
+
+modifier_dismember_lua_aura = class({})
+--Classifications template
+function modifier_dismember_lua_aura:IsHidden()
+	return true
+end
+
+function modifier_dismember_lua_aura:IsDebuff()
+	return false
+end
+
+function modifier_dismember_lua_aura:IsPurgable()
+	return false
+end
+
+function modifier_dismember_lua_aura:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_dismember_lua_aura:IsStunDebuff()
+	return false
+end
+
+function modifier_dismember_lua_aura:RemoveOnDeath()
+	return false
+end
+
+function modifier_dismember_lua_aura:DestroyOnExpire()
+	return false
+end
+
+--------------------------------------------------------------------------------
+-- Aura Effects
+function modifier_dismember_lua_aura:IsAura()
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") then
+		return true
+	end
+	return false
+end
+
+function modifier_dismember_lua_aura:GetModifierAura()
+	return "modifier_special_bonus_unique_npc_dota_hero_pudge_agi50"
+end
+
+function modifier_dismember_lua_aura:GetAuraRadius()
+	return 400
+end
+
+function modifier_dismember_lua_aura:GetAuraDuration()
+	return 0.5
+end
+
+function modifier_dismember_lua_aura:GetAuraSearchTeam()
+	return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_dismember_lua_aura:GetAuraSearchType()
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+end
+
+function modifier_dismember_lua_aura:GetAuraSearchFlags()
+	return 0
+end
+
+modifier_special_bonus_unique_npc_dota_hero_pudge_agi50 = class({})
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:IsDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:IsStunDebuff()
+	return true
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:OnCreated( kv )
+	self.true_damage = self:GetCaster():GetAgility() / 2
+	self.tick_rate = self:GetAbility():GetSpecialValueFor( "tick_rate" )
+
+	if IsServer() then
+		-- self:GetParent():InterruptChannel()
+		self:OnIntervalThink()
+		self:StartIntervalThink( self.tick_rate )
+	end
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:OnIntervalThink()
+	if IsServer() then
+
+		local damage = {
+			victim = self:GetParent(),
+			attacker = self:GetCaster(),
+			damage = self.true_damage,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self:GetAbility()
+		}
+		ApplyDamage( damage )
+
+		-- EmitSoundOn( "Hero_Pudge.Dismember", self:GetParent() )
+	end
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:CheckState()
+	return {
+		-- [MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_INVISIBLE] = false,
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+	}
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:GetModifierMoveSpeedBonus_Percentage()
+	return -50
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:GetModifierAttackSpeedBonus_Constant()
+	return -60
 end

@@ -19,11 +19,17 @@ end
 function modifier_axe_berserkers_call_lua:OnCreated( kv )
 	-- references
 	self.armor = self:GetAbility():GetSpecialValueFor( "bonus_armor" )
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_agi50") then
+		self.armor = self.armor * 5
+	end
 end
 
 function modifier_axe_berserkers_call_lua:OnRefresh( kv )
 	-- references
 	self.armor = self:GetAbility():GetSpecialValueFor( "bonus_armor" )
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_agi50") then
+		self.armor = self.armor * 5
+	end
 end
 
 function modifier_axe_berserkers_call_lua:OnRemoved()

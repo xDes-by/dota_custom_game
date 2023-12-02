@@ -2,6 +2,9 @@ modifier_axe_counter_helix_lua = class({})
 
 
 function modifier_axe_counter_helix_lua:IsHidden()
+	if self:GetStackCount() ~= 0 then
+		return false
+	end
 	return true
 end
 
@@ -31,6 +34,9 @@ end
 function modifier_axe_counter_helix_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_EVENT_ON_DEATH,
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_HEALTH_BONUS
 	}
 
 	return funcs
@@ -142,6 +148,25 @@ function modifier_axe_counter_helix_lua:OnAttackLanded( params )
 			end
 		end
 	end
+end
+
+function modifier_axe_counter_helix_lua:OnDeath(data)
+	if data.attacker ~= self:GetParent() then
+		return
+	end
+	if data.inflictor and data.inflictor:GetAbilityName() == "axe_counter_helix_lua" then
+		if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_str50") then
+			self:IncrementStackCount()
+		end
+	end
+end
+
+function modifier_axe_counter_helix_lua:GetModifierConstantHealthRegen()
+	return self:GetStackCount() * 3
+end
+
+function modifier_axe_counter_helix_lua:GetModifierHealthBonus()
+	return self:GetStackCount() * 30
 end
 
 --------------------------------------------------------------------------------

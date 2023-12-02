@@ -67,6 +67,9 @@ function medusa_mystic_snake_lua:OnSpellStart()
 	local base_damage = self:GetSpecialValueFor( "snake_damage" )
 	local mult_damage = self:GetSpecialValueFor( "snake_scale" )/100
 
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_int50") then
+		jumps = jumps * 2
+	end
 	local base_stun = 0
 	local mult_stun = 0
 	
@@ -244,16 +247,20 @@ function medusa_mystic_snake_lua:OnProjectileHit_ExtraData( target, location, Ex
 	local next_target = nil
 	for _,enemy in pairs(enemies) do
 
-		-- check if it is already hit
 		local found = false
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_int50") then
+			goto continue
+		end
+		-- check if it is already hit
 		for unit,_ in pairs(data.hit_units) do
 			if enemy==unit then
 				found = true
 				break
 			end
 		end
+		::continue::
 
-		if not found then
+		if enemy ~= target then
 			next_target = enemy
 			break
 		end

@@ -102,6 +102,7 @@
 		// "ItemPurchasable"				"0"
 		"ItemSellable"					"0"
 		// "ItemDroppable" 				"0"
+		"AbilityChannelTime"			"5"
 		"AbilityValues"
 		{
 

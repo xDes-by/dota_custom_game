@@ -319,10 +319,12 @@ function donate_level()
 		_G.npc_smithy_mound = CreateUnitByName("npc_smithy_mound", Vector(-10417, 1217, 389), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_kill", {duration = 300})
 		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_attack_immune", {})
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_pips", {pips_count = 1})
 		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-				hHero:AddItemByName("item_smithy_pickaxe")
+				local item = hHero:AddItemByName("item_smithy_pickaxe")
+				item:SetContextThink("self_destroy", function(item) UTIL_Remove(item) end, 300)
 			end
 		end
 	end

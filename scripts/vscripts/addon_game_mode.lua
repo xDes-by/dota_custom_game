@@ -25,7 +25,7 @@ require("wearable")
 
 _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = true and IsInToolsMode() -- false
+_G.devmode = false and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
 _G.spawnCreeps =  not IsInToolsMode() -- true
 
@@ -467,6 +467,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
 			Wearable:SetDefault(npc)
+			npc:AddNewModifier(npc, nil, "modifier_wearable_pet", {})
 		end
 		
 		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)

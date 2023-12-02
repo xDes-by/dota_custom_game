@@ -44,27 +44,24 @@ function modifier_gem4:OnRefresh(data)
 end
 
 function modifier_gem4:OnIntervalThink()
-	self.total_bonus = 0
-	self.itms_count = 0
-	self.sum_ability_level = 0
-	self.max_bonus = 0
+	local t = {}
 	for ability,gem_bonus in pairs(self.tbl_origin) do
-		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) then --проверяем предмет в инвентаре
+		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) or ability:GetItemSlot() > 5 then --проверяем предмет в инвентаре
 			self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
 		else
 			self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
-			self.sum_ability_level = self.sum_ability_level + ability:GetLevel()
-			self.itms_count = self.itms_count + 1
-			self.max_bonus = self.max_bonus + self.bonus[ability:GetLevel()]
 		end
-		self.total_bonus = self.total_bonus + self.tbl_current[ability]
+		if self.tbl_current[ability] ~= 0 then
+			local bonus_per_stone = self.bonus[ability:GetLevel()] / (self.bonus[ability:GetLevel()] + self.tbl_current[ability])
+			local item_bonus = bonus_per_stone * self.bonus[ability:GetLevel()]
+			print(item_bonus)
+			table.insert( t, item_bonus)
+		end
 	end
-	if self.max_bonus ~= 0 then
-		local bonus_per_stone = self.max_bonus / (self.max_bonus + self.total_bonus)
-		local avg_level = self.sum_ability_level / self.itms_count
-		self.value_bonus_to_return = bonus_per_stone * self.total_bonus * avg_level
-	else
-		self.value_bonus_to_return = 0
+
+	self.value_bonus_to_return = 0
+	for _,v in pairs(t) do
+		self.value_bonus_to_return = self.value_bonus_to_return + v
 	end
 	self:SendBuffRefreshToClients()
 end

@@ -2269,6 +2269,9 @@
 		"DOTA_Tooltip_ability_alchemist_greevils_greed_lua_Description"					"Позволяет синтезировать больше золота из врагов. Применив способность герой выкопает перед собой рандомную руну."
 		"DOTA_Tooltip_ability_alchemist_greevils_greed_lua_bonus_gold"					"НАЧАЛЬНЫЙ БОНУС:"
 
+        "DOTA_Tooltip_modifier_alchemist_greevils_greed_lua"		"Greevils Greed"
+        "DOTA_Tooltip_modifier_alchemist_greevils_greed_lua_Description"		"Бонус ко всем атрибутам %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%"
+
         "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua"								"CORROSIVE WEAPONRY"
 		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_Description"					"Покрытое кислотой оружие героя каждой атакой снижает сопротивление эффектам и наносит периодический урон."
 		"DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_max_stacks"			    "МАКС.СТАКОВ:"
@@ -2857,6 +2860,9 @@
         "dota_tooltip_ability_axe_counter_helix_lua_trigger_chance" "%ШАНС КОНТРАТАКИ:"
         "dota_tooltip_ability_axe_counter_helix_lua_cooldown" "ПЕРЕЗАРЯДКА:"
 
+        "DOTA_Tooltip_modifier_axe_counter_helix_lua"		"Counter Helix"
+        "DOTA_Tooltip_modifier_axe_counter_helix_lua_Description"		"Восстановление здоровья увеличено на %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%, здоровье увеличено на %dMODIFIER_PROPERTY_HEALTH_BONUS%"
+    
         "dota_tooltip_ability_axe_blood_lua" "Strong Skin"
         "dota_tooltip_ability_axe_blood_lua_description" "В бесконечных сражениях герой заколил свое тело увеличив восстановление здоровья и броню."
         "dota_tooltip_ability_axe_blood_lua_lore" "Кровь воина течёт в венах Акса, делая его намного выносливее других варворов."
@@ -7410,5 +7416,10 @@
 
         "DOTA_Tooltip_modifier_rune_multicast"		"Мультикаст"
         "DOTA_Tooltip_modifier_rune_multicast_Description"		"С шансом 5% способность может не потратить ману и не запустить передарядку"
+
+        "npc_smithy_mound" "Гора кристаллов"
+
+
+    
     }
 }

@@ -47,7 +47,10 @@ end
 modifier_alchemist_greevils_greed_lua = class({})
 
 function modifier_alchemist_greevils_greed_lua:IsHidden()
-	return true
+	if self:GetStackCount() == 0 then
+		return true
+	end
+	return false
 end
 
 function modifier_alchemist_greevils_greed_lua:IsPurgable()
@@ -70,6 +73,7 @@ function modifier_alchemist_greevils_greed_lua:OnCreated()
 	if not IsServer() then
 		return
 	end
+	self:SetStackCount(0)
 	self.table = {}
 	for iPlayerID = 1,PlayerResource:GetPlayerCount() - 1 do
 		if PlayerResource:IsValidPlayer(iPlayerID) then
@@ -99,11 +103,17 @@ end
 function modifier_alchemist_greevils_greed_lua:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_DEATH,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS
 	}
 end
 
 function modifier_alchemist_greevils_greed_lua:OnDeath( params )
 if self:GetParent():PassivesDisabled() then return end
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50")	then
+		self:IncrementStackCount()
+	end
 	self.hero_bonus = self:GetAbility():GetSpecialValueFor( "bonus_gold" )
 	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_alchemist_int9")	
 	if abil ~= nil then 
@@ -140,4 +150,16 @@ function modifier_alchemist_greevils_greed_lua:PlayEffects2(hero, bonus)
 	ParticleManager:SetParticleControl(effect_cast, 2, Vector(2, string.len(bonus) + 1, 0))
 	ParticleManager:SetParticleControl(effect_cast, 3, Vector(255, 200, 33) )-- Gold
 	ParticleManager:ReleaseParticleIndex( effect_cast )
+end
+
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Strength()
+	return self:GetStackCount()
+end
+
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Intellect()
+	return self:GetStackCount()
+end
+
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Agility()
+	return self:GetStackCount()
 end

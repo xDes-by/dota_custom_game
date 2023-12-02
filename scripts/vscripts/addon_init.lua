@@ -52,6 +52,7 @@ LinkLuaModifier( "effect_projectile_change2", "modifiers/effect_projectile_chang
 LinkLuaModifier( "effect_projectile_change3", "modifiers/effect_projectile_change3", LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "modifier_custom_vision", "modifiers/modifier_custom_vision", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_wearable_pet", "modifiers/modifier_wearable_pet", LUA_MODIFIER_MOTION_NONE )
 
 --таланты
 LinkLuaModifier( "modifier_don1", "abilities/talents/modifiers/modifier_don1", LUA_MODIFIER_MOTION_NONE )

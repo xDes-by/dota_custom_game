@@ -1,6 +1,12 @@
 slark_dark_pact_lua = class({})
 LinkLuaModifier( "modifier_slark_dark_pact_lua", "heroes/hero_slark/slark_dark_pact_lua", LUA_MODIFIER_MOTION_NONE )
 
+function slark_dark_pact_lua:GetAOERadius()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_int50") then
+		return 325 + 400
+	end
+	return 325
+end
 
 function slark_dark_pact_lua:GetManaCost(iLevel)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_slark_int6") ~= nil then 
@@ -57,6 +63,9 @@ function modifier_slark_dark_pact_lua:OnCreated( kv )
 	self.total_damage = self:GetAbility():GetSpecialValueFor( "total_damage" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 	
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_slark_int50") then
+		self.radius = self.radius + 400
+	end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_slark_str10")
 		if abil ~= nil	then 
 		self.total_damage = self:GetCaster():GetHealth()/2
