@@ -95,6 +95,21 @@ function diff_wave:OnGameStateChanged(t)
 				self.talent_scale = self.info[mode].talent_scale
 			end
 		end
+		if diff_index == 5 then
+			GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 400 )
+			GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+		end
+		if diff_index == 6 then
+			for i=400,450 do
+				XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
+			end
+			
+			for i=451,499 do
+				XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
+			end
+			GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 500 )
+			GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+		end
 		CustomNetTables:SetTableValue("GameInfo", tostring("mode"), {
 			name = self.wavedef,
 			scale = self.rating_scale,
@@ -135,3 +150,48 @@ function diff_wave:InitGameMode()
 end 
 
 diff_wave:init()
+
+
+XP_PER_LEVEL_TABLE = {}
+XP_PER_LEVEL_TABLE[0] = 0
+XP_PER_LEVEL_TABLE[1] = 180
+for i=2,25 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 180  
+end
+
+for i=26,50 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 190 
+end
+
+for i=51,75 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200 
+end
+
+for i=76,100 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 210 
+end
+
+for i=101,150 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220
+end
+
+for i=151,200 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 230 
+end
+
+for i=201,250 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250 
+end
+
+for i=251,300 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 270 
+end
+
+for i=301,350 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 290 
+end
+
+for i=351,399 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
+end
+

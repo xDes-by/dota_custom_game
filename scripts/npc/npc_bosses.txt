@@ -2691,8 +2691,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_bara_boss"
 
-		"ArmorPhysical"				"800"			
-		"MagicalResistance"			"90"	
+		"ArmorPhysical"				"1000"			
+		"MagicalResistance"			"95"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"350000"		
@@ -2716,7 +2716,7 @@
 		"MovementTurnRate"			"0.5"		
 
 		"StatusHealth"				"4500000"		
-		"StatusHealthRegen"			"100000"		
+		"StatusHealthRegen"			"1000000"
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"			
 
@@ -3282,8 +3282,8 @@
 		"Ability10"					"mega_boss_rupture"
 		"Ability11"					"mega_boss_mana_remove"
 
-		"ArmorPhysical"				"600"			
-		"MagicalResistance"			"800"	
+		"ArmorPhysical"				"1000"			
+		"MagicalResistance"			"100"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"180000"		

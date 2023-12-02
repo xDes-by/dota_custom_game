@@ -338,7 +338,7 @@
 
 		"AbilityValues"
 		{
-            "duration"				"30"
+            "duration"				"-1"
             "charges_per_flurry"	"6"
             "flurry_bonus_attack_speed"	"1325"
             "time_between_flurries"	"1.5"

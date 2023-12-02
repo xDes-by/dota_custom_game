@@ -1,5 +1,7 @@
 modifier_talent_increase_agi = class({})
 
+LinkLuaModifier("modifier_talent_increase_agi_counter", "abilities/talents/modifier_talent_increase_agi", LUA_MODIFIER_MOTION_NONE)
+
 function modifier_talent_increase_agi:IsHidden()
 	return true
 end
@@ -17,6 +19,10 @@ function modifier_talent_increase_agi:OnCreated(kv)
     self:SetStackCount(1)
     self.parent = self:GetParent()
     self.creeps_killed = 0
+    if not IsServer() then
+        return
+    end
+    self.mod = self:GetParent():AddNewModifier(self:GetParent(), nil, "modifier_talent_increase_agi_counter", {})
 end
 
 function modifier_talent_increase_agi:DeclareFunctions()
@@ -30,6 +36,7 @@ function modifier_talent_increase_agi:OnDeath(params)
     local parent = self:GetParent()
     if IsMyKilledBadGuys(parent, params) then
         self.creeps_killed = self.creeps_killed + 1
+        self.mod:SetStackCount(math.floor(self.creeps_killed * self.value[self:GetStackCount()]))
         parent:CalculateStatBonus(true)
     end
 end
@@ -52,4 +59,35 @@ function IsMyKilledBadGuys(hero, params)
             return false
         end
     end
+end
+
+modifier_talent_increase_agi_counter = class({})
+--Classifications template
+function modifier_talent_increase_agi_counter:IsHidden()
+    return false
+end
+
+function modifier_talent_increase_agi_counter:IsDebuff()
+    return false
+end
+
+function modifier_talent_increase_agi_counter:IsPurgable()
+    return false
+end
+
+function modifier_talent_increase_agi_counter:IsPurgeException()
+    return false
+end
+
+-- Optional Classifications
+function modifier_talent_increase_agi_counter:IsStunDebuff()
+    return false
+end
+
+function modifier_talent_increase_agi_counter:RemoveOnDeath()
+    return false
+end
+
+function modifier_talent_increase_agi_counter:DestroyOnExpire()
+    return false
 end
