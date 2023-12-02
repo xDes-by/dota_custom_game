@@ -626,16 +626,23 @@ function create_runes()
 	end)
 	local power_rune = Entities:FindAllByName("power_rune")
 	local r = {0,1,3,4,6}
-	Timers:CreateTimer(20*60,function()
+	Timers:CreateTimer(1,function()
 		for k,v in pairs(power_rune) do
 			if v.rune then
 				UTIL_Remove(v.rune)
 			end
 			local point = v:GetAbsOrigin()
-			--нужно сделать чтобы все объекты уничтожались при следующем роле
 			if not _G.kill_invoker then
-				if RandomFloat(0, 100) < 0.1 then
-					--@todo:спавн кристалла
+				if true then
+					spawnPoint = point	
+					local newItem = CreateItem( "item_crystal", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
+					local dropRadius = RandomFloat( 50, 100 )
+		
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
+					if loot_duration then
+						newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, loot_duration )
+					end
 				elseif RollPercentage(1) then
 					local souls = {"item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul"}
 					local item_name = souls[RandomInt(1, #souls)]
