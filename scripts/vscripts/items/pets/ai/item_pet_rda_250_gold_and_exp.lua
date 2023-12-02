@@ -27,9 +27,9 @@ function BanditArcherThink()
 	local owner = thisEntity:GetOwner()
 	
 	if owner:HasModifier("modifier_pet_rda_250_gold_and_exp") then
-		thisEntity:SetModel("models/development/invisiblebox.vmdl")
+		thisEntity:AddNoDraw()
 	else
-		thisEntity:SetModel("models/items/courier/loco_the_crocodile_courier/loco_the_crocodile_courier.vmdl")	
+		thisEntity:RemoveNoDraw()	
 	end	
 	
 	local flDist = ( thisEntity:GetOwner():GetOrigin() - thisEntity:GetOrigin() ):Length2D()

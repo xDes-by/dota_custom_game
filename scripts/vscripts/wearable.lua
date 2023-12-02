@@ -1,5 +1,5 @@
 if not Wearable then
-    Wearable = class({})
+    _G.Wearable = class({})
 end
 
 function Wearable:InitWearables()
@@ -49,18 +49,17 @@ function Wearable:SetDefault(Value)
         hUnit = Value
         iPlayerID = hUnit:GetPlayerID()
     end
-
-    Wearable:ChangeModel(hUnit, "SetDefault")
-    if sHreoName == "npc_dota_hero_nevermore" then
-        hUnit:SetRangedProjectileName("particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf")
-    end
     if hUnit.WearableStatus == "default" then
         print("Unit already default")
         return
     end
+	hUnit:AddNewModifier(hUnit, nil, "modifier_wearable_pet", {})
+    Wearable:ChangeModel(hUnit, "SetDefault")
+    if sHreoName == "npc_dota_hero_nevermore" then
+        hUnit:SetRangedProjectileName("particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf")
+    end
     local name = hUnit:GetUnitName()
     for _,model_name in pairs(self.items[name]["default_items"]) do
-        print(model_name)
         hModel = SpawnEntityFromTableSynchronous("prop_dynamic", {model = model_name})
         hModel:SetModel(model_name)
         hModel:SetOwner(hUnit)
@@ -91,6 +90,7 @@ function Wearable:ClearWear(Value)
         print("Unit already clear")
         return
     end
+	hUnit:AddNewModifier(hUnit, nil, "modifier_wearable_pet", {})
     if hUnit:GetUnitName() == "npc_dota_hero_pudge" then
         local t = {
             ["models/heroes/pudge/righthook.vmdl"] = true,
@@ -129,7 +129,6 @@ function Wearable:SetAlternative(Value)
         hUnit = Value
         iPlayerID = hUnit:GetPlayerID()
     end
-
     local sHreoName = hUnit:GetUnitName()
     if not Wearable:HasAlternativeSkin(sHreoName) then
         print("Alternative skin not unlocked")
@@ -139,7 +138,7 @@ function Wearable:SetAlternative(Value)
         print("Unit already alternative")
         return
     end
-
+	hUnit:AddNewModifier(hUnit, nil, "modifier_wearable_pet", {})
     Wearable:ChangeModel(hUnit, "SetAlternative")
     if sHreoName == "npc_dota_hero_nevermore" then
         hUnit:SetRangedProjectileName("amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_base_attack.vpcf")

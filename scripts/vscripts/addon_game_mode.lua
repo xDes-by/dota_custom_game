@@ -467,6 +467,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
 			Wearable:SetDefault(npc)
+			npc:AddNewModifier(npc, nil, "modifier_wearable_pet", {})
 		end
 		
 		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)

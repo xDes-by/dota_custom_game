@@ -31,7 +31,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -120,7 +120,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"500"		// Range within a target can be attacked.
@@ -208,7 +208,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -296,7 +296,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -392,7 +392,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -480,7 +480,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -571,7 +571,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"575"		// Range within a target can be attacked.
@@ -660,7 +660,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -749,7 +749,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -822,7 +822,7 @@
         "Ability1"					"nyx_assassin_burrow_miniboss"         
         "Ability2"					"nyx_assassin_unburrow_miniboss"         
         "Ability3"					"nyx_assassin_impale_miniboss"         
-        "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
+        // "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
         "Ability5"					""
         "Ability6"					""
         "Ability7"					""
@@ -839,7 +839,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
@@ -927,7 +927,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.

@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_himars", "modifiers/modifier_himars.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_himars_attack", "heroes/hero_sniper/sniper_tank/call_tank.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_himars_attack_with_caster", "heroes/hero_sniper/sniper_tank/call_tank.lua", LUA_MODIFIER_MOTION_NONE)
 
 function call_tank(params)
     local caster = params.caster
@@ -24,13 +25,7 @@ function call_tank(params)
 			unit:AddAbility("himars_attack"):SetLevel(1)
 			unit:AddAbility("boom_himars"):SetLevel(1)
 			unit:AddNewModifier(caster,ability,"modifier_invulnerable",{})
-			if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_str50") then
-				unit:SetContextThink("attack_caster_target", function() 
-					if caster:GetAggroTarget() ~= nil then
-						unit:MoveToTargetToAttack(caster:GetAggroTarget())
-					end
-				end, 0.1)
-			end
+			unit:AddNewModifier(caster,ability,"modifier_himars_attack_with_caster",{})
 		end
 	end
 end
@@ -155,4 +150,69 @@ function modifier_himars_attack:CheckState()
 	local state = {
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,}
 	return state
+end
+
+
+modifier_himars_attack_with_caster = class({})
+--Classifications template
+function modifier_himars_attack_with_caster:IsHidden()
+	return true
+end
+
+function modifier_himars_attack_with_caster:IsDebuff()
+	return false
+end
+
+function modifier_himars_attack_with_caster:IsPurgable()
+	return false
+end
+
+function modifier_himars_attack_with_caster:IsPurgeException()
+	return false
+end
+
+-- Optional Classifications
+function modifier_himars_attack_with_caster:IsStunDebuff()
+	return false
+end
+
+function modifier_himars_attack_with_caster:RemoveOnDeath()
+	return true
+end
+
+function modifier_himars_attack_with_caster:DestroyOnExpire()
+	return true
+end
+
+function modifier_himars_attack_with_caster:OnCreated()
+	if not IsServer() then
+		return
+	end
+	self.abi = self:GetParent():GetOwner():FindAbilityByName("himars_attack")
+end
+
+function modifier_himars_attack_with_caster:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK
+	}
+end
+
+function modifier_himars_attack_with_caster:OnAttack(params)
+	if params.attacker == self:GetParent():GetOwner() then
+		local rocket =
+		{
+			Target 				= params.target,
+			Source 				= self:GetParent(),
+			Ability 			= self.abi,
+			EffectName 			= "particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare.vpcf",
+			iMoveSpeed			= 800,
+			vSourceLoc 			= self:GetParent():GetAttachmentOrigin(self:GetCaster():ScriptLookupAttachment("attach_attack1")),
+			bIsAttack 			= false,
+			bVisibleToEnemies 	= true,
+			bReplaceExisting 	= false,
+			flExpireTime 		= GameRules:GetGameTime() + 20,
+		}
+	
+	ProjectileManager:CreateTrackingProjectile(rocket)
+	end
 end

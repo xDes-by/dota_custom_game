@@ -33,6 +33,9 @@ function troll_warlord_battle_trance_lua:OnSpellStart()
 		
 		caster:Purge(false, true, false, false, false)
 		
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_str50") then
+			duration = duration * 2
+		end
 		
 		local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int_last")
 		if abil ~= nil	then 
@@ -175,7 +178,8 @@ function modifier_troll_warlord_battle_trance_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_TOOLTIP,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
-		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
+		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
 	}
 end
 
@@ -243,7 +247,11 @@ function modifier_troll_warlord_battle_trance_lua:GetModifierBaseAttackTimeConst
 	return self.bonus_bat
 end
 
-
+function modifier_troll_warlord_battle_trance_lua:GetModifierTotalDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_str50") then
+		return 200
+	end
+end
 
 ----------------------------------------------------------------------------------------
 modifier_troll_warlord_battle_trance_lua_vision_720 = class({})

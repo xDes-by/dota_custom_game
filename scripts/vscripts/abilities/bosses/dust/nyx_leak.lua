@@ -179,13 +179,19 @@ function modifier_nyx_boss_debuff:DeclareFunctions()
 end
 
 function modifier_nyx_boss_debuff:GetModifierBonusStats_Strength()
-	return self.str * -0.1
+	if self.str then
+		return self.str * -0.1
+	end
 end
 
 function modifier_nyx_boss_debuff:GetModifierBonusStats_Agility()
-	return self.agi * -0.1
+	if self.agi then
+		return self.agi * -0.1
+	end
 end
 
 function modifier_nyx_boss_debuff:GetModifierBonusStats_Intellect()
-	return self.int * -0.1
+	if self.int then
+		return self.int * -0.1
+	end
 end

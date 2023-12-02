@@ -31,7 +31,7 @@ function riki_tricks_of_the_trade_lua:GetCooldown(level)
 end
 
 function riki_tricks_of_the_trade_lua:GetBehavior()
-	if self:GetCaster():FindModifierByName("npc_dota_hero_riki_str12") then
+	if self:GetCaster():HasModifier("npc_dota_hero_riki_str12") then
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING + DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK
 	end
 end
