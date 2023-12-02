@@ -27,6 +27,30 @@
 		}
 	}
 	
+	"item_crystal"
+	{	
+		"BaseClass"         			"item_lua"
+		"ScriptFile"          			"items/points/item_crystal.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"      		"money_logo_3"
+		"Model"             			"models/gem_5.vmdl"
+		"ItemPurchasable"          		"0"
+		"ItemKillable"             		"0"
+		"ItemSellable"             		"0"
+		"ItemCastOnPickup"				"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"      	"FIELD_INTEGER"
+				"wood"      		"1"
+			}
+		}
+	}
+
 "item_points_big"
 	{	
 		"BaseClass"         			"item_lua"

@@ -2286,10 +2286,9 @@
         //Heroes//
 		//////////
 
-        "dota_tooltip_modifier_increase_int" "Стаков интеллекта"
-        "dota_tooltip_modifier_increase_str" "Стаков силы"
-        "dota_tooltip_modifier_increase_agi" "Стаков ловкости"
-        
+        "DOTA_Tooltip_modifier_talent_increase_int_counter" "Стаков интеллекта"
+        "DOTA_Tooltip_modifier_talent_increase_str_counter" "Стаков силы"
+        "DOTA_Tooltip_modifier_talent_increase_agi_counter" "Стаков ловкости"
         //Alchemist//
 
         "DOTA_Tooltip_ability_alchemist_acid_spray_lua"									"Acid Spray"

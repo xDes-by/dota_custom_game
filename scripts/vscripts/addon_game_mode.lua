@@ -324,7 +324,7 @@ function LevelUp (eventInfo)
 	end
 end
 
-HERO_MAX_LEVEL = 500
+HERO_MAX_LEVEL = 300
 
 XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE[0] = 0
@@ -357,25 +357,11 @@ for i=201,250 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250 
 end
 
-for i=251,300 do
+for i=251,299 do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 270 
 end
 
-for i=301,350 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 290 
-end
 
-for i=351,400 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
-end
-
-for i=401,450 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
-end
-
-for i=451,499 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
-end
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -640,16 +626,23 @@ function create_runes()
 	end)
 	local power_rune = Entities:FindAllByName("power_rune")
 	local r = {0,1,3,4,6}
-	Timers:CreateTimer(20*60,function()
+	Timers:CreateTimer(1,function()
 		for k,v in pairs(power_rune) do
 			if v.rune then
 				UTIL_Remove(v.rune)
 			end
 			local point = v:GetAbsOrigin()
-			--нужно сделать чтобы все объекты уничтожались при следующем роле
 			if not _G.kill_invoker then
-				if RandomFloat(0, 100) < 0.1 then
-					--@todo:спавн кристалла
+				if true then
+					spawnPoint = point	
+					local newItem = CreateItem( "item_crystal", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
+					local dropRadius = RandomFloat( 50, 100 )
+		
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
+					if loot_duration then
+						newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, loot_duration )
+					end
 				elseif RollPercentage(1) then
 					local souls = {"item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul"}
 					local item_name = souls[RandomInt(1, #souls)]
@@ -977,7 +970,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
 		local point = Entities:FindByName( nil, "point_bara"):GetAbsOrigin()
-		CreateUnitByName("npc_bara_boss_main", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+		local unit = CreateUnitByName("npc_bara_boss_main", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
@@ -995,13 +989,18 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_bara_boss_main" then
-		CreateUnitByName("npc_sand_king_boss", Vector(7987, -11138, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
-		CreateUnitByName("npc_dota_monkey_king_boss", Vector(7812, -9992, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
-		CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
-		CreateUnitByName("npc_appariion_boss", Vector(9779, -9990, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
-		CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+	if killedUnit:GetUnitName() == "npc_bara_boss_main" and not DataBase:IsCheatMode() then
+		local unit = CreateUnitByName("npc_sand_king_boss", Vector(7987, -11138, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_dota_monkey_king_boss", Vector(7812, -9992, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_appariion_boss", Vector(9779, -9990, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		local antimage = Entities:FindByName( nil, "npc_mega_boss")
+		Rules:difficality_modifier(antimage)
 		if antimage then
 			local m = antimage:FindModifierByName("modifier_invulnerable")
 			if m then

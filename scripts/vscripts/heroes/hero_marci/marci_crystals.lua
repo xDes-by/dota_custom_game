@@ -188,7 +188,7 @@ function modifier_marci_prigok_lua_helper:OnIntervalThink()
     if self.modifier == nil then return end
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(),caster:GetOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,0,0,false)
     if enemies[1] == nil then return end
-    local cd = self:GetAbility():GetSpecialValueFor("cd")
+    local cd = self:GetAbility():GetCooldown()
     self:GetAbility():StartCooldown(cd)
 	local damage = self.modifier:GetStackCount() + self:GetParent():GetAttackDamage()
         if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_int11") ~= nil and RandomInt(1,100) <=35 then 
@@ -207,7 +207,7 @@ function modifier_marci_prigok_lua_helper:OnIntervalThink()
     if self.modifier == nil then return end
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(),caster:GetOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,0,0,false)
     if enemies[1] == nil then return end
-    local cd = self:GetAbility():GetSpecialValueFor("cd") * 0.7
+    local cd = self:GetAbility():GetCooldown() * 0.7
     self:GetAbility():StartCooldown(cd)
 
         local damage = self.modifier:GetStackCount()

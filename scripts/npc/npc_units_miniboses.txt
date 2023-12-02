@@ -372,7 +372,7 @@
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
 
-        "Ability1"					"marci_unleash_miniboss"         
+        "Ability1"					"marci_unleash_miniboss"
         "Ability2"					"slardar_bash_miniboss"         
         "Ability3"					"ability_npc_miniboss_marci_damage_increaser"         
         "Ability4"					""
