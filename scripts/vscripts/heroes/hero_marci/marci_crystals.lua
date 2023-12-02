@@ -30,8 +30,8 @@ function modifier_marci_crystals_day:OnCreated( kv )
 	self.soul_release = self:GetAbility():GetSpecialValueFor("soul_release")
 	if IsServer() then
 		self:SetStackCount(0)
+		self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_marci_crystals_nigth", nil)
 	end
-    self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_marci_crystals_nigth", nil)
 end
 
 modifier_marci_crystals_nigth = class({})
@@ -110,7 +110,11 @@ function modifier_marci_crystals_day:OnDeath( params )
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_str_last") ~= nil and self:GetParent():GetLevel() >= 50 then 
 				count = 5
 			end
-			
+
+			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_marci_str50") ~= nil and self:GetParent():GetLevel() >= 50 then 
+				count = 15
+			end
+
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_marci_agi6") ~= nil then 
 				self:GetParent():ModifyAgility(count)
 			end
@@ -150,6 +154,13 @@ LinkLuaModifier( "modifier_generic_arc_lua", "heroes/hero_marci/marci_crystals",
 
 function marci_prigok:GetIntrinsicModifierName()
 	return "modifier_marci_prigok_lua_helper"
+end
+
+function marci_prigok:GetCooldown(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_marci_int50") then
+		return 3
+	end
+	return self.BaseClass.GetCooldown(self, iLevel)
 end
 
 modifier_marci_prigok_lua_helper = class({})
@@ -443,6 +454,21 @@ function modifier_marci_unleash_lua:OnCreated( kv )
 	self:GetParent():Purge( false, true, false, false, false )
 	self:GetParent():AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_marci_unleash_lua_fury",{})
 	self:PlayEffects()
+	self.special_bonus_unique_npc_dota_hero_marci_agi50 = 0
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_marci_agi50") then
+		self.special_bonus_unique_npc_dota_hero_marci_agi50 = self:GetCaster():GetBaseDamageMax() * 1.5
+	end
+	self:SetHasCustomTransmitterData( true )
+end
+
+function modifier_marci_unleash_lua:AddCustomTransmitterData()
+	return {
+		special_bonus_unique_npc_dota_hero_marci_agi50 = self.special_bonus_unique_npc_dota_hero_marci_agi50,
+	}
+end
+
+function modifier_marci_unleash_lua:HandleCustomTransmitterData( data )
+	self.special_bonus_unique_npc_dota_hero_marci_agi50 = data.special_bonus_unique_npc_dota_hero_marci_agi50
 end
 
 function modifier_marci_unleash_lua:OnRefresh( kv )
@@ -450,6 +476,10 @@ function modifier_marci_unleash_lua:OnRefresh( kv )
 	if not IsServer() then return end
 	self:GetParent():Purge( false, true, false, false, false )
 	self:PlayEffects()
+    self.special_bonus_unique_npc_dota_hero_marci_agi50 = 0
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_marci_agi50") then
+		self.special_bonus_unique_npc_dota_hero_marci_agi50 = self:GetCaster():GetBaseDamageMax() * 1.5
+	end
 end
 
 function modifier_marci_unleash_lua:OnRemoved()
@@ -475,7 +505,8 @@ function modifier_marci_unleash_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
         MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_STATUS_RESISTANCE
+        MODIFIER_PROPERTY_STATUS_RESISTANCE,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
 	}
 
 	return funcs
@@ -514,6 +545,10 @@ function modifier_marci_unleash_lua:PlayEffects()
 
 	-- Create Sound
 	EmitSoundOn( sound_cast, self:GetParent() )
+end
+
+function modifier_marci_unleash_lua:GetModifierPreAttack_BonusDamage()
+	return self.special_bonus_unique_npc_dota_hero_marci_agi50
 end
 
 modifier_marci_unleash_lua_animation = class({})
