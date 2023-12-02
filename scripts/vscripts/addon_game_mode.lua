@@ -1535,7 +1535,6 @@ end
 
 function ItemBossSummonChoice(eventIndex, data)
 	local bossTable = {
-		[0] = "npc_forest_boss_fake",
 		[1] = "npc_forest_boss_fake",
 		[2] = "npc_village_boss_fake",
 		[3] = "npc_mines_boss_fake",
@@ -1546,7 +1545,7 @@ function ItemBossSummonChoice(eventIndex, data)
 		[8] = "npc_boss_location8_fake",
 		[9] = "npc_boss_magma_fake"
 	}
-	local boss_spawn = bossTable[tonumber(data.index)]
+	local boss_spawn = bossTable[tonumber(data.index)+1]
 	if boss_spawn then
 		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)

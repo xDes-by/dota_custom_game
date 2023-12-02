@@ -39,10 +39,10 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 	local max_distance = self:GetSpecialValueFor("max_distance")
 	local damage = self:GetSpecialValueFor("average_damage")
 	if caster:FindAbilityByName("npc_dota_hero_death_prophet_int6") then
-		damage = damage + caster:GetIntellect() * 0.75
+		damage = damage + caster:GetIntellect() * 0.30
 	end
 	if caster:FindAbilityByName("npc_dota_hero_death_prophet_agi8") then
-		damage = damage + caster:GetAgility() * 0.50
+		damage = damage + caster:GetAgility() * 0.40
 	end
 	local damageType = DAMAGE_TYPE_MAGICAL
 	local stateList = {ORBITING = 1, SEEKING = 2, RETURNING = 3}

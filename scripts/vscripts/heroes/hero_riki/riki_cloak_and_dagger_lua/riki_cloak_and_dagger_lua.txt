@@ -23,7 +23,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage_multiplier"				"0.9 1.0 1.1 1.2 1.3 1.4 1.6 1.8 2.0 2.2"
+				"damage_multiplier"				"0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"02"

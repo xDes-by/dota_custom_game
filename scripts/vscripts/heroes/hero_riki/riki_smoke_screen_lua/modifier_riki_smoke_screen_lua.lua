@@ -19,7 +19,7 @@ function modifier_riki_smoke_screen_lua:OnCreated()
 		self.damageTable = {
 			victim = self:GetParent(),
 			attacker = self:GetCaster(),
-			damage = self:GetCaster():GetIntellect() * 0.2,
+			damage = self:GetCaster():GetIntellect() * 0.5 * 0.2,
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			ability = self:GetAbility(), --Optional.
 		}
@@ -47,7 +47,6 @@ function modifier_riki_smoke_screen_lua:DeclareFunctions()
 		-- Solid Fog
 		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACK_START,
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 	}
 end
 
@@ -69,12 +68,6 @@ end
 
 function modifier_riki_smoke_screen_lua:GetModifierTurnRate_Percentage()
 	return self.solid_turn_rate_slow
-end
-
-function modifier_riki_smoke_screen_lua:GetModifierMagicalResistanceBonus()
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int7") then
-		return -15
-	end
 end
 
 function modifier_riki_smoke_screen_lua:OnAttackStart(keys)

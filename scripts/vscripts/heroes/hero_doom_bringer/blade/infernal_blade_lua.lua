@@ -109,7 +109,7 @@ end
 
 function modifier_ability_infernal_blade_lua:GetModifierPreAttack_CriticalStrike()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_agi7") and self:GetAbility():GetAutoCastState() and self:GetAbility():IsFullyCastable() then
-		return 100 + self:GetCaster():GetLevel() * 10
+		return 1000
 	end
 	return 0
 end
