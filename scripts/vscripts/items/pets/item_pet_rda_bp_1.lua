@@ -32,15 +32,16 @@ function modifier_item_pet_rda_bp_1:IsPurgable()
 end
 
 function modifier_item_pet_rda_bp_1:OnCreated( kv )
-		if IsServer() then
+	if IsServer() then
 		local point = self:GetCaster():GetAbsOrigin()
 		if not self:GetCaster():IsIllusion() then
-			self.pet = CreateUnitByName("pet_rda_bp_1", point + Vector(500,500,500), true, nil, nil, DOTA_TEAM_GOODGUYS)
+			self.pet = CreateUnitByName("pet_rda_bp_1", point, true, nil, nil, DOTA_TEAM_GOODGUYS)
 			self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
 			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 			self.pet:SetOwner(self:GetCaster())
 		end
-end
+		self:StartIntervalThink(1)
+	end
 end
 function modifier_item_pet_rda_bp_1:OnDestroy()
 	UTIL_Remove(self.pet)
@@ -59,11 +60,6 @@ end
 
 function modifier_item_pet_rda_bp_1:GetModifierSpellAmplify_PercentageUnique()
 	return self:GetAbility():GetSpecialValueFor("mage_dmg") * self:GetParent():GetLevel()
-end
-
-function modifier_item_pet_rda_bp_1:OnCreated( kv )
-	if not IsServer() then return end
-	self:StartIntervalThink(1)
 end
 
 function modifier_item_pet_rda_bp_1:OnIntervalThink()

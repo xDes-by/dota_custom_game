@@ -104,7 +104,7 @@ function modifier_spirit_breaker_greater_bash_lua:OnTakeDamage(params)
 		if (self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str12") or self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str13")) and params.damage_type == DAMAGE_TYPE_PHYSICAL then
 			local distance = (self.parent:GetAbsOrigin() - params.attacker:GetAbsOrigin()):Length2D()
 			if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str13") then
-				if distance <= 800 then
+				if distance <= 800 and not params.attacker:IsMagicImmune() and not params.attacker:IsBuilding() then
 					if not params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 70, self.pseudoseed, self.parent ) then
 						params.attacker.baraBashFirstTime = true
 						self:Bash( params.attacker )
@@ -113,7 +113,7 @@ function modifier_spirit_breaker_greater_bash_lua:OnTakeDamage(params)
 					end
 				end
 			elseif self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str12") then
-				if distance <= 500 then
+				if distance <= 500 and not params.attacker:IsMagicImmune() and not params.attacker:IsBuilding() then
 					if not params.attacker.baraBashFirstTime and RollPseudoRandomPercentage( 40, self.pseudoseed, self.parent ) then
 						params.attacker.baraBashFirstTime = true
 						self:Bash( params.attacker )
@@ -140,7 +140,9 @@ function modifier_spirit_breaker_greater_bash_lua:GetModifierProcAttack_Feedback
 		self.parent:GetTeamNumber()
 	)
 	if filter~=UF_SUCCESS then return end
-
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi8") then
+		self.duration = 0.01
+	end
 	-- roll pseudo random
 	if RollPseudoRandomPercentage( self:GetSpecialValueFor("chance_pct"), self.pseudoseed, self.parent ) then
 		-- set cooldown
@@ -161,6 +163,7 @@ function modifier_spirit_breaker_greater_bash_lua:GetModifierProcAttack_Feedback
 			end
 		end
 	end
+	self.duration = self:GetAbility():GetSpecialValueFor( "duration" )
 end
 
 --------------------------------------------------------------------------------

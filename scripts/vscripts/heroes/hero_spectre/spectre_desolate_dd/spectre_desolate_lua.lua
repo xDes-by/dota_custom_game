@@ -110,7 +110,7 @@ function modifier_spectre_desolate_lua:GetDamageValue()
         base_damage_multi = base_damage_multi + 0.5
     end
     if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_spectre_agi50") then
-        base_damage_multi = base_damage_multi + 1.11
+        base_damage_multi = base_damage_multi + 0.5
     end
     if self:GetCaster():FindAbilityByName("npc_dota_hero_spectre_int8") then 
         base_damage_multi = base_damage_multi / 2

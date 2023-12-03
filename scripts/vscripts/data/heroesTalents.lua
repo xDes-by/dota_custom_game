@@ -1689,7 +1689,7 @@ heroTalentsData = {
             place = {"agi 12"}, url = "/npc_dota_hero_sniper/agi/agi-talant-12.png", name = "npc_dota_hero_sniper_agi12",
         },
         special_bonus_unique_npc_dota_hero_sniper_agi50 = {
-            place = {"agi 13"}, url = "/npc_dota_hero_sniper/agi/agi-talant-12.png", name = "npc_dota_hero_sniper_agi13",
+            place = {"agi 13"}, url = "/npc_dota_hero_sniper/agi/assault.png", name = "npc_dota_hero_sniper_agi13",
         },
         -------------------- INT -----------------------------------------------------------
         npc_dota_hero_sniper_int6 = {

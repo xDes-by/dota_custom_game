@@ -14156,7 +14156,8 @@
         "npc_dota_hero_centaur_int12" "This is the secret of strength"
         "npc_dota_hero_centaur_int12_description" "return indicators x2"
         "npc_dota_hero_centaur_int13" "No, that's the secret of strength"
-        "npc_dota_hero_centaur_int13_description" "Return can be boosted by magic by 5% of the magic boost (same as a sniper)"
+        "npc_dota_hero_centaur_int13_description" "Return can be boosted by magic by 10% of the magic boost (same as a sniper)"
+        "npc_dota_hero_centaur_int13_tooltip" "Does not work with pure damage types."
 
         //Mars//
 
@@ -15327,8 +15328,8 @@
         "npc_dota_hero_sniper_agi12" "The long-awaited return"
         "npc_dota_hero_sniper_agi12_description" "The ultimate will begin to be enhanced by magic items"
         "npc_dota_hero_sniper_agi12_tooltip" "Buff has been weakened.The ability is enhanced only by 10% of the value indicated in the character's characteristics."
-        "npc_dota_hero_sniper_agi13" "Double Strike"
-        "npc_dota_hero_sniper_agi13_description" "x2 ultimate indicators"
+        "npc_dota_hero_sniper_agi13" "Assault"
+        "npc_dota_hero_sniper_agi13_description" "1500 cuirass radii"
 
         "npc_dota_hero_sniper_int6" "Exact calculation"
         "npc_dota_hero_sniper_int6_description" "Grenade deals additional damage equal to the sum of attributes / 3"
@@ -15582,7 +15583,7 @@
         "npc_dota_hero_spectre_agi12" "Cutting down an entire universe"
         "npc_dota_hero_spectre_agi12_description" "Desolate damage from base +50%."
         "npc_dota_hero_spectre_agi13" "Strong Strike"
-        "npc_dota_hero_spectre_agi13_description" "Desolate damage from base +111%"
+        "npc_dota_hero_spectre_agi13_description" "Desolate damage from base +50%"
 
         "npc_dota_hero_spectre_int6" "Power of Magic"
         "npc_dota_hero_spectre_int6_description" "Increases Spectral Step radius by 100."
@@ -17349,9 +17350,9 @@
         "npc_dota_hero_doom_bringer_str13_description" "Devour can be cast on an area of ​​800. You can get 3 effects."
         
         "npc_dota_hero_doom_bringer_agi6" "Do you want damage? Here"
-        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 10 * number of souls."
+        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 5 * number of souls."
         "npc_dota_hero_doom_bringer_agi7" "Fire Crit"
-        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 100% + 10 * hero level critical attack"
+        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 1000%"
         "npc_dota_hero_doom_bringer_agi8" "Even the alchemist is jealous of you"
         "npc_dota_hero_doom_bringer_agi8_description" "x3 extra Devour gold."
         "npc_dota_hero_doom_bringer_agi9" "Is Sven on minimum wage?"
@@ -17361,9 +17362,9 @@
         "npc_dota_hero_doom_bringer_agi11" "CD click on me"
         "npc_dota_hero_doom_bringer_agi11_description" "-20sec Devour cooldown."
         "npc_dota_hero_doom_bringer_agi12" "You'll lasso the creeps"
-        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 5x more damage."
+        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 4x more damage."
         "npc_dota_hero_doom_bringer_agi13" "Devour has become stronger"
-        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 13x more damage."
+        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 7x more damage."
 
         "npc_dota_hero_doom_bringer_int6" "Efficiency will increase!"
         "npc_dota_hero_doom_bringer_int6_description" "If the number of Devour souls is a multiple of 3, then their effectiveness is 1.5 times higher."
@@ -17749,6 +17750,7 @@
         "npc_dota_hero_spirit_breaker_agi7_description" "Cast Greater Bash on all enemies around the hero when Bulldozer is activated."
         "npc_dota_hero_spirit_breaker_agi8" "Bash! Bash!! Bash!!!"
         "npc_dota_hero_spirit_breaker_agi8_description" "Greater Bash has no cooldown." // +
+        "npc_dota_hero_spirit_breaker_agi8_tooltip" "Stun duration for attack stuns has been greatly reduced! 0.01 sec stun from auto attacks!" // +
         "npc_dota_hero_spirit_breaker_agi9" "Hell's Fury"
         "npc_dota_hero_spirit_breaker_agi9_description" "+600 attack speed for 3 seconds after casting Nether Strike." // +
         "npc_dota_hero_spirit_breaker_agi10" "No one can escape"
