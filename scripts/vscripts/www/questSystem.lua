@@ -1330,13 +1330,10 @@ end
 function QuestSystem:updateItems(id)
 	
 	if not id then return end
-	-- print('update items post if ')
-	--DeepPrintTable(QuestSystem.dropListArray)
 	local someQuestComplite = false
 	local steamID = PlayerResource:GetSteamAccountID(id)
 	local hero = PlayerResource:GetSelectedHeroEntity( id )
 	local player_info = CustomNetTables:GetTableValue("player_info", tostring(steamID))
-	-- DeepPrintTable(QuestSystem.questTabel)
 	if player_info then
 		for k1,v1 in pairs(QuestSystem.questTabel) do
 			if k1 ~= 'exchanger' then
@@ -1370,11 +1367,6 @@ function QuestSystem:updateItems(id)
 												end
 											end
 										end
-										--local item = hero:GetItemInSlot(i)
-										
-										--local slot = GetItemSlot(hero, i)
-										--item = GetItemSlot(hero, 0)
-										--print(item:GetAbilityName())
 									end
 								end
 								-- print("have ",have)

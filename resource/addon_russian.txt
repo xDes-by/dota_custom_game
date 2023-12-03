@@ -1435,30 +1435,14 @@
         "pet_bp_1" "WoodRider"
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1" "<font color='#ffa500'>Baby Rosh</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.<br><br><br><font color='red'>????????????</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_bonus_health" "БОНУС К ЗДОРОВЬЮ ЗА ЛВЛ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_amount" "%УРОН ОТ СПЛЕША:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_radius" "РАДИУС:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_block"  "%БЛОК УРОНА:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_dmg"  "БОНУС К БАЗОВОМУ УРОНУ ЗА ЛВЛ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_gold"  "ЗОЛОТО В СЕКУНДУ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "rosh_1" "Baby Rosh"
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2" "<font color='#ffa500'>Baby Rosh</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.<br><br><br><font color='red'>????????????</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_stats_bonus" "БОНУС АТРИБУТОВ ЗА УРОВЕНЬ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_minus_armor" "CНИЖЕНИЕ АРМОРА ЗА УРОВЕНЬ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_dur" "ДЛИТЕЛЬНОСТЬ ФИЗИЧЕСКОЙ НЕУЯЗВИМОСТИ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_bkb" "ДЛИТЕЛЬНОСТЬ МАГИЧЕСКОЙ НЕУЯЗВИМОСТИ:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_phys_percent" "%БОНУСНЫЙ ФИЗИЧЕСКИЙ УРОН:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_pure_percent" "%ЧИСТОГО УРОНА ОТ БАЗОВОГО:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_goex" "%БОНУСНЫЙ ПРИРОСТ ЗОЛОТА И ОПЫТА:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_regen" "%ВОССТАНОВЛЕНИЯ ЗДОРОВЬЯ И МАНЫ:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "rosh_2" "Baby Rosh"
 
@@ -4207,8 +4191,8 @@
         "npc_dota_hero_sniper_agi12" "Долгожданное возвращение"
         "npc_dota_hero_sniper_agi12_description" "Ультимейт начнет усиливаться от магических предметов"
         "npc_dota_hero_sniper_agi12_tooltip" "Усиление ослаблено. Способность усиливается только на 10% от значения указанного в характеристиках персонажа."
-        "npc_dota_hero_sniper_agi13" "Двойной удар"
-        "npc_dota_hero_sniper_agi13_description" "х2 показатели ультимейта"
+        "npc_dota_hero_sniper_agi13" "Бессмертный воин"
+        "npc_dota_hero_sniper_agi13_description" "2.5% вампиризма от ультимейта."
 
         "npc_dota_hero_sniper_int6" "Точный расчет"
         "npc_dota_hero_sniper_int6_description" "Граната наносит дополнительно урон от суммы атрибутов / 3"
@@ -4684,6 +4668,8 @@
         "npc_dota_hero_medusa_str11_description" "Mana Shield поглощает х2 урона за ед. маны"
         "npc_dota_hero_medusa_str12" "О боги"
         "npc_dota_hero_medusa_str12_description" "Урон, который блокируется способностью Mana Shield, уменьшается за счет брони и магической защиты."
+        "npc_dota_hero_medusa_str13" "Всемогущее поглощение"
+        "npc_dota_hero_medusa_str13_description" "Увеличение поглащаеммого урона за единицу маны х5"
         
         "npc_dota_hero_medusa_agi6" "Точно в цель"
         "npc_dota_hero_medusa_agi6_description" "Эффект Split Shot, если возле медузы только 1 цель исходящий урон х2"
@@ -4699,6 +4685,8 @@
         "npc_dota_hero_medusa_agi11_description" "На цели Split Shot действуют модификаторы"
         "npc_dota_hero_medusa_agi12" "Змеиный удар"
         "npc_dota_hero_medusa_agi12_description" "Mystic Snake также наносит физический урон, равный пятикратному урону Медузы.\n(Не усиливается)"
+        "npc_dota_hero_medusa_agi13" "Точно в цель x2"
+        "npc_dota_hero_medusa_agi13_description" "+100% урона при активном сплитшоте."
         
         "npc_dota_hero_medusa_int6" "Двойной выпуск змеей"
         "npc_dota_hero_medusa_int6_description" "Mystic Snake выпускает 2 змеи"
@@ -4714,6 +4702,8 @@
         "npc_dota_hero_medusa_int11_description" "Расход маны на использование Мистической Змеи составляет 30% от текущего количества маны героя."
         "npc_dota_hero_medusa_int12" "Самый ядовитый яд из всех"
         "npc_dota_hero_medusa_int12_description" "Длительность яда увеличена на 2 секунды"
+        "npc_dota_hero_medusa_int13" "Прыг-Скок"
+        "npc_dota_hero_medusa_int13_description" "х2 отскоков, змейка может отскочить по одной цели несколько раз"
 
         //Enchantress//
 
@@ -6880,38 +6870,21 @@
         "npc_dota_hero_leshrac_str7_description" "Снижение входящего урона на 30%, во время деиствия Pulse Nova." //    +
         "npc_dota_hero_leshrac_str8" "Силовой Разряд"
         "npc_dota_hero_leshrac_str8_description" "Нанесение урона Split Earth применяет Lightning Storm на жертв." //
-<<<<<<< HEAD
         "npc_dota_hero_leshrac_str9" "Мощный Землетряс"
         "npc_dota_hero_leshrac_str9_description" "Split Earth срабатывает в том же месте еще 3 раза с промежутком в 5 сек. При каждом срабатывании радиус увеличивается на 55."     // +
         "npc_dota_hero_leshrac_str10" "Купил линзу, что-ли?"
         "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 1000." //
         "npc_dota_hero_leshrac_str11" "Поиск врага"
-        "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не наидено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 50%." // +
+        "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не наидено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 75%." // +
         "npc_dota_hero_leshrac_str12" "Дабл Lightning Storm"
-=======
-        "npc_dota_hero_leshrac_str9" "Проклятие Изнурения"
-        "npc_dota_hero_leshrac_str9_description" "Split Earth срабатывает в том же месте ещё 3 раза с промежутком в 5 сек. При каждом срабатывании радиус увеличивается на 55."     // +
-        "npc_dota_hero_leshrac_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 1000." //
-        "npc_dota_hero_leshrac_str11" "Щит Мудреца"
-        "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не найдено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 50%." // +
-        "npc_dota_hero_leshrac_str12" "Глобальный Гром"
->>>>>>> 308e36b5f41ba3a4fb2ac884d9fcd24f9ecb2286
         "npc_dota_hero_leshrac_str12_description" "Кол-во скачков Lightning Storm в 2 раза больше."     //  +
         "npc_dota_hero_leshrac_str13" "Двойной удар"
         "npc_dota_hero_leshrac_str13_description" "Lightning Storm бьет каждую цель по 2 раза."     //  +
 
-<<<<<<< HEAD
         "npc_dota_hero_leshrac_agi6" "Бесконтактный бой"
         "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 5 сек. после того как цель покинула ауру." //
         "npc_dota_hero_leshrac_agi7" "Разрыв Земной Коры"
         "npc_dota_hero_leshrac_agi7_description" "Split Earth можно применить на область 700, удары будут срабатывать в случаиных местах это области 10 раз, с задержкои между ударами 0.5сек." // +
-=======
-        "npc_dota_hero_leshrac_agi6" "Ближний Разум"
-        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 5 сек. после того как цель покинула ауру." //
-        "npc_dota_hero_leshrac_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_leshrac_agi7_description" "Split Earth можно применить на область 700, удары будут срабатывать в случайных местах это области 10 раз, с задержкой между ударами 0.5сек." // +
->>>>>>> 308e36b5f41ba3a4fb2ac884d9fcd24f9ecb2286
         "npc_dota_hero_leshrac_agi7_tooltip" "Талант возможно отключить, если отключить авто-каста."
         "npc_dota_hero_leshrac_agi8" "Двойное Разрушение"
         "npc_dota_hero_leshrac_agi8_description" "Diabolic Edict может атаковать сразу 2 цели."    //
@@ -6928,13 +6901,10 @@
 		
         "npc_dota_hero_leshrac_int6" "Интеллектуальный Импульс"
         "npc_dota_hero_leshrac_int6_description" "35% интеллекта к урону Pulse Nova."   //  +
-        "npc_dota_hero_leshrac_int6_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
         "npc_dota_hero_leshrac_int7" "Усиление Энергии"
         "npc_dota_hero_leshrac_int7_description" "35% интеллекта к урону Pulse Nova."   //  +
-        "npc_dota_hero_leshrac_int7_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
         "npc_dota_hero_leshrac_int8" "Умственная Мощь"
         "npc_dota_hero_leshrac_int8_description" "35% интеллекта к урону Pulse Nova."   //  +
-        "npc_dota_hero_leshrac_int8_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
         "npc_dota_hero_leshrac_int9" "Сильное землетрясение"
         "npc_dota_hero_leshrac_int9_description" "100% интеллекта к урону Split Earth."     // +
         "npc_dota_hero_leshrac_int10" "Буря молний"

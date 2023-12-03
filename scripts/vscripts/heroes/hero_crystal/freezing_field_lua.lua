@@ -83,10 +83,10 @@ function modifier_freezing_field_lua:OnCreated( kv )
 		self.radius = self.radius * 1.5
 		end
 	
-	self.manacost = self:GetCaster():GetIntellect()/2
-	
+	self.manacost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel())
+
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int10") ~= nil then
-		self.manacost = self:GetCaster():GetIntellect()/4
+		self.manacost = self.manacost/4
 	end
 	interval = 1
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_int50") or self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_crystal_maiden_str50") then

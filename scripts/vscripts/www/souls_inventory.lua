@@ -123,19 +123,7 @@ end
 function sInv:OnEntityKilled( keys )
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	local killerEntity = EntIndexToHScript( keys.entindex_attacker )
-    if killedUnit:GetUnitName() == 'raid_boss' then
-        self.raid_boss = true
-    end
-    if killedUnit:GetUnitName() == 'raid_boss2' then
-        self.raid_boss2 = true
-    end
-    if killedUnit:GetUnitName() == 'raid_boss3' then
-        self.raid_boss3 = true
-    end
-    if killedUnit:GetUnitName() == 'raid_boss4' then
-        self.raid_boss4 = true
-    end
-    if self.raid_boss and self.raid_boss2 and self.raid_boss3 and self.raid_boss4 then
+    if table.has_value({"raid_boss","raid_boss2","raid_boss3","raid_boss4"}, killedUnit:GetUnitName()) then
         for i = 0, 4 do
             if PlayerResource:IsValidPlayer(i) then
                 self:AddSoul('item_magma_soul', i)

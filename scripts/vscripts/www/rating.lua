@@ -48,7 +48,7 @@ function rating:OnEntityKilled(keys)
 		if rating.wave_name == name or "comandir_" .. rating.wave_name == name then
 			rating.wave_count = rating.wave_count + 1
 		end
-		SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
+		CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
 	end
 end
 

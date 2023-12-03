@@ -2438,7 +2438,7 @@ heroTalentsData = {
         },
         -------------------- AGI -----------------------------------------------------------
         npc_dota_hero_medusa_agi6 = {
-            place = {"agi 6"}, url = "/npc_dota_hero_medusa/agi/agi-talant-12.png", name = "npc_dota_hero_medusa_agi6",
+            place = {"agi 6"}, url = "/npc_dota_hero_medusa/agi/agi-talant-12.png", name = "npc_dota_hero_medusa_agi12",
         },
         npc_dota_hero_medusa_agi7 = {
             place = {"agi 7"}, url = "/npc_dota_hero_medusa/agi/agi-talant-13.png", name = "npc_dota_hero_medusa_agi7",
