@@ -542,6 +542,8 @@
         "battle_pase_use_toggle_button"                 "активно"
         "quest_title_description"                       "Ежедневные задания, задания для прокачки батл пасс, игровые задания"
         "battle_pass_error_vote"	"Голосование доступно только игрокам с золотым пропуском"
+        "BattlePass_model_name"                         "Сменная моделька"
+        "BattlePass_model_description"                  "Вы навсегда получите кастомную модельку на своего героя."
         /// ------------------- /BATTLE PASS --------------------------------------
         /// ------------------- PETS --------------------------------------
         "gems_image_pet"                                "Кристаллы"
@@ -1862,13 +1864,6 @@
 //////////////
 //Items MAIN//
 //////////////
-
-//Quelling Blade//
-
-        "DOTA_Tooltip_Ability_item_quelling_blade_lua"			"Quelling Blade"
-		"DOTA_Tooltip_ability_item_quelling_blade_lua_Description"					"<h1>Активное: Chop Tree</h1> Уничтожает выбранное дерево.<br><br>Дальность применения: %abilitycastrange%\n\n<h1>Пассивное: Quell</h1> Увеличивает урон от атак по существам, не являющимися героями, на %damage_bonus% для героев ближнего боя или на %damage_bonus_ranged% — для дальнего."
-		"DOTA_Tooltip_ability_item_quelling_blade_lua_Lore"							"Топор павшего гнома, позволяющий с лёгкостью продираться сквозь лес."
-		"DOTA_Tooltip_ability_item_quelling_blade_lua_Note0"						"Эффекты от нескольких копий этого предмета не сочетаются."
 
 //BEARING//
 
@@ -6067,7 +6062,7 @@
 		"DOTA_Tooltip_ability_silencer_last_word_lua_duration" "ДЛИТЕЛЬНОСТЬ:"
 		
 
-		"npc_dota_hero_silencer_str6" "Эхо Тишины"
+        "npc_dota_hero_silencer_str6" "Эхо Тишины"
         "npc_dota_hero_silencer_str6_description" "Каждая 3 атака накладывает сайленс на 0.1 секунду"
         "npc_dota_hero_silencer_str7" "Мгновенное Затишье"
         "npc_dota_hero_silencer_str7_description" "Мгновенный сайленс от Last Word\nСнижение перезарядки на 30%"
@@ -6158,55 +6153,55 @@
         "dota_tooltip_ability_necrolyte_reapers_scythe_lua_mp_regen"	"СТАК РЕГЕНЕРАЦИИ МАНЫ:"
         "dota_tooltip_ability_necrolyte_reapers_scythe_lua_hp_regen"	"СТАК РЕГЕНЕРАЦИИ ЗДОРОВЬЯ:"
 
-        "npc_dota_hero_necrolyte_str6" "Эхо Тишины"
+        "npc_dota_hero_necrolyte_str6" "Больше регена"
         "npc_dota_hero_necrolyte_str6_description" "Восстановление от стаков Heartstopper Aura +40%."
-        "npc_dota_hero_necrolyte_str7" "Мгновенное Затишье"
+        "npc_dota_hero_necrolyte_str7" "Жизнекров"
         "npc_dota_hero_necrolyte_str7_description" "Death Pulse восстанавливает +10% макс. здоровья."
-        "npc_dota_hero_necrolyte_str8" "Мудрость Безгранична"
-        "npc_dota_hero_necrolyte_str8_description" "Ghost Shroud не повышает магический урон."
-        "npc_dota_hero_necrolyte_str9" "Проклятие Изнурения"
+        "npc_dota_hero_necrolyte_str8" "Призрачная защита"
+        "npc_dota_hero_necrolyte_str8_description" "Ghost Shroud не повышает входящий урон."
+        "npc_dota_hero_necrolyte_str9" "Аура смерти"
         "npc_dota_hero_necrolyte_str9_description" "Урон Heartstopper Aura +50%"
-        "npc_dota_hero_necrolyte_str10" "Ускоренное Проклятие"
+        "npc_dota_hero_necrolyte_str10" "Смертоносная сила"
         "npc_dota_hero_necrolyte_str10_description" "50% силы к урону Death Pulse."
-        "npc_dota_hero_necrolyte_str11" "Щит Мудреца"
+        "npc_dota_hero_necrolyte_str11" "Призрачная пульсация"
         "npc_dota_hero_necrolyte_str11_description" "При активации Ghost Shroud срабатывает Death Pulse."
-        "npc_dota_hero_necrolyte_str12" "Глобальный Гром"
+        "npc_dota_hero_necrolyte_str12" "Призрачное восстановление"
         "npc_dota_hero_necrolyte_str12_description" "45% усиления регенерации Ghost Shroud."
-        "npc_dota_hero_necrolyte_str13" "Глобальный Гром"
+        "npc_dota_hero_necrolyte_str13" "Призрачная регенерация"
         "npc_dota_hero_necrolyte_str13_description" "70% усиления регенерации Ghost Shroud."
         
-        "npc_dota_hero_necrolyte_agi6" "Ближний Разум"
+        "npc_dota_hero_necrolyte_agi6" "Убийственная аура"
         "npc_dota_hero_necrolyte_agi6_description" "12 множитель за боссов Heartstopper Aura."
-        "npc_dota_hero_necrolyte_agi7" "Быстрые Мудрые Снаряды"
+        "npc_dota_hero_necrolyte_agi7" "Смертельный импульс вокруг"
         "npc_dota_hero_necrolyte_agi7_description" "Death Pulse можно применить на область 600."
-        "npc_dota_hero_necrolyte_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_necrolyte_agi8_description" "Герой может бить под эффектом Ghost Shroud."
-        "npc_dota_hero_necrolyte_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_necrolyte_agi8" "Бой в призрачном состоянии"
+        "npc_dota_hero_necrolyte_agi8_description" "Герои может бить под эффектом Ghost Shroud."
+        "npc_dota_hero_necrolyte_agi9" "Бафф ауры гибели"
         "npc_dota_hero_necrolyte_agi9_description" "15 сек. длительность бафф Heartstopper Aura."
-        "npc_dota_hero_necrolyte_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_necrolyte_agi10" "Радиальный импульс смерти"
         "npc_dota_hero_necrolyte_agi10_description" "Death Pulse срабатывает с интервалом 1.7 перезарядки, возле героя."
-        "npc_dota_hero_necrolyte_agi11" "Аура Проклятия"
+        "npc_dota_hero_necrolyte_agi11" "Призрачная ярость"
         "npc_dota_hero_necrolyte_agi11_description" "+150 скорости атаки под эффектом Ghost Shroud."
-        "npc_dota_hero_necrolyte_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_necrolyte_agi12" "Судьбоносная смерть"
         "npc_dota_hero_necrolyte_agi12_description" "Шанс 7% применить Reaper's Scythe при атаке."
-        "npc_dota_hero_necrolyte_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_necrolyte_agi13" "Судебный удар"
         "npc_dota_hero_necrolyte_agi13_description" "Шанс 12% применить Reaper's Scythe при атаке."
 		
-        "npc_dota_hero_necrolyte_int6" "Накопление Интеллекта"
+        "npc_dota_hero_necrolyte_int6" "Смертельный разум"
         "npc_dota_hero_necrolyte_int6_description" "60% интеллекта в урон Death Pulse."
-        "npc_dota_hero_necrolyte_int7" "Усиленная Мудрость"
+        "npc_dota_hero_necrolyte_int7" "Интеллектуальная кара"
         "npc_dota_hero_necrolyte_int7_description" "100% интеллекта к урону Reaper's Scythe."
-        "npc_dota_hero_necrolyte_int8" "Слово По Области"
+        "npc_dota_hero_necrolyte_int8" "Призрачная мука"
         "npc_dota_hero_necrolyte_int8_description" "Ghost Shroud наносит урон 50% интеллекта в секунду."
-        "npc_dota_hero_necrolyte_int9" "Стакующая Мудрость"
+        "npc_dota_hero_necrolyte_int9" "Сокращение смерти"
         "npc_dota_hero_necrolyte_int9_description" "-2сек. перезарядка Death Pulse."
-        "npc_dota_hero_necrolyte_int10" "Командная Работа"
+        "npc_dota_hero_necrolyte_int10" "Ускорение кары смерти"
         "npc_dota_hero_necrolyte_int10_description" "Снижение перезарядки Reaper's Scythe до 70 сек."
-        "npc_dota_hero_necrolyte_int11" "Удвоенное Слово"
+        "npc_dota_hero_necrolyte_int11" "Сокращение призрачного покрова"
         "npc_dota_hero_necrolyte_int11_description" "Перезарядка Ghost Shroud -6сек"
-        "npc_dota_hero_necrolyte_int12" "Удвоенный Урон"
+        "npc_dota_hero_necrolyte_int12" "Кара смерти"
         "npc_dota_hero_necrolyte_int12_description" "Увеличение урона Reaper's Scythe +1% на всех уровнях."
-        "npc_dota_hero_necrolyte_int13" "Удвоенный Урон"
+        "npc_dota_hero_necrolyte_int13" "Усиление кары смерти"
         "npc_dota_hero_necrolyte_int13_description" "Увеличение урона Reaper's Scythe еще +1.5% на всех уровнях."
 
         //VENGEFUL
@@ -6255,61 +6250,61 @@
         "DOTA_Tooltip_modifier_tempest_double_illusion"                                     "Avatar of Vengeance"
         "DOTA_Tooltip_modifier_tempest_double_illusion_Description"                         "Исходящий урон - %dMODIFIER_PROPERTY_TOOLTIP%%%, входящий урон - %dMODIFIER_PROPERTY_TOOLTIP2%%%"
         
-        "npc_dota_hero_vengefulspirit_str6" "Эхо Тишины"
+        "npc_dota_hero_vengefulspirit_str6" "Сильныи Magic Missile"
         "npc_dota_hero_vengefulspirit_str6_description" "50% силы в урон Magic Missile."
-        "npc_dota_hero_vengefulspirit_str7" "Мгновенное Затишье"
-        "npc_dota_hero_vengefulspirit_str7_description" "Vengeance Aura дает 30% силы."
+        "npc_dota_hero_vengefulspirit_str7" "Больше силы!"
+        "npc_dota_hero_vengefulspirit_str7_description" "Vengeance Aura дает 17% силы."
         "npc_dota_hero_vengefulspirit_str8" "Мудрость Безгранична"
         "npc_dota_hero_vengefulspirit_str8_description" "Avatars of Vengeance получает на 35% меньше урона."
-        "npc_dota_hero_vengefulspirit_str9" "Проклятие Изнурения"
+        "npc_dota_hero_vengefulspirit_str9" "Попробуи пробеи Инвокер"
         "npc_dota_hero_vengefulspirit_str9_description" "Wave of Terror снижает урон противников на 30%"    // +
-        "npc_dota_hero_vengefulspirit_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_vengefulspirit_str10_description" "Vengeance Aura даёт 3% хп регена."
-        "npc_dota_hero_vengefulspirit_str11" "Щит Мудреца"
-        "npc_dota_hero_vengefulspirit_str11_description" "Герой и Аватар получают 15% общего вампиризма от атак. "
-        "npc_dota_hero_vengefulspirit_str12" "Глобальный Гром"
-        "npc_dota_hero_vengefulspirit_str12_description" "3 заряда Аватар."
-        "npc_dota_hero_vengefulspirit_str13"	"Глобальный Гром"
-        "npc_dota_hero_vengefulspirit_str13_description"	"120 сек. время жизни клона на всех уровнях."
+        "npc_dota_hero_vengefulspirit_str10" "Ты думаешь, я слабыи?"
+        "npc_dota_hero_vengefulspirit_str10_description" "Vengeance Aura дает 2% хп регена."
+        "npc_dota_hero_vengefulspirit_str11" "А все, не убьешь"
+        "npc_dota_hero_vengefulspirit_str11_description" "Герои и Аватар получают 15% общего вампиризма от атак. "
+        "npc_dota_hero_vengefulspirit_str12" "Щит - двух друзеи"
+        "npc_dota_hero_vengefulspirit_str12_description" "Герои и Аватар получают щит на 500% здоровья после призыва." // +- ХЗ
+        "npc_dota_hero_vengefulspirit_str13" "Бессмертный клон"
+        "npc_dota_hero_vengefulspirit_str13_description" "120 сек. время жизни клона на всех уровнях."
 
-        "npc_dota_hero_vengefulspirit_agi6" "Ближний Разум"
+        "npc_dota_hero_vengefulspirit_agi6" "Лови котлетку"
         "npc_dota_hero_vengefulspirit_agi6_description" "Эффект сниженя брони стакается на враге, длительность эффекта +5сек."
-        "npc_dota_hero_vengefulspirit_agi6_tooltip" "1-й стак снижает броню на 100% базового значения, каждый последующий - на 20%, макс. 6 стаков."
-        "npc_dota_hero_vengefulspirit_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_vengefulspirit_agi7_description" "После смерти героя появляется Avatar, герой возражается на месте аватара."
-        "npc_dota_hero_vengefulspirit_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_vengefulspirit_agi6_tooltip" "1-и стак снижает броню на 100% базового значения, каждыи последующии - на 20%, макс. 6 стаков."
+        "npc_dota_hero_vengefulspirit_agi7" "Вкачаи меня"
+        "npc_dota_hero_vengefulspirit_agi7_description" "+17% Увеличение урона Vengeance Aura."
+        "npc_dota_hero_vengefulspirit_agi8" "3 пути"
         "npc_dota_hero_vengefulspirit_agi8_description" "Wave of Terror применяется в 3 направления."
-        "npc_dota_hero_vengefulspirit_agi9" "Интеллектуальная Быстрота"
-        "npc_dota_hero_vengefulspirit_agi9_description" "+70 скорости передвижения для Аватара, за уровень способности."
-        "npc_dota_hero_vengefulspirit_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_vengefulspirit_agi10_description" "Стан наносит крит. атаку\n100 + 75 * уровень способности."
-        "npc_dota_hero_vengefulspirit_agi11" "Аура Проклятия"
+        "npc_dota_hero_vengefulspirit_agi9" "КД - мое все!"
+        "npc_dota_hero_vengefulspirit_agi9_description" "Перезарядка Аватара -10 сек" // +
+        "npc_dota_hero_vengefulspirit_agi10" "Сумошедшии крит"
+        "npc_dota_hero_vengefulspirit_agi10_description" "Стан наносит крит. атаку\n150 * ур.способности %." // +
+        "npc_dota_hero_vengefulspirit_agi11" "На попеи"
         "npc_dota_hero_vengefulspirit_agi11_description" "50% ловкости в урон Wave of Terror."
-        "npc_dota_hero_vengefulspirit_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 100%."
-        "npc_dota_hero_vengefulspirit_agi13"	"Всепроникающая Мудрость"
+        "npc_dota_hero_vengefulspirit_agi12" "Аватар - всех четырех стихии"
+        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 80%."
+        "npc_dota_hero_vengefulspirit_agi13" "Живучая мразь"
 		"npc_dota_hero_vengefulspirit_agi13_description"	"x3 урон Vengeance Aura, повышает не только на базовый урон."
 
-        "npc_dota_hero_vengefulspirit_int6" "Накопление Интеллекта"
+        "npc_dota_hero_vengefulspirit_int6" "Я свободен..."
         "npc_dota_hero_vengefulspirit_int6_description" "Avatars of Vengeance может использовать способности."
-        "npc_dota_hero_vengefulspirit_int7" "Усиленная Мудрость"
+        "npc_dota_hero_vengefulspirit_int7" "Надо подкачаться"
         "npc_dota_hero_vengefulspirit_int7_description" "40% интеллекта в урон Wave of Terror."
-        "npc_dota_hero_vengefulspirit_int8" "Слово По Области"
+        "npc_dota_hero_vengefulspirit_int8" "Я накачался"
         "npc_dota_hero_vengefulspirit_int8_description" "50% интеллекта в урон Magic Missile."
-        "npc_dota_hero_vengefulspirit_int9" "Стакующая Мудрость"
-        "npc_dota_hero_vengefulspirit_int9_description" "Vengeance Aura даёт интеллект равный 60% от силы."
-        "npc_dota_hero_vengefulspirit_int9_tooltip" "Действует только на владельца."
-        "npc_dota_hero_vengefulspirit_int10" "Командная Работа"
+        "npc_dota_hero_vengefulspirit_int9" "Сильныи = Умныи"
+        "npc_dota_hero_vengefulspirit_int9_description" "Vengeance Aura дает интеллект равныи 60% от силы."
+        "npc_dota_hero_vengefulspirit_int9_tooltip" "Деиствует только на владельца."
+        "npc_dota_hero_vengefulspirit_int10" "ОГОООООНЬ"
         "npc_dota_hero_vengefulspirit_int10_description" "Wave of Terror поджигает врагов на 3 сек. от чего они получают урон 20% в сек."
         "npc_dota_hero_vengefulspirit_int10_tooltip" "Враги будут получать 20% от основного урона."
-        "npc_dota_hero_vengefulspirit_int11" "Удвоенное Слово"
+        "npc_dota_hero_vengefulspirit_int11" "Прыг-скок"
         "npc_dota_hero_vengefulspirit_int11_description" "Magic Missile отскакивает один раз."
-        "npc_dota_hero_vengefulspirit_int12" "Удвоенный Урон"
+        "npc_dota_hero_vengefulspirit_int12" "Тычка, еще раз тычка"
         "npc_dota_hero_vengefulspirit_int12_description" "Magic Missile 5% сработать при атаке."
         "npc_dota_hero_vengefulspirit_int12_tooltip" "Magic Missile эффект оглушения не работает."
-        "npc_dota_hero_vengefulspirit_int13"	"Удвоенный Урон"
-        "npc_dota_hero_vengefulspirit_int13_tooltip"	"Magic Missile эффект оглушения не работает."
-        "npc_dota_hero_vengefulspirit_int13_description"	"Magic Missile 9% сработать при атаке."
+        "npc_dota_hero_vengefulspirit_int13" "Больше тычек"
+        "npc_dota_hero_vengefulspirit_int13_description" "Magic Missile 9% сработать при атаке."
+        "npc_dota_hero_vengefulspirit_int13_tooltip" "Magic Missile эффект оглушения не работает."
         
         //RAZOR
 		"DOTA_Tooltip_ability_razor_plasma_field_lua"										"Plasma Field"
@@ -6378,57 +6373,57 @@
         
 
 
-        "npc_dota_hero_razor_str6" "Эхо Тишины"
+        "npc_dota_hero_razor_str6" "Не дохлыи Plasma Field"
         "npc_dota_hero_razor_str6_description" "75% силы в урон Plasma Field."  // +
-        "npc_dota_hero_razor_str7" "Мгновенное Затишье"
+        "npc_dota_hero_razor_str7" "Опа, +1 чирик"
         "npc_dota_hero_razor_str7_description" "+1 цель Eye of the Storm."   // +
-        "npc_dota_hero_razor_str8" "Мудрость Безгранична"
+        "npc_dota_hero_razor_str8" "Остановочка! На дороге, не гонять!"
         "npc_dota_hero_razor_str8_description" "Скорость Storm Surge х2"   // +
-        "npc_dota_hero_razor_str9" "Проклятие Изнурения"
-        "npc_dota_hero_razor_str9_description" "Plasma Field всегда наносит максимальный урон." // +
-        "npc_dota_hero_razor_str10" "Ускоренное Проклятие"
+        "npc_dota_hero_razor_str9" "Максимус"
+        "npc_dota_hero_razor_str9_description" "Plasma Field всегда наносит максимальныи урон." // +
+        "npc_dota_hero_razor_str10" "Ускоренныи каст"
         "npc_dota_hero_razor_str10_description" "Eye of the Storm без перезарядки." // +
-        "npc_dota_hero_razor_str11" "Щит Мудреца"
+        "npc_dota_hero_razor_str11" "Storm, упор в силу"
         "npc_dota_hero_razor_str11_description" "75% силы в урон Storm Surge."  // +
-        "npc_dota_hero_razor_str12" "Глобальный Гром"
-        "npc_dota_hero_razor_str12_description" "-0.15 сек. интервал срабатывания Eye of the Storm"   // +
+        "npc_dota_hero_razor_str12" "Меньше интервала - больше урона"
+        "npc_dota_hero_razor_str12_description" "-0.3 сек. интервал срабатывания Eye of the Storm"   // +
         "npc_dota_hero_razor_str13" "Раскаты грома"
         "npc_dota_hero_razor_str13_description" "-0.15 сек. интервал срабатывания Eye of the Storm"   // +
         
-        "npc_dota_hero_razor_agi6" "Ближний Разум"
+        "npc_dota_hero_razor_agi6" "А почему нет"
         "npc_dota_hero_razor_agi6_description" "+60% урона от атак Eye of the Storm"    //  +
         "npc_dota_hero_razor_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_razor_agi7_description" "Урон за стак Static link для героя х2."
-        "npc_dota_hero_razor_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_razor_agi8" "Охота за атрибутами"
         "npc_dota_hero_razor_agi8_description" "Static link вы получаете все атрибуты, по 1 всех атрибутов в секунду, длительность 1 * уровень способности."
-        "npc_dota_hero_razor_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_razor_agi9" "Сосать и атаковать? почему нет?"
         "npc_dota_hero_razor_agi9_description" "Герой атакует цели связки Static link c интервалом х3 интервал между атаками героя, макс. интервал 1.5 сек."
-        "npc_dota_hero_razor_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_razor_agi10" "Link х2"
         "npc_dota_hero_razor_agi10_description" "Длительность стаков Static link для героя х2."
         "npc_dota_hero_razor_agi11" "Аура Проклятия"
         "npc_dota_hero_razor_agi11_description" "1/5 суммы всех атрибутов в урон Eye of the Storm"  // +
-        "npc_dota_hero_razor_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_razor_agi12" "Атрибутный Eye of the Storm"
         "npc_dota_hero_razor_agi12_description" "5% шанс получить стак навсегда."
         "npc_dota_hero_razor_agi12_tooltip" "Кража урона через такую связку на 40% медленней."
-        "npc_dota_hero_razor_agi13"	"Всепроникающая Мудрость"
+        "npc_dota_hero_razor_agi13"	"Больше сосать"
         "npc_dota_hero_razor_agi13_description"	"Static link - аура, работает на всех врагов в радиусе."
 
-        "npc_dota_hero_razor_int6" "Накопление Интеллекта"
-        "npc_dota_hero_razor_int6_description" "Тип урона Eye of the Storm меняется на магический." // +
+        "npc_dota_hero_razor_int6" "Из физа в маги(Грязи-Князи)"
+        "npc_dota_hero_razor_int6_description" "Тип урона Eye of the Storm меняется на магическии." // +
         "npc_dota_hero_razor_int6_tooltip" "Не работает процент урона от атак."
-        "npc_dota_hero_razor_int7" "Усиленная Мудрость"
+        "npc_dota_hero_razor_int7" "Такое, я люблю. хихи"
         "npc_dota_hero_razor_int7_description" "Перезарядка Storm Surge 1 сек." // +
-        "npc_dota_hero_razor_int8" "Слово По Области"
+        "npc_dota_hero_razor_int8" "Еще сильнее"
         "npc_dota_hero_razor_int8_description" "50% интеллекта в урон Plasma Field" //+
-        "npc_dota_hero_razor_int9" "Стакующая Мудрость"
-        "npc_dota_hero_razor_int9_description" "+75% интеллекта в урон Eye of the Storm."  // +
-        "npc_dota_hero_razor_int10" "Командная Работа"
+        "npc_dota_hero_razor_int9" "Мудрыи Шторм"
+        "npc_dota_hero_razor_int9_description" "+100% интеллекта в урон Eye of the Storm."  // +
+        "npc_dota_hero_razor_int10" "Интеллектуальныи Storm"
         "npc_dota_hero_razor_int10_description" "50% интеллекта в урон Storm Surge."    //  +
-        "npc_dota_hero_razor_int11" "Командная Работа"
-        "npc_dota_hero_razor_int11_description" "2 волна Plasma Field с задержкой 0.8 сек."     // +
-        "npc_dota_hero_razor_int12" "Удвоенный Урон"
+        "npc_dota_hero_razor_int11" "Двоинои кружок"
+        "npc_dota_hero_razor_int11_description" "2 волна Plasma Field с задержкои 0.8 сек."     // +
+        "npc_dota_hero_razor_int12" "Кружок имба"
         "npc_dota_hero_razor_int12_description" "10% шанс использовать Plasma Field при атаке."  // +
-        "npc_dota_hero_razor_int13" "Удвоенный Урон"
+        "npc_dota_hero_razor_int13" "Удвоенные волны"
         "npc_dota_hero_razor_int13_description" "2 волны от атак, если вкачен талант."  // +
 
 
@@ -6471,57 +6466,57 @@
 		"DOTA_Tooltip_modifier_death_prophet_spirit_siphon_bh_fear"						"Страх от Spirit Siphon"
 		"DOTA_Tooltip_modifier_death_prophet_crypt_swarm_slow"							"Замедление от Crypt Swarm"
 
-        "npc_dota_hero_death_prophet_str6" "Эхо Тишины"
+        "npc_dota_hero_death_prophet_str6" "Увеличенная ширина"
         "npc_dota_hero_death_prophet_str6_description" "+150 ширина Crypt Swarm."   //  +
-        "npc_dota_hero_death_prophet_str7" "Мгновенное Затишье"
-        "npc_dota_hero_death_prophet_str7_description" "Герой получает 20 здоровья за 1 силы, во время действия Exorcism."   //  +
-        "npc_dota_hero_death_prophet_str8" "Мудрость Безгранична"
+        "npc_dota_hero_death_prophet_str7" "Синергия Силы и Здоровья"
+        "npc_dota_hero_death_prophet_str7_description" "Герои получает 20 здоровья за 1 силы, во время деиствия Exorcism."   //  +
+        "npc_dota_hero_death_prophet_str8" "Синергия Двух Целей"
         "npc_dota_hero_death_prophet_str8_description" "Spirit Siphon применяется на 2 цели"   //  +
-        "npc_dota_hero_death_prophet_str9" "Проклятие Изнурения"
+        "npc_dota_hero_death_prophet_str9" "Сильный Духи"
         "npc_dota_hero_death_prophet_str9_description" "75% силы в урон Crypt Swarm."   //  +
-        "npc_dota_hero_death_prophet_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_death_prophet_str10_description" "Каждый раз при возвращении духа к герою, восстанавливается 3% здоровья."   //  +
-        "npc_dota_hero_death_prophet_str11" "Щит Мудреца"
+        "npc_dota_hero_death_prophet_str10" "Восстановление Жизни"
+        "npc_dota_hero_death_prophet_str10_description" "Каждыи раз при возвращении духа к герою, восстанавливается 3% здоровья."   //  +
+        "npc_dota_hero_death_prophet_str11" "Духовное Истощение"
         "npc_dota_hero_death_prophet_str11_description" "Spirit Siphon наносит 3% макс. здоровья DP в секунду."  //  +
-        "npc_dota_hero_death_prophet_str12" "Глобальный Гром"
+        "npc_dota_hero_death_prophet_str12" "Божественная Неприкосновенность"
         "npc_dota_hero_death_prophet_str12_description" "Бкб после активации Exorcism."  //  +
         "npc_dota_hero_death_prophet_str12_tooltip" "50% длительности ульты"
-        "npc_dota_hero_death_prophet_str13" "Глобальный Гром"
-        "npc_dota_hero_death_prophet_str13_description" "5 Crypt Swarm вперед, а потом еще 5, с задержкой 0.8 сек."  //  +
+        "npc_dota_hero_death_prophet_str13" "Рой духов"
+        "npc_dota_hero_death_prophet_str13_description" "5 Crypt Swarm вперед, а потом еще 5, с задержкои 0.8 сек."  //  +
         
-        "npc_dota_hero_death_prophet_agi6" "Ближний Разум"
+        "npc_dota_hero_death_prophet_agi6" "Дабл Exorcism"
         "npc_dota_hero_death_prophet_agi6_description" "2 заряда Exorcism." 
-        "npc_dota_hero_death_prophet_agi7" "Быстрые Мудрые Снаряды"
+        "npc_dota_hero_death_prophet_agi7" "Мощь Crypt Swarm"
         "npc_dota_hero_death_prophet_agi7_description" "75% ловкости в урон Crypt Swarm."  //  +
-        "npc_dota_hero_death_prophet_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_death_prophet_agi8_description" "40% ловкости в урон духов."
-        "npc_dota_hero_death_prophet_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_death_prophet_agi8" "Ловкие Духи"
+        "npc_dota_hero_death_prophet_agi8_description" "50% ловкости в урон духов."
+        "npc_dota_hero_death_prophet_agi9" "Востаньте, мои деты"
         "npc_dota_hero_death_prophet_agi9_description" "-50% перезарядка Exorcism."    //  +
-        "npc_dota_hero_death_prophet_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_death_prophet_agi10" "Ощути мой удар!"
         "npc_dota_hero_death_prophet_agi10_description" "Шанс применить Crypt Swarm с авто атаки, шанс 7%" //  +
-        "npc_dota_hero_death_prophet_agi11" "Аура Проклятия"
+        "npc_dota_hero_death_prophet_agi11" "Распространение Урона"
         "npc_dota_hero_death_prophet_agi11_description" "Духи наносят 70% урон в радиусе 150 вокруг цели."  //  +
-        "npc_dota_hero_death_prophet_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_death_prophet_agi12" "Воинственные Духи"
         "npc_dota_hero_death_prophet_agi12_description" "Атаки духов вызывают атаки героя." //  +
-		"npc_dota_hero_death_prophet_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_death_prophet_agi13_description" "Герой получает 3500 урона c руки, за каждого активного духа. На последнем уровне ультимейта" //  +
+		"npc_dota_hero_death_prophet_agi13" "Дай мне урон"
+        "npc_dota_hero_death_prophet_agi13_description" "Герои получает 3500 урона c руки, за каждого активного духа. На последнем уровне ультимеита" //  +
 
-        "npc_dota_hero_death_prophet_int6" "Накопление Интеллекта"
-        "npc_dota_hero_death_prophet_int6_description" "+30% ителлекта в урон духов"    //  +
-        "npc_dota_hero_death_prophet_int7" "Усиленная Мудрость"
+        "npc_dota_hero_death_prophet_int6" "Мощь Ментального Влияния"
+        "npc_dota_hero_death_prophet_int6_description" "+75% ителлекта в урон духов"    //  +
+        "npc_dota_hero_death_prophet_int7" "Мудрый Siphon"
         "npc_dota_hero_death_prophet_int7_description" "50% интеллекта в урон Spirit Siphon."    //  +
-        "npc_dota_hero_death_prophet_int8" "Слово По Области"
+        "npc_dota_hero_death_prophet_int8" "Разумный Crypt Swarm"
         "npc_dota_hero_death_prophet_int8_description" "50% интеллекта в урон Crypt Swarm."    //  +
-        "npc_dota_hero_death_prophet_int9" "Стакующая Мудрость"
+        "npc_dota_hero_death_prophet_int9" "Больше духов"
         "npc_dota_hero_death_prophet_int9_description" "+25% духов."    // +
-        "npc_dota_hero_death_prophet_int10" "Командная Работа"
+        "npc_dota_hero_death_prophet_int10" "Вся Мощь Молчания"
         "npc_dota_hero_death_prophet_int10_description" "Silence наносит урон 150% интеллекта"    //  +
-        "npc_dota_hero_death_prophet_int11" "Командная Работа"
+        "npc_dota_hero_death_prophet_int11" "Превосходный Crypt Swarm"
         "npc_dota_hero_death_prophet_int11_description" "-50% Перезарядка Crypt Swarm, не требует ману."    //  +
         "npc_dota_hero_death_prophet_int11_tooltip" "Урон наносится каждые 0.2 сек."
-        "npc_dota_hero_death_prophet_int12" "Удвоенный Урон"
+        "npc_dota_hero_death_prophet_int12" "Критический Удар Духов"
         "npc_dota_hero_death_prophet_int12_description" "с шансом 15% Духи могут нанести критическую атаку 225%"    //  +
-        "npc_dota_hero_death_prophet_int13" "Удвоенный Урон"
+        "npc_dota_hero_death_prophet_int13" "Смертоносная Сущность"
         "npc_dota_hero_death_prophet_int13_description" "с шансом 30% Духи могут нанести критическую атаку 225%"    //  +
 
         //VIPER
@@ -6574,59 +6569,59 @@
 		"DOTA_Tooltip_modifier_viper_viper_strike_lua_slow_Description"				"Скорость передвижения уменьшена на %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, скорость атаки уменьшена на %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 
-        "npc_dota_hero_viper_str6" "Эхо Тишины"
+        "npc_dota_hero_viper_str6" "Не ударишь"
         "npc_dota_hero_viper_str6_description" "x2 замедление скорости атаки Viper Strike."
-        "npc_dota_hero_viper_str7" "Мгновенное Затишье"
+        "npc_dota_hero_viper_str7" "И не пробьешь"
         "npc_dota_hero_viper_str7_description" "Corrosive Skin также дает броню, равную замедлению скорости атаки."      //  +
-        "npc_dota_hero_viper_str8" "Мудрость Безгранична"
+        "npc_dota_hero_viper_str8" "Маги, мне не по чем"
         "npc_dota_hero_viper_str8_description" "х2 сопротивление магии Corrosive Skin."
-        "npc_dota_hero_viper_str9" "Проклятие Изнурения"
-        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает скорость передвижения до минимальной."
-        "npc_dota_hero_viper_str10" "Ускоренное Проклятие"
+        "npc_dota_hero_viper_str9" "Я все равно быстрее)"
+        "npc_dota_hero_viper_str9_description" "Nethertoxin снижает скорость передвижения до минимальнои."
+        "npc_dota_hero_viper_str10" "Резист к магии? Не слышал"
         "npc_dota_hero_viper_str10_description" "Снижение сопростивления магии х2 Poison Attack."      //  -
-        "npc_dota_hero_viper_str11" "Щит Мудреца"
+        "npc_dota_hero_viper_str11" "Моя кожа прочнее, твоей"
         "npc_dota_hero_viper_str11_description" "50% силы в урон Corrosive Skin"    //  +
-        "npc_dota_hero_viper_str12" "Глобальный Гром"
-        "npc_dota_hero_viper_str12_description" "Corrosive Skin становиться аурой"    //  +
-        "npc_dota_hero_viper_str13" "Глобальный Гром"
+        "npc_dota_hero_viper_str12" "Подарок союзникам"
+        "npc_dota_hero_viper_str12_description" "Corrosive Skin становиться аурои"    //  +
+        "npc_dota_hero_viper_str13" "Накопление Corrosive Skin"
         "npc_dota_hero_viper_str13_description" "Corrosive Skin может накапливаться на пораженных целях до 5 раз"    //  -
-        "npc_dota_hero_viper_str13_tooltip" "За каждый стак +50% урон и замедления, стаки накладываются после тика урона."
+        "npc_dota_hero_viper_str13_tooltip" "За каждыи стак +50% урон и замедления, стаки накладываются после тика урона."
         
-        "npc_dota_hero_viper_agi6" "Ближний Разум"
+        "npc_dota_hero_viper_agi6" "Мощный Яд"
         "npc_dota_hero_viper_agi6_description" "Poison Attack наносит в 2 раза больше урона по врагам с эффектом Viper Strike."    //  -
-        "npc_dota_hero_viper_agi7" "Быстрые Мудрые Снаряды"
+        "npc_dota_hero_viper_agi7" "Больше времени"
         "npc_dota_hero_viper_agi7_description" "+6 сек. длительность Nethertoxin."
-        "npc_dota_hero_viper_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_viper_agi8" "Мощь Corrosive Skin"
         "npc_dota_hero_viper_agi8_description" "Бонус скорости атаки герою, равная снижению скорости атаки Corrosive Skin."     //  +
-        "npc_dota_hero_viper_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_viper_agi9" "Дабл Viper Strike"
         "npc_dota_hero_viper_agi9_description" "2 заряда Viper Strike, возможно применить несколько эффектов одновременно."
-        "npc_dota_hero_viper_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_viper_agi10" "Пливака"
         "npc_dota_hero_viper_agi10_description" "Nethertoxin применяется в 3 точки."   //  +
-        "npc_dota_hero_viper_agi11" "Аура Проклятия"
+        "npc_dota_hero_viper_agi11" "Сокрушительное Распадение"
         "npc_dota_hero_viper_agi11_description" "Атаки по крипам с эффектом Corrosive Skin вызывают нанесение урона способности."    //  +
-        "npc_dota_hero_viper_agi11_tooltip" "Наносимый урон снижен до 50% (происходит тик урона, после атаки героя)"
-        "npc_dota_hero_viper_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_viper_agi11_tooltip" "Наносимыи урон снижен до 50% (происходит тик урона, после атаки героя)"
+        "npc_dota_hero_viper_agi12" "Я буду харкаться"
         "npc_dota_hero_viper_agi12_description" "10% шанс применить Nethertoxin при атаке."
-		"npc_dota_hero_viper_agi13" "Всепроникающая Мудрость"
+		"npc_dota_hero_viper_agi13" "Сильная харча"
         "npc_dota_hero_viper_agi13_description" "Макс. урон Nethertoxin +400%, время до макс. урон +300%."
 
-        "npc_dota_hero_viper_int6" "Накопление Интеллекта"
+        "npc_dota_hero_viper_int6" "Нетребовательный Яд"
         "npc_dota_hero_viper_int6_description" "Poison attack не тратит ману."  //  +
-        "npc_dota_hero_viper_int7" "Усиленная Мудрость"
+        "npc_dota_hero_viper_int7" "Дополнительные Заряды"
         "npc_dota_hero_viper_int7_description" "2 заряда Nethertoxin."
-        "npc_dota_hero_viper_int8" "Слово По Области"
+        "npc_dota_hero_viper_int8" "Мощь Разума"
         "npc_dota_hero_viper_int8_description" "+100% интеллекта в урон Viper strike."
-        "npc_dota_hero_viper_int9" "Стакующая Мудрость"
+        "npc_dota_hero_viper_int9" "Умный Укус"
         "npc_dota_hero_viper_int9_description" "+30% интеллекта в урон Poison attack."   //  +
-        "npc_dota_hero_viper_int10" "Командная Работа"
+        "npc_dota_hero_viper_int10" "Интеллектуальное Влияние"
         "npc_dota_hero_viper_int10_description" "+10% интеллекта в мин. урон, +50% интеллекта в макс. урон Nethertoxin."  //  +
-        "npc_dota_hero_viper_int11" "Командная Работа"
+        "npc_dota_hero_viper_int11" "Неудержимая Угроза"
         "npc_dota_hero_viper_int11_description" "10 сек. перезарядка Viper strike, на всех уровнях, не требует ману для применения."    //  +
-        "npc_dota_hero_viper_int12" "Удвоенный Урон"
+        "npc_dota_hero_viper_int12" "Накопление Яда"
         "npc_dota_hero_viper_int12_description" "Стак Poison attack накладывается при нанесении урона от Corrosive Skin."    //  +
-        "npc_dota_hero_viper_int13" "Удвоенный Урон"
+        "npc_dota_hero_viper_int13" "Множественное Отравление"
         "npc_dota_hero_viper_int13_description" "Не ограниченное число стаков Poison Attack, но эффективность каждого последующего стака на 10% ниже предыдущего."    //  -
-        "npc_dota_hero_viper_int13_tooltip" "Снижение сопротивления и замедление работает только на первые 5 стаков, с нормальной прогессией. Талант распростроняется только на урон."
+        "npc_dota_hero_viper_int13_tooltip" "Снижение сопротивления и замедление работает только на первые 5 стаков, с нормальнои прогессиеи. Талант распростроняется только на урон."
 
         // ----------------------------- spirit breaker
 
@@ -6696,60 +6691,61 @@
 		"DOTA_Tooltip_modifier_spirit_breaker_planar_pocket_aura_Description"			"Герой имеет дополнительное сопротивление магии и перенаправит в себя следующее направленное вражеское заклинание, применённое в союзника"
 
 
-        "npc_dota_hero_spirit_breaker_str6" "Bulldoze"
-        "npc_dota_hero_spirit_breaker_str6_description" "5мс за уровень героя, во время действия Bulldozer."  // +
+        "npc_dota_hero_spirit_breaker_str6" "Беги, БАРА! БЕГИ!!!"
+        "npc_dota_hero_spirit_breaker_str6_description" "5мс за уровень героя, во время деиствия Bulldozer."  // +
         "npc_dota_hero_spirit_breaker_str6_tooltip" "До 100 уровня"
-        "npc_dota_hero_spirit_breaker_str7" "Мгновенное Затишье"
+        "npc_dota_hero_spirit_breaker_str7" "Ошеломляющий удар"
         "npc_dota_hero_spirit_breaker_str7_description" "50% силы в урон Greater Bash."     //  +
-        "npc_dota_hero_spirit_breaker_str8" "Мудрость Безгранична"
-        "npc_dota_hero_spirit_breaker_str8_description" "Bulldozer дает соп.магии равный соп.эффектам."     // +
-        "npc_dota_hero_spirit_breaker_str9" "Проклятие Изнурения"
-        "npc_dota_hero_spirit_breaker_str9_description" "Во время Bulldozer герой получает 5% восстановления здоровья."   // +
-        "npc_dota_hero_spirit_breaker_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_spirit_breaker_str10_description" "Эффекты Bulldozer всегда активен. Если применить то можно получить двойной эффект."   // +
-        "npc_dota_hero_spirit_breaker_str11" "Щит Мудреца"
+        "npc_dota_hero_spirit_breaker_str8" "Неуязвимый"
+        "npc_dota_hero_spirit_breaker_str8_description" "Bulldozer дает соп.магии равныи соп.эффектам."     // +
+        "npc_dota_hero_spirit_breaker_str9" "Возмещение жизненной силы"
+        "npc_dota_hero_spirit_breaker_str9_description" "Во время Bulldozer герои получает 5% восстановления здоровья."   // +
+        "npc_dota_hero_spirit_breaker_str10" "Постоянное усиление"
+        "npc_dota_hero_spirit_breaker_str10_description" "Эффекты Bulldozer всегда активен. Если применить то можно получить двоинои эффект."   // +
+        "npc_dota_hero_spirit_breaker_str11" "Да будет всем защита!"
         "npc_dota_hero_spirit_breaker_str11_description" "Эффект Bulldozer работает на союзников в радиусе 800, как аура."  // +
-        "npc_dota_hero_spirit_breaker_str12" "Глобальный Гром"
+        "npc_dota_hero_spirit_breaker_str12" "Автоматический БАШ"
         "npc_dota_hero_spirit_breaker_str12_description" "При получении урона, на противника примениется Greater Bash."
         "npc_dota_hero_spirit_breaker_str12_tooltip" "Шанс первого срабатывания 40%, а далее 20%.<br><br>Срабатывает только при получении физического урона. Максимальная дальность 500."  // +
-        "npc_dota_hero_spirit_breaker_str13" "Глобальный Гром"
+        "npc_dota_hero_spirit_breaker_str13" "Автоматический БАШ v2.0"
         "npc_dota_hero_spirit_breaker_str13_description" "При получении урона, на противника примениется Greater Bash."
         "npc_dota_hero_spirit_breaker_str13_tooltip" "Шанс первого срабатывания 70%, а далее 30%.<br><br>Срабатывает только при получении физического урона. Максимальная дальность 800."  // +
         
-        "npc_dota_hero_spirit_breaker_agi6" "Ближний Разум"
+        "npc_dota_hero_spirit_breaker_agi6" "Рассеивание магии"
         "npc_dota_hero_spirit_breaker_agi6_description" "Магическая неуязвимость во время Charge of Darkness. Эффект сохраняется 1.5 сек. после столкновения."  //  +
-        "npc_dota_hero_spirit_breaker_agi7" "Быстрые Мудрые Снаряды"
+        "npc_dota_hero_spirit_breaker_agi7" "Вертушка"
         "npc_dota_hero_spirit_breaker_agi7_description" "Применение Greater Bash на всех врагов вокруг героя, при активации Bulldozer."
-        "npc_dota_hero_spirit_breaker_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_spirit_breaker_agi8" "Баш! Баш!! Баш!!!"
         "npc_dota_hero_spirit_breaker_agi8_description" "Greater Bash не имеет перезарядки."    //  +
-        "npc_dota_hero_spirit_breaker_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_spirit_breaker_agi9" "Адская ярость"
         "npc_dota_hero_spirit_breaker_agi9_description" "+600 скорости атаки на 3 сек., после применения Nether Strike."    // +
-        "npc_dota_hero_spirit_breaker_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_spirit_breaker_agi10" "Никому не сбежать"
         "npc_dota_hero_spirit_breaker_agi10_description" "После столкновения с целью Charge of Darkness, способность применяется еще 2 раза на самого дальнего врагов в обласьт видемости героя."
-        "npc_dota_hero_spirit_breaker_agi11" "Аура Проклятия"
-        "npc_dota_hero_spirit_breaker_agi11_description" "Если Greater Bash не сработал при атаке, то с шансом равным Greater Bash, он может сработать на случайную цель в радиусе 700 вокруг героя."   //  +
-        "npc_dota_hero_spirit_breaker_agi11_tooltip" "Основная цель не может быть случайно выбранной."
-        "npc_dota_hero_spirit_breaker_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_spirit_breaker_agi12_description" "При каждом нанесении урона Greater Bash герой наносит атаку."  //  +
-        "npc_dota_hero_spirit_breaker_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_spirit_breaker_agi11" "Солевой удар"
+        "npc_dota_hero_spirit_breaker_agi11_description" "Если Greater Bash не сработал при атаке, то с шансом равным Greater Bash, он может сработать на случаиную цель в радиусе 700 вокруг героя."   //  +
+        "npc_dota_hero_spirit_breaker_agi11_tooltip" "Основная цель не может быть случаино выбраннои."
+        "npc_dota_hero_spirit_breaker_agi12" "Удар башем и рукой"
+        "npc_dota_hero_spirit_breaker_agi12_description" "При каждом нанесении урона Greater Bash герои наносит атаку."  //  +
+        "npc_dota_hero_spirit_breaker_agi13" "Удар копытом"
         "npc_dota_hero_spirit_breaker_agi13_description" "60% базового урона в урон Greater Bash"  //  +
 		
         "npc_dota_hero_spirit_breaker_int6" "Накопление Интеллекта"
-        "npc_dota_hero_spirit_breaker_int6_description" "Эффект Bulldozer даёт снижение перезарядок на 50%"     // +
+        "npc_dota_hero_spirit_breaker_int6_description" "Эффект Bulldozer дает снижение перезарядок на 50%"     // +
         "npc_dota_hero_spirit_breaker_int7" "Усиленная Мудрость"
         "npc_dota_hero_spirit_breaker_int7_description" "Шанс срабатывания Greater Bash +10%"   // +
-        "npc_dota_hero_spirit_breaker_int8" "Слово По Области"
+        "npc_dota_hero_spirit_breaker_int8" "Интеллектуальный бросок"
         "npc_dota_hero_spirit_breaker_int8_description" "+200% интеллекта в урон Nether strike."    //  +
-        "npc_dota_hero_spirit_breaker_int9" "Стакующая Мудрость"
+        "npc_dota_hero_spirit_breaker_int9" "Удар жизненой силы"
         "npc_dota_hero_spirit_breaker_int9_description" "Во время Charge of Darkness, радиус поражения +200, урон Greater Bash x2"  // +
-        "npc_dota_hero_spirit_breaker_int10" "Командная Работа"
+        "npc_dota_hero_spirit_breaker_int10" "Волны разума"
         "npc_dota_hero_spirit_breaker_int10_description" "+75% интеллекта в урон Greater Bash"      //  +
-        "npc_dota_hero_spirit_breaker_int11" "Командная Работа"
-        "npc_dota_hero_spirit_breaker_int11_description" "Применение Charge of Darkness увеличивает входящий, магический урон, по цели, на 20%. Длительность 5 сек."    //  +
-        "npc_dota_hero_spirit_breaker_int12" "Удвоенный Урон"
-        "npc_dota_hero_spirit_breaker_int12_description" "Greater Bash наносит урон всем, в радиусе 400 от основной цели."     //  +
-        "npc_dota_hero_spirit_breaker_int13" "Удвоенный Урон"
-        "npc_dota_hero_spirit_breaker_int13_description" "Процент урона от скорости увеличен +уровень героя"     //  +
+        "npc_dota_hero_spirit_breaker_int11" "Огонь души"
+        "npc_dota_hero_spirit_breaker_int11_description" "Применение Charge of Darkness увеличивает входящии, магическии урон, по цели, на 20%. Длительность 5 сек."    //  +
+        "npc_dota_hero_spirit_breaker_int12" "Концентрация магии"
+        "npc_dota_hero_spirit_breaker_int12_description" "25% шанс, что баш нанесет 225% урон."     //  +
+        "npc_dota_hero_spirit_breaker_int13" "Магический удар"
+        "npc_dota_hero_spirit_breaker_int13_description" "Greater Bash наносит 175% маг-крита с шансом 25%"     //  +
+
         // --------------------- leshrac 
 		"DOTA_Tooltip_ability_leshrac_split_earth_lua"																					"Split Earth"
 		"DOTA_Tooltip_ability_leshrac_split_earth_lua_Description"																		"Раскалывает землю под врагами. Наносит урон и ненадолго оглушает."
@@ -6780,59 +6776,59 @@
 		"DOTA_Tooltip_ability_leshrac_pulse_nova_lua_damage"																			"УРОН:"
 
 
-        "npc_dota_hero_leshrac_str6" "Bulldoze"
-        "npc_dota_hero_leshrac_str6_description" "Применение трёх Split Earth вместо одного."   // +
-        "npc_dota_hero_leshrac_str7" "Мгновенное Затишье"
-        "npc_dota_hero_leshrac_str7_description" "Снижение входящего урона на 30%, во время действия Pulse Nova." //    +
-        "npc_dota_hero_leshrac_str8" "Мудрость Безгранична"
+        "npc_dota_hero_leshrac_str6" "3в1"
+        "npc_dota_hero_leshrac_str6_description" "Применение трех Split Earth вместо одного."   // +
+        "npc_dota_hero_leshrac_str7" "Защитный Покров"
+        "npc_dota_hero_leshrac_str7_description" "Снижение входящего урона на 30%, во время деиствия Pulse Nova." //    +
+        "npc_dota_hero_leshrac_str8" "Силовой Разряд"
         "npc_dota_hero_leshrac_str8_description" "Нанесение урона Split Earth применяет Lightning Storm на жертв." //
-        "npc_dota_hero_leshrac_str9" "Проклятие Изнурения"
-        "npc_dota_hero_leshrac_str9_description" "Split Earth срабатывает в том же месте ещё 3 раза с промежутком в 5 сек. При каждом срабатывании радиус увеличивается на 55."     // +
-        "npc_dota_hero_leshrac_str10" "Ускоренное Проклятие"
-        "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 800." //
-        "npc_dota_hero_leshrac_str11" "Щит Мудреца"
-        "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не найдено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 50%." // +
-        "npc_dota_hero_leshrac_str12" "Глобальный Гром"
+        "npc_dota_hero_leshrac_str9" "Мощный Землетряс"
+        "npc_dota_hero_leshrac_str9_description" "Split Earth срабатывает в том же месте еще 3 раза с промежутком в 5 сек. При каждом срабатывании радиус увеличивается на 55."     // +
+        "npc_dota_hero_leshrac_str10" "Купил линзу, что-ли?"
+        "npc_dota_hero_leshrac_str10_description" "Радиус Pulse Nova увеличен до 1000." //
+        "npc_dota_hero_leshrac_str11" "Поиск врага"
+        "npc_dota_hero_leshrac_str11_description" "Если новых целей для прыжка Lightning Storm не наидено то молния будет бить уже пораженных целей. Урон по таким целям снижен на 50%." // +
+        "npc_dota_hero_leshrac_str12" "Дабл Lightning Storm"
         "npc_dota_hero_leshrac_str12_description" "Кол-во скачков Lightning Storm в 2 раза больше."     //  +
-        "npc_dota_hero_leshrac_str13" "Глобальный Гром"
+        "npc_dota_hero_leshrac_str13" "Двойной удар"
         "npc_dota_hero_leshrac_str13_description" "Lightning Storm бьет каждую цель по 2 раза."     //  +
 
-        "npc_dota_hero_leshrac_agi6" "Ближний Разум"
-        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 2 сек. после того как цель покинула ауру." //
-        "npc_dota_hero_leshrac_agi7" "Быстрые Мудрые Снаряды"
-        "npc_dota_hero_leshrac_agi7_description" "Split Earth можно применить на область 700, удары будут срабатывать в случайных местах это области 10 раз, с задержкой между ударами 0.5сек." // +
+        "npc_dota_hero_leshrac_agi6" "Бесконтактный бой"
+        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova продолжает наносить урон еще 5 сек. после того как цель покинула ауру." //
+        "npc_dota_hero_leshrac_agi7" "Разрыв Земной Коры"
+        "npc_dota_hero_leshrac_agi7_description" "Split Earth можно применить на область 700, удары будут срабатывать в случаиных местах это области 10 раз, с задержкои между ударами 0.5сек." // +
         "npc_dota_hero_leshrac_agi7_tooltip" "Талант возможно отключить, если отключить авто-каста."
-        "npc_dota_hero_leshrac_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_leshrac_agi8" "Двойное Разрушение"
         "npc_dota_hero_leshrac_agi8_description" "Diabolic Edict может атаковать сразу 2 цели."    //
-        "npc_dota_hero_leshrac_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_leshrac_agi9" "Мощь Молнии"
         "npc_dota_hero_leshrac_agi9_description" "50% шанс применить Lightning Storm при нанесении урона Pulse Nova." //
-        "npc_dota_hero_leshrac_agi10" "Усиленное Проклятие"
-        "npc_dota_hero_leshrac_agi10_description" "Если несколько ударов Split Earth с активным предыдущем талантом, попадет по одной цели, то урон каждого последующего удара будет увеличен в 2 раза." // +
-        "npc_dota_hero_leshrac_agi11" "Аура Проклятия"
+        "npc_dota_hero_leshrac_agi10" "Взрывная Концентрация"
+        "npc_dota_hero_leshrac_agi10_description" "Если несколько ударов Split Earth с активным предыдущем талантом, попадет по однои цели, то урон каждого последующего удара будет увеличен в 2 раза." // +
+        "npc_dota_hero_leshrac_agi11" "Беспредельная Мощь"
         "npc_dota_hero_leshrac_agi11_description" "50% взрывов Diabolic Edict всегда активны."  //
-        "npc_dota_hero_leshrac_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_leshrac_agi12" "Мощные взрывы"
         "npc_dota_hero_leshrac_agi12_description" "Кол-во взрывов Diabolic Edict в 3 раза больше, длительность в 2 раза больше."
-        "npc_dota_hero_leshrac_agi13" "Всепроникающая Мудрость"
+        "npc_dota_hero_leshrac_agi13" "Истинная Pulse Nova"
         "npc_dota_hero_leshrac_agi13_description" "Атаки Diabolic Edict применяют нанесение урона от Pulse Nova."
 		
-        "npc_dota_hero_leshrac_int6" "Накопление Интеллекта"
+        "npc_dota_hero_leshrac_int6" "Интеллектуальный Импульс"
         "npc_dota_hero_leshrac_int6_description" "35% интеллекта к урону Pulse Nova."   //  +
         "npc_dota_hero_leshrac_int6_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
-        "npc_dota_hero_leshrac_int7" "Усиленная Мудрость"
+        "npc_dota_hero_leshrac_int7" "Усиление Энергии"
         "npc_dota_hero_leshrac_int7_description" "35% интеллекта к урону Pulse Nova."   //  +
         "npc_dota_hero_leshrac_int7_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
-        "npc_dota_hero_leshrac_int8" "Слово По Области"
+        "npc_dota_hero_leshrac_int8" "Умственная Мощь"
         "npc_dota_hero_leshrac_int8_description" "35% интеллекта к урону Pulse Nova."   //  +
         "npc_dota_hero_leshrac_int8_tooltip" "<font color='red'><b>Здесь нужно указать 3 разных значения, в зависимости от того сколько урона будут выдавать билды через каждую из этих веток.</b></font>"
-        "npc_dota_hero_leshrac_int9" "Стакующая Мудрость"
+        "npc_dota_hero_leshrac_int9" "Сильное землетрясение"
         "npc_dota_hero_leshrac_int9_description" "100% интеллекта к урону Split Earth."     // +
-        "npc_dota_hero_leshrac_int10" "Командная Работа"
+        "npc_dota_hero_leshrac_int10" "Буря молний"
         "npc_dota_hero_leshrac_int10_description" "100% интеллекта к урону Lightning Storm."    //  +
-        "npc_dota_hero_leshrac_int11" "Командная Работа"
+        "npc_dota_hero_leshrac_int11" "Разрушение всего и вся"
         "npc_dota_hero_leshrac_int11_description" "25% интеллекта к урону Diabolic Edict."
-        "npc_dota_hero_leshrac_int12" "Удвоенный Урон"
+        "npc_dota_hero_leshrac_int12" "Всемогущяя Pulse Nova"
         "npc_dota_hero_leshrac_int12_description" "Pulse Nova наносит урон 2 раза в секунду."
-        "npc_dota_hero_leshrac_int13" "Удвоенный Урон"
+        "npc_dota_hero_leshrac_int13" "Всемогущяя Pulse Nova v2.0"
         "npc_dota_hero_leshrac_int13_description" "Pulse Nova наносит урон 5 раз в секунду."
 //============================================================================================ TEMPLAR ASSASSIN =============================================================================================
 
@@ -6920,57 +6916,57 @@
 		"DOTA_Tooltip_modifier_dawnbreaker_solar_guardian_lua_evasion"					"Solar Guardian"
 		"DOTA_Tooltip_modifier_dawnbreaker_solar_guardian_lua_evasion_Description"		"Уклонение увеличено на %dMODIFIER_PROPERTY_EVASION_CONSTANT%%%."
 
-        "npc_dota_hero_dawnbreaker_str6" "Эхо Тишины"
+        "npc_dota_hero_dawnbreaker_str6" "Магия, не помеха мне"
         "npc_dota_hero_dawnbreaker_str6_description" "Магическая неуязвимость во время Starbreaker."
-        "npc_dota_hero_dawnbreaker_str7" "Мгновенное Затишье"
+        "npc_dota_hero_dawnbreaker_str7" "Защитный Luminosity"
         "npc_dota_hero_dawnbreaker_str7_description" "Каждую 8 атаку Luminosity получает х2 крит и лечение."
         "npc_dota_hero_dawnbreaker_str8" "Мудрость Безгранична"
         "npc_dota_hero_dawnbreaker_str8_description" "10 сек. длительность огненного следа Celestial Hammer."
         "npc_dota_hero_dawnbreaker_str9" "Проклятие Изнурения"
-        "npc_dota_hero_dawnbreaker_str9_description" "100% силы в дополнительный урон Starbreaker."
+        "npc_dota_hero_dawnbreaker_str9_description" "100% силы в дополнительныи урон Starbreaker."
         "npc_dota_hero_dawnbreaker_str10" "Celestial Hammer"
-        "npc_dota_hero_dawnbreaker_str10_description" "Solar Guardian герой передаёт весь свой урон союзника. Урон разделяется на всех кто внутри круге."
+        "npc_dota_hero_dawnbreaker_str10_description" "Solar Guardian герои передает весь свои урон союзника. Урон разделяется на всех кто внутри круге."
         "npc_dota_hero_dawnbreaker_str11" "Luminosity"
-        "npc_dota_hero_dawnbreaker_str11_description" "50% силы в периодический урон Solar Guardian."
+        "npc_dota_hero_dawnbreaker_str11_description" "50% силы в периодическии урон Solar Guardian."
         "npc_dota_hero_dawnbreaker_str11_tooltip" "Время до принудительного возвращения молота увеличено до 5 сек."
-        "npc_dota_hero_dawnbreaker_str12" "Глобальный Гром"
+        "npc_dota_hero_dawnbreaker_str12" "Аура солнца"
         "npc_dota_hero_dawnbreaker_str12_description" "Всегда активная аура Solar Guardian, урон и лечение 50%."
-        "npc_dota_hero_dawnbreaker_str13" "Глобальный Гром"
+        "npc_dota_hero_dawnbreaker_str13" "Аура солнца х2"
         "npc_dota_hero_dawnbreaker_str13_description" "Всегда активная аура Solar Guardian, урон и лечение 100%."
         
-        "npc_dota_hero_dawnbreaker_agi6" "Ближний Разум"
+        "npc_dota_hero_dawnbreaker_agi6" "Ближнии Разум"
         "npc_dota_hero_dawnbreaker_agi6_description" "Радиус, дальность Starbreaker +150."
         "npc_dota_hero_dawnbreaker_agi7" "Starbreaker"
         "npc_dota_hero_dawnbreaker_agi7_description" "2 заряда способности Starbreaker."
         "npc_dota_hero_dawnbreaker_agi8" "Starbreaker"
-        "npc_dota_hero_dawnbreaker_agi8_description" "+100 критический урон Luminosity."
+        "npc_dota_hero_dawnbreaker_agi8_description" "+100 критическии урон Luminosity."
         "npc_dota_hero_dawnbreaker_agi9" "Starbreaker"
-        "npc_dota_hero_dawnbreaker_agi9_description" "х2 урон последней атаки Starbreaker."
+        "npc_dota_hero_dawnbreaker_agi9_description" "х2 урон последнеи атаки Starbreaker."
         "npc_dota_hero_dawnbreaker_agi10" "Starbreaker"
-        "npc_dota_hero_dawnbreaker_agi10_description" "Дополнительный урон Starbreaker х2."
+        "npc_dota_hero_dawnbreaker_agi10_description" "Дополнительныи урон Starbreaker х2."
         "npc_dota_hero_dawnbreaker_agi10_tooltip" "Не усиливает талант из ветки силы."
         "npc_dota_hero_dawnbreaker_agi11" "Аура Проклятия"
-        "npc_dota_hero_dawnbreaker_agi11_description" "+100% урон от атак, когда герой выбросил молот Celestial Hammer."
+        "npc_dota_hero_dawnbreaker_agi11_description" "+100% урон от атак, когда герои выбросил молот Celestial Hammer."
         "npc_dota_hero_dawnbreaker_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_dawnbreaker_agi12_description" "+2 кол-во вращений Starbreaker."
+        "npc_dota_hero_dawnbreaker_agi12_description" "+2 кол-во вращении Starbreaker."
         "npc_dota_hero_dawnbreaker_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_dawnbreaker_agi13_description" "еще +3 кол-во вращений Starbreaker."
+        "npc_dota_hero_dawnbreaker_agi13_description" "еще +3 кол-во вращении Starbreaker."
 		
-        "npc_dota_hero_dawnbreaker_int6" "Celestial Hammer"
+        "npc_dota_hero_dawnbreaker_int6" "Легкий молот"
         "npc_dota_hero_dawnbreaker_int6_description" "-5сек. перезарядка Starbreaker."
-        "npc_dota_hero_dawnbreaker_int7" "Усиленная Мудрость"
+        "npc_dota_hero_dawnbreaker_int7" "Тяжесть знаний"
         "npc_dota_hero_dawnbreaker_int7_description" "150% интеллекта в урон Solar Guardian при приземлении."
-        "npc_dota_hero_dawnbreaker_int8" "Слово По Области"
+        "npc_dota_hero_dawnbreaker_int8" "Молот разума"
         "npc_dota_hero_dawnbreaker_int8_description" "100% интеллекта в урон молота Celestial Hammer."
-        "npc_dota_hero_dawnbreaker_int9" "Стакующая Мудрость"
-        "npc_dota_hero_dawnbreaker_int9_description" "При срабатывании Luminosity наносит маг урон противникам, равный лечению для героя."
-        "npc_dota_hero_dawnbreaker_int10" "Командная Работа"
+        "npc_dota_hero_dawnbreaker_int9" "Урон света"
+        "npc_dota_hero_dawnbreaker_int9_description" "При срабатывании Luminosity наносит маг урон противникам, равным лечению для героя."
+        "npc_dota_hero_dawnbreaker_int10" "Магические пульсации"
         "npc_dota_hero_dawnbreaker_int10_description" "100% интеллекта в урон Solar Guardian при пульсации."
-        "npc_dota_hero_dawnbreaker_int11" "Командная Работа"
+        "npc_dota_hero_dawnbreaker_int11" "Гори, гори ясно!"
         "npc_dota_hero_dawnbreaker_int11_description" "50% интеллекта в урон горения Celestial Hammer."
-        "npc_dota_hero_dawnbreaker_int12" "Удвоенный Урон"
+        "npc_dota_hero_dawnbreaker_int12" "Магический след в атаке героя"
         "npc_dota_hero_dawnbreaker_int12_description" "Атаки наносят 1% магического урона от атаки героя."
-        "npc_dota_hero_dawnbreaker_int13" "Удвоенный Урон"
+        "npc_dota_hero_dawnbreaker_int13" "Магия в атаке"
         "npc_dota_hero_dawnbreaker_int13_description" "Атаки наносят 2% магического урона от атаки героя."
 
 
@@ -7011,55 +7007,55 @@
         "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify"              "Cloak and Dagger"
         "dota_tooltip_modifier_riki_cloak_and_dagger_lua_talent_spell_amplify_description"  "Урон от заклинаний увеличен на %MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE%%%"
 
-        "npc_dota_hero_riki_str6" "Bulldoze"
+        "npc_dota_hero_riki_str6" "Опа, такое нам надо!"
         "npc_dota_hero_riki_str6_description" "Восстановление 5% здоровья во время прозрачности Cloak and Dagger." // +
-        "npc_dota_hero_riki_str7" "название"
+        "npc_dota_hero_riki_str7" "И сильный, и ловкий?"
         "npc_dota_hero_riki_str7_description" "Cloak and Dagger наносит урон от силы, 50% значения от ловкости." // +
-        "npc_dota_hero_riki_str8" "Мудрость Безгранична"
+        "npc_dota_hero_riki_str8" "Все таки, я же крыса)"
         "npc_dota_hero_riki_str8_description" "Вампиризм 40% от атак в спину." // +
-        "npc_dota_hero_riki_str9" "Проклятие Изнурения"
+        "npc_dota_hero_riki_str9" "На нахуй"
         "npc_dota_hero_riki_str9_description" "Оглушение на 2 сек. от Blink Strike." // +
-        "npc_dota_hero_riki_str10" "Ускоренное Проклятие"
+        "npc_dota_hero_riki_str10" "Фууу, в спину бьешь"
         "npc_dota_hero_riki_str10_description" "Атаки под эффектом Smoke Screen, всегда будут наноситься в спину." // +
-        "npc_dota_hero_riki_str11" "Щит Мудреца"
-        "npc_dota_hero_riki_str11_description" "+50% базовой брони всем союзникам в Smoke Screen." // +
-        "npc_dota_hero_riki_str12" "Глобальный Гром"
-        "npc_dota_hero_riki_str12_description" "Tricks of the Trade герой может перемещаться и бить, но лишается неуязвимости." // +
-        "npc_dota_hero_riki_str13" "Глобальный Гром"
+        "npc_dota_hero_riki_str11" "Помощник от бога)"
+        "npc_dota_hero_riki_str11_description" "+50% базовои брони всем союзникам в Smoke Screen." // +
+        "npc_dota_hero_riki_str12" "Вроде бью я, а больно мне"
+        "npc_dota_hero_riki_str12_description" "Tricks of the Trade герои может перемещаться и бить, но лишается неуязвимости." // +
+        "npc_dota_hero_riki_str13" "Огромный урон"
         "npc_dota_hero_riki_str13_description" "+300% урона во время Tricks of the Trade." // +
         
-        "npc_dota_hero_riki_agi6" "Ближний Разум"
-        "npc_dota_hero_riki_agi6_description" "2 заряда Tricks of the Trade."
-        "npc_dota_hero_riki_agi7" "Быстрые Мудрые Снаряды"
+        "npc_dota_hero_riki_agi6" "Двойной Tricks of the Trade"
+        "npc_dota_hero_riki_agi6_description" "2 заряда Tricks of the Trade." // +
+        "npc_dota_hero_riki_agi7" "Как же без ловкости?"
         "npc_dota_hero_riki_agi7_description" "+60% ловкость во время Tricks of the Trade." // +
-        "npc_dota_hero_riki_agi8" "Разделенная Мудрость"
+        "npc_dota_hero_riki_agi8" "Ошеломляющий Dagger"
         "npc_dota_hero_riki_agi8_description" "+50% урон за ловкость Cloak and Dagger." // +
-        "npc_dota_hero_riki_agi9" "Интеллектуальная Быстрота"
+        "npc_dota_hero_riki_agi9" "Быстрые союзники"
         "npc_dota_hero_riki_agi9_description" "Все союзники под эффектом Smoke Screen получают по +10% ловкости в секунду." // +
-        "npc_dota_hero_riki_agi10" "Усиленное Проклятие"
+        "npc_dota_hero_riki_agi10" "Бесконечный крит…"
         "npc_dota_hero_riki_agi10_description" "Все атаки под Smoke Screen имеют 100% шанс на 150% урит.удар." // +
-        "npc_dota_hero_riki_agi11" "Аура Проклятия"
+        "npc_dota_hero_riki_agi11" "Истенный блинк"
         "npc_dota_hero_riki_agi11_description" "+30% базового урона, после использования Blink Strike, на 5 сек." // +
-        "npc_dota_hero_riki_agi12" "Всепроникающая Мудрость"
+        "npc_dota_hero_riki_agi12" "Быстре ручки"
         "npc_dota_hero_riki_agi12_description" "Tricks of the Trade интервал атак снижен, +50% скорости атаки героя." // +
-        "npc_dota_hero_riki_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_riki_agi13_description" "x2 скорость атаки в Tricks of the Trade" // +
+        "npc_dota_hero_riki_agi13" "Ай, больно в ноге!"
+        "npc_dota_hero_riki_agi13_description" "Атаки в 2 раза чаще, если внутри Tricks of the Trade только одна цель." // +
 		
-        "npc_dota_hero_riki_int6" "Накопление Интеллекта"
+        "npc_dota_hero_riki_int6" "Больше -кд!!!!"
         "npc_dota_hero_riki_int6_description" "-50% перезарядка Tricks of the Trade." // +
-        "npc_dota_hero_riki_int7" "Усиленная Мудрость"
-        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодический урон 50% интеллекта." // +
-        "npc_dota_hero_riki_int8" "Слово По Области"
+        "npc_dota_hero_riki_int7" "Усиленный Screen"
+        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодическии урон 100% интеллекта." // +
+        "npc_dota_hero_riki_int8" "Крысы нападают!"
         "npc_dota_hero_riki_int8_description" "Tricks of the Trade атакует все цели внутри круга." // +
-        "npc_dota_hero_riki_int9" "Стакующая Мудрость"
+        "npc_dota_hero_riki_int9" "Искусная магическая крыска"
         "npc_dota_hero_riki_int9_description" "Все способности не требуют ману для применения." // +
-        "npc_dota_hero_riki_int10" "Командная Работа"
+        "npc_dota_hero_riki_int10" "А я был видим все это время?"
         "npc_dota_hero_riki_int10_description" "Настоящая невидимость от Cloak and Dagger." // +
-        "npc_dota_hero_riki_int11" "Командная Работа"
+        "npc_dota_hero_riki_int11" "Хорошая работа! Олег!"
         "npc_dota_hero_riki_int11_description" "+150 радиус Tricks of the Trade." // +
-        "npc_dota_hero_riki_int12" "Удвоенный Урон"
+        "npc_dota_hero_riki_int12" "Магическая крыса"
         "npc_dota_hero_riki_int12_description" " Увеличение значения магического усиления героя в 3.5 раза, в режиме невидимости от Cloak and Dagger." // +
-        "npc_dota_hero_riki_int13" "Удвоенный Урон"
+        "npc_dota_hero_riki_int13" "Магическая крыса v2.0"
         "npc_dota_hero_riki_int13_description" " Увеличение значения магического усиления героя в 7.0 раза, в режиме невидимости от Cloak and Dagger." // +
 
         
@@ -7093,56 +7089,57 @@
 		"DOTA_Tooltip_ability_doom_ulti_lua_radius"					    "РАДИУС:"
 		"DOTA_Tooltip_ability_doom_ulti_lua_damage_per_soul"			"УРОН ЗА ДУШУ:"
 
+
         "npc_dota_hero_doom_bringer_str6" "Эхо Тишины"
         "npc_dota_hero_doom_bringer_str6_description" "Враги по эффектом Doom наносят на 20% меньше урона."
-        "npc_dota_hero_doom_bringer_str7" "Мгновенное Затишье"
+        "npc_dota_hero_doom_bringer_str7" "Бейте сколько влезит"
         "npc_dota_hero_doom_bringer_str7_description" "50% силы в урон Scorched Earth."
-        "npc_dota_hero_doom_bringer_str8" "Мудрость Безгранична"
+        "npc_dota_hero_doom_bringer_str8" "Сжигание"
         "npc_dota_hero_doom_bringer_str8_description" "50% силы в урон Infernal Blade."
-        "npc_dota_hero_doom_bringer_str9" "Проклятие Изнурения"
+        "npc_dota_hero_doom_bringer_str9" "Проклятие навеки"
         "npc_dota_hero_doom_bringer_str9_description" "40 сек. длительность Doom."
-        "npc_dota_hero_doom_bringer_str10" "Celestial Hammer"
-        "npc_dota_hero_doom_bringer_str10_description" "Devour даёт силу равную урону."
-        "npc_dota_hero_doom_bringer_str11" "Luminosity"
+        "npc_dota_hero_doom_bringer_str10" "Сильный телом"
+        "npc_dota_hero_doom_bringer_str10_description" "Devour дает силу равную урону."
+        "npc_dota_hero_doom_bringer_str11" "На костер врагов!"
         "npc_dota_hero_doom_bringer_str11_description" "Атаки Infernal Blade поджигают врагов на 10 сек."
-        "npc_dota_hero_doom_bringer_str12" "Глобальный Гром"
+        "npc_dota_hero_doom_bringer_str12" "Областной Devour"
         "npc_dota_hero_doom_bringer_str12_description" "Devour можно применить на область 400. Можно получить 2 эффекта."
-        "npc_dota_hero_doom_bringer_str13" "Глобальный Гром"
+        "npc_dota_hero_doom_bringer_str13" "Областной Devour v2.0"
         "npc_dota_hero_doom_bringer_str13_description" "Devour можно применить на область 800. Можно получить 3 эффекта."
         
-        "npc_dota_hero_doom_bringer_agi6" "Ближний Разум"
-        "npc_dota_hero_doom_bringer_agi6_description" "Души Devour дают шанс 15% нанести крит. атаку 100% + 5 * кол-во душ."
-        "npc_dota_hero_doom_bringer_agi7" "Starbreaker"
-        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade наносит критическую атаку 1000%"
-        "npc_dota_hero_doom_bringer_agi8" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi6" "Хочешь урон? На"
+        "npc_dota_hero_doom_bringer_agi6_description" "Души Devour дают шанс 15% нанести крит. атаку 100% + 10 * кол-во душ."
+        "npc_dota_hero_doom_bringer_agi7" "Огненный крит"
+        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade наносит критическую атаку 100% + 10 * уровень героя"
+        "npc_dota_hero_doom_bringer_agi8" "Даже алхимик завидует тебе"
         "npc_dota_hero_doom_bringer_agi8_description" "х3 дополнительное золото Devour."
-        "npc_dota_hero_doom_bringer_agi9" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi9" "Свен на минималках?"
         "npc_dota_hero_doom_bringer_agi9_description" "Атаки героя наносят 100% сплеш урон."
-        "npc_dota_hero_doom_bringer_agi10" "Starbreaker"
+        "npc_dota_hero_doom_bringer_agi10" "Огненный дизармор"
         "npc_dota_hero_doom_bringer_agi10_description" "Infernal Blade снижает броню на 1 * уровень способности."
-        "npc_dota_hero_doom_bringer_agi11" "Аура Проклятия"
+        "npc_dota_hero_doom_bringer_agi11" "Нажимай на меня по кд"
         "npc_dota_hero_doom_bringer_agi11_description" "-20сек. перезарядка Devour."
-        "npc_dota_hero_doom_bringer_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_doom_bringer_agi12_description" "Урон от Devour в 4 раз больше."
-        "npc_dota_hero_doom_bringer_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_doom_bringer_agi13_description" "Урон от Devour в 7 раз больше."
+        "npc_dota_hero_doom_bringer_agi12" "Заарканишь крипчиков"
+        "npc_dota_hero_doom_bringer_agi12_description" "Урон от Devour в 5 раз больше."
+        "npc_dota_hero_doom_bringer_agi13" "Devour стал сильнее"
+        "npc_dota_hero_doom_bringer_agi13_description" "Урон от Devour в 13 раз больше."
 		
-        "npc_dota_hero_doom_bringer_int6" "Celestial Hammer"
+        "npc_dota_hero_doom_bringer_int6" "Эффективность возрастет!"
         "npc_dota_hero_doom_bringer_int6_description" "Если число душ Devour кратно 3 то эффективность их в 1.5 раза выше."
-        "npc_dota_hero_doom_bringer_int7" "Усиленная Мудрость"
+        "npc_dota_hero_doom_bringer_int7" "Переключатель"
         "npc_dota_hero_doom_bringer_int7_description" "Scorched Earth переключаемая способность."
-        "npc_dota_hero_doom_bringer_int8" "Слово По Области"
+        "npc_dota_hero_doom_bringer_int8" "Душевный дум"
         "npc_dota_hero_doom_bringer_int8_description" "5% интеллекта за душу к урону Doom."
-        "npc_dota_hero_doom_bringer_int9" "Стакующая Мудрость"
+        "npc_dota_hero_doom_bringer_int9" "Я есть Doom"
         "npc_dota_hero_doom_bringer_int9_description" "Враги под эффектом Doom получают на 20% больше урона."
-        "npc_dota_hero_doom_bringer_int10" "Командная Работа"
+        "npc_dota_hero_doom_bringer_int10" "Infernal Blade, -КД"
         "npc_dota_hero_doom_bringer_int10_description" "4 сек. перезарядка Infernal Blade, на всех уровнях."
-        "npc_dota_hero_doom_bringer_int11" "Командная Работа"
+        "npc_dota_hero_doom_bringer_int11" "Я заберу твою душу"
         "npc_dota_hero_doom_bringer_int11_description" "2.5% увеличение урона Infernal Blade за душу."
-        "npc_dota_hero_doom_bringer_int12" "Удвоенный Урон"
-        "npc_dota_hero_doom_bringer_int12_description" "20% интеллекта в урон всех заклинаний."
-        "npc_dota_hero_doom_bringer_int13" "Удвоенный Урон"
-        "npc_dota_hero_doom_bringer_int13_description" "40% интеллекта в урон всех заклинаний."
+        "npc_dota_hero_doom_bringer_int12" "Апгрейд"
+        "npc_dota_hero_doom_bringer_int12_description" "20% интеллекта в урон всех заклинании."
+        "npc_dota_hero_doom_bringer_int13" "Апгрейд v2.0"
+        "npc_dota_hero_doom_bringer_int13_description" "40% интеллекта в урон всех заклинании."
 
         //Marci//
 
@@ -7208,6 +7205,8 @@
         "npc_dota_hero_marci_str11_description" "Герой получает дополнительный урон равный троенной сумме атрибутов"
         "npc_dota_hero_marci_str12" "5x KOMBO"
         "npc_dota_hero_marci_str12_description" "После получения 50 уровня герой получает в 5 раз больше душ"
+        "npc_dota_hero_marci_str13" "15x KOMBO"
+        "npc_dota_hero_marci_str13_description" "После получения 50 уровня герой получает в 15 раз больше душ"
 
         "npc_dota_hero_marci_agi6" "Склизкость"
         "npc_dota_hero_marci_agi6_description" "Каждое получение души увеличивает базовую ловкость на 1"
@@ -7223,6 +7222,8 @@
         "npc_dota_hero_marci_agi11_description" "Уменьшеает задержку между сериями еще на 0.5"
         "npc_dota_hero_marci_agi12" "Абсолютная ярость"
         "npc_dota_hero_marci_agi12_description" "Под действием Unleash 100% сопротивление эффектам и неуязвимость к магии"
+        "npc_dota_hero_marci_agi13" "Яростный удар"
+        "npc_dota_hero_marci_agi13_description" "Под действием Unleash , герой получает +150% дмг от базы"
 
         "npc_dota_hero_marci_int6" "Магия-немагия"
         "npc_dota_hero_marci_int6_description" "Осколки ночи дают бонусный урон способностей"
@@ -7238,7 +7239,9 @@
         "npc_dota_hero_marci_int11_description" "С шансом 35% Rebound stomp наносит двойной урон, уменьшает кулдаун ребаунда на 1 секунду"
         "npc_dota_hero_marci_int12" "Озарение"
         "npc_dota_hero_marci_int12_description" "Пульсация наносит дополнительный урон равный интеллекту, если изучен подобный талнт урон пульсации удвоится"
-
+        "npc_dota_hero_marci_int13" "Всемогущий Ребаунт"
+        "npc_dota_hero_marci_int13_description" "КД ребаунда становится 3 секунды"
+        
         //////////////////
         //Common talents//
         //////////////////
