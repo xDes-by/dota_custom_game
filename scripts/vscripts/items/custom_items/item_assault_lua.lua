@@ -17,6 +17,14 @@ function item_assault_lua:GetIntrinsicModifierName()
 	return "modifier_assault_lua"
 end
 
+function item_assault_lua:GetCastRange(vLocation, hTarget)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
+		return 1500
+	end
+	return self:GetAbility():GetSpecialValueFor("aura_radius")
+end
+
+
 ------------------------------------------------
 
 modifier_assault_lua = class({})
@@ -92,6 +100,12 @@ function modifier_assault_lua:GetModifierAura()
 end
 
 function modifier_assault_lua:GetAuraRadius()
+	print(self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50"))
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
+		print(1500)
+		return 1500
+	end
+	print(self.aura_radius)
 	return self.aura_radius
 end
 function modifier_assault_lua:GetAuraDuration()

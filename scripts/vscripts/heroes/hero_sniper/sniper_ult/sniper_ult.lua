@@ -18,6 +18,8 @@ function modifier_sniper_ult:IsPurgable()
 end
 
 function modifier_sniper_ult:OnCreated( kv )
+	if not IsServer() then return end
+	self:StartIntervalThink(1)
 end
 
 function modifier_sniper_ult:DeclareFunctions()
@@ -57,9 +59,17 @@ if not IsServer() then return end
 			end
 			
 			EmitSoundOn("Hero_Jakiro.LiquidFire", keys.attacker)
-			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
-				self:GetCaster():Heal(boom_damage*0.025, nil)
-			end
 		end
+	end
+end
+
+function modifier_sniper_ult:OnIntervalThink()
+	print("interval think")
+	if self:GetCaster():FindItemInInventory("item_assault_lua") then
+		print("item_assault_lua")
+		item = self:GetCaster():FindItemInInventory("item_assault_lua")
+		item.GetCastRange = function() return 1500 end
+		modifier = self:GetCaster():FindModifierByName("modifier_assault_lua")
+		modifier.GetAuraRadius = function() return 1500 end
 	end
 end
