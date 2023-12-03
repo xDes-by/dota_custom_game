@@ -27,7 +27,11 @@ function item_octarine_core_lua:OnSpellStart()
 	for i = 0, 23 do 
 		local current_ability = caster:GetAbilityByIndex(i)
 		if current_ability then
-			current_ability:EndCooldown()
+			if current_ability:GetAbilityChargeRestoreTime(current_ability:GetLevel()) > 0 then
+				current_ability:RefreshCharges()
+			else
+				current_ability:EndCooldown()
+			end
 		end
 	end
 	for i = 0, 23 do 
@@ -41,7 +45,11 @@ function item_octarine_core_lua:OnSpellStart()
 		end
 
 		if current_item and should_refresh then
-			current_item:EndCooldown()
+			if current_item:GetAbilityChargeRestoreTime(current_item:GetLevel()) > 0 then
+				current_item:RefreshCharges()
+			else
+				current_item:EndCooldown()
+			end
 		end
 	end
 	for _, modName in pairs({"modifier_item_forever_ward_cd","modifier_item_boss_summon_cd","modifier_item_armor_aura_cd","modifier_item_attack_speed_aura_cd","modifier_item_base_damage_aura_cd","modifier_item_expiriance_aura_cd","modifier_item_hp_aura_cd","modifier_item_move_aura_cd","modifier_item_book_mage_damage_cd","modifier_item_book_phys_damage_cd","modifier_item_book_gold_cd"}) do

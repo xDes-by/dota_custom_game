@@ -56,7 +56,6 @@ function modifier_gem1:OnIntervalThink()
 		if self.tbl_current[ability] ~= 0 then
 			local bonus_per_stone = self.bonus[ability:GetLevel()] / (self.bonus[ability:GetLevel()] + self.tbl_current[ability])
 			local item_bonus = bonus_per_stone * self.bonus[ability:GetLevel()] / 5 * 0.01
-			print(item_bonus)
 			table.insert( t, item_bonus)
 		end
 	end

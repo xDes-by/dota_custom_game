@@ -1286,7 +1286,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		local cemetery = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
 			local point = Vector(7149, 10737, 773)
-			FindClearSpaceForUnit(snow, point, false)
+			FindClearSpaceForUnit(cemetery, point, false)
 			cemetery:Stop()
 			cemetery:RespawnUnit()
 		end)
