@@ -45,17 +45,17 @@ function modifier_zuus_nimbus_intrinsic:GetModifierOverrideAbilitySpecialValue(d
 		if data.ability_special_value == "cloud_duration" then
 			local cloud_duration = self:GetAbility():GetLevelSpecialValueNoOverride( "cloud_duration", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi12") then
-                cloud_duration = 50
+                cloud_duration = 40
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi13") then
-                cloud_duration = 60
+                cloud_duration = 50
             end
             return cloud_duration
 		end
         if data.ability_special_value == "cloud_interval" then
 			local cloud_interval = self:GetAbility():GetLevelSpecialValueNoOverride( "cloud_interval", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi12") then
-                cloud_interval = 1.5
+                cloud_interval = 2
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi13") then
                 cloud_interval = 1

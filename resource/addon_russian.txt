@@ -1461,13 +1461,15 @@
         "dota_tooltip_ability_spell_item_pet_RDA_250_no_phys_spell_bonus_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_24" "Magiclay"
 
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1" "<font color='#00FFFF'>Frostbite</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Frostbite вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Medivus</h1> Вы получаете шанс не запустить перезарядку способности после использования. \n<font color='#df1022'>РЕФРЕШЕР РАБОТАЕТ НЕ СО ВСЕМИ СПОСОБНОСТЯМИ И ПРЕДМЕТАМИ</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1" "<font color='#00FFFF'>WoodRider</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в WoodRider вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона.\n<h1>Пассивная: Medivus</h1> Вы получаете шанс не запустить перезарядку способности после использования."
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_lore" "Питомец может преодолевать большие расстояния за меньшее время. При нанесении урона или использовании заклинания, вы превратитесь обратно в себя."
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_chance" "%ШАНС СРАБАТЫВАНИЯ:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_phys_dmg" "%БОНУС ФИЗИЧЕСКОГО УРОНА:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_mage_dmg" "%БОНУС МАГИЧЕСКОГО УРОНА:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "%УВЕЛИЧЕНИЕ ЗОЛОТА КАЖДУЮ СЕКУНДУ:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
-        "pet_bp_1" "Frostbite"
+        "pet_bp_1" "WoodRider"
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1" "<font color='#ffa500'>Baby Rosh</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Активная: Ultra Walk</h1> Превращаясь в Baby Rosh вы становитесь крайне быстры а так же. В форме пета вы получаете в 3 раза больше урона."
@@ -5107,7 +5109,7 @@
         "npc_dota_hero_pugna_agi12" "Бласт нечисти"
         "npc_dota_hero_pugna_agi12_description" "10% срабатывания Nether Blast при атаке"
         "npc_dota_hero_pugna_agi13" "Дать подзатыльник"
-        "npc_dota_hero_pugna_agi13_description" "Увеличивает шанс наложения заклинания "Ослепление" (1-е умение) на 15% при атаке (отключить стан)"
+        "npc_dota_hero_pugna_agi13_description" "Увеличивает шанс наложения заклинания 'Ослепление' (1-е умение) на 15% при атаке (отключить стан)"
 
         "npc_dota_hero_pugna_int6" "Разлив скверны"
         "npc_dota_hero_pugna_int6_description" "+5 целей у Nether Ward"
@@ -5506,13 +5508,13 @@
         "npc_dota_hero_zuus_agi11_description" "Увеличение длительности обзора после применения Lightning Bolt на 3 секунды."
         "npc_dota_hero_zuus_agi12" "Шаровая молния"
         "npc_dota_hero_zuus_agi12_description" "Новую способность Nimbus, использует Lightning Bolt."
-        "npc_dota_hero_zuus_agi12_tooltip"     "Длительность 40сек., интервал 1.5, радиус 800, дальность применения 2000"
+        "npc_dota_hero_zuus_agi12_tooltip"     "Длительность 30сек., интервал 2.0, радиус 800, дальность применения 2000"
         "npc_dota_hero_zuus_agi13" "Шаровая молния"
         "npc_dota_hero_zuus_agi13_description" "Улучшение способности Nimbus."
-        "npc_dota_hero_zuus_agi13_tooltip"      "Длительность 50сек., интервал 1.0, радиус 1200, дальность применения 3000"
+        "npc_dota_hero_zuus_agi13_tooltip"      "Длительность 40сек., интервал 1.0, радиус 1200, дальность применения 3000"
 
         "npc_dota_hero_zuus_int6" "С небес"
-        "npc_dota_hero_zuus_int6_description" "25% интеллекта в урон Arc Lightning."
+        "npc_dota_hero_zuus_int6_description" "35% интеллекта в урон Arc Lightning."
         "npc_dota_hero_zuus_int7" "Шторм"
         "npc_dota_hero_zuus_int7_description" "100% интеллекта в урон Lightning Bolt."
         "npc_dota_hero_zuus_int8" "Буря"
@@ -5935,7 +5937,7 @@
         "npc_dota_hero_huskar_int12" "Искупительный огонь"
         "npc_dota_hero_huskar_int12_description" "Конечный урон Burning Spear увеличен на 40%."
         "npc_dota_hero_huskar_int13" "Жертвенное Копье"
-        "npc_dota_hero_huskar_int13_description" "Копья использует 0.1% вашего здоровья, урон может быть усилен"
+        "npc_dota_hero_huskar_int13_description" "Копья использует 1% вашего здоровья, урон может быть усилен"
 
         //Broodmother//
 		
@@ -6383,7 +6385,7 @@
         "npc_dota_hero_razor_str11_description" "75% силы в урон Storm Surge."  // +
         "npc_dota_hero_razor_str12" "Глобальный Гром"
         "npc_dota_hero_razor_str12_description" "-0.15 сек. интервал срабатывания Eye of the Storm"   // +
-        "npc_dota_hero_razor_str13" "Глобальный Гром"
+        "npc_dota_hero_razor_str13" "Раскаты грома"
         "npc_dota_hero_razor_str13_description" "-0.15 сек. интервал срабатывания Eye of the Storm"   // +
         
         "npc_dota_hero_razor_agi6" "Ближний Разум"

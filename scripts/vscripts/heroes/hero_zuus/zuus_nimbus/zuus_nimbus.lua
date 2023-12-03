@@ -47,4 +47,5 @@ function zuus_nimbus:OnSpellStart()
 		duration = cloud_duration,
 		radius = cloud_radius,
 	}, target_point, caster:GetTeamNumber(), false )
+	AddFOWViewer(caster:GetTeamNumber(), target_point, cloud_radius, duration, false)
 end

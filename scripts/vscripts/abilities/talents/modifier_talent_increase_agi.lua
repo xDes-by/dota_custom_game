@@ -62,6 +62,9 @@ function IsMyKilledBadGuys(hero, params)
 end
 
 modifier_talent_increase_agi_counter = class({})
+function modifier_talent_increase_agi_counter:GetTexture()
+    return "modifier_Increase_agi"
+end
 --Classifications template
 function modifier_talent_increase_agi_counter:IsHidden()
     return false

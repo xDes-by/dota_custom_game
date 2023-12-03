@@ -20,6 +20,9 @@ function BattlePass:init()
     CustomGameEventManager:RegisterListener("BattlePassInventoryItemSelect",function(_, keys)
         self:OnInventorySelection(keys)
     end)
+    CustomGameEventManager:RegisterListener("BattlePassRefreshVoteCount",function(_, keys)
+        self:RefreshVoteCount(keys)
+    end)
     ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( self, 'OnGameRulesStateChange'), self)
     self.shop = battle_pass_shop
     self.player = {}
@@ -187,8 +190,9 @@ function BattlePass:OnVote(t)
         self.player[pid].vote = t.hero_name
         self:IncrementVoteCount(t.hero_name)
     end
-    CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
+    print(self.player[pid].vote)
     CustomNetTables:SetTableValue('BattlePass', tostring(pid), self.player[pid])
+    CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     DataBase:Send(DataBase.link.HeroVote, "GET", {
         pass_id = self.player[pid].pass_id,
         hero_name = self.player[pid].vote,
@@ -767,6 +771,11 @@ function BattlePass:GoldenBranch(reward_data, send_data, pid)
         end
     end
     return send_data
+end
+function BattlePass:RefreshVoteCount(t)
+    DataBase:Send(DataBase.link.RefreshVoteCount, "GET", {}, nil, true, function(body)
+        self:SetVoteList(json.decode(body))
+    end)
 end
 ----------------- /REWARDS ------------------------------------
 

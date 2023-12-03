@@ -408,12 +408,14 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
-		"AbilityTextureName"			"pets/baby_winter_wyvern_png"
+		"AbilityTextureName"			"pets/bobrik"
 		"ScriptFile"					"items/pets/item_pet_rda_bp_1"
 		"AbilityValues"
 		{
-			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
+			"speed"						"1700 1900 2100 2300 2500 2700 2900 3100 3300 3500"
+			"phys_dmg"					"0.096 0.097 0.098 0.099 0.10 0.11 0.12 0.13 0.14 0.15"
+			"mage_dmg"					"0.25 0.5 0.75 1 1.25 1.50 1.75 2 2.25 2.5"
+			"gold"						"0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.90 0.95 1"
 		}
 	}
     //======================================================================================================================================

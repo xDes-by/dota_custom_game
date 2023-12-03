@@ -62,6 +62,9 @@ function IsMyKilledBadGuys(hero, params)
 end
 
 modifier_talent_increase_str_counter = class({})
+function modifier_talent_increase_str_counter:GetTexture()
+    return "modifier_Increase_str"
+end
 --Classifications template
 function modifier_talent_increase_str_counter:IsHidden()
     return false
