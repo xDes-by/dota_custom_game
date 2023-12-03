@@ -1107,6 +1107,7 @@
 		"Ability5"					"manacost_spell"
 		"Ability6"					"rot_boss_lua"
 		"Ability7"					"boss_2_spray"
+		"Ability8"					"pudge_chaos_meteor_lua"
 
 		"ArmorPhysical"				"30"			
 		"MagicalResistance"         "20"
@@ -1576,6 +1577,7 @@
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
 		"CanRespawn"				"1"
+		"IsAncient"					"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1652,6 +1654,7 @@
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
 		"CanRespawn"				"1"
+		"IsAncient"					"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -2301,7 +2304,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"600"		
+		"AttackAcquisitionRange"	"900"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
