@@ -239,13 +239,13 @@ function AdminPanel:CreateBot(t)
     --     unit:AddItemByName("item_kaya_custom_lua"):SetLevel(11)
     --     unit:AddItemByName("item_bloodstone_lua"):SetLevel(11)
     -- end)
-    -- Timers:CreateTimer(0, function()
-    --     ExecuteOrderFromTable({
-    --         UnitIndex = unit:entindex(),
-    --         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    --         Position = Vector(-1295.685547, 4705.719727, 384.000000),
-    --     })
-    --     return 10
-    -- end)
+    Timers:CreateTimer(0, function()
+        ExecuteOrderFromTable({
+            UnitIndex = unit:entindex(),
+            OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+            Position = Vector(-1295.685547, 4705.719727, 384.000000),
+        })
+        return 10
+    end)
 end
 AdminPanel:init()

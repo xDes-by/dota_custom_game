@@ -84,12 +84,6 @@ function DataBase:init()
 	CustomGameEventManager:RegisterListener("CommentChange", Dynamic_Wrap( DataBase, 'CommentChange'))
 	ListenToGameEvent( "player_chat", Dynamic_Wrap( DataBase, "OnChat" ), self )
 	ListenToGameEvent("entity_killed", Dynamic_Wrap( self, 'OnEntityKilled' ), self )
-	-- DataBase:GameSetup()
-	-- for i = 0 , PlayerResource:GetPlayerCount()-1 do
-	--     if PlayerResource:IsValidPlayer(i) then
-	-- 		DataBase:PlayerSetup(i)
-	-- 	end
-	-- end
 end
 
 function DataBase:OnGameRulesStateChange()
@@ -755,9 +749,13 @@ function DataBase:Send(path, method, data, pid, check, callback)
 		local sid = PlayerResource:GetSteamAccountID(pid)
 		req:SetHTTPRequestGetOrPostParameter("sid", tostring(sid))
 	end
+	local hero_name = ""
+	if pid and PlayerResource:HasSelectedHero(pid) and PlayerResource:GetSelectedHeroName(pid) then
+		hero_name = PlayerResource:GetSelectedHeroName(pid)
+	end
+	req:SetHTTPRequestGetOrPostParameter("hero_name", hero_name)
 	req:SetHTTPRequestGetOrPostParameter("rda_test", "1")
 	req:Send(function(res)
-		print("SendStatusCode:", res.StatusCode)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			if callback then
 				callback(res.Body)

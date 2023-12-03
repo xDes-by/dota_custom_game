@@ -3,14 +3,6 @@
     "Language" "None"
     "Tokens"
     {
-
-        //Quelling Blade//
-        "DOTA_Tooltip_Ability_item_quelling_blade_lua"			"Quelling Blade"
-        "DOTA_Tooltip_ability_item_quelling_blade_lua_Description"					"<h1>Active: Chop Tree</h1> Destroy a target tree. <br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %damage_bonus% for melee heroes, and %damage_bonus_ranged% for ranged."
-		"DOTA_Tooltip_ability_item_quelling_blade_lua_Lore"							"The axe of a fallen gnome, it allows you to effectively maneuver the forest."
-		"DOTA_Tooltip_ability_item_quelling_blade_lua_Note0"						"Effects of multiple quelling blades do not stack."
-
-
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
         "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"
@@ -1349,39 +1341,15 @@
         "dota_tooltip_ability_spell_item_pet_RDA_250_no_phys_spell_bonus_note0"  "Automatically collects all types of gems in a small radius around the pet."
         "pet_24" "Magiclay"
 
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1" "<font color='#00FFFF'>Frostbite</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_description" "<h1>Active: Ultra Walk</h1> When you transform into Frostbite, you become extremely fast. In pet form, you take 3 times more damage.\n<h1>Passive: Medivus</h1> You you get a chance not to start recharging the ability after use. \n<font color='#df1022'>REFRESHER DOES NOT WORK WITH ALL ABILITIES AND ITEMS</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_speed" "MOVEMENT SPEED:"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_chance" "%CHANCE OF TRICKING:"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_note0" "Automatically collects all types of gems in a small radius around the pet."
-        "pet_bp_1" "Frostbite"
-
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1" "<font color='#ffa500'>Baby Rosh</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast. In pet form, you take 3 times more damage."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast. In pet form, you take 3 times more damage.<br><br><br><font color='red'>????????????</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_speed" "MOVEMENT SPEED:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_bonus_health" "HEALTH BONUS FOR LVL:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_amount" "%SPLASH DAMAGE:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_radius" "RADIUS:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_block" "%DAMAGE BLOCK:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_dmg" "BONUS TO BASE DAMAGE FOR LVL:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_gold" "GOLD PER SECOND:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_1_note0" "Automatically collects all types of gems in a small radius around the pet."
         "rosh_1" "Baby Rosh"
 
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2" "<font color='#ffa500'>Baby Rosh</font>"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast.In pet form, you take 3 times more damage."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast.In pet form, you take 3 times more damage.<br><br><br><font color='red'>????????????</font>"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_speed" "MOVEMENT SPEED:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_stats_bonus" "ATRIBUTES PER LEVEL BONUS:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_minus_armor" "ARMOR REDUCTION PER LEVEL:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_dur" "PHYSICAL INVULNERABILITY DURATION:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_bkb" "MAGIC INVULNERABILITY DURATION:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_phys_percent" "%BONUS PHYSICAL DAMAGE:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_pure_percent" "% NET DAMAGE FROM BASE:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_goex" "%BONUS GOLD AND EXP GROWTH:"
-        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_regen" "%HEALTH AND MANA RESTORATION:"
         "dota_tooltip_ability_spell_item_pet_rda_roshan_2_note0" "Automatically collects all types of gems in a small radius around the pet."
         "rosh_2" "Baby Rosh"
 
@@ -15834,8 +15802,10 @@
         "npc_dota_hero_medusa_str11_description" "Mana Shield absorbs 2x damage per mana point"
         "npc_dota_hero_medusa_str12" "Divine Protection"
         "npc_dota_hero_medusa_str12_description" "Damage blocked by Mana Shield ability is reduced by armor and magic resistance."
+        "npc_dota_hero_medusa_str13" "Almighty Absorption"
+        "npc_dota_hero_medusa_str13_description" "Increases absorbed damage per mana x5"
+
         "npc_dota_hero_medusa_agi6" "True Aim"
-        
         "npc_dota_hero_medusa_agi6_description" "Split Shot effect deals double damage if only one target is near Medusa"
         "npc_dota_hero_medusa_agi7" "Ocular Might"
         "npc_dota_hero_medusa_agi7_description" "Enemies turned to stone receive +50% physical damage."
@@ -15849,6 +15819,9 @@
         "npc_dota_hero_medusa_agi11_description" "Split Shot targets are affected by modifiers"
         "npc_dota_hero_medusa_agi12" "Serpent Strike"
         "npc_dota_hero_medusa_agi12_description" "Mystic Snake also deals physical damage equal to five times Medusa's damage.\n(Not amplified)"
+        "npc_dota_hero_medusa_agi13" "Right on target x2"
+        "npc_dota_hero_medusa_agi13_description" "+100% damage when splitshot is active."
+
 
         "npc_dota_hero_medusa_int6" "Double Snake Release"
         "npc_dota_hero_medusa_int6_description" "Mystic Snake releases 2 snakes"
@@ -15864,6 +15837,10 @@
         "npc_dota_hero_medusa_int11_description" "Mystic Snake mana cost is 30% of the hero's current mana amount."
         "npc_dota_hero_medusa_int12" "Most Venomous Venom"
         "npc_dota_hero_medusa_int12_description" "Poison duration increased by 2 seconds"
+        "npc_dota_hero_medusa_int12" "Most Venomous Venom"
+        "npc_dota_hero_medusa_int12_description" "The snake can bounce on one target several times."
+        "npc_dota_hero_medusa_int13" "Jump-Jump"
+        "npc_dota_hero_medusa_int13_description" "x2 bounces, the snake can bounce on the same target several times"
 
         //Enchantress//
 
@@ -17659,13 +17636,10 @@
 
         "npc_dota_hero_leshrac_int6" "Intellectual Impulse"
         "npc_dota_hero_leshrac_int6_description" "35% Intelligence to Pulse Nova damage." // +
-        "npc_dota_hero_leshrac_int6_tooltip" "<font color='red'><b>Here you need to specify 3 different values, depending on how much damage the builds through each of these branches will produce.</b></font>"
         "npc_dota_hero_leshrac_int7" "Energy Boost"
         "npc_dota_hero_leshrac_int7_description" "35% Intelligence to Pulse Nova damage." // +
-        "npc_dota_hero_leshrac_int7_tooltip" "<font color='red'><b>Here you need to specify 3 different values, depending on how much damage the builds through each of these branches will produce.</b></font>"
         "npc_dota_hero_leshrac_int8" "Mental Power"
         "npc_dota_hero_leshrac_int8_description" "35% Intelligence to Pulse Nova damage." // +
-        "npc_dota_hero_leshrac_int8_tooltip" "<font color='red'><b>Here you need to specify 3 different values, depending on how much damage the builds through each of these branches will produce.</b></font>"
         "npc_dota_hero_leshrac_int9" "Strong Earthquake"
         "npc_dota_hero_leshrac_int9_description" "100% int to Split Earth damage." // +
         "npc_dota_hero_leshrac_int10" "Lightning Storm"
@@ -17800,7 +17774,7 @@
         "npc_dota_hero_spirit_breaker_int11" "Soul Fire"
         "npc_dota_hero_spirit_breaker_int11_description" "Charge of Darkness increases incoming magic damage to the target by 20%. Duration 5 sec." // +
         "npc_dota_hero_spirit_breaker_int12" "Magic Concentration"
-        "npc_dota_hero_spirit_breaker_int12_description" "Greater Bash deals damage to everyone within a 400 radius of the main target." // +
+        "npc_dota_hero_spirit_breaker_int12_description" "25% chance that the bash will deal 225% damage." // +
         "npc_dota_hero_spirit_breaker_int13" "Magic Strike"
         "npc_dota_hero_spirit_breaker_int13_description" "The percentage of damage from speed has been increased +hero level" // +
 
@@ -18079,6 +18053,8 @@
         "npc_dota_hero_razor_str11_description" "75% of the power in Storm Surge damage." // +
         "npc_dota_hero_razor_str12" "Less interval - more damage"
         "npc_dota_hero_razor_str12_description" "-0.3 sec. Eye of the Storm trigger interval" // +
+        "npc_dota_hero_razor_str13" "Roll of Thunder"
+        "npc_dota_hero_razor_str13_description" "-0.15 sec. Eye of the Storm trigger interval" // +
         
         "npc_dota_hero_razor_agi6" "Why not?"
         "npc_dota_hero_razor_agi6_description" "+60% damage from Eye of the Storm attacks" // +
@@ -18096,6 +18072,8 @@
         "npc_dota_hero_razor_agi12" "Suck more"
         "npc_dota_hero_razor_agi12_description" "Static link is automatically applied with a cooldown of 5.0->1.5 sec." // +
         "npc_dota_hero_razor_agi12_tooltip" "Damage stealing through this combo is 40% slower."
+        "npc_dota_hero_razor_agi13" "Pervading Wisdom"
+        "npc_dota_hero_razor_agi13_description" "Static link - aura, works on all enemies in the radius."
 
         "npc_dota_hero_razor_int6" "From Physics to Magicians (Mud Princes)"
         "npc_dota_hero_razor_int6_description" "Eye of the Storm's damage type changes to magical." // +
@@ -18112,6 +18090,8 @@
         "npc_dota_hero_razor_int11_description" "2nd wave of Plasma Field with a delay of 0.8 sec." // +
         "npc_dota_hero_razor_int12" "Imba Circle"
         "npc_dota_hero_razor_int12_description" "10% chance to use Plasma Field when attacking." // +
+        "npc_dota_hero_razor_agi13" "Pervading Wisdom"
+        "npc_dota_hero_razor_agi13_description" "Static link - aura, works on all enemies in the radius."
 
         //VENGEFUL
 
@@ -18174,6 +18154,8 @@
         "npc_dota_hero_vengefulspirit_str11_description" "Heroes and Avatar gain 15% total lifesteal from attacks."
         "npc_dota_hero_vengefulspirit_str12" "Shield - two friends"
         "npc_dota_hero_vengefulspirit_str12_description" "Heroes and Avatar gain a 500% health shield when summoned." // +- HZ
+        "npc_dota_hero_vengefulspirit_str13" "Immortal clone"
+        "npc_dota_hero_vengefulspirit_str13_description" "120 sec clone lifespan at all levels."
 
         "npc_dota_hero_vengefulspirit_agi6" "Catch the cutlet"
         "npc_dota_hero_vengefulspirit_agi6_description" "The armor reduction effect stacks on the enemy, effect duration +5sec."
@@ -18315,6 +18297,8 @@
         "npc_dota_hero_marci_str11_description" "Marci takes bonus damage equal to 3x the sum of attributes"
         "npc_dota_hero_marci_str12" "Fragmentariness"
         "npc_dota_hero_marci_str12_description" "After reaching level 50, the Marci gains 5 times more souls"
+        "npc_dota_hero_marci_str13" "15x KOMBO"
+        "npc_dota_hero_marci_str13_description" "After reaching level 50, the hero receives 15 times more souls"
 
         "npc_dota_hero_marci_agi6" "Cleracity"
         "npc_dota_hero_marci_agi6_description" "Each soul gained increases base agility by 1"
@@ -18330,6 +18314,8 @@
         "npc_dota_hero_marci_agi11_description" "Reduces delay between bursts by another 0.5"
         "npc_dota_hero_marci_agi12" "Absolute Fury"
         "npc_dota_hero_marci_agi12_description" "Unleash 100% status resistance and magic immunity"
+        "npc_dota_hero_marci_agi13" "Furious Strike"
+        "npc_dota_hero_marci_agi13_description" "Under the influence of Unleash, the hero receives +150% dmg from the base"
 
         "npc_dota_hero_marci_int6" "Unleash magic"
         "npc_dota_hero_marci_int6_description" "Shards of Night grant bonus ability damage"
@@ -18345,6 +18331,8 @@
         "npc_dota_hero_marci_int11_description" "35% chance Rebound stomp deals double damage, reduces rebound cooldown by 1 second"
         "npc_dota_hero_marci_int12" "Illumination"
         "npc_dota_hero_marci_int12_description" "Ripple deals additional damage equal to Intellect, if such a talent is learned the ripple damage is doubled"
+        "npc_dota_hero_marci_int13" "Almighty Rebount"
+        "npc_dota_hero_marci_int13_description" "Rebound cooldown becomes 3 seconds"
 
         //////////////////
         //Common talents//
@@ -21222,10 +21210,17 @@
         "npc_dota_hero_vengefulspirit_str13_description" "120 sec clone lifespan at all levels."
         "talent_normal_exp_label" "Normal Experience"
         "Arrmor" "armor"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1" "<font color='#00FFFF'>WoodRider</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_description" "<h1>Active: Ultra Walk</h1> When you transform into WoodRider, you become extremely fast. In pet form, you take 3 times more damage."
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_note0" "Automatically collects all types of gems in a small radius around the pet."
+        "pet_bp_1" "WoodRider"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_phys_dmg" "% PHYSICAL DAMAGE BONUS:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_mage_dmg" "%MAGIC DAMAGE BONUS:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "% GOLD INCREASE EVERY SECOND:"
         "talent_game_time_label" "Game hours"
+        "BattlePass_model_name" "Replacement model"
+         "BattlePass_model_description" "You will forever receive a custom model for your hero."
         // ------------------------------------------------------------------------------------------------------------------
     }
 }

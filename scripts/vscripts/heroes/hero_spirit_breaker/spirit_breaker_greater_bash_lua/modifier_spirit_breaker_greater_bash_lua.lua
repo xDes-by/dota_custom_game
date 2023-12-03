@@ -242,28 +242,22 @@ function modifier_spirit_breaker_greater_bash_lua:Bash( target, dmg_multi )
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self.ability, --Optional.
 	}
-	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int12") then
-		local enemies = FindUnitsInRadius( self.parent:GetTeamNumber(), target:GetOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-		for _, enemy in pairs(enemies) do
-			if not (enemy ~= target and enemy:HasModifier("modifier_spirit_breaker_charge_of_darkness_m_resist_debuff")) then
-				damageTable.victim = enemy
-				ApplyDamage(damageTable)
-			end
-		end
-	else
-		ApplyDamage(damageTable)
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi12") then
-			self:GetCaster():PerformAttack(
-				damageTable.target, -- hTarget
-				true, -- bUseCastAttackOrb
-				false, -- bProcessProcs
-				true, -- bSkipCooldown
-				false, -- bIgnoreInvis
-				false, -- bUseProjectile
-				false, -- bFakeAttack
-				false -- bNeverMiss
-			)
-		end
+	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int12") and RollPercentage(25) then
+		damageTable.damage = damageTable.damage * 2.25
+		SendOverheadEventMessage( self.parent, OVERHEAD_ALERT_DEADLY_BLOW , damageTable.target, damageTable.damage, nil )
+	end
+	ApplyDamage(damageTable)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi12") then
+		self:GetCaster():PerformAttack(
+			damageTable.target, -- hTarget
+			true, -- bUseCastAttackOrb
+			false, -- bProcessProcs
+			true, -- bSkipCooldown
+			false, -- bIgnoreInvis
+			false, -- bUseProjectile
+			false, -- bFakeAttack
+			false -- bNeverMiss
+		)
 	end
 	
 	-- play effects

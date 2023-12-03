@@ -62,7 +62,7 @@ pets_list = {
 	},
 }
 battle_pass_shop = {
-	bp_premium = { price = {don = 150} },
+	bp_premium = { price = {don = 150, rp = 15000 } },
 	bp_experience = { price = { rp = 1000, don = 50}, give = 1000 },
 }
 _G.basicshop = {

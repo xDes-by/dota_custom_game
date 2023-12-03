@@ -427,11 +427,13 @@ function BattlePass:UpdateRewardsForCurrentSeason()
     for key, value in pairs(battle_pass_effects[self.current_season]) do
         self.dataReward[self.effect[key][1]][self.effect[key][2]].data.name = value.name
         self.dataReward[self.effect[key][1]][self.effect[key][2]].data.modifier = value.modifier
+        self.dataReward[self.effect[key][1]][self.effect[key][2]].data.video = value.video
     end
     for key, value in pairs(battle_pass_models[self.current_season]) do
         self.dataReward['premium'][self.hero_model[key]].data.name = value.name
         self.dataReward['premium'][self.hero_model[key]].data.hero_name = value.hero_name
         self.dataReward['premium'][self.hero_model[key]].data.image = value.image
+        self.dataReward['premium'][self.hero_model[key]].data.video = value.video
     end
     CustomNetTables:SetTableValue('BattlePass', "dataReward", self.dataReward)
 end

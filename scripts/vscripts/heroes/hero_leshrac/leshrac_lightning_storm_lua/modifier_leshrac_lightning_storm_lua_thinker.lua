@@ -95,7 +95,7 @@ function modifier_leshrac_lightning_storm_lua_thinker:OnIntervalThink()
 	end
 	
 	if not found and #enemies > 0 and self:GetCaster():FindAbilityByName("npc_dota_hero_leshrac_str11") then
-		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) * 0.5
+		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) * 0.25
 		self.targets = {}
 		self:OnIntervalThink()
 	elseif not found then
