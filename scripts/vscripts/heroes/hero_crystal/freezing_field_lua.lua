@@ -84,7 +84,11 @@ function modifier_freezing_field_lua:OnCreated( kv )
 		end
 	
 	self.manacost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel())
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 4e9c2925636f9de72ba3f75fc79db292449cd04c
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_crystal_maiden_int10") ~= nil then
 		self.manacost = self.manacost/4
 	end

@@ -141,7 +141,7 @@ function modifier_wisp_spirits_bh:IsPurgable()
 end
 
 function modifier_wisp_spirits_bh:RemoveOnDeath()
-    return true
+    return false
 end
 
 function modifier_wisp_spirits_bh:IsPurgeException()

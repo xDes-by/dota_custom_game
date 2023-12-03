@@ -9,7 +9,12 @@ function item_quelling_blade_lua:OnSpellStart()
     if (target_point - pos):Length2D() < 400 then
         local trees = GridNav:GetAllTreesAroundPoint(target_point, 400, false)
         for _, tree in pairs(trees) do
-            tree:CutDownRegrowAfter(99999, DOTA_TEAM_GOODGUYS)
+            SetContextThink("self_destroy", function(tree) 
+				if tree:IsStanding() then 
+					tree:CutDown(DOTA_TEAM_GOODGUYS)
+				end
+				return 0.1
+			end, 0.1)
         end
     else
         GridNav:DestroyTreesAroundPoint(target_point, 1, false)

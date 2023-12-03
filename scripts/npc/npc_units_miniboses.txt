@@ -10,9 +10,10 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"dark_seer_vacuum_miniboss"         
-        "Ability2"					"dark_seer_ion_shell_miniboss"         
+        // "Ability2"					"dark_seer_ion_shell_miniboss"         
         "Ability3"					"ability_npc_miniboss_darkseer_damage_increaser"         
         "Ability4"					""
         "Ability5"					""
@@ -99,6 +100,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"enigma_black_hole_miniboss"         
         "Ability2"					"witch_doctor_paralyzing_cask_miniboss"         
@@ -187,6 +189,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"ursa_earthshock_miniboss"         
         "Ability2"					"ursa_fury_swipes_miniboss"         
@@ -275,6 +278,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"faceless_void_time_lock_miniboss"         
         "Ability2"					"faceless_void_chronosphere_miniboss"         
@@ -371,6 +375,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"marci_unleash_miniboss"
         "Ability2"					"slardar_bash_miniboss"         
@@ -459,6 +464,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"beastmaster_call_of_the_wild_hawk"         
         "Ability2"					"beastmaster_inner_beast_miniboss"         
@@ -550,6 +556,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"muerta_gunslinger_miniboss"         
         "Ability2"					"muerta_pierce_the_veil_miniboss"         
@@ -639,6 +646,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         // "Ability1"					"elder_titan_earth_splitter_miniboss"         
         "Ability2"					"ability_npc_titan_boss_stomp"         
@@ -728,6 +736,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"shredder_flamethrower_miniboss"         
         "Ability2"					"riki_smoke_screen_miniboss"         
@@ -818,11 +827,12 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
-        "Ability1"					"nyx_assassin_burrow_miniboss"         
-        "Ability2"					"nyx_assassin_unburrow_miniboss"         
+        // "Ability1"					"nyx_assassin_burrow_miniboss"         
+        // "Ability2"					"nyx_assassin_unburrow_miniboss"         
         "Ability3"					"nyx_assassin_impale_miniboss"         
-        // "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
+        "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
         "Ability5"					""
         "Ability6"					""
         "Ability7"					""
@@ -906,6 +916,7 @@
 		"Level"						"30"
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
+		"CanRespawn"				"1"
 
         "Ability1"					"lycan_shapeshift_miniboss"         
         "Ability2"					"lycan_howl_miniboss"         
