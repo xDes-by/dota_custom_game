@@ -133,7 +133,15 @@ end
 function item_bfury_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
-	GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	local pos = Vector(6745, -2921, 261)
+	if (target_point - pos):Length2D() < 400 then
+		local trees = GridNav:GetAllTreesAroundPoint(target_point, 400, false)
+		for _, tree in pairs(trees) do
+			tree:CutDownRegrowAfter(99999, DOTA_TEAM_GOODGUYS)
+		end
+	else
+		GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	end
 end
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

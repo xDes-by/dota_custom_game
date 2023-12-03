@@ -41,7 +41,7 @@
 
 	"weapons_armor"
 	{
-		"item"		"item_quelling_blade"
+		"item"		"item_quelling_blade_lua"
 		"item"		"item_ring_of_protection"
 		"item"		"item_infused_raindrop"	
 		"item"		"item_orb_of_venom"

@@ -3,6 +3,14 @@
     "Language" "None"
     "Tokens"
     {
+
+        //Quelling Blade//
+        "DOTA_Tooltip_Ability_item_quelling_blade_lua"			"Quelling Blade"
+        "DOTA_Tooltip_ability_item_quelling_blade_lua_Description"					"<h1>Active: Chop Tree</h1> Destroy a target tree. <br><br>Cast Range: %abilitycastrange%\n\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %damage_bonus% for melee heroes, and %damage_bonus_ranged% for ranged."
+		"DOTA_Tooltip_ability_item_quelling_blade_lua_Lore"							"The axe of a fallen gnome, it allows you to effectively maneuver the forest."
+		"DOTA_Tooltip_ability_item_quelling_blade_lua_Note0"						"Effects of multiple quelling blades do not stack."
+
+
         "language" "English"
         "addon_game_name" "Random Defense Adventure"
         "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"

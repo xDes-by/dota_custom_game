@@ -385,8 +385,8 @@
 		"Ability10"                 "ability_npc_boss_plague_squirrel_spell9"
 		"Ability11"                 "ability_npc_boss_plague_squirrel_spell10"
 		
-		"ArmorPhysical"				"500"
-		"MagicalResistance"			"99"
+		"ArmorPhysical"				"1300"
+		"MagicalResistance"			"99.9"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"1"
@@ -2731,8 +2731,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_bara_boss"
 
-		"ArmorPhysical"				"1000"			
-		"MagicalResistance"			"95"	
+		"ArmorPhysical"				"900"			
+		"MagicalResistance"			"99"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"350000"		
@@ -2827,8 +2827,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_sand_boss"
 
-		"ArmorPhysical"				"700"			
-		"MagicalResistance"			"90"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"120000"		
@@ -2992,8 +2992,8 @@
 		"Ability8"					"ai_monkey_boss"
 		"AttackAcquisitionRange"	"1200"		
 
-		"ArmorPhysical"				"700"			
-		"MagicalResistance"			"90"
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"
 
         "CanBeDominated"                              "0"
         "ConsideredHero"                              "0"
@@ -3094,8 +3094,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_npc_titan_boss"
 
-		"ArmorPhysical"				"500"			
-		"MagicalResistance"			"70"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"120000"		
@@ -3175,8 +3175,8 @@
 		"Ability7"					"ability_apparition_boss_split"
 		"Ability8"					"ai_apparition_boss"
 
-		"ArmorPhysical"				"500"			
-		"MagicalResistance"			"70"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120000"		
@@ -3251,8 +3251,8 @@
 		"Ability7"					""
 		"Ability8"					"ai_crystal_boss"
 
-		"ArmorPhysical"				"500"			
-		"MagicalResistance"			"70"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"120000"		
