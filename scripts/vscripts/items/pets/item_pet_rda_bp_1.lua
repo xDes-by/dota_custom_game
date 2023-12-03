@@ -48,23 +48,31 @@ end
 
 function modifier_item_pet_rda_bp_1:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE_UNIQUE,
 	}
 end
 
-function modifier_item_pet_rda_bp_1:GetModifierBonusStats_Strength()
-	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
+function modifier_item_pet_rda_bp_1:GetModifierDamageOutgoing_Percentage()
+	return self:GetAbility():GetSpecialValueFor("phys_dmg") * self:GetParent():GetLevel()
 end
 
-function modifier_item_pet_rda_bp_1:GetModifierBonusStats_Agility()
-	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
+function modifier_item_pet_rda_bp_1:GetModifierSpellAmplify_PercentageUnique()
+	return self:GetAbility():GetSpecialValueFor("mage_dmg") * self:GetParent():GetLevel()
 end
 
-function modifier_item_pet_rda_bp_1:GetModifierBonusStats_Intellect()
-	return self:GetAbility():GetSpecialValueFor("stats_bonus") * self:GetParent():GetLevel()
+function modifier_item_pet_rda_bp_1:OnCreated( kv )
+	if not IsServer() then return end
+	self:StartIntervalThink(1)
 end
+
+function modifier_item_pet_rda_bp_1:OnIntervalThink()
+	if IsServer() then
+		local totalgold = self:GetParent():GetTotalGold()
+		self:GetParent():ModifyGoldFiltered(totalgold/100*self:GetAbility():GetSpecialValueFor("gold"), true, 0)
+	end
+end
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

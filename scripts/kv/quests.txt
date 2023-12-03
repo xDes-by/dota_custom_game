@@ -1003,7 +1003,7 @@
 			{
 				"available"				"1"
 			}
-			"UnitName"	"npc_28"
+			"UnitName"	"npc_2"
 			"reward"
 			{
 				"experience"
@@ -1022,7 +1022,7 @@
 			{
 				"1"
 				{
-					"UnitName"	"npc_28"
+					"UnitName"	"npc_2"
 					"abs"
 					{
 						"1"

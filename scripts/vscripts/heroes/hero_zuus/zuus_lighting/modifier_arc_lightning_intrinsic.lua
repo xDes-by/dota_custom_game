@@ -40,7 +40,7 @@ function modifier_arc_lightning_intrinsic:GetModifierOverrideAbilitySpecialValue
 		if data.ability_special_value == "arc_damage" then
 			local arc_damage = self:GetAbility():GetLevelSpecialValueNoOverride( "arc_damage", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int6") then
-                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.25
+                arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.35
             end
             if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int13") then
                 arc_damage = arc_damage + self:GetCaster():GetIntellect() * 0.5

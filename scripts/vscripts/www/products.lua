@@ -216,7 +216,7 @@ _G.basicshop = {
 		[61] = {name = "rp_reward_100", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_100.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		[62] = {name = "gems_reward_50", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_50.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		[63] = {name = "gems_reward_500", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_500.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
-		[64] = {name = "roshan_reward_1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_2.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
+		[64] = {name = "roshan_reward_1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_1.png", hidden = true, source = { treasury = "treasurie4", main_prize = true }},
 		------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		[65] = {name = "treasurie5_spray1", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/60.png", spray_path = "particles/spray/60.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
 		[66] = {name = "treasurie5_spray2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/61.png", spray_path = "particles/spray/61.vpcf", type = "spray", tooltip = "shop_image_spray_tooltip", counter = false, source = { treasury = "treasurie5" }},
@@ -233,16 +233,16 @@ _G.basicshop = {
 		[77] = {name = "rp_reward_150", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/rp_reward_150.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		[78] = {name = "gems_reward_75", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_75.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		[79] = {name = "gems_reward_750", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/gems_reward_750.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
-		[80] = {name = "roshan_reward_2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_1.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
+		[80] = {name = "roshan_reward_2", price = {}, rarity = "white", image = "images/custom_game/RDAShop/spray/roshan_reward_2.png", hidden = true, source = { treasury = "treasurie5", main_prize = true }},
 		
 	},
 	[5] = {
 		name = "treasuries",
-		[1] = {name = "treasurie1", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/1.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.1 } },
-		[2] = {name = "treasurie2", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/2.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.1 } },
-		[3] = {name = "treasurie3", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/3.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.1 } },
-		[4] = {name = "treasurie4", price = {don = 5, rp = 1000}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/4.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 0, treasure_main_reward = { rp_reward_1000 = 6, gems_reward_50 = 4, gems_reward_500 = 0.5, roshan_reward_1 = 0.15 } }, --1496, для 1200 - 0.2
-		[5] = {name = "treasurie5", price = {don = 8, rp = 1500}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/5.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 0, treasure_main_reward = { rp_reward_1500 = 6, gems_reward_75 = 4, gems_reward_750 = 0.5, roshan_reward_2 = 0.15 } }, --2490, для 2000 - 0.18
+		[1] = {name = "treasurie1", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/1.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.15 } },
+		[2] = {name = "treasurie2", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/2.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.15 } },
+		[3] = {name = "treasurie3", price = {don = 2, rp = 75}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/3.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 15, treasure_main_reward = { gems_reward_500 = 0.15 } },
+		[4] = {name = "treasurie4", price = {don = 5, rp = 1000}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/4.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 0, treasure_main_reward = { rp_reward_1000 = 6, gems_reward_50 = 4, gems_reward_500 = 0.5, roshan_reward_1 = 0.125 } }, --1496, для 1200 - 0.2
+		[5] = {name = "treasurie5", price = {don = 8, rp = 1500}, rarity = "white", image = "images/custom_game/RDAShop/treasuries/5.png", type = "treasuries", tooltip = "", combinable = true, counter = true, layout = "RDAShopItem2", compensation = 0, treasure_main_reward = { rp_reward_1500 = 6, gems_reward_75 = 4, gems_reward_750 = 0.5, roshan_reward_2 = 0.1 } }, --2490, для 2000 - 0.18
 	},
 	-- [6] = {
 	-- 	name = "other",

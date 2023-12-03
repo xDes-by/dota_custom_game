@@ -36,6 +36,9 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("CustomShopStash_ReturnItem",function(_, keys)
         Shop:CustomShopStash_ReturnItem(keys)
     end)
+	CustomGameEventManager:RegisterListener("ShopRefreshMoney",function(_, keys)
+        Shop:RefreshMoney(keys)
+    end)
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( Shop, "OnItemPickUp"), self)
 	Shop.Auto_Pet = {}
 	Shop.Change_Available = {}
@@ -77,6 +80,15 @@ function Shop:OnItemPickUp(keys)
 			end
 		end
 	end
+end
+
+function Shop:RefreshMoney(keys)
+	DataBase:Send(DataBase.link.RefreshMoney, "GET", {}, keys.PlayerID, true, function(body)
+		local data = json.decode(body)
+		Shop.pShop[keys.PlayerID].coins = data.coins or 0
+		Shop.pShop[keys.PlayerID].mmrpoints = data.mmrpoints or 0
+		CustomShop:UpdateShopInfoTable(keys.PlayerID)
+    end)
 end
 
 function Shop:OnPlayerReconnected(keys)
@@ -516,18 +528,18 @@ function Shop:OpenTreasure(t)
 	}
 	local send = {}
 	send.treasure = treasure.name
-	if itemPrize.name == 'rp_reward_1000' then
-		send.rp = CustomShop:AddRP(pid, 1000, false, false)
+	if itemPrize.name == 'rp_reward_100' then
+		send.rp = CustomShop:AddRP(pid, 100 / MultiplierManager:GetCurrencyRpMultiplier(pid), false, false)
 	elseif itemPrize.name == 'gems_reward_50' then
 		send.don = CustomShop:AddCoins(pid, 50, false, false)
-	elseif itemPrize.name == 'gems_reward_1000' then
-		send.don = CustomShop:AddCoins(pid, 1000, false, false)
-	elseif itemPrize.name == 'rp_reward_1500' then
-		send.rp = CustomShop:AddRP(pid, 1500, false, false)
-	elseif itemPrize.name == 'gems_reward_100' then
-		send.don = CustomShop:AddCoins(pid, 100, false, false)
-	elseif itemPrize.name == 'gems_reward_1500' then
-		send.don = CustomShop:AddCoins(pid, 1500, false, false)
+	elseif itemPrize.name == 'gems_reward_500' then
+		send.don = CustomShop:AddCoins(pid, 500, false, false)
+	elseif itemPrize.name == 'rp_reward_150' then
+		send.rp = CustomShop:AddRP(pid, 150 / MultiplierManager:GetCurrencyRpMultiplier(pid), false, false)
+	elseif itemPrize.name == 'gems_reward_75' then
+		send.don = CustomShop:AddCoins(pid, 75, false, false)
+	elseif itemPrize.name == 'gems_reward_750' then
+		send.don = CustomShop:AddCoins(pid, 750, false, false)
 	elseif itemPrize.name == 'roshan_reward_1' then
 		send.name = 'rosh_1'
 	elseif itemPrize.name == 'roshan_reward_2' then

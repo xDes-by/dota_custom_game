@@ -361,7 +361,6 @@
 		"StatusMana" 				"1"
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"
-		"ModelScale"				"1.5"
     }
 "pet_rda_250_dmg_reduction"
     {

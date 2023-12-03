@@ -19,6 +19,7 @@
         "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
 
+        
         /////////////
         //Undefined//
         /////////////
@@ -30,79 +31,122 @@
          "20233" "You didn't have time!"
          /////////////
 
+        "gs_diffic" "DIFFICULTY SELECTION"
+        "gs_easy" "TURBO"
+        "gs_normal" "NORMAL"
+        "gs_hard" "HARD"
+        "gs_ultra" "ULTRA"
+        "gs_insane" "INSANE"
+        "gs_hell" "IMPOSSIBLE"
+
+        "gs_vote" "VOTE"
+        "gs_easy_progress" "Turbo"
+        "gs_normal_progress" "Normal"
+        "gs_hard_progress" "Hard"
+        "gs_ultra_progress" "Ultra"
+        "gs_insane_progress" "Insane"
+        "gs_hell_progress" "Impossible"
+
+        "gs_df_easy" "TURBO<br><br>Incoming damage 125%<br>Outgoing damage 75%<br>Health 75%<br>Recharge 125%"
+        "gs_df_normal" "NORMAL<br><br>Incoming damage 100%<br>Outgoing damage 100%<br>Health 100%<br>Recharge 100%"
+        "gs_df_hard" "HARD<br><br>Incoming damage 75%<br>Outgoing damage 100%<br>Health 100%<br>Recharge 75%"
+        "gs_df_ultra" "ULTRA<br><br>Incoming damage 50%<br>Outgoing damage 150%<br>Health 150%<br>Recharge 50%"
+        "gs_df_insane" "INSANE<br><br>Incoming damage 25%<br>Outgoing damage 200%<br>Health 200%<br>Recharge 50%<br><br>All players have 5 lives"
+        "gs_df_hell" "IMPOSSIBLE<br><br>Incoming damage 20%<br>Outgoing damage 300%<br>Health 300%<br>Recharge 50%<br><br>All players have 3 lives"
+        
+        "game_settings_mmr" "RATING"
+        "game_settings_rp" "SHIELDS"
+        "game_settings_talent" "TALENTS"
+
+        "panorama_custon_stash_description" "Special Item Inventory:\nPress Ctrl for instant cast"
+        "panorama_custon_stash_use_all" "Use everything"
+        "panorama_custon_stash_click_for_open" "Click to open"
+        "diff_lock" "To unlock this difficulty level, you must defeat the previous one."
+        "pet_trial_available" "Get"
+
         "mini_golem" "Mini golem"
         "max_golem" "Maxi golem"
 
+        "ui_custom_shop_upgrade_item_status_lable" "Nothing to upgrade"
+        "ui_custom_shop_upgrade_item_cost" "Upgrade cost:"
+        "ui_custom_shop_upgrade_item_upgrade_button" "Upgrade"
+        "ui_custom_shop_upgrade_item_upgrade_button2" "Insert stones"
+        "ui_custom_shop_upgrade_item_1" "Item Level"
+        "ui_custom_shop_upgrade_item_2" "Stones"
+
+        "ForgeButton_Label" "Upgrade Items"
+        "TutorialDontShowAgainToggleLocalize" "Don't show again"
+        "TutorialDontShowAgainLabelLocalize" "Hints will be displayed before the first victory"
+        "TutorialButtonLabelLocalize" "CLEAR"
 
         ////////
         //Misc//
         ////////
 		
 		"min" "min"
-        "history_hero" "Hero"
+        "history_hero" "Heroes"
         "history_result" "Result"
         "history_status" "In game"
         "history_time" "Time"
         "history_level" "Level"
-        "yest' u"   "have "
-        "igrokov" " players"
+        "players_have_label" "##count## players have"
+        "yest' u" "there is y"
+        "igrokov" "players"
         "pet_level" "level"
-        "pet_tier" "tier"
-        "pet_title" "pets: shooting range "
+        "pet_tier" "shooting gallery"
         "feed_x230" "feed 230 pcs"
         "feed_x600" "feed 600 pcs"
-        "yes" "yes"
+        "yes" "Yes"
         "no" "No"
-        "pet_buy" "buy "
-        "pet_for" " for "
-        "pet_pieces" "piece"
-        "feed" "corm"
-        "talent_count" "More"
+        "pet_buy" "buy"
+        "pet_for" "for"
+        "pet_pieces" "pieces"
+        "feed"      "feed"
+        "talent_count" "More details"
         "talents_loading" "Loading..."
         "win" "Victory"
-        "lose" "lose"
+        "lose" "Loss"
         "in" "Yes"
         "out" "No"
         "history_mode" "Mode"
         "easy" "Turbo"
         "normal" "Normal"
-        "hard" "Hard"
+        "hard" "hard"
         "ultra" "Ultra"
-        "profile_first_game" "First game"
+        "profil_first_game" "First game"
         "pick_rating" "Rating: "
         "pick_game" "Games: "
-        "MagicResistance"               "Magic Resistance"
-        "Arrmor"                        "Armor"
+        "MagicResistance" "sop.mag"
+        "Armor" "armor"
         
 
-        "Name"			"Hero"
-        "death"			"Deaths"
-        "Items"			"Items"
-        "Healed"			"Healed"
-        "Physical"			"Physical Damage"
-        "Magic"			"Magical Damage"
-        "Pure"			"Pure Damage"
-        "Taken"			"Taken Damage"
-        "invoker"			"Invoker Damage"
-        "damage_table"			"Damage Table"
-        "Panorama_Tooltip_Exit"         "Quit"
-        "Panorama_Tooltip_Continue"         "Close"
-        "PanoramaShopInventoryTab"      "Inventory"
-        "ratingpoints" "Rating Items"
-        "ratingpoints_4" "Unlock Slark"
+        "Name" "Heroes"
+        "death" "Deaths"
+        "Items" "Items"
+        "Healed"    "Healed"
+        "Physical" "Physical damage"
+        "Magic" "Magic damage"
+        "Pure" "Pure damage"
+        "Taken" "Damage taken"
+        "invoker" "Total damage per Invoker"
+        "damage_table" "Damage table"
+        "PanoramaShopInventoryTab" "Inventory"
+        "ratingpoints" "Reits items"
+        "ratingpoints_4" "Unblock Slark"
 
-        "from" "Regards creator "
+        "done" "OK"
+        "from" "from the creator"
         "taik" "Take"
         "issued" "Taken"
         "takeoff" "Take off"
-        "ShopBuyGemsLabel"          "Buy Gems"
-        "sprаy"             "Graffiti"
-        "highfive"          "High Five"
-        "treasuries"        "Treasuries"
 
-        "last_desc" "Take your reward and leave"
+        "spray" "Graffiti"
+        "highfive" "High Five"
+        "treasuries"        "Treasuries"
+        "ShopBuyGemsLabel" "Buy Gems"
+        "last_desc" "Take your reward and get out of here!"
         "kill" "Kill"
-        "find" "Find"
+        "find" "Naidi"
         "open" "Open"
         "ignore" "Cancel"
         "accept" "Ok"
@@ -192,32 +236,33 @@
 		"dota_tooltip_ability_item_forever_ward" "Forever Ward"
 		"dota_tooltip_ability_item_forever_ward_description" "Forever ward that provides 1600 vision around it"
 
-        "dota_tooltip_ability_item_quest_blue_stone" "Blue crystal"
-        "dota_tooltip_ability_item_quest_blue_stone_bonus_attributes" "+ attributes"
-        "dota_tooltip_ability_item_quest_moon" "Moon Necklace"
-        "dota_tooltip_ability_item_quest_raindow_stone" "Rainbow Stone"
-        "dota_tooltip_ability_item_quest_furion_item" "Staff of the Furion"
+        "dota_tooltip_ability_item_quest_blue_stone" "Blue Crystal"
+        "dota_tooltip_ability_item_quest_blue_stone_bonus_attributes" "+ all attributes"
+        "dota_tooltip_ability_item_quest_moon" "Necklace of the Moon"
+        "dota_tooltip_ability_item_quest_raindow_stone" "Raindow Stone"
+        "dota_tooltip_ability_item_quest_furion_item" "Furion's Staff"
         "dota_tooltip_ability_item_quest_maska" "Mask"
         "dota_tooltip_ability_item_quest_eay" "Eye"
         "dota_tooltip_ability_item_quest_line_helm" "Helm"
-        "dota_tooltip_ability_item_quest_line_koren" "Roots"
+        "dota_tooltip_ability_item_quest_line_koren" "Root"
         "dota_tooltip_ability_item_quest_line_ring" "Ring"
         "dota_tooltip_ability_item_quest_line_skull" "Skull"
-        "dota_tooltip_ability_item_quest_line_sword" "Blade"
-        "dota_tooltip_ability_item_quest_line_dimand" "Diamond bracelet"
-        "dota_tooltip_ability_item_quest_line_head" "Mage's hat"
+        "dota_tooltip_ability_item_quest_line_sword" "Sword"
+        "dota_tooltip_ability_item_quest_line_dimand" "Diamond Bracelet"
+        "dota_tooltip_ability_item_quest_pivo_bara" "BEER"
+        "dota_tooltip_ability_item_quest_line_head" "Mage's Hat"
         "dota_tooltip_ability_item_quest_line_head2" "Hat"
         "dota_tooltip_ability_item_quest_line_ice_asd1" "Enchanted Bracers"
-        "dota_tooltip_ability_item_quest_line_ice_skull" "Ice skull"
+        "dota_tooltip_ability_item_quest_line_ice_skull" "Ice Skull"
         "dota_tooltip_ability_item_quest_line_klyk" "Fang"
         "dota_tooltip_ability_item_quest_line_mirow" "Mirror"
-        "dota_tooltip_ability_item_quest_line_pivo" "Beer"
+        "dota_tooltip_ability_item_quest_line_pivo" "Pivas"
         "dota_tooltip_ability_item_quest_line_rock" "Rune"
-        "dota_tooltip_ability_item_quest_line_sun" "Sun sign"
+        "dota_tooltip_ability_item_quest_line_sun" "Sun Sign"
         "dota_tooltip_ability_item_quest_line_book" "Darkhold"
         "dota_tooltip_ability_item_quest_line_boots" "Bots"
-        "dota_tooltip_ability_item_quest_necronomicon"  "Aggressive Necronomicon"
-        "dota_tooltip_ability_item_quest_necronomicon_description"  "<h1>Active: Call to Action</h1></h1>Summon two Necronomicon, which are aggressive towards you and for killing them you will be rewarded."
+        "dota_tooltip_ability_item_quest_necronomicon" "Aggressive Necronomicon"
+        "dota_tooltip_ability_item_quest_necronomicon_description" "<h1>Active: Call to Action</h1></h1>Summons two necronomicons that are aggressive towards you and for killing them you will receive a reward."
 
         "dota_tooltip_ability_item_key_description" "Old key!"
 
@@ -276,6 +321,23 @@
         "talant_nrom_exp_description" "Blue experience:"
 
         "talant_don_exp_description" "Gold experience:"
+
+        //Talent TREE SHOP//
+
+        "talant_shop_refresh" "Talent reset"
+        "talent-shop-refresh-description" "You can reset your hero's upgrade. The accumulated experience is retained"
+        "talant_shop_exp_pack_1" "Book for 1000 experience"
+        "talent-shop-exp-pack-1-description" "Increases the hero's talent experience by 1000."
+        "talant_shop_exp_pack_2" "Book for 5000 experience"
+        "talent-shop-exp-pack-2-description" "Increases the hero's talent experience by 5000."
+        "talant_shop_exp_pack_3" "Book for 15000 experience"
+        "talent-shop-exp-pack-3-description" "Increases the hero's talent experience by 15,000."
+        "talant_shop_don_exp_pack_1" "Golden Book of Experience"
+        "talant-shop-don-exp-pack-1-description" "Increases the hero's gold talent experience by 1000."
+        "talant_shop_don_exp_pack_2" "Golden Book of Experience"
+        "talant-shop-don-exp-pack-2-description" "Increases the hero's gold talent experience by 5000."
+        "talant_shop_don_exp_pack_3" "Golden Book of Experience"
+        "talant-shop-don-exp-pack-3-description" "Increases the hero's gold talent experience by 15,000."
 
 
         // Panorama
@@ -361,6 +423,76 @@
         "treasurie3_spray16"               "Dark Willow"
         "gems_award" "500 Gems"
         "dota_don_shop_error"               "You don't have enough crystals! You can find out how to get crystals in Discord!"
+
+        //DailyTask//
+
+        "dota_don_shop_error" "You are missing crystals! You can find out how to get crystals in Discord!"
+
+        "DailyTaskDescription_Lable1" "Kill bosses in 40 seconds <font color='green'>0/4</font>"
+        "DailyTaskDescription_Lable2" "Slay <font color='green'>148/1000</font> dragons"
+        "DailyTaskDescription_Lable3" "Kill Furion 0/5 <font color='green'>1/5</font>"
+        "DailyTaskGetAward" "Get an award!"
+        "DailyMainLabel" "Quests"
+        "DailyTitleTooltip" "<b>Unique tasks for every day.</b><br><br> For completing these tasks you will receive a reward of <font color='gold'>5,10,10</font> shields on your account."
+
+        "DailyTaskDescription_1" "Kill the Guardian of the Forest"
+        "DailyTaskDescription_2" "Kill the Bandit Chief"
+        "DailyTaskDescription_3" "Kill the Stone Idol"
+        "DailyTaskDescription_4" "Kill the Scarab King"
+        "DailyTaskDescription_5" "Kill the Poison Hydra"
+        "DailyTaskDescription_6" "Kill Big Pebble"
+        "DailyTaskDescription_7" "Kill Hdes"
+        "DailyTaskDescription_8" "Kill Lufi"
+        "DailyTaskDescription_9" "Kill the Dota boss"
+        "DailyTaskDescription_10" "Kill Ais"
+        "DailyTaskDescription_11" "Kill creeps"
+        "DailyTaskDescription_12" "Kill creeps"
+        "DailyTaskDescription_13" "Kill creeps"
+        "DailyTaskDescription_14" "Kill creeps from 1 location"
+        "DailyTaskDescription_15" "Kill creeps from location 2"
+        "DailyTaskDescription_16" "Kill creeps from location 3"
+        "DailyTaskDescription_17" "Kill creeps from location 4"
+        "DailyTaskDescription_18" "Kill creeps from location 5"
+        "DailyTaskDescription_19" "Kill creeps from location 6"
+        "DailyTaskDescription_20" "Kill creeps from location 7"
+        "DailyTaskDescription_21" "Kill creeps from location 8"
+        "DailyTaskDescription_22" "Slay Dragons"
+        "DailyTaskDescription_23" "Kill bosses in one game"
+        "DailyTaskDescription_24" "Kill bosses in one game"
+        "DailyTaskDescription_25" "Kill Roshan"
+        "DailyTaskDescription_26" "Kill Baru"
+        "DailyTaskDescription_27" "Kill Anti-Mage"
+        "DailyTaskDescription_28" "Kill the Invoker"
+        "DailyTaskDescription_29" "Play for more than 60 minutes"
+        "DailyTaskDescription_30" "Collect level 8 items"
+        "DailyTaskDescription_31" "Collect level 9 items"
+        "DailyTaskDescription_32" "Collect level 10 items"
+        "DailyTaskDescription_33" "Collect level 11 items"
+        "DailyTaskDescription_34" "Upgrade an item in the forge"
+        "DailyTaskDescription_35" "Turn into a pet"
+        "DailyTaskDescription_36" "Kill the Sand King"
+        "DailyTaskDescription_37" "Kill the Monkey King"
+        "DailyTaskDescription_38" "Kill a Titan"
+        "DailyTaskDescription_39" "Kill the Apparatus"
+        "DailyTaskDescription_40" "Kill Crystal"
+        "DailyTaskDescription_41" "Cut down trees"
+        "DailyTaskDescription_42" "Complete the entire storyline of quests"
+        "DailyTaskDescription_43" "Complete the entire mid-line quest"
+        "DailyTaskDescription_44" "Withget midas level 8"
+        "DailyTaskDescription_45" "Pick up a rune"
+        "DailyTaskDescription_46" "Smash objects"
+        "DailyTaskDescription_47" "Destroy the barracks"
+        "DailyTaskDescription_48" "Destroy the tavern"
+        "DailyTaskDescription_49" "Die"
+        "DailyTaskDescription_50" "Use graffiti"
+        
+        "ForgeLifesteal" "vampirism"
+        "SpellAmplify" "SpellAmplify"
+        "ForgeStats" "all attributes"
+        "ForgeBaseDamage" "base damage"
+        "ForgeRegen" "regeneration"
+        "maptogglebutton_Label" "TIPS"
+        "quest_multiplier_text" "x##multiplier## ##games## games left"
         
         // Panorama
         //Talent TREE SHOP//
@@ -481,6 +613,7 @@
         "shop_image_heros_tooltip" "Purchase a hero card to unlock 2nd talent tree branch"
 
         //Pet Shop//
+        "pets_info" "Improving the level of pets is achieved by leveling up. Food for them can be purchased using in-game currency or obtained by defeating enemies."
         "yest' u"  "Got it "
         "igrokov" " Players"
         "pet_level"   "Level"
@@ -611,6 +744,26 @@
         "dota_tooltip_modifier_item_hp_aura" "Regeneration scroll Buff"
         "dota_tooltip_modifier_item_hp_aura_description" "Increased Health regeneration"
 
+        "scroll_13" "Scroll of magic damage"
+        "dota_tooltip_ability_item_book_mage_damage" "Scroll of Magic Damage"
+        "dota_tooltip_ability_item_book_mage_damage_description" "Using this scroll, heroes within a 1000 radius will receive 20% magic damage.\n When killed, the buff disappears."
+        "dota_tooltip_ability_item_book_mage_damage_dur" "Duration:"
+        "dota_tooltip_modifier_item_book_mage_damage" "Magic Damage Scroll Buff"
+        "dota_tooltip_modifier_item_book_mage_damage_description" "Magic damage increased"
+
+        "scroll_14" "Scroll of physical damage"
+        "dota_tooltip_ability_item_book_phys_damage" "Physical Damage Scroll"
+        "dota_tooltip_ability_item_book_phys_damage_description" "Using this scroll, heroes within a 1000 radius will receive 20% physical damage.\n When killed, the buff disappears."
+        "dota_tooltip_ability_item_book_phys_damage_dur" "Duration:"
+        "dota_tooltip_modifier_item_book_phys_damage" "Physical Damage Scroll Buff"
+        "dota_tooltip_modifier_item_book_phys_damage_description" "Physical damage increased"
+
+        "scroll_15" "Scroll of Gold"
+        "dota_tooltip_ability_item_book_gold" "Scroll of Gold"
+        "dota_tooltip_ability_item_book_gold_description" "By using this scroll, heroes within a 1000 radius will begin to receive 20% more gold.\n When they die, the buff disappears."
+        "dota_tooltip_ability_item_book_gold_dur" "Duration:"
+        "dota_tooltip_modifier_item_book_gold" "Gold Scroll Buff"
+        "dota_tooltip_modifier_item_book_gold_description" "You get more gold"
         
 
 
@@ -1196,6 +1349,42 @@
         "dota_tooltip_ability_spell_item_pet_RDA_250_no_phys_spell_bonus_note0"  "Automatically collects all types of gems in a small radius around the pet."
         "pet_24" "Magiclay"
 
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1" "<font color='#00FFFF'>Frostbite</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_description" "<h1>Active: Ultra Walk</h1> When you transform into Frostbite, you become extremely fast. In pet form, you take 3 times more damage.\n<h1>Passive: Medivus</h1> You you get a chance not to start recharging the ability after use. \n<font color='#df1022'>REFRESHER DOES NOT WORK WITH ALL ABILITIES AND ITEMS</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_speed" "MOVEMENT SPEED:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_chance" "%CHANCE OF TRICKING:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_note0" "Automatically collects all types of gems in a small radius around the pet."
+        "pet_bp_1" "Frostbite"
+
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1" "<font color='#ffa500'>Baby Rosh</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast. In pet form, you take 3 times more damage."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_speed" "MOVEMENT SPEED:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_bonus_health" "HEALTH BONUS FOR LVL:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_amount" "%SPLASH DAMAGE:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_cleave_radius" "RADIUS:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_block" "%DAMAGE BLOCK:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_dmg" "BONUS TO BASE DAMAGE FOR LVL:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_gold" "GOLD PER SECOND:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_1_note0" "Automatically collects all types of gems in a small radius around the pet."
+        "rosh_1" "Baby Rosh"
+
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2" "<font color='#ffa500'>Baby Rosh</font>"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_description" "<h1>Active: Ultra Walk</h1> When you transform into Baby Rosh, you become extremely fast.In pet form, you take 3 times more damage."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_lore" "The pet can travel greater distances in less time. When you deal damage or use a spell, you will turn back into yourself."
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_speed" "MOVEMENT SPEED:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_stats_bonus" "ATRIBUTES PER LEVEL BONUS:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_minus_armor" "ARMOR REDUCTION PER LEVEL:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_dur" "PHYSICAL INVULNERABILITY DURATION:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_bkb" "MAGIC INVULNERABILITY DURATION:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_phys_percent" "%BONUS PHYSICAL DAMAGE:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_pure_percent" "% NET DAMAGE FROM BASE:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_goex" "%BONUS GOLD AND EXP GROWTH:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_regen" "%HEALTH AND MANA RESTORATION:"
+        "dota_tooltip_ability_spell_item_pet_rda_roshan_2_note0" "Automatically collects all types of gems in a small radius around the pet."
+        "rosh_2" "Baby Rosh"
+
         //===================================================================================================================================================================================================================================================
 
         /////////
@@ -1516,8 +1705,14 @@
         "quest_npc_shaker_boss_summon_desc" "To summon the overlord of the four raid bosses and engage in dialogue with him, you must first defeat each of these four powerful adversaries."
         "quest_npc_shaker_boss_summon" "Raid Bosses"
 
-        "quest_npc_cemetery_boss_desc" "In a location known for its dreadful cruelty, a sinister Wolf Reaper has found shelter. You'll have to confront this monster and put an end to its ominous reign."
+        "quest_npc_cemetery_boss_desc" "In a location known for its terrible cruelty, the terrible Wolf Reaper has found refuge. You will have to fight this monster and end his sinister reign of terror."
         "quest_npc_cemetery_boss" "Kill the Wolf Reaper"
+        
+        "quest_item_quest_pivo_bara_desc" "Brew ruff, for a cocktail you need fierce beer"
+        "quest_item_quest_pivo_bara" "Bring beer"
+
+        "quest_urna_desc" "To kill the one who is behind these gates, an urn will help you a lot."
+        "quest_urna" "Collect Spirit Vessel level 8."
         ///////////
         //C Items//
         ///////////
@@ -2180,6 +2375,16 @@
 
         //METEOR HAMMER//
 
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua" "Meteor Hammer"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_Description" "<h1>Active: Meteor Hammer</h1> INTERRUPTABLE - Summons a meteorite that, after a short delay, hits an area with a radius of %impact_radius%. The impact damages enemy creatures and buildings, stuns them for %stun_duration% seconds and sets them on fire, dealing damage over time over %burn_duration% seconds.<BR><BR>Damage to buildings on impact: %impact_damage_buildings% <BR>Damage over time to buildings: %burn_dps_buildings% <BR><BR>Damage to creatures on impact: %impact_damage_units% <BR >Damage over time to creatures: %burn_dps_units% <BR><BR>Cast time: %max_duration% sec.<BR>Delay after cast: %land_time% sec."
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_lore" "This enchanted hammer was forged from metal that was found in the ruins of a village destroyed by a great meteor shower."
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_all_stats" "ALL ATTRIBUTES BONUS:"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_health_regen" "ADDITIONAL HEALTH REGENERATION:"
+        "DOTA_Tooltip_ability_item_meteor_hammer_lua_bonus_mana_regen" "ADDITIONAL MANA REGENERATION:"
+
+        "DOTA_Tooltip_modifier_item_meteor_hammer_lua_burn" "Meteor Hammer Burn"
+        "DOTA_Tooltip_modifier_item_meteor_hammer_lua_burn_Description" "Takes %burn_dps_units% damage every %burn_interval% seconds."
+
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1"                           "Meteor Hammer"
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1_Description"               "<h1>Active: Meteor Hammer</h1> INTERRUPTIBLE — summons a meteorite, which after a short delay hits the area with a radius of %impact_radius%. The strike deals damage to enemy creatures and buildings, stuns them for %stun_duration% seconds and sets them on fire, dealing periodic damage for %burn_duration% seconds.<BR><BR>Damage to buildings on impact: %impact_damage_buildings% <BR>Periodic damage to buildings: %burn_dps_buildings% <BR><BR>Units damage on impact: %impact_damage_units% <BR>Periodic damage to units: %burn_dps_units% <BR><BR>Cast time: %max_duration% sec.<BR>Delay after cast: %land_time%sec."    
         "DOTA_Tooltip_ability_item_meteor_hammer_lua1_lore"                      "This enchanted hammer was forged from metal found in the ruins of a village destroyed by a great starfall."    
@@ -2564,6 +2769,15 @@
         "DOTA_Tooltip_ability_item_meteor_hammer_lua8_gem5_descrip"                   "%<font color='#00ff0b'>Health and mana regeneration bonus per second</font>"
 
         //Ring of Flux//
+
+        "dota_tooltip_ability_item_ring_of_flux_lua" "Ring of Flux"
+        "dota_tooltip_ability_item_ring_of_flux_lua_description" "<h1>Passive: Flux</h1>Each ability cast has a chance to restore a fraction of your maximum mana."
+        "dota_tooltip_ability_item_ring_of_flux_lua_cast_range" "+$cast_range"
+        "dota_tooltip_ability_item_ring_of_flux_lua_spell_amp" "%+spell damage"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana_back_chance" "%CHANCE:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana_back" "%MANA RECOVERY:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_mana" "MANA BONUS:"
+        "dota_tooltip_ability_item_ring_of_flux_lua_manacostred" "%MANA COST REDUCTION:"
 
         "dota_tooltip_ability_item_ring_of_flux_lua1" "Ring of Flux"
         "dota_tooltip_ability_item_ring_of_flux_lua1_description" "<h1>Passive: Flux </h1> Each use of the ability can restore a fraction of the mana pool."
@@ -2990,6 +3204,14 @@
 
         //Radiance//
 
+        "dota_tooltip_ability_item_radiance_lua" "Radiance"
+        "dota_tooltip_ability_item_radiance_lua_description" "<h1>Toggle: Burn</h1> If enabled, deals %aura_damage% magic damage to enemies every second and blinds them, forcing them to miss %blind_pct%%% of the time. On illusions, deals %aura_damage_illusions% magic damage per second .<br><br>Radius: %aura_radius%"
+        "dota_tooltip_ability_item_radiance_lua_lore" "A divine sword that surrounds the owner with a brilliant radiance that turns all enemies around to ashes."
+        "dota_tooltip_ability_item_radiance_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_radiance_lua_stats_damage" "%DAMAGE FROM ATTRIBUTES:"
+        "dota_tooltip_modifier_item_radiance_lua_debuff" "Burn Damage"
+        "dota_tooltip_modifier_item_radiance_lua_debuff_description" "Takes 60 damage per second and misses %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of the time."
+
         "dota_tooltip_ability_item_radiance_lua1" "Radiance"
         "dota_tooltip_ability_item_radiance_lua1_description" "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura1_damage% magical damage per second, and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_radiance_lua1_lore" "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
@@ -3322,22 +3544,22 @@
         "dota_tooltip_modifier_item_radiance_lua7_gem5_debuff_description" "Taking %aura_damage% damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
         "dota_tooltip_ability_item_radiance_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-        //Bloodstone//
+      //Bloodstone//
         
-        "dota_tooltip_ability_item_bloodstone_lua1" "Bloodstone"
-        "dota_tooltip_ability_item_bloodstone_lua1_description" "<h1>Active: Bloodpact</h1> Converts %mana_cost_percentage%%% of your max mana to health regeneration over %restore_duration% seconds.\n<h1>Passive: Mana Battery</h1>Each charge provides %regen_per_charge% MP regen and %amp_per_charge%%% Spell Amp. Nearby kills provide %kill_charges% charges. Dying causes you to lose %death_charges% charges. Starts with %initial_charges_tooltip% charges."
-        "dota_tooltip_ability_item_bloodstone_lua1_lore" "The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_health" "+$health"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_mana" "+$mana"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_intellect" "+$int"
-        "dota_tooltip_ability_item_bloodstone_lua1_bonus_health_regen" "+$hp_regen"
-        "dota_tooltip_ability_item_bloodstone_lua1_spell_amp" "%+Spell Amplification"
-        "dota_tooltip_ability_item_bloodstone_lua1_hero_lifesteal" "%+Spell Lifesteal (Hero)"
-        "dota_tooltip_ability_item_bloodstone_lua1_creep_lifesteal" "%+Spell Lifesteal (Creep)"
-        "dota_tooltip_ability_item_bloodstone_lua1_mana_regen_multiplier" "%+Mana Regen Amplification"
-        "dota_tooltip_ability_item_bloodstone_lua1_spell_lifesteal_amp" "%+Spell Lifesteal Amplification"
+        "dota_tooltip_ability_item_bloodstone_lua" "Bloodstone"
+        "dota_tooltip_ability_item_bloodstone_lua_description" "<h1>Active: Bloodpact</h1> Converts %mana_cost_percentage%%% of your maximum mana to health over %restore_duration% seconds."
+        "dota_tooltip_ability_item_bloodstone_lua_lore" "The crimson color of this stone is easy to spot even in the heat of battle, seemingly granting the wearer limitless vitality and spiritual powers."
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_mana" "+$mana"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_bloodstone_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_bloodstone_lua_spell_amp" "%+spell damage"
+        "dota_tooltip_ability_item_bloodstone_lua_hero_lifesteal" "%+to lifesteal from spells (from heroes)"
+        "dota_tooltip_ability_item_bloodstone_lua_creep_lifesteal" "%+to spell lifesteal (from creeps)"
+        "dota_tooltip_ability_item_bloodstone_lua_mana_regen_multiplier" "%+to mana regeneration boost"
+        "dota_tooltip_ability_item_bloodstone_lua_spell_lifesteal_amp" "%+to increase lifesteal from the spell"
         "DOTA_Tooltip_modifier_item_blodstone_active_lua" "Bloodpact"
-        "DOTA_Tooltip_modifier_item_blodstone_active_lua_Description" "Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."
+        "DOTA_Tooltip_modifier_item_blodstone_active_lua_Description" "Restores %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second."
         
         "dota_tooltip_ability_item_bloodstone_lua2" "Forest Bloodstone"
         "dota_tooltip_ability_item_bloodstone_lua2_description" "<h1>Active: Bloodpact</h1> Converts %mana_cost_percentage%%% of your max mana to health regeneration over %restore_duration% seconds.\n<h1>Passive: Mana Battery</h1>Each charge provides %regen_per_charge% MP regen and %amp_per_charge%%% Spell Amp. Nearby kills provide %kill_charges% charges. Dying causes you to lose %death_charges% charges. Starts with %initial_charges_tooltip% charges."
@@ -3923,6 +4145,24 @@
         "dota_tooltip_ability_item_bloodstone_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Assault Cuirass//
+
+        "dota_tooltip_ability_item_assault_lua" "Assault Cuirass"
+        "dota_tooltip_ability_item_assault_lua_description" "<h1>Passive: Assault Aura</h1> Increases the armor of allied buildings and units by %aura_positive_armor% and their attack speed by %aura_attack_speed%. Reduces the armor of enemies by %aura_negative_armor%.<br><br> Radius: %aura_radius%"
+        "dota_tooltip_ability_item_assault_lua_lore" "Forged in the forges of the nether reaches, this terrible armor can strengthen and speed up an entire army."
+        "dota_tooltip_ability_item_assault_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_assault_lua_bonus_armor" "+$armor"
+        "dota_tooltip_modifier_item_assault_lua_negative_armor" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_negative_armor_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_item_assault_lua_positive" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_positive_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+        "dota_tooltip_modifier_item_assault_lua_positive_buildings" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_positive_buildings_description" "Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_item_assault_lua_negative_buildings_aura" "Assault Cuirass"
+        "dota_tooltip_modifier_item_assault_lua_negative_buildings_aura_description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_assault_lua_aura_positive_effect" "Assault Cuirass"
+        "dota_tooltip_modifier_assault_lua_aura_positive_effect_description" "Armor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+        "DOTA_Tooltip_modifier_assault_lua_aura_negative_effect" "Assault Cuirass"
+        "DOTA_Tooltip_modifier_assault_lua_aura_negative_effect_Description" "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
         "dota_tooltip_ability_item_assault_lua1" "Forest Cuirass"
         "dota_tooltip_ability_item_assault_lua1_description" "<h1>Passive: Assault Aura</h1> Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units and structures, and decreases nearby enemy unit and structure armor by %aura_negative_armor%.<br><br>Radius: %aura_radius%"
@@ -4569,6 +4809,16 @@
 
         //Crimson Guard//
 
+        "dota_tooltip_ability_item_crimson_guard_lua" "Crimson Guard"
+        "dota_tooltip_ability_item_crimson_guard_lua_description" "<h1>Activated: Guard</h1> For %duration% seconds, gives heroes and nearby buildings a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each attack. <br><br>Ability affects the same creature no more than once every %tooltip_reapply_time% seconds.<br><br>Radius: %bonus_aoe_radius%\n<h1>Passive: Damage Block</h1> Has a %block_chance%%% chance to block % block_damage_melee% damage if the owner is melee heroes, or %block_damage_ranged% damage if the owner is ranged."
+        "dota_tooltip_ability_item_crimson_guard_lua_lore" "A cuirass originally forged to protect against the horrific Godnea."
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_crimson_guard_lua_bonus_armor" "+$armor"
+        "dota_tooltip_ability_item_crimson_guard_lua_note0" "The effects of multiple damage blocking abilities do not stack."
+        "DOTA_Tooltip_modifier_item_crimson_guard_active_lua " "Guard"
+        "DOTA_Tooltip_modifier_item_crimson_guard_active_lua_Description " "Has a 100% chance to block %dMODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK% of attack damage"
+
         "dota_tooltip_ability_item_crimson_guard_lua1" "Crimson Guard"
         "dota_tooltip_ability_item_crimson_guard_lua1_description" "<h1>Active: Guard</h1> For %duration% seconds, grant nearby allied heroes and buildings a %block_chance_active%%% chance to block %block_damage_melee_active% damage from each incoming attack.<br><br>Units may only be affected by Guard once every %tooltip_reapply_time% seconds.<br><br>Radius: %bonus_aoe_radius%\n<h1>Passive: Damage Block</h1> Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
         "dota_tooltip_ability_item_crimson_guard_lua1_lore" "A cuirass originally built to protect against the dreaded Year Beast."
@@ -4954,6 +5204,12 @@
 
         //Desolator//
 
+        "dota_tooltip_ability_item_desolator_lua" "Desolator"
+        "dota_tooltip_ability_item_desolator_lua_description" "<h1>Passive: Corruption</h1> Attacks reduce the target's armor by %corruption_armor%. The effect lasts for %corruption_duration% seconds."
+        "dota_tooltip_ability_item_desolator_lua_lore" "Political criminals were tortured with this unclean weapon."
+        "dota_tooltip_ability_item_desolator_lua_note0" "Armor reduction affects buildings."
+        "dota_tooltip_ability_item_desolator_lua_bonus_damage" "+$damage"
+
         "dota_tooltip_ability_item_desolator_lua1" "Desolator"
         "dota_tooltip_ability_item_desolator_lua1_description" "<h1>Passive: Greater Corruption</h1> Your attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds."
         "dota_tooltip_ability_item_desolator_lua1_lore" "The original demonic favorite that served as basis for the beloved mortal design."
@@ -5250,6 +5506,15 @@
         "dota_tooltip_ability_item_desolator_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Shivas Gurard//
+
+        "dota_tooltip_ability_item_shivas_guard_lua" "Shivas Guard"
+        "dota_tooltip_ability_item_shivas_guard_lua_description" "<h1>Active: Arctic Blast</h1> Releases a wave of frost that deals %blast_damage% magic damage to enemies and reduces their movement speed by %blast_movement_speed%%% for %blast_debuff_duration% sec.<br><br >Radius: %blast_radius%\n<h1>Passive: Freezing Aura</h1>Reduces enemy attack speed by %aura_attack_speed%, and their healing, health restoration and lifesteal by %hp_regen_degen_aura%%%.<br><br> Radius: %aura_radius%"
+        "dota_tooltip_ability_item_shivas_guard_lua_lore" "They say this artifact once belonged to a goddess, and it remains as powerful to this day."
+        "dota_tooltip_ability_item_shivas_guard_lua_note0" "The wave travels at %blast_speed% to a maximum size of %blast_radius%."
+        "dota_tooltip_ability_item_shivas_guard_lua_note1" "A wave of frost follows the owner."
+        "dota_tooltip_ability_item_shivas_guard_lua_note2" "The effect of multiple Freezing Auras does not stack."
+        "dota_tooltip_ability_item_shivas_guard_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_shivas_guard_lua_bonus_armor" "+$armor"
 
         "dota_tooltip_ability_item_shivas_guard_lua1" "Shivas Guard"
         "dota_tooltip_ability_item_shivas_guard_lua1_description" "<h1>Active: Arctic Blast</h1> Emits a freezing wave that deals %blast_damage% magical damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and all heals, regeneration and lifesteal by %hp_regen_degen_aura%%%. <br><br>Radius: %aura_radius%"
@@ -5677,6 +5942,12 @@
 
         //Monkey King Bar//
 
+        "dota_tooltip_ability_item_monkey_king_bar_lua" "Monkey King Bar"
+        "dota_tooltip_ability_item_monkey_king_bar_lua_description" "<h1>Passive: Pierce</h1> Each attack has a %bonus_chance%%% chance to pierce evasion and deal %bonus_chance_damage% additional magic damage."
+        "dota_tooltip_ability_item_monkey_king_bar_lua_lore" "A powerful staff that belonged to a brilliant warrior."
+        "dota_tooltip_ability_item_monkey_king_bar_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_monkey_king_bar_lua_bonus_attack_speed" "+$attack"
+
         "dota_tooltip_ability_item_monkey_king_bar_lua1" "Monkey King Bar"
         "dota_tooltip_ability_item_monkey_king_bar_lua1_description" "<h1>Passive: Pierce</h1>Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."
         "dota_tooltip_ability_item_monkey_king_bar_lua1_lore" "A powerful staff used by a master warrior."
@@ -5973,6 +6244,15 @@
         "dota_tooltip_ability_item_monkey_king_bar_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Fury//
+
+        "dota_tooltip_ability_item_bfury_lua" "Fury"
+        "dota_tooltip_ability_item_bfury_lua_description" "<h1>Active: Chop Tree</h1> Chops down the selected tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against units non-heroes, by %quelling_bonus% for melee heroes and by %quelling_bonus_ranged% for ranged ones.\n<h1>Passive: Cleave</h1> The hero's attacks cleave the victim, dealing physical damage to enemies within a %cleave_distance% radius around it ( only in melee).<br><br> Cleaving damage: %cleave_damage_percent_creep%%% <br> <font color='#b000cf'> Working in conjunction with the Desolator, reduces the armor of non-primary targets by 50% of the Desolator</ font>"
+        "dota_tooltip_ability_item_bfury_lua_lore" "The wielder of this mighty ax can cut down swathes of enemies."
+        "dota_tooltip_ability_item_bfury_lua_note0" "Cleave damage pierces magic immunity."
+        "dota_tooltip_ability_item_bfury_lua_note1" "Each item or ability that grants a cleave attack deals damage separately from each other."
+        "dota_tooltip_ability_item_bfury_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_bfury_lua_bonus_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_bfury_lua_bonus_mana_regen" "+$mana_regen"
 
         "dota_tooltip_ability_item_bfury_lua1" "Fury"
         "dota_tooltip_ability_item_bfury_lua1_description" "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus% for melee heroes, and %quelling_bonus_ranged% for ranged. \n<h1>Passive: Cleave</h1> Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against creeps. (Melee Only) <br> <font color='#b000cf'> Working in conjunction with the Desolator reduces the armor of non-primary targets by 50% of the Desolator.</font>"
@@ -6394,6 +6674,11 @@
 
         //Heart//
 
+        "dota_tooltip_ability_item_heart_lua" "Heart"
+        "dota_tooltip_ability_item_heart_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_heart_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_heart_lua_health_regen_pct" "%+max health per second"
+
         "dota_tooltip_ability_item_heart_lua1" "Heart"
         "dota_tooltip_ability_item_heart_lua1_lore" "<font color = '# ff0000'> Multiple instances of this item do not work together. The last one taken works. </font>"
         "dota_tooltip_ability_item_heart_lua1_bonus_strength" "+$str"
@@ -6690,6 +6975,14 @@
         "dota_tooltip_ability_item_heart_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Butterfly//
+
+        "dota_tooltip_ability_item_butterfly_lua" "Butterfly"
+        "dota_tooltip_ability_item_butterfly_lua_note0" "Stacks according to the law of diminishing returns with other sources of evasion."
+        "dota_tooltip_ability_item_butterfly_lua_lore" "This blade can only be wielded by the most powerful and experienced warriors, but it grants its wielder incredible agility in battle."
+        "dota_tooltip_ability_item_butterfly_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_evasion" "%+$evasion"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_butterfly_lua_bonus_damage" "+$damage"
         
         "dota_tooltip_ability_item_butterfly_lua1" "Butterfly"
         "dota_tooltip_ability_item_butterfly_lua1_note0" "Stacks diminishingly with other sources of Evasion."
@@ -7074,6 +7367,15 @@
 
         //Veil of Discord//
 
+        "dota_tooltip_ability_item_veil_of_discord_lua" "Veil of Discord"
+        "dota_tooltip_ability_item_veil_of_discord_lua_description" "<h1>Active: Magic Weakness</h1> Weakens enemies in an area of ​​%debuff_radius%, causing them to take %spell_amp%%% more spell damage.<br><br>Cast Range: %abilitycastrange% <br>Duration: %resist_debuff_duration% sec.\n\n <h1>Passive: Basilius Aura</h1> Increases allies' mana recovery by %aura_mana_regen%.<br><br>Radius: %aura_radius%"
+        "dota_tooltip_ability_item_veil_of_discord_lua_lore" "Headdress of corrupted mages."
+        "dota_tooltip_ability_item_veil_of_discord_lua_bonus_all_stats" "+$all"
+        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
+        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua_Description" "Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua" "Veil of Discord"
+        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua_Description" "Allies' mana regeneration has been increased."
+
         "dota_tooltip_ability_item_veil_of_discord_lua1" "Veil of Discord"
         "dota_tooltip_ability_item_veil_of_discord_lua1_description" "<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds. \n\n<h1>Passive: Basilius Aura</h1>Grants %aura_mana_regen% mana regeneration to allies. <br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_veil_of_discord_lua1_lore" "The headwear of corrupt magi."
@@ -7327,6 +7629,12 @@
         "dota_tooltip_ability_item_veil_of_discord_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Daedalus//
+
+        "dota_tooltip_ability_item_greater_crit_lua" "Daedalus"
+        "dota_tooltip_ability_item_greater_crit_lua_description" "<h1>Passive: Critical Strike</h1> Each attack has a %crit_chance%%% chance of dealing %crit_multiplier%%% damage."
+        "dota_tooltip_ability_item_greater_crit_lua_note0" "No additional damage is dealt to buildings."
+        "dota_tooltip_ability_item_greater_crit_lua_lore" "A weapon of incredible power that is difficult for even the strongest warrior to handle."
+        "dota_tooltip_ability_item_greater_crit_lua_bonus_damage" "+$damage"
 
         "dota_tooltip_ability_item_greater_crit_lua1" "Daedalus"
         "dota_tooltip_ability_item_greater_crit_lua1_description" "<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
@@ -7626,6 +7934,14 @@
 
 
         //Kaya//
+
+        "dota_tooltip_ability_item_kaya_lua" "Kaya"
+        "dota_tooltip_ability_item_kaya_lua_lore" "The staff of a famous sorceress that disappeared many millennia ago."
+        "dota_tooltip_ability_item_kaya_lua_note0" "The effects of several of these items do not stack."
+        "dota_tooltip_ability_item_kaya_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_kaya_lua_spell_amp" "%+spell damage"
+        "dota_tooltip_ability_item_kaya_lua_mana_regen_multiplier" "%+to mana regeneration boost"
+        "dota_tooltip_ability_item_kaya_lua_spell_lifesteal_amp" "%+to increase lifesteal from the spell"
 
         "dota_tooltip_ability_item_kaya_lua1" "Kaya"
         "dota_tooltip_ability_item_kaya_lua1_lore" "The staff of a renowned sorceress, lost for countless millennia."
@@ -8009,6 +8325,14 @@
         "dota_tooltip_ability_item_kaya_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Magic Staff//
+
+        "dota_tooltip_ability_item_kaya_custom_lua" "Magic Staff"
+        "dota_tooltip_ability_item_kaya_custom_lua_note0" "The effects of several of these items do not stack."
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_dmg" "%+magic damage per point of intelligence:"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_life" "%+to lifesteal from spell"
+        "dota_tooltip_ability_item_kaya_custom_lua_bonus_int" "+$int"
+        "dota_tooltip_ability_item_kaya_custom_lua_mana_regen" "+$mana_regen"
 
         "dota_tooltip_ability_item_kaya_custom_lua1" "Magic Staff"
         "dota_tooltip_ability_item_kaya_custom_lua1_note0" "Multiple instances of this item do not stack."
@@ -8394,6 +8718,10 @@
 
         //Vladmir//
 
+        "dota_tooltip_ability_item_vladmir_lua" "Vladmir"
+        "dota_tooltip_ability_item_vladmir_lua_description" "<h1>Passive: Vladmir's Aura</h1>Increases allies' lifesteal by %lifesteal_aura%%%, their damage by %damage_aura%%% armor by %armor_aura% and mana regeneration by %mana_regen_aura%. <br>< br>Radius: %aura_radius%"
+        "dota_tooltip_ability_item_vladmir_lua_lore" "An eerie mask cursed by the malice of a fallen vampire."
+
         "dota_tooltip_ability_item_vladmir_lua1" "Vladmir"
         "dota_tooltip_ability_item_vladmir_lua1_description" "<h1>Passive: Vladmir's Aura</h1>Grants %lifesteal_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, and %armor_aura% armor to nearby allies. <br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_vladmir_lua1_lore" "An eerie mask that is haunted with the malice of a fallen."
@@ -8606,6 +8934,19 @@
 
 
         //Etherial Blade//
+
+        "dota_tooltip_ability_item_ethereal_blade_lua" "Ethereal Blade"
+        "dota_tooltip_ability_item_ethereal_blade_lua_description" "<h1>Active: Ether Blast</h1> Gives the target an ethereal form that completely protects from physical damage, but does not allow attacks and increases magic damage taken by %ethereal_damage_bonus%%%. Lasts for %duration_ally% seconds. allies and %duration% seconds on enemies.<br><br>Also slows the enemy target by %blast_movement_slow%%% and deals magic damage equal to %blast_agility_multiplier% * your main attribute + %blast_damage_base%.<br><br>Cast range: %abilitycastrange%"
+        "dota_tooltip_ability_item_ethereal_blade_lua_note0" "Shares cooldown with Ghost Scepter."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note1" "Creatures in ghost form take 40% more magic damage."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note2" "Lastes a second longer on allies and self."
+        "dota_tooltip_ability_item_ethereal_blade_lua_note3" "Using Town Portal Scroll or Boots of Travel does not dispel ethereal form."
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_ethereal_blade_lua_bonus_intellect" "+$int"
+
+        "DOTA_Tooltip_modifier_item_ethereal_blade_ally" "Ether Blast"
+        "DOTA_Tooltip_modifier_item_ethereal_blade_ally_Description" "Is in ethereal form. Receives %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% increased magic damage, cannot attack or be the target of an attack."
 
         "dota_tooltip_ability_item_ethereal_blade_lua1" "Ethereal Blade"
         "dota_tooltip_ability_item_ethereal_blade_lua1_description" "<h1>Active: Ether Blast</h1>Converts the target unit to ethereal form, rendering them immune to physical damage, but unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage. Lasts for %duration_ally% seconds on allies and %duration% seconds on enemies.<br><br> Enemy targets are also slowed by %blast_movement_slow%%%, and take %blast_agility_multiplier%x your primary attribute +%blast_damage_base% as magical damage.<br><br>Range: %abilitycastrange%"
@@ -9080,6 +9421,17 @@
 
         //Pipe//
 
+        "dota_tooltip_ability_item_pipe_lua" "Pipe"
+        "dota_tooltip_ability_item_pipe_lua_description" "<h1>Active: Barrier</h1>Creates a barrier on the owner and surrounding allies, blocking %barrier_block% of magic damage. Lasts %barrier_duration% sec.<br><br>Radius: %barrier_radius%\n< h1>Passive: Insight Aura</h1>Affects nearby allies.Increases their health recovery by %aura_health_regen% and magic resistance by %magic_resistance_aura%%%.<br><br>Radius: %aura_radius%"
+        "dota_tooltip_ability_item_pipe_lua_lore" "A powerful artifact of mysterious origin. It creates barriers that protect against magical forces."
+        "dota_tooltip_ability_item_pipe_lua_note0" "The effect of multiple Barriers does not stack."
+        "dota_tooltip_ability_item_pipe_lua_note1" "Combines with other sources of magic resistance according to the law of diminishing returns."
+        "dota_tooltip_ability_item_pipe_lua_health_regen" "+$hp_regen"
+        "dota_tooltip_ability_item_pipe_lua_magic_resistance" "%+$spell_resist"
+
+        "dota_tooltip_modifier_item_pipe_aura_lua" "Insight Aura"
+        "dota_tooltip_modifier_item_pipe_aura_lua_description" "Restores %fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health per second. Magic resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
         "dota_tooltip_ability_item_pipe_lua1" "Pipe"
         "dota_tooltip_ability_item_pipe_lua1_description" "<h1>Active: Barrier</h1>Gives a shield that blocks %barrier_block% magic damage to all nearby allies. Lasts %barrier_duration% seconds.<br><br>Radius: %barrier_radius%\n<h1>Passive: Insight Aura</h1> Gives allied units %aura_health_regen% health regeneration and %magic_resistance_aura%%% magic resistance.<br><br>Radius: %aura_radius%"
         "dota_tooltip_ability_item_pipe_lua1_lore" "A powerful artifact of mysterious origin, it creates barriers against magical forces."
@@ -9469,6 +9821,13 @@
 
         //Skadi//
 
+        "dota_tooltip_ability_item_skadi_lua" "Skadi"
+        "dota_tooltip_ability_item_skadi_lua_description" "<h1>Passive: Cold Attack</h1> Each attack for %cold_duration% sec.slows down the target's movement and attack, and also reduces its healing, health regeneration, lifesteal and lifesteal abilities by %heal_reduction%%%. The slowdown depends on the type of attack of the victim: ranged creatures slow down their movement by %cold_slow_ranged%%%, and their attack by %cold_slow_ranged%. Melee creatures slow down their movement by %cold_slow_melee%%% and their attack by %cold_slow_melee%."
+        "dota_tooltip_ability_item_skadi_lua_lore" "An incredibly rare artifact guarded by azure dragons."
+        "dota_tooltip_ability_item_skadi_lua_bonus_all_stats" "+$all"
+        "dota_tooltip_ability_item_skadi_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_skadi_lua_bonus_mana" "+$mana"
+
         "dota_tooltip_ability_item_skadi_lua1" "Skadi"
         "dota_tooltip_ability_item_skadi_lua1_description" "<h1>Passive: Cold Attack</h1> Attacks lower enemy movement and attack speed and reduces heals, health regeneration, lifesteal and spell lifesteal by %heal_reduction%%% for %cold_duration% seconds. Slows enemy ranged units by %cold_slow_ranged%%% movement speed and by %cold_slow_ranged% attack speed. Slows enemy melee units by %cold_slow_melee%%% movement speed and by %cold_slow_melee% attack speed. "
         "dota_tooltip_ability_item_skadi_lua1_lore" "Extremely rare artifact, guarded by the azure dragons."
@@ -9809,6 +10168,13 @@
 
 
         //Octarine Core//
+
+        "dota_tooltip_ability_item_octarine_core_lua" "Octarine Core"
+        "dota_tooltip_ability_item_octarine_core_lua_description" "<h1>Use: Reset</h1> Resets the cooldown of all items and abilities.\n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown of all items and abilities by %bonus_cooldown%%%."
+        "dota_tooltip_ability_item_octarine_core_lua_cast_range_bonus" "+$cast_range"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_health" "+$health"
+        "dota_tooltip_ability_item_octarine_core_lua_bonus_mana" "+$mana"
         
         "dota_tooltip_ability_item_octarine_core_lua1" "Octarine Core"
         "dota_tooltip_ability_item_octarine_core_lua1_description" "<h1>Active: Reset Cooldowns</h1>Resets the cooldowns of all your items and abilities. \n <h1>Passive: Cooldown Reduction</h1>Reduces the cooldown time of all spells and items by %bonus_cooldown%%%."
@@ -10192,6 +10558,17 @@
         "dota_tooltip_ability_item_octarine_core_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         //Mjollnir//
+
+        "dota_tooltip_ability_item_mjollnir_lua" "Mjollnir"
+        "dota_tooltip_ability_item_mjollnir_lua_description" "<h1>Active: Static Charge</h1> For %static_duration% seconds, surrounds the target creature with a charged shield that has a %static_chance%%% chance of dealing %static_damage% magic damage to the attacking enemy and %static_strikes% to others .<br><br>Cast range: %abilitycastrange%\n<h1>Passive: Chain Lightning</h1> Each attack has a %chain_chance%%% chance to create a bolt of chain lightning, which will jump between random attacks %chain_strikes% times enemies within %chain_radius%, dealing %chain_damage% magic damage to each. Chain lightning attacks cannot be dodged."
+        "dota_tooltip_ability_item_mjollnir_lua_lore" "The magic hammer of Thor, forged for him by the dwarves named Brok and Eitri."
+        "dota_tooltip_ability_item_mjollnir_lua_note0" "Triggers no more than once per second."
+        "dota_tooltip_ability_item_mjollnir_lua_note1" "The lightning from Static Charge deals magic damage to targets up to %static_seconary_radius% around the shielded creature."
+        "dota_tooltip_ability_item_mjollnir_lua_note2" "Lightning from Static Charge does not trigger on invisible or fog-hidden warrior heroes."
+        "dota_tooltip_ability_item_mjollnir_lua_bonus_damage" "+$damage"
+        "dota_tooltip_ability_item_mjollnir_lua_bonus_attack_speed" "+$attack"
+        "DOTA_Tooltip_modifier_item_mjollnir_active" "Mjollnir Static Charge"
+        "DOTA_Tooltip_modifier_item_mjollnir_active_Description" "When this creature is attacked, there is a %dMODIFIER_PROPERTY_TOOLTIP%%% chance that the attacker and %dMODIFIER_PROPERTY_TOOLTIP% enemies adjacent to it will be struck by lightning."
 
         "dota_tooltip_ability_item_mjollnir_lua1" "Mjollnir"
         "dota_tooltip_ability_item_mjollnir_lua1_description" "<h1>Active: Static Charge</h1>Places a charged shield on a target unit for %static_duration% seconds which has a %static_chance%%% chance to release a %static_damage% magical damage shocking bolt at a nearby attacker and %static_strikes% additional enemies.<br><br>Range: %abilitycastrange%\n<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
@@ -10834,6 +11211,10 @@
 
 
         //Mage Heart//
+
+        "dota_tooltip_ability_item_mage_heart_lua" "Mage Heart"
+        "dota_tooltip_ability_item_mage_heart_lua_description" "<h1>Passive: Blast</h1> Every %tick% seconds, %count% random enemies within the %radius% take magic damage equal to 50% of the owner's Intelligence."
+        "dota_tooltip_ability_item_mage_heart_lua_bonus_int" "+$int"
 
         "dota_tooltip_ability_item_mage_heart_lua1" "Mage Heart"
         "dota_tooltip_ability_item_mage_heart_lua1_description" "<h1>Passive: Blast</h1> Every %tick% seconds, %count% random enemies within %radius% take magic damage equal to the 50% intellect of the owner."
@@ -11555,6 +11936,16 @@
 
         //Hood Sword//
 
+        "dota_tooltip_ability_item_hood_sword_lua" "Hood Sword"
+        "dota_tooltip_ability_item_hood_sword_lua_description" "<h1>Passive: Slayer</h1>Enemies you attack deal %magic_debuff%%% less spell damage and %phis_debuff%%% less basic attack damage. Lasts for %duration% seconds."
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_magic_resist" "%+$spell_resist"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_agi" "+$agi"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_str" "+$str"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_dmg" "+to base damage"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_attack_speed" "+$attack"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_status" "+$status_resist"
+        "dota_tooltip_ability_item_hood_sword_lua_bonus_amp_hp" "%+to health from recovery and lifesteal"
+
         "dota_tooltip_ability_item_hood_sword_lua1" "Hood Sword"
         "dota_tooltip_ability_item_hood_sword_lua1_description" "<h1>Passive: Slayer</h1>Enemies you attack deal %magic_debuff%%% less spell damage and %phis_debuff %% less basic attack damage. Lasts %duration% sec."
         "dota_tooltip_ability_item_hood_sword_lua1_bonus_magic_resist" "%+$spell_resist"
@@ -12022,61 +12413,13 @@
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_amp_hp" "%+Self HP Regen and Lifesteal Amp"
         "dota_tooltip_ability_item_hood_sword_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
-        //Satanic//
-
-        "dota_tooltip_ability_item_satanic_lua1" "Satanic"
-        "dota_tooltip_ability_item_satanic_lua1_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua1_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua1_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua1_damage_bonus" "+$damage"
+        "dota_tooltip_ability_item_satanic_lua" "Satanic"
+        "dota_tooltip_ability_item_satanic_lua_description" "<h1>Active: Unholy Rage</h1> Increases the effect of lifesteal to %lifesteal_bonus%%% for %duration% sec.<br><br>Dispel type: <span class=\GameplayValues ​​GameplayVariable>normal< /span> \n<h1>Passive: Lifesteal</h1>Each attack restores health to the owner in the amount of %lifesteal_pct%%% of the damage dealt."
+        "dota_tooltip_ability_item_satanic_lua_lore" "Colossal power in exchange for your soul."
+        "dota_tooltip_ability_item_satanic_lua_strength_bonus" "+$str"
+        "dota_tooltip_ability_item_satanic_lua_damage_bonus" "+$damage"
         "DOTA_Tooltip_modifier_satanic_lua_active" "Unholy Rage"
-        "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Lifesteal increased to 200%"
-        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua" "Magic Weakness"
-        "DOTA_Tooltip_modifier_item_veil_of_discord_active_lua_Description" "Magic damage increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
-        "DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua"				"Veil of Discord"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_aura_lua_Description"	"Granting mana regeneration to allies."
-
-        "dota_tooltip_ability_item_satanic_lua2" "Forest Satanic"
-        "dota_tooltip_ability_item_satanic_lua2_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua2_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua2_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua2_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua3" "Village Satanic"
-        "dota_tooltip_ability_item_satanic_lua3_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua3_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua3_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua3_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua4" "Mines Satanic"
-        "dota_tooltip_ability_item_satanic_lua4_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua4_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua4_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua4_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua5" "Dust Satanic"
-        "dota_tooltip_ability_item_satanic_lua5_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua5_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua5_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua5_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua6" "Swamp Satanic"
-        "dota_tooltip_ability_item_satanic_lua6_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua6_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua6_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua6_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua7" "Snow Satanic"
-        "dota_tooltip_ability_item_satanic_lua7_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua7_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua7_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua7_damage_bonus" "+$damage"
-
-        "dota_tooltip_ability_item_satanic_lua8" "Divine Satanic"
-        "dota_tooltip_ability_item_satanic_lua8_description" "<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %lifesteal_bonus%%% for %duration% seconds. <br><br>Dispel Type: <span class=\GameplayValues GameplayVariable\>Basic Dispel</span> \n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_pct%%% of attack damage dealt."
-        "dota_tooltip_ability_item_satanic_lua8_lore" "Immense power at the cost of your soul."
-        "dota_tooltip_ability_item_satanic_lua8_strength_bonus" "+$str"
-        "dota_tooltip_ability_item_satanic_lua8_damage_bonus" "+$damage"
+        "DOTA_Tooltip_modifier_satanic_lua_active_Description" "Vampirism increased to 200%"
 
         //Satanic Gems//
 
@@ -12325,6 +12668,21 @@
         "dota_tooltip_ability_item_satanic_lua7_gem5_damage_bonus" "+$damage"
         "dota_tooltip_ability_item_satanic_lua7_gem5_bonus_gem" "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
+        //Spirit Vessel//
+
+        "dota_tooltip_ability_item_spirit_vessel_lua" "Spirit Vessel"
+        "dota_tooltip_ability_item_spirit_vessel_lua_description" "<h1>Active: Soul Release</h1> Curse an enemy to lose %enemy_hp_drain%%% of their current health, and gain %hp_regen_reduction_enemy%%% less health from any healing, recovery, or lifesteal. In addition, the ability deals %soul_damage_amount% + the sum of all damage attributes per second. <br><br>Lasts for %duration% seconds."
+        "dota_tooltip_ability_item_spirit_vessel_lua_lore" "Created by a god who wanted to capture the souls of others."
+        "dota_tooltip_ability_item_spirit_vessel_lua_note0" "Spell buff will be taken into account for all metrics except percentage damage."
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_health" "+$health"
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_all_stats" "+$all"
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_bonus_armor" "+$armor"
+        "DOTA_Tooltip_ability_item_spirit_vessel_lua_mana_regen" "+$mana_regen"
+
+        "DOTA_Tooltip_modifier_item_spirit_vessel_lua_debuff" "Spirit Vessel Damage"
+        "DOTA_Tooltip_modifier_item_spirit_vessel_lua_debuff_Description" "Loses %dMODIFIER_PROPERTY_TOOLTIP% health every second. Healing reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+
         //Камувувушек//
 
         "dota_tooltip_ability_item_blight_stone_lua" "Blight Stone"
@@ -12333,6 +12691,15 @@
         "dota_tooltip_ability_item_blight_ston_luae_note0" "The armor reduction does not stack with the effects of items that are created from it."
 
         //Scythe of Vyse//
+
+        "dota_tooltip_ability_item_sheepstick_lua" "Scythe of Vyse"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_agility" "+$agi"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_intellect" "+$int"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_mana_regen" "+$mana_regen"
+        "dota_tooltip_ability_item_sheepstick_lua_bonus_strength" "+$str"
+        "dota_tooltip_ability_item_sheepstick_lua_projectile_speed" "+ to projectile speed"
+        "dota_tooltip_ability_item_sheepstick_lua_description" "<h1>Active: Hex</h1> Transforms the target into a harmless critter for %sheep_duration% seconds. The victim cannot attack, cast abilities, or use items, and their base speed drops to 140. Cannot be cast on either the same creature more than once every 10 seconds.\n <h1>Passive: Witch Blade</h1>The next attack will poison the victim for %duration% seconds and every second will deal damage equal to the owner's intelligence multiplied by %intellect_dmg%. Is not updated."
 
         "dota_tooltip_ability_item_sheepstick_lua1" "Scythe of Vyse"
         "dota_tooltip_ability_item_sheepstick_lua1_bonus_agility" "+$agi"
@@ -12958,6 +13325,13 @@
         "DOTA_Tooltip_ability_item_hurricane_pike8_bonus_damage" "+$damage"
 		//echo sabre//
 		
+        "DOTA_Tooltip_ability_item_sabre_blade" "Echo Blade"
+        "DOTA_Tooltip_ability_item_sabre_blade_description" "<h1>Passive: Thrice Stricken</h1>When you attack an enemy, you gain maximum attack speed for 0.5 seconds and slow them down by %movement_slow%%% for %slow_duration% seconds.<br><br>Additional attacks deal %mult%%% of the attack as additional pure damage."
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_strength" "+$str"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_intellect" "+$int"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_damage" "+$damage"
+        "DOTA_Tooltip_ability_item_sabre_blade_bonus_attack_speed" "+$attack"
 
 		"DOTA_Tooltip_ability_item_sabre_blade1" "Echo Blade"
         "DOTA_Tooltip_ability_item_sabre_blade1_description" "<h1>Passive: Thrice Stricken</h1>When attacking an enemy, you get a maximum attack speed of 0.5 seconds and slow them by %movement_slow%%% for %slow_duration% seconds.<br><br>Additional attacks deal %mult%%% of Attack as Extra True Damage."
@@ -13022,6 +13396,28 @@
         "DOTA_Tooltip_ability_item_sabre_blade8_bonus_mana_regen" "+$mana_regen"
         "DOTA_Tooltip_ability_item_sabre_blade8_bonus_damage" "+$damage"
         "DOTA_Tooltip_ability_item_sabre_blade8_bonus_attack_speed" "+$attack"		
+
+
+        //ability_item_midas_lua
+
+        "DOTA_Tooltip_ability_item_midas_lua" "Hand of Midas"
+        "DOTA_Tooltip_ability_item_midas_lua_description" "<h1>Active: Gold Transfer</h1>Bind your gold to an ally and receive up to %shareble_gold%%% of their gold."
+        "DOTA_Tooltip_ability_item_midas_lua_attack_speed" "+$attack"
+// clarity
+        "DOTA_Tooltip_ability_item_clarity_custom1" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom1_description" "<h1>Use: Replenish</h1>Increases mana regeneration."
+        "DOTA_Tooltip_ability_item_clarity_custom1_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom1_buff_duration" "DURATION:"
+        "DOTA_Tooltip_ability_item_clarity_custom2" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom2_description" "<h1>Use: Replenish</h1>Increases mana regeneration."
+        "DOTA_Tooltip_ability_item_clarity_custom2_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom2_buff_duration" "DURATION:"
+        "DOTA_Tooltip_ability_item_clarity_custom3" "Clarity"
+        "DOTA_Tooltip_ability_item_clarity_custom3_description" "<h1>Use: Replenish</h1>Increases mana regeneration."
+        "DOTA_Tooltip_ability_item_clarity_custom3_mana_regen" "+$mana_regen"
+        "DOTA_Tooltip_ability_item_clarity_custom3_buff_duration" "DURATION:"
+        "DOTA_Tooltip_modifier_item_clarity_custom" "Clarity"
+        "DOTA_Tooltip_modifier_item_clarity_custom_Description" "Mana regeneration increased"
 
 
         //////////
@@ -13580,6 +13976,8 @@
         "dota_tooltip_ability_legion_ult2_dmg_per_stack" "DAMAGE PER STACK:"
         "dota_tooltip_ability_legion_ult2_hp_regen_per_stack" "HP REGEN PER STACK:"
 
+        "dota_tooltip_ability_legion_courage_armor_reduction" "ARMOR REDUCTION:"
+
         "npc_dota_hero_legion_commander_str6" "The whim of the gods"
         "npc_dota_hero_legion_commander_str6_description" "+150 health per level"
         "npc_dota_hero_legion_commander_str7" "Quick Reaction"
@@ -13813,13 +14211,14 @@
         "dota_tooltip_ability_mars_gods_rebuke_lua_crit_mult" "%CRITICAL DAMAGE:"
 
         "dota_tooltip_ability_mars_atrophy_aura_lua" "Atrophy Mars Aura"
-        "dota_tooltip_ability_mars_atrophy_aura_lua_description" "Reduces the base damage of all nearby enemy units. If the victim of the ability dies, the hero will temporarily take additional damage."
-        "dota_tooltip_ability_mars_atrophy_aura_lua_lore" "The mere presence of Mars undermines enemy confidence in the outcome of the battle."
+        "dota_tooltip_ability_mars_atrophy_aura_lua_description" "Reduces the base damage of all nearby enemy units. If the target of the ability dies, heroes will temporarily take additional damage."
+        "dota_tooltip_ability_mars_atrophy_aura_lua_lore" "Mars's mere presence undermines the enemy's confidence in the outcome of the battle."
         "dota_tooltip_ability_mars_atrophy_aura_lua_radius" "RADIUS:"
         "dota_tooltip_ability_mars_atrophy_aura_lua_damage_reduction_pct" "%DAMAGE REDUCTION:"
-        "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_from_creep" "BONUS DAMAGE(CREEP):"
+        "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_from_creep" "ADDITIONAL DAMAGE PER CREP:"
         "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_duration" "DURATION:"
-        "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_duration_scepter" "SCEPTER DURATION:"
+        "dota_tooltip_ability_mars_atrophy_aura_lua_bonus_damage_duration_scepter" "DURATION WITH SCEPTER:"
+        "dota_tooltip_ability_mars_atrophy_aura_lua_aghanim_description" "Gives half the bonus damage of this ability to allies within %radius%."
 
         "dota_tooltip_ability_mars_bulwark_lua" "Bulwark"
         "dota_tooltip_ability_mars_bulwark_lua_description" "The hero blocks some of the physical damage from attacks inflicted on the front and sides with his shield."
@@ -14857,6 +15256,8 @@
         "npc_dota_hero_phantom_assassin_str12_description" "Blur becomes active, cooldown 30 seconds, during activation gives bkb for 3 seconds."
         "npc_dota_hero_phantom_assassin_str12" "Top Secret Technique"
         "npc_dota_hero_phantom_assassin_str12_description" "Removes the cooldown of Phantom srike, can stun targets only once every 10 sec (from talent)"
+        "npc_dota_hero_phantom_assassin_str13" "Infinite jump".
+        "npc_dota_hero_phantom_assassin_str13_description" "Removes Blink cooldown , can only stun targets once every 10 sec (from talent)".
 
         "npc_dota_hero_phantom_assassin_agi6" "Twisted"
         "npc_dota_hero_phantom_assassin_agi6_description" "Stifling Dagger damage equals agility"
@@ -14873,7 +15274,7 @@
         "npc_dota_hero_phantom_assassin_agi12" "Critical chance of a critical attack"
         "npc_dota_hero_phantom_assassin_agi12_description" "+35% ultimate chance"
         "npc_dota_hero_phantom_assassin_agi13" "Fatality"
-        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - killing a boss/creep with a crit gives +25% crit damage for 2 minutes, stacks forever"
+        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - killing a boss/creep with a crit gives 50% crit damage for 2 minutes, stacks forever"
 
         "npc_dota_hero_phantom_assassin_int6" "Right on target"
         "npc_dota_hero_phantom_assassin_int6_description" "Produces two additional Stifling Daggers"
@@ -15156,6 +15557,12 @@
         "dota_tooltip_modifier_spectre_dispersion_lua" "Cumulative damage"
         "dota_tooltip_modifier_spectre_dispersion_lua_description" "Don't max it out!"
 
+        "dota_tooltip_ability_spectre_dispersion_dd" "Dispersion"
+        "dota_tooltip_ability_spectre_dispersion_dd_description" "When disabled, the ability absorbs 5% of damage and accumulates it; when enabled, it loses a percentage of the accumulated damage and deals damage equal to this percentage to all nearby enemies."
+        "dota_tooltip_ability_spectre_dispersion_dd_damage_reflection_pct" "% Damage accumulated:"
+        "dota_tooltip_ability_spectre_dispersion_dd_max_stack_dmg" "Maximum accumulated damage:"
+        "dota_tooltip_ability_spectre_dispersion_dd_radius" "Radius:"
+
         "dota_tooltip_ability_spectre_dispersion_lua" "Dispersion"
         "dota_tooltip_ability_spectre_dispersion_lua_description" "Reduction of incoming hero damage."
         "dota_tooltip_ability_spectre_dispersion_lua_damage_reflection_pct" "%DECREASE OF INCOMING DAMAGE:"
@@ -15330,6 +15737,8 @@
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_split_count_scepter" "SCEPTER SPLIT COUNT:"
         "dota_tooltip_ability_drow_ranger_marksmanship_lua_damage_reduction_scepter" "%SCEPTER DAMAGE REDUCTION:"
 
+        "dota_tooltip_ability_drow_ranger_marksmanship_lua_aghanim_description" "Hero's arrows split on impact, dealing damage to random units around the target. Each arrow is considered a normal attack, but deals reduced damage."
+
         "npc_dota_hero_drow_ranger_str6" "The truth is in force"
         "npc_dota_hero_drow_ranger_str6_description" "Marksmanship also gives you strength"
         "npc_dota_hero_drow_ranger_str7" "Thinking"
@@ -15357,7 +15766,12 @@
         "npc_dota_hero_drow_ranger_agi9_description" "Marksmanship +100% agility to damage"
         "npc_dota_hero_drow_ranger_agi10" "Right in the eye"
         "npc_dota_hero_drow_ranger_agi10_description" "Targets affected by Frost Arrows take 25% more physical damage"
-        "npc_dota_hero_drow_ranger_agi11" "The hero receives the Aghanim effect"
+        "npc_dota_hero_drow_ranger_agi11" "Retribution"
+        "npc_dota_hero_drow_ranger_agi11_description" "Heroes receive the Aghanim effect"
+        "npc_dota_hero_drow_ranger_agi12" "Stronger together"
+        "npc_dota_hero_drow_ranger_agi12_description" "Marksmanship aura becomes global"
+        "npc_dota_hero_drow_ranger_agi13" "Murderous Thraxa"
+        "npc_dota_hero_drow_ranger_agi13_description" "x5 damage from agility"
 
         "npc_dota_hero_drow_ranger_int6" "Semi-smart"
         "npc_dota_hero_drow_ranger_int6_description" "Takes additional damage equal to Intelligence"
@@ -15377,6 +15791,15 @@
         "npc_dota_hero_drow_ranger_int13_description" "Marksmanship indicators x3"
 
         //Medusa//
+        "dota_tooltip_ability_medusa_mystic_snake_lua" "Mystic Snake"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_description" "Shoots out an energy snake that jumps from target to target and deals damage. Once it reaches the last target, the snake will return to its owner and restore their mana. With each jump, the snake deals more damage."
+        "dota_tooltip_ability_medusa_mystic_snake_lua_radius" "SNAKE RADIUS:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_jumps" "Jumps:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_damage" "INSTANT DAMAGE:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_poison_damage" "POISON DAMAGE:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_poison_duration" "POISON DURATION:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_mana_steal" "%MANA RECOVERY:"
+        "dota_tooltip_ability_medusa_mystic_snake_lua_snake_scale" "%DAMAGE BOOST:"
 
         "dota_tooltip_ability_medusa_mana_shield_lua" "Mana Shield"
         "dota_tooltip_ability_medusa_mana_shield_lua_description" "Creates a shield that absorbs incoming damage using the hero's mana. The shield will not absorb damage if there is not enough mana."
@@ -15619,10 +16042,11 @@
         "dota_tooltip_ability_lion_mana_aura_slow" "%SLOWING:"
 
         "dota_tooltip_ability_lion_finger_of_death_lua" "Finger of Death"
-        "dota_tooltip_ability_lion_finger_of_death_lua_description" "Rips at an enemy unit, trying to turn it inside-out. Deals massive damage and grows stronger with each life it consumes."
-        "dota_tooltip_ability_lion_finger_of_death_lua_damage" "DMG:"
-        "dota_tooltip_ability_lion_finger_of_death_lua_cooldown_scepter" "SCEPTER COOLDOWN:"
-        "dota_tooltip_ability_lion_finger_of_death_lua_splash_radius_scepter" "SCEPTER AREA OF EFFECT:"
+        "dota_tooltip_ability_lion_finger_of_death_lua_description" "Tears an enemy creature, attempting to turn it inside out."
+        "dota_tooltip_ability_lion_finger_of_death_lua_damage" "DAMAGE:"
+        "dota_tooltip_ability_lion_finger_of_death_lua_cooldown_scepter" "COOLDOWN WITH SCEPTER:"
+        "dota_tooltip_ability_lion_finger_of_death_lua_splash_radius_scepter" "SCEPTER AREA:"
+        "dota_tooltip_ability_lion_finger_of_death_lua_aghanim_description" "Increases damage and reduces cooldown. The ability affects units in a small area."
 
         "npc_dota_hero_lion_str6" "Demonic Past"
         "npc_dota_hero_lion_str6_description" "Finger of Death will stun for 3 seconds"
@@ -15771,12 +16195,12 @@
 
         "npc_dota_pugna_nether_ward_lua" "Nether Ward"
         "dota_tooltip_ability_pugna_nether_ward_lua" "Nether Ward"
-        "dota_tooltip_ability_pugna_nether_ward_lua_description" "Pugna places the Nether Ward at the target location. Nether Ward damages nearby enemies. The damage depends on your int."
-        "dota_tooltip_ability_pugna_nether_ward_lua_radius" "ATTACK RADIUS:"
+        "dota_tooltip_ability_pugna_nether_ward_lua_description" "Pugna places a Nether Ward at the target location. The Nether Ward deals damage to nearby enemies. The damage is based on your Intelligence."
+        "dota_tooltip_ability_pugna_nether_ward_lua_radius" "WARD'S ATTACK RADIUS:"
         "dota_tooltip_ability_pugna_nether_ward_lua_base_damage" "BASE DAMAGE:"
-        "dota_tooltip_ability_pugna_nether_ward_lua_interval" "INTERVAL:"
-        "dota_tooltip_ability_pugna_nether_ward_lua_count" "TARGETS:"
-        "dota_tooltip_ability_pugna_nether_ward_lua_int_damage" "%INT IN DAMAGE:"
+        "dota_tooltip_ability_pugna_nether_ward_lua_interval" "ATTACK INTERVAL:"
+        "dota_tooltip_ability_pugna_nether_ward_lua_count" "OBJECTIVES:"
+        "dota_tooltip_ability_pugna_nether_ward_lua_intelligence_damage" "% INTELLIGENCE IN DAMAGE:"
         "dota_tooltip_ability_pugna_nether_ward_lua_attacks_to_destroy" "ATTACKS TO DESTROY:"
         "dota_tooltip_ability_pugna_nether_ward_lua_duration" "DURATION:"
 
@@ -15863,22 +16287,22 @@
         "dota_tooltip_ability_skywrath_mage_mystic_flare_lua_duration" "DURATION:"
         "dota_tooltip_ability_skywrath_mage_mystic_flare_lua_damage" "DAMAGE:"
 
-        "npc_dota_hero_skywrath_mage_str6" "Regeneration"
-        "npc_dota_hero_skywrath_mage_str6_description" "The hero receives 1hp regen and 0.5 MP regen for each killed creep"
-        "npc_dota_hero_skywrath_mage_str7" "Absorption"
-        "npc_dota_hero_skywrath_mage_str7_description" "+150 health per level"
-        "npc_dota_hero_skywrath_mage_str8" "Hell Armor"
-        "npc_dota_hero_skywrath_mage_str8_description" "+1 armor for every 15 creeps killed"
-        "npc_dota_hero_skywrath_mage_str9" "Power Strike"
-        "npc_dota_hero_skywrath_mage_str9_description" "Arcane Bolt base damage is equal to hero power"
-        "npc_dota_hero_skywrath_mage_str10" "Curse"
-        "npc_dota_hero_skywrath_mage_str10_description" "Ancient Seal also reduces the target's base armor"
-        "npc_dota_hero_skywrath_mage_str11" "Link to the Abyss"
-        "npc_dota_hero_skywrath_mage_str11_description" "+50% to spell lifesteal"
-        "npc_dota_hero_skywrath_mage_str12" "Silence at the addition"
-        "npc_dota_hero_skywrath_mage_str12_description" "Ancient Seal casts Mystic Flare"
-        "npc_dota_hero_skywrath_mage_str13" "More power"
-        "npc_dota_hero_skywrath_mage_str13_description" "Abilities that use str for damage now use 3x str for damage"
+        "npc_dota_hero_ancient_apparition_agi6" "Icy Soul Shard"
+        "npc_dota_hero_ancient_apparition_agi6_description" "every enemy killed by Ice Blast restores the hero's health equal to the remaining HP of the killed one"
+        "npc_dota_hero_ancient_apparition_agi7" "Frost Empowerment"
+        "npc_dota_hero_ancient_apparition_agi7_description" "Enemies affected by Ice Vortex take 15% more damage from the hero"
+        "npc_dota_hero_ancient_apparition_agi8" "Chance to awaken a cold storm"
+        "npc_dota_hero_ancient_apparition_agi8_description" "has a 15% chance to apply Cold Feet to the attacked target, but no more than once every 7 sec"
+        "npc_dota_hero_ancient_apparition_agi9" "refreshing splitshot"
+        "npc_dota_hero_ancient_apparition_agi9_description" "attacks all targets under the effect of Cold Feet"
+        "npc_dota_hero_ancient_apparition_agi10" "iceberg"
+        "npc_dota_hero_ancient_apparition_agi10_description" "Chilling Touch bounces to 1 additional target within 250"
+        "npc_dota_hero_ancient_apparition_agi11" "Critical Cold"
+        "npc_dota_hero_ancient_apparition_agi11_description" "Chilling Touch has a 15% chance to deal 250% critical damage"
+        "npc_dota_hero_ancient_apparition_agi12" "Ice Ice Ice"
+        "npc_dota_hero_ancient_apparition_agi12_description" "+0.1 agility to Chilling Touch damage"
+        "npc_dota_hero_ancient_apparition_agi13" "Magic crit"
+        "npc_dota_hero_ancient_apparition_agi13_description" "Chilling Touch split shot, also deals magic crit 200%, +100% for 5000 int... 40000 int, with a 15% chance"
 
         "npc_dota_hero_skywrath_mage_agi6" "Dream Powers"
         "npc_dota_hero_skywrath_mage_agi6_description" "Ancient Seal imposes roots"
@@ -16092,6 +16516,7 @@
         "dota_tooltip_ability_windrunner_arrow_description" "Within a few seconds, the hero fires dozens of arrows in the indicated direction, each arrow inflicting damage. The spell costs half your mana!"
         "dota_tooltip_ability_windrunner_arrow_duration" "DURATION:"
         "dota_tooltip_ability_windrunner_arrow_damage" "%DAMAGE:"
+
         "dota_tooltip_ability_zuus_arc_lightning_lua" "Arc Lightning"
         "dota_tooltip_ability_zuus_arc_lightning_lua_description" "Hurls a bolt of lightning that leaps through nearby enemy units."
         "dota_tooltip_ability_zuus_arc_lightning_lua_lore" "Arc Lightning is Zeus' favorite spell to use against puny mortals."
@@ -16160,16 +16585,17 @@
         //Zuus//
 
         "dota_tooltip_ability_zuus_nimbus" "Nimbus"
-        "dota_tooltip_ability_zuus_nimbus_description" "Creates a storm cloud anywhere on the map that automatically casts Arc Lightning on nearby enemies."
+        "dota_tooltip_ability_zuus_nimbus_description" "Creates a thundercloud that automatically casts Lightning Bolt on nearby enemies."
+        "dota_tooltip_ability_zuus_nimbus_cloud_abilitycastrange" "CAST RANGE:"
         "dota_tooltip_ability_zuus_nimbus_cloud_duration" "DURATION:"
-        "dota_tooltip_ability_zuus_nimbus_cloud_interval" "INTERVAL:"
+        "dota_tooltip_ability_zuus_nimbus_cloud_interval" "ATTACK INTERVAL:"
         "dota_tooltip_ability_zuus_nimbus_cloud_radius" "RADIUS:"
-        "dota_tooltip_ability_zuus_nimbus_arc_damage" "DAMAGE:"
 
         "dota_tooltip_ability_zuus_passive_lua" "Static Field"
-        "dota_tooltip_ability_zuus_passive_lua_description" "All enemies within a small radius of the hero will take magic damage based on the hero's int."
+        "dota_tooltip_ability_zuus_passive_lua_description" "All enemies within a small radius of the hero will receive magic damage based on the hero's intelligence."
         "dota_tooltip_ability_zuus_passive_lua_radius" "RADIUS:"
-        "dota_tooltip_ability_zuus_passive_lua_dmg_per_int" "INT IN DAMAGE:"
+        "dota_tooltip_ability_zuus_passive_lua_damage" "DAMAGE:"
+        "dota_tooltip_ability_zuus_passive_lua_dmg_per_int" "INTELLIGENCE IN THE FORM OF DAMAGE:"
 
         "dota_tooltip_ability_zuus_thundergods_wrath_lua" "Thundergod's Wrath"
         "dota_tooltip_ability_zuus_thundergods_wrath_lua_description" "Strikes all enemies with lightning in a small radius from the hero. The ability also reveals the invisibility of enemy creatures around each enemy hit. If the enemy's hero is invisible, he will not take damage, but invisibility will still be revealed."
@@ -16209,13 +16635,13 @@
         "npc_dota_hero_zuus_agi11_description" "Increases vision duration after casting Lightning Bolt by 3 seconds."
         "npc_dota_hero_zuus_agi12" "Ball Lightning"
         "npc_dota_hero_zuus_agi12_description" "New Nimbus ability, uses Lightning Bolt."
-        "npc_dota_hero_zuus_agi12_tooltip" "Duration 40 seconds, interval 1.5, radius 800, cast range 2000"
+        "npc_dota_hero_zuus_agi12_tooltip" "Duration 30 seconds, interval 2.0, radius 800, cast range 2000"
         "npc_dota_hero_zuus_agi13" "Ball Lightning"
         "npc_dota_hero_zuus_agi13_description" "Upgrades Nimbus ability."
-        "npc_dota_hero_zuus_agi13_tooltip" "Duration 50 seconds, interval 1.0, radius 1200, casting range 3000"
+        "npc_dota_hero_zuus_agi13_tooltip" "Duration 40 seconds, interval 1.0, radius 1200, casting range 3000"
 
         "npc_dota_hero_zuus_int6" "From the heavens"
-        "npc_dota_hero_zuus_int6_description" "50% int to Arc Lightning damage."
+        "npc_dota_hero_zuus_int6_description" "35% int to Arc Lightning damage."
         "npc_dota_hero_zuus_int7" "Storm"
         "npc_dota_hero_zuus_int7_description" "100% int to Lightning Bolt damage."
         "npc_dota_hero_zuus_int8" "Storm"
@@ -16527,11 +16953,19 @@
         "npc_dota_hero_ancient_apparition_str13_description" "Increases the radius of your ultimate by 10%"
 
         "npc_dota_hero_ancient_apparition_agi6" "Icy Soul Shard"
-        "npc_dota_hero_ancient_apparition_agi6_description" "each killed enemy from Ice Blast restores the hero's health equal to the remaining HP of the killed one"
+        "npc_dota_hero_ancient_apparition_agi6_description" "every enemy killed by Ice Blast restores the hero's health equal to the remaining HP of the killed one"
         "npc_dota_hero_ancient_apparition_agi7" "Frost Empowerment"
         "npc_dota_hero_ancient_apparition_agi7_description" "Enemies affected by Ice Vortex take 15% more damage from the hero"
         "npc_dota_hero_ancient_apparition_agi8" "Chance to awaken a cold storm"
-        "npc_dota_hero_ancient_apparition_agi8_description" "has a 15% chance of inflicting on ata1 agility to Chilling Touch damage"
+        "npc_dota_hero_ancient_apparition_agi8_description" "has a 15% chance to apply Cold Feet to the attacked target, but no more than once every 7 sec"
+        "npc_dota_hero_ancient_apparition_agi9" "refreshing splitshot"
+        "npc_dota_hero_ancient_apparition_agi9_description" "attacks all targets under the effect of Cold Feet"
+        "npc_dota_hero_ancient_apparition_agi10" "iceberg"
+        "npc_dota_hero_ancient_apparition_agi10_description" "Chilling Touch bounces to 1 additional target within 250"
+        "npc_dota_hero_ancient_apparition_agi11" "Critical Cold"
+        "npc_dota_hero_ancient_apparition_agi11_description" "Chilling Touch has a 15% chance to deal 250% critical damage"
+        "npc_dota_hero_ancient_apparition_agi12" "Ice Ice Ice"
+        "npc_dota_hero_ancient_apparition_agi12_description" "+0.1 agility to Chilling Touch damage"
         "npc_dota_hero_ancient_apparition_agi13" "Magic crit"
         "npc_dota_hero_ancient_apparition_agi13_description" "Chilling Touch split shot, also deals magic crit 200%, +100% for 5000 int... 40000 int, with a 15% chance"
 
@@ -16629,7 +17063,7 @@
         "npc_dota_hero_huskar_int12" "Redemption Fire"
         "npc_dota_hero_huskar_int12_description" "Burning Spear's end damage increased by 40%."
         "npc_dota_hero_huskar_int13" "Sacrificial Spear"
-        "npc_dota_hero_huskar_int13_description" "Spears use 0.1% of your health, damage can be increased."
+        "npc_dota_hero_huskar_int13_description" "Spears uses 1% of your health, damage can be increased"
 		
 			//============================================================================================BROODMOTHER=============================================================================================
 		
@@ -16658,6 +17092,13 @@
 		"DOTA_Tooltip_ability_broodmother_ult_damage" "DAMAGE PER STACK:"
 		"DOTA_Tooltip_ability_broodmother_ult_regen" "HEALTH REGEN PER STACK:"
 		"DOTA_Tooltip_ability_broodmother_ult_ms" "MOVEMENT SPEED PER STACK:"
+
+        "DOTA_Tooltip_modifier_broodmother_ult" "Extension"
+        "DOTA_Tooltip_modifier_broodmother_ult_description" "Damage increased by %dMODIFIER_PROPERTY_TOOLTIP%, regeneration by %dMODIFIER_PROPERTY_TOOLTIP2%"
+        "DOTA_Tooltip_modifier_broodmother_steal_buff" "Insatiable Hunger"
+        "DOTA_Tooltip_modifier_broodmother_steal_buff_description" "Heath stolen %dMODIFIER_PROPERTY_TOOLTIP%"
+        "DOTA_Tooltip_modifier_broodmother_steal_debuff" "Insatiable Hunger"
+        "DOTA_Tooltip_modifier_broodmother_steal_debuff_description" "Health lost %dMODIFIER_PROPERTY_TOOLTIP%"
 
         "npc_dota_hero_broodmother_str6" "Everything is in the web"
         "npc_dota_hero_broodmother_str6_description" "15% when receiving damage, cast Silken Bola without spending mana"
@@ -16931,9 +17372,9 @@
         "npc_dota_hero_doom_bringer_str13_description" "Devour can be cast on an area of ​​800. You can get 3 effects."
         
         "npc_dota_hero_doom_bringer_agi6" "Do you want damage? Here"
-        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 5 * number of souls."
+        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 10 * number of souls."
         "npc_dota_hero_doom_bringer_agi7" "Fire Crit"
-        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 1000% critical attack"
+        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 100% + 10 * hero level critical attack"
         "npc_dota_hero_doom_bringer_agi8" "Even the alchemist is jealous of you"
         "npc_dota_hero_doom_bringer_agi8_description" "x3 extra Devour gold."
         "npc_dota_hero_doom_bringer_agi9" "Is Sven on minimum wage?"
@@ -16943,9 +17384,9 @@
         "npc_dota_hero_doom_bringer_agi11" "CD click on me"
         "npc_dota_hero_doom_bringer_agi11_description" "-20sec Devour cooldown."
         "npc_dota_hero_doom_bringer_agi12" "You'll lasso the creeps"
-        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 4x more damage."
+        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 5x more damage."
         "npc_dota_hero_doom_bringer_agi13" "Devour has become stronger"
-        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 7x more damage."
+        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 13x more damage."
 
         "npc_dota_hero_doom_bringer_int6" "Efficiency will increase!"
         "npc_dota_hero_doom_bringer_int6_description" "If the number of Devour souls is a multiple of 3, then their effectiveness is 1.5 times higher."
@@ -17030,12 +17471,12 @@
         "npc_dota_hero_riki_agi12" "Faster your hands"
         "npc_dota_hero_riki_agi12_description" "Tricks of the Trade reduced attack interval, +50% hero attack speed." // +
         "npc_dota_hero_riki_agi13" "Oh, my leg hurts!"
-        "npc_dota_hero_riki_agi13_description" "x2 attack speed in Tricks of the Trade" // +
+        "npc_dota_hero_riki_agi13_description" "Attacks 2x more often if there is only one target inside Tricks of the Trade." // +
 
         "npc_dota_hero_riki_int6" "More -cd!!!!"
         "npc_dota_hero_riki_int6_description" "-50% Tricks of the Trade cooldown." // +
         "npc_dota_hero_riki_int7" "Enhanced Screen"
-        "npc_dota_hero_riki_int7_description" "Smoke Screen deals 50% int damage over time." // +
+        "npc_dota_hero_riki_int7_description" "Smoke Screen deals 100% int damage over time." // +
         "npc_dota_hero_riki_int8" "Rats are attacking!"
         "npc_dota_hero_riki_int8_description" "Tricks of the Trade attacks all targets inside the circle." // +
         "npc_dota_hero_riki_int9" "Skilled magical rat"
@@ -17190,7 +17631,7 @@
         "npc_dota_hero_leshrac_str9" "Powerful Earthshaker"
         "npc_dota_hero_leshrac_str9_description" "Split Earth triggers in the same location 3 more times, 5 seconds apart. Each trigger increases the radius by 55." // +
         "npc_dota_hero_leshrac_str10" "Bought a lens or something?"
-        "npc_dota_hero_leshrac_str10_description" "Pulse Nova radius increased to 800." //
+        "npc_dota_hero_leshrac_str10_description" "Pulse Nova radius increased to 1000." //
         "npc_dota_hero_leshrac_str11" "Search for Enemy"
         "npc_dota_hero_leshrac_str11_description" "If no new targets are found for Lightning Storm to jump, lightning will strike targets that have already been hit. Damage to such targets is reduced by 50%." // +
         "npc_dota_hero_leshrac_str12" "Double Lightning Storm"
@@ -17199,7 +17640,7 @@
         "npc_dota_hero_leshrac_str13_description" "Lightning Storm hits each target 2 times." // +
 
         "npc_dota_hero_leshrac_agi6" "Non-contact combat"
-        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova continues to deal damage for an additional 2 seconds.after the target has left the aura." //
+        "npc_dota_hero_leshrac_agi6_description" "Pulse Nova continues to deal damage for an additional 5 seconds.after the target has left the aura." //
         "npc_dota_hero_leshrac_agi7" "Rupture of the Earth's Crust"
         "npc_dota_hero_leshrac_agi7_description" "Split Earth can be cast on an area of ​​700, the hits will trigger in random places in this area 10 times, with a delay between hits of 0.5 seconds." // +
         "npc_dota_hero_leshrac_agi7_tooltip" "The talent can be disabled if auto-cast is disabled."
@@ -17530,7 +17971,7 @@
         "npc_dota_hero_death_prophet_agi7" "The Power of Crypt Swarm"
         "npc_dota_hero_death_prophet_agi7_description" "75% agility to Crypt Swarm damage." // +
         "npc_dota_hero_death_prophet_agi8" "Cunning Spirits"
-        "npc_dota_hero_death_prophet_agi8_description" "+40% agility to spirit damage."
+        "npc_dota_hero_death_prophet_agi8_description" "50% agility to spirit damage."
         "npc_dota_hero_death_prophet_agi9" "Arise, my children"
         "npc_dota_hero_death_prophet_agi9_description" "-50% Exorcism cooldown." // +
         "npc_dota_hero_death_prophet_agi10" "Feel my blow!"
@@ -17543,7 +17984,7 @@
         "npc_dota_hero_death_prophet_agi13_description" "Heroes receive 3500 hand damage for each active spirit.At the last level of ultimate" // +
 
         "npc_dota_hero_death_prophet_int6" "Power of Mental Influence"
-        "npc_dota_hero_death_prophet_int6_description" "+30% int in spirit damage" // +
+        "npc_dota_hero_death_prophet_int6_description" "+75% int in spirit damage" // +
         "npc_dota_hero_death_prophet_int7" "Wise Siphon"
         "npc_dota_hero_death_prophet_int7_description" "50% int to Spirit Siphon damage." // +
         "npc_dota_hero_death_prophet_int8" "Sentient Crypt Swarm"
@@ -17556,9 +17997,9 @@
         "npc_dota_hero_death_prophet_int11_description" "-50% Crypt Swarm cooldown, no mana required." // +
         "npc_dota_hero_death_prophet_int11_tooltip" "Damage dealt every 0.2 seconds."
         "npc_dota_hero_death_prophet_int12" "Spirits Critical Hit"
-        "npc_dota_hero_death_prophet_int12_description" "with a 15% chance Spirits can inflict a critical attack of 225%" // +
+        "npc_dota_hero_death_prophet_int12_description" "with a 15% chance Spirits can inflict a critical attack of 400%" // +
         "npc_dota_hero_death_prophet_int13" "Deadly Entity"
-        "npc_dota_hero_death_prophet_int13_description" "with a 30% chance Spirits can inflict a critical attack of 225%" // +
+        "npc_dota_hero_death_prophet_int13_description" "with a 30% chance Spirits can inflict a critical attack of 400%" // +
 
          //RAZOR
 
@@ -17571,6 +18012,8 @@
         "DOTA_Tooltip_ability_razor_plasma_field_lua_slow_max" "%MAX SLOW:"
         "DOTA_Tooltip_ability_razor_plasma_field_lua_slow_duration" "SLOW DURATION:"
         "DOTA_Tooltip_ability_razor_plasma_field_lua_radius" "RADIUS:"
+
+
         "DOTA_Tooltip_ability_static_link_lua" "Static Link"
         "DOTA_Tooltip_ability_static_link_lua_Description" "Creates an electrical link with a targeted enemy hero, transferring their attack damage to the ability's owner. While the link is active, attacks do not interrupt movement."
         "DOTA_Tooltip_ability_static_link_lua_Lore" "The Lightning Wraith's polarity draws electricity towards it, draining the power from its opposite."
@@ -17580,6 +18023,7 @@
         "DOTA_Tooltip_ability_static_link_lua_drain_duration" "EFFECT DURATION:"
         "DOTA_Tooltip_ability_static_link_lua_maximum_damage_reduction" "%Maximum Damage Reduction:"
 
+
         "DOTA_Tooltip_ability_razor_unstable_current_bh" "Storm Surge"
         "DOTA_Tooltip_ability_razor_unstable_current_bh_Description" "Passively speeds up the ability's user's movement. When attacked, there is a chance that the offender and several other nearby enemies will be struck by lightning, dealing damage and slowing the victims. This effect always triggers when the hero is targeted by a spell. From additional victims to the first In turn, creatures of the same type as the offender are selected."
         "DOTA_Tooltip_ability_razor_unstable_current_bh_Lore" "Whoever gets close to the Lightning Specter will receive Shock Therapy in return."
@@ -17588,6 +18032,7 @@
         "DOTA_Tooltip_ability_razor_unstable_current_bh_radius" "RADIUS:"
         "DOTA_Tooltip_ability_razor_unstable_current_bh_max_targets" "MAX.TARGETS:"
         "DOTA_Tooltip_ability_razor_unstable_current_bh_chance" "%CHANCE:"
+
 
         "DOTA_Tooltip_ability_razor_eye_of_the_storm_lua" "Eye of the Storm"
         "DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_Description" "Gathers a storm cloud over the hero that strikes lightning at the enemy with the lowest health, dealing damage to them and reducing their armor.<br><br>The ability deals %damage_perc%%% of the hero's damage as ability damage."
@@ -17600,6 +18045,7 @@
         "DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_armor_reduction" "ARMOR REDUCTION:"
         "DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_damage" "DAMAGE:"
         "DOTA_Tooltip_ability_razor_eye_of_the_storm_lua_targets_count" "TARGET NUMBER:"
+
 
         "DOTA_Tooltip_modifier_static_link_lua_buff" "Static Link"
         "DOTA_Tooltip_modifier_static_link_lua_buff_Description" "Stole %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% damage."
@@ -17639,15 +18085,16 @@
         "npc_dota_hero_razor_agi7" "Fast Wise Projectiles"
         "npc_dota_hero_razor_agi7_description" "%"
         "npc_dota_hero_razor_agi8" "Attribute Hunt"
-        "npc_dota_hero_razor_agi8_description" "Static link you get all attributes, 1 all attributes per second, duration 1 * ability level." // +
+        "npc_dota_hero_razor_agi8_description" "Static link steals 1 of all attributes." // +
+        "npc_dota_hero_razor_agi8_tooltip" "In 5 seconds you can suck out 0.1->1.0 of all attributes. You can suck out no more than 1 attribute from one target."
         "npc_dota_hero_razor_agi9" "Suck and attack? Why not?"
         "npc_dota_hero_razor_agi9_description" "Heroes attack Static link targets, interval 2.5->0.3 sec." // +
         "npc_dota_hero_razor_agi10" "%"
         "npc_dota_hero_razor_agi10_description" "%"
         "npc_dota_hero_razor_agi11" "Attribute Eye of the Storm"
-        "npc_dota_hero_razor_agi11_description" "1/5 of the sum of all attributes in Eye of the Storm damage" // +
+        "npc_dota_hero_razor_agi11_description" "1/3 of the sum of all attributes in Eye of the Storm damage" // +
         "npc_dota_hero_razor_agi12" "Suck more"
-        "npc_dota_hero_razor_agi12_description" "5% chance to get a stack forever." // +
+        "npc_dota_hero_razor_agi12_description" "Static link is automatically applied with a cooldown of 5.0->1.5 sec." // +
         "npc_dota_hero_razor_agi12_tooltip" "Damage stealing through this combo is 40% slower."
 
         "npc_dota_hero_razor_int6" "From Physics to Magicians (Mud Princes)"
@@ -17658,7 +18105,7 @@
         "npc_dota_hero_razor_int8" "Even stronger"
         "npc_dota_hero_razor_int8_description" "50% int in Plasma Field damage" //+
         "npc_dota_hero_razor_int9" "Wise Storm"
-        "npc_dota_hero_razor_int9_description" "+75% int to Eye of the Storm damage." // +
+        "npc_dota_hero_razor_int9_description" "+100% int to Eye of the Storm damage." // +
         "npc_dota_hero_razor_int10" "Intellectual Storm"
         "npc_dota_hero_razor_int10_description" "50% int in Storm Surge damage." // +
         "npc_dota_hero_razor_int11" "Double circle"
@@ -17766,6 +18213,43 @@
         "npc_dota_hero_vengefulspirit_int13" "More pokes"
         "npc_dota_hero_vengefulspirit_int13_description" "Magic Missile 12% trigger when attacking."
         "npc_dota_hero_vengefulspirit_int13_tooltip" "Magic Missile stun effect does not work."
+
+        //============================================================================================ TEMPLAR ASSASSIN =============================================================================================
+
+
+		"DOTA_Tooltip_ability_templar_assassin_refraction_lua" "Refraction"
+        "DOTA_Tooltip_ability_templar_assassin_refraction_lua_Description" "Heroes cover themselves with a shield, avoiding all damage and dealing more damage with attacks. Each attack on a hero or on a hero consumes a shield charge."
+        "DOTA_Tooltip_ability_templar_assassin_refraction_lua_instances" "NUMBER OF EFFECTS:"
+        "DOTA_Tooltip_ability_templar_assassin_refraction_lua_bonus_damage" "BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_templar_assassin_refraction_lua_duration" "DURATION:"
+
+        "DOTA_Tooltip_ability_templar_assassin_meld_lua" "Meld"
+        "DOTA_Tooltip_ability_templar_assassin_meld_lua_Description" "The hero's attack deals additional damage and reduces the target's armor for 3 seconds."
+        "DOTA_Tooltip_ability_templar_assassin_meld_lua_bonus_damage" "BONUS DAMAGE:"
+        "DOTA_Tooltip_ability_templar_assassin_meld_lua_bonus_armor" "ARMOR REDUCTION:"
+        "DOTA_Tooltip_ability_templar_assassin_meld_lua_duration" "ARMOR REDUCTION DURATION:"
+
+        "DOTA_Tooltip_ability_templar_assassin_psi_blades_lua" "Psi Blades"
+        "DOTA_Tooltip_ability_templar_assassin_psi_blades_lua_Description" "The hero's psionic blades penetrate the target of the attack, dealing half damage to enemies behind it. The ability also increases the hero's attack range."
+        "DOTA_Tooltip_ability_templar_assassin_psi_blades_lua_bonus_attack_range" "ADV.ATTACK RANGE:"
+        "DOTA_Tooltip_ability_templar_assassin_psi_blades_lua_attack_spill_range" "PENETRATION RANGE:"
+        "DOTA_Tooltip_ability_templar_assassin_psi_blades_lua_attack_spill_pct" "% PENETRATION DAMAGE:"
+
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua" "Psionic Trap"
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_Description" "Heroes place a mark under themselves, upon command, heroes teleport to the nearest mark, causing damage and slowing down enemies at the point of departure and arrival."
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_slow_duration" "SLOW DURATION:"
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_slow" "%MOVEMENT SLOW:"
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_duration" "TAG LIFE DURATION:"
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_damage" "DAMAGE PER SEC:"
+
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_teleport" "Psionic Teleport"
+        "DOTA_Tooltip_ability_templar_assassin_trap_lua_teleport_Description" "Move!"
+
+
+        "DOTA_Tooltip_ability_npc_dota_hero_templar_assassin_tal1" "-6 additional armor reduction Meld"
+        "DOTA_Tooltip_ability_npc_dota_hero_templar_assassin_tal2" "+6 Refraction effects"
+        "DOTA_Tooltip_ability_npc_dota_hero_templar_assassin_tal3" "+25% Psi Blades penetration damage"
+        "DOTA_Tooltip_ability_npc_dota_hero_templar_assassin_tal4" "+150 Psionic Trap damage"
 
         //Marci//
 
@@ -17936,48 +18420,6 @@
         "modifier_don11_description" "Grants Passive ability Multicast"
         "modifier_don12" "Divine Bite"
         "modifier_don12_description" "+5 attributes per level"
-        
-//======================================================================================================================================
-
-        // "dota_tooltip_modifier_npc_dota_hero_sven_agi6_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_arc_warden_agi11_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_juggernaut_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_terrorblade_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_nevermore_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_spectre_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_slark_agi7_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_dazzle_agi6_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_treant_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_enchantress_agi7_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_lina_agi6_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_lion_agi6_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_pugna_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_shadow_shaman_agi7_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_windrunner_agi8_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_warlock_agi7_description" "Gets bonus damage equal to the number of stacks"
-        // "dota_tooltip_modifier_npc_dota_hero_medusa_agi7_description" "Gets bonus damage equal to the number of stacks"
-
-        
-
-        
-        // "dota_tooltip_modifier_npc_dota_hero_bristleback_agi7" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_sven_agi6" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_arc_warden_agi11" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_juggernaut_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_terrorblade_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_nevermore_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_spectre_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_slark_agi7" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_dazzle_agi6" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_treant_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_enchantress_agi7" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_lina_agi6" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_lion_agi6" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_pugna_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_shadow_shaman_agi7" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_windrunner_agi8" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_warlock_agi7" "Damage for creeps"
-        // "dota_tooltip_modifier_npc_dota_hero_medusa_agi7" "Damage for creeps"
 
 //======================================================================================================================================
 //======================================================================================================================================
@@ -20423,9 +20865,258 @@
         "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
         "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Start Dig"
 
-        //BattlePass//
+    
+        
+/// ------------------- BATTLE PASS ------------------------- ------------
+        "BattlePass_soul_name" "one soul at the start of the game"
+        "BattlePass_soul_description" "When you receive this reward, you will be able to choose one of the souls. The soul will be given to you at the beginning of the game. Duration <font color='#ff0066'><b>##days_count##</b></font> days "
+        "BattlePass_exp_boost_name" "Talent XP Multiplier"
+        "BattlePass_exp_boost_description" "Increases experience gain for talents by <font color='#ff0066'><b>##display_value##</b></font>. The booster will last for <font color='#ff0066'> <b>##game_count##</b></font> games. If you use several boosters, their bonus is summed up."
+        "BattlePass_rp_boost_name" "Shield Receipt Multiplier"
+        "BattlePass_rp_boost_description" "Increases shield gain by <font color='#ff0066'><b>##display_value##</b></font>. The boost will last for <font color='#ff0066'><b >##game_count##</b></font> games. If you use several boosters, their bonus is summed up."
+        "BattlePass_forge_gems_name" "Forge Stones"
+        "BattlePass_forge_gems_description" "You will receive <font color='#ff0066'><b>##display_value##</b></font> all the gems to your account."
+        "BattlePass_exp_book_1_name" "Talent Experience"
+        "BattlePass_exp_book_1_description" "Increases the current experience of your chosen hero by <font color='#ff0066'><b>##display_value##</b></font>."
+        "BattlePass_exp_book_2_name" "Talent Experience"
+        "BattlePass_exp_book_2_description" "Increases the current gold branch experience of your chosen hero by <font color='#ff0066'><b>##display_value##</b></font>. You can choose the type of experience <font color='# ff0066'><b>##choice_count##</b></font> times."
+        "BattlePass_hero_access_name" "Access to special heroes"
+        "BattlePass_hero_access_description" "When you receive this reward, you will be able to choose one of our special heroes locked in the pick. You will be able to play <font color='#ff0066'><b>##display_value##</b></font> games on the selected hero."
+        "BattlePass_treasury_name" "Treasury"
+        "BattlePass_treasury_description" "When you receive this reward, you will be able to select <font color='#ff0066'><b>##display_value##</b></font> treasures. The treasure can be opened through the store."
+        "BattlePass_add_rp_name" "Shields"
+        "BattlePass_add_rp_description" "You will receive <font color='#ff0066'><b>##display_value##</b></font> shields to your account."
+        "BattlePass_pet_name" "pet"
+        "BattlePass_pet_description" "You will be able to choose one of the pets for <font color='#ff0066'><b>##price##</b></font> crystals. The pet will be available at <font color='#ff0066' ><b>##display_value##</b></font> games."
+        "BattlePass_add_coins_name" "crystals"
+        "BattlePass_add_coins_description" "You will receive <font color='#ff0066'><b>##display_value##</b></font> crystals to your account."
+        "BattlePass_item_scroll_name" "Scrolls"
+        "BattlePass_item_scroll_description" "When you receive a reward, you will be able to select <font color='#ff0066'><b>##display_value##</b></font> scrolls. Scrolls are saved to your account and updated every game."
+        "BattlePass_effect_name" "visual effects"
+        "BattlePass_effect_description" "You will receive a unique effect that is not available in the store."
+        "BattlePass_golden_branch_name" "golden talent branch"
+        "BattlePass_golden_branch_description" "You will have access to the golden branch for <font color='#ff0066'><b>##display_value##</b></font> days from the moment you accept the reward, on all heroes."
+        "BattlePass_forever_ward_name" "eternal ward"
+        "BattlePass_forever_ward_description" "You will receive <font color='#ff0066'><b>##display_value##</b></font> a forever ward. This item will be updated every game."
+        "BattlePass_boss_summo_name" "Boss Summon and Ticket"
+        "BattlePass_boss_summo_description" "You will be able to choose between <font color='#ff0066'><b>3</b></font> Boss Summon Books or <font color='#ff0066'><b>10</b>< /font> tickets. You will be able to make a choice <font color='#ff0066'><b>##choice_count##</b></font> times."
+        "BattlePass_ticket_name" "ticket to enter the farming location"
+        "BattlePass_ticket_description" "You will receive <font color='#ff0066'><b>##display_value##</b></font> tickets to enter the farming location. This item will be updated every game."
 
+        "collect_all_rewards_button" "Collect all"
+        "BattlePass_choice_count" "make your choice <font color='#ff0066'><b>##count##</b></font> times"
+        "BattleBase_unavailable_reward_premium" "<font color='red'>This reward can only be obtained if you purchased access to the second level rewards in the store.</font>"
+        "BattlePass_tab_bp_name" "Battle Pass"
+        "open_button_battle_pass" "Battle Pass"
+        "BattlePass_tab_inventory_name" "Inventory"
+        "battle_pass_level" "LEVEL"
+        "battle_pass_vote_button" "vote"
+        "battle_pass_vote_label" "vote for the next hero"
+        "battle_pass_task_1_description" "Kill <font color='red'><b>10000</b></font> creeps, reward 1000 experience"
+        "battle_pass_task_2_description" "Take part in killing <font color='red'><b>250</b></font> bosses, reward 1000 experience"
+        "BpTaskDescription_1" "Kill any creeps"
+        "BpTaskDescription_2" "Kill bosses"
+        "battle_pass_task_description" "Tasks for leveling up the battle pass, updated <font color='red'>every week</font>"
+        "battle_pass_buy_experience" "##value## experience for ##price##"
+        "battle_pass_buy_premium" "Gold pass ##price##"
+        "battle_pass_buy_premium_tooltip" "Access to second level rewards and hero voting"
+        "bp_premium" "<font color='gold'>Gold Pass</font>"
+        "bp_experience" "##count## experience"
+        "battle_pase_use_toggle_button" "active"
+        "quest_title_description" "Daily quests, battle pass leveling quests, game quests"
+        "battle_pass_error_vote" "Voting is only available to players with a gold pass"
+        /// ------------------- /BATTLE PASS ------------------------- -------------
+        /// ------------------- PETS --------------------------- -----------
+        "gems_image_pet" "Crystals"
+        "rp_image_pet" "RP"
+        "dota_pets_feed_error" "Not enough feed"
+        "pets_tier_title" "pets: tier ##number##"
+        "pets_trial_game_count" "more ##count## games"
+        "pets_trial_end_date" "available until ##date##"
+        "pets_buy_unavailible" "unavailable"
+        "pets_buy_unavailible_tooltip" "Can be obtained as a reward from a Battle Pass or Treasury."
+        /// ------------------- /PETS -------------------------- ------------
+        /// ------------------- TALENTS --------------------------- --------
+        "talent_level_label" "Lv."
+        "talant_button_update" "Improve"
+        "talents_cheat_mode_label" "Cheat Mode"
+        "talents_cheat_drop_label" "Drop talents"
+        "talents_unavailible_turbo" "<br><font color='red'>Not available in Turbo mode</font>"
+        "talents_unavailible_normal" "<br><font color='red'>Not available in Normal mode</font>"
         "talents_unavailible_hard" "<br><font color='red'>Not available in Hard mode</font>"
+        "talents_open_button" "Talents"
+        "talents_only_patron" "<br><br><font color='red'>Works only with active subscription</font>"
+        "talent_normal_exp_label" "Normal experience"
+        "talant_don_exp_label" "Golden experience"
+        "talant_game_cout_label" "Number of games"
+        "talant_game_time_label" "Game hours"
+        /// ------------------- /TALENTS -------------------------- ---------
+        /// ------------------- MINIGAME --------------------------- --------
+        "minigame_label_1" "ONE HELL MINI GAME!"
+        "minigame_label_2" "punishment for inaction"
+        "minigame_label_3" "you lose talent experience until the game ends"
+
+
+
+//======================================================================================================================================
+//==RUNES
+//======================================================================================================================================
+         
+        "DOTA_HUD_Rune_DoubleDamage" "<font color='#82CAFF'>Double Damage</font>"
+        "DOTA_HUD_Rune_DenyDoubleDamage" "breaks the <font color='#82CAFF'>double damage rune</font>"
+        "DOTA_HUD_Rune_Haste" "<font color='#F62817'>Haste</font>"
+        "DOTA_HUD_Rune_DenyHaste" "breaks <font color='#F62817'>haste</font> rune"
+        "DOTA_HUD_Rune_Invisibility" "<font color='#8B008B'>Invisibility</font>"
+        "DOTA_HUD_Rune_DenyInvisibility" "breaks the <font color='#8B008B'>invisibility rune</font>"
+        "DOTA_HUD_Rune_Regeneration" "<font color='#7FFF00'>Regeneration</font>"
+        "DOTA_HUD_Rune_DenyRegeneration" "breaks the <font color='#7FFF00'>regeneration</font> rune"
+        "DOTA_HUD_Rune_Arcane" "<font color='#FD3AFB'>Sorcery</font>"
+        "DOTA_HUD_Rune_DenyArcane" "breaks the <font color='#FD3AFB'>magic rune</font>"
+        "DOTA_HUD_Rune_Water" "<font color='#74A7F7'>Water</font>"
+        "DOTA_HUD_Rune_DenyWater" "breaks the <font color='#74A7F7'>Water Rune</font>"
+        "DOTA_HUD_Rune_Bounty" "<font color='#FF7800'>Wealth</font> {s:gold}"
+        "DOTA_HUD_Rune_DenyBounty" "breaks the <font color='#FF7800'>Rune</font>"
+        "DOTA_HUD_Rune_XP" "<font color='#FFC0CB'>Wisdom</font> ({d:xp} experience)"
+        "DOTA_HUD_Rune_DenyXP" "breaks the rune of <font color='#FFC0CB'>wisdom</font>"
+        "DOTA_HUD_Rune_Shield" "<font color='#555555'>Shield</font>"
+        "DOTA_HUD_Rune_DenyShield" "breaks the <font color='#555555'>Shield rune</font>"
+
+        "DOTA_Tooltip_rune_doubledamage" "Criticality"
+        "DOTA_Tooltip_rune_doubledamage_description" "5% chance of dealing 200% critical damage <br><br> Effect duration 45 sc."
+
+        "DOTA_Tooltip_rune_arcane" "Sorcery"
+        "DOTA_Tooltip_rune_arcane_description" "Outgoing magic damage will increase by 15% <br><br> Effect duration 45 seconds."
+
+        "DOTA_Tooltip_rune_haste" "Brute force"
+        "DOTA_Tooltip_rune_haste_description" "Outgoing physical damage will increase by 15% <br><br> Effect duration 45 seconds."
+
+        "DOTA_Tooltip_rune_invisibility" "Weak Strength"
+        "DOTA_Tooltip_rune_invisibility_description" "All outgoing damage increased by 10% <br><br> Effect duration 45 seconds."
+        
+        "DOTA_Tooltip_rune_regeneration" "Multicast"
+        "DOTA_Tooltip_rune_regeneration_description" "There is a 5% chance that the ability may not consume any mana or trigger a recharge <br><br> Effect duration is 45 seconds."
+        
+        "DOTA_Tooltip_rune_bounty" "Wealth"
+        "DOTA_Tooltip_rune_bounty_description" "Pick up a rune and your whole team will get some gold"
+        
+        "DOTA_Tooltip_rune_xp" "Wisdom"
+        "DOTA_Tooltip_rune_xp_description" "Gives the hero who picked up the rune 1/2 the experience of the current level, and the same amount of experience to his ally of the lowest level."
+        
+        "DOTA_Tooltip_rune_shield" ""
+        "DOTA_Tooltip_rune_shield_description" ""
+
+        "DOTA_Tooltip_modifier_rune_crit" "Criticality"
+        "DOTA_Tooltip_modifier_rune_crit_Description" "5% chance to deal 200% critical damage"
+
+        "DOTA_Tooltip_modifier_rune_mage_damage_increace" "Sorcery"
+        "DOTA_Tooltip_modifier_rune_mage_damage_increace_Description" "Outgoing magic damage will increase by 15%"
+
+        "DOTA_Tooltip_modifier_rune_phys_damage_increace" "Brute force"
+        "DOTA_Tooltip_modifier_rune_phys_damage_increace_Description" "Outgoing physical damage will increase by 15%"
+
+        "DOTA_Tooltip_modifier_rune_all_damage_increace" "Weak Strength"
+        "DOTA_Tooltip_modifier_rune_all_damage_increace_Description" "All damage done increased by 10%"
+
+        "DOTA_Tooltip_modifier_rune_multicast" "Multicast"
+        "DOTA_Tooltip_modifier_rune_multicast_Description" "There is a 5% chance that the ability will not consume mana and will not trigger a cooldown"
+
+
+        // ----------------------------------------------------------------------------------------------------------------
+        "treasurie4" "Chest 4"
+        "treasurie5" "Chest 5"
+        "treasurie4_spray1" "Graffiti"
+        "treasurie4_spray2" "Graffiti"
+        "treasurie4_spray3" "Graffiti"
+        "treasurie4_spray4" "Graffiti"
+        "treasurie4_spray5" "Graffiti"
+        "treasurie4_spray6" "Graffiti"
+        "treasurie4_spray7" "Graffiti"
+        "treasurie4_spray8" "Graffiti"
+        "treasurie4_spray9" "Graffiti"
+        "treasurie4_spray10" "Graffiti"
+        "treasurie4_spray11" "Graffiti"
+        "treasurie4_spray12" "Graffiti"
+        "treasurie5_spray1" "Graffiti"
+        "treasurie5_spray2" "Graffiti"
+        "treasurie5_spray3" "Graffiti"
+        "treasurie5_spray4" "Graffiti"
+        "treasurie5_spray5" "Graffiti"
+        "treasurie5_spray6" "Graffiti"
+        "treasurie5_spray7" "Graffiti"
+        "treasurie5_spray8" "Graffiti"
+        "treasurie5_spray9" "Graffiti"
+        "treasurie5_spray10" "Graffiti"
+        "treasurie5_spray11" "Graffiti"
+        "treasurie5_spray12" "Graffiti"
+        "npc_dota_hero_vengefulspirit_str13"    "Глобальный Гром"
+        "npc_dota_hero_razor_str13"    "Глобальный Гром"
+        "npc_dota_hero_razor_int13"    "Удвоенный Урон"
+        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50"               "Talant"
+        "Blind" "(1st skill) by 15% when attacking (disable stun)"
+        "Momentum" "reduces the target's armor by -1...-15 for 10 s and up to a maximum of 5 stacks"
+        "DOTA_Tooltip_modifier_axe_counter_helix_lua" "Counter Helix"
+        "DOTA_Tooltip_modifier_axe_counter_helix_lua_Description" "Health recovery increased by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%, health increased by %dMODIFIER_PROPERTY_HEALTH_BONUS%"
+        "modifier_don13" "One for all!"
+        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua" "Reaper's Scythe"
+        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua_description" "Health recovery %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%, mana recovery %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
+        "dota_tooltip_ability_necrolyte_reapers_scythe_lua_mp_regen" "MANA REGENERATION STACK:"
+        "dota_tooltip_ability_necrolyte_reapers_scythe_lua_hp_regen" "HEALTH REGENERATION STACK:"
+        "hot_offer" "All in one"
+        "npc_dota_hero_skywrath_mage_str6_description" "The hero receives 1hp regen and 0.5 mp regen for each killed creep"
+        "npc_dota_hero_skywrath_mage_str7_description" "+150 health per level"
+        "npc_dota_hero_skywrath_mage_str8_description" "+1 armor for every 15 creeps killed"
+        "npc_dota_hero_skywrath_mage_str9_description" "Arcane Bolt base damage is equal to hero power"
+        "npc_dota_hero_skywrath_mage_str10_description" "Ancient Seal also reduces the target's base armor"
+        "npc_dota_hero_skywrath_mage_str11_description" "+50% to spell lifesteal"
+        "npc_dota_hero_skywrath_mage_str12_description" "Ancient Seal casts Mystic Flare"
+        "npc_dota_hero_skywrath_mage_str13_description" "Abilities that use str for damage now use 3x str for damage"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua" "Hurricane Pike"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_description" "<h1>Passive: Multishot</h1>Attacks with a ranged hero have a %multishot_chance%%% chance to fire an additional %multishot_targets% arrow, dealing %multishot_damage%%% damage. Cooldown %multishot_cooldown% sec."
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_strength" "+$str"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_intellect" "+$int"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_agility" "+$agi"
+        "DOTA_Tooltip_Ability_item_hurricane_pike_lua_base_attack_range" "+$attack_range"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_health" "+$health"
+        "DOTA_Tooltip_ability_item_hurricane_pike_lua_bonus_damage" "+$damage"
+        "DOTA_Tooltip_modifier_talent_increase_int_counter" "Intelligence stacks"
+        "DOTA_Tooltip_modifier_talent_increase_str_counter" "Strength stacks"
+        "DOTA_Tooltip_modifier_talent_increase_agi_counter" "Agility stacks"
+        "DOTA_Tooltip_modifier_alchemist_greevils_greed_lua" "Greevils Greed"
+        "DOTA_Tooltip_modifier_alchemist_greevils_greed_lua_Description" "Bonus to all attributes %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua" "CORROSIVE WEAPONRY"
+        "spray" "Graffiti"
+        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50_description" "Attribute Bonus"
+        "dota_tooltip_ability_item_satanic_lua_strength_bonus"    "+$str"
+        "npc_dota_hero_skywrath_mage_str6" "Regeneration"
+        "npc_dota_hero_skywrath_mage_str7" "Absorption"
+        "npc_dota_hero_skywrath_mage_str8" "Hell Armor"
+        "npc_dota_hero_skywrath_mage_str9" "Power Strike"
+        "npc_dota_hero_skywrath_mage_str10" "Curse"
+        "npc_dota_hero_skywrath_mage_str11" "Link to the Abyss"
+        "npc_dota_hero_skywrath_mage_str13" "More power"
+        "npc_dota_hero_skywrath_mage_str13" "More power" 
+        "Armor" "armor"
+        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua_description" "Critical damage +%dMODIFIER_PROPERTY_TOOLTIP%%%"
+        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua" "Coup de Grace"
+        "feed_image_pet" "Feed"
+        "pets_level_label" "level ##count##"
+        "pets_tier_label" "tier ##count##"
+        "pets_buy_confirm_itemname" "buy ##item##?"
+        "pets_status_loading" "Loading..."
+        "error_no_pet" "You don't have this pet."
+        "error_change_limit" "The limit for changing pets has been reached, once per game. Buy PET CANGE to disable the limit."
+        "talant_normal_exp_label" "Normal Experience"
+        "talent_game_time_label" "Game hours"
+        "DOTA_Tooltip_modifier_static_link_lua" "Static Link"
+        "DOTA_Tooltip_modifier_static_link_lua_permanent" "Static Link"
+        "DOTA_Tooltip_modifier_static_link_drain" "Static Link"
+        "DOTA_Tooltip_modifier_static_link_lua_attribute_permanent_Description" "%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% of all attributes, forever."
+        "modifier_don13_description" "The hero receives <font color='LimeGreen'>100</font>, <font color='DarkTurquoise'>200</font>, <font color='Red'>300</font> of all stats with start, at difficulty levels <font color='LimeGreen'>Ultra</font>, <font color='DarkTurquoise'>Insane</font>, <font color='Red'>Impossible</font>. For each level hero +0.6% outgoing damage, -0.05% incoming damage."
+        "DOTA_Tooltip_modifier_don13" "One for all!"
+        "DOTA_Tooltip_modifier_don13_description" "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% outgoing damage, -%fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming damage."
+        "dota_tooltip_modifier_talent_armor_curruption_effect" "Armor reduction"
+        "dota_tooltip_modifier_talent_armor_curruption_effect_description" "Armor reduced by %fMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+        "dota_tooltip_modifier_wisp_tether_lua_bonus_agility" "Agility"
         "talant_reincarnation_label" "Talents have been reset"
         "talents_hero_refresh_count" "Bound to hero"
         "talents_strategy_tab_name_label" "Talents"
@@ -20435,84 +21126,106 @@
         "talents_activate_second_branch" "Activate the second talent branch!"
         "talents_activate_second_branch_error" "We forgot to add"
         "dota_rp_shop_error" "You're missing shields! You can get them for winning the game!"
-        "dota_tooltip_ability_lifestealer_infest_bh" "Infest"
-        "dota_tooltip_ability_lifestealer_infest_bh_description" "The hero climbs into the body of the selected allied hero.<br><br><font color='gold'>All gold received by the hero for the kill is redirected to the target.<br><br>The hero receives 30% of the gold received by the target. Received The target's gold does not decrease.</font>"
+        "talents_use_button_label" "Use"
+        "talents_shop_refresh_count" "For all heroes"
+        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50" "Increasing attributes"
+        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50_Description" "All attributes increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%"
+        "talant_games_description" "Games:"
+        "talent_time_description" "Time:"
+        "tooltip_talant_50_level" "Level 50 talent"
+        "npc_dota_hero_razor_int13_description"    "2 волны от атак, если вкачен талант."
+        "npc_dota_hero_razor_agi13_description"    "Static link - аура, работает на всех врагов в радиусе."
+        "npc_dota_hero_razor_agi13"    "Всепроникающая Мудрость"
+        "npc_dota_hero_razor_str13_description"    "-0.15 сек. интервал срабатывания Eye of the Storm"
+        "DOTA_Tooltip_modifier_static_link_lua_attribute_permanent" "Static Link"
+        "DOTA_Tooltip_modifier_static_link_drain_Description" "Damage reduced by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
+        "DOTA_Tooltip_modifier_static_link_lua_permanent_Description" "Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%, permanently."
+        "DOTA_Tooltip_modifier_static_link_lua_Description" "Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
+        "dota_tooltip_modifier_wisp_tether_lua_bonus_intellect" "Intelligence"
         "dota_tooltip_modifier_wisp_tether_lua_bonus_strength" "Strength"
-        "dota_tooltip_modifier_wisp_tether_lua_bonus_agility" "Agility"
-        "npc_dota_hero_vengefulspirit_str13_description" "120 sec clone lifespan at all levels."
+        "DOTA_Tooltip_ability_marci_unleash_lua_Description" "Calls on your Hidden Power and gains Frenzy Charges, allowing you to strike quickly. The final hit of each Frenzy Combo creates a ripple around the target, damaging enemies and slowing their movement and attack for %pulse_debuff_duration% sec. Upon completing a Frenzy Combo , the hero cannot attack for %time_between_flurries% seconds.\n\n <font color='#ffde5f'><b>During the day: </b>During the action, receives additional damage equal to ten times the number of souls.</font> \ n\n <font color='#5f9fff'><b>At night:</b> Ripple deals additional damage equal to three times the number of souls.</font>"
+        "DOTA_Tooltip_ability_marci_unleash_lua_Note0" "There must be no more than 1 second between attacks in a rage combo, otherwise the combo will be interrupted."
+        "dota_tooltip_ability_lifestealer_infest_bh" "Infest"
+        "hot_offer_tooltip" "You will receive:<br><br>1. Book of strength<br>2. Book of intelligence<br>3. Book of agility<br>4. Scroll of armor 1 piece<br>5. Scroll of damage 1 piece<br> 6. Scroll of experience 1 piece<br>7. Scroll of movement 1 piece<br>8. Scroll of speed 1 piece<br>9. Scroll of regeneration 1 piece<br>10. Golden tree<br>11. Eternal ward 1 piece<br> 12. Ticket teleportation 3pcs"
+        "random_wave_notification" "A rogue wave is approaching!"
+        "npc_dota_hero_phantom_assassin_str13_description" "Removes the cooldown of Phantom srike, can stun targets only once every 10 sec (from talent)"
         "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50" "Talent"
         "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50_description" "Damage outgoing %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
-        "battle_pass_error_vote" "Voting is only available to players with a gold pass"
-        "npc_dota_hero_vengefulspirit_str13" "Global Thunder"
-        "dota_tooltip_modifier_talent_armor_curruption_effect" "Armor reduction"
-        "dota_tooltip_modifier_talent_armor_curruption_effect_description" "Armor reduced by %fMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
-        "modifier_don13_description" "The hero receives <font color='LimeGreen'>100</font>, <font color='DarkTurquoise'>200</font>, <font color='Red'>300</font> of all stats with start, at difficulty levels <font color='LimeGreen'>Ultra</font>, <font color='DarkTurquoise'>Insane</font>, <font color='Red'>Impossible</font>. For each level hero +0.6% outgoing damage, -0.05% incoming damage."
-        "DOTA_Tooltip_modifier_don13" "One for all!"
-        "DOTA_Tooltip_modifier_don13_description" "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% outgoing damage, -%fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming damage."
-        "npc_dota_hero_vengefulspirit_agi13" "Pervading Wisdom"
-        "npc_dota_hero_vengefulspirit_int13" "Double Damage"
-        "npc_dota_hero_razor_agi13_description" "Static link - an aura that works on all enemies in the radius."
-        "npc_dota_hero_razor_agi13" "Pervading Wisdom"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_Description" "The hero's acid-coated weapon reduces resistance and deals damage over time with each attack."
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_max_stacks" "MAX STACKS:"
-        "treasurie4_spray1" "Graffiti"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_damage" "% INTELLIGENCE DAMAGE PER EFFECT:"
-        "treasurie4_spray2" "Graffiti"
-        "dota_tooltip_ability_necrolyte_reapers_scythe_lua_mp_regen" "MANA REGENERATION STACK:"
-        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua_description" "Health recovery %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%, mana recovery %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
+        "dota_tooltip_ability_lifestealer_infest_bh_description" "The hero climbs into the body of the selected allied hero.<br><br><font color='gold'>All gold received by the hero for the kill is redirected to the target.<br><br>The hero receives 30% of the gold received by the target. Received The target's gold does not decrease.</font>"
         "treasurie4_spray8" "Graffiti"
+        "treasurie4_spray9" "Graffiti"
         "treasurie4_spray10" "Graffiti"
+        "treasurie4_spray11" "Graffiti"
+        "treasurie4_spray12" "Graffiti"
         "treasurie5_spray1" "Graffiti"
         "treasurie5" "Chest 5"
         "treasurie5_spray2" "Graffiti"
+        "treasurie5_spray3" "Graffiti"
         "treasurie5_spray4" "Graffiti"
         "treasurie5_spray5" "Graffiti"
-        "treasurie5_spray7" "Graffiti"
-        "treasurie5_spray9" "Graffiti"
-        "treasurie5_spray11" "Graffiti"
-        "modifier_don13" "One for all!"
         "treasurie5_spray6" "Graffiti"
-        "treasurie5_spray3" "Graffiti"
-        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua" "Coup de Grace"
-        "dota_tooltip_modifier_phantom_assassin_coup_de_grace_lua_description" "Critical damage +%dMODIFIER_PROPERTY_TOOLTIP%%%"
-        "DOTA_Tooltip_modifier_static_link_drain_Description" "Damage reduced by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
-        "DOTA_Tooltip_modifier_static_link_drain" "Static Link"
-        "DOTA_Tooltip_modifier_static_link_lua_Description" "Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
-        "DOTA_Tooltip_modifier_static_link_lua" "Static Link"
-        "npc_dota_hero_vengefulspirit_int13_tooltip" "Magic Missile stun effect does not work."
-        "npc_dota_hero_vengefulspirit_int13_description" "Magic Missile 9% trigger when attacking."
-        "npc_dota_hero_vengefulspirit_agi13_description" "x3 Vengeance Aura damage, increases not only by base damage."
-        "DOTA_Tooltip_modifier_reapers_scythe_stack_lua" "Reaper's Scythe"
-        "dota_tooltip_ability_necrolyte_reapers_scythe_lua_hp_regen" "HEALTH REGENERATION STACK:"
-        "DOTA_Tooltip_modifier_static_link_lua_permanent" "Static Link"
-        "DOTA_Tooltip_modifier_static_link_lua_permanent_Description" "Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%, permanently."
-        "DOTA_Tooltip_modifier_static_link_lua_attribute_permanent" "Static Link"
-        "DOTA_Tooltip_modifier_static_link_lua_attribute_permanent_Description" "%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% of all attributes, forever."
-        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50_Description" "All attributes increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%"
-        "treasurie4_spray4" "Graffiti"
-        "talents_use_button_label" "Use"
-        "random_wave_notification" "A rogue wave is approaching!"
-        "treasurie4_spray6" "Graffiti"
+        "treasurie5_spray7" "Graffiti"
         "treasurie5_spray8" "Graffiti"
+        "treasurie5_spray9" "Graffiti"
         "treasurie5_spray10" "Graffiti"
-        "treasurie4_spray12" "Graffiti"
-        "treasurie4_spray11" "Graffiti"
-        "treasurie4_spray9" "Graffiti"
-        "treasurie4_spray7" "Graffiti"
-        "treasurie4_spray5" "Graffiti"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_interval" "INTERVAL:"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_duration" "DURATION:"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_resistance" "% REDUCED EFFECT RESISTANCE PER EFFECT:"
-        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua" "CORROSIVE WEAPONRY"
-        "treasurie4" "Chest 4"
-        "dota_tooltip_modifier_wisp_tether_lua_bonus_intellect" "Intelligence"
-        "DOTA_Tooltip_modifier_special_bonus_unique_npc_dota_hero_magnataur_str50" "Increasing attributes"
-        "talents_shop_refresh_count" "For all heroes"
+        "treasurie5_spray11" "Graffiti"
         "treasurie5_spray12" "Graffiti"
+        "treasurie4" "Chest 4" 
+        "treasurie4" "Chest 4"
+        "treasurie5" "Chest 5"
+        "treasurie4_spray1" "Graffiti"
+        "treasurie4_spray2" "Graffiti"
         "treasurie4_spray3" "Graffiti"
-        "error_no_pet" "You don't have this pet."
-        "error_change_limit" "The limit for changing pets has been reached, once per game. Buy PET CANGE to disable the limit."
-        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50_description" "Attribute Bonus"
-        "dota_tooltip_special_bonus_unique_npc_dota_hero_skeleton_king_str50" "Talent"
+        "treasurie4_spray4" "Graffiti"
+        "treasurie4_spray5" "Graffiti"
+        "treasurie4_spray6" "Graffiti"
+        "treasurie4_spray7" "Graffiti"
+        "treasurie4_spray8" "Graffiti"
+        "treasurie4_spray9" "Graffiti"
+        "treasurie4_spray10" "Graffiti"
+        "treasurie4_spray11" "Graffiti"
+        "treasurie4_spray12" "Graffiti"
+        "treasurie5_spray1" "Graffiti"
+        "treasurie5_spray2" "Graffiti"
+        "treasurie5_spray3" "Graffiti"
+        "treasurie5_spray4" "Graffiti"
+        "treasurie5_spray5" "Graffiti"
+        "treasurie5_spray6" "Graffiti"
+        "treasurie5_spray7" "Graffiti"
+        "treasurie5_spray8" "Graffiti"
+        "treasurie5_spray9" "Graffiti"
+        "treasurie5_spray10" "Graffiti"
+        "treasurie5_spray11" "Graffiti"
+        "treasurie5_spray12" "Graffiti"
+        "dota_tooltip_ability_item_pudge_heart_lua" "Pudge Heart"
+        "dota_tooltip_ability_item_pudge_heart_lua_description" "<h1>Active: Shit</h1> The hero spends %damage%%% of his maximum health and burps, dealing damage equal to his strength to all enemies within the %radius%."
+        "dota_tooltip_ability_item_pudge_heart_lua_bonus_str" "+$str"
+        "dota_tooltip_ability_item_agility_heart_lua" "Assassin Heart"
+        "dota_tooltip_ability_item_agility_heart_lua_description" "<h1>Active: Crit</h1> For %duration% seconds, your attacks will deal %bonus_ms%%% critical damage."
+        "dota_tooltip_ability_item_agility_heart_lua_bonus_agi" "+$agi"
+        "dota_tooltip_ability_item_agility_heart_lua_bonus_dmg" "+to base damage"
+        "dota_tooltip_ability_item_moon_shard_lua" "Moon Eyea"
+        "dota_tooltip_ability_item_moon_shard_lua_description" "<h1>Passive:</h1> Increases the attack speed of the owner and all allies on the map. Cannot be cast."
+        "dota_tooltip_ability_item_moon_shard_lua_bonus_as" "+to your own attack speed"
+        "dota_tooltip_ability_item_moon_shard_lua_aura_as_ally" "+attack speed for allies"
+        "npc_smithy_mound" "Crystal Mountain"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_Description" "The hero's acid-coated weapon reduces resistance and deals damage over time with each attack."
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_max_stacks" "MAX STACKS:"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_resistance" "% REDUCED EFFECT RESISTANCE PER EFFECT:"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_damage" "% INTELLIGENCE DAMAGE PER EFFECT:"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_duration" "DURATION:"
+        "DOTA_Tooltip_ability_alchemist_corrosive_weaponry_lua_interval" "INTERVAL:"
+        "talent_games_description" "Games:"
+        "talant_time_description" "Time:"
+        "sprаy" "Graffiti"
+        "npc_dota_hero_skywrath_mage_str12" "Silence at the addition"
+        "npc_dota_hero_vengefulspirit_str13_description" "120 sec clone lifespan at all levels."
+        "talent_normal_exp_label" "Normal Experience"
+        "Arrmor" "armor"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_phys_dmg" "% PHYSICAL DAMAGE BONUS:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_mage_dmg" "%MAGIC DAMAGE BONUS:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "% GOLD INCREASE EVERY SECOND:"
+        "talent_game_time_label" "Game hours"
+        // ------------------------------------------------------------------------------------------------------------------
     }
 }
