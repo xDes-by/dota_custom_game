@@ -38,7 +38,7 @@ function QuestSystem:init()
 	QuestSystem.has_quest_bonus = "particles/voskl_blue.vpcf"
 	QuestSystem.complite_quest_bonus = "particles/vopros_blue.vpcf"
 	QuestSystem.auto = {}
-	QuestSystem.midLine = {9,11,12,13,14,15,16,17,18}
+	QuestSystem.midLine = {9,11,12,13,14,15,16,17,18,19}
 	QuestSystem.midLine2 = {10, 20, 25}
 	QuestSystem.trialPeriodCount = {}
 end

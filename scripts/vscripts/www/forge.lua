@@ -65,7 +65,16 @@ function Forge:GetItemUpgradeCost(level)
     return upgradeCost[level].gold
 end
 function Forge:GetSoulNameForItemUpgrade(name, level)
-    if midItems[name] then return midItems[name] end
+    if midItems[name] then
+        if level == 8 then
+            return "item_divine_soul"
+        elseif level == 9 then
+            return "item_magma_soul"
+        elseif level == 10 then
+            return "item_antimage_soul"
+        end
+        return midItems[name]
+    end
     return upgradeCost[level].soul
 end
 function Forge:GetItemUpgradeSoulsCost()
