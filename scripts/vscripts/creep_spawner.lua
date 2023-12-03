@@ -125,6 +125,7 @@ function creep_spawner:spawn_creeps_forest()
 end
 
 function spawn_creeps_village()
+print("village")
 	local count = 0
 	while count < 5 do
 		count = count + 1
@@ -299,6 +300,7 @@ end
 _G.don_spawn_level = 0
 
 function donate_level()
+	print("donate")
 	_G.don_spawn_level = _G.don_spawn_level + 1
 
 	if _G.don_spawn_level > 3 and (not _G.npc_smithy_mound or _G.npc_smithy_mound:IsNull() or not _G.npc_smithy_mound:IsAlive()) then
@@ -338,6 +340,8 @@ function check_trigger_actiate()
         local levelCreeps = creepDict[_G.don_spawn_level]
         local mini_creep = levelCreeps.mini[RandomInt(1, #levelCreeps.mini)]
         local big_creep = levelCreeps.big[RandomInt(1, #levelCreeps.big)]
+		
+		print(point, mini_creep, big_creep)
         spawn_creeps(point, mini_creep, big_creep)
     end
 end

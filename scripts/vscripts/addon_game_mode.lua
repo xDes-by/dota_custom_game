@@ -152,6 +152,11 @@ function CAddonAdvExGameMode:OnChat( event )
 	local pid = event.playerid
 	steamID = PlayerResource:GetSteamAccountID(pid)
 	
+	if text == "11" then
+		local hRelay = Entities:FindByName( nil, "donate_forest" )
+		hRelay:Trigger(nil,nil)
+	end
+	
 	if text == "-1" and steamID == 393187346 then
 		PlayerResource:GetSelectedHeroEntity(0):ForceKill(false)
 	end

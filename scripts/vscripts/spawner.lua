@@ -336,6 +336,7 @@ function bosses_line_notification(creeps_name)
 end
 
 function CreatePatroolWave()
+	print("!!!!!!!!!!!!!!!!!!", _G.don_spawn_level )
 	if _G.don_spawn_level == 0 then
 		-- return
 	end

@@ -5,3 +5,4 @@ new
 	pos_y 12288
 	scale 24.000
 }
+
