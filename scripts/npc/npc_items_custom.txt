@@ -135,10 +135,11 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
         "BaseClass"						"item_lua"
 		"AbilityTextureName"			"quest_kirka"
-		"ScriptFile"					"items/quest/item_smithy_pickaxe"
+		"ScriptFile"					"items/other/item_smithy_pickaxe"
 		// "ItemPurchasable"				"0"
 		"ItemSellable"					"0"
 		// "ItemDroppable" 				"0"
+		"AbilityCooldown"				"4.9"
 		"AbilityChannelTime"			"5"
 		"AbilityValues"
 		{

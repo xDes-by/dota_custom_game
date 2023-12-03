@@ -640,7 +640,7 @@
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
 
-        "Ability1"					"elder_titan_earth_splitter_miniboss"         
+        // "Ability1"					"elder_titan_earth_splitter_miniboss"         
         "Ability2"					"ability_npc_titan_boss_stomp"         
         "Ability3"					"elder_titan_natural_order_miniboss"         
         "Ability4"					"tidehunter_ravage_miniboss"

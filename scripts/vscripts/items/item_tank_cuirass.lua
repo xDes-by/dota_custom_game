@@ -7,7 +7,7 @@ function item_tank_cuirass:GetAbilityTextureName()
 	if self:GetSecondaryCharges() == 0 then
 		return "mid_items/weapon_" .. level
 	else
-		return "gem" .. self:GetSecondaryCharges() .. "/weapon_" .. level .. "_gem" .. self:GetSecondaryCharges()
+		return "gem" .. self:GetSecondaryCharges() .. "/weapon_" .. level
 	end
 end
 

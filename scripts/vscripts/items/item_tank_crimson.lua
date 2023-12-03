@@ -8,7 +8,7 @@ function item_tank_crimson:GetAbilityTextureName()
 	if self:GetSecondaryCharges() == 0 then
 		return "mid_items/mage_" .. level
 	else
-		return "gem" .. self:GetSecondaryCharges() .. "/mage_" .. level .. "_gem" .. self:GetSecondaryCharges()
+		return "gem" .. self:GetSecondaryCharges() .. "/mage_" .. level
 	end
 end
 

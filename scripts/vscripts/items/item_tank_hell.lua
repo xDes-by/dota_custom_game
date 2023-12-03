@@ -8,7 +8,7 @@ function item_tank_hell:GetAbilityTextureName()
 	if self:GetSecondaryCharges() == 0 then
 		return "mid_items/lance" .. level
 	else
-		return "gem" .. self:GetSecondaryCharges() .. "/lance" .. level .. "_gem" .. self:GetSecondaryCharges()
+		return "gem" .. self:GetSecondaryCharges() .. "/lance" .. level
 	end
 end
 

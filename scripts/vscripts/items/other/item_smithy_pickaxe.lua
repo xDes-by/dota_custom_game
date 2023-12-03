@@ -22,11 +22,13 @@ function item_smithy_pickaxe:OnChannelFinish(bInterrupted)
         local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
         local dropRadius = RandomFloat( 50, 300 )
         newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
-        
+        newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )
+
         local newItem = CreateItem( "item_gems_" .. tostring(RandomInt(1,5)), self:GetCaster():GetPlayerOwner(), nil )
         local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
         local dropRadius = RandomFloat( 50, 300 )
         newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
+        newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60 )
 
         self:GetCaster():CastAbilityOnTarget(self.target, self, self:GetCaster():GetPlayerID())
     end
