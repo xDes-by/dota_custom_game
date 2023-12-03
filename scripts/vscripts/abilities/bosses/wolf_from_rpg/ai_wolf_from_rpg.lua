@@ -43,13 +43,17 @@ function modifier_ai_wolf_from_rpg:OnCreated()
     if not IsServer() then
         return
     end
+    self.spawn_pos = self.parent:GetAbsOrigin()
     self.abi1 = self.parent:FindAbilityByName("ability_npc_boss_hell2_spell1")
     self.abi3 = self.parent:FindAbilityByName("ability_npc_boss_hell2_spell5")
     self:StartIntervalThink(1)
 end
 
 function modifier_ai_wolf_from_rpg:OnIntervalThink()
-    local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+    local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false)
+    if #units == 0 and (self.spawn_pos - self.parent:GetAbsOrigin()):Length2D() > 1000 then
+        self.parent:MoveToPosition(self.spawn_pos)
+    end
     if #units > 0 then
         if self.abi1:IsFullyCastable() then
             self:GetCaster():CastAbilityOnPosition(units[1]:GetAbsOrigin(), self.abi1, -1)

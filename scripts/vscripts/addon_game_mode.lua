@@ -626,33 +626,33 @@ function create_runes()
 	end)
 	local power_rune = Entities:FindAllByName("power_rune")
 	local r = {0,1,3,4,6}
-	Timers:CreateTimer(1,function()
+	Timers:CreateTimer(20*60,function()
 		for k,v in pairs(power_rune) do
 			if v.rune then
 				UTIL_Remove(v.rune)
 			end
 			local point = v:GetAbsOrigin()
 			if not _G.kill_invoker then
-				if true then
-					spawnPoint = point	
-					local newItem = CreateItem( "item_crystal", nil, nil )
-					local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
-					local dropRadius = RandomFloat( 50, 100 )
-		
-					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, spawnPoint + RandomVector( dropRadius ) )
-					if loot_duration then
-						newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, loot_duration )
-					end
-				elseif RollPercentage(1) then
+				if RollPercentage(1) then
 					local souls = {"item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul"}
 					local item_name = souls[RandomInt(1, #souls)]
 					local newItem = CreateItem( item_name, nil, nil )
 					local drop = CreateItemOnPositionForLaunch( point, newItem )
 					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
 				elseif RollPercentage(1) then
 					local newItem = CreateItem( "item_points_big", nil, nil )
 					local drop = CreateItemOnPositionForLaunch( point, newItem )
 					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
+				elseif RandomFloat(0, 100) < 0.1 then
+					spawnPoint = point	
+					local newItem = CreateItem( "item_crystal", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					if loot_duration then
+						newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
+					end
 				else
 					v.rune = CreateRune(point, r[RandomInt(1, #r)])
 				end
@@ -846,19 +846,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 
-	if _G.don_bosses_count and #_G.don_bosses_count > 0 then
-		for i, hCreep in ipairs( _G.don_bosses_count ) do
-			if killedUnit == hCreep then
-				table.remove( _G.don_bosses_count, i )
-				return
-			end
-		end 
-	end
-
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
-	
+
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
 			killedUnit:SetTimeUntilRespawn( 1.2 )
@@ -1032,9 +1023,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
-		Timers:CreateTimer(3,function() 
-			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-		end)
+		-- Timers:CreateTimer(3,function() 
+		-- 	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		-- end)
 		full_win()
 		return
 	end
@@ -1548,7 +1539,6 @@ function ItemBossSummonChoice(eventIndex, data)
 	if boss_spawn then
 		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
 		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
-		table.insert(_G.don_bosses_count, unit)
 		unit:add_items()
 		unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
 		Rules:difficality_modifier(unit)
