@@ -89,7 +89,7 @@ function modifier_riki_cloak_and_dagger_lua:CalculateDamage()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_agi8") then
 		damage_multiplier = damage_multiplier * 1.5
 	end
-	local damage = self:GetParent():GetAgility() * damage_multiplier
+	local damage = self:GetParent():GetAgility() * self:GetAbility():GetSpecialValueFor("damage_multiplier")
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_str7") then
 		damage = damage + self:GetParent():GetStrength() * damage_multiplier * 0.5
 	end

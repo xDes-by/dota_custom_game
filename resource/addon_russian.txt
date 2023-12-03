@@ -4144,7 +4144,7 @@
         "npc_dota_hero_phantom_assassin_agi12" "Критический шанс критической атаки"
         "npc_dota_hero_phantom_assassin_agi12_description" "+35% к шансу ультимейта"
         "npc_dota_hero_phantom_assassin_agi13" "Fatality"
-        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - при добивании босса критом Coup de Grace, увеличивает критический урон на +50%, навсегда."
+        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - при добивании босса критом Coup de Grace, увеличивает критический урон на +25%, навсегда."
 
         "npc_dota_hero_phantom_assassin_int6" "Точно в цель"
         "npc_dota_hero_phantom_assassin_int6_description" "Выпускает два дополнительных кинжала от Stifling Dagger"
@@ -6492,7 +6492,7 @@
         "npc_dota_hero_death_prophet_agi7" "Быстрые Мудрые Снаряды"
         "npc_dota_hero_death_prophet_agi7_description" "75% ловкости в урон Crypt Swarm."  //  +
         "npc_dota_hero_death_prophet_agi8" "Разделенная Мудрость"
-        "npc_dota_hero_death_prophet_agi8_description" "50% ловкости в урон духов."
+        "npc_dota_hero_death_prophet_agi8_description" "40% ловкости в урон духов."
         "npc_dota_hero_death_prophet_agi9" "Интеллектуальная Быстрота"
         "npc_dota_hero_death_prophet_agi9_description" "-50% перезарядка Exorcism."    //  +
         "npc_dota_hero_death_prophet_agi10" "Усиленное Проклятие"
@@ -6505,7 +6505,7 @@
         "npc_dota_hero_death_prophet_agi13_description" "Герой получает 3500 урона c руки, за каждого активного духа. На последнем уровне ультимейта" //  +
 
         "npc_dota_hero_death_prophet_int6" "Накопление Интеллекта"
-        "npc_dota_hero_death_prophet_int6_description" "+75% ителлекта в урон духов"    //  +
+        "npc_dota_hero_death_prophet_int6_description" "+30% ителлекта в урон духов"    //  +
         "npc_dota_hero_death_prophet_int7" "Усиленная Мудрость"
         "npc_dota_hero_death_prophet_int7_description" "50% интеллекта в урон Spirit Siphon."    //  +
         "npc_dota_hero_death_prophet_int8" "Слово По Области"
@@ -6518,9 +6518,9 @@
         "npc_dota_hero_death_prophet_int11_description" "-50% Перезарядка Crypt Swarm, не требует ману."    //  +
         "npc_dota_hero_death_prophet_int11_tooltip" "Урон наносится каждые 0.2 сек."
         "npc_dota_hero_death_prophet_int12" "Удвоенный Урон"
-        "npc_dota_hero_death_prophet_int12_description" "с шансом 15% Духи могут нанести критическую атаку 400%"    //  +
+        "npc_dota_hero_death_prophet_int12_description" "с шансом 15% Духи могут нанести критическую атаку 225%"    //  +
         "npc_dota_hero_death_prophet_int13" "Удвоенный Урон"
-        "npc_dota_hero_death_prophet_int13_description" "с шансом 30% Духи могут нанести критическую атаку 400%"    //  +
+        "npc_dota_hero_death_prophet_int13_description" "с шансом 30% Духи могут нанести критическую атаку 225%"    //  +
 
         //VIPER
 		"DOTA_Tooltip_ability_viper_poison_attack_lua"										"Poison Attack"
@@ -7046,7 +7046,7 @@
         "npc_dota_hero_riki_int6" "Накопление Интеллекта"
         "npc_dota_hero_riki_int6_description" "-50% перезарядка Tricks of the Trade." // +
         "npc_dota_hero_riki_int7" "Усиленная Мудрость"
-        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодический урон 100% интеллекта." // +
+        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодический урон 50% интеллекта." // +
         "npc_dota_hero_riki_int8" "Слово По Области"
         "npc_dota_hero_riki_int8_description" "Tricks of the Trade атакует все цели внутри круга." // +
         "npc_dota_hero_riki_int9" "Стакующая Мудрость"
@@ -7109,9 +7109,9 @@
         "npc_dota_hero_doom_bringer_str13_description" "Devour можно применить на область 800. Можно получить 3 эффекта."
         
         "npc_dota_hero_doom_bringer_agi6" "Ближний Разум"
-        "npc_dota_hero_doom_bringer_agi6_description" "Души Devour дают шанс 15% нанести крит. атаку 100% + 10 * кол-во душ."
+        "npc_dota_hero_doom_bringer_agi6_description" "Души Devour дают шанс 15% нанести крит. атаку 100% + 5 * кол-во душ."
         "npc_dota_hero_doom_bringer_agi7" "Starbreaker"
-        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade наносит критическую атаку 100% + 10 * уровень героя"
+        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade наносит критическую атаку 1000%"
         "npc_dota_hero_doom_bringer_agi8" "Starbreaker"
         "npc_dota_hero_doom_bringer_agi8_description" "х3 дополнительное золото Devour."
         "npc_dota_hero_doom_bringer_agi9" "Starbreaker"
@@ -7121,9 +7121,9 @@
         "npc_dota_hero_doom_bringer_agi11" "Аура Проклятия"
         "npc_dota_hero_doom_bringer_agi11_description" "-20сек. перезарядка Devour."
         "npc_dota_hero_doom_bringer_agi12" "Всепроникающая Мудрость"
-        "npc_dota_hero_doom_bringer_agi12_description" "Урон от Devour в 5 раз больше."
+        "npc_dota_hero_doom_bringer_agi12_description" "Урон от Devour в 4 раз больше."
         "npc_dota_hero_doom_bringer_agi13" "Всепроникающая Мудрость"
-        "npc_dota_hero_doom_bringer_agi13_description" "Урон от Devour в 13 раз больше."
+        "npc_dota_hero_doom_bringer_agi13_description" "Урон от Devour в 7 раз больше."
 		
         "npc_dota_hero_doom_bringer_int6" "Celestial Hammer"
         "npc_dota_hero_doom_bringer_int6_description" "Если число душ Devour кратно 3 то эффективность их в 1.5 раза выше."

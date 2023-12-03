@@ -179,7 +179,7 @@ end
 
 function modifier_ability_devour:GetModifierBonusStats_Strength()
 	if self.caster:FindAbilityByName("npc_dota_hero_doom_bringer_str10") then
-    	return self.bonus_damage * self:GetSoulsStackCount()
+    	return self:GetAbility():GetLevelSpecialValueNoOverride( "devour_damage", self:GetAbility():GetLevel() ) * self:GetSoulsStackCount()
 	end
 	return 0
 end

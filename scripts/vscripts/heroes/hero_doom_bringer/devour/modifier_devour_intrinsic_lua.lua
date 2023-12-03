@@ -59,9 +59,9 @@ function modifier_devour_intrinsic_lua:GetModifierOverrideAbilitySpecialValue(da
 		if data.ability_special_value == "devour_damage" then
 			local devour_damage = self:GetAbility():GetLevelSpecialValueNoOverride( "devour_damage", data.ability_special_level )
             if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_agi13") then
-                devour_damage = devour_damage * 13
+                devour_damage = devour_damage * 7
 			elseif self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_agi12") then
-				devour_damage = devour_damage * 5
+				devour_damage = devour_damage * 4
 			end
             return devour_damage
 		end
@@ -78,7 +78,7 @@ end
 
 function modifier_devour_intrinsic_lua:GetModifierPreAttack_CriticalStrike()
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_doom_bringer_agi6") and RandomInt(1, 100) <= 15 then
-		return 100 + self:GetSoulsStackCount() * 10
+		return 100 + self:GetSoulsStackCount() * 5
 	end
 	return 0
 end
