@@ -14929,8 +14929,8 @@
         "npc_dota_hero_slark_int11_description" "Essence Shift gives 50% int"
         "npc_dota_hero_slark_int12" "Toad Luck"
         "npc_dota_hero_slark_int12_description" "chance of causing Dark Pact from an attack is 10%"
-        "npc_dota_hero_slark_int13" "The one who cannot be killed"
-        "npc_dota_hero_slark_int13_description" "Does not lose health from Dark Pact"
+        "npc_dota_hero_slark_int13" "The HLOP"
+        "npc_dota_hero_slark_int13_description" "Dark Pact radius +400"
 
         //Shadow Fiend//
 

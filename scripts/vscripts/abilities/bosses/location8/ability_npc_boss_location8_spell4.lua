@@ -210,9 +210,12 @@ function modifier_ability_npc_boss_location8_secont_phase:OnTakeDamage(data)
 
         local target = data.attacker:entindex()
         local unit = CreateUnitByName("npc_mortimer_second_phase", pos + direction_1 * 600, false, nil, nil, self:GetParent():GetTeamNumber())
-        unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_snap_second_phase", {target = target})
+
+        unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_snap_second_phase", {target = target, duration = 4})
+
         local unit = CreateUnitByName("npc_mortimer_second_phase", pos + direction_2 * 600, false, nil, nil, self:GetParent():GetTeamNumber())
-        unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_snap_second_phase", {delay = 1.5, target = target})
+        unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_snap_second_phase", {delay = 1.5, target = target, duration = 4})
+
 
         local playerid = data.attacker:GetPlayerOwnerID()
         local hero = data.attacker

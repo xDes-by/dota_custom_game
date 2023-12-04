@@ -91,24 +91,6 @@ function Wearable:ClearWear(Value)
         return
     end
 	hUnit:AddNewModifier(hUnit, nil, "modifier_wearable_pet", {})
-    if hUnit:GetUnitName() == "npc_dota_hero_pudge" then
-        local t = {
-            ["models/heroes/pudge/righthook.vmdl"] = true,
-            ["models/heroes/pudge/hair.vmdl"] = true,
-            ["models/heroes/pudge/leftweapon.vmdl"] = true,
-        }
-        for _,hModel in pairs(self.wear[iPlayerID]) do
-            if t[hModel:GetModelName()] then
-                for _,particle in pairs(hModel.particles) do
-                    ParticleManager:DestroyParticle(particle, true)
-                    ParticleManager:ReleaseParticleIndex(particle)
-                end
-                hModel.particles = {}
-                UTIL_Remove(hModel)
-            end
-        end
-        return
-    end
     for _,hModel in pairs(self.wear[iPlayerID]) do
         for _,particle in pairs(hModel.particles) do
             ParticleManager:DestroyParticle(particle, true)

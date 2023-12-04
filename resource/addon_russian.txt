@@ -3792,8 +3792,8 @@
         "npc_dota_hero_slark_int11_description" "Essence Shift дает 50% интеллекта"
         "npc_dota_hero_slark_int12" "Жабья удача"
         "npc_dota_hero_slark_int12_description" "шанс с атаки вызвать Dark Pact 10 % "
-        "npc_dota_hero_slark_int13" "Тот, кого нельзя убить"
-        "npc_dota_hero_slark_int13_description" "Не теряет здоровье от Dark Pact"
+        "npc_dota_hero_slark_int13" "Просто хлоп"
+        "npc_dota_hero_slark_int13_description" "Dark Pact радиус +400"
 
         //Shadow Fiend//
 
