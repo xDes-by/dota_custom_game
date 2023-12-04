@@ -23,9 +23,9 @@ require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
+_G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = true and IsInToolsMode() -- false
+_G.devmode = false and IsInToolsMode() -- false
 _G.server_load = true --not IsInToolsMode() -- true
 _G.spawnCreeps =  false or not IsInToolsMode() -- true
 
