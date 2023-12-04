@@ -17,6 +17,12 @@ function legion_ult2:OnUpgrade()
 	if level <= 10 and level > legion_ult:GetLevel() then
 		legion_ult:SetLevel(level)
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_str50") and self.added_stacks < 150 then
+		local modifier = self:GetCaster():FindModifierByName("modifier_legion_ult")
+		modifier:SetStackCount(modifier:GetStackCount() + (self:GetLevel() * 10 - self.added_stacks))
+		self.added_stacks = self:GetLevel() * 10
+		legion_ult.added_stacks = self.added_stacks
+	end
 end
 
 function legion_ult2:GetCastRange()
@@ -42,6 +48,12 @@ function legion_ult:OnUpgrade()
 	level = self:GetLevel()
 	if level > legion_ult2:GetLevel() then
 		legion_ult2:SetLevel(level)
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_str50") and self.added_stacks < 100 then
+		local modifier = self:GetCaster():FindModifierByName("modifier_legion_ult")
+		modifier:SetStackCount(modifier:GetStackCount() + (self:GetLevel() * 10 - self.added_stacks))
+		self.added_stacks = self:GetLevel() * 10
+		legion_ult2.added_stacks = self.added_stacks
 	end
 end
 

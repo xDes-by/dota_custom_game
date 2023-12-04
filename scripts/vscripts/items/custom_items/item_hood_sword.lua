@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_hood_sword_passive_debuff", 'items/custom_items/i
 
 function item_hood_sword_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/hood_sword" .. level
 	else
-		return "gem" .. self.GemType .. "/item_hood_sword_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_hood_sword_lua" .. level
 	end
 end
 

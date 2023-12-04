@@ -111,6 +111,7 @@ function modifier_imba_borrowed_time_buff_hot_caster:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
 	}
 	return funcs
 end
@@ -146,6 +147,12 @@ function modifier_imba_borrowed_time_buff_hot_caster:OnCreated()
 		if abil ~= nil then
 			self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_ult_damage",{ duration = buff_duration })
 		end	
+	end
+end
+
+function modifier_imba_borrowed_time_buff_hot_caster:GetModifierTotalDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_centaur_agi50") then
+		return 500
 	end
 end
 

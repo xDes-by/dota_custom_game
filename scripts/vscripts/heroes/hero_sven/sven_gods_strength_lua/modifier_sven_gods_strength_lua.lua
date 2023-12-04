@@ -5,6 +5,10 @@ function modifier_sven_gods_strength_lua:IsPurgable()
 	return false
 end
 
+function modifier_sven_gods_strength_lua:RemoveOnDeath()
+	return self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_int50") == nil
+end
+
 --------------------------------------------------------------------------------
 
 function modifier_sven_gods_strength_lua:GetStatusEffectName()
@@ -67,6 +71,12 @@ end
 
 function modifier_sven_gods_strength_lua:GetAuraRadius()
 	return self.scepter_aoe
+end
+
+function modifier_sven_gods_strength_lua:GetAttributes()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_str50") or self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_int50") then
+		return MODIFIER_ATTRIBUTE_MULTIPLE 
+	end
 end
 
 --------------------------------------------------------------------------------

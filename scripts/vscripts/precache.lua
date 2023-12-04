@@ -42,14 +42,21 @@ return function(context)
 	PrecacheUnitByNameSync("last_creep_4", context, nil)
 	PrecacheUnitByNameSync("magma_creep_1", context, nil)
 	PrecacheUnitByNameSync("magma_creep_2", context, nil)
-	PrecacheUnitByNameSync("npc_bara_boss", context, nil)
+	PrecacheUnitByNameSync("npc_bara_boss_main", context, nil)
 
 
 
 
 
 
-
+	PrecacheResource( "soundfile", "soundevents/saw_soundtrack.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_1.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_2.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_3.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_4.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_5.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_10.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/gachi_11.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_diretide2020.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/music/game_sounds_stingers_greevil.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_dungeon.vsndevts", context )

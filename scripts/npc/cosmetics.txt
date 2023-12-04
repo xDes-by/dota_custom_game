@@ -1,0 +1,273 @@
+"wearables"
+{
+	"models/heroes/juggernaut/jugg_mask.vmdl"
+	{
+		"name"		"npc_dota_hero_juggernaut"
+		"prefab"		"default_item"
+	}
+	"models/heroes/juggernaut/jugg_sword.vmdl"
+	{
+		"name"		"npc_dota_hero_juggernaut"
+		"prefab"		"default_item"
+		"particles"
+		{
+			"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic.vpcf" "attach_sword"
+		}
+	}
+	"models/heroes/juggernaut/jugg_cape.vmdl"
+	{
+		"name"		"npc_dota_hero_juggernaut"
+		"prefab"		"default_item"	
+	}
+	"models/heroes/juggernaut/jugg_bracers.vmdl"
+	{
+		"name"		"npc_dota_hero_juggernaut"
+		"prefab"		"default_item"	
+	}
+	"models/heroes/juggernaut/juggernaut_pants.vmdl"
+	{
+		"name"		"npc_dota_hero_juggernaut"
+		"prefab"		"default_item"	
+	}
+	"models/heroes/slark/weapon.vmdl"
+	{
+		"name"		"npc_dota_hero_slark"
+		"prefab"		"default_item"
+	}
+	"models/heroes/slark/bracer.vmdl"
+	{
+		"name"		"npc_dota_hero_slark"
+		"prefab"		"default_item"
+	}
+	"models/heroes/slark/shoulder.vmdl"
+	{
+		"name"		"npc_dota_hero_slark"
+		"prefab"		"default_item"
+	}
+	"models/heroes/slark/cape.vmdl"
+	{
+		"name"		"npc_dota_hero_slark"
+		"prefab"		"default_item"
+	}
+	"models/heroes/slark/hood.vmdl"
+	{
+		"name"		"npc_dota_hero_slark"
+		"prefab"		"default_item"
+	}
+	"models/heroes/shadow_fiend/shadow_fiend_head.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"default_item"
+		"particles"
+		{
+			"particles/units/heroes/hero_nevermore/shadow_fiend_ambient_eyes.vpcf" "follow_origin"
+		}
+	}
+	"models/heroes/shadow_fiend/shadow_fiend_shoulders.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"default_item"
+	}
+	"models/heroes/shadow_fiend/shadow_fiend_arms.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"default_item"
+	}
+	"models/heroes/spectre/spectre_hat.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"default_item"
+	}
+	"models/heroes/spectre/spectre_dress.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"default_item"
+	}
+	"models/heroes/spectre/spectre_wings.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"default_item"
+	}
+	"models/heroes/spectre/spectre_weapon.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"default_item"
+	}
+	"1"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"default_item"
+		"particles"
+		{
+			"particles/units/heroes/hero_spectre/spectre_ambient.vpcf" "follow_origin"
+		}
+	}
+	"models/heroes/pudge/righthook.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+	}
+	"models/heroes/pudge/leftweapon.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+	}
+	"models/heroes/pudge/belt.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+		"particles"
+		{
+			"particles/units/heroes/hero_pudge/pudge_ambient_flies.vpcf" "follow_origin"
+		}
+	}
+	"models/heroes/pudge/leftarm.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+	}
+	"models/heroes/pudge/bracer.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+	}
+	"models/heroes/pudge/hair.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"default_item"
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	"amir4an/models/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_head.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_head_ambient.vpcf" "attach_origin"
+		}
+	}
+	"amir4an/models/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_belt.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_belt_ambient.vpcf" "attach_origin"
+		}
+	}
+	"amir4an/models/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_shoulder.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_shoulder_ambient.vpcf" "attach_origin"
+		}
+	}
+	"amir4an/models/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_weapon.vmdl"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_weapon_ambient.vpcf" "attach_origin"
+		}
+	}
+	"2"
+	{
+		"name"		"npc_dota_hero_spectre"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/spectre/amir4anmods_crescent/amir4anmods_crescent_base_ambient.vpcf" "follow_origin"
+		}
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	"amir4an/models/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_arms.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_arms_ambient.vpcf" "follow_origin"
+		}
+	}
+	"amir4an/models/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_shoulder.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_shoulder_ambient.vpcf" "follow_origin"
+		}
+	}
+	"models/heroes/shadow_fiend/head_arcana.vmdl"
+	{
+		"name"		"npc_dota_hero_nevermore"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_arcana_ambient.vpcf" "follow_origin"
+			"amir4an/particles/heroes/nevermore/amir4anmods_zxc/amir4anmods_zxc_arcana_ambient_eyes_new.vpcf" "follow_origin"
+		}
+	}
+
+
+
+
+
+
+	"skin_chynger_pr0/delayu_1_skin_raz_v_3_dnya/spokojno/eshchkere/eshchkere_mom.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"altenative_items"
+		"particles"
+		{
+			"skin_chynger_pr0/delayu_1_skin_raz_v_3_dnya/spokojno/eshchkere/eshchkere_mom.vpcf" "follow_origin"
+		}
+	}
+	"skin_chynger_pr0/delayu_1_skin_raz_v_3_dnya/spokojno/eshchkere/eshchkere_midas.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"altenative_items"
+	}
+	"skin_chynger_pr0/delayu_1_skin_raz_v_3_dnya/spokojno/eshchkere/eshchkere_basher.vmdl"
+	{
+		"name"		"npc_dota_hero_pudge"
+		"prefab"		"altenative_items"
+	}
+
+
+
+
+}

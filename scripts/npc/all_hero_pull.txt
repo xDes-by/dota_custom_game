@@ -60,6 +60,6 @@
 	"npc_dota_hero_broodmother"        			"1"
     "npc_dota_hero_huskar"        				"1"
 	"npc_dota_hero_magnataur"        			"1"
-	
-	
+	"npc_dota_hero_jakiro"						"1"
+	"npc_dota_hero_doom_bringer"        		"1"
 }

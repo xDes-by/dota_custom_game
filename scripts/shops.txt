@@ -3,7 +3,9 @@
 	"consumables"
 	{
 		"item"		"item_tpscroll"
-		"item"		"item_clarity"	
+		"item"		"item_clarity_custom1"
+		"item"		"item_clarity_custom2"
+		"item"		"item_clarity_custom3"
 		"item"		"item_faerie_fire"				
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"
@@ -39,7 +41,7 @@
 
 	"weapons_armor"
 	{
-		"item"		"item_quelling_blade"
+		"item"		"item_quelling_blade_lua"
 		"item"		"item_ring_of_protection"
 		"item"		"item_infused_raindrop"	
 		"item"		"item_orb_of_venom"
@@ -102,7 +104,6 @@
 		"item"		"item_buckler"
 		"item"		"item_ring_of_basilius"
 		"item"		"item_headdress"
-		"item"		"item_urn_of_shadows"
 		"item"		"item_tranquil_boots"
 		"item"		"item_medallion_of_courage"
 		"item"		"item_pavise"
@@ -111,7 +112,7 @@
 		"item"		"item_mekansm"		
 		"item"		"item_holy_locket"			
 		"item"		"item_vladmir_lua"		
-		"item"		"item_spirit_vessel"			
+		"item"		"item_spirit_vessel_lua"			
 		"item"		"item_pipe_lua"			
 		"item"		"item_guardian_greaves"
 		"item"		"item_boots_of_bearing_lua"
@@ -138,7 +139,6 @@
 		"item"		"item_wind_waker"
 		"item"		"item_moon_shard_lua"
 		"item"		"item_hood_sword_lua"
-		"item"		"item_spirit_vessel_lua"
 	}
 		
 	// Level 3 - Purple Recipes	
@@ -153,7 +153,7 @@
 		"item"		"item_crimson_guard_lua"		
 		"item"		"item_lotus_orb"		
 		"item"		"item_black_king_bar"
-		"item"		"item_hurricane_pike"	
+		"item"		"item_hurricane_pike_lua"	
 		"item"		"item_manta"
 		"item"		"item_sphere"
 		"item"		"item_shivas_guard_lua"

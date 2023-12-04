@@ -14,10 +14,23 @@ function health_life_drain:GetBehavior()
 	return DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_AURA
 end
 
+function health_life_drain:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
+
+function health_life_drain:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
 function health_life_drain:GetIntrinsicModifierName()
 	return "modifier_health_life_drain"
 end
 
+function health_life_drain:OnToggle()
+
+end
 ---------------------------------------------------------------------------------------
 
 modifier_health_life_drain = class({})
@@ -156,11 +169,14 @@ function modifier_health_life_drain_now:OnIntervalThink()
 		local damage = self.parent:GetHealth()/100 * self.aura_damage * self.aura_damage_interval
 
 		damage_type = DAMAGE_TYPE_PURE
+		damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 		if self:GetAbility():GetBehavior() == DOTA_ABILITY_BEHAVIOR_TOGGLE then
-			if self:GetAbility():GetToggleState() then
+			if self:GetAbility():GetToggleState() == false then
 				damage_type = DAMAGE_TYPE_PURE
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 			else
 				damage_type = DAMAGE_TYPE_MAGICAL
+				damage_flags = DOTA_DAMAGE_FLAG_NONE
 			end
 		end
 		if self.is_ally then
@@ -169,7 +185,7 @@ function modifier_health_life_drain_now:OnIntervalThink()
 				damage_type = damage_type,
 				attacker = self.caster,
 				ability = self.ability,
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+				damage_flags = damage_flags
 			}
 
 			local actual_damage = ApplyDamage(damageTable)
@@ -183,7 +199,7 @@ function modifier_health_life_drain_now:OnIntervalThink()
 				damage_type = damage_type,
 				attacker = self.caster,
 				ability = self.ability,
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+				damage_flags = damage_flags
 			}
 
 			local actual_damage = ApplyDamage(damageTable)

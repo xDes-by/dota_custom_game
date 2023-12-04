@@ -25,18 +25,19 @@ function modifier_lion_finger_of_death_lua:OnCreated( kv )
 
 	local fleshHeapStackModifier = "modifier_lion_soul_collector"
     local currentStacks = caster:GetModifierStackCount(fleshHeapStackModifier, caster)
-	
+	print('currentStacks', currentStacks)
 	local ability = self:GetCaster():FindAbilityByName( "lion_soul_collector" )
-		if ability~=nil and ability:GetLevel()>=1 then
-			stack_damage = ability:GetSpecialValueFor( "stack_bonus_dmg" )
-		
-			if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7") ~= nil then
-				stack_damage = stack_damage * 2
-			end
-			
-			self.damage = self.damage + (currentStacks * stack_damage)			
-		end
+	if ability~=nil and ability:GetLevel()>=1 then
+		stack_damage = ability:GetSpecialValueFor( "stack_bonus_dmg" )
 	
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int7") ~= nil then
+			stack_damage = stack_damage * 2
+		end
+		print('stack_damage', stack_damage)
+		self.damage = self.damage + (currentStacks * stack_damage)
+		
+	end
+	print('self.damage', self.damage)
 end
 
 function modifier_lion_finger_of_death_lua:OnDestroy( kv )

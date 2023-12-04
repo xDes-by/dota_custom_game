@@ -97,6 +97,8 @@ function modifier_ability_apparition_boss_blast:CheckState()
     }
 end
 
+modifier_ability_apparition_boss_blast_tick = class({})
+
 function modifier_ability_apparition_boss_blast_tick:IsDebuff()		return true end
 function modifier_ability_apparition_boss_blast_tick:IsPurgable()	return false end
 

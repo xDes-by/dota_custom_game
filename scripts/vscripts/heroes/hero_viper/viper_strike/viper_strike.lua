@@ -1,3 +1,4 @@
+LinkLuaModifier( "modifier_viper_viper_strike_intrinsic_lua", "heroes/hero_viper/viper_strike/viper_strike_intrinsic" ,LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_viper_viper_strike_lua", "heroes/hero_viper/viper_strike/viper_strike" ,LUA_MODIFIER_MOTION_NONE )
 
 if viper_viper_strike_lua == nil then
@@ -5,6 +6,14 @@ if viper_viper_strike_lua == nil then
 end
 
 --------------------------------------------------------------------------------
+function viper_viper_strike_lua:GetIntrinsicModifierName()
+    return "modifier_viper_viper_strike_intrinsic_lua"
+end
+function viper_viper_strike_lua:OnUpgrade()
+    if self:GetLevel() == 1 then
+        self:RefreshCharges()
+    end
+end
 
 function viper_viper_strike_lua:OnAbilityPhaseStart()
     local caster = self:GetCaster()
@@ -62,10 +71,15 @@ function viper_viper_strike_lua:GetManaCost()
     return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
-function viper_viper_strike_lua:GetCooldown()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
-        return 5
-    end
+function viper_viper_strike_lua:GetCooldown( level )
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
+		return 0.1
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int11") then
+		return 10
+	end
+
+	return self.BaseClass.GetCooldown( self, level )
 end
 
 function viper_viper_strike_lua:OnProjectileHit_ExtraData( target, location, ExtraData )
@@ -108,6 +122,11 @@ modifier_viper_viper_strike_lua = class({
     StatusEffectPriority    = function(self) return MODIFIER_PRIORITY_HIGH end,
 })
 
+function modifier_viper_viper_strike_lua:GetAttributes()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
+		return MODIFIER_ATTRIBUTE_MULTIPLE
+	end
+end
 
 --------------------------------------------------------------------------------
 
@@ -122,9 +141,9 @@ function modifier_viper_viper_strike_lua:OnCreated()
     self.duration = self:GetDuration()
     self.ticks = 0
 
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str6") then
-        self.IncomingDamage = 20
-    end
+    -- if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str6") then
+    --     self.IncomingDamage = 20
+    -- end
     if not IsServer() then return end
 
     self:StartIntervalThink(1.0)

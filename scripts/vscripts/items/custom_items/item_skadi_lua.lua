@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_skadi_slow_lua", 'items/custom_items/item_skadi_l
 
 function item_skadi_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/skadix_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_skadi_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_skadi_lua" .. level
 	end
 end
 

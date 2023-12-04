@@ -81,7 +81,7 @@ function troll_warlord_whirling_axes_ranged_lua:OnSpellStart()
 
 		local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_int50")
 		if abil ~= nil then 
-			axe_damage = self:GetCaster():GetIntellect() * 4 + axe_damage
+			axe_damage = self:GetCaster():GetIntellect() * 3 + axe_damage
 		end
 
 		if target_loc == caster_loc then
@@ -311,7 +311,8 @@ function troll_warlord_whirling_axes_melee_lua:DoAxeStuff(index,range,caster_loc
 	if abil ~= nil	then 
 		damage = self:GetCaster():GetAgility()
 	end
-	
+	local axe_damage = self:GetSpecialValueFor("axe_damage")
+
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_troll_warlord_int7")
 	if abil ~= nil	then 
 		axe_damage = self:GetCaster():GetIntellect()
@@ -324,7 +325,7 @@ function troll_warlord_whirling_axes_melee_lua:DoAxeStuff(index,range,caster_loc
 
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_int50")
 	if abil ~= nil	then 
-		axe_damage = self:GetCaster():GetIntellect() * 4 + axe_damage
+		axe_damage = self:GetCaster():GetIntellect() * 3 + axe_damage
 	end
 
 	local blind_duration = self:GetSpecialValueFor("blind_duration")

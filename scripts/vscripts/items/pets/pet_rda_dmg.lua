@@ -53,9 +53,7 @@ function modifier_item_pet_RDA_dmg:DeclareFunctions()
 end
 
 function modifier_item_pet_RDA_dmg:GetModifierBaseAttack_BonusDamage( params )
-	if IsServer() then 
-		return self:GetAbility():GetSpecialValueFor( "dmg" ) * self:GetCaster():GetLevel()
-	end
+	return self:GetAbility():GetSpecialValueFor( "dmg" ) * self:GetCaster():GetLevel()
 end
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------

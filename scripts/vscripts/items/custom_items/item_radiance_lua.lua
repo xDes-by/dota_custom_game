@@ -8,15 +8,11 @@ function item_radiance_lua:GetIntrinsicModifierName()
 end
 
 function item_radiance_lua:GetAbilityTextureName()
-	if not self:GetToggleState() then
-		return "radiance_inactive_png"
-	end
-	
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/rad_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_radiance_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_radiance_lua" .. level
 	end
 end
 
@@ -114,7 +110,14 @@ function modifier_item_radiance_burn_lua:OnCreated()
 		self:Destroy() 
 		return 
 	end
+	self.hero = self:GetAuraOwner()
 	self.damage = self:GetAbility():GetSpecialValueFor("aura_damage")
+	self.stats_damage = self:GetAbility():GetSpecialValueFor("stats_damage") / 100
+	if self.hero:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+		self.damage = self.damage + (self.hero:GetStrength() + self.hero:GetAgility() + self.hero:GetIntellect()) * self.stats_damage
+	else
+		self.damage = self.damage + self.hero:GetPrimaryStatValue() * self.stats_damage
+	end
 	self.blind = self:GetAbility():GetSpecialValueFor("blind_pct")
 	if self.particle == nil then
 		self.particle = ParticleManager:CreateParticle("particles/items2_fx/radiance.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())

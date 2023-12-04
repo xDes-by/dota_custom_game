@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_butterfly_lua", 'items/custom_items/item_butterfl
 
 function item_butterfly_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/butterfly_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_butterfly_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_butterfly_lua" .. level
 	end
 end
 

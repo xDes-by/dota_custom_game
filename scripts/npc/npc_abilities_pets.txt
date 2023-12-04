@@ -213,16 +213,8 @@
 		"ScriptFile"					"items/pets/common/pet_rda_hp_com"
 		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hp"					"50 75 100 125 150 175 200 225 250 275"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"hp"					"50 75 100 125 150 175 200 225 250 275"
 		}
 	}	
 	
@@ -234,16 +226,8 @@
 		"ScriptFile"					"items/pets/common/pet_rda_dmg_com"
 		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg"					"6 7 8 9 10 11 12 13 14 15"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"dmg"					"6 7 8 9 10 11 12 13 14 15"
 		}
 	}	
 	
@@ -255,16 +239,8 @@
 		"ScriptFile"					"items/pets/pet_rda_mana_regen"
 		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mpr"					"1 2 3 4 5 6 7 8 9 10"
-			}
+			"speed"					"1100 1200 1300 1400 1500 1600 1700 1800 1900 2000"
+			"mpr"					"1 2 3 4 5 6 7 8 9 10"
 		}
 	}
     //======================================================================================================================================	
@@ -391,17 +367,56 @@
 		}
 	}
 	//======================================================================================================================================
-	"spell_item_pet_rda_secret_1"
+	"spell_item_pet_rda_roshan_1"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
         "BaseClass"						"ability_lua"
-		"AbilityTextureName"			"pets/atrib"
-		"ScriptFile"					"items/pets/item_pet_rda_secret_1"
-		"AbilitySpecial"
+		"AbilityTextureName"			"pets/babyroshan_elemental2_png"
+		"ScriptFile"					"items/pets/item_pet_rda_roshan_1"
+		"AbilityValues"
 		{
-			"speed"					"2000 2200 2400 2600 2800 3000 3200 3400 3600 4000"
-			"stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
+			"speed"					"3750 4000 4350 4750 5000 5300 5600 5900 6200 6500"
+			"bonus_health"			"300 325 350 375 400 425 450 475 500 525"
+			"cleave_amount"			"30 35 40 45 55 60 65 70 75 80"
+			"cleave_radius"			"550"
+			"block"					"6 7 8 9 10 11 12 13 14 15"
+			"dmg"					"10 11 12 13 14 15 16 17 18 19"
+			"gold"					"5 6 7 8 9 10 11 12 13 14"
+			// "stats_bonus"			"1 2 3 4 5 6 7 8 9 10"
 		}
 	}	
+	"spell_item_pet_rda_roshan_2"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pets/rosh_2_1"
+		"ScriptFile"					"items/pets/item_pet_rda_roshan_2"
+		"AbilityValues"
+		{
+			"speed"					"2400 2800 3200 3600 4000 4400 4800 5200 5600 6000"
+			"stats_bonus"			"6 7 8 9 10 11 12 13 14 15"
+			"minus_armor"			"0.9 1.05 1.2 1.35 1.5 1.65 1.8 1.95 2.10 2.25"
+			"dur"					"1"
+			"bkb"					"1"
+			"phys_percent"			"160 170 180 190 200 210 220 230 240 250"
+			"pure_percent"			"20 22.5 25 27.5 30 32.5 35.0 37.5 40.0 42.5"
+			"goex"					"15 16 17 18 19 20 21 22 23 24"
+			"regen"					"3.25 3.50 3.75 4 4.25 4.5 4.75 5.0 5.25 5.5"
+		}
+	}
+	"spell_item_pet_rda_bp_1"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"       
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pets/bobrik"
+		"ScriptFile"					"items/pets/item_pet_rda_bp_1"
+		"AbilityValues"
+		{
+			"speed"						"1700 1900 2100 2300 2500 2700 2900 3100 3300 3500"
+			"phys_dmg"					"0.096 0.097 0.098 0.099 0.10 0.11 0.12 0.13 0.14 0.15"
+			"mage_dmg"					"0.25 0.5 0.75 1 1.25 1.50 1.75 2 2.25 2.5"
+			"gold"						"0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.90 0.95 1"
+		}
+	}
     //======================================================================================================================================
 }

@@ -1,15 +1,26 @@
 -------------------------------------------
 --			REAPER'S SCYTHE
 -------------------------------------------
-imba_necrolyte_reapers_scythe = imba_necrolyte_reapers_scythe or class({})
-LinkLuaModifier("modifier_imba_reapers_scythe", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_imba_reapers_scythe_debuff", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
+necrolyte_reapers_scythe_lua = class({})
+LinkLuaModifier("modifier_reapers_scythe_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_reapers_scythe_stack_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/necrolyte_reapers_scythe", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_necrolyte_reapers_scythe_intrinsic_lua", "heroes/hero_necrolyte/necrolyte_reapers_scythe/modifier_necrolyte_reapers_scythe_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
 
-function imba_necrolyte_reapers_scythe:GetAbilityTextureName()
+function necrolyte_reapers_scythe_lua:GetAbilityTextureName()
 	return "necrolyte_reapers_scythe"
 end
-
-function imba_necrolyte_reapers_scythe:OnSpellStart()
+function necrolyte_reapers_scythe_lua:GetIntrinsicModifierName()
+	return "modifier_necrolyte_reapers_scythe_intrinsic_lua"
+end
+function necrolyte_reapers_scythe_lua:GetManaCost(iLevel)
+    return 200 + math.min(65000, self:GetCaster():GetIntellect() / 20)
+end
+function necrolyte_reapers_scythe_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi12") or self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_agi13") then
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+	end
+end
+function necrolyte_reapers_scythe_lua:OnSpellStart()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetCursorTarget()
@@ -21,35 +32,46 @@ function imba_necrolyte_reapers_scythe:OnSpellStart()
 		-- Cast sound
 		caster:EmitSound("Hero_Necrolyte.ReapersScythe.Cast")
 		target:EmitSound("Hero_Necrolyte.ReapersScythe.Target")
-		if (math.random(1,100) <= 30) and (caster:GetName() == "npc_dota_hero_necrolyte") then
-			caster:EmitSound("necrolyte_necr_ability_reap_0"..math.random(1,3))
-		end
 
 		-- Parameters
 		local damage = self:GetSpecialValueFor("damage")
 		local stun_duration = self:GetSpecialValueFor("stun_duration")
 
-		target:AddNewModifier(caster, self, "modifier_imba_reapers_scythe", {duration = stun_duration})
+		target:AddNewModifier(caster, self, "modifier_reapers_scythe_lua", {duration = stun_duration})
 	end
 end
 
-function imba_necrolyte_reapers_scythe:GetCooldown( nLevel )
-	if self:GetCaster():HasScepter() then return self:GetSpecialValueFor("scepter_cooldown") end
-	return self.BaseClass.GetCooldown( self, nLevel )
+function necrolyte_reapers_scythe_lua:GetCooldown( nLevel )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_necrolyte_int10") then
+		return 70
+	end
 end
 
-function imba_necrolyte_reapers_scythe:IsHiddenWhenStolen()
+function necrolyte_reapers_scythe_lua:IsHiddenWhenStolen()
 	return false
 end
 
-modifier_imba_reapers_scythe = modifier_imba_reapers_scythe or class({})
-function modifier_imba_reapers_scythe:IgnoreTenacity() return true end
-function modifier_imba_reapers_scythe:OnCreated()
+modifier_reapers_scythe_lua = class({})
+
+function modifier_reapers_scythe_lua:IsDebuff()
+	return true
+end
+
+function modifier_reapers_scythe_lua:IsPurgable()
+	return false
+end
+
+function modifier_reapers_scythe_lua:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_reapers_scythe_lua:OnCreated()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetParent()
 		self.ability = self:GetAbility()
 		self.damage = self.ability:GetSpecialValueFor("damage")
+		self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
 
 		local stun_fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_stunned.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 		self:AddParticle(stun_fx, false, false, -1, false, false)
@@ -60,15 +82,23 @@ function modifier_imba_reapers_scythe:OnCreated()
 		ParticleManager:SetParticleControlEnt(scythe_fx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(scythe_fx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(scythe_fx)
+		local modifier = self:GetCaster():FindModifierByName("modifier_reapers_scythe_stack_lua")
+		if modifier == nil then
+			modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_reapers_scythe_stack_lua", {})
+		end
+		if self:GetParent():GetUnitName() ~= "npc_dota_hero_target_dummy" then 
+			modifier:IncrementStackCount()
+		end
 	end
 end
 
-function modifier_imba_reapers_scythe:OnRefresh()
+function modifier_reapers_scythe_lua:OnRefresh()
 		if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetParent()
 		self.ability = self:GetAbility()
 		self.damage = self.ability:GetSpecialValueFor("damage")
+		self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
 
 		local stun_fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_stunned.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 		self:AddParticle(stun_fx, false, false, -1, false, false)
@@ -79,26 +109,33 @@ function modifier_imba_reapers_scythe:OnRefresh()
 		ParticleManager:SetParticleControlEnt(scythe_fx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(scythe_fx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(scythe_fx)
+		local modifier = self:GetCaster():FindModifierByName("modifier_reapers_scythe_stack_lua")
+		if modifier == nil then
+			modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_reapers_scythe_stack_lua", {})
+		end
+		if self:GetParent():GetUnitName() ~= "npc_dota_hero_target_dummy" then 
+			modifier:IncrementStackCount()
+		end
 	end
 end
 
-function modifier_imba_reapers_scythe:GetEffectName()
+function modifier_reapers_scythe_lua:GetEffectName()
 	return "particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
 end
 
-function modifier_imba_reapers_scythe:StatusEffectPriority()
+function modifier_reapers_scythe_lua:StatusEffectPriority()
 	return MODIFIER_PRIORITY_ULTRA
 end
 
-function modifier_imba_reapers_scythe:GetPriority()
+function modifier_reapers_scythe_lua:GetPriority()
 	return MODIFIER_PRIORITY_ULTRA
 end
 
-function modifier_imba_reapers_scythe:GetEffectAttachType()
+function modifier_reapers_scythe_lua:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_imba_reapers_scythe:CheckState()
+function modifier_reapers_scythe_lua:CheckState()
 	local state =
 		{
 			[MODIFIER_STATE_STUNNED] = true
@@ -106,10 +143,10 @@ function modifier_imba_reapers_scythe:CheckState()
 	return state
 end
 
-function modifier_imba_reapers_scythe:IsPurgable() return false end
-function modifier_imba_reapers_scythe:IsPurgeException() return false end
+function modifier_reapers_scythe_lua:IsPurgable() return false end
+function modifier_reapers_scythe_lua:IsPurgeException() return false end
 
-function modifier_imba_reapers_scythe:DeclareFunctions()
+function modifier_reapers_scythe_lua:DeclareFunctions()
 	local decFuncs =
 		{
 			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
@@ -117,67 +154,64 @@ function modifier_imba_reapers_scythe:DeclareFunctions()
 	return decFuncs
 end
 
-function modifier_imba_reapers_scythe:GetOverrideAnimation()
+function modifier_reapers_scythe_lua:GetOverrideAnimation()
 	return ACT_DOTA_DISABLED
 end
 
-function modifier_imba_reapers_scythe:OnRemoved()
+function modifier_reapers_scythe_lua:OnRemoved()
 	if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetParent()
 		
-		-- I don't know why this thing allows a frame for enemies to activate magic immunity before receiving damage but only if Reaper's Scythe would have been fatal...so let's just stun them for another frame
 		target:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration=FrameTime()})
 		
 		if target:IsAlive() and self.ability then
-			self.damage = self.damage * (target:GetMaxHealth() - target:GetHealth())
-			-- If this very rough formula for damage exceeds that of the target's health, apply the respawn modifier that increases respawn time of target...
-			if (self.damage * (1 + (caster:GetSpellAmplification(false) * 0.01)) * (1 - target:Script_GetMagicalArmorValue(true, caster))) >= target:GetHealth() then
-			end
-			-- Deals damage (optimally, the ApplyDamage float number would be used for calculating whether the respawn modifier should be applied.
-			-- However, that doesn't seem to be possible without actually inflicting the damage, and modifiers cannot be applied on dead units)
+			local missing_health = target:GetMaxHealth() - target:GetHealth()
+			local missing_health_perc = missing_health / (target:GetMaxHealth() / 100)
+			local extra_damage_perc = missing_health_perc * self.damage_increase
+			local extra_damage = self.damage * (extra_damage_perc / 100)
+			self.damage = self.damage + extra_damage
 			local actually_dmg = ApplyDamage({attacker = caster, victim = target, ability = self.ability, damage = self.damage, damage_type = DAMAGE_TYPE_MAGICAL})
 			SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, target, actually_dmg, nil)
-			
-			-- ...HOWEVER, in the case of the target not actually dying under scythe due to incorrect calculations (ex. Dazzle Grave, Oracle False Promise, Bristleback damage reduction, etc.), remove the modifier
-			-- This will prevent a indefinitely lingering respawn modifier that increases respawn time (or worse) upon an actual death later
-
 		end
 	end
 end
 
-modifier_imba_reapers_scythe_debuff = modifier_imba_reapers_scythe_debuff or class({})
+modifier_reapers_scythe_stack_lua = class({})
 
-function modifier_imba_reapers_scythe_debuff:IsDebuff()
-	return true
+function modifier_reapers_scythe_stack_lua:IsHidden()
+    return false
 end
 
-function modifier_imba_reapers_scythe_debuff:IsPurgable()
-	return false
+function modifier_reapers_scythe_stack_lua:IsDebuff()
+    return false
 end
 
-function modifier_imba_reapers_scythe_debuff:GetStatusEffectName()
-	return "particles/hero/necrophos/status_effect_reaper_scythe_sickness.vpcf"
+function modifier_reapers_scythe_stack_lua:IsPurgable()
+    return false
 end
 
-function modifier_imba_reapers_scythe_debuff:OnCreated( params )
-	if not self:GetAbility() then self:Destroy() return end
-	
-	self.damage_reduction_pct = self:GetAbility():GetSpecialValueFor("damage_reduction_pct") * (-1)
-	self.spellpower_reduction = self:GetAbility():GetSpecialValueFor("spellpower_reduction") * (-1)
+function modifier_reapers_scythe_stack_lua:RemoveOnDeath()
+    return false
 end
 
-function modifier_imba_reapers_scythe_debuff:DeclareFunctions()
+function modifier_reapers_scythe_stack_lua:OnCreated( kv )
+end
+
+function modifier_reapers_scythe_stack_lua:OnRefresh( kv )
+end
+
+function modifier_reapers_scythe_stack_lua:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 	}
 end
 
-function modifier_imba_reapers_scythe_debuff:GetModifierSpellAmplify_Percentage()
-	return self.spellpower_reduction
+function modifier_reapers_scythe_stack_lua:GetModifierConstantManaRegen()
+	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("hp_regen")
 end
 
-function modifier_imba_reapers_scythe_debuff:GetModifierBaseDamageOutgoing_Percentage()
-	return self.damage_reduction_pct
+function modifier_reapers_scythe_stack_lua:GetModifierConstantHealthRegen()
+	return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("mp_regen")
 end

@@ -26,7 +26,7 @@ function modifier_unit_on_death:DeclareFunctions()
 	return funcs
 end
 
-creep_respawn_20 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
+creep_respawn_20 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4","magma_creep_1","magma_creep_2"}
 creep_respawn_8 = {"village_creep_1","village_creep_2","village_creep_3"}
 creep_respawn_5 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
 
@@ -34,21 +34,27 @@ function modifier_unit_on_death:OnDeath(event)
     if not IsServer() then return end
     local creep = event.unit
     if creep ~= self:GetParent() then return end
-	clear(creep)
+	if self.unitName ~= "farm_zone_dragon" then
+		clear(creep)
+	end
 	
+	if creep.donate then
+		amountTime = 1
+		respawn(amountTime, self.spawnPos, self.unitName)
+		return
+	end
+
 	if self.unitName == "farm_zone_dragon" then
 		amountTime = 0.05
 		respawn(amountTime, self.spawnPos, self.unitName)
 		return
 	end
-	
+
 	if _G.kill_invoker == true then return end
 	
 	for _,t in ipairs(creep_respawn_8) do
-		if t and t == self.unitName then 			
-			local pt = point_village[RandomInt(1,#point_village)]
-			self.spawnPos = Vector(pt[1],pt[2],pt[3])  
-			amountTime = 6
+		if t and t == self.unitName then 			 
+			amountTime = 4
 			respawn(amountTime, self.spawnPos, self.unitName)
 			return
 		end
@@ -56,8 +62,6 @@ function modifier_unit_on_death:OnDeath(event)
 
 	for _,t in ipairs(creep_respawn_5) do
 		if t and t == self.unitName then 
-			local pt = point_mines[RandomInt(1,#point_mines)]
-			self.spawnPos = Vector(pt[1],pt[2],pt[3])  
 			amountTime = 2
 			respawn(amountTime, self.spawnPos, self.unitName)
 			return
@@ -66,7 +70,7 @@ function modifier_unit_on_death:OnDeath(event)
 
 	for _,t in ipairs(creep_respawn_20) do
 		if t and t == self.unitName then 
-			amountTime = 18
+			amountTime = 10
 			respawn(amountTime, self.spawnPos, self.unitName)
 			return
 		end

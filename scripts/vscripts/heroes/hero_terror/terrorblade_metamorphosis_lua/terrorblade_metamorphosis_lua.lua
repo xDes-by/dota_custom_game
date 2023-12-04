@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_terrorblade_metamorphosis_lua", "heroes/hero_terror/t
 LinkLuaModifier( "modifier_terrorblade_metamorphosis_split", "heroes/hero_terror/terrorblade_metamorphosis_lua/terrorblade_metamorphosis_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_terrorblade_metamorphosis_lua_aura", "heroes/hero_terror/terrorblade_metamorphosis_lua/modifier_terrorblade_metamorphosis_lua_aura", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_fear_thinker", "heroes/hero_terror/terrorblade_metamorphosis_lua/terrorblade_metamorphosis_lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50", "heroes/hero_terror/terrorblade_metamorphosis_lua/terrorblade_metamorphosis_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "special_bonus_unique_npc_dota_hero_terrorblade_int50", "heroes/hero_terror/terrorblade_metamorphosis_lua/terrorblade_metamorphosis_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Init Abilities
@@ -31,7 +31,7 @@ function terrorblade_metamorphosis_lua:GetCooldown(level)
 end
 
 function terrorblade_metamorphosis_lua:GetIntrinsicModifierName()
-	return "modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50"
+	return "special_bonus_unique_npc_dota_hero_terrorblade_int50"
 end
 
 -- Ability Start
@@ -109,57 +109,59 @@ function modifier_fear_thinker:OnIntervalThink()
 	end
 end
 
-modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50 = class({})
+special_bonus_unique_npc_dota_hero_terrorblade_int50 = class({})
 --Classifications template
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:IsHidden()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:IsHidden()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:IsDebuff()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:IsDebuff()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:IsPurgable()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:IsPurgable()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:IsPurgeException()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:IsPurgeException()
 	return false
 end
 
 -- Optional Classifications
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:IsStunDebuff()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:IsStunDebuff()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:RemoveOnDeath()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:RemoveOnDeath()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:DestroyOnExpire()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:DestroyOnExpire()
 	return false
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:OnCreated()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:OnCreated()
 	if not IsServer() then
 		return
 	end
 	self:SetStackCount(0)
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:DeclareFunctions()
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_DEATH,
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
 	}
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:OnDeath(data)
-	if data.attacker == self:GetParent() then
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:OnDeath(data)
+	if data.attacker == self:GetParent() and self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_int50") then
 		self:IncrementStackCount()
 	end
 end
 
-function modifier_special_bonus_unique_npc_dota_hero_terrorblade_agi50:GetModifierBaseAttack_BonusDamage()
-	return self:GetStackCount() * 10
+function special_bonus_unique_npc_dota_hero_terrorblade_int50:GetModifierBaseAttack_BonusDamage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_int50") then
+		return self:GetStackCount() * 10
+	end
 end

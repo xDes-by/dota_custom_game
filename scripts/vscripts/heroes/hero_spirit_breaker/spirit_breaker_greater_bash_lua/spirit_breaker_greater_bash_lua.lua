@@ -24,9 +24,20 @@ end
 function spirit_breaker_greater_bash_lua:Spawn()
 	if not IsServer() then return end
 end
-
 --------------------------------------------------------------------------------
 -- Passive Modifier
 function spirit_breaker_greater_bash_lua:GetIntrinsicModifierName()
 	return "modifier_spirit_breaker_greater_bash_lua"
+end
+
+function spirit_breaker_greater_bash_lua:GetCooldown(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi8") then
+		return 0
+	end
+end
+
+function spirit_breaker_greater_bash_lua:GetCastRange(level)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi11") then
+		return 700
+	end
 end

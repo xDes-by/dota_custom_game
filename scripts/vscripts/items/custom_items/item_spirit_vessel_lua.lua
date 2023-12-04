@@ -10,6 +10,15 @@ function item_spirit_vessel_lua:OnSpellStart()
     EmitSoundOn("DOTA_Item.SpiritVessel.Target.Enemy", self:GetCursorTarget())
 end
 
+function item_spirit_vessel_lua:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if self:GetSecondaryCharges() == 0 then
+		return "all/vessel" .. level
+	else
+		return "gem" .. self:GetSecondaryCharges() .. "/vessel" .. level
+	end
+end
+
 function item_spirit_vessel_lua:GetIntrinsicModifierName()
     return "modifier_item_spirit_vessel_lua"
 end

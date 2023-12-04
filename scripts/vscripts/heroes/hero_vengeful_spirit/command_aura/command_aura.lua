@@ -119,6 +119,7 @@ modifier_vengeful_spirit_command_aura_buff = class({
             MODIFIER_PROPERTY_TOOLTIP2,
             MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
             MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+            MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
         }
     end,
     OnTooltip               = function(self) return self:CalculateBonusDamage() end,
@@ -129,18 +130,26 @@ modifier_vengeful_spirit_command_aura_buff = class({
 --------------------------------------------------------------------------------
 
 function modifier_vengeful_spirit_command_aura_buff:CalculateBonusDamage()
-    base_damage_perc = self:GetAbility():GetSpecialValueFor("bonus_base_damage")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi7") then
-        base_damage_perc = base_damage_perc + 17
+    local base_damage_perc = self:GetAbility():GetSpecialValueFor("bonus_base_damage")
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi13") then
+        base_damage_perc = base_damage_perc * 3
     end
-    if self:GetParent() == self:GetCaster() then 
+    if self:GetParent() ~= self:GetCaster() then
         base_damage_perc = base_damage_perc * self:GetAbility():GetSpecialValueFor("self_multi")
     end
     return base_damage_perc
 end
 
 function modifier_vengeful_spirit_command_aura_buff:GetModifierBaseDamageOutgoing_Percentage()
-    return self:CalculateBonusDamage()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi13") == nil then
+        return self:CalculateBonusDamage()
+    end
+end
+
+function modifier_vengeful_spirit_command_aura_buff:GetModifierDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi13") then
+        return self:CalculateBonusDamage()
+    end
 end
 
 function modifier_vengeful_spirit_command_aura_buff:CalculateBonusStrength()
@@ -150,8 +159,8 @@ function modifier_vengeful_spirit_command_aura_buff:CalculateBonusStrength()
         self.lock1 = true
         local str = self:GetParent():GetStrength()
         self.lock1 = false
-        bonus = str*0.17
-        if self:GetParent() == self:GetCaster() then
+        bonus = str*0.30
+        if self:GetParent() ~= self:GetCaster() then
             bonus = bonus * self:GetAbility():GetSpecialValueFor("self_multi")
         end
     end
@@ -164,10 +173,10 @@ end
 
 function modifier_vengeful_spirit_command_aura_buff:GetModifierHealthRegenPercentage()
     if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str10") then
-        if self:GetParent() == self:GetCaster() then
-            return 2 * self:GetAbility():GetSpecialValueFor("self_multi")
+        if self:GetParent() ~= self:GetCaster() then
+            return 3 * self:GetAbility():GetSpecialValueFor("self_multi")
         else
-            return 2
+            return 3
         end
     end
 end

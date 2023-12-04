@@ -98,6 +98,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"movement_base"			"5 10 15 20 25 30 35 40 45 50"
 			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"AbilityCharges"			"0"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"AbilityChargeRestoreTime"			"100"
+			}
 		}
 	}	
 }

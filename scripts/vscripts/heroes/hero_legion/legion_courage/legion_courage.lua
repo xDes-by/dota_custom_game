@@ -108,7 +108,7 @@ end
 function deal_damage(mod, abil, parent, target, damage_type, damage_flags)
 	local v = abil:GetSpecialValueFor("armor_reduction")
 	if v ~= 0 then
-		target:AddNewModifier(parent, abil, "modifier_legion_courage_armor_reduction", {})
+		target:AddNewModifier(parent, abil, "modifier_legion_courage_armor_reduction", {duration = 10})
 	end
 	damage = parent:GetAverageTrueAttackDamage(nil)
 	local heal = damage * abil:GetSpecialValueFor("damage")/100
@@ -180,20 +180,7 @@ function modifier_legion_courage_armor_reduction:IsPurgable()
 	return true
 end
 
-function modifier_legion_courage_armor_reduction:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_legion_courage_armor_reduction:IsStunDebuff()
-	return false
-end
-
 function modifier_legion_courage_armor_reduction:RemoveOnDeath()
-	return true
-end
-
-function modifier_legion_courage_armor_reduction:DestroyOnExpire()
 	return true
 end
 
@@ -203,7 +190,6 @@ function modifier_legion_courage_armor_reduction:OnCreated(data)
 		return
 	end
 	self:SetStackCount(1)
-	self:SetDuration(30, true)
 end
 
 function modifier_legion_courage_armor_reduction:OnRefresh(data)
@@ -211,17 +197,24 @@ function modifier_legion_courage_armor_reduction:OnRefresh(data)
 	if not IsServer() then
 		return
 	end
-	if self:GetStackCount() <= 10 then
+	if self:GetStackCount() < 5 then
 		self:SetStackCount(self:GetStackCount()+1)
 	end
 end
 
 function modifier_legion_courage_armor_reduction:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
 	}
 end
 
 function modifier_legion_courage_armor_reduction:GetModifierPhysicalArmorBonus()
 	return self:GetStackCount() * self.value * -1
+end
+
+function modifier_legion_courage_armor_reduction:OnAttackLanded(data)
+    if self:GetParent() == data.target and self:GetCaster() == data.attacker then
+        self:SetDuration(10, true)
+    end
 end

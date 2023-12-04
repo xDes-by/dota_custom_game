@@ -1,22 +1,29 @@
 "CustomHeroList"
 {
-	"npc_dota_hero_riki"        				"1" // 100
-	"npc_dota_hero_razor"        				"1"	// 95
-	"npc_dota_hero_death_prophet"       	 	"1"	// 95
-    "npc_dota_hero_viper"        				"1"	// 95
-	"npc_dota_hero_spirit_breaker"        		"1" // 95
-    "npc_dota_hero_vengefulspirit"        		"1"
-	"npc_dota_hero_dawnbreaker"        			"1"
-	"npc_dota_hero_necrolyte"        			"1"
-	
-	"npc_dota_hero_queenofpain"        			"1"
-	"npc_dota_hero_templar_assassin"        	"1"
-	"npc_dota_hero_monkey_king"        			"1"
-	"npc_dota_hero_dark_willow"        			"1"
-	"npc_dota_hero_witch_doctor"        		"1"
-	"npc_dota_hero_tiny"        				"1"
-	"npc_dota_hero_undying"        				"1"
+	"npc_dota_hero_jakiro"        				"1"
 	"npc_dota_hero_leshrac"        				"1"
+	"npc_dota_hero_necrolyte"        			"1"
+	"npc_dota_hero_spirit_breaker"        		"1" // 95
+    "npc_dota_hero_doom_bringer"        		"1"
+	"npc_dota_hero_riki"        				"1" // 100
+	"npc_dota_hero_zuus"        				"1"  
+	"npc_dota_hero_death_prophet"       	 	"1"	// 95
+	
+	
+	"npc_dota_hero_razor"        				"1"	// 95
+    "npc_dota_hero_viper"        				"1"	// 95
+	"npc_dota_hero_vengefulspirit"        		"1"	// 95
+	
+
+	"npc_dota_hero_dawnbreaker"        			"0"
+	"npc_dota_hero_queenofpain"        			"0"
+	"npc_dota_hero_templar_assassin"        	"0"
+	"npc_dota_hero_monkey_king"        			"0"
+	"npc_dota_hero_dark_willow"        			"0"
+	"npc_dota_hero_witch_doctor"        		"0"
+	"npc_dota_hero_tiny"        				"0"
+	"npc_dota_hero_undying"        				"0"
+
 	
 	
     "npc_dota_hero_axe"        					"1" //готов
@@ -44,7 +51,7 @@
     "npc_dota_hero_lion"        				"1" //готов
     "npc_dota_hero_pugna"        				"1" //готов
     "npc_dota_hero_shadow_shaman"        		"1" //готов
-    "npc_dota_hero_zuus"        				"1" //готов
+    
     "npc_dota_hero_warlock"        				"1" //готов		
     "npc_dota_hero_skywrath_mage"        		"1"
     "npc_dota_hero_nevermore"        			"1" //// донат!!!!
@@ -76,10 +83,8 @@
     
 
     "npc_dota_hero_disruptor"        "0"
-    "npc_dota_hero_jakiro"        "0" //готов
     
     "npc_dota_hero_ogre_magi"        "0"
-    "npc_dota_hero_doom_bringer"        "0"
     "npc_dota_hero_tusk"        "0"
     "npc_dota_hero_abaddon"        "0"
     "npc_dota_hero_lich"        "0"

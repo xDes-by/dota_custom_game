@@ -10,9 +10,11 @@ item_expiriance_aura = class({})
 
 function item_expiriance_aura:OnSpellStart()
 	if IsServer() then
+		print('on spell start')
 		self.caster = self:GetCaster()	
 		self.radius = self:GetSpecialValueFor( "radius" )
 		self.duration = self:GetSpecialValueFor( "duration" )
+		print('modifier_item_expiriance_aura_cd')
 		self.caster:AddNewModifier(self.caster, self, "modifier_item_expiriance_aura_cd", {duration = self:GetCooldown(self:GetLevel())* self.caster:GetCooldownReduction()})
 		local Heroes = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), self:GetCaster(), self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, 0, false )
 		for _,Hero in pairs( Heroes ) do
@@ -54,7 +56,6 @@ end
 function modifier_item_expiriance_aura:OnCreated( kv )
 	if IsServer() then 
 		self.caster = self:GetCaster()
-		
 	end
 end
 

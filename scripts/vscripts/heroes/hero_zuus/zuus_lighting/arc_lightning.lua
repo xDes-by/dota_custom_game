@@ -1,15 +1,41 @@
 LinkLuaModifier("modifier_zuus_arc_lightning_lua", "heroes/hero_zuus/zuus_lighting/arc_lightning", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arc_lightning_intrinsic", "heroes/hero_zuus/zuus_lighting/modifier_arc_lightning_intrinsic", LUA_MODIFIER_MOTION_NONE)
 
 zuus_arc_lightning_lua = zuus_arc_lightning_lua or class({})
 modifier_zuus_arc_lightning_lua	= modifier_zuus_arc_lightning_lua or class({})
 
+function zuus_arc_lightning_lua:GetIntrinsicModifierName()
+	return "modifier_arc_lightning_intrinsic"
+end
 
+function zuus_arc_lightning_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_agi6") then
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+	end
+end
 
 function zuus_arc_lightning_lua:GetManaCost(iLevel)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int10") ~= nil then 
-		return 50 + math.min(65000, self:GetCaster():GetIntellect()/200)
+	local caster = self:GetCaster()
+	local mana_cost = 50 + math.min(65000, caster:GetIntellect()/200)
+	if caster:FindAbilityByName("npc_dota_hero_zuus_agi9") then
+		if IsClient() then return 0 end
+		local as = caster:GetDisplayAttackSpeed()
+		local perc = (100-as/15)/100
+		mana_cost = mana_cost * perc
 	end
-	return 100 + math.min(65000, self:GetCaster():GetIntellect()/100)
+	return mana_cost
+end
+
+function zuus_arc_lightning_lua:GetCooldown(level)
+	local caster = self:GetCaster()
+	local cooldown = self.BaseClass.GetCooldown( self, level )
+	if caster:FindAbilityByName("npc_dota_hero_zuus_agi9") then
+		if IsClient() then return 0 end
+		local as = caster:GetDisplayAttackSpeed()
+		local perc = (100-as/15)/100
+		cooldown = cooldown * perc
+	end
+    return cooldown
 end
 
 function zuus_arc_lightning_lua:OnSpellStart()

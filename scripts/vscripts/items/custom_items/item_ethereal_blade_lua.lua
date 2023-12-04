@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_item_ethereal_blade_enemy", 'items/custom_items/item_e
 
 function item_ethereal_blade_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/ethereal_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_ethereal_blade_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_ethereal_blade_lua" .. level
 	end
 end
 

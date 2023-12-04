@@ -56,7 +56,7 @@ function magnataur_reverse_polarity_lua:OnSpellStart()
 	end
 	local special_bonus_unique_npc_dota_hero_magnataur_str50 = caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_str50")
 	if special_bonus_unique_npc_dota_hero_magnataur_str50 then
-		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_magnataur_str50", {})
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_magnataur_str50", {duration = 90})
 	end
 	local damageTable = {
 		attacker = caster,

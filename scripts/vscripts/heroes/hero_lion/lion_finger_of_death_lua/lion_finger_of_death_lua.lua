@@ -1,5 +1,6 @@
 lion_finger_of_death_lua = class({})
 LinkLuaModifier( "modifier_lion_finger_of_death_lua", "heroes/hero_lion/lion_finger_of_death_lua/modifier_lion_finger_of_death_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_lion_finger_of_death_intrinsic_lua", "heroes/hero_lion/lion_finger_of_death_lua/lion_finger_of_death_lua", LUA_MODIFIER_MOTION_NONE )
 
 function lion_finger_of_death_lua:GetAOERadius()
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lion_int9")	
@@ -8,6 +9,11 @@ function lion_finger_of_death_lua:GetAOERadius()
 	end
 	return 0
 end
+
+function lion_finger_of_death_lua:GetIntrinsicModifierName()
+	return "modifier_lion_finger_of_death_intrinsic_lua"
+end
+
 
 function lion_finger_of_death_lua:GetCooldown( level )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_lion_str_last") ~= nil then 
@@ -107,4 +113,32 @@ function lion_finger_of_death_lua:PlayEffects( target )
 
 	-- Create Sound
 	EmitSoundOn( sound_cast, target )
+end
+
+modifier_lion_finger_of_death_intrinsic_lua = class({})
+
+function modifier_lion_finger_of_death_intrinsic_lua:IsHidden()
+	return true
+end
+
+function modifier_lion_finger_of_death_intrinsic_lua:IsPurgable()
+	return false
+end
+
+function modifier_lion_finger_of_death_intrinsic_lua:RemoveOnDeath()
+	return false
+end
+
+function modifier_lion_finger_of_death_intrinsic_lua:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK,
+	}
+end
+function modifier_lion_finger_of_death_intrinsic_lua:OnAttack(params)
+    self.caster = self:GetCaster()
+    self.ability = self:GetAbility()
+    if params.attacker == self:GetParent() and self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_int50") and RandomInt(1, 100) <= 10 then
+		self.caster:SetCursorCastTarget( params.target )
+        self.ability:OnSpellStart()
+    end
 end

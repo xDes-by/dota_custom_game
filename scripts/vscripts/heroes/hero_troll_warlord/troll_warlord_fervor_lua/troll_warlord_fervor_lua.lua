@@ -2,21 +2,8 @@ LinkLuaModifier('modifier_troll_warlord_fervor_lua', "heroes/hero_troll_warlord/
 LinkLuaModifier('modifier_troll_warlord_fervor_lua_debuff', "heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_troll_warlord_fervor_lua_debuff_2', "heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_troll_warlord_fervor_lua_buff', "heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier('modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50', "heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier('modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff', "heroes/hero_troll_warlord/troll_warlord_fervor_lua/troll_warlord_fervor_lua", LUA_MODIFIER_MOTION_NONE)
 
 troll_warlord_fervor_lua = class({})
-
-function troll_warlord_fervor_lua:GetBehavior() 
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_agi50") ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
-	end
-	return DOTA_ABILITY_BEHAVIOR_PASSIVE
-end
-
-function troll_warlord_fervor_lua:OnSpellStart() 
-    self:GetCaster():AddNewModifier(self:GetCaster(), self, "special_bonus_unique_npc_dota_hero_troll_warlord_agi50", {})
-end
 
 function troll_warlord_fervor_lua:GetIntrinsicModifierName() 
     return 'modifier_troll_warlord_fervor_lua'
@@ -42,9 +29,16 @@ end
 
 function modifier_troll_warlord_fervor_lua:DeclareFunctions()
 	local funcs = {
-		MODIFIER_EVENT_ON_ATTACK_LANDED
+		MODIFIER_EVENT_ON_ATTACK_LANDED,
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
 	}
 	return funcs
+end
+
+function modifier_troll_warlord_fervor_lua:GetModifierPercentageCasttime()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_agi50") then
+		return 100
+	end
 end
 
 function modifier_troll_warlord_fervor_lua:OnAttackLanded( params )
@@ -52,6 +46,15 @@ function modifier_troll_warlord_fervor_lua:OnAttackLanded( params )
 		return
 	end
 	self:AddStack(params.target, params.original_damage, params.attacker)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_troll_warlord_agi50") then
+		if self:GetCaster():IsRangedAttacker() and RollPercentage(15) then
+			local abi = self:GetCaster():FindAbilityByName("troll_warlord_whirling_axes_ranged_lua")
+			if abi:IsFullyCastable() then
+				abi:SetOverrideCastPoint(0)
+				self:GetCaster():CastAbilityOnPosition(params.target:GetAbsOrigin(), abi, -1)
+			end
+		end
+	end
 end
 
 function modifier_troll_warlord_fervor_lua:AddStack(target, original_damage, attacker)
@@ -192,90 +195,4 @@ end
 
 function modifier_troll_warlord_fervor_lua_buff:GetModifierAttackSpeedBonus_Constant()
 	return self:GetStackCount() * 10
-end
-
-modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50 = class({})
---Classifications template
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:IsHidden()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:IsDebuff()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:IsPurgable()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:IsStunDebuff()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:RemoveOnDeath()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:DestroyOnExpire()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:DeclareFunctions()
-	return {
-		MODIFIER_EVENT_ON_ATTACK_LANDED
-	}
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50:OnAttackLanded(data)
-	if params.attacker~=self:GetParent() then
-		return
-	end
-	data.target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff",{duration = 10})
-	self:Destroy()
-end
-
-modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff = class({})
---Classifications template
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:IsHidden()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:IsDebuff()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:IsPurgable()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:IsStunDebuff()
-	return false
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:RemoveOnDeath()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:DestroyOnExpire()
-	return true
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
-	}
-end
-
-function modifier_special_bonus_unique_npc_dota_hero_troll_warlord_agi50_debuff:GetModifierPhysicalArmorBonus()
-	return self:GetParent():GetPhysicalArmorBaseValue() * -1
 end

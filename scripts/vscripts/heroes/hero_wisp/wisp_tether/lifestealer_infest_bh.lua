@@ -1,12 +1,28 @@
 LinkLuaModifier("modifier_lifestealer_infest_bh_talent", "heroes/hero_wisp/wisp_tether/lifestealer_infest_bh", LUA_MODIFIER_MOTION_NONE)
 lifestealer_infest_bh = class({})
 
-function lifestealer_infest_bh:IsStealable()
-    return false
+function lifestealer_infest_bh:Spawn()
+	if IsServer() then
+		self:SetLevel(1)
+	end
 end
 
-function lifestealer_infest_bh:IsHiddenWhenStolen()
-    return false
+modifier_lifestealer_infest_bh_talent = class({})
+function modifier_lifestealer_infest_bh_talent:IsHidden() return true end
+function modifier_lifestealer_infest_bh_talent:IsPurgable() return false end
+function modifier_lifestealer_infest_bh_talent:RemoveOnDeath() return false end
+function modifier_lifestealer_infest_bh_talent:OnCreated( kv )
+    if not IsServer() then return end
+    self:StartIntervalThink(0.2)
+    self:OnIntervalThink()
+end
+
+function modifier_lifestealer_infest_bh_talent:OnIntervalThink()
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") then
+        self:GetAbility():SetHidden(false)
+    else
+        self:GetAbility():SetHidden(true)
+    end
 end
 
 function lifestealer_infest_bh:GetIntrinsicModifierName()
@@ -19,6 +35,25 @@ function lifestealer_infest_bh:GetCastPoint()
     else
         return 0.2
     end
+end
+
+function lifestealer_infest_bh:GetCustomCastErrorTarget(target)
+	if target == self:GetCaster() then
+		return "dota_hud_error_cant_cast_on_self"
+	end
+end
+
+function lifestealer_infest_bh:CastFilterResultTarget(target)
+	if IsServer() then
+		local caster = self:GetCaster()
+
+		if target == caster then
+			return UF_FAIL_CUSTOM
+		end
+		
+		local nResult = UnitFilter(target, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), caster:GetTeamNumber())
+		return nResult
+	end
 end
 
 function lifestealer_infest_bh:GetManaCost(iLvl)
@@ -57,10 +92,10 @@ end
 
 
 function lifestealer_infest_bh:GetBehavior()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_str_last") then
-        return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+    if self:GetCaster():HasModifier("modifier_lifestealer_infest_bh") then
+        return DOTA_ABILITY_BEHAVIOR_NO_TARGET
     end
-    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_HIDDEN
+    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
 
 function lifestealer_infest_bh:OnOwnerDied()
@@ -93,38 +128,28 @@ function lifestealer_infest_bh:GetCastRange(location, target)
     return self:GetCaster():Script_GetAttackRange()
 end
 
--- modifier_lifestealer_infest_bh_talent = class({
---     IsHidden                = function(self) return true end,
---     IsPurgable              = function(self) return false end,
---     IsDebuff                = function(self) return false end,
---     IsBuff                  = function(self) return true end,
---     RemoveOnDeath           = function(self) return true end,
--- })
-
--- function modifier_lifestealer_infest_bh_talent:OnCreated( kv )
---     self:StartIntervalThink(0.1)
-
--- end
-
--- function modifier_lifestealer_infest_bh_talent:OnIntervalThink()
---     if self:GetCaster():FindAbilityByName("")
--- end
 
 modifier_lifestealer_infest_bh = class({})
 LinkLuaModifier("modifier_lifestealer_infest_bh", "heroes/hero_wisp/wisp_tether/lifestealer_infest_bh", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_lifestealer_infest_bh:OnCreated()
-	self.damage = self:GetAbility():GetSpecialValueFor("aoe_damage")
-	self.regen = self:GetAbility():GetSpecialValueFor("max_hp_regen")
-	
-	-- self.talent2 = self:GetCaster():HasTalent("special_bonus_unique_lifestealer_infest_2")
     if IsServer() then
+        GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(self, "GoldFilter"), self)
 		self.target = self:GetAbility():GetCursorTarget()
         self:GetParent():AddNoDraw()
         self:StartIntervalThink(FrameTime())
     end
 end
-
+function modifier_lifestealer_infest_bh:GoldFilter(data)
+    if data.player_id_const == self:GetCaster():GetPlayerID() and data.reason_const == DOTA_ModifyGold_CreepKill then
+        self.target:ModifyGoldFiltered( data.gold, true, DOTA_ModifyGold_CreepKill )
+        return false 
+    end
+    if data.player_id_const == self.target:GetPlayerID() then
+        self:GetCaster():ModifyGoldFiltered( data.gold * 0.3, true, DOTA_ModifyGold_Unspecified )
+    end
+    return true
+end
 function modifier_lifestealer_infest_bh:OnRemoved()
     if IsServer() then
 		local ability = self:GetAbility()
@@ -138,44 +163,24 @@ function modifier_lifestealer_infest_bh:OnRemoved()
             ability:DealDamage(parent, enemy, self.damage)
         end
         ability.target:RemoveModifierByName("modifier_lifestealer_infest_bh_ally")
-		if self.talent2 then
-			parent:RefreshAllCooldowns(true, true)
-		end
     end
 end
 
+
+
 function modifier_lifestealer_infest_bh:OnIntervalThink()
     self:GetCaster():SetAbsOrigin(self:GetAbility().target:GetAbsOrigin())
-	-- if self:GetAbility().target and self:GetAbility().target:IsAlive() and self:GetRemainingTime() > 0.1 then
-	-- 	self:GetCaster():SetAbsOrigin(self:GetAbility().target:GetAbsOrigin())
-	-- else
-	-- 	self:GetAbility():CastSpell()
-	-- end
 end
 
 function modifier_lifestealer_infest_bh:CheckState()
-    local state = { [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                    [MODIFIER_STATE_ROOTED] = true,
-                    [MODIFIER_STATE_DISARMED] = true,
-                    [MODIFIER_STATE_INVULNERABLE] = true}
+    local state = { 
+        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+        [MODIFIER_STATE_ROOTED] = true,
+        [MODIFIER_STATE_DISARMED] = true,
+        [MODIFIER_STATE_INVULNERABLE] = true
+    }
     return state
 end
-
-function modifier_lifestealer_infest_bh:DeclareFunctions()
-	return {MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE, MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE }
-end
-
-function modifier_lifestealer_infest_bh:GetModifierHealthRegenPercentage()
-	return self.regen
-end
-
-
-function modifier_lifestealer_infest_bh:GetModifierTotalPercentageManaRegen()
-	if self.talent2 then
-		return self.regen
-	end
-end
-
 
 function modifier_lifestealer_infest_bh:IsDebuff()
     return false
@@ -186,11 +191,7 @@ LinkLuaModifier("modifier_lifestealer_infest_bh_ally", "heroes/hero_wisp/wisp_te
 
 function modifier_lifestealer_infest_bh_ally:OnCreated()
 	if IsServer() then
-        self.bonus_hp = self:GetAbility():GetSpecialValueFor("ally_bonus_hp")
-        if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_wisp_str50") then
-            self.bonus_hp = self.bonus_hp + self:GetCaster():GetMaxHealth() * 0.85
-        end
-		self:GetParent():HealEvent( self.bonus_hp, self:GetAbility(), self:GetCaster(), {heal_flags = HEAL_FLAG_IGNORE_AMPLIFICATION} )
+        self.caster = self:GetCaster()
 	end
 end
 
@@ -201,11 +202,16 @@ function modifier_lifestealer_infest_bh_ally:OnRemoved()
 end
 
 function modifier_lifestealer_infest_bh_ally:DeclareFunctions()
-	return { MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS }
+	return { 
+        MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
+        MODIFIER_EVENT_ON_DEATH,
+    }
 end
 
 function modifier_lifestealer_infest_bh_ally:GetModifierExtraHealthBonus()
-	return self.bonus_hp
+    if self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_wisp_str50") then
+        return self.caster:GetMaxHealth() * 0.85
+    end
 end
 
 function modifier_lifestealer_infest_bh_ally:IsDebuff()
@@ -218,4 +224,10 @@ end
 
 function modifier_lifestealer_infest_bh_ally:GetEffectAttachType()
     return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_lifestealer_infest_bh_ally:OnDeath(params)
+    if params.unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and params.unit == self:GetParent() then
+        self:GetCaster():ForceKill(true)
+    end
 end

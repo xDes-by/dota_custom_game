@@ -30,6 +30,7 @@ end
 function modifier_dawnbreaker_celestial_hammer_lua_nohammer:OnCreated( kv )
 	if not IsServer() then return end
 	self:IncrementStackCount()
+	print("modifier_dawnbreaker_celestial_hammer_lua_nohammer:OnCreated")
 end
 
 function modifier_dawnbreaker_celestial_hammer_lua_nohammer:OnRefresh( kv )
@@ -41,6 +42,7 @@ end
 
 function modifier_dawnbreaker_celestial_hammer_lua_nohammer:OnDestroy()
 	if not IsServer() then return end
+	print("modifier_dawnbreaker_celestial_hammer_lua_nohammer:OnDestroy")
 end
 
 --------------------------------------------------------------------------------

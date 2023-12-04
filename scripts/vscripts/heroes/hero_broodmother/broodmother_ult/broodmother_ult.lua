@@ -30,14 +30,24 @@ function modifier_broodmother_ult:OnCreated( kv )
 	if IsServer() then
 		self:SetStackCount(0)
 		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_broodmother_ult_ms_limit", {})
-		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_str50") then
-			self:StartIntervalThink(FrameTime())
-		end
+		self:StartIntervalThink(FrameTime())
+		self:SetHasCustomTransmitterData( true )
 	end
+end
+
+function modifier_broodmother_ult:AddCustomTransmitterData()
+	return {
+		outgoing_bonus = self.outgoing_bonus,
+	}
+end
+
+function modifier_broodmother_ult:HandleCustomTransmitterData( data )
+	self.outgoing_bonus = data.outgoing_bonus
 end
 
 function modifier_broodmother_ult:OnIntervalThink()
 	self.outgoing_bonus = math.floor((100 - self:GetCaster():GetHealthPercent()) / 25)
+	self:SendBuffRefreshToClients()
 end
 
 function modifier_broodmother_ult:OnRefresh( kv )
@@ -149,7 +159,9 @@ function modifier_broodmother_ult:GetModifierSpellAmplify_Percentage()
 end
 
 function modifier_broodmother_ult:GetModifierDamageOutgoing_Percentage()
-	return self.outgoing_bonus * 100 + 100
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_broodmother_str50") then
+		return self.outgoing_bonus * 100 + 100
+	end
 end
 
 modifier_broodmother_ult_ms_limit = class({})

@@ -54,6 +54,19 @@ insane_drop = {
 		{items = {"item_points_40"}, chance = 100, units = {"npc_2023"}},
 }
 
+imposible_drop = {
+	{items = {"item_points_small"}, chance = 1, limit = 25, units = {"forest_creep_big_2","forest_creep_big_3","forest_creep_big_1","village_creep_1","village_creep_3","mines_creep_1","mines_creep_3","dust_creep_1","dust_creep_3","dust_creep_6","cemetery_creep_2","cemetery_creep_4","swamp_creep_2","swamp_creep_4"}},
+	
+	{items = {"item_gems_1","item_gems_2","item_gems_3","item_gems_4","item_gems_5"}, chance = 6, duration = 30, units = {"village_creep_1","village_creep_2","village_creep_3","mines_creep_1","mines_creep_2","mines_creep_3","dust_creep_1","dust_creep_2","dust_creep_3","dust_creep_4","dust_creep_5","dust_creep_6","cemetery_creep_1","cemetery_creep_2","cemetery_creep_3","cemetery_creep_4","swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4","snow_creep_1","snow_creep_3","snow_creep_3","snow_creep_4","last_creep_1","last_creep_2","last_creep_3","last_creep_4"}},
+	
+	{items = {"item_gems_1","item_gems_2","item_gems_3","item_gems_4","item_gems_5"}, chance = 4, duration = 30, units = {"creep_1","comandir_creep_1","creep_2","comandir_creep_2","creep_3","comandir_creep_3","creep_4","comandir_creep_4","creep_5","comandir_creep_5","creep_6","comandir_creep_6","creep_7","comandir_creep_7", "creep_8", "comandir_creep_8", "creep_9", "comandir_creep_9","creep_10","comandir_creep_10"}},
+	
+	{items = {"item_trap_ticket"}, chance = 1, limit = 1, units = {"snow_creep_1","snow_creep_3","snow_creep_2","snow_creep_4"}},
+	
+	{items = {"item_points_40"}, chance = 100, units = {"raid_new_year"}},
+	{items = {"item_points_40"}, chance = 100, units = {"npc_2023"}},
+}
+
 item_drop = {
 		{items = {"item_raid_soul"}, chance = 100, units = {"raid_boss", "raid_boss2", "raid_boss3", "raid_boss4"}},
 		
@@ -97,6 +110,7 @@ quest_drop = {
 	{name = "item_quest_line_sword", items = {"item_quest_line_sword"}, chance = 15,  duration = 30, units = {"creep_1","comandir_creep_1","creep_2","comandir_creep_2","creep_3","comandir_creep_3","creep_4","comandir_creep_4","creep_5","comandir_creep_5","creep_6","comandir_creep_6","creep_7","comandir_creep_7", "creep_8", "comandir_creep_8", "creep_9", "comandir_creep_9","creep_10","comandir_creep_10"}},
 	{name = "item_quest_necronomicon", items = {"item_quest_necronomicon"}, chance = 50,  duration = 30, units = {"boss_1","boss_2","boss_3","boss_4","boss_5","boss_6","boss_7","boss_8","boss_9"}},
 	{name = "item_quest_blue_ice", items = {"item_quest_blue_ice"}, chance = 10,  duration = 30, units = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}},
+	{name = "item_quest_pivo_bara", items = {"item_quest_pivo_bara"}, chance = 50,  duration = 30, units = {"npc_snow_boss","npc_mega_boss","npc_snow_boss_fake","npc_boss_location8"}},
 }
 
 
@@ -302,7 +316,8 @@ function RollQuestDrop( unit, killerEntity )
 		local roll_chance = RandomFloat(0, 100)
 		if units then 
 			for _,current_name in pairs(units) do
-				if current_name == unit_name and Quests.dropListArray[name] and Quests.dropListArray[name].active == true then
+				if current_name == unit_name and QuestSystem.dropListArray[name] and QuestSystem.dropListArray[name].active == true then
+					DeepPrintTable(QuestSystem.dropListArray)
 					units = nil
 					break
 				end

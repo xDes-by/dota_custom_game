@@ -46,10 +46,10 @@ LinkLuaModifier( "modifier_item_desolator_lua", "items/custom_items/item_desolat
 
 function item_desolator_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/desolator_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_desolator_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_desolator_lua" .. level
 	end
 end
 

@@ -4,16 +4,16 @@
 	{
 		"BaseClass"                     "ability_lua"
 		"ScriptFile"                    "heroes/hero_zuus/zuus_nimbus/zuus_nimbus.lua"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
 		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"                      "15"
+		"MaxLevel"                      "1"
 		"AbilityTextureName"            "zuus_cloud"
 
 		"AbilityCastRange"              "0"
 		"AbilityCastPoint"              "0.2"
 		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"3000"
 		"AbilityCooldown"               "20"
 
 		"AbilitySpecial"
@@ -21,7 +21,7 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"cloud_duration"        "40"
+				"cloud_duration"        "30"
 			}
 			"02"
 			{
@@ -33,103 +33,12 @@
 				"var_type"              "FIELD_INTEGER"
 				"cloud_radius"          "400"
 			}
-			"04"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"arc_damage"            "40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
-			}
-		}
-	}
-	
-	
-	"nimbus_lightning"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_DEAD | DOTA_UNIT_TARGET_FLAG_NO_INVIS | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"			"zuus_arc_lightning"
-		"MaxLevel"						"15"
-		
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
-			"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf"
-			"soundfile"		"sounds/weapons/hero/zuus/arc_lightning.vsnd"
-		}
-		
-		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.2"
-
-		"AbilityCooldown"				"1.5"
-
-		"AbilityManaCost"				"0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_count"			"4"
-			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_delay"			"0.25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+				"var_type"              "FIELD_INTEGER"
+				"cast_range"          	"1000"
 			}
 		}
-
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_arc_lightning_datadriven"
-				"Target"		"TARGET"
-			}
 		
-			"FireSound"
-			{
-				"EffectName"	"Hero_Zuus.ArcLightning.Cast"
-				"Target"		"CASTER"
-			}
-			
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_zuus/zuus_nimbus/lightning.lua"
-				"Function"		"NewInstance"
-				"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_arc_lightning_datadriven"
-			{
-				"IsHidden"	"1"
-		
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_zuus/zuus_nimbus/lightning.lua"
-						"Function"		"LightningJump"
-						"particle"		"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
-					}
-				}
-			}
-		}
 	}
 }

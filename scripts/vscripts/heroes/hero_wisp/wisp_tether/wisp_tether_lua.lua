@@ -5,7 +5,11 @@ LinkLuaModifier("modifier_wisp_tether_lua_ally", "heroes/hero_wisp/wisp_tether/w
 LinkLuaModifier("modifier_wisp_tether_lua_latch", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spell_ampl_tether", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_wisp_tether_lua_agi_talant", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wisp_tether_lua_attributes", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wisp_tether_lua_bonus_strength", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wisp_tether_lua_bonus_intellect", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wisp_tether_lua_bonus_agility", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
+
 LinkLuaModifier("modifier_wisp_tether_lua_ally_attack", "heroes/hero_wisp/wisp_tether/wisp_tether_lua.lua", LUA_MODIFIER_MOTION_NONE)
 
 function wisp_tether_lua:GetManaCost(iLevel)
@@ -64,8 +68,10 @@ function wisp_tether_lua:OnSpellStart()
 	self.target 				= self:GetCursorTarget()
 
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_wisp_agi_last") ~= nil then
-		-- caster:AddNewModifier(caster, self, "modifier_wisp_tether_lua_agi_talant", {})
 		self.target:AddNewModifier(caster, self, "modifier_wisp_tether_lua_ally_attack", {})
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_wisp_agi50") then
+		self.target:AddNewModifier(caster, self, "modifier_wisp_tether_lua_attributes", {})
 	end
 	local radius 			= self:GetSpecialValueFor("radius")
 	if caster:FindAbilityByName("npc_dota_hero_wisp_agi10") then
@@ -240,10 +246,6 @@ function modifier_wisp_tether_lua:OnRemoved()
 		if self.target:HasModifier("modifier_wisp_tether_lua_ally") then
 			self.target:RemoveModifierByName("modifier_wisp_tether_lua_ally")
 		end
-		
-		if self.target:HasModifier("modifier_wisp_tether_lua_agi_talant") then
-			self.target:RemoveModifierByName("modifier_wisp_tether_lua_agi_talant")
-		end
 
 		self:GetCaster():EmitSound("Hero_Wisp.Tether.Stop")
 		self:GetCaster():StopSound("Hero_Wisp.Tether")
@@ -330,6 +332,7 @@ function modifier_wisp_tether_lua_ally:OnRemoved()
 		end
 		
 		self:GetParent():RemoveModifierByName("modifier_wisp_tether_lua_ally_attack")
+		self:GetParent():RemoveModifierByName("modifier_wisp_tether_lua_attributes")
 		self:GetParent():RemoveModifierByName("modifier_spell_ampl_tether")
 		self:GetCaster():RemoveModifierByName("modifier_wisp_tether_lua")
 	end
@@ -531,44 +534,71 @@ end
 
 --------------------------------------------------------------------------------
 
-modifier_wisp_tether_lua_agi_talant = {}
+modifier_wisp_tether_lua_attributes = class({
+	IsHidden                 = function(self) return true end,
+    IsPurgable                 = function(self) return false end,
+    IsDebuff                 = function(self) return false end,
+    IsBuff                  = function(self) return true end,
+    RemoveOnDeath             = function(self) return true end,
+})
 
-function modifier_wisp_tether_lua_agi_talant:IsHidden()
-	return false
+function modifier_wisp_tether_lua_attributes:OnCreated()
+	if IsServer() then
+		self.bonus_strength = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_wisp_tether_lua_bonus_strength", {})
+		self.bonus_intellect = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_wisp_tether_lua_bonus_intellect", {})
+		self.bonus_agility = self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_wisp_tether_lua_bonus_agility", {})
+		self:OnIntervalThink()
+		self:StartIntervalThink(1)
+	end
 end
 
-function modifier_wisp_tether_lua_agi_talant:IsPurgable()
-	return false
+function modifier_wisp_tether_lua_attributes:OnDestroy()
+	if IsServer() then
+		self.bonus_strength:Destroy()
+		self.bonus_intellect:Destroy()
+		self.bonus_agility:Destroy()
+	end
 end
 
-function modifier_wisp_tether_lua_agi_talant:DeclareFunctions()
-	return {
-		-- MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-		-- MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-		MODIFIER_EVENT_ON_ATTACK,
-	}
+function modifier_wisp_tether_lua_attributes:OnIntervalThink()
+	local parent = self:GetParent()
+	if parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_ALL then
+		self.bonus_strength:SetStackCount( (parent:GetStrength() - self.bonus_strength:GetStackCount()) / 2 )
+		self.bonus_intellect:SetStackCount( (parent:GetIntellect() - self.bonus_intellect:GetStackCount()) / 2 )
+		self.bonus_agility:SetStackCount( (parent:GetAgility() - self.bonus_agility:GetStackCount()) / 2 )
+	elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
+		self.bonus_strength:SetStackCount( parent:GetStrength() - self.bonus_strength:GetStackCount() )
+	elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
+		self.bonus_agility:SetStackCount( parent:GetAgility() - self.bonus_agility:GetStackCount() )
+	elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
+		self.bonus_intellect:SetStackCount( parent:GetIntellect() - self.bonus_intellect:GetStackCount() )
+	end
 end
 
-function modifier_wisp_tether_lua_agi_talant:OnAttack( params )
-    caster = self:GetCaster()
-    if params.attacker == self:GetParent() then
-        caster:PerformAttack(
-			params.target, -- hTarget
-			false, -- bUseCastAttackOrb
-			true, -- bProcessProcs
-			true, -- bSkipCooldown
-			false, -- bIgnoreInvis
-			false, -- bUseProjectile
-			false, -- bFakeAttack
-			false -- bNeverMiss
-		)
-    end
-end
-
--- function modifier_wisp_tether_lua_agi_talant:GetModifierPreAttack_BonusDamage()
--- 	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
--- end
-
--- function modifier_wisp_tether_lua_agi_talant:GetModifierAttackSpeedBonus_Constant()
--- 	return self:GetAbility():GetSpecialValueFor("movespeed") * 10
--- end
+modifier_wisp_tether_lua_bonus_strength = class({
+    IsHidden                 = function(self) return self:GetStackCount() == 0 end,
+    IsPurgable                 = function(self) return false end,
+    IsDebuff                 = function(self) return false end,
+    IsBuff                  = function(self) return true end,
+    RemoveOnDeath             = function(self) return true end,
+    DeclareFunctions             = function(self) return {MODIFIER_PROPERTY_STATS_STRENGTH_BONUS} end,
+	GetModifierBonusStats_Strength = function(self) return self:GetStackCount() end
+})
+modifier_wisp_tether_lua_bonus_intellect = class({
+    IsHidden                 = function(self) return self:GetStackCount() == 0 end,
+    IsPurgable                 = function(self) return false end,
+    IsDebuff                 = function(self) return false end,
+    IsBuff                  = function(self) return true end,
+    RemoveOnDeath             = function(self) return true end,
+    DeclareFunctions             = function(self) return {MODIFIER_PROPERTY_STATS_INTELLECT_BONUS} end,
+	GetModifierBonusStats_Intellect = function(self) return self:GetStackCount() end
+})
+modifier_wisp_tether_lua_bonus_agility = class({
+    IsHidden                 = function(self) return self:GetStackCount() == 0 end,
+    IsPurgable                 = function(self) return false end,
+    IsDebuff                 = function(self) return false end,
+    IsBuff                  = function(self) return true end,
+    RemoveOnDeath             = function(self) return true end,
+    DeclareFunctions             = function(self) return {MODIFIER_PROPERTY_STATS_AGILITY_BONUS} end,
+	GetModifierBonusStats_Agility = function(self) return self:GetStackCount() end
+})

@@ -1808,6 +1808,7 @@
 
 #base "../vscripts/heroes/hero_zuus/zuus_talents.txt"
 #base "../vscripts/heroes/hero_zuus/zuus_lighting/arc_lightning.txt"
+#base "../vscripts/heroes/hero_zuus/zuus_lighting_bolt/zuus_lighting_bolt.txt"
 #base "../vscripts/heroes/hero_zuus/zuus_nimbus/zuus_nimbus.txt"
 #base "../vscripts/heroes/hero_zuus/zuus_passive/zuus_passive.txt"
 #base "../vscripts/heroes/hero_zuus/zuus_thunder/zuus_thunder.txt"
@@ -1862,7 +1863,7 @@
 
 //=====================================================================================================DOOM=====================================================================================================================================================
 
-//#base "../vscripts/heroes/hero_skywrath_mage/skywrath_mage_talents.txt"
+#base "../vscripts/heroes/hero_doom_bringer/doom_talents.txt"
 #base "../vscripts/heroes/hero_doom_bringer/blade/blade.txt"
 #base "../vscripts/heroes/hero_doom_bringer/devour/devour.txt"
 #base "../vscripts/heroes/hero_doom_bringer/earth/lina_firehell.txt"
@@ -1899,6 +1900,7 @@
 #base "../vscripts/heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_unstable_concoction_lua/alchemist_unstable_concoction_lua.txt"
 #base "../vscripts/heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua.txt"
+#base "../vscripts/heroes/hero_alchemist/alchemist_corrosive_weaponry_lua/alchemist_corrosive_weaponry_lua.txt"
 
 //=====================================================================================================BLOODSEEKER=====================================================================================================================================================
 
@@ -1990,7 +1992,7 @@
 
 //===================================================================================================== hero_necrolyte =====================================================================================================================================================
 
-#base "../vscripts/heroes/hero_necrolyte/hero_necrolyte_talents.txt"
+#base "../vscripts/heroes/hero_necrolyte/necrolyte_talents.txt"
 #base "../vscripts/heroes/hero_necrolyte/necrolyte_death_pulse/necrolyte_death_pulse.txt"
 #base "../vscripts/heroes/hero_necrolyte/necrolyte_ghost_shroud/necrolyte_ghost_shroud.txt"
 #base "../vscripts/heroes/hero_necrolyte/necrolyte_heartstopper_aura/necrolyte_heartstopper_aura.txt"
@@ -2049,6 +2051,23 @@
 #base "../vscripts/heroes/hero_riki/riki_smoke_screen_lua/riki_smoke_screen_lua.txt"
 #base "../vscripts/heroes/hero_riki/riki_cloak_and_dagger_lua/riki_cloak_and_dagger_lua.txt"
 #base "../vscripts/heroes/hero_riki/riki_tricks_of_the_trade_lua/riki_tricks_of_the_trade_lua.txt"
+
+//===================================================================================================== Leshrac ==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_leshrac/leshrac_talents.txt"
+#base "../vscripts/heroes/hero_leshrac/leshrac_split_earth_lua/leshrac_split_earth_lua.txt"
+#base "../vscripts/heroes/hero_leshrac/leshrac_diabolic_edict_lua/leshrac_diabolic_edict_lua.txt"
+#base "../vscripts/heroes/hero_leshrac/leshrac_lightning_storm_lua/leshrac_lightning_storm_lua.txt"
+#base "../vscripts/heroes/hero_leshrac/leshrac_pulse_nova_lua/leshrac_pulse_nova_lua.txt"
+
+//===================================================================================================== jakiro ==================================================================================================================================================
+
+#base "../vscripts/heroes/hero_jakiro/jakiro_talents.txt"
+#base "../vscripts/heroes/hero_jakiro/jakiro_dual_breath_lua/jakiro_dual_breath_lua.txt"
+#base "../vscripts/heroes/hero_jakiro/jakiro_ice_path_lua/jakiro_ice_path_lua.txt"
+#base "../vscripts/heroes/hero_jakiro/jakiro_liquid_fire_lua/jakiro_liquid_fire_lua.txt"
+#base "../vscripts/heroes/hero_jakiro/jakiro_liquid_ice_lua/jakiro_liquid_ice_lua.txt"
+#base "../vscripts/heroes/hero_jakiro/jakiro_macropyre_lua/jakiro_macropyre_lua.txt"
 
 //====================================================================================================ANAKIM===================================================================================================================================================
 

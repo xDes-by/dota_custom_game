@@ -5,6 +5,7 @@ LinkLuaModifier( "modifier_silencer_glaives_of_wisdom_shild", "heroes/hero_silen
 LinkLuaModifier( "modifier_silencer_glaives_of_wisdom_talent", "heroes/hero_silencer/glaives_of_wisdom_lua/glaives_of_wisdom_lua.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_silencer_glaives_of_wisdom_silence", "heroes/hero_silencer/glaives_of_wisdom_lua/glaives_of_wisdom_lua.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_silencer_glaives_of_wisdom_silence_debuff", "heroes/hero_silencer/glaives_of_wisdom_lua/glaives_of_wisdom_lua.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_silencer_glaives_of_wisdom_m_resistance", "heroes/hero_silencer/glaives_of_wisdom_lua/glaives_of_wisdom_lua.lua", LUA_MODIFIER_MOTION_NONE )
 
 silencer_glaives_of_wisdom_lua = {}
 
@@ -70,10 +71,9 @@ function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 	if caster == target then return end
 	damage_type = self:GetAbilityDamageType()
 	damage_flags = DOTA_DAMAGE_FLAG_MAGIC_AUTO_ATTACK
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_agi50") then
-		damage_type = DAMAGE_TYPE_PHYSICAL
-		damage_flags = 0
-	end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_agi50") then
+	-- 	damage_type = DAMAGE_TYPE_PHYSICAL
+	-- end
 	local damageTable = {
 		victim = target,
 		attacker = caster,
@@ -99,7 +99,11 @@ function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 		modifier_shild:SetStackCount( modifier_shild:GetStackCount() + damage)
 	end
 	if caster:FindAbilityByName("npc_dota_hero_silencer_int6") then
-		if caster:FindAbilityByName("npc_dota_hero_silencer_int9") and RollPseudoRandomPercentage(17, caster:entindex(), caster) then
+		rand = 17
+		if caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_int50") then
+			rand = rand + 23
+		end
+		if caster:FindAbilityByName("npc_dota_hero_silencer_int9") and RollPseudoRandomPercentage(rand, caster:entindex(), caster) then
 			local modifier_silencer_glaives_of_wisdom_lua = caster:FindModifierByName("modifier_silencer_glaives_of_wisdom_lua")
 			modifier_silencer_glaives_of_wisdom_lua:IncrementStackCount()
 		else
@@ -113,6 +117,9 @@ function silencer_glaives_of_wisdom_lua:ApplyDamage( target, damage )
 				}
 			)
 		end
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_silencer_agi50") then
+		target:AddNewModifier(self:GetCaster(), self, "modifier_silencer_glaives_of_wisdom_m_resistance", {duration = 30})
 	end
 end
 
@@ -615,7 +622,7 @@ end
 --------------------------------------------------------------------------------
 -- Initializations
 function modifier_silencer_glaives_of_wisdom_shild:OnCreated( kv )
-	self.max = self:GetCastCount()
+	self.max = self:GetStackCount()
 end
 
 function modifier_silencer_glaives_of_wisdom_shild:DeclareFunctions()
@@ -705,4 +712,38 @@ end
 
 function modifier_silencer_glaives_of_wisdom_silence_debuff:CheckState()
 	return { [MODIFIER_STATE_SILENCED] = true }
+end
+
+modifier_silencer_glaives_of_wisdom_m_resistance = class({})
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:IsHidden()
+	return false
+end
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:IsDebuff()
+	return true
+end
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:IsPurgable()
+	return false
+end
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:OnCreated( kv )
+	if IsServer() then
+		self:IncrementStackCount()
+		if self:GetStackCount() > 15 then 
+			self:SetStackCount(15)
+		end
+	end
+end
+modifier_silencer_glaives_of_wisdom_m_resistance.OnRefresh = modifier_silencer_glaives_of_wisdom_m_resistance.OnCreated
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+	}
+end
+
+function modifier_silencer_glaives_of_wisdom_m_resistance:GetModifierMagicalResistanceBonus()
+	return self:GetStackCount() * -1.5
 end

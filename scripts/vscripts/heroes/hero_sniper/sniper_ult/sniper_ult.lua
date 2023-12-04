@@ -31,7 +31,6 @@ if not IsServer() then return end
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
 	local damage = self:GetAbility():GetSpecialValueFor("damage")
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
-		chance = chance * 2
 		radius = radius * 2
 		damage = damage * 2
 	end

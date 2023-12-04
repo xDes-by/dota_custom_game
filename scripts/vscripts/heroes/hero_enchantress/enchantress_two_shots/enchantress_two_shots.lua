@@ -106,7 +106,7 @@ function enchantress_two_shots:OnProjectileHit( target, location )
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_enchantress_int9") ~= nil then 
 			damage = damage + self:GetCaster():GetIntellect()
 		end
-		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_enchantress_int50") ~= nil then 
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_enchantress_agi50") ~= nil then 
 			damage = damage * 2
 		end		
         ApplyDamage({victim = target, attacker = self:GetCaster(), damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = self})

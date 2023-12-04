@@ -11,18 +11,18 @@
 		"ItemCost"						"4275"
         "AbilityValues"
         {
-            "aura_movement_speed"    "20 25 30 35 40 45 50 55"
-            "bonus_str"                "8 16 32 64 128 256 512 1024"
-            "bonus_int"                "8 16 32 64 128 256 512 1024"
-            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210"
-            "bonus_movement_speed_pct"    "5 10 15 20 25 30 35"
-            "duration"                "3 4 5 6 7 8 9 10"
-            "radius"                "1200"
-            "charges_tooltip"                "8"
-            "bonus_movement_speed"    "40 50 60 70 80 90 100 110"
-            "bonus_health_regen"    "15 30 60 90 180 360 720 1440"
-            "recharge_time"            "180"
-            "charges"					"15 20 25 30 35 40 45 50"
+            "aura_movement_speed"    	"20 25 30 35 40 45 50 55 60 65"
+            "bonus_str"                	"8 16 32 64 128 256 512 1024 2048 4096"
+            "bonus_int"                	"8 16 32 64 128 256 512 1024 2048 4096"
+            "bonus_attack_speed_pct"    "50 70 90 110 130 150 180 210 240 270"
+            "bonus_movement_speed_pct"  "5 10 15 20 25 30 35 40 45 50"
+            "duration"                	"3 4 5 6 7 8 9 10 11 12"
+            "radius"                	"1200"
+            "charges_tooltip"           "8"
+            "bonus_movement_speed"    	"40 50 60 70 80 90 100 110 120 130"
+            "bonus_health_regen"    	"15 30 60 90 180 360 720 1440 2880 5760"
+            "recharge_time"            	"180"
+            "charges"					"15 20 25 30 35 40 45 50 55 60"
         }
     }
 	"item_midas_lua"
@@ -38,11 +38,11 @@
 		"ItemCost"						"2200"
 		"AbilityValues"
 		{
-			"attack_speed"									"40 60 80 100 120 140 160 180"
-			"shareble_gold"									"30"
+			"attack_speed"				"40 60 80 100 120 140 160 180 200 220"
+			"shareble_gold"				"30"
 		}
 	}
-	"item_hurricane_pike"
+	"item_hurricane_pike_lua"
 	{
 		"BaseClass"                     "item_lua"
 		"ScriptFile"                    "items/custom_items/item_hurricane_pike"
@@ -53,17 +53,17 @@
 		"ItemCost"						"4450"
 		"AbilityValues"
 		{
-			"bonus_damage"                            		"30 60 120 240 480 960 1920 3840"
-			"bonus_health"                               	"200 400 800 1600 3200 6400 12800 25600"
-			"bonus_intellect"                               "10 17 29 49 83 133 200 280"
-			"bonus_agility"                            		"18 30 52 88 150 225 315 410"
-			"bonus_strength"                                "12 20 34 58 100 160 240 336"
-			"base_attack_range"                            	"150 155 160 165 170 180 190 200"
-			"multishot_targets"								"1 1 1 1 2 2 2 2"
-			"multishot_cooldown"							"0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
-			"multishot_damage"								"15 20 25 30 35 40 45 50"
-			"multishot_radius"								"250"
-			"multishot_chance"								"50"
+			"bonus_damage"              "30 60 120 240 480 960 1920 3840 7680 15360"
+			"bonus_health"              "200 400 800 1600 3200 6400 12800 25600 51200 102400"
+			"bonus_intellect"           "10 17 29 49 83 133 200 280 370 480"
+			"bonus_agility"             "18 30 52 88 150 225 315 410 540 700"
+			"bonus_strength"            "12 20 34 58 100 160 240 336 440 560"
+			"base_attack_range"         "150 155 160 165 170 180 190 200 210 220"
+			"multishot_targets"			"1 1 1 1 2 2 2 2 3 4"
+			"multishot_cooldown"		"1.0 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1"
+			"multishot_damage"			"15 20 25 30 35 40 45 50 55 60"
+			"multishot_radius"			"250"
+			"multishot_chance"			"50"
 		}
 	}
 	"item_sabre_blade"
@@ -77,14 +77,14 @@
 		"ItemCost"						"2500"
 		"AbilityValues"
 		{
-			"bonus_strength"                                "30 70 110 150 190 230 270 310"
-			"bonus_intellect"                               "15 35 55 75 95 115 135 155"
-			"bonus_mana_regen"                             	"1 2 3 4.5 6 7.5 9 11"
-			"bonus_attack_speed"                             		"20 40 60 80 100 120"
-			"bonus_damage"                            "30 60 120 240 480 960 1920 3840"
-			"movement_slow"     							"100"
-			"slow_duration"     							"1"
-			"mult"											"1 2 3 4 5 6 7 8"
+			"bonus_strength"            "30 70 110 150 190 230 270 310 350 390"
+			"bonus_intellect"           "15 35 55 75 95 115 135 155 175 195"
+			"bonus_mana_regen"          "1 2 3 4.5 6 7.5 9 11 13 15"
+			"bonus_attack_speed"        "20 40 60 80 100 120 140 160 180 200"
+			"bonus_damage"              "30 60 120 240 480 960 1920 3840 7680 15360"
+			"movement_slow"     		"100"
+			"slow_duration"     		"1"
+			"mult"						"1 2 3 4 5 6 7 8 9 10"
 		}
 	} 
 	"item_meteor_hammer_lua"
@@ -102,38 +102,38 @@
 		"ItemCost"						"2400"
 		"AbilityValues"
 		{
-            "bonus_all_stats"		"8 16 32 64 128 256 512 768"
-            "bonus_health_regen"	"6.5 13 26 52 104 208 416 832"
-            "bonus_mana_regen"		"2.5 5 10 20 40 80 160 320"
-            "burn_dps_buildings"	"60 120 240 480 960 1920 3840 7680"
-            "burn_dps_units"		"60 120 240 480 960 1920 3840 7680"
-            "burn_duration"			"6"
-            "stun_duration"			"1.25"
-            "burn_interval"			"1.0"
-            "land_time"				".5"
-            "impact_radius"			"400"
-            "max_duration"			"2.5"
-            "impact_damage_buildings"	"75 150 300 600 1200 2400 4800 9600"
-            "impact_damage_units"		"75 150 300 600 1200 2400 4800 9600"
+            "bonus_all_stats"			"8 16 32 64 128 256 512 768 1024 1536 2048"
+            "bonus_health_regen"		"6.5 13 26 52 104 208 416 832 1664 3328 6656"
+            "bonus_mana_regen"			"0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5"
+            "burn_dps_buildings"		"60 120 240 480 960 1920 3840 7680 15360 30720"
+            "burn_dps_units"			"60 120 240 480 960 1920 3840 7680 15360 30720"
+            "burn_duration"				"6"
+            "stun_duration"				"1.25"
+            "burn_interval"				"1.0"
+            "land_time"					".5"
+            "impact_radius"				"400"
+            "max_duration"				"2.5"
+            "impact_damage_buildings"	"75 150 300 600 1200 2400 4800 9600 19200 38400 76800"
+            "impact_damage_units"		"75 150 300 600 1200 2400 4800 9600 19200 38400 76800"
 		}
 	}	
 	
 	"item_assault_lua"
     {
-        "BaseClass"                        "item_lua"
-        "AbilityTextureName"             "item_assault"
-        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"                     "item_lua"
+        "AbilityTextureName"            "item_assault"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"                    "items/custom_items/item_assault_lua"
-        "ItemBaseLevel"                    "1"
+        "ItemBaseLevel"                 "1"
 		"ItemCost"						"5125"
         "AbilityValues"
         {
-			"bonus_attack_speed"    "25 50 75 100 125 150 175 200 225 250 275"
-			"bonus_armor"            "10 20 40 80 130 175 225 275 325 375 425"
-			"aura_radius"            "800"
-			"aura_attack_speed"        "25 50 75 100 125 150 175 200 225 250 275"
-			"aura_positive_armor"    "5 15 30 50 100 150 200 250 300 350 400"
-			"aura_negative_armor"    "5 15 30 50 100 150 200 250 300 350 400"
+			"bonus_attack_speed"    	"25 50 75 100 125 150 175 200 225 250 275"
+			"bonus_armor"            	"10 20 40 80 130 175 225 275 325 375 425"
+			"aura_radius"            	"800"
+			"aura_attack_speed"       	"25 50 75 100 125 150 175 200 225 250 275"
+			"aura_positive_armor"    	"5 15 30 50 100 150 200 250 300 350 400"
+			"aura_negative_armor"    	"5 15 30 50 100 150 200 250 300 350 400"
         }
     }
 	
@@ -154,15 +154,15 @@
 		"ItemCost"						"5550"
 		"AbilityValues"
 		{
-			"bonus_strength"		"10 15 25 50 75 150 300 450"
-			"bonus_agility"			"10 15 25 50 75 150 300 450"
-			"bonus_intellect"		"35 50 90 175 260 525 1050 1575"
-			"bonus_mana_regen"		"1 2 3 4.5 6 7.5 9 11"
-			"sheep_duration"		"0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0"
-			"sheep_movement_speed"	"140"
-			"intellect_dmg"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6"
-			"duration"				"3"
-			"projectile_speed"		"320 340 360 380 400 420 440 460"
+			"bonus_strength"			"10 15 25 50 75 150 300 450 600 750 900"
+			"bonus_agility"				"10 15 25 50 75 150 300 450 600 750 900"
+			"bonus_intellect"			"35 50 90 175 260 525 1050 1575 2100 2625 3150"
+			"bonus_mana_regen"			"1 2 3 4.5 6 7.5 9 11 13 15 17"
+			"sheep_duration"			"0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0"
+			"sheep_movement_speed"		"140"
+			"intellect_dmg"				"0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+			"duration"					"3"
+			"projectile_speed"			"320 340 360 380 400 420 440 460 480 500 520"
 		}
 	}
 
@@ -183,14 +183,14 @@
 		"ItemCost"						"2780"
 		"AbilityValues"
 		{
-			"bonus_mana_regen"		"1.75 3.5 5.25 7 8.75 10.5 12.25 14"
-			"bonus_all_stats"		"6 12 24 48 96 192 384 768"
-			"bonus_armor"			"2 4 8 16 32 64 128 256"
-			"bonus_health"			"125 250 500 1000 2000 4000 8000 16000"
-			"duration"				"8"
-			"hp_regen_reduction_enemy"	"5 10 15 20 25 30 35 99"
-			"soul_damage_amount"	"50 100 150 200 250 300 350 400"
-			"enemy_hp_drain"	"1"
+			"bonus_mana_regen"			"1.75 3.5 5.25 7 8.75 10.5 12.25 14 15.75 17.5"
+			"bonus_all_stats"			"6 12 24 48 96 192 384 768 1536 3072"
+			"bonus_armor"				"2 4 8 16 32 64 128 256 512 1024"
+			"bonus_health"				"125 250 500 1000 2000 4000 8000 16000 32000"
+			"duration"					"8"
+			"hp_regen_reduction_enemy"	"5 10 15 20 25 30 35 40 45 99"
+			"soul_damage_amount"		"50 100 150 200 250 300 350 400 450 500"
+			"enemy_hp_drain"			"1"
 		}
 	}
 
@@ -205,11 +205,11 @@
 		"ItemCost"						"5050"
 		"AbilityValues"
 		{
-			"damage_bonus"					"55 100 200 400 800 1600 3200 6400"
-			"strength_bonus"				"25 40 80 120 160 200 250 300"
-			"lifesteal_pct"					"10 12 14 16 19 22 25 28"
-			"duration"						"5.0"
-			"lifesteal_bonus"				"200"
+			"damage_bonus"				"55 100 200 400 800 1600 3200 6400 12800 25600 51200"
+			"strength_bonus"			"25 40 80 120 160 200 250 300 350 400 450"
+			"lifesteal_pct"				"10 12 14 16 19 22 25 28 31 34 40"
+			"duration"					"5.0"
+			"lifesteal_bonus"			"200"
 		}
 	}
 	
@@ -223,12 +223,12 @@
 		"ItemCost"						"6275"
 		"AbilityValues"
 		{
-			"cast_range"            "350"
-			"mana_back_chance"      "10 11 12 13 14 15 16 17"
-			"mana_back"             "5"
-			"spell_amp"             "6 12 24 48 96 192 284 568"
-			"mana"					"100 150 250 350 500 650 800 1000"
-			"manacostred"			"3 6 9 12 15 18 21 24"				
+			"cast_range"            	"350"
+			"mana_back_chance"      	"10 11 12 13 14 15 16 17 18 19 20"
+			"mana_back"             	"5"
+			"spell_amp"             	"6 12 24 48 96 192 284 568 1152 2304 4608"
+			"mana"						"100 150 250 350 500 650 800 1000 1200 1400 1600"
+			"manacostred"				"3 6 9 12 15 18 21 24 27 30 33"				
 		}
 	}	
 	
@@ -243,22 +243,22 @@
 		"ItemCost"						"4400"
 		"AbilityValues"
 		{
-			"bonus_health"			"425 700 1000 2000 4000 8000 16000 32000"
-			"bonus_mana"			"100 150 250 350 500 650 800 1000"
-			"bonus_intellect"			"16 24 48 80 120 256 512 758"
-			"mana_regen_multiplier"		"5 10 15 20 25 30 35 40"
-			"spell_amp"				"16 24 48 80 120 256 512 758"
-			"spell_lifesteal_amp"			"30"
-			"hero_lifesteal"		"4 7 10 13 16 19 22 25"
-			"creep_lifesteal"		"4 7 10 13 16 19 22 25"
-			"regen_per_charge"		"14"
-			"amp_per_charge"		"0.35"
+			"bonus_health"				"425 700 1000 2000 4000 8000 16000 32000 64000 128000 256000"
+			"bonus_mana"				"100 150 250 350 500 650 800 1000 1200 1400 1600"
+			"bonus_intellect"			"16 24 48 80 120 256 512 758 1024 1536 1792"
+			"mana_regen_multiplier"		"5 10 15 20 25 30 35 40 45 50 55"
+			"spell_amp"					"16 24 48 80 120 256 512 758 1024 1536 1792"
+			"spell_lifesteal_amp"		"30"
+			"hero_lifesteal"			"4 7 10 13 16 19 22 25 28 31 34"
+			"creep_lifesteal"			"4 7 10 13 16 19 22 25 28 31 34"
+			"regen_per_charge"			"14"
+			"amp_per_charge"			"0.35"
 			"death_charges"				"0"
-			"kill_charges"			"1"
-			"charge_range"			"1600"
-			"initial_charges_tooltip" "70"
-			"restore_duration" "2.0"
-			"mana_cost_percentage" "30"
+			"kill_charges"				"1"
+			"charge_range"				"1600"
+			"initial_charges_tooltip" 	"70"
+			"restore_duration" 			"2.0"
+			"mana_cost_percentage" 		"30"
 		}
 	}
 	
@@ -272,11 +272,12 @@
 		"ItemCost"						"4700"
 		"AbilityValues"
 		{
-			"bonus_damage"			"60 100 200 400 800 1600 3200 6400"
-			"aura_damage"			"120 180 240 300 360 420 480 600"
-			"aura_damage_illusions"	"35"
-			"blind_pct"				"17 19 21 23 25 27 29 31"
-			"aura_radius"			"700"
+			"bonus_damage"				"60 100 200 400 800 1600 3200 6400 12800 25600 51200"
+			"aura_damage"				"120 180 240 300 360 420 480 600 720 840 960"
+			"aura_damage_illusions"		"35"
+			"blind_pct"					"17 19 21 23 25 27 29 31 33 35 37"
+			"aura_radius"				"700"
+			"stats_damage"				"20 30 40 50 60 70 80 90 100 110 120"
 		}
 	}
 	
@@ -289,8 +290,8 @@
 		"ItemCost"						"300"
 		"AbilityValues"
 		{
-            "armor_reduction"		"2"
-            "duration"				"5"
+            "armor_reduction"			"2"
+            "duration"					"5"
 		}
 	}
 	"item_desolator_lua"
@@ -303,9 +304,9 @@
 		"ItemCost"						"3500"
 		"AbilityValues"
 		{
-			"bonus_damage"			"50 120 360 1080 2160 4320 8500 12750 16500 20500 25000"
-			"corruption_armor"		"7 15 20 40 80 120 160 240 280 320 360"
-			"corruption_duration"	"5.0"
+			"bonus_damage"				"50 120 360 1080 2160 4320 8500 12750 16500 20500 25000"
+			"corruption_armor"			"7 15 20 40 80 120 160 240 280 320 360"
+			"corruption_duration"		"5.0"
 		}
 	}
 	
@@ -313,16 +314,16 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"item_butterfly"
-		"ScriptFile"					"items/custom_items/item_butterfly_lua1"
+		"ScriptFile"					"items/custom_items/item_butterfly_lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemBaseLevel"					"1"
 		"ItemCost"						"4975"
 		"AbilityValues"
 		{
-			"bonus_agility"			"30 60 120 180 240 360 480 960"
-			"bonus_evasion"			"35"
-			"bonus_attack_speed"	"30 60 90 120 150 180 210 240"
-			"bonus_damage"			"25 75 225 500 1000 2000 4000 8000"
+			"bonus_agility"				"30 60 120 180 240 360 480 960 1440 1920 2400"
+			"bonus_evasion"				"35"
+			"bonus_attack_speed"		"30 60 90 120 150 180 210 240 270 300 330"
+			"bonus_damage"				"25 75 225 500 1000 2000 4000 8000 16000 32000 64000"
 		}
 	}
 	
@@ -336,10 +337,10 @@
 		"ItemCost"						"4900"
 		"AbilityValues"
 		{
-			"bonus_damage"			"42 80 240 720 1500 3000 6000 12000"  
-			"bonus_attack_speed"	"35 70 105 140 175 210 245 280"
-			"bonus_chance"			"75"
-			"bonus_chance_damage"	"100 230 360 490 610 730 850 1000"
+			"bonus_damage"				"42 80 240 720 1500 3000 6000 12000 24000 48000 96000"  
+			"bonus_attack_speed"		"35 70 105 140 175 210 245 280 315 350 385"
+			"bonus_chance"				"75"
+			"bonus_chance_damage"		"100 230 360 490 610 730 850 1000 1150 1300 1450"
 		}
 	}
 	
@@ -357,16 +358,16 @@
 		"ItemBaseLevel"					"1"
 		"ItemCost"						"4100"
 		"AbilityValues"
-		{
-			"bonus_damage"			"55 70 140 280 560 1120 2240 4480"
-			"bonus_health_regen"	"7.5 10 25 50 100 200 400 800"
-			"bonus_mana_regen"		"3.25 6.5 13 26 52 104 204 408"
-			"cleave_damage_percent"	"60 80 100 120 140 160 180 200"
-			"cleave_damage_percent_creep"	"60 80 100 120 140 160 180 200"
-			"quelling_bonus"			"18 30 60 120 240 480 960 2000"
-			"quelling_bonus_ranged"	"6 12 24 48 96 192 384 700"
-			"cleave_starting_width"			"150"
-			"cleave_ending_width"			"360"
+		{	
+			"bonus_damage"				"55 70 140 280 560 1120 2240 4480 8960 17920 35840"
+			"bonus_health_regen"		"7.5 10 25 50 100 200 400 800 1600 3200 6400"
+			"bonus_mana_regen"			"0.5 0.9 1.3 1.7 2.1 2.5 3.0 3.5 4.0 4.5 5.0"
+			"cleave_damage_percent"		"60 80 100 120 140 160 180 200 220 240 260"
+			"cleave_damage_percent_creep"	"60 80 100 120 140 160 180 200 220 240 260"
+			"quelling_bonus"			"18 30 60 120 240 480 960 2000 4000 8000 16000"
+			"quelling_bonus_ranged"		"6 12 24 48 96 192 384 700 1400 2800 5600"
+			"cleave_starting_width"		"150"
+			"cleave_ending_width"		"360"
 			"cleave_distance"			"650"
 			
 		}
@@ -385,11 +386,11 @@
 		"ItemCost"						"1525"
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"4 8 16 32 64 128 256 512"
-			"aura_mana_regen"		"1 2 3 4.5 6 7.5 9 11"
-			"aura_radius"			"1200"
-			"spell_amp"				"18 36 54 72 90 126 162 200"
-			"debuff_radius"			"600"
+			"bonus_all_stats"			"4 8 16 32 64 128 256 512 1024 2048 4096"
+			"aura_mana_regen"			"1 2 3 4.5 6 7.5 9 11 13 15 17"
+			"aura_radius"				"1200"
+			"spell_amp"					"18 36 54 72 90 126 162 200 238 276 314"
+			"debuff_radius"				"600"
 			"resist_debuff_duration"	"16.0"
 		}
 	}
@@ -407,16 +408,16 @@
 		"ItemCost"						"4850"
 		"AbilityValues"
 		{
-			"bonus_intellect"		"30 50 100 150 250 500 750 1250"
-			"bonus_armor"			"15 30 60 90 120 160 200 250"
-			"aura_radius"			"900"
-			"aura_attack_speed"		"-10 -15 -25 -30 -35 -40 -45 -50"
-			"blast_damage"			"200 320 440 560 680 800 940 1100"
-			"blast_movement_speed"	"-40 -45 -50 -55 -60 -65 -70 -75"
-			"blast_debuff_duration"	"4.0"
-			"blast_radius"			"900"
-			"blast_speed"			"350"
-			"hp_regen_degen_aura"	"25 30 35 40 45 50 55 60"
+			"bonus_intellect"			"30 50 100 150 250 500 750 1250 2500 5000 10000"
+			"bonus_armor"				"15 30 60 90 120 160 200 250 300 350 400"
+			"aura_radius"				"900"
+			"aura_attack_speed"			"-10 -15 -25 -30 -35 -40 -45 -50 -55 -60 -65"
+			"blast_damage"				"200 320 440 560 680 800 940 1100 1260 1420 1580"
+			"blast_movement_speed"		"-40 -45 -50 -55 -60 -65 -70 -75 -80 -85 -90"
+			"blast_debuff_duration"		"4.0"
+			"blast_radius"				"900"
+			"blast_speed"				"350"
+			"hp_regen_degen_aura"		"25 30 35 40 45 50 55 60 65 70 75"
 		}
 	}
 	
@@ -432,18 +433,18 @@
 		"ItemCost"						"3725"
 		"AbilityValues"
 		{
-			"bonus_health"			"500 1000 2000 4000 8000 16000 32000 64000"
-			"bonus_health_regen"	"18 36 72 144 288 550 1000 2500"
-			"bonus_armor"			"6 12 24 48 96 196 384 700"
-			"block_damage_melee"	"70 80 90 100 110 120 140 200"
-			"block_damage_ranged"	"35 50 65 80 95 110 125 150"
-			"block_chance"			"50"
-			"duration"				"12"
-			"bonus_aoe_radius"		"1200"
-			"block_damage_melee_active"	"60 80 100 120 140 160 180 200"
-			"block_damage_ranged_active"	"60 80 100 120 140 160 180 200"
-			"block_chance_active"			"100"
-			"tooltip_reapply_time"	"40"
+			"bonus_health"				"500 1000 2000 4000 8000 16000 32000 64000 128000 256000 512000"
+			"bonus_health_regen"		"18 36 72 144 288 550 1000 2500 5000 10000 20000"
+			"bonus_armor"				"6 12 24 48 96 196 384 700 1400 2800 5600"
+			"block_damage_melee"		"70 80 90 100 110 120 140 200 250 300 350"
+			"block_damage_ranged"		"35 50 65 80 95 110 125 150 175 200 225"
+			"block_chance"				"50"
+			"duration"					"12"
+			"bonus_aoe_radius"			"1200"
+			"block_damage_melee_active"	"60 80 100 120 140 160 180 200 250 300 350"
+			"block_damage_ranged_active"	"60 80 100 120 140 160 180 200 250 300 350"
+			"block_chance_active"		"100"
+			"tooltip_reapply_time"		"40"
 		}
 	}
 
@@ -457,12 +458,12 @@
 		"ItemCost"						"5100"
 		"AbilityValues"
 		{
-			"bonus_strength"		"40 70 100 150 250 500 750 1250"
-			"bonus_health"			"400 700 2100 6300 18900 56700 170000 350000"
-			"hp_regen_amp"			"30"
-			"health_regen_pct"		"1 2 3 4 5 6 7 8"
-			"cooldown_melee"		"5"
-			"cooldown_ranged_tooltip"		"7"
+			"bonus_strength"			"40 70 100 150 250 500 750 1250 2500 5000 10000"
+			"bonus_health"				"400 700 2100 6300 18900 56700 90000 150000 270000 450000 900000"
+			"hp_regen_amp"				"30"
+			"health_regen_pct"			"1 2 3 4 5 6 7 8 9 10 11"
+			"cooldown_melee"			"5"
+			"cooldown_ranged_tooltip"	"7"
 		}
 	}
 	
@@ -476,9 +477,9 @@
 		"ItemCost"						"5100"
 		"AbilityValues"
 		{
-			"bonus_damage"			"70 140 280 560 1120 2240 4480 9000"
-			"crit_chance"			"30"
-			"crit_multiplier"		"225 250 275 300 325 350 375 450"
+			"bonus_damage"				"70 140 280 560 1120 2240 4480 9000 18000 36000 72000"
+			"crit_chance"				"30"
+			"crit_multiplier"			"225 250 275 300 325 350 375 450 525 600 675"
 		}
 	}
 	
@@ -492,10 +493,10 @@
 		"ItemCost"						"4200"
         "AbilityValues"
         {
-			"bonus_dmg"					"0.1 0.15 0.2 0.25 0.3 0.4 0.5"
-			"bonus_life"				"3 6 9 12 15 18 21"
-			"bonus_int"					"8 16 24 48 80 128 256 360"
-			"mana_regen"				"2 3 4 6 8 10 12 15"
+			"bonus_dmg"					"0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6"
+			"bonus_life"				"3 6 9 12 15 18 21 24 27 30 33"
+			"bonus_int"					"8 16 24 48 80 128 256 360 512 720 960"
+			"mana_regen"				"1 2 3 4 5 6 7 8 9 10 11"
         }
     }
 	
@@ -509,10 +510,10 @@
 		"ItemCost"						"2100"
 		"AbilityValues"
 		{
-			"bonus_intellect"			"16 32 64 128 256 512 768 1024"
-			"spell_amp"					"16 32 64 128 256 512 768 1024"
-			"mana_regen_multiplier"		"10 15 20 27 35 42 50 60"
-			"spell_lifesteal_amp"		"12 14 16 18 20 22 24 26"
+			"bonus_intellect"			"16 32 64 128 256 512 768 1024 1280 1536 1792"
+			"spell_amp"					"16 32 64 128 256 512 768 1024 1280 1536 1792"
+			"mana_regen_multiplier"		"10 15 20 27 35 42 50 60 70 80 90"
+			"spell_lifesteal_amp"		"12 14 16 18 20 22 24 26 28 30 32"
 		}
 	}
 	
@@ -526,11 +527,11 @@
 		"ItemCost"						"2450"
 		"AbilityValues"
 		{
-			"armor_aura"			"3 6 10 20 40 80 160 320"
-			"mana_regen_aura"		"1 2 3 4 5 6.5 8"
-			"lifesteal_aura"			"10 11 12 13 14 15 16 17"
-			"damage_aura"			"9 12 15 18 21 24 27 30"
-			"aura_radius"	"1200"
+			"armor_aura"				"3 6 10 20 30 40 60 80 100 120 150"
+			"mana_regen_aura"			"1 2 3 4 5 6 7 8 9 10 11"
+			"lifesteal_aura"			"10 11 12 13 14 15 16 17 18 19 20"
+			"damage_aura"				"9 12 15 18 21 24 27 30 33 36 39"
+			"aura_radius"				"1200"
 		}
 	}
 	
@@ -549,16 +550,16 @@
 		"ItemCost"						"4650"
 		"AbilityValues"
 		{
-			"bonus_agility"			"40 70 100 150 250 500 750 1250"
-			"bonus_strength"		"10 20 40 80 160 320 480 960"
-			"bonus_intellect"		"10 20 40 80 160 320 480 960"
-			"blast_movement_slow"	"-80"
-			"duration"				"4.0"
-			"blast_agility_multiplier"			"1"
-			"blast_damage_base"			"125 250 375 500 625 750 875 1000"
+			"bonus_agility"				"40 70 100 150 250 500 750 1250 2500 5000 10000"
+			"bonus_strength"			"10 20 40 80 160 320 480 960 1920 3840 7680"
+			"bonus_intellect"			"10 20 40 80 160 320 480 960 1920 3840 7680"
+			"blast_movement_slow"		"-80"
+			"duration"					"4.0"
+			"blast_agility_multiplier"	"1"
+			"blast_damage_base"			"125 250 375 500 625 750 875 1000 1250 1500 1750"
 			"duration_ally"				"4.0"
-			"ethereal_damage_bonus"	"-10 -15 -20 -25 -30 -35 -40 -45"
-			"projectile_speed"	"1275"
+			"ethereal_damage_bonus"		"-10 -15 -20 -25 -30 -35 -40 -45 -50 -55 -60"
+			"projectile_speed"			"1275"
 		}
 	}
 	
@@ -575,18 +576,18 @@
 		"ItemCost"						"3375"
 		"AbilityValues"
 		{
-			"health_regen"			"6 12 24 48 96 192 384 700"
-			"magic_resistance"		"30 35 40 45 50 55 60 65"
+			"health_regen"				"6 12 24 48 96 192 384 700 1400 2800 5600"
+			"magic_resistance"			"30 35 40 45 50 55 60 65 70 75 80"
 			"barrier_debuff_duration"	"50.0"
-			"tooltip_resist"			"30 35 40 45 50 55 60 65"
-			"aura_health_regen"		"2 4 8 16 32 64 128 256"
-			"magic_resistance_aura"		"10 15 20 25 30 35 40 45"
-			"aura_radius"			"1200"
-			"barrier_block"			"400 800 1200 1600 2000 4000 8000 16000"
-			"barrier_duration"		"12.0"
-			"barrier_radius"		"1200"
-			"bonus_all_stats"		"0"
-			"barrier_block_creep"	"400 800 1200 1600 2000 4000 8000 16000"
+			"tooltip_resist"			"30 35 40 45 50 55 60 65 70 75 80"
+			"aura_health_regen"			"2 4 8 16 32 64 128 256 512 1024 2048"
+			"magic_resistance_aura"		"10 15 20 25 30 35 40 45 50 55 60"
+			"aura_radius"				"1200"
+			"barrier_block"				"400 800 1200 1600 2000 4000 8000 16000 32000 64000 128000"
+			"barrier_duration"			"12.0"
+			"barrier_radius"			"1200"
+			"bonus_all_stats"			"0"
+			"barrier_block_creep"		"400 800 1200 1600 2000 4000 8000 16000 32000 64000 128000"
 		}
 	}
 
@@ -602,11 +603,11 @@
 		"ItemCost"						"4600"
 		"AbilityValues"
 		{
-			"bonus_cooldown"		"25 26 27 28 29 30 31 32"
+			"bonus_cooldown"			"25 26 27 28 29 30 31 32 33 34 35"
 			"cast_range_bonus"			"250"
-			"bonus_health"			"400 800 1200 2400 4000 6000 8000 10000"
-			"bonus_mana"			"100 150 250 350 500 650 800 1000"
-			"bonus_mana_regen"		"1 2 3 4 5.5 7 8.5 10"
+			"bonus_health"				"400 800 1200 2400 4000 6000 8000 10000 12000 14000 16000"
+			"bonus_mana"				"100 150 250 350 500 650 800 1000 1300 1600 1900"
+			"bonus_mana_regen"			"1 2.1 3.2 3.4 4.5 5.6 6.7 7.8 8.9 10.0 11.1"
 		}
 	}
 	
@@ -620,13 +621,13 @@
 		"ItemCost"						"5300"
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"25 50 100 200 300 400 500 600"
-			"bonus_health"			"225 450 900 1800 3600 7200 14400 28800"
-			"bonus_mana"			"100 150 250 350 500 650 800 1000"
-			"cold_slow_melee"		"-25 -26 -27 -28 -29 -30 -31 -32"
-			"cold_slow_ranged"		"-50"
-			"cold_duration"			"3.0"
-			"heal_reduction"		"30 35 40 45 50 55 60 65"
+			"bonus_all_stats"			"25 50 100 200 300 400 500 600 700 800 900"
+			"bonus_health"				"225 450 900 1800 3600 7200 14400 28800 57600 115200 230400"
+			"bonus_mana"				"100 150 250 350 500 650 800 1000 1300 1600 1900"
+			"cold_slow_melee"			"-25 -26 -27 -28 -29 -30 -31 -32 -33 -34 -35"
+			"cold_slow_ranged"			"-50"
+			"cold_duration"				"3.0"
+			"heal_reduction"			"30 35 40 45 50 55 60 65 70 75 80"
 		}
 	}
 	
@@ -645,22 +646,22 @@
 		"ItemCost"						"5500"
 		"AbilityValues"
 		{
-			"bonus_damage"			"24 70 140 280 560 1120 2240 4480"
-			"bonus_attack_speed"	"70 115 140 175 200 245 290 350"
-			"static_duration"		"15.0"
-			"static_chance"			"20"
-			"static_strikes"		"2"
-			"static_damage"			"200 400 600 800 1000 1200 1400 1600"
-			"static_primary_radius"	"600"
+			"bonus_damage"				"24 70 140 280 560 1120 2240 4480 8960 17920 35840"
+			"bonus_attack_speed"		"70 115 140 175 200 245 290 350 410 480 550"
+			"static_duration"			"15.0"
+			"static_chance"				"20"
+			"static_strikes"			"2"
+			"static_damage"				"200 400 600 800 1000 1200 1400 1600 1800 2000 2200"
+			"static_primary_radius"		"600"
 			"static_seconary_radius"	"900"
-			"static_radius"			"900"
-			"static_cooldown"		"1.0"
-			"chain_chance"			"30"
-			"chain_damage"			"150 300 450 600 750 900 1050 1200"
-			"chain_strikes"			"5"
-			"chain_radius"			"650"
-			"chain_delay"			"0.25"
-			"chain_cooldown"		"0.2"
+			"static_radius"				"900"
+			"static_cooldown"			"1.0"
+			"chain_chance"				"30"
+			"chain_damage"				"150 300 450 600 750 900 1050 1200 1350 1500 1650"
+			"chain_strikes"				"5"
+			"chain_radius"				"650"
+			"chain_delay"				"0.25"
+			"chain_cooldown"			"0.2"
 		}
 	}
 	
@@ -678,9 +679,9 @@
 		"ItemCost"						"8400"
 		"AbilityValues"
 		{
-			"bonus_str"				"50 100 200 400 800 1200 1600 2000"
-			"damage"				"50"
-			"radius"				"400"
+			"bonus_str"					"50 100 200 400 800 1200 1600 2000 2500 3000 3500"
+			"damage"					"50"
+			"radius"					"400"
 		}
 	}	
 	
@@ -698,10 +699,10 @@
 		"ItemCost"						"8400"
 		"AbilityValues"
 		{
-			"bonus_int"				"50 100 200 400 800 1200 1600 2000"
-			"damage"				"1"
-			"tick"					"13 12 11 10 9 8 7 6"
-			"count"					"1 2 3 4 5 6 7 8"
+			"bonus_int"					"50 100 200 400 800 1200 1600 2000 2500 3000 3500"
+			"damage"					"1"
+			"tick"						"13 12 11 10 9 8 7 6 5 4 3 2 1"
+			"count"						"1 2 3 4 5 6 7 8 9 10 11 12 13"
 			"radius"					"700"
 		}
 	}	
@@ -717,10 +718,10 @@
 		"ItemCost"						"8400"
 		"AbilityValues"
 		{
-			"bonus_agi"				"50 100 200 400 800 1200 1600 2000"
-			"bonus_dmg"				"100 200 300 450 600 900 1200 1500"
-			"duration"				"3"
-			"bonus_ms"				"200"
+			"bonus_agi"					"50 100 200 400 800 1200 1600 2000 2500 3000 3500"
+			"bonus_dmg"					"100 200 300 450 600 900 1200 1500 1800 2100 2400"
+			"duration"					"3"
+			"bonus_ms"					"200"
 		}
 	}
 	
@@ -734,9 +735,9 @@
 		"ItemCost"						"4000"
 		"AbilityValues"
 		{
-			"bonus_as"				"140 180 220 260 300 340 380 420"
-			"aura_as_ally"			"30 60 90 120 150 180 210 240"
-			"radius"				"30000"
+			"bonus_as"					"140 180 220 260 300 340 380 420 460 500 540"
+			"aura_as_ally"				"30 60 90 120 150 180 210 240 270 300 330"
+			"radius"					"30000"
 		}
 	}	
 	
@@ -750,16 +751,16 @@
 		"ItemCost"						"6700"
 		"AbilityValues"
 		{
-			"bonus_magic_resist"	"25 30 35 40 45 50 55 60"
-			"bonus_agi"				"25 50 75 100 125 150 175 200"
-			"bonus_str"				"25 50 75 100 125 150 175 200"
-			"bonus_dmg"				"50 100 200 400 800 1600 3200 6400"
-			"bonus_attack_speed"	"10 25 40 55 70 85 100 130"
-			"bonus_status"			"16"
-			"bonus_amp_hp"			"24"
-			"magic_debuff"			"-35"
-			"phis_debuff"			"-10"
-			"duration"				"3"
+			"bonus_magic_resist"		"25 30 35 40 45 50 55 60 65 70 75"
+			"bonus_agi"					"25 50 75 100 125 150 175 200 225 250 275"
+			"bonus_str"					"25 50 75 100 125 150 175 200 225 250 275"
+			"bonus_dmg"					"50 100 200 400 800 1600 3200 6400 12800 25600 51200"
+			"bonus_attack_speed"		"10 25 40 55 70 85 100 130 150 170 190"
+			"bonus_status"				"16"
+			"bonus_amp_hp"				"24"
+			"magic_debuff"				"-35"
+			"phis_debuff"				"-10"
+			"duration"					"3"
 		}
 	}	
 }

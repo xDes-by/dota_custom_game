@@ -1,18 +1,18 @@
 *.bin
 *.cfg
-*.vmat_c
-*.vanim_c
-*.vmdl_c
-*.vmesh_c
+# *.vmat_c
+# *.vanim_c
+# *.vmdl_c
+# *.vmesh_c
 *.vagrp_c
 *.vxml_c
 *.vjs_c
 *.vcss_c
-*.vtex_c
-*.vpcf_c
-*.vsndevts_c
+# *.vtex_c
+# *.vpcf_c
+# *.vsndevts_c
 *.vpk
-*.vsnd_c
+# *.vsnd_c
 .gitignore
 scripts/vscripts/key.lua
 

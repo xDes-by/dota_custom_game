@@ -9,6 +9,9 @@ function dragon_form_lua:GetManaCost(iLevel)
 end
 
 function dragon_form_lua:GetCooldown( level )
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi_last") then
+		return 0.1
+	end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int6") 
 	if abil ~= nil then
 		return self.BaseClass.GetCooldown(self, level) - self.BaseClass.GetCooldown(self, level) * 0.25
@@ -16,14 +19,43 @@ function dragon_form_lua:GetCooldown( level )
 		return self.BaseClass.GetCooldown(self, level)
 	end
 end
+function dragon_form_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
+
+function dragon_form_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
+function dragon_form_lua:OnToggle()
+	if not IsServer() then return end
+	
+	if self:GetToggleState() then
+		-- self:GetCaster():EmitSound("Hero_Medusa.ManaShield.On")
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_dragon_form_lua", {})
+	else
+		-- self:GetCaster():EmitSound("Hero_Medusa.ManaShield.Off")
+		self:GetCaster():RemoveModifierByNameAndCaster("modifier_dragon_form_lua", self:GetCaster())
+	end
+	
+end
+
+function dragon_form_lua:GetBehavior()
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi_last") then
+		return DOTA_ABILITY_BEHAVIOR_TOGGLE
+	end
+	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+end
 
 function dragon_form_lua:OnSpellStart()
 
 	local caster = self:GetCaster()
 	duration = self:GetSpecialValueFor("duration")
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
-		duration = -1
-	end
+	-- if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") ~= nil then
+	-- 	duration = -1
+	-- end
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi11") 
 		if abil ~= nil then
 		duration = 180

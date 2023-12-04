@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	"jakiro_dual_breath_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_jakiro/jakiro_dual_breath_lua/jakiro_dual_breath_lua"
+		"AbilityTextureName"			"jakiro_dual_breath"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"15"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0.55"
+
+		"AbilityCooldown"				"19 19 19 18 18 18 16 16 16 14 14 14 12 12 12"
+		"AbilityManaCost"				"135 140 155 170"
+
+		"AbilityValues"
+		{
+			"start_radius"					"225"
+			"end_radius"					"275"
+			"range"							"650"
+			"speed"							"1050"
+			"fire_delay"					"0.3"
+			"burn_damage"					"40 60 80 100 120 140 160 180 200 220 240 260 280 300 320"
+			"slow_movement_speed_pct"		"-8 -9 -10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -20 -21 -22"
+			"slow_attack_speed_pct"			"-8 -12 -16 -20 -24 -28 -32 -36 -40 -44 -48 -52 -56 -60 -64"
+			"speed_fire"					"1050"
+			"duration"						"5"
+			"AbilityCharges"				"0"
+			"AbilityChargeRestoreTime"		"19 19 19 18 18 18 16 16 16 14 14 14 12 12 12"
+			// "AbilityCharges"        
+            // {
+            //     "value"    "0"
+            //     "special_bonus_unique_npc_dota_hero_jakiro_agi8"    "+2"
+            // }
+            // "AbilityCooldown"        
+            // {
+            //     "value"    "30"
+            //     "special_bonus_unique_npc_dota_hero_jakiro_agi8"    "=0"
+            // }
+            // "AbilityChargeRestoreTime"
+            // {
+            //     "value"    "30"
+            // }
+		}
+	}
+}

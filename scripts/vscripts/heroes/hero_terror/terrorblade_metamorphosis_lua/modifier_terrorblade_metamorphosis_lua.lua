@@ -37,9 +37,11 @@ if IsServer() then
 	
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_str10")
 	if abil ~= nil then
-	sila = self:GetCaster():GetStrength() * 0.5 + sila
+		sila = self:GetCaster():GetStrength() * 0.5 + sila
 	end
-	
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_str50") then
+		sila = sila + self:GetCaster():GetStrength() * 2
+	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_terrorblade_int_last") ~= nil then
 		damage = self:GetAbility():GetSpecialValueFor( "bonus_damage" ) * 5
 	end
@@ -52,17 +54,18 @@ if IsServer() then
 
 	if not IsServer() then return end
 
-	self.attack = self:GetParent():GetAttackCapability()
-	if self.attack == DOTA_UNIT_CAP_RANGED_ATTACK then
+	-- self.attack = self:GetParent():GetAttackCapability()
+	-- if self.attack == DOTA_UNIT_CAP_RANGED_ATTACK then
 
-		self.range = 0
-		self.projectile = 0
-	end
+	-- 	self.range = 0
+	-- 	self.projectile = 0
+	-- end
 	self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_RANGED_ATTACK )
 
-	self:GetAbility():SetContextThink(DoUniqueString( "terrorblade_metamorphosis_lua" ), function()
-		self:GetParent():StartGesture( ACT_DOTA_CAST_ABILITY_3 )
-	end, FrameTime())
+	-- self:GetAbility():SetContextThink(DoUniqueString( "terrorblade_metamorphosis_lua" ), function()
+		
+	-- end, FrameTime())
+	self:GetParent():StartGesture( ACT_DOTA_CAST_ABILITY_3 )
 
 
 	self.stun = true
@@ -84,7 +87,7 @@ function modifier_terrorblade_metamorphosis_lua:OnDestroy()
 	if not IsServer() then return end
 
 	-- return attack cap
-	self:GetParent():SetAttackCapability( self.attack )
+	self:GetParent():SetAttackCapability( DOTA_UNIT_CAP_MELEE_ATTACK )
 end
 
 --------------------------------------------------------------------------------
@@ -103,6 +106,7 @@ function modifier_terrorblade_metamorphosis_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_MODEL_SCALE,
 		MODIFIER_PROPERTY_PROJECTILE_NAME,
 		MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
 	}
 
 	return funcs
@@ -146,6 +150,12 @@ end
 
 function modifier_terrorblade_metamorphosis_lua:GetAttackSound()
 	return "Hero_Terrorblade_Morphed.Attack"
+end
+
+function modifier_terrorblade_metamorphosis_lua:GetModifierHealthRegenPercentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_terrorblade_str50") then
+		return 10
+	end
 end
 
 --------------------------------------------------------------------------------

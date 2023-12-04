@@ -2,6 +2,43 @@
 {
 //==========================================================================================================================================================================================================================================================
 
+	"item_quelling_blade_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"item_quelling_blade"
+		"ScriptFile"					"items/other/item_quelling_blade_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"4.0"
+		"Model"							"models/props_gameplay/quelling_blade.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"100"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"component"
+		"ItemAliases"					"qb;quelling blade"
+		//"SideShop"						"1"
+		"ShouldBeSuggested"				"1"
+		"ShouldBeInitiallySuggested"	"1"
+
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"damage_bonus"			"8"
+				"damage_bonus_ranged"	"4"
+				"quelling_range_tooltip"			"350"
+		}
+	}
 "item_clarity"
 	{
 		"ItemStockMax"					"1"
@@ -74,7 +111,7 @@
 		"ItemInitialStockTime"			"2.0"  
 	}		
 	
-"item_cheese_lua"
+	"item_cheese_lua"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"       
         "BaseClass"						"item_lua"
@@ -99,14 +136,122 @@
         "BaseClass"						"item_lua"
 		"AbilityTextureName"			"quest_kirka"
 		"ScriptFile"					"items/other/item_smithy_pickaxe"
-		"ItemPurchasable"				"0"
+		// "ItemPurchasable"				"0"
 		"ItemSellable"					"0"
-		"ItemDroppable" 				"0"
+		// "ItemDroppable" 				"0"
+		"AbilityCooldown"				"4.9"
+		"AbilityChannelTime"			"5"
 		"AbilityValues"
 		{
 
 		}
-	}	
+	}
+	"item_clarity_custom1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"clarity_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"100"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemStockTime"    "300.0" // Время перезарядки для основных слотов
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "1"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
+	"item_clarity_custom2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"greater_clarity_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"1000"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "2"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
+	"item_clarity_custom3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"greater_clarity2_png"
+		"Model"							"models/props_gameplay/clarity.vmdl"
+		"ScriptFile"					"items/other/item_clarity_custom"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastPoint"				"0.0"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemSellable"					"1"
+		"ItemCost"						"10000"
+		"ItemStackable"					"1"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"MaxUpgradeLevel"                                   "3"
+		"ItemBaseLevel"                                     "3"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"10 50 100"
+				"buff_duration"			"60 90 120"
+		}
+	}
 //============================================================================================================================================================================================================================================================	
 
 "item_greed_str"
@@ -669,7 +814,7 @@
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_tank_hell"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"	        "all/lance1"
+		"AbilityTextureName"	        "mid_items/lance1"
 		"ItemBaseLevel"					"1"
 		"AbilityValues"
 		{
@@ -703,6 +848,20 @@
 		
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"quest/item_quest_line_dimand"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemDroppable"					"1" 
+		"ItemSellable"					"0" 
+		"ItemKillable"					"1"
+		"ItemPurchasable" 				"0"
+		"ItemStackable"					"1"
+		"ItemStackableMax"				"64"
+		"ItemInitialCharges"			"1"
+	}	
+"item_quest_pivo_bara"
+	{
+		
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"quest/pivo"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ItemDroppable"					"1" 
 		"ItemSellable"					"0" 

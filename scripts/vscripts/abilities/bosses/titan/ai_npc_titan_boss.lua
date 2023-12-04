@@ -57,7 +57,7 @@ function modifier_ai_npc_titan_boss:OnIntervalThink()
             self.parent:MoveToNPC(units[2])
             self:StartIntervalThink(0.2)
         else
-            self.parent:MoveToPosition(self:GetParent():GetAbsOrigin() + RandomVector(100))
+            self.parent:MoveToPosition(self:GetParent():GetAbsOrigin() + RandomVector(300))
             self:StartIntervalThink(0.5)
         end
         return
@@ -80,7 +80,7 @@ function modifier_ai_npc_titan_boss:OnIntervalThink()
             self.parent:CastAbilityNoTarget(self.abi3, -1)
         end
         if self.abi4:IsFullyCastable() then
-            local direction = self.parent:GetAbsOrigin() - units[1]:GetAbsOrigin()
+            local direction = units[1]:GetAbsOrigin() - self.parent:GetAbsOrigin()
             direction.z = 0
             direction = direction:Normalized()
             self.parent:CastAbilityOnPosition(direction * 900, self.abi4, -1)

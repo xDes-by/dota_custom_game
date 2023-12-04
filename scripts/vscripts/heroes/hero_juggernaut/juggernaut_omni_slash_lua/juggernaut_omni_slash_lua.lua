@@ -299,8 +299,9 @@ function modifier_imba_omni_slash_caster:DeclareFunctions()
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
-		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+		MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 	}
 end
 
@@ -397,8 +398,7 @@ function modifier_imba_omni_slash_caster:OnDestroy()
 		end	
 		
 end
-
-function modifier_imba_omni_slash_caster:GetModifierDamageOutgoing_Percentage()
+function modifier_imba_omni_slash_caster:GetModifierTotalDamageOutgoing_Percentage()
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_juggernaut_str50") then
 		return 400
 	end

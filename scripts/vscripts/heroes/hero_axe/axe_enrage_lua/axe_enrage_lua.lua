@@ -9,7 +9,7 @@ function axe_enrage_lua:GetManaCost(iLevel)
     return 150 + math.min(65000, self:GetCaster():GetIntellect() / 30)
 end
 
-function axe_enrage_lua:GetCooldown(iLevel)
+function axe_enrage_lua:GetCooldown(level)
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_axe_str50") 
 	if abil ~= nil then
 		return self.BaseClass.GetCooldown(self, level) / 2

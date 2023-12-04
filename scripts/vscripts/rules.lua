@@ -19,19 +19,15 @@ function Rules:difficality_modifier(unit)
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
 		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 		unit:AddAbility(new_abil_passive):SetLevel(4)
+	end
+	if diff_wave.wavedef == "Impossible" then
+		unit:AddNewModifier(unit, nil, "modifier_impossible", {})
+		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end		
 end	
 
-function Rules:tower_hp()
-	local towers = {"npc_dota_custom_tower", "npc_dota_custom_tower2", "npc_dota_custom_tower3"}
-	for key,value in ipairs(towers) do
-		local tower = Entities:FindByName( nil, value)
-		ApplyDamage({ victim = tower, attacker = tower, damage = 6800, damage_type = DAMAGE_TYPE_PHYSICAL })
-		tower:AddNewModifier( tower, nil, "modifier_attack_immune", {} )
-	end
-end
-
-timer_spawn_time_don = 13
+timer_spawn_time_don = 2
 
 function Rules:spawn_creeps_don()
 	Timers:CreateTimer(function()

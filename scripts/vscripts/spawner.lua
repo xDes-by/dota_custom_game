@@ -1,5 +1,4 @@
 require("data/data")
-
 if Spawner == nil then
 	Spawner = class({})
 end
@@ -19,6 +18,11 @@ function add_modifier(unit)
 	end	
 	if diff_wave.wavedef == "Insane" then
 		unit:AddNewModifier(unit, nil, "modifier_insane", {})
+		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+		unit:AddAbility(new_abil_passive):SetLevel(4)
+	end	
+	if diff_wave.wavedef == "Impossible" then
+		unit:AddNewModifier(unit, nil, "modifier_impossible", {})
 		new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 		unit:AddAbility(new_abil_passive):SetLevel(4)
 	end	
@@ -72,28 +76,28 @@ function Spawn_system()
 	Timers:CreateTimer(function()
 		local barack = Entities:FindByName( nil, "badguys_creeps")  
 		if barack == nil then 
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 			wave_count = 0
 		end
 		
 		local barack = Entities:FindByName( nil, "badguys_comandirs")  
 		if barack == nil then 
 			wave_count = 0
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 		end
 		
 		local barack = Entities:FindByName( nil, "badguys_boss")  
 		if barack == nil then 
 			wave_count = 0
-			talants.barakDestroy = true
+			Talents.barakDestroy = true
 		end
 		wave = wave + 1
 		rat = rat + wave_count * 2
 		for i = 0, 4 do
-			Quests:UpdateCounter("bonus", 17, 1, i, 1)
-			Quests:UpdateCounter("bonus", 15, 1, i, 1)
+			Quests:UpdateCounter("bonus", i, 17, 1)
+			Quests:UpdateCounter("bonus", i, 15, 1)
 		end
-		if wave ~= 0 and wave % 5 == 0 then 
+		if wave ~= 0 and wave % 10 == 0 then 
 			Spawner:SpawnBosses()
 			return line_time
 		else
@@ -106,11 +110,12 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function Spawner:settings()
+	wave_new = wave / 1.8
 	creeps_name = t_creeps[RandomInt(1,#t_creeps)]	
 	health = health * 1.16
 	damage_creeps = damage_creeps * 1.16
 
-	set_health = math.floor(health + health*(wave/2)) * 2
+	set_health = math.floor(health + health*(wave_new/2)) * 2
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -127,7 +132,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave/2)) * 2
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2)) * 2
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -144,11 +149,11 @@ function Spawner:settings()
 		set_damage_boss = 2000000000
 	end		
 		
-	set_armor = math.floor(wave*2^(1.02+wave*2*armor) * 1.25 )
+	set_armor = math.floor(wave_new*2^(1.02+wave_new*2*armor) * 1.25 )
  	set_armor_commandir = set_armor * 1.5
 	set_armor_boss = set_armor * 2
 	
-	set_mag_resist = math.floor(magermor + wave) * 2
+	set_mag_resist = math.floor(magermor + wave_new) * 2
 	set_mag_resist_creep = math.min(set_mag_resist / 3, 90)
 	set_mag_resist_commandir =  math.min(set_mag_resist / 2.5, 90)
 	set_mag_resist_boss =  math.min(set_mag_resist / 2, 90)
@@ -162,7 +167,7 @@ end
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function Spawner:SpawnCreeps(name)   	
+function Spawner:SpawnCreeps(name)
 	local barack = Entities:FindByName( nil, "badguys_creeps")  
 	if barack ~= nil then 		
 		for i = 1, count_creeps do
@@ -315,7 +320,7 @@ function creeps_line_notification()
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = count_creeps + count_comandir
-	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
+	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
 end
 
 function bosses_line_notification(creeps_name)
@@ -332,7 +337,7 @@ function bosses_line_notification(creeps_name)
 	rating.wave_name = creeps_name
 	rating.wave_count = 0
 	rating.wave_need = 1
-	SendPlayerNotification:WaveMessage(rating.wave_need, rating.wave_count)
+	CustomGameEventManager:Send_ServerToAllClients( "updateWaveCounter", {need = rating.wave_need, count = rating.wave_count} )
 end
 
 function CreatePatroolWave()
@@ -350,25 +355,28 @@ function CreatePatroolWave()
 	local rand = r[RandomInt(1, #r)]
 	local pos = Vector(rand[1], rand[2], rand[3])
 	if _G.kill_invoker then
-		for k,name in pairs(PatroolWave[10]) do
-			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
-			unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
-			unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
-			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-			unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
-			unit:SetPhysicalArmorBaseValue(set_armor)
-			unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
-			unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-			unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
-			unit.corners = corners
-			unit.CornerID = 1
-			unit:SetContextThink( "Think", function()
-				MoveToNextCornerThink(unit, unit.CornerID)
-			end, 0.1 )
-		end
+		-- for k,name in pairs(PatroolWave[10]) do
+		-- 	local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+		-- 	unit:AddNewModifier(unit, nil, "modifier_custom_vision", {})
+		-- 	unit:SetMaxHealth(set_health * RandomFloat(1.5, 2.8))
+		-- 	unit:SetHealth(set_health * RandomFloat(1.5, 2.8))
+		-- 	unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+		-- 	unit:SetBaseDamageMin(set_damage * RandomFloat(1.2, 1.8))
+		-- 	unit:SetPhysicalArmorBaseValue(set_armor)
+		-- 	unit:SetBaseMagicalResistanceValue(set_mag_resist_creep)
+		-- 	unit:SetMaximumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+		-- 	unit:SetMinimumGoldBounty(gold[_G.don_spawn_level] * RandomFloat(1.5, 2.8))
+		-- 	unit.corners = corners
+		-- 	unit.CornerID = 1
+		-- 	unit:SetContextThink( "Think", function()
+		-- 		MoveToNextCornerThink(unit, unit.CornerID)
+		-- 	end, 0.1 )
+		-- end
 	else
+		Notifications:TopToAll({text="random_wave_notification",style={color="red",["font-size"]="60px"}, duration=10})
 		for k,name in pairs(PatroolWave[_G.don_spawn_level]) do
 			local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:AddNewModifier(unit, nil, "modifier_custom_vision", {})
 			unit:SetMaxHealth(set_health)
 			unit:SetHealth(set_health)
 			unit:SetBaseDamageMin(set_damage)

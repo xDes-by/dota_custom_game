@@ -81,3 +81,17 @@ function modifier_magnataur_shockwave_buff_lua:OnIntervalThink()
 	ProjectileManager:CreateLinearProjectile(info)
 	self:DecrementStackCount()
 end
+
+function modifier_magnataur_shockwave_buff_lua:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK
+	}
+end
+
+function modifier_magnataur_shockwave_buff_lua:OnAttack( params )
+	if params.attacker~=self:GetParent() then return end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_int50") and RollPercentage(10) then
+		self:IncrementStackCount()
+		self:OnIntervalThink()
+	end
+end

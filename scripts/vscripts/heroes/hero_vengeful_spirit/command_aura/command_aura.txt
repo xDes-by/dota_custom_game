@@ -42,7 +42,7 @@
             "05"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "self_multi"                "1.5"
+                "self_multi"                "0.5"
             }
         }
         "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"

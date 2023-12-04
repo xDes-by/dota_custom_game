@@ -14,7 +14,7 @@ end
 
 function modifier_talent_armor_per_level:OnCreated( kv )
 	self.value = {0.5, 0.75, 1, 1.25, 1.5, 2}
-	self.parent = self:GetParent()
+	self:SetStackCount(1)
 end
 
 function modifier_talent_armor_per_level:DeclareFunctions()
@@ -24,5 +24,5 @@ function modifier_talent_armor_per_level:DeclareFunctions()
 end
 
 function modifier_talent_armor_per_level:GetModifierPhysicalArmorBonus()
-	return self.value[self:GetStackCount()] * self.parent:GetLevel()
+	return self.value[self:GetStackCount()] * self:GetParent():GetLevel()
 end

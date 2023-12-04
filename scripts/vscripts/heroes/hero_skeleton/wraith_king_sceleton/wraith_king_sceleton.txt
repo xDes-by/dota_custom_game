@@ -8,8 +8,9 @@
 			"AbilityTextureName"			"skelets"
 			"AbilityCastRange"				"450"
 			"MaxLevel"						"15"
-			
-			"AbilityCooldown"				"60"		
+			"AbilityCharges"				"2"
+			"AbilityChargeRestoreTime"		"60"
+			"AbilityCooldown"				"0.1"		
 
 			"AbilitySpecial"
 			{

@@ -73,25 +73,26 @@ end
 
 function modifier_lina_fiery_soul_lua:OnTakeDamage(keys)
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_lina_str10")	
-	if abil == nil then return end 
-	if IsServer() and self:GetAbility() then
-		local caster = self:GetCaster()
-		local parent = self:GetParent()
-		local ability = self:GetAbility()
-		local attacker = keys.attacker
-		local target = keys.unit
+		if abil == nil then return end
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_str50") then return end
+		if IsServer() and self:GetAbility() then
+			local caster = self:GetCaster()
+			local parent = self:GetParent()
+			local ability = self:GetAbility()
+			local attacker = keys.attacker
+			local target = keys.unit
 
-		if not target:IsRealHero() then return end
-		if parent:PassivesDisabled() then return end
-		if keys.inflictor and keys.inflictor:GetName() == "pudge_dispersion" then return end
-		
-		if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target and not attacker:IsOther() then
-		attacker:AddNewModifier(
-		self:GetCaster(), -- player source
-		self:GetAbility(), -- ability source
-		"modifier_lina_flame2", -- modifier name
-		{ duration = 2 } -- kv
-	)
+			if not target:IsRealHero() then return end
+			if parent:PassivesDisabled() then return end
+			if keys.inflictor and keys.inflictor:GetName() == "pudge_dispersion" then return end
+			
+			if attacker:GetTeamNumber() ~= parent:GetTeamNumber() and parent == target and not attacker:IsOther() then
+			attacker:AddNewModifier(
+			self:GetCaster(), -- player source
+			self:GetAbility(), -- ability source
+			"modifier_lina_flame2", -- modifier name
+			{ duration = 2 } -- kv
+		)
 		end
 	end
 end
@@ -177,7 +178,7 @@ function modifier_lina_fiery_soul_lua:PlayEffects()
 end
 
 function modifier_lina_fiery_soul_lua:OnAttackLanded(params)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_agi_last") ~= nil and RandomInt(1, 100) <= 5 and params.attacker:FindAbilityByName("lina_laguna_blade_lua") ~= nil then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_lina_agi_last") ~= nil and RandomInt(1, 100) <= 5 and params.attacker:FindAbilityByName("lina_laguna_blade_lua") ~= nil and not params.attacker:IsMagicImmune() and not params.attacker:IsBuilding() then
 		if params.attacker:FindAbilityByName("lina_laguna_blade_lua"):IsTrained() then
 			_G.lagunatarget = params.target
 			params.attacker:FindAbilityByName("lina_laguna_blade_lua"):OnSpellStart()
@@ -189,6 +190,30 @@ function modifier_lina_fiery_soul_lua:OnAttackLanded(params)
 			params.attacker:FindAbilityByName("lina_dragon_slave_lua"):OnSpellStart()
 		end
 	end
+end
+
+function modifier_lina_fiery_soul_lua:IsAura()
+	return self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_str50") ~= nil
+end
+
+function modifier_lina_fiery_soul_lua:GetModifierAura() 
+	return "modifier_lina_flame2" 
+end
+
+function modifier_lina_fiery_soul_lua:GetAuraRadius()
+	return 800
+end
+
+function modifier_lina_fiery_soul_lua:GetAuraSearchFlags() 
+	return DOTA_UNIT_TARGET_FLAG_NONE 
+end
+
+function modifier_lina_fiery_soul_lua:GetAuraSearchTeam() 
+	return DOTA_UNIT_TARGET_TEAM_ENEMY 
+end
+
+function modifier_lina_fiery_soul_lua:GetAuraSearchType() 
+	return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 end
 
 ------------------------------------------------------------------------------------------------------
@@ -215,9 +240,6 @@ function modifier_lina_flame2:IsPurgable()
 end
 
 function modifier_lina_flame2:GetAttributes()
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_lina_str50") ~= nil then
-		return MODIFIER_ATTRIBUTE_MULTIPLE
-	end
 	return MODIFIER_ATTRIBUTE_NONE
 end
 

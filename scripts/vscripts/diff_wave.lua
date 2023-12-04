@@ -5,16 +5,19 @@ end
 function diff_wave:init()
 	self.rating_scale = 1
 	self.info = {
-		Easy = {mmr_win = 0, mmr_lose = 0, respawn = 60, rp_win = 0, talent_scale = 0.5},
-		Normal = {mmr_win = 10, mmr_lose = -10, respawn = 120, rp_win = 20, talent_scale = 1.0},
-		Hard = {mmr_win = 20, mmr_lose = -20, respawn = 120, rp_win = 40, talent_scale = 1.25},
-		Ultra = {mmr_win = 30, mmr_lose = -30, respawn = 120, rp_win = 60, talent_scale = 1.5},
-		Insane = {mmr_win = 40, mmr_lose = -40, respawn = 120, rp_win = 80, talent_scale = 1.75},
-		Hell = {mmr_win = 50, mmr_lose = -50, respawn = 120, rp_win = 100, talent_scale = 2.0},
+		Easy = { respawn = 60, talent_scale = 0.5, rating_scale = 0},
+		Normal = { respawn = 120, talent_scale = 1.0, rating_scale = 1},
+		Hard = { respawn = 120, talent_scale = 1.25, rating_scale = 2},
+		Ultra = { respawn = 90, talent_scale = 1.5, rating_scale = 3},
+		Insane = { respawn = 75, talent_scale = 1.75, rating_scale = 4},
+		Impossible = { respawn = 60, talent_scale = 2.0, rating_scale = 5},
 	}
 	self.difficultyVote = {}
 	CustomGameEventManager:RegisterListener("GameSettings",function(_, keys)
         self:GameSettings(keys)
+    end)
+	CustomGameEventManager:RegisterListener("GameSettingsToggle",function(_, keys)
+        self:GameSettingsToggle(keys)
     end)
 	ListenToGameEvent("game_rules_state_change",function(_, keys)
         self:OnGameStateChanged(keys)
@@ -22,7 +25,8 @@ function diff_wave:init()
 	CustomGameEventManager:RegisterListener("GameSettingsInit",function(_, keys)
         self:GameSettingsInit(keys)
     end)
-	
+	self.maximum_passed_difficulty = {}
+	self.diff_toggle = {}
 end
 
 function diff_wave:GameSettings(t)
@@ -30,15 +34,32 @@ function diff_wave:GameSettings(t)
 	CustomNetTables:SetTableValue( "difficultyVote", tostring(t.PlayerID), self.difficultyVote )
 end
 
+function diff_wave:GameSettingsToggle(t)
+	if BattlePass ~= nil and BattlePass.current_season ~= nil then
+		local pid = t.PlayerID
+		local send = {}
+		if t.toggle == 1 then
+			send.diff_toggle = t.id
+		else
+			send.diff_toggle = ""
+		end
+		DataBase:Send(DataBase.link.GameSettingsToggle, "GET", send, pid, true, nil)
+	end
+end
+
 function diff_wave:GameSettingsInit(t)
 	Timers:CreateTimer(0 ,function()
-		if not RATING then return 0.1 end
-		local maximum_passed_difficulty = 0
-		if RATING["rating"][t.PlayerID+1] and RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"] then
-			maximum_passed_difficulty = RATING["rating"][t.PlayerID+1]["maximum_passed_difficulty"]
-		end
-		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {maximum_passed_difficulty = maximum_passed_difficulty} )
+		if self.maximum_passed_difficulty[t.PlayerID] == nil then return 0.1 end
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "GameSettingsMaxDifficulty", {
+			maximum_passed_difficulty = self.maximum_passed_difficulty[t.PlayerID],
+			diff_toggle = self.diff_toggle[t.PlayerID],
+		} )
 	end)
+end
+
+function diff_wave:SetPlayerData(pid, settings)
+	self.maximum_passed_difficulty[pid] = settings.maximum_passed_difficulty
+	self.diff_toggle[pid] = settings.diff_toggle
 end
 
 function diff_wave:OnGameStateChanged(t)
@@ -52,6 +73,9 @@ function diff_wave:OnGameStateChanged(t)
 				count = count + 1
 			end
 		end
+		if count == 0 then
+			diff[2] = 1
+		end
 		local diff_index = 1
 		local vote_count = 0
 		for i = 1, 6 do
@@ -60,16 +84,36 @@ function diff_wave:OnGameStateChanged(t)
 				vote_count = diff[i]
 			end
 		end
-		for i, mode in pairs({"Easy", "Normal", "Hard", "Ultra", "Insane", "Hell"}) do
+		if IsInToolsMode() then
+			diff_index = 5
+		end
+		for i, mode in pairs({"Easy", "Normal", "Hard", "Ultra", "Insane", "Impossible"}) do
 			if i == diff_index then
 				self.wavedef = mode
-				self.mmr_win = self.info[mode].mmr_win
-				self.mmr_lose = self.info[mode].mmr_lose
+				self.rating_scale = self.info[mode].rating_scale
 				self.respawn = self.info[mode].respawn
-				self.rp_win = self.info[mode].rp_win
 				self.talent_scale = self.info[mode].talent_scale
 			end
 		end
+		if diff_index == 5 then
+			GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 400 )
+			GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+		end
+		if diff_index == 6 then
+			for i=400,450 do
+				XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 340 
+			end
+			
+			for i=451,499 do
+				XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
+			end
+			GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 500 )
+			GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+		end
+		CustomNetTables:SetTableValue("GameInfo", tostring("mode"), {
+			name = self.wavedef,
+			scale = self.rating_scale,
+		})
 	end
 end
 
@@ -106,3 +150,48 @@ function diff_wave:InitGameMode()
 end 
 
 diff_wave:init()
+
+
+XP_PER_LEVEL_TABLE = {}
+XP_PER_LEVEL_TABLE[0] = 0
+XP_PER_LEVEL_TABLE[1] = 180
+for i=2,25 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 180  
+end
+
+for i=26,50 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 190 
+end
+
+for i=51,75 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200 
+end
+
+for i=76,100 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 210 
+end
+
+for i=101,150 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220
+end
+
+for i=151,200 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 230 
+end
+
+for i=201,250 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250 
+end
+
+for i=251,300 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 270 
+end
+
+for i=301,350 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 290 
+end
+
+for i=351,399 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 320 
+end
+

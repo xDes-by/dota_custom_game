@@ -62,7 +62,7 @@
 			"05"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"flare_radius"					"150"
+				"flare_radius"					"300"
 			}
 			"06"
 			{

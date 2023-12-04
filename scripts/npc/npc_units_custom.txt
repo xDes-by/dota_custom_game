@@ -736,7 +736,7 @@
         "SoundSet"          "Creep_Good_Range"          // Name of sound set.
         "Level"           "5"
 		"MinimapIcon"        "minimap_empty"
-		"MinimapIconSize"    "700"
+		"MinimapIconSize"    "500"
 		"MinimapDisableTint" "1"
         "UnitLabel"         "healing_ward"
         "ArmorPhysical"       "0"     // Physical protection.
@@ -963,6 +963,7 @@
 		//"StatusHealthRegen" "0"
 		"StatusMana" "0" 
 		//"StatusManaRegen" "0" 
+		"BountyXP" "0"	
 		"TeamName" "DOTA_TEAM_GOODGUYS" // Team name.
 		"CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
 		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
@@ -4822,6 +4823,8 @@
 		"ModelScale"				"1.7"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"VisionDaytimeRange"		"0"
+		"VisionNighttimeRange"		"0"
 	}
 	"npc_mortimer_second_phase"
 	{

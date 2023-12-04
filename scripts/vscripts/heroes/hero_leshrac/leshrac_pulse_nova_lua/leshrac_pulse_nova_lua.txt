@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+
+	"leshrac_pulse_nova_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_leshrac/leshrac_pulse_nova_lua/leshrac_pulse_nova_lua"
+		"AbilityTextureName"			"leshrac_pulse_nova"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0"
+
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"70 90 110"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"interval"				"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_cost_per_second"	"20 40 60"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"550"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 140 180 220 260 300 350 400 450 500"
+			}
+		}
+	}
+}

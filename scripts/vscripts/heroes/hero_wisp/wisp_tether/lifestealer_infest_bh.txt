@@ -6,37 +6,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_wisp/wisp_tether/lifestealer_infest_bh.lua"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO" //DOTA_ABILITY_BEHAVIOR_HIDDEN
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"life_stealer_infest"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
         "AbilityStartLevel"     "1"
         "MaxLevel"              "1"  // Установите максимальный уровень на 1
 		
-		// Talents		
-		//-------------------------------------------------------------------------------------------------------------
-		"LinkedTalents"
-		{
-			"special_bonus_unique_lifestealer_infest_1"	"1"
-			"special_bonus_unique_lifestealer_infest_2"	"1"
-		}
-
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"			"ACT_DOTA_LIFESTEALER_INFEST"
+		"AbilityCastPoint"				"0"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100 75 50 50 50 50"
+		"AbilityCooldown"				"10"
 
 		// Cost
 		//---------------------------------------------------------- ---------------------------------------------------
-		"AbilityManaCost"				"100 125 150 200 250 300"
+		"AbilityManaCost"				"0"
 	
 		"precache"
 		{
@@ -51,33 +40,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"ally_bonus_hp"					"400 600 800 1600 2400 3200"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"aoe_damage"					"200 300 400 800 1200 1600"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"max_hp_regen"					"3 3.5 4 5 6 7"
-				"LinkedSpecialBonus"			"special_bonus_unique_lifestealer_infest_1"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_PERCENTAGE_ADD"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"700"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"5.0"
-			}
+			
 		}
 	}
 }

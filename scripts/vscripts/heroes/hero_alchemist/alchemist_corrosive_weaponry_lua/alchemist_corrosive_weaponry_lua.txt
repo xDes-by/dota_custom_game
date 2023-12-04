@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+	"alchemist_corrosive_weaponry_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_alchemist/alchemist_corrosive_weaponry_lua/alchemist_corrosive_weaponry_lua"
+		"AbilityTextureName"			"alchemist_corrosive_weaponry"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"1"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"AbilityValues"
+		{
+            "max_stacks"            "10"
+			"resistance"			"1.5"
+			"damage"				"10"
+			"duration"				"4"
+			"interval"				"0.2"
+		}
+	}
+}

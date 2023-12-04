@@ -1,18 +1,44 @@
 LinkLuaModifier( "modifier_zuus_passive_lua", "heroes/hero_zuus/zuus_passive/zuus_passive.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_zuus_nimbus", "heroes/hero_zuus/zuus_passive/modifier_zuus_nimbus.lua", LUA_MODIFIER_MOTION_NONE )
 
 zuus_passive_lua = class({})
 
 function zuus_passive_lua:GetCooldown(level)
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int7") ~= nil then 
-		return 2
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int11") ~= nil then 
+		return self.BaseClass.GetCooldown(self, level) / 2
 	end
 	return self.BaseClass.GetCooldown(self, level)
+end
+
+function zuus_passive_lua:GetCastRange(level)
+	self:GetSpecialValueFor("radius")
+end
+
+function zuus_passive_lua:OnAbilityUpgrade( hAbility )
+	if hAbility == self and self:GetLevel() == 1 then
+		self:ToggleAbility()
+	end
 end
 
 function zuus_passive_lua:GetIntrinsicModifierName()
 	return "modifier_zuus_passive_lua"
 end
+function zuus_passive_lua:OnOwnerSpawned()
+	if self.toggle_state then
+		self:ToggleAbility()
+	end
+end
 
+function zuus_passive_lua:OnOwnerDied()
+	self.toggle_state = self:GetToggleState()
+end
+
+function zuus_passive_lua:OnToggle()
+	if not IsServer() then return end
+	if self:GetToggleState() then
+		self:EndCooldown()
+	end
+end
 -------------------------------------------------------------------
 
 modifier_zuus_passive_lua = class({})
@@ -25,148 +51,98 @@ function modifier_zuus_passive_lua:RemoveOnDeath()
 	return true
 end
 
+function modifier_zuus_passive_lua:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+	}
+
+	return funcs
+end
+
+function modifier_zuus_passive_lua:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "damage" then
+			return 1
+		end
+		if data.ability_special_value == "dmg_per_int" then
+			return 1
+		end
+		if data.ability_special_value == "radius" then
+			return 1
+		end
+	end
+	return 0
+end
+
+function modifier_zuus_passive_lua:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "dmg_per_int" then
+			local dmg_per_int = self:GetAbility():GetLevelSpecialValueNoOverride( "dmg_per_int", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int12") then
+                dmg_per_int = dmg_per_int + 1
+            end
+            return dmg_per_int
+		end
+		if data.ability_special_value == "damage" then
+			local damage = self:GetAbility():GetLevelSpecialValueNoOverride( "damage", data.ability_special_level )
+			damage = damage + self:GetCaster():GetIntellect() * self:GetAbility():GetSpecialValueFor("dmg_per_int")
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_str6") then
+                damage = damage + self:GetCaster():GetStrength() * 0.5
+            end
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_int13") then
+                damage = damage + self:GetCaster():GetIntellect() * 0.5
+            end
+            return damage
+		end
+		if data.ability_special_value == "radius" then
+			local radius = self:GetAbility():GetLevelSpecialValueNoOverride( "radius", data.ability_special_level )
+			if self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_str9") then
+				radius = 800
+			end
+            return radius
+		end
+	end
+	return 0
+end
+
 function modifier_zuus_passive_lua:OnCreated()	
 	if not IsServer() then
 		return
 	end
-	self:StartIntervalThink(self:GetAbility():GetCooldown(level))
+	self:StartIntervalThink(0.2)
 end
 
 function modifier_zuus_passive_lua:OnIntervalThink()
 	local caster = self:GetCaster()	
 	local ability = self:GetAbility()
 	
-	if IsServer() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() and not caster:HasModifier("modifier_fountain_invulnerability") then
+	if IsServer() and caster:IsRealHero() and caster:IsAlive() and not caster:PassivesDisabled() and not caster:HasModifier("modifier_fountain_invulnerability") and ability:GetCooldownTimeRemaining() == 0 and ability:GetToggleState() then
 
-		local damage_per_int = ability:GetSpecialValueFor("dmg_per_int")
-			
-		if caster:FindAbilityByName("npc_dota_hero_zuus_int11") ~= nil then 
-			damage_per_int = ability:GetSpecialValueFor("dmg_per_int") + 0.1
-		end
-			
-		if caster:FindAbilityByName("npc_dota_hero_zuus_int_last") ~= nil then 
-			damage_per_int = ability:GetSpecialValueFor("dmg_per_int") + 1
-		end
-			
-		local damage = damage_per_int * caster:GetIntellect()
-		
-		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
-		if hEnemies ~= nil then
-			if caster:FindAbilityByName("npc_dota_hero_zuus_str7") ~= nil then 
-				caster:AddNewModifier(caster, ability, "modifier_zuus_armor", {}):SetStackCount(#hEnemies)
-			end		
+		local radius = ability:GetSpecialValueFor("radius")
+		local hEnemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
+		if #hEnemies > 0 then
 			for _,unit in pairs(hEnemies) do
-				if caster:FindAbilityByName("npc_dota_hero_zuus_agi6") ~= nil then 
-					unit:AddNewModifier(caster, ability, "modifier_passive_armor", {duration = 1})
-				end
-				
-				if caster:FindAbilityByName("npc_dota_hero_zuus_agi11") ~= nil then 
-					damage = caster:GetAgility()
-				end
-				
-				if caster:FindAbilityByName("npc_dota_hero_zuus_str9") ~= nil then 
-					damage = caster:GetStrength()
-				end
-				
-				ApplyDamage({victim = unit, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_NONE})
-					
-				local zuus_static_field = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
-				ParticleManager:SetParticleControl(zuus_static_field, 1, unit:GetAbsOrigin() * 100)	
+				self:ApplyDamage(unit)
 			end
-
-			if caster:FindAbilityByName("npc_dota_hero_zuus_int6") ~= nil then 
-				local ability2 = caster:FindAbilityByName("zuus_arc_lightning_lua")
-				if ability2 ~= nil and ability2:GetLevel() > 0 and hEnemies[1] ~= nil then
-					_G.arctatget = hEnemies[1]
-					ability2:OnSpellStart()
-					Timers:CreateTimer(0.1, function()
-						caster:SetMana(caster:GetMana() + ability2:GetManaCost(ability2:GetLevel()))
-						ability2:EndCooldown()
-					end)
-				end
-			end			
+			ability:StartCooldown( ability:GetCooldown(ability:GetLevel()) * caster:GetCooldownReduction())
 		end
-		self:GetAbility():UseResources(false, false,false, true)	
-		self:StartIntervalThink(-1)
-		self:StartIntervalThink(self:GetAbility():GetCooldown(level))
 	end
 end
 
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-
-LinkLuaModifier("modifier_passive_armor", "heroes/hero_zuus/zuus_passive/zuus_passive.lua", LUA_MODIFIER_MOTION_NONE )
-
-modifier_passive_armor = class({})
-
-function modifier_passive_armor:IsHidden()
-	return false
+function modifier_zuus_passive_lua:ApplyDamage(target)
+	ApplyDamage({victim = target, attacker = self:GetCaster(), damage = self:GetSpecialValueFor("damage"), damage_type = DAMAGE_TYPE_MAGICAL, damage_flags = DOTA_DAMAGE_FLAG_NONE})
+	local zuus_static_field = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	ParticleManager:SetParticleControl(zuus_static_field, 1, target:GetAbsOrigin() * 100)	
 end
 
-function modifier_passive_armor:IsPurgable()
-	return false
-end
-
-function modifier_passive_armor:OnCreated()
-end
-
-function modifier_passive_armor:DeclareFunctions()
-	return {MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
-end
-
-function modifier_passive_armor:GetModifierPhysicalArmorBonus()
-	return -10
-end
-			
-------------------------------------------------------------------------------------------------------------------------------
-
-LinkLuaModifier("modifier_zuus_armor", "heroes/hero_zuus/zuus_passive/zuus_passive.lua", LUA_MODIFIER_MOTION_NONE )
-
-modifier_zuus_armor = class({})
-
-function modifier_zuus_armor:IsHidden()
-	return self:GetStackCount()==0
-end
-
-function modifier_zuus_armor:IsDebuff()
-	return false
-end
-
-function modifier_zuus_armor:RemoveOnDeath()
-    return true
-end
-
-function modifier_zuus_armor:IsPurgable()
-	return false
-end
-
-function modifier_zuus_armor:DestroyOnExpire()
-	return false
-end
-
-function modifier_zuus_armor:OnCreated( kv )
-	self.armor = 3
-	self.resist = 1
-end
-
-
-function modifier_zuus_armor:OnRefresh( kv )
-	self.armor = 3
-	self.resist = 1
-end
-
-function modifier_zuus_armor:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-	}
-	return funcs
-end
-
-function modifier_zuus_armor:GetModifierPhysicalArmorBonus( params )
-	return self:GetStackCount() * self.armor
-end
-
-function modifier_zuus_armor:GetModifierMagicalResistanceBonus( params )
-	return self:GetStackCount() * self.resist
+function modifier_zuus_passive_lua:OnTakeDamage(params)
+	if params.unit == self:GetParent() then
+		if self:GetParent():FindAbilityByName("npc_dota_hero_zuus_str12") and params.damage_type == DAMAGE_TYPE_PHYSICAL then
+			if params.attacker:IsAlive() and not params.attacker:IsBuilding() and params.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and RandomInt(1, 100) <= 20 then
+				self:ApplyDamage(params.attacker)
+			end
+		end
+	end
 end

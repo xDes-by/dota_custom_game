@@ -42,21 +42,7 @@ function effects:CastSpray(t)
 
 	EmitSoundOnLocationWithCaster( point, "Spraywheel.Paint", hero )
 	self.spray[t.PlayerID] = spray
-	
-	-- local tab = CustomNetTables:GetTableValue("sprays", tostring(t.PlayerID))
-	-- if tab then
-	-- 	if tab.spray ~= nil then
-	-- 		local effect = ParticleManager:CreateParticle( "particles/sprays/spray_placement.vpcf", PATTACH_WORLDORIGIN, nil )
-	-- 		ParticleManager:SetParticleControl( effect, 0, point )
-
-	-- 		local spray = ParticleManager:CreateParticle( tab.spray, PATTACH_WORLDORIGIN, nil )
-	-- 		ParticleManager:SetParticleControl( spray, 0, point )
-	-- 		ParticleManager:SetParticleControl( spray, 1, Vector( 196, 1, 0 ) )
-
-	-- 		EmitSoundOnLocationWithCaster( point, "Spraywheel.Paint", hero )
-	-- 		self.spray[t.PlayerID] = spray
-	-- 	end
-	-- end
+	Quests:UpdateCounter("daily", t.PlayerID, 50)
 end
 
 function effects:HighFive(t)

@@ -9,7 +9,9 @@ function vengeful_spirit_magic_missile:GetIntrinsicModifierName()
 end
 
 --------------------------------------------------------------------------------
-
+function vengeful_spirit_magic_missile:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function vengeful_spirit_magic_missile:OnSpellStart(Target)
     speed = self:GetSpecialValueFor("magic_missile_speed")
     magic_missile_stun = self:GetSpecialValueFor("magic_missile_stun")
@@ -48,16 +50,10 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
         local magic_missile_stun = ExtraData.magic_missile_stun
 
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_str6") then
-            local min_value = 35
-            local max_value = 110
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetStrength()) -- талант 30->120 силы в урон
+            damage = damage + self:GetCaster():GetStrength() * 0.5
         end
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_int8") then
-            local min_value = 35
-            local max_value = 90
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetStrength()) -- талант 30->120 силы в урон
+            damage = damage + self:GetCaster():GetIntellect() * 0.5
         end
         if Target:TriggerSpellAbsorb(self) then
             return false
@@ -111,7 +107,8 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
                     iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
                     ExtraData =
                     {
-                        usedByPlayer			= 0
+                        usedByPlayer			= 0,
+                        magic_missile_stun = magic_missile_stun,
                     }
                 }
                 ProjectileManager:CreateTrackingProjectile(projectile)
@@ -139,9 +136,15 @@ modifier_vengeful_spirit_magic_missile = class({
 
 function modifier_vengeful_spirit_magic_missile:OnAttack( params )
     caster = self:GetCaster()
-    if params.attacker == self:GetParent() then
-        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int_last") and RollPseudoRandomPercentage(9, caster:entindex(), caster) then
-            self:GetAbility():OnSpellStart(params.target)
+    if params.attacker == self:GetParent() and not params.target:IsMagicImmune() and not params.target:IsBuilding() then
+        if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int13") then
+            if RollPercentage(9) and not caster:IsSilenced() and self:GetAbility():IsActivated() then
+                self:GetAbility():OnSpellStart(params.target)
+            end
+        elseif caster:FindAbilityByName("npc_dota_hero_vengefulspirit_int12") then
+            if RollPercentage(5) and not caster:IsSilenced() and self:GetAbility():IsActivated() then
+                self:GetAbility():OnSpellStart(params.target)
+            end
         end
     end
 end
@@ -158,6 +161,6 @@ modifier_vengeful_spirit_magic_missile_criticalstrike = class({
         }
     end,
     GetModifierPreAttack_CriticalStrike = function(self)
-        return 150 * self:GetAbility():GetLevel()
+        return 100 + 75 * self:GetAbility():GetLevel()
     end,
 })

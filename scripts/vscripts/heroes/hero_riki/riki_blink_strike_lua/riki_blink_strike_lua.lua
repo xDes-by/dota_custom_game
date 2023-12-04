@@ -19,6 +19,12 @@ function riki_blink_strike_lua:IsNetherWardStealable() return false end
 function riki_blink_strike_lua:GetAbilityTextureName()
 	return "riki_blink_strike"
 end
+function riki_blink_strike_lua:GetManaCost(iLevel)
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_riki_int9") then
+		return 0
+	end
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 -------------------------------------------
 
 function riki_blink_strike_lua:CastFilterResultTarget(hTarget)
@@ -314,9 +320,3 @@ function riki_blink_strike_lua:DoJumpAttack(hTarget, hNextTarget)
 end
 
 riki_blink_strike_723_lua			= riki_blink_strike_lua
-
--- function riki_blink_strike_723_lua:GetIntrinsicModifierName()
--- 	if self:GetName() == "riki_blink_strike_723_lua" then
--- 		return "modifier_generic_charges"
--- 	end
--- end

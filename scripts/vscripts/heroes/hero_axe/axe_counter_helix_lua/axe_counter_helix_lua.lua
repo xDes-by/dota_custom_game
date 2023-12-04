@@ -8,20 +8,6 @@ function axe_counter_helix_lua:GetIntrinsicModifierName()
 	return "modifier_axe_counter_helix_lua"
 end
 
-function axe_counter_helix_lua:OnOwnerSpawned()
-	if self.toggle_state then
-		self:ToggleAbility()
-	end
-end
-
-function axe_counter_helix_lua:OnOwnerDied()
-	self.toggle_state = self:GetToggleState()
-end
-
-function axe_counter_helix_lua:OnToggle()
-	if not IsServer() then return end
-end
-
 function axe_counter_helix_lua:GetCooldown(level)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_axe_agi7") ~= nil then
 		return self.BaseClass.GetCooldown(self, level) - 0.1

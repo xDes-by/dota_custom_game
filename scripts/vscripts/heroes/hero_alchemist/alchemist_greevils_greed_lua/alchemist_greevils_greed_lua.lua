@@ -1,8 +1,6 @@
 alchemist_greevils_greed_lua = class({})
 LinkLuaModifier( "modifier_alchemist_greevils_greed_lua", "heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_alchemist_greevils_greed_lua_debuff", "heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_alchemist_corrosive_weapon", "heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_alchemist_corrosive_weapon_debuff", "heroes/hero_alchemist/alchemist_greevils_greed_lua/alchemist_greevils_greed_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_alchemist_chemical_rage_lua", "heroes/hero_alchemist/alchemist_chemical_rage_lua/alchemist_chemical_rage_lua", LUA_MODIFIER_MOTION_NONE )
 
 function alchemist_greevils_greed_lua:GetIntrinsicModifierName()
@@ -11,7 +9,7 @@ end
 
 function alchemist_greevils_greed_lua:GetBehavior()
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50") ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
 	else
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
 	end
@@ -35,7 +33,8 @@ function alchemist_greevils_greed_lua:OnSpellStart()
 		local front = self:GetCaster():GetForwardVector():Normalized()
 		local target_pos = self:GetCaster():GetOrigin() + front * 200
 		EmitSoundOn("SeasonalConsumable.TI9.Shovel.Dig", self:GetCaster())
-		CreateRune(target_pos, DOTA_RUNE_DOUBLEDAMAGE)
+		local r = {0,1,3,4,6}
+		CreateRune(target_pos, r[RandomInt(1, #r)])
 	end
 end
 
@@ -48,7 +47,10 @@ end
 modifier_alchemist_greevils_greed_lua = class({})
 
 function modifier_alchemist_greevils_greed_lua:IsHidden()
-	return true
+	if self:GetStackCount() == 0 then
+		return true
+	end
+	return false
 end
 
 function modifier_alchemist_greevils_greed_lua:IsPurgable()
@@ -71,6 +73,7 @@ function modifier_alchemist_greevils_greed_lua:OnCreated()
 	if not IsServer() then
 		return
 	end
+	self:SetStackCount(0)
 	self.table = {}
 	for iPlayerID = 1,PlayerResource:GetPlayerCount() - 1 do
 		if PlayerResource:IsValidPlayer(iPlayerID) then
@@ -79,9 +82,6 @@ function modifier_alchemist_greevils_greed_lua:OnCreated()
 				self.table[iPlayerID] = hHero
 			end
 		end
-	end
-	if self:GetParent():HasAbility("special_bonus_unique_npc_dota_hero_alchemist_int50") then
-		self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_alchemist_corrosive_weapon", {} )
 	end
 end
 
@@ -98,19 +98,22 @@ function modifier_alchemist_greevils_greed_lua:OnRefresh()
 			end
 		end
 	end
-	if self:GetParent():HasAbility("special_bonus_unique_npc_dota_hero_alchemist_int50") then
-		self:GetCaster():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_alchemist_corrosive_weapon", {} )
-	end
 end
 
 function modifier_alchemist_greevils_greed_lua:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_DEATH,
+		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_STATS_AGILITY_BONUS
 	}
 end
 
 function modifier_alchemist_greevils_greed_lua:OnDeath( params )
 if self:GetParent():PassivesDisabled() then return end
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_str50")	then
+		self:IncrementStackCount()
+	end
 	self.hero_bonus = self:GetAbility():GetSpecialValueFor( "bonus_gold" )
 	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_alchemist_int9")	
 	if abil ~= nil then 
@@ -149,103 +152,14 @@ function modifier_alchemist_greevils_greed_lua:PlayEffects2(hero, bonus)
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 end
 
-modifier_alchemist_corrosive_weapon = class({})
---Classifications template
-function modifier_alchemist_corrosive_weapon:IsHidden()
-	return false
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Strength()
+	return self:GetStackCount()
 end
 
-function modifier_alchemist_corrosive_weapon:IsDebuff()
-	return false
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Intellect()
+	return self:GetStackCount()
 end
 
-function modifier_alchemist_corrosive_weapon:IsPurgable()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_alchemist_corrosive_weapon:IsStunDebuff()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon:RemoveOnDeath()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon:DestroyOnExpire()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon:DeclareFunctions()
-	return {
-		MODIFIER_EVENT_ON_ATTACK_LANDED
-	}
-end
-
-function modifier_alchemist_corrosive_weapon:OnAttackLanded(data)
-	if self:GetParent() ~= data.attacker then
-		return
-	end
-	data.attacker:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_alchemist_corrosive_weapon_debuff", {duration = 5})
-end
-
-modifier_alchemist_corrosive_weapon_debuff = class({})
---Classifications template
-function modifier_alchemist_corrosive_weapon_debuff:IsHidden()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:IsDebuff()
-	return true
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:IsPurgable()
-	return true
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:IsPurgeException()
-	return true
-end
-
--- Optional Classifications
-function modifier_alchemist_corrosive_weapon_debuff:IsStunDebuff()
-	return false
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:RemoveOnDeath()
-	return true
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:DestroyOnExpire()
-	return true
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:OnCreated()
-	if not IsServer() then
-		return
-	end
-	self:SetStackCount(1)
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:OnRefresh()
-	if not IsServer() then
-		return
-	end
-	if self:GetStackCount() <=10 then
-		self:SetStackCount(self:GetStackCount()+1)
-	end
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:DeclareFunctions()
-	return {
-		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
-	}
-end
-
-function modifier_alchemist_corrosive_weapon_debuff:GetModifierMagicalResistanceBonus()
-	return self:GetStackCount() * 5
+function modifier_alchemist_greevils_greed_lua:GetModifierBonusStats_Agility()
+	return self:GetStackCount()
 end

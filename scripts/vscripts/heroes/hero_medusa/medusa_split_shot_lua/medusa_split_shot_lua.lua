@@ -145,12 +145,15 @@ function modifier_medusa_split_shot_lua:OnAttack( params )
 end
 
 function modifier_medusa_split_shot_lua:GetModifierDamageOutgoing_Percentage()
-	-- if not IsServer() then return end
-	if self:GetAbility():GetToggleState() and self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi10") == nil then
-		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_agi50") then
-			return self.reduction + 100
-		end
-		return self.reduction
+	local val = self.reduction
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_medusa_agi10") then
+		val = 100
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_agi50")then
+		val = val + 100
+	end
+	if self:GetAbility():GetToggleState() then
+		return val
 	end
 	return 0
 end
@@ -250,7 +253,7 @@ function modifier_medusa_split_shot_lua:SplitShotNoModifier( target )
 
 	local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_medusa_agi50")                   
 	if abil ~= nil then 
-		self.count = self.count = 2
+		self.count = self.count + 2
 	end
 
 	local count = 0

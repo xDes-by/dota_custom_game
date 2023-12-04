@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+	"jakiro_macropyre_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_jakiro/jakiro_macropyre_lua/jakiro_macropyre_lua"
+		"AbilityTextureName"			"jakiro_macropyre"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"10"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.55"
+
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"250 400 550"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 200 300 400 500 600 700 800 900 1000"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"				"900"					
+			}
+			
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"path_radius"				"260"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"10"
+			}	
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"burn_interval"				"0.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"linger_duration"			"2"
+			}
+		}
+	}
+}

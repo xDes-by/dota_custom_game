@@ -27,5 +27,6 @@ function item_shaker_boss_summon:OnSpellStart()
         boss:AddNewModifier(self:GetCaster(), nil, "modifier_insane", {}) 
         self.rp = 50 * 1.75
     end
+    
     self:GetCaster():RemoveItem(self)
 end

@@ -179,9 +179,17 @@ function modifier_dragon_form_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
 
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
+
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 	}
 
 	return funcs
+end
+
+function modifier_dragon_form_lua:GetModifierTotalDamageOutgoing_Percentage()
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_dragon_knight_agi50") then
+		return 200
+	end
 end
 
 function modifier_dragon_form_lua:GetModifierBaseAttack_BonusDamage()

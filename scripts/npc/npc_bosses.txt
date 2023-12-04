@@ -382,9 +382,11 @@
 		"Ability7"                 	"ability_npc_boss_plague_squirrel_spell7"
 		//"Ability8"                 	"ability_npc_boss_plague_squirrel_spell8"
 		"Ability9"                 	"necronomicon_warrior_sight"
+		"Ability10"                 "ability_npc_boss_plague_squirrel_spell9"
+		"Ability11"                 "ability_npc_boss_plague_squirrel_spell10"
 		
-		"ArmorPhysical"				"500"
-		"MagicalResistance"			"99"
+		"ArmorPhysical"				"1300"
+		"MagicalResistance"			"99.9"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"1"
@@ -926,6 +928,8 @@
 			"Wearable7" {"ItemDef" "8999"}
 			}			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_forest_boss"	
 	{
@@ -1003,6 +1007,8 @@
 			"Wearable7" {"ItemDef" "8999"}
 			}			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 		"npc_pen"
 	{
@@ -1157,6 +1163,8 @@
 			"Wearable7" {"ItemDef" "7933"}//("Hook of the Royal Butcher")
 			}	
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_village_boss"	
 	{
@@ -1234,6 +1242,8 @@
 			"Wearable7" {"ItemDef" "7933"}//("Hook of the Royal Butcher")
 			}	
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Mines
@@ -1312,6 +1322,8 @@
 				"Wearable6" { "ItemDef" "6061" }
 			}	
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_mines_boss"	
 	{
@@ -1390,6 +1402,8 @@
 				"Wearable6" { "ItemDef" "6061" }
 			}	
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Dust
@@ -1468,6 +1482,8 @@
 				"Wearable4" { "ItemDef" "8117" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_dust_boss"	
 	{
@@ -1544,6 +1560,8 @@
 				"Wearable4" { "ItemDef" "8117" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Cemetery
@@ -1557,6 +1575,7 @@
 		"Model"						"models/items/lycan/ultimate/_ascension_of_the_hallowed_beast_form/_ascension_of_the_hallowed_beast_form.vmdl"	// Model.
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
+		"CanRespawn"				"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1620,6 +1639,8 @@
 		{	
 			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_cemetery_boss_fake"
 	{
@@ -1630,6 +1651,7 @@
 		"Model"						"models/items/lycan/ultimate/_ascension_of_the_hallowed_beast_form/_ascension_of_the_hallowed_beast_form.vmdl"	// Model.
 		"SoundSet"					"Hero_Lycan"					// Name of sound set.
 		"ModelScale"				"1.3"
+		"CanRespawn"				"1"
 				
 		// Abilities
 		//----------------------------------------------------------------
@@ -1693,6 +1715,8 @@
 		{	
 			
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Swamp
@@ -1773,6 +1797,8 @@
 			"Wearable5" {"ItemDef" "9338"}//tail("Tail of the Virulent Krait")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_swamp_boss"
 	{
@@ -1851,6 +1877,8 @@
 			"Wearable5" {"ItemDef" "9338"}//tail("Tail of the Virulent Krait")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	
 "medusa_ward"
@@ -1970,6 +1998,8 @@
 			}
 
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 "npc_snow_boss"
 	{
@@ -2037,6 +2067,8 @@
 				}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_snow_boss_feeld_caster"
     {
@@ -2158,6 +2190,8 @@
 				"Wearable5" {"ItemDef" "695"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	"npc_boss_location8"
 	{	
@@ -2232,6 +2266,8 @@
 				"Wearable5" {"ItemDef" "695"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	///////////////////////////////////////////////////////////////////////////////
 	//Magma
@@ -2241,10 +2277,11 @@
 		"BaseClass"					"npc_dota_creature"
 		"vscripts"       			"ai/npc_mini_bosses.lua"
 		"Model"						"models/heroes/doom/doom.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"0.5"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
+		"CanRespawn"				"1"
 		
 		"Ability1"					"creature_fire_breath"	
 		"Ability2"					"magma_boss_damage_aura"	
@@ -2264,7 +2301,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"600"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -2305,6 +2342,8 @@
 				"Wearable7" {"ItemDef" "12270"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_boss_magma_fake"
 	{
@@ -2315,6 +2354,7 @@
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
+		"CanRespawn"				"1"
 		
 		"Ability1"					"creature_fire_breath"	
 		"Ability2"					"magma_boss_damage_aura"	
@@ -2334,7 +2374,7 @@
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.2"		
 		"AttackAnimationPoint"		"0.1"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackAcquisitionRange"	"600"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -2375,6 +2415,8 @@
 				"Wearable7" {"ItemDef" "12270"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Invoker
@@ -2401,6 +2443,8 @@
 		"Ability10"					"status_resist"
 		"Ability11"					"manacost_spell"
 		"Ability12"					"invoker_spfere"
+		"Ability13"					"mega_boss_emp_lua"
+		"Ability14"					""
 		
 		"ArmorPhysical"				"3"
 		"MagicalResistance"			"1"
@@ -2471,6 +2515,8 @@
 				}				
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}	
 	///////////////////////////////////////////////////////////////////////////////
 	//Roshan
@@ -2660,11 +2706,13 @@
 				"Wearable4" {"ItemDef" "23249"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	//Bara
 	///////////////////////////////////////////////////////////////////////////////	
-	"npc_bara_boss"
+	"npc_bara_boss_main"
 	{
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
@@ -2683,16 +2731,16 @@
 		"Ability7"					""
 		"Ability8"					"ai_bara_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"900"			
+		"MagicalResistance"			"99"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"350000"		
+		"AttackDamageMax"			"350000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"2.5"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.15"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"600"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -2701,16 +2749,16 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"100000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
-		//"StatusHealthRegen"			"0.0"		
+		"StatusHealth"				"4500000"		
+		"StatusHealthRegen"			"1000000"
 		"StatusMana"				"1000"			
-		"StatusManaRegen"			"1000.0"		
+		"StatusManaRegen"			"1000.0"			
 
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
@@ -2733,6 +2781,8 @@
 				"Wearable7" {"ItemDef" "106"}
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_bara_boss_kabanchik"
 	{
@@ -2763,7 +2813,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/sand_king/sand_king.vmdl"
-		"ModelScale"				"1.5"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -2777,16 +2827,16 @@
 		"Ability7"					""
 		"Ability8"					"ai_sand_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"120000"		
+		"AttackDamageMax"			"120000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.2"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -2795,13 +2845,13 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"5000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
+		"StatusHealth"				"2000000"		
 		//"StatusHealthRegen"			"0.0"		
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"		
@@ -2826,12 +2876,14 @@
 			"Wearable6" {"ItemDef" "12819"}//arms("Claws of the Frostbite Dunes")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_dota_monkey_clone_custom"
     {
         "BaseClass"                                   "npc_dota_creature"
         "Model"                                       "models/heroes/monkey_king/monkey_king.vmdl"
-        "ModelScale"                                  "0.8100"
+        "ModelScale"                                  "1.5"
         "IdleExpression"                              "scenes/monkey_king/monkey_king_exp_idle_01.vcd"
         "SoundSet"                                    "Hero_MonkeyKing"
         "particle_folder"                             "particles/units/heroes/hero_monkey_king"
@@ -2924,7 +2976,7 @@
     {
         "BaseClass"                                   "npc_dota_creature"
         "Model"                                       "models/heroes/monkey_king/monkey_king.vmdl"
-        "ModelScale"                                  "1"
+        "ModelScale"                                  "3"
         "SoundSet"                                    "Hero_MonkeyKing"
         "Level"                                       "1"
 		"IsAncient"					"1"
@@ -2938,9 +2990,10 @@
 		"Ability6"					""
 		"Ability7"					""
 		"Ability8"					"ai_monkey_boss"
+		"AttackAcquisitionRange"	"1200"		
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"
 
         "CanBeDominated"                              "0"
         "ConsideredHero"                              "0"
@@ -2951,10 +3004,10 @@
         // Attack
         //----------------------------------------------------------------
         "AttackCapabilities"                          "DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"                             "29"
-        "AttackDamageMax"                             "35"
-        "AttackRate"                                  "1.7"
-        "AttackAnimationPoint"                        "0.45"
+        "AttackDamageMin"                             "120000"
+        "AttackDamageMax"                             "120000"
+        "AttackRate"                                  "0.2"
+        "AttackAnimationPoint"                        "0.1"
         "AttackSpeedActivityModifiers"
         {
             "fast"      "170"
@@ -2976,7 +3029,7 @@
 		}
         // Bounty
         //----------------------------------------------------------------
-        "BountyXP"                                    "0"
+        "BountyXP"                                    "5000"
         "BountyGoldMin"                               "0"
         "BountyGoldMax"                               "0"
 
@@ -2992,7 +3045,7 @@
 
         // Status
         //----------------------------------------------------------------
-        "StatusHealth"                                "150"
+        "StatusHealth"                                "2000000"
         "StatusHealthRegen"                           "0"
         "StatusMana"                                  "0"
         "StatusManaRegen"                             "0"
@@ -3006,8 +3059,8 @@
 
         // Vision
         //----------------------------------------------------------------
-        "VisionDaytimeRange"                          "600"
-        "VisionNighttimeRange"                        "600"
+        "VisionDaytimeRange"                          "1200"
+        "VisionNighttimeRange"                        "1200"
 
         "Creature"
         {
@@ -3019,13 +3072,15 @@
                 "Wearable4" { "ItemDef" "657" }         // shoulders
             }
         }
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
     }
 	"npc_titan_boss"
 	{
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/elder_titan/elder_titan.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3039,16 +3094,16 @@
 		"Ability7"					""
 		"Ability8"					"ai_npc_titan_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"120000"		
+		"AttackDamageMax"			"120000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.2"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3057,13 +3112,13 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"5000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
+		"StatusHealth"				"2000000"		
 		//"StatusHealthRegen"			"0.0"		
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"		
@@ -3086,23 +3141,27 @@
 				"Wearable4" {"ItemDef" "13174"}//back("Shards of the Monument of Ruin")
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_elder_spirit"
 	{
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/elder_titan/ancestral_spirit.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"Ability1"					"ability_npc_titan_boss_stomp"
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_appariion_boss"
 	{
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/ancient_apparition/ancient_apparition.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3116,16 +3175,16 @@
 		"Ability7"					"ability_apparition_boss_split"
 		"Ability8"					"ai_apparition_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"120000"		
+		"AttackDamageMax"			"120000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.2"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"600"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3134,13 +3193,13 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"5000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
+		"StatusHealth"				"2000000"		
 		//"StatusHealthRegen"			"0.0"		
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"		
@@ -3160,6 +3219,8 @@
 
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_apparition_snowman"
 	{
@@ -3176,7 +3237,7 @@
 		// "vscripts"       			"ai/.lua"
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models/heroes/crystal_maiden/crystal_maiden_arcana.vmdl"
-		"ModelScale"				"1"
+		"ModelScale"				"3"
 		"Level"						"200"	
 		"IsAncient"					"1"
 		"HasInventory"				"1"
@@ -3190,16 +3251,16 @@
 		"Ability7"					""
 		"Ability8"					"ai_crystal_boss"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"1100"			
+		"MagicalResistance"			"99.9"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"120000"		
+		"AttackDamageMax"			"120000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.2"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"1200"		
 		"AttackRange"				"600"		
 		"ProjectileModel"			"particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3208,13 +3269,13 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"5000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
+		"StatusHealth"				"2000000"		
 		//"StatusHealthRegen"			"0.0"		
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"		
@@ -3237,6 +3298,8 @@
                 "Wearable4" { "ItemDef" "4444" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 	"npc_crystal_spire"
 	{
@@ -3273,16 +3336,16 @@
 		"Ability10"					"mega_boss_rupture"
 		"Ability11"					"mega_boss_mana_remove"
 
-		"ArmorPhysical"				"0"			
-		"MagicalResistance"			"0"	
+		"ArmorPhysical"				"1000"			
+		"MagicalResistance"			"100"	
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"10"		
-		"AttackDamageMax"			"10"		
+		"AttackDamageMin"			"180000"		
+		"AttackDamageMax"			"180000"		
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"		
-		"AttackAnimationPoint"		"0.6"		
-		"AttackAcquisitionRange"	"0"		
+		"AttackRate"				"0.15"		
+		"AttackAnimationPoint"		"0.1"		
+		"AttackAcquisitionRange"	"600"		
 		"AttackRange"				"250"		
 		"ProjectileModel"			"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 		"ProjectileSpeed"			"900"		
@@ -3291,13 +3354,13 @@
 		"HealthBarOffset"			"130"
 		"RingRadius"				"50"
 		
-		"BountyXP"					"500"
+		"BountyXP"					"10000"
 	
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"				"430"		
 		"MovementTurnRate"			"0.5"		
 
-		"StatusHealth"				"10000"		
+		"StatusHealth"				"7000000"		
 		"StatusHealthRegen"			"1000000"		
 		"StatusMana"				"1000"			
 		"StatusManaRegen"			"1000.0"		
@@ -3320,6 +3383,8 @@
                 "Wearable4" { "ItemDef" "708" }
 			}
 		}
+		"MinimapIcon"        "minimap_death"
+		"MinimapIconSize"    "500"
 	}
 
 

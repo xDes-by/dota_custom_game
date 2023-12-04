@@ -54,20 +54,15 @@ function modifier_lion_soul_collector:OnDeath(params)
 	end
 	local abil = self:GetParent():FindAbilityByName("npc_dota_hero_lion_int_last")	
 	if abil ~= nil then 
-	count = count + 2
-	end
-	local abil = self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_lion_int50")	
-	if abil ~= nil then 
-	count = count + 3
+		count = count + 2
 	end
 	for i = 1, count do					
 		local parent = self:GetParent()
 		if IsMyKilledBadGuys(parent, params) then
 			self:IncrementStackCount()
 			parent:CalculateStatBonus(true)
-			--parent:Heal(10, nil)
-			end
 		end
+	end
 end
 
 function modifier_lion_soul_collector:GetModifierPhysicalArmorBonus(params)

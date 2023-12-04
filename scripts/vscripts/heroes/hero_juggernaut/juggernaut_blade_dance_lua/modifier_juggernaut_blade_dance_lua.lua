@@ -81,7 +81,7 @@ function modifier_juggernaut_blade_dance_lua:GetModifierProcAttack_Feedback( par
 end
 
 function modifier_juggernaut_blade_dance_lua:OnAttackLanded(params)
-	if self.npc_dota_hero_juggernaut_int_last and RollPercentage(rand) and params.attacker:FindAbilityByName("juggernaut_requiem") ~= nil and params.attacker:FindAbilityByName("juggernaut_requiem"):IsTrained() then
+	if self.npc_dota_hero_juggernaut_int_last and RollPercentage(self.rand) and params.attacker:FindAbilityByName("juggernaut_requiem") ~= nil and params.attacker:FindAbilityByName("juggernaut_requiem"):IsTrained() then
 		self:GetAbility():GetCaster():FindAbilityByName("juggernaut_requiem"):OnSpellStart()
 	end
 end

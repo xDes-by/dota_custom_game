@@ -66,7 +66,7 @@ function modifier_techies_suicide_stacks:OnDeath(params)
 		end
 		caster:ForceKill(true)
 		if self:GetCaster():FindAbilityByName("npc_dota_hero_techies_int_last") ~= nil then
-			if RandomInt(1,100) >= 5 then
+			if RandomInt(1,100) >= 35 then
 				caster:SetModifierStackCount("modifier_techies_suicide_stacks", self:GetParent(), 0)
 			end
 		else

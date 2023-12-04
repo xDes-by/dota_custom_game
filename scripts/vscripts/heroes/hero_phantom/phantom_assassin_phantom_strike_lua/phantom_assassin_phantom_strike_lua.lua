@@ -1,6 +1,6 @@
 phantom_assassin_phantom_strike_lua = class({})
 LinkLuaModifier( "modifier_phantom_assassin_phantom_strike_crit", "heroes/hero_phantom/phantom_assassin_phantom_strike_lua/modifier_phantom_assassin_phantom_strike_crit", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_phantom_assassin_stun_cooldown", "heroes/hero_phantom/phantom_assassin_phantom_strike_lua/modifier_phantom_assassin_phantom_strike_crit", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_phantom_assassin_stun_cooldown", "heroes/hero_phantom/phantom_assassin_phantom_strike_lua/phantom_assassin_phantom_strike_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_generic_stunned_lua", "heroes/generic/modifier_generic_stunned_lua", LUA_MODIFIER_MOTION_NONE )
 
 
@@ -8,7 +8,7 @@ function phantom_assassin_phantom_strike_lua:GetManaCost(iLevel)
     return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
 end
 
-function phantom_assassin_phantom_strike_lua:GetCooldown(iLevel)
+function phantom_assassin_phantom_strike_lua:GetCooldown(level)
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_phantom_assassin_str50") then
 		return 0
 	end
@@ -74,11 +74,15 @@ function phantom_assassin_phantom_strike_lua:OnSpellStart()
 	-- Blink
 	caster:SetOrigin( blinkPosition )
 	FindClearSpaceForUnit( caster, blinkPosition, true )
-
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_phantom_assassin_str6")
-	if abil ~= nil then
-		target:AddNewModifier(target, self,"modifier_generic_stunned_lua",{ duration = buff_duration })
-		target:AddNewModifier(target, self,"modifier_phantom_assassin_stun_cooldown",{ duration = 10 })
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_phantom_assassin_str50") and abil then
+		if not target:HasModifier("modifier_phantom_assassin_stun_cooldown") then
+			target:AddNewModifier(self:GetCaster(), self, "modifier_generic_stunned_lua", { duration = buff_duration } )
+			target:AddNewModifier(self:GetCaster(), self, "modifier_phantom_assassin_stun_cooldown", { duration = 10 } )
+			caster:MoveToTargetToAttack(target)
+		end
+	elseif abil ~= nil then
+		target:AddNewModifier(self:GetCaster(), self,"modifier_generic_stunned_lua",{ duration = buff_duration })
 		caster:MoveToTargetToAttack(target)
 	end
 	
@@ -141,30 +145,22 @@ end
 modifier_phantom_assassin_stun_cooldown = class({})
 --Classifications template
 function modifier_phantom_assassin_stun_cooldown:IsHidden()
-	return true
+	return false
+end
+
+function modifier_phantom_assassin_stun_cooldown:OnCreated( kv )
+	if not IsServer() then return end
+	print(kv.duration)
 end
 
 function modifier_phantom_assassin_stun_cooldown:IsDebuff()
-	return false
+	return true
 end
 
 function modifier_phantom_assassin_stun_cooldown:IsPurgable()
 	return false
 end
 
-function modifier_phantom_assassin_stun_cooldown:IsPurgeException()
-	return false
-end
-
--- Optional Classifications
-function modifier_phantom_assassin_stun_cooldown:IsStunDebuff()
-	return false
-end
-
 function modifier_phantom_assassin_stun_cooldown:RemoveOnDeath()
-	return true
-end
-
-function modifier_phantom_assassin_stun_cooldown:DestroyOnExpire()
 	return true
 end

@@ -6,7 +6,9 @@ if vengeful_spirit_wave_of_terror == nil then
 end
 
 --------------------------------------------------------------------------------
-
+function vengeful_spirit_wave_of_terror:GetManaCost(iLevel)
+    return 100 + math.min(65000, self:GetCaster():GetIntellect() / 100)
+end
 function vengeful_spirit_wave_of_terror:OnSpellStart()
     local caster = self:GetCaster()
     local position = self:GetCursorPosition()
@@ -63,16 +65,10 @@ function vengeful_spirit_wave_of_terror:OnProjectileHit(Target, Location)
             armor_reduction_duration = armor_reduction_duration + 5
         end
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_agi11") then 
-            local min_value = 35
-            local max_value = 100
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetAgility())
+            damage = damage + self:GetCaster():GetAgility() * 0.5
         end
         if self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_int7") then 
-            local min_value = 20
-            local max_value = 50
-            local perc = min_value + self:GetLevel() * ((max_value - min_value) / 15)
-            damage = damage + (perc * self:GetCaster():GetIntellect())
+            damage = damage + self:GetCaster():GetIntellect() * 0.4
         end
         
         ApplyDamage({

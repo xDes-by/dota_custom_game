@@ -7,7 +7,7 @@
 		"AbilityTextureName"			"doom_bringer_devour"
 		"FightRecapLevel"				"1"
 		"MaxLevel"						"15"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"70"
 		"AbilityCastRange"				"300"
 		
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
@@ -17,6 +17,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		
 		"AbilitySpecial"
 		{
@@ -34,12 +35,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"devour_time"		    "60"
+				"devour_time"		    "70"
 			}
             "04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"devour_damage"		    "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
+				"devour_damage"		    "2 5 8 11 14 17 21 25 29 34 39 44 50 56 62"
 			}
 		}
 	}

@@ -3,6 +3,7 @@ techies_land_mines_lua = class({})
 LinkLuaModifier("modifier_land_mines", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_land_mines_explose_delay", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dummy_thinker", "heroes/hero_techies/techies_land_mines/techies_land_mines.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("techies_land_mines_intrinsic", "heroes/hero_techies/techies_land_mines/techies_land_mines_intrinsic.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_dummy_thinker = {}
 
@@ -11,12 +12,8 @@ function techies_land_mines_lua:IsRefreshable() 			return true end
 function techies_land_mines_lua:IsStealable() 				return true end
 function techies_land_mines_lua:IsNetherWardStealable()	return false end
 function techies_land_mines_lua:GetAOERadius() return self:GetSpecialValueFor("small_radius") end
-
-function techies_land_mines_lua:GetCooldown(iLevel)
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_techies_int50") ~= nil	then 
-		return self.BaseClass.GetCooldown( self, level ) / 2
-	end
-	return self.BaseClass.GetCooldown( self, level )
+function techies_land_mines_lua:GetIntrinsicModifierName()
+	return "techies_land_mines_intrinsic"
 end
 
 function techies_land_mines_lua:GetManaCost(iLevel)

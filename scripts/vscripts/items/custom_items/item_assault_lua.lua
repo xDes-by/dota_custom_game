@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_assault_lua_aura_negative_effect", "items/custom_items
 
 function item_assault_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/cuirass_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_assault_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_assault_lua" .. level
 	end
 end
 
@@ -113,7 +113,7 @@ end
 modifier_assault_lua_aura_positive_effect = class({})
 --Classifications template
 function modifier_assault_lua_aura_positive_effect:GetTexture()
-	return self:GetAbility():GetAbilityTextureName()
+	return "item_assault"
 end
 
 function modifier_assault_lua_aura_positive_effect:IsHidden()
@@ -184,7 +184,7 @@ end
 modifier_assault_lua_aura_negative_effect = class({})
 --Classifications template
 function modifier_assault_lua_aura_negative_effect:GetTexture()
-	return self:GetAbility():GetAbilityTextureName()
+	return "item_assault"
 end
 
 function modifier_assault_lua_aura_negative_effect:IsHidden()

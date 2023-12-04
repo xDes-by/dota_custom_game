@@ -9,6 +9,7 @@ LinkLuaModifier( "modifier_normal", "abilities/difficult/normal", LUA_MODIFIER_M
 LinkLuaModifier( "modifier_hard", "abilities/difficult/hard", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_ultra", "abilities/difficult/ultra", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_insane", "abilities/difficult/insane", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_impossible", "abilities/difficult/impossible", LUA_MODIFIER_MOTION_NONE )
 -----------------------------------------------------------------------------------------------------
 LinkLuaModifier( "modifier_unit_on_death", "modifiers/modifier_unit_on_death", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_unit_on_death2", "modifiers/modifier_unit_on_death2", LUA_MODIFIER_MOTION_NONE )
@@ -46,9 +47,29 @@ LinkLuaModifier( "modifier_animation", "libraries/modifiers/modifier_animation.l
 LinkLuaModifier( "modifier_animation_translate", "libraries/modifiers/modifier_animation_translate.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_animation_translate_permanent", "libraries/modifiers/modifier_animation_translate_permanent.lua", LUA_MODIFIER_MOTION_NONE )
 
+LinkLuaModifier( "effect_projectile_change1", "modifiers/effect_projectile_change1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "effect_projectile_change2", "modifiers/effect_projectile_change2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "effect_projectile_change3", "modifiers/effect_projectile_change3", LUA_MODIFIER_MOTION_NONE )
 
+
+LinkLuaModifier( "modifier_minimap_icon", "modifiers/modifier_minimap_icon", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_custom_vision", "modifiers/modifier_custom_vision", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_wearable_pet", "modifiers/modifier_wearable_pet", LUA_MODIFIER_MOTION_NONE )
 
 --таланты
+LinkLuaModifier( "modifier_don1", "abilities/talents/modifiers/modifier_don1", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don2", "abilities/talents/modifiers/modifier_don2", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don3", "abilities/talents/modifiers/modifier_don3", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don4", "abilities/talents/modifiers/modifier_don4", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don5", "abilities/talents/modifiers/modifier_don5", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don6", "abilities/talents/modifiers/modifier_don6", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don7", "abilities/talents/modifiers/modifier_don7", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don8", "abilities/talents/modifiers/modifier_don8", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don9", "abilities/talents/modifiers/modifier_don9", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don10", "abilities/talents/modifiers/modifier_don10", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don11", "abilities/talents/modifiers/modifier_don11", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don_last", "abilities/talents/modifiers/modifier_don_last", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_don13", "abilities/talents/modifiers/modifier_don13", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_sheeld", "abilities/talents/modifier_talent_sheeld", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_talent_armor_curruption_effect", "abilities/talents/modifier_talent_armor_curruption", LUA_MODIFIER_MOTION_NONE )

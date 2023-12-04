@@ -1,0 +1,69 @@
+"itembuilds"
+{
+	"author"		"Valve"
+	"hero"			"npc_dota_hero_riki"
+	"Title"			"Recommended items"
+	
+	"Items"
+	{
+		"PHYSICAL CARRY ITEMS"
+		{	
+			"item"		"item_greater_crit_lua"
+			"item"		"item_assault_lua"
+			"item"		"item_heart_lua"
+			"item"		"item_monkey_king_bar_lua"
+			"item"		"item_satanic_lua"
+			"item"		"item_vladmir_lua"
+			"item"		"item_desolator_lua"
+			"item"		"item_agility_heart_lua"
+			"item"		"item_hood_sword_lua"
+			"item"		"item_sabre_blade"
+			"item"		"item_hurricane_pike_lua"
+			"item"		"item_bfury_lua"
+			"item"		"item_butterfly_lua"
+			"item"		"item_skadi_lua"
+			"item"		"item_mjollnir_lua"
+			"item"		"item_midas_lua"
+		}
+		
+		"MAGICAL CARRY ITEMS"
+		{
+			"item"		"item_bloodstone_lua"
+			"item"		"item_heart_lua"
+			"item"		"item_kaya_custom_lua"
+			"item"		"item_kaya_lua"
+			"item"		"item_octarine_core_lua"
+			"item"		"item_sheepstick_lua"
+			"item"		"item_shivas_guard_lua"
+			"item"		"item_veil_of_discord_lua"
+			"item"		"item_mage_heart_lua"
+			"item"		"item_ring_of_flux_lua"
+			"item"		"item_spirit_vessel_lua"
+			"item"		"item_meteor_hammer_lua"
+			"item"		"item_crimson_guard_lua"
+			"item"		"item_ethereal_blade_lua"
+			
+		}
+		"TANK OR MID ITEMS"
+		{
+			"item"		"item_radiance_lua"
+			"item"		"item_heart_lua"
+			"item"		"item_tank_crimson"
+			"item"		"item_tank_cuirass"
+			"item"		"item_tank_hell"
+			"item"		"item_assault_lua"
+			"item"		"item_desolator_lua"
+			"item"		"item_pudge_heart_lua"
+			"item"		"item_moon_shard_lua"
+			"item"		"item_boots_of_bearing_lua"
+			"item"		"item_pipe_lua"
+		}
+		"TELEPORTS"
+		{
+			"item"		"item_raid_ticket"
+			"item"		"item_raid_ticket2"
+			"item"		"item_raid_ticket3"
+			"item"		"item_raid_ticket4"
+		}
+	}
+}

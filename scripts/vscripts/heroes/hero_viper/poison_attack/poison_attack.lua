@@ -55,6 +55,8 @@ modifier_viper_poison_attack_lua = class({
             MODIFIER_EVENT_ON_ORDER,
 
             MODIFIER_PROPERTY_PROJECTILE_NAME,
+            MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+		    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
         }
     end,
     GetAttributes           = function(self) return MODIFIER_ATTRIBUTE_PERMANENT end,
@@ -62,6 +64,38 @@ modifier_viper_poison_attack_lua = class({
 
 
 --------------------------------------------------------------------------------
+
+function modifier_viper_poison_attack_lua:GetModifierOverrideAbilitySpecial(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "magic_resistance" then
+			return 1
+		end
+		if data.ability_special_value == "damage" then
+			return 1
+		end
+	end
+	return 0
+end
+
+function modifier_viper_poison_attack_lua:GetModifierOverrideAbilitySpecialValue(data)
+	if data.ability and data.ability == self:GetAbility() then
+		if data.ability_special_value == "magic_resistance" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "magic_resistance", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str10") then
+                value = value * 2
+            end
+            return value
+		end
+		if data.ability_special_value == "damage" then
+			local value = self:GetAbility():GetLevelSpecialValueNoOverride( "damage", data.ability_special_level )
+            if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int9") then
+                value = value + self:GetCaster():GetIntellect() * 0.3
+            end
+            return value
+		end
+	end
+	return 0
+end
 
 function modifier_viper_poison_attack_lua:OnCreated()
     self.ability = self:GetAbility()
@@ -182,6 +216,7 @@ function modifier_viper_poison_attack_lua:ShouldLaunch( target )
 end
 
 function modifier_viper_poison_attack_lua:FlagExist(a,b)
+    if type(a) ~= 'number' or type(b) ~= 'number' then return false end
     local p,c,d=1,0,b
     while a>0 and b>0 do
         local ra,rb=a%2,b%2
@@ -205,7 +240,6 @@ modifier_viper_poison_attack_lua_slow = class({
         return {
             MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
             MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-            MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         }
     end,
     GetEffectName           = function(self) return "particles/units/heroes/hero_viper/viper_poison_debuff.vpcf" end,
@@ -216,18 +250,12 @@ modifier_viper_poison_attack_lua_slow = class({
 --------------------------------------------------------------------------------
 
 function modifier_viper_poison_attack_lua_slow:OnCreated()
+    if self:GetParent():IsBuilding() then self:OnDestroy() end
     self.damage = self:GetAbility():GetSpecialValueFor("damage")
     self.movement_speed = self:GetAbility():GetSpecialValueFor("movement_speed") * (-1)
     self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance") * (-1)
     self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str10") then
-        self.max_stacks = self.max_stacks + 5
-    end
-    self.arrmor = 0
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
-        self.arrmor = self.magic_resistance * 3
-    end
-    self:StartIntervalThink(1)
+    self:StartIntervalThink(0.2)
 end
 
 function modifier_viper_poison_attack_lua_slow:OnRefresh()
@@ -235,28 +263,26 @@ function modifier_viper_poison_attack_lua_slow:OnRefresh()
     self.movement_speed = self:GetAbility():GetSpecialValueFor("movement_speed") * (-1)
     self.magic_resistance = self:GetAbility():GetSpecialValueFor("magic_resistance") * (-1)
     self.max_stacks = self:GetAbility():GetSpecialValueFor("max_stacks")
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_str10") then
-        self.max_stacks = self.max_stacks + 5
-    end
-    if self:GetStackCount() > self.max_stacks then
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int13") == nil and self:GetStackCount() > self.max_stacks then
         self:SetStackCount(self.max_stacks)
     end
-    self.arrmor = 0
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi9") then
-        self.arrmor = self.magic_resistance * 3
-    end
 end
-
+function modifier_viper_poison_attack_lua_slow:GetDamageValue()
+    local damage = self:GetAbility():GetSpecialValueFor("damage")
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi6") and self:GetParent():HasModifier("modifier_viper_viper_strike_lua") then
+        damage = damage * 2
+    end
+    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int13") then
+        local r = 0.9
+        local n = self:GetStackCount()
+        return damage * (1 - r^n) / (1 - r)
+    end
+    return damage * self:GetStackCount()
+end
 if IsServer() then
 function modifier_viper_poison_attack_lua_slow:OnIntervalThink()
-    local damage = self.damage * self:GetStackCount()
+    local damage = self:GetDamageValue()
     damage_type = self:GetAbility():GetAbilityDamageType()
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_agi6") then
-        damage_type = DAMAGE_TYPE_PHYSICAL
-    end
-    if self:GetCaster():FindAbilityByName("npc_dota_hero_viper_int9") then
-        damage = damage + self:GetCaster():GetIntellect() * 0.3
-    end
     ApplyDamage({
         victim = self:GetParent(),
         attacker = self:GetCaster(),
@@ -266,9 +292,21 @@ function modifier_viper_poison_attack_lua_slow:OnIntervalThink()
     })
 
     SendOverheadEventMessage( self:GetParent(), OVERHEAD_ALERT_BONUS_POISON_DAMAGE, self:GetParent(), damage, nil )
+    self:StartIntervalThink(1)
 end
 end
 
-function modifier_viper_poison_attack_lua_slow:GetModifierMoveSpeedBonus_Percentage() return self.movement_speed * self:GetStackCount() end
-function modifier_viper_poison_attack_lua_slow:GetModifierMagicalResistanceBonus() return self.magic_resistance * self:GetStackCount() end
-function modifier_viper_poison_attack_lua_slow:GetModifierPhysicalArmorBonus() return self.arrmor * self:GetStackCount() end
+function modifier_viper_poison_attack_lua_slow:GetModifierMoveSpeedBonus_Percentage() 
+    local stack_count = self:GetStackCount()
+    if stack_count > self:GetAbility():GetSpecialValueFor('max_stacks') then
+        stack_count = self:GetAbility():GetSpecialValueFor('max_stacks')
+    end
+    return self.movement_speed * stack_count
+end
+function modifier_viper_poison_attack_lua_slow:GetModifierMagicalResistanceBonus()
+    local stack_count = self:GetStackCount()
+    if stack_count > self:GetAbility():GetSpecialValueFor('max_stacks') then
+        stack_count = self:GetAbility():GetSpecialValueFor('max_stacks')
+    end
+    return self.magic_resistance * stack_count
+end

@@ -20,7 +20,6 @@ function modifier_empower_buff:OnCreated( kv )
 	self.damage = self:GetAbility():GetSpecialValueFor( "bonus_damage_pct" )
 	self.cleave = self:GetAbility():GetSpecialValueFor( "cleave_damage_pct" )
 	self.mult = self:GetAbility():GetSpecialValueFor( "self_multiplier" )
-	self.attack_count = self:GetAbility():GetSpecialValueFor( "attack_count" )
 	self.radius_start = self:GetAbility():GetSpecialValueFor( "cleave_starting_width" )
 	self.radius_end = self:GetAbility():GetSpecialValueFor( "cleave_ending_width" )
 	self.radius_dist = self:GetAbility():GetSpecialValueFor( "cleave_distance" )
@@ -36,7 +35,6 @@ function modifier_empower_buff:OnCreated( kv )
 	----------------------- int
 	self.int7 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int7")
 	self.int12 = self.caster:FindAbilityByName("npc_dota_hero_magnataur_int_last")
-	self.special_bonus_unique_npc_dota_hero_magnataur_int50 = self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_int50")
 	self.special_bonus_unique_npc_dota_hero_magnataur_agi50 = self.caster:FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_agi50")
 	if self.parent.empower_bonus_intelegent == nil then self.parent.empower_bonus_intelegent = 0 end
 	if self.parent:IsRealHero() then 
@@ -48,7 +46,6 @@ function modifier_empower_buff:OnCreated( kv )
 	if self.parent==self.caster then
 		self.damage = self.damage*self.mult
 		self.cleave = self.cleave*self.mult
-		self.attack_count = self.attack_count*self.mult
 	end
 	if self.agi10 ~= nil then
 		local multiplier = 1.5
@@ -59,11 +56,6 @@ function modifier_empower_buff:OnCreated( kv )
 	if self.special_bonus_unique_npc_dota_hero_magnataur_agi50 then
 		self.damage = self.damage*2
 		self.cleave = self.cleave*2
-		self.attack_count = self.attack_count*2
-	end
-
-	if self.agi9 == nil then 
-		self:SetStackCount(self.attack_count)
 	end
 
 	if self.int7 ~= nil then
@@ -117,8 +109,7 @@ function modifier_empower_buff:DeclareFunctions()
 		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_TOOLTIP,
 		MODIFIER_PROPERTY_TOOLTIP2,
-
-		MODIFIER_PROPERTY_STATS_AGILITY_BONUS_PERCENTAGE,
+		
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS_PERCENTAGE
 	}
 end
@@ -151,12 +142,7 @@ function modifier_empower_buff:OnAttackLanded( params )
 		local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self.parent )
 		ParticleManager:SetParticleControl( effect_cast, 1, self.parent:GetOrigin() )
 		ParticleManager:ReleaseParticleIndex( effect_cast )
-	end
-	if self.agi9 == nil then 
-		self:DecrementStackCount()
-		if self:GetStackCount() < 1 then self:Destroy() end
-	end
-	
+	end	
 end
 
 function modifier_empower_buff:GetModifierDamageOutgoing_Percentage()
@@ -214,12 +200,6 @@ end
 
 function modifier_empower_buff:GetModifierMPRegenAmplify_Percentage()
 	return self.mp_regen
-end
-
-function modifier_empower_buff:GetModifierBonusStats_Agility_Percentage()
-	if self.special_bonus_unique_npc_dota_hero_magnataur_int50 then
-		return self:GetAbility():GetLevel() * 5
-	end
 end
 
 function modifier_empower_buff:GetModifierBonusStats_Strength_Percentage()

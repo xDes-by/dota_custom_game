@@ -1,14 +1,15 @@
 ﻿item_tank_cuirass = item_tank_cuirass or class({})
-item_tank_cuirass2 = item_tank_cuirass or class({})
-item_tank_cuirass3 = item_tank_cuirass or class({})
-item_tank_cuirass4 = item_tank_cuirass or class({})
-item_tank_cuirass5 = item_tank_cuirass or class({})
-item_tank_cuirass6 = item_tank_cuirass or class({})
-item_tank_cuirass7 = item_tank_cuirass or class({})
-item_tank_cuirass8 = item_tank_cuirass or class({})
 
 LinkLuaModifier("modifier_item_tank_cuirass", "items/item_tank_cuirass", LUA_MODIFIER_MOTION_NONE)
 
+function item_tank_cuirass:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if self:GetSecondaryCharges() == 0 then
+		return "mid_items/weapon_" .. level
+	else
+		return "gem" .. self:GetSecondaryCharges() .. "/weapon_" .. level
+	end
+end
 
 function item_tank_cuirass:GetIntrinsicModifierName()
 	return "modifier_item_tank_cuirass"

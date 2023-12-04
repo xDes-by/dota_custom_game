@@ -70,7 +70,11 @@ function modifier_bloodseeker_thirst_lua:OnCreated( kv )
 	-- if self:GetCaster():FindAbilityByName("npc_dota_hero_bloodseeker_agi6") ~= nil then
 	-- 	self.try_damage = self.bonus_damage + self:GetCaster():GetAgility()
 	-- end
+	if not IsServer() then
+		return
+	end
 	self.original_model = self:GetCaster():GetModelName()
+	self:SetHasCustomTransmitterData( true )
 	self:StartIntervalThink(1)
 end
 
@@ -174,12 +178,22 @@ function modifier_bloodseeker_thirst_lua:GetModifierSpellAmplify_Percentage()
 		value = value + self:GetStackCount() * 5
 	end
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_bloodseeker_int50") then
-		value = value + self:GetCaster():GetMoveSpeedModifier(true, false)
+		value = value + self:GetCaster():GetMoveSpeedModifier(self:GetCaster():GetBaseMoveSpeed(), false)
 	end
 	if self:GetCaster():GetModelName() ~= self.original_model then
 		return 0
 	end
 	return value
+end
+
+function modifier_bloodseeker_thirst_lua:AddCustomTransmitterData()
+	return{
+		original_model = self.original_model,
+	}
+end
+
+function modifier_bloodseeker_thirst_lua:HandleCustomTransmitterData( data )
+	self.original_model = data.original_model
 end
 
 -- function modifier_bloodseeker_thirst_lua:GetModifierTotalDamageOutgoing_Percentage(k)

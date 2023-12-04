@@ -1,7 +1,7 @@
 "itembuilds"
 {
 	"author"		"Valve"
-	"hero"			"npc_dota_hero_phantom_assassin"
+	"hero"			"npc_dota_hero_razor"
 	"Title"			"Recommended items"
 	
 	"Items"
@@ -18,8 +18,12 @@
 			"item"		"item_agility_heart_lua"
 			"item"		"item_hood_sword_lua"
 			"item"		"item_sabre_blade"
-			"item"		"item_hurricane_pike"
+			"item"		"item_hurricane_pike_lua"
+			"item"		"item_bfury_lua"
 			"item"		"item_butterfly_lua"
+			"item"		"item_skadi_lua"
+			"item"		"item_mjollnir_lua"
+			"item"		"item_midas_lua"
 		}
 		
 		"MAGICAL CARRY ITEMS"
@@ -35,6 +39,9 @@
 			"item"		"item_mage_heart_lua"
 			"item"		"item_ring_of_flux_lua"
 			"item"		"item_spirit_vessel_lua"
+			"item"		"item_meteor_hammer_lua"
+			"item"		"item_crimson_guard_lua"
+			"item"		"item_ethereal_blade_lua"
 			
 		}
 		"TANK OR MID ITEMS"
@@ -49,6 +56,7 @@
 			"item"		"item_pudge_heart_lua"
 			"item"		"item_moon_shard_lua"
 			"item"		"item_boots_of_bearing_lua"
+			"item"		"item_pipe_lua"
 		}
 		"TELEPORTS"
 		{

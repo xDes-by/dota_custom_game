@@ -9,9 +9,6 @@ function Shop:init()
     CustomGameEventManager:RegisterListener("takeOffEffect", Dynamic_Wrap( Shop, 'takeOffEffect' ))
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap( Shop, 'OnPlayerReconnected' ), self)
 	ListenToGameEvent( 'game_rules_state_change', Dynamic_Wrap( Shop, 'OnGameRulesStateChange'), self)
-	CustomGameEventManager:RegisterListener("GetPets",function(_, keys)
-        Shop:GetPets(keys)
-    end)
 	CustomGameEventManager:RegisterListener("UpdatePetButton",function(_, keys)
         Shop:UpdatePetButton(keys)
     end)
@@ -21,8 +18,6 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("SprayToggleActivate",function(_, keys)
         Shop:SprayToggleActivate(keys)
     end)
-	
-	ListenToGameEvent("player_chat", Dynamic_Wrap( Shop, "OnChat" ), self )
 	Shop.marci = {name = "change_hero_marci", hero_name = "npc_dota_hero_marci", available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
 	Shop.pango = {name = "change_hero_pangolier", hero_name = "npc_dota_hero_pangolier",available={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}, selected={[0]=false,[1]=false,[2]=false,[3]=false,[4]=false}}
 	Shop.pet = {}
@@ -35,8 +30,14 @@ function Shop:init()
 	CustomGameEventManager:RegisterListener("CustomShopStash_TakeItem",function(_, keys)
         Shop:CustomShopStash_TakeItem(keys)
     end)
-	CustomGameEventManager:RegisterListener("ActivateTrialPeriod_Pet",function(_, keys)
-        Shop:ActivateTrialPeriod_Pet(keys)
+	CustomGameEventManager:RegisterListener("CustomShopStash_UseAllScroll",function(_, keys)
+        Shop:UseAllScroll(keys)
+    end)
+	CustomGameEventManager:RegisterListener("CustomShopStash_ReturnItem",function(_, keys)
+        Shop:CustomShopStash_ReturnItem(keys)
+    end)
+	CustomGameEventManager:RegisterListener("ShopRefreshMoney",function(_, keys)
+        Shop:RefreshMoney(keys)
     end)
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( Shop, "OnItemPickUp"), self)
 	Shop.Auto_Pet = {}
@@ -46,92 +47,10 @@ function Shop:init()
 	Shop.stashItems = {"item_boss_summon","item_ticket","item_forever_ward","item_armor_aura","item_base_damage_aura","item_expiriance_aura","item_move_aura","item_attack_speed_aura","item_hp_aura"}
 end
 
-function Shop:GetPets(keys)
-	if RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ] ~= nil then
-		Shop:ActivateTrialPeriod_Pet({
-			PlayerID = keys.PlayerID,
-			affordable_pet = {"pet_15", "pet_13", "pet_14"},
-		})
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "GetPets_Js", {
-		shop = Shop.pShop[keys.PlayerID],
-		exp = pets_exp,
-		auto_pet = Shop.Auto_Pet[keys.PlayerID],
-		pet_trial = {
-			available = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_available" ],
-			ends = RATING[ "rating" ][ keys.PlayerID ][ "pet_trial_ends" ],
-			affordable_pet = {"pet_15", "pet_13", "pet_14"},
-		},
-	} )
-end
-
-function Shop:OnChat( event )
-    local text = event.text
-	local pid = event.playerid
-	local steamID = PlayerResource:GetSteamAccountID(pid)
-	if steamID == 169401485 or steamID == 1062658804 or steamID == 455872541 or steamID == 393187346 or steamID == 1250222698 then
-		if text == "pet" then
-			Shop:RefreshPet(pid)
-		end
-	end
-end
-
-function Shop:RefreshPet(PlayerID)
-	local hero = PlayerResource:GetSelectedHeroEntity(PlayerID)
-	item = hero:GetItemInSlot( 16 )
-	if item == nil then
-		return
-	end
-	hero:RemoveItem(item)
-
-	for _,v in pairs(Shop.pShop[PlayerID][1]) do
-		if type(v) == 'table' then
-			if v.status == "issued" then
-				v.status = "taik"
-				break
-			end
-		end
-	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( PlayerID ), "shop_refresh_pets", Shop.pShop[PlayerID] )
-end
-
-function Shop:ActivateTrialPeriod_Pet(t)
-	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
-		for itemKey, item in ipairs(category) do
-			for _, trialPetName in pairs(t.affordable_pet) do
-				if item.name == trialPetName then
-					item.onStart = 13501
-					item.now = 13501
-				end
-			end
-		end
-	end
-	if RATING[ "rating" ][ t.PlayerID ][ "pet_trial_ends" ] == nil then
-		DataBase:ActivateTrialPeriodPet(t)
-	end
-end
-
 function Shop:OnGameRulesStateChange(keys)
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		Timers:CreateTimer(2, function() 
 			for i = 0 , PlayerResource:GetPlayerCount()-1 do --
-				if PlayerResource:IsValidPlayer(i) then
-					if Shop.Auto_Pet[i] then 
-						Shop:GetPet({
-							PlayerID = i,
-							pet = {name = Shop.Auto_Pet[i]},
-						})
-					else
-						Shop:GetPet({
-							PlayerID = i,
-							pet = {name = "spell_item_pet"},
-						})
-					end
-					Shop.Change_Available[i] = true
-					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(i), "UpdatePetIcon", {
-						can_change = Shop.Change_Available[i]
-					} )
-				end
 				CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( i ), "initShop", Shop.pShop[i] )
 			end
 		end)	
@@ -163,6 +82,15 @@ function Shop:OnItemPickUp(keys)
 	end
 end
 
+function Shop:RefreshMoney(keys)
+	DataBase:Send(DataBase.link.RefreshMoney, "GET", {}, keys.PlayerID, true, function(body)
+		local data = json.decode(body)
+		Shop.pShop[keys.PlayerID].coins = data.coins or 0
+		Shop.pShop[keys.PlayerID].mmrpoints = data.mmrpoints or 0
+		CustomShop:UpdateShopInfoTable(keys.PlayerID)
+    end)
+end
+
 function Shop:OnPlayerReconnected(keys)
 	local sid = PlayerResource:GetSteamAccountID(keys.PlayerID)
 	local req = CreateHTTPRequestScriptVM( "POST", DataBase.updatecoins  .. '&sid=' .. sid )
@@ -177,7 +105,6 @@ function Shop:OnPlayerReconnected(keys)
 		Timers:CreateTimer(2, function() 
 			local sid = PlayerResource:GetSteamAccountID( keys.PlayerID )
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( keys.PlayerID ), "initShop", Shop.pShop[keys.PlayerID] )
-			Shop:GetPets(keys)
 			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(keys.PlayerID), "UpdatePetIcon", {
 				can_change = Shop.Change_Available[keys.PlayerID],
 			} )
@@ -185,220 +112,119 @@ function Shop:OnPlayerReconnected(keys)
 	end
 end
 
-function Shop:PlayerSetup( pid )
+function Shop:PlayerSetup( pid, items )
+	local temp = {}
+	for _, value in pairs(items) do
+		if temp[value.name] == nil then
+			temp[value.name] = value
+		else
+			temp[value.name].value = temp[value.name].value + value.value
+		end
+	end
+	items = temp
 	local sid = PlayerResource:GetSteamAccountID(pid)
 	local arr = {}
-	for sKey, sValue in pairs(basicshop) do
-		if type(sValue) == 'table' then
-			arr[sKey] = {}
-			for oKey, oValue in pairs(sValue) do
-				arr[sKey][oKey] = {}
-				if type(oValue) == 'table' then
+	for category_key, category_value in ipairs(basicshop) do
+		arr[category_key] = {}
+		for product_key, product_value in pairs(category_value) do
+			arr[category_key][product_key] = {}
+			if type(product_value) == 'table' then
 
-					for pKey, pValue in pairs(oValue) do
-						arr[sKey][oKey][pKey] = pValue
-					end
-					
-					if _G.SHOP[pid][oValue.name] then
-						arr[sKey][oKey].onStart = tonumber(_G.SHOP[pid][oValue.name])
-						arr[sKey][oKey].now = tonumber(_G.SHOP[pid][oValue.name])
-						if arr[sKey][oKey].type == "consumabl" then
-							arr[sKey][oKey].status = 'consumabl'
-						elseif tonumber(_G.SHOP[pid][oValue.name]) > 0 then
-							if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
-								arr[sKey][oKey].status = 'active'
-							else
-								arr[sKey][oKey].status = 'taik'
-							end
-						else
-							arr[sKey][oKey].status = 'buy'
-						end
-					else
-						if arr[sKey][oKey].type == "hero_change" then
-							arr[sKey][oKey].onStart = 1
-							arr[sKey][oKey].now = 1
-							if _G.SHOP[pid]["totaldonate"] >= 2000 then
-								arr[sKey][oKey].status = 'shop_select'
-							else
-								arr[sKey][oKey].status = 'shop_lock'
-							end
-						else
-							arr[sKey][oKey].onStart = 0
-							arr[sKey][oKey].now = 0
-							if arr[sKey][oKey].type == "consumabl" then
-								arr[sKey][oKey].status = 'consumabl'
-							else
-								arr[sKey][oKey].status = 'buy'
-							end
-						end
-					end
-				elseif type(oValue) == 'string' then
-					arr[sKey][oKey] = oValue
-				end
-			end
-		end
-	end
-
-	if _G.SHOP[pid].coins then
-		arr.coins = _G.SHOP[pid].coins
-	else
-		arr.coins = 0
-	end
-	if _G.SHOP[pid].mmrpoints then
-		arr.mmrpoints = _G.SHOP[pid].mmrpoints
-	else
-		arr.mmrpoints = 0
-	end
-	if _G.SHOP[pid].totaldonate then
-		arr.totaldonate = _G.SHOP[pid].totaldonate
-	else
-		arr.totaldonate = 0
-	end
-	if _G.SHOP[pid].feed then
-		arr.feed = _G.SHOP[pid].feed
-	else
-		arr.feed = 0
-	end
-	
-	if _G.SHOP[pid].other_60 then
-		arr.ban = _G.SHOP[pid].other_60
-	else
-		arr.ban = 0
-	end
-	Shop.pShop[pid] = arr
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = _G.RATING[ 'rating' ][ pid ][ 'likes' ], reports = _G.RATING[ 'rating' ][ pid ][ 'reports' ]})
-
-	Shop.Auto_Pet[pid] = _G.SHOP[pid].auto_pet
-	Shop.spray[pid] = _G.SHOP[pid].auto_spray
-	Shop.Change_Available[pid] = true
-	Timers:CreateTimer(function()
-		if PlayerResource:GetPlayer(pid) == nil then
-			return nil
-		end
-		if PlayerResource:HasSelectedHero(pid) then
-			local heroName = PlayerResource:GetSelectedHeroName(pid)
-			talants:pickinfo(pid,false)
-			return nil
-		else
-		  --  print(PlayerResource:HasSelectedHero(i))
-		end
-		return 1.0
-	end)
-end
-
-function Shop:createShop()
-
-	if SHOP then
-		for i = 0 , PlayerResource:GetPlayerCount() do --
-			if PlayerResource:IsValidPlayer(i) then -- 
-				local sid = PlayerResource:GetSteamAccountID(i)
-				local arr = {}
-				for sKey, sValue in pairs(basicshop) do
-					if type(sValue) == 'table' then
-						arr[sKey] = {}
-						for oKey, oValue in pairs(sValue) do
-							arr[sKey][oKey] = {}
-							if type(oValue) == 'table' then
-
-								for pKey, pValue in pairs(oValue) do
-									arr[sKey][oKey][pKey] = pValue
-								end
-								
-								if SHOP[i][oValue.name] then
-									arr[sKey][oKey].onStart = tonumber(SHOP[i][oValue.name])
-									arr[sKey][oKey].now = tonumber(SHOP[i][oValue.name])
-									if arr[sKey][oKey].type == "consumabl" then
-										arr[sKey][oKey].status = 'consumabl'
-									elseif tonumber(SHOP[i][oValue.name]) > 0 then
-										if arr[sKey][oKey].type == "talant" or arr[sKey][oKey].type == "pet_change" then
-											arr[sKey][oKey].status = 'active'
-										else
-											arr[sKey][oKey].status = 'taik'
-										end
-									else
-										arr[sKey][oKey].status = 'buy'
-									end
-								else
-									if arr[sKey][oKey].type == "hero_change" then
-										arr[sKey][oKey].onStart = 1
-										arr[sKey][oKey].now = 1
-										if SHOP[i]["totaldonate"] >= 2000 then
-											arr[sKey][oKey].status = 'shop_select'
-										else
-											arr[sKey][oKey].status = 'shop_lock'
-										end
-									else
-										arr[sKey][oKey].onStart = 0
-										arr[sKey][oKey].now = 0
-										if arr[sKey][oKey].type == "consumabl" then
-											arr[sKey][oKey].status = 'consumabl'
-										else
-											arr[sKey][oKey].status = 'buy'
-										end
-									end
-								end
-							elseif type(oValue) == 'string' then
-								arr[sKey][oKey] = oValue
-							end
-						end
-					end
-				end
-			
-				if SHOP[i].coins then
-					arr.coins = SHOP[i].coins
-				else
-					arr.coins = 0
-				end
-				if SHOP[i].mmrpoints then
-					arr.mmrpoints = SHOP[i].mmrpoints
-				else
-					arr.mmrpoints = 0
-				end
-				if SHOP[i].totaldonate then
-					arr.totaldonate = SHOP[i].totaldonate
-				else
-					arr.totaldonate = 0
-				end
-				if SHOP[i].feed then
-					arr.feed = SHOP[i].feed
-				else
-					arr.feed = 0
+				for pKey, pValue in pairs(product_value) do
+					arr[category_key][product_key][pKey] = pValue
 				end
 				
-				if SHOP[i].other_60 then
-					arr.ban = SHOP[i].other_60
+				if items[product_value.name] then
+					arr[category_key][product_key].onStart = items[product_value.name].value
+					arr[category_key][product_key].now = items[product_value.name].value
+					if arr[category_key][product_key].type == "consumabl" then
+						arr[category_key][product_key].status = 'consumabl'
+					elseif items[product_value.name].value > 0 then
+						if arr[category_key][product_key].type == "talant" or arr[category_key][product_key].type == "pet_change" then
+							arr[category_key][product_key].status = 'active'
+						else
+							arr[category_key][product_key].status = 'taik'
+						end
+					else
+						arr[category_key][product_key].status = 'buy'
+					end
 				else
-					arr.ban = 0
+					if arr[category_key][product_key].type == "hero_change" then
+						arr[category_key][product_key].onStart = 1
+						arr[category_key][product_key].now = 1
+						if _G.SHOP[pid]["totaldonate"] >= 2000 then
+							arr[category_key][product_key].status = 'shop_select'
+						else
+							arr[category_key][product_key].status = 'shop_lock'
+						end
+					else
+						arr[category_key][product_key].onStart = 0
+						arr[category_key][product_key].now = 0
+						if arr[category_key][product_key].type == "consumabl" then
+							arr[category_key][product_key].status = 'consumabl'
+						else
+							arr[category_key][product_key].status = 'buy'
+						end
+					end
 				end
-				Shop.pShop[i] = arr
-				CustomNetTables:SetTableValue("shopinfo", tostring(i), {feed = arr.feed, coins = arr.coins, mmrpoints = arr.mmrpoints, likes = RATING[ 'rating' ][ i ][ 'likes' ], reports = RATING[ 'rating' ][ i ][ 'reports' ]})
-
-				Shop.Auto_Pet[i] = SHOP[i].auto_pet
-				Shop.spray[i] = SHOP[i].auto_spray
-				Shop.Change_Available[i] = true
+			elseif type(product_value) == 'string' then
+				arr[category_key][product_key] = product_value
 			end
 		end
-		
-		for i = 0, 4 do
-            Timers:CreateTimer(function()
-                if PlayerResource:GetPlayer(i) == nil then
-                    return nil
-                end
-                if PlayerResource:HasSelectedHero(i) then
-                    local heroName = PlayerResource:GetSelectedHeroName(i)
-                    talants:pickinfo(i,false)
-                    return nil
-                else
-                  --  print(PlayerResource:HasSelectedHero(i))
-                end
-                return 1.0
-            end)
-        end
-	else
-		print("============================")
-		print("ERROR: _G.SHOP not exist")
-		print("CREATE SHOP FAILED")
-		print("============================")
+	end
+
+	arr.coins = _G.SHOP[pid].coins or 0
+	arr.mmrpoints = _G.SHOP[pid].mmrpoints or 0
+	arr.totaldonate = _G.SHOP[pid].totaldonate or 0
+	arr.feed = _G.SHOP[pid].feed or 0
+	arr.ban = _G.SHOP[pid].other_60 or 0
+	arr.pet_change = 0
+	if items.pet_change and items.pet_change.value > 0 then
+		arr.pet_change = items.pet_change.value
+	end
+	arr.auto_quest_trial = items.auto_quest_trial.value
+	arr.golden_branch = items.golden_branch or false
+	arr.talents_refresh = 0
+	if items.talents_refresh then arr.talents_refresh = items.talents_refresh.value end
+	arr.gems = {
+		[1] = _G.SHOP[pid]["gem_1"],
+		[2] = _G.SHOP[pid]["gem_2"],
+		[3] = _G.SHOP[pid]["gem_3"],
+		[4] = _G.SHOP[pid]["gem_4"],
+		[5] = _G.SHOP[pid]["gem_5"],
+	}
+	arr.earned_gems = {
+		[1] = 0,
+		[2] = 0,
+		[3] = 0,
+		[4] = 0,
+		[5] = 0,
+	}
+	Shop.pShop[pid] = arr
+	Shop.pShop[pid].items = items
+	CustomShop:UpdateShopInfoTable(pid)
+
+	Shop.spray[pid] = _G.SHOP[pid].auto_spray
+	Shop.Change_Available[pid] = true
+	-- Timers:CreateTimer(function()
+	-- 	if PlayerResource:GetPlayer(pid) == nil then
+	-- 		return nil
+	-- 	end
+	-- 	if PlayerResource:HasSelectedHero(pid) then
+	-- 		local heroName = PlayerResource:GetSelectedHeroName(pid)
+	-- 		talants:pickinfo(pid,false)
+	-- 		return nil
+	-- 	else
+	-- 	  --  print(PlayerResource:HasSelectedHero(i))
+	-- 	end
+	-- 	return 1.0
+	-- end)
+	ChangeHero:SetDonateHeroesDate(pid, temp)
+	if ChangeHero:IsMarciAvailable_PickStage(pid) then
+		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
+	end
+	if ChangeHero:IsSilencerAvailable_PickStage(pid) then
+		GameRules:AddHeroToPlayerAvailability(pid, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
 	end
 end
 
@@ -476,12 +302,18 @@ function Shop:buyItem(t)
 	local i = tonumber(t.i)
 	local n = tonumber(t.n)
 	local shop_type = Shop.pShop[pid][i][n]["type"]
+	local currency = 'don'
+	if t.currency == 1 then currency = 'rp' end
+	local price = Shop.pShop[pid][i][n]['price'][currency]
+	local give = Shop.pShop[pid][i][n]["give"] or 1
+	local name = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['name']
+	local amount = t.amountBuy or 1
 	if t.currency == 1 and Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['rp'] and tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['rp'] * t.amountBuy) > tonumber(Shop.pShop[pid].mmrpoints) then
 		return
 	elseif t.currency == 0 and Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] and tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don']*t.amountBuy) > tonumber(Shop.pShop[pid].coins) then
 		return
 	end
-	if Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["type"] ~= "gem" and Shop.pShop[pid][i][n]["type"] ~= "loot-box" and Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["type"] ~= "feed" then
+	if Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["type"] ~= "gem" then
 		Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now'] = tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)].now) + t.amountBuy
 		Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['onStart'] = tonumber(Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['onStart']) + t.amountBuy
 	end
@@ -490,59 +322,58 @@ function Shop:buyItem(t)
 	else
 		Shop.pShop[pid].coins = Shop.pShop[pid].coins - Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['price']['don'] * t.amountBuy
 	end
-	if Shop.pShop[pid][i][n].name == "hot_offer" then
-		Shop:GiveOutAllHotOfferItems(pid, Shop.pShop[pid][i][n])
-	end
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "UpdateStore", {
 		{categoryKey = t.i, productKey = t.n, itemname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['itemname'], count = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]['now']},
 	})
-	if DataBase:IsCheatMode() == false then --
-		local sql_name = {}
-		local give = {}
-		local currency = 'don'
-		if t.currency == 1 then currency = 'rp' end
-		local price = Shop.pShop[pid][i][n]['price'][currency]
-		
-		if Shop.pShop[pid][i][n]["type"] == "gem" then
-			local gem_name = 'gem_' .. Shop.pShop[pid][i][n]['gem_type']
-			sql_name[gem_name] = t.amountBuy
-			give[gem_name] = Shop.pShop[pid][i][n]['give']
-		elseif Shop.pShop[pid][i][n]["type"] == "loot-box" then
-			-- loot box 
-			for z = 1, t.amountBuy do
-				local randomInt = RandomInt(1,100)
-				local ds = 0
-				local slt = nil
-			end
-		else
-			local name = Shop.pShop[pid][i][n].name
-			if Shop.pShop[pid][i][n].type == 'feed' then
-				name = 'feed'
-			end
-			sql_name[name] = t.amountBuy
-			give[name] = Shop.pShop[pid][i][n].give or 1
-			Shop.pShop[pid]["feed"] = Shop.pShop[pid]["feed"] + sql_name[name] * give[name]
-		end
+	CustomShop:UpdateShopInfoTable(pid)
 
-		if shop_type == "talant" then
-			talants:sendServer({PlayerID = pid, changename = "cout", value = 2, changetype = "set", chartype = "int", win_lose = nil, heroname = Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["hero"]})
-			if Shop.pShop[pid][tonumber(t.i)][tonumber(t.n)]["hero"] == PlayerResource:GetSelectedHeroName(pid) then
-				local tab = CustomNetTables:GetTableValue("talants", tostring(pid))
-				tab["cout"] = 2
-				progress[t.PlayerID] = tab
-				CustomNetTables:SetTableValue("talants", tostring(pid), tab)
-			end
-		elseif shop_type == "gem" then
-			Forge:add_gems({PlayerID = t.PlayerID, type = Shop.pShop[pid][i][n]["gem_type"], value = Shop.pShop[pid][i][n]["give"] * t.amountBuy, shop = true})
+	if shop_type == "talant" then
+		if Shop.pShop[pid][i][n]["hero"] == PlayerResource:GetSelectedHeroName(pid) then
+			Talents:ActivateSecondBranch(pid)
 		end
-		DataBase:buyRequest({PlayerID = t.PlayerID, name = sql_name, give = give, price = price, amount = t.amountBuy, currency = currency})
-		
-		local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-		shopinfo['feed'] = Shop.pShop[pid]["feed"]
-		shopinfo['coins'] = Shop.pShop[pid]["coins"]
-		shopinfo['mmrpoints'] = Shop.pShop[pid]["mmrpoints"]
-		CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
 	end
+	if shop_type == "gem" then
+		local gem_type = Shop.pShop[pid][i][n]["gem_type"]
+		CustomShop:AddGems(pid, { 
+			[gem_type] = give * amount 
+		}, false)
+		local send = {
+			gem_type = gem_type,
+			give = give,
+			hero_name = PlayerResource:GetSelectedHeroName(pid),
+			amount = amount,
+		}
+		if currency == 'don' then
+			send.don = price
+		else
+			send.rp = price
+		end
+		DataBase:Send(DataBase.link.BuyGems, "GET", send, pid, not DataBase:IsCheatMode(), nil)
+	elseif name == "hot_offer" then
+		local send = {
+			items = Shop:GiveOutAllHotOfferItems(pid, Shop.pShop[pid][i][n]),
+		}
+		if currency == 'don' then
+			send.don = price
+		else
+			send.rp = price
+		end
+		DataBase:Send(DataBase.link.BuyHotOffer, "GET", send, pid, not DataBase:IsCheatMode(), nil)
+	else
+		local send = {
+			name = name,
+			give = give,
+			hero_name = PlayerResource:GetSelectedHeroName(pid),
+			amount = amount,
+		}
+		if currency == 'don' then
+			send.don = price
+		else
+			send.rp = price
+		end
+		DataBase:Send(DataBase.link.BuyShop, "GET", send, pid, not DataBase:IsCheatMode(), nil)
+	end
+	
 end
 
 function Shop:GiveOutAllHotOfferItems(PlayerID, hotOfferItem)
@@ -567,20 +398,19 @@ function Shop:GiveOutAllHotOfferItems(PlayerID, hotOfferItem)
 			end
 		end
 	end
-	if DataBase:IsCheatMode() == false then
-		DataBase:GiveOutAllHotOfferItems(PlayerID, DBItemsName)
-	end
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(PlayerID), "UpdateStore", updateCount)
+	return DBItemsName
 end
 
 function Shop:CustomShopStash_TakeItem(t)
 	local thisItem = nil
 	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
 		for itemKey, item in ipairs(category) do
-			if item.itemname and item.itemname == t.itemname then
+			if item.itemname and item.itemname == t.itemname and item.now > 0 then
 				thisItem = item
 				thisItem.categoryKey = categoryKey
 				thisItem.itemKey = itemKey
+				break
 			end
 		end
 	end
@@ -590,192 +420,153 @@ function Shop:CustomShopStash_TakeItem(t)
 	end
 end
 
-function Shop:AddRP(pid, value)
-	SendPlayerNotification:AddRPAlert(pid, value)
-	Shop.pShop[pid].mmrpoints = Shop.pShop[pid].mmrpoints + value
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-	shopinfo.mmrpoints = Shop.pShop[pid].mmrpoints
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
-end
-
-function Shop:AddCoins(pid, value)
-	SendPlayerNotification:AddRPAlert(pid, value)
-	Shop.pShop[pid].coins = Shop.pShop[pid].coins + value
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-	shopinfo.coins = Shop.pShop[pid].coins
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
-end
-
--- петы
-function GetLevel(exp)
-	local level = 10
-	local passed_exp = 0
-	for i = 1, 10 do 
-		passed_exp = passed_exp + pets_exp[i-1]
-		if exp >= passed_exp and exp < passed_exp + pets_exp[i] then
-			level = i-1
-			break
-		end
-	end
-	return level
-end
-
-function Shop:UpdatePetButton(t)
-	local pid = t.PlayerID
-	local count = t.count
-	if tonumber(Shop.pShop[pid]["feed"]) < tonumber(count) then return end
-	Shop.pShop[pid]["feed"] = Shop.pShop[pid]["feed"] - tonumber(count)
-	local pet = nil
-	for k,v in pairs(Shop.pShop[pid][1]) do
-		if v.name == t.pet.name then
-			if v.now == 0 then return end
-			v.now = v.now + count
-			pet = v
-			break
-		end
-	end
-	if not DataBase:IsCheatMode() then
-		DataBase:UpdatePet(t.pet.name, pid, count)
-	end
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(pid))
-	shopinfo['feed'] = Shop.pShop[pid]["feed"]
-	shopinfo['coins'] = Shop.pShop[pid]["coins"]
-	shopinfo['mmrpoints'] = Shop.pShop[pid]["mmrpoints"]
-	CustomNetTables:SetTableValue("shopinfo", tostring(pid), shopinfo)
-
-	local hero = PlayerResource:GetSelectedHeroEntity(pid)
-	if Shop.pet[pid] == pet.itemname then
-		hero:RemoveAbility(pet.itemname)
-		hero:AddAbility(pet.itemname):SetLevel(GetLevel(pet.now))
-	end
-end
-
-
-
-function Shop:GetPet(t)
-	local pet_name = t.pet.name
-	local pid = t.PlayerID
-	local hero = PlayerResource:GetSelectedHeroEntity(pid)
-	if not hero then return end
-	local pet = nil
-	for k, v in pairs(Shop.pShop[pid][1]) do
-		if type(v) == 'table' and v.type == 'pet' and v.now > 0 then
-			if v.name == pet_name then 
-				pet = v
+function Shop:CustomShopStash_ReturnItem(t)
+	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	local found_item = hero:FindItemInInventory( t.itemname )
+	if found_item then
+		for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+			for itemKey, item in ipairs(category) do
+				if item.itemname and item.itemname == found_item:GetName() then
+					item.now = item.now + found_item:GetCurrentCharges()
+					hero:RemoveItem(found_item)
+					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "UpdateStore", {
+						{categoryKey = categoryKey, productKey = itemKey, itemname = item.itemname, count = item.now},
+					})
+					return
+				end
 			end
 		end
 	end
-	if not pet or pet.now == 0 then return end
+end
 
-	if Shop.pShop[pid][1][1].now == 0 and Shop.Change_Available[pid] == false then return end
-
-	if Shop.pet[pid] ~= nil then
-		hero:RemoveAbility(Shop.pet[pid])
-	end
-	
-	if hero:HasAbility("spell_item_pet") then
-		hero:RemoveAbility("spell_item_pet")
-	end
-
-	if pet and pet.itemname ~= Shop.pet[pid]  then
-		hero:AddAbility(pet.itemname):SetLevel(GetLevel(pet.now))
-		Shop.pet[pid] = pet.itemname
-		CustomNetTables:SetTableValue("player_pets", tostring(pid), {pet = pet.itemname})
-		if Shop.pShop[pid][1][1].now == 0 then
-			Shop.Change_Available[pid] = false
+function Shop:UseAllScroll(t)
+	local hero = PlayerResource:GetSelectedHeroEntity( t.PlayerID )
+	for categoryKey, category in ipairs(Shop.pShop[t.PlayerID]) do
+		for itemKey, item in ipairs(category) do
+			if item.itemname and table.has_value(t, item.itemname) and item.now > 0 and not hero:HasModifier("modifier_"..item.itemname.."_cd") then
+				Shop:giveItem({PlayerID = t.PlayerID , i = categoryKey, n = itemKey, IsControlDown = true})
+			end
 		end
-	else
-		hero:AddAbility("spell_item_pet"):SetLevel(1)
-		Shop.pet[pid] = nil
-		CustomNetTables:SetTableValue("player_pets", tostring(pid), {pet = "spell_item_pet"})
 	end
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdatePetIcon", {can_change = Shop.Change_Available[pid]} )
-	
-	
 end
-
-function Shop:AutoGetPetOprion(t)
-	if t.pet == nil then
-		Shop.Auto_Pet[t.PlayerID] = nil
-	else
-		Shop.Auto_Pet[t.PlayerID] = t.pet.name
-	end
-	DataBase:AutoGetPetOprion(t)
-end
-
-function Shop:OpenTreasure(t)
-	for categoryKey, categoryValue in pairs(Shop.pShop[t.PlayerID]) do
+function Shop:AddItemByName(pid, name, amount)
+	for categoryKey, categoryValue in pairs(Shop.pShop[pid]) do
 		if type(categoryValue) == 'table' then
 			for productKey, productValue in ipairs(categoryValue) do
-				if productValue.name == t.treasureName then
-					thisTreasure = productValue
-					thisTreasure.categoryKey = categoryKey
-					thisTreasure.productKey = productKey
-				elseif productValue.source and productValue.source.treasury and productValue.source.treasury == t.treasureName then
-					if not awardList then awardList = {} end
-					local award = productValue
-					award.categoryKey = categoryKey
-					award.productKey = productKey
-					table.insert(awardList, award)
-					if award.name == "gems_award" then
-						gemsAward = award
+				if type(productValue) == 'table' then
+					if productValue.name == name then
+						productValue.now = productValue.now + amount
+						productValue.onStart = productValue.onStart + amount
+						CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "UpdateStore", {
+							{categoryKey = categoryKey, productKey = productKey, itemname = productValue.itemname, count = productValue.now},
+						})
+						return
 					end
 				end
 			end
 		end
 	end
-	if thisTreasure == nil or thisTreasure.now < 1 then return end
-	thisTreasure.now = thisTreasure.now - 1
-	thisTreasure.onStart = thisTreasure.onStart - 1
-	local itemPrize = awardList[RandomInt(1, #awardList)]
-	while itemPrize.name == "gems_award" do
-		itemPrize = awardList[RandomInt(1, #awardList)]
+end
+
+function Shop:FindItemByName(pid, name)
+	for categoryKey, categoryValue in pairs(Shop.pShop[pid]) do
+		if type(categoryValue) == 'table' then
+			for productKey, productValue in ipairs(categoryValue) do
+				if type(productValue) == 'table' then
+					if productValue.name == name then
+						local item = productValue
+						item.key1 = categoryKey
+						item.key2 = productKey
+						return item
+					end
+				end
+			end
+		end
 	end
-	if RandomFloat(1, 100) <= 1.20 then
-		itemPrize = gemsAward
+end
+function Shop:FindTreasureRewardList(pid, name)
+	local rewards = {}
+	for categoryKey, categoryValue in pairs(Shop.pShop[pid]) do
+		if type(categoryValue) == 'table' then
+			for productKey, productValue in ipairs(categoryValue) do
+				if type(productValue) == 'table' then
+					if productValue.source and productValue.source.treasury and productValue.source.treasury == name then
+						local item = productValue
+						item.key1 = categoryKey
+						item.key2 = productKey
+						table.insert(rewards, item)
+					end
+				end
+			end
+		end
 	end
-	local compensation = thisTreasure.compensation
+	return rewards
+end
+function Shop:OpenTreasure(t)
+	local pid = t.PlayerID
+	local name = t.treasureName
+	local treasure = Shop:FindItemByName(pid, name)
+	local compensation = treasure.compensation
+	local rewards = Shop:FindTreasureRewardList(pid, name)
+	if treasure.now < 1 then return end
+	Shop.pShop[pid][treasure.key1][treasure.key2].now = Shop.pShop[pid][treasure.key1][treasure.key2].now -1
+	Shop.pShop[pid][treasure.key1][treasure.key2].onStart = Shop.pShop[pid][treasure.key1][treasure.key2].onStart -1
+	local itemPrize = rewards[RandomInt(1, #rewards)]
+	while itemPrize.source.main_prize do
+		itemPrize = rewards[RandomInt(1, #rewards)]
+	end
+	for reward_name, reward_percentage in pairs(treasure.treasure_main_reward) do
+		if RandomFloat(0, 100) <= reward_percentage then
+			itemPrize = Shop:FindItemByName(pid, reward_name)
+		end
+	end
 	local data = {
-		itemPool = {},
+		itemPool = rewards,
 		itemPrize = itemPrize,
 		glory = 0,
 		skipAnimation = false,
 	}
-	for _,award in pairs(awardList) do
-		table.insert(data.itemPool, award)
-	end
-	
-	local requestData = {
-		sid = PlayerResource:GetSteamAccountID(t.PlayerID),
-		treasureName = t.treasureName,
-	}
-	if itemPrize.name == "gems_award" then
-		DataBase:AddCoins(t.PlayerID, 500)
-		-- requestData.gemAward = 500
+	local send = {}
+	send.treasure = treasure.name
+	if itemPrize.name == 'rp_reward_100' then
+		send.rp = CustomShop:AddRP(pid, 100 / MultiplierManager:GetCurrencyRpMultiplier(pid), false, false)
+	elseif itemPrize.name == 'gems_reward_50' then
+		send.don = CustomShop:AddCoins(pid, 50, false, false)
+	elseif itemPrize.name == 'gems_reward_500' then
+		send.don = CustomShop:AddCoins(pid, 500, false, false)
+	elseif itemPrize.name == 'rp_reward_150' then
+		send.rp = CustomShop:AddRP(pid, 150 / MultiplierManager:GetCurrencyRpMultiplier(pid), false, false)
+	elseif itemPrize.name == 'gems_reward_75' then
+		send.don = CustomShop:AddCoins(pid, 75, false, false)
+	elseif itemPrize.name == 'gems_reward_750' then
+		send.don = CustomShop:AddCoins(pid, 750, false, false)
+	elseif itemPrize.name == 'roshan_reward_1' then
+		send.name = 'rosh_1'
+	elseif itemPrize.name == 'roshan_reward_2' then
+		send.name = 'rosh_2'
 	elseif itemPrize.counter and itemPrize.counter == true and itemPrize.onStart > 0 then
 		itemPrize.now = itemPrize.now + 1
 		itemPrize.onStart = itemPrize.onStart + 1
-		requestData.itemAward = itemPrize.name
+		send.name = itemPrize.name
 	elseif itemPrize.onStart == 0 then
 		itemPrize.now = 1
 		itemPrize.onStart = 1
-		requestData.itemAward = itemPrize.name
+		send.name = itemPrize.name
 	elseif itemPrize.onStart > 0 then
-		Shop.pShop[t.PlayerID].mmrpoints = Shop.pShop[t.PlayerID].mmrpoints + compensation
-		requestData.rpAward = compensation
+		send.rp = CustomShop:AddRP(pid, compensation, false, false)
 		data.glory = compensation
 	end
-	DataBase:OpenTreasure(requestData)
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "ShowWheel", data )
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(t.PlayerID), "UpdateStore", {
-		{categoryKey = thisTreasure.categoryKey, productKey = thisTreasure.productKey, itemname = "", count = thisTreasure.now},
-		{categoryKey = itemPrize.categoryKey, productKey = itemPrize.productKey, itemname = "", count = itemPrize.now},
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "ShowWheel", data )
+	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(pid), "UpdateStore", {
+		{categoryKey = treasure.key1, productKey = treasure.key2, itemname = "", count = treasure.now},
+		{categoryKey = itemPrize.key1, productKey = itemPrize.key2, itemname = "", count = itemPrize.now},
 	})
-	local shopinfo = CustomNetTables:GetTableValue("shopinfo", tostring(t.PlayerID))
-	shopinfo['feed'] = Shop.pShop[t.PlayerID]["feed"]
-	shopinfo['coins'] = Shop.pShop[t.PlayerID]["coins"]
-	shopinfo['mmrpoints'] = Shop.pShop[t.PlayerID]["mmrpoints"]
-	CustomNetTables:SetTableValue("shopinfo", tostring(t.PlayerID), shopinfo)
+	DataBase:Send(DataBase.link.TreasureReward, "GET", send, pid, not DataBase:IsCheatMode(), function(body)
+		if table.has_value({'rosh_1', 'rosh_2'}, send.name) then
+			Pets.player[pid].pets[send.name] = json.decode(body)
+        	CustomNetTables:SetTableValue('Pets', tostring(pid), Pets.player[pid])
+		end
+	end)
 end
 
 function Shop:SprayToggleActivate(t)
@@ -820,37 +611,57 @@ end
 
 function ChangeHero:OnGameRulesStateChange()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
-		Timers:CreateTimer(1, function()
-			for heroName, heroData in pairs(self.heroes) do
-				heroData.unit = CreateUnitByName(heroData.unitName , heroData.position, false, nil, nil, DOTA_TEAM_GOODGUYS)
-				if heroData.unit then
-					heroData.unit:AddNewModifier(heroData.unit,nil,"modifier_quest",{})
-					heroData.unitIndex = heroData.unit:entindex()
-					heroData.unit:SetForwardVector(heroData.unit:GetForwardVector() * -1)
-				end
-				for i = 0 , PlayerResource:GetPlayerCount()-1 do
-					if PlayerResource:IsValidPlayer(i) then
-						heroData.trialCount[i] = RATING["rating"][i][heroData.trialName]
-						if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
-							heroData.trialCount[i] = -1
-						end
-						if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
-							heroData.available[i] = true
-						end
-						if heroName == "npc_dota_hero_marci" and RATING["rating"][i]["patron"] == 1 then
-							heroData.trialCount[i] = -1
-							heroData.available[i] = true
-						end
-						if heroName == "npc_dota_hero_silencer" and RATING["rating"][i]["silencer_date"] ~= nil then
-							heroData.trialCount[i] = -1
-							heroData.available[i] = true
-						end
-					end
-				end
-			end
+		-- Timers:CreateTimer(1, function()
+		-- 	for heroName, heroData in pairs(self.heroes) do
+		-- 		heroData.unit = CreateUnitByName(heroData.unitName , heroData.position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+		-- 		if heroData.unit then
+		-- 			heroData.unit:AddNewModifier(heroData.unit,nil,"modifier_quest",{})
+		-- 			heroData.unitIndex = heroData.unit:entindex()
+		-- 			heroData.unit:SetForwardVector(heroData.unit:GetForwardVector() * -1)
+		-- 		end
+		-- 		for i = 0 , PlayerResource:GetPlayerCount()-1 do
+		-- 			if PlayerResource:IsValidPlayer(i) then
+		-- 				heroData.trialCount[i] = RATING["rating"][i][heroData.trialName]
+		-- 				if Shop.pShop[i].totaldonate >= heroData.minimumTotal then
+		-- 					heroData.trialCount[i] = -1
+		-- 				end
+		-- 				if Shop.pShop[i].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[i] > 0 then
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 				if heroName == "npc_dota_hero_marci" and RATING["rating"][i]["patron"] == 1 then
+		-- 					heroData.trialCount[i] = -1
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 				if heroName == "npc_dota_hero_silencer" and RATING["rating"][i]["silencer_date"] ~= nil then
+		-- 					heroData.trialCount[i] = -1
+		-- 					heroData.available[i] = true
+		-- 				end
+		-- 			end
+		-- 		end
+		-- 	end
 			
-			CustomGameEventManager:Send_ServerToAllClients( "UpdateChangeHeresInfo", self.heroes )
-		end)
+		-- 	CustomGameEventManager:Send_ServerToAllClients( "UpdateChangeHeresInfo", self.heroes )
+		-- end)
+	end
+end
+
+function ChangeHero:SetDonateHeroesDate(pid, items)
+	for heroName, heroData in pairs(self.heroes) do
+		heroData.trialCount[pid] = items[heroData.trialName].value
+		if Shop.pShop[pid].totaldonate >= heroData.minimumTotal then
+			heroData.trialCount[pid] = -1
+		end
+		if Shop.pShop[pid].totaldonate >= heroData.minimumTotal or DataBase:IsCheatMode() or heroData.trialCount[pid] > 0 then
+			heroData.available[pid] = true
+		end
+		if heroName == "npc_dota_hero_marci" and RATING["rating"][pid]["patron"] == 1 then
+			heroData.trialCount[pid] = -1
+			heroData.available[pid] = true
+		end
+		if heroName == "npc_dota_hero_silencer" and RATING["rating"][pid]["silencer_date"] ~= nil then
+			heroData.trialCount[pid] = -1
+			heroData.available[pid] = true
+		end
 	end
 end
 
@@ -858,12 +669,16 @@ function ChangeHero:IsMarciAvailable_PickStage(PlayerID)
 	local marci = ChangeHero.heroes.npc_dota_hero_marci
 	return Shop.pShop[PlayerID].totaldonate >= marci.minimumTotal or DataBase:IsCheatMode() or marci.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["patron"] == 1
 end
-
+function ChangeHero:GetMarciTrial(pid)
+	return self.heroes["npc_dota_hero_marci"].trialCount[pid]
+end
 function ChangeHero:IsSilencerAvailable_PickStage(PlayerID)
 	local silencer = ChangeHero.heroes.npc_dota_hero_silencer
 	return Shop.pShop[PlayerID].totaldonate >= silencer.minimumTotal or DataBase:IsCheatMode() or silencer.trialCount[PlayerID] > 0  or RATING["rating"][PlayerID]["silencer_date"] ~= nil
 end
-
+function ChangeHero:GetSilencerTrial(pid)
+	return self.heroes["npc_dota_hero_silencer"].trialCount[pid]
+end
 function ChangeHero:dota_player_gained_level(t)
 	local player = EntIndexToHScript( t.player )
 	local player_id = player:GetPlayerID()

@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_item_shivas_guard_slow_lua", 'items/custom_items/item_
 
 function item_shivas_guard_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/shivas_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_shivas_guard_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_shivas_guard_lua" .. level
 	end
 end
 

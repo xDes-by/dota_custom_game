@@ -50,12 +50,13 @@ function modifier_cheack_afk:OnIntervalThink()
 	
 	if dist == 0 and not self.parent:IsAttacking() and not self.parent:IsChanneling() then 
 		if not self.timer then
-			self.timer = Timers:CreateTimer(10, function()
+			self.timer = Timers:CreateTimer(300, function()
 				self.modifier1 = self.parent:AddNewModifier(self.parent, nil, "modifier_invulnerable", {})
 				self.modifier2 = self.parent:AddNewModifier(self.parent, nil, "modifier_stunned", {})
 				self.MinigameStarted = true
 				ListenToGameEvent("player_reconnected", Dynamic_Wrap(self, 'OnPlayerReconnected'), self)
-				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame.xml", nil)
+				CustomUI:DynamicHud_Create(self.parent:GetPlayerOwnerID(), "minigame_container", "file://{resources}/layout/custom_game/minigame/minigame.xml", nil)
+				Talents:EnableAFKGame(self:GetParent():GetPlayerID())
 			end)
 		end	
 	else

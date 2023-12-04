@@ -9,10 +9,10 @@ LinkLuaModifier("modifier_movement_speed_uba", "modifiers/modifier_movement_spee
 
 function item_sabre_blade:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/sabre_blade" .. level
 	else
-		return "gem" .. self.GemType .. "/sabre_blade" .. level .. "_gem" .. self.GemType
+		return "gem" .. self:GetSecondaryCharges() .. "/sabre_blade" .. level .. "_gem" .. self:GetSecondaryCharges()
     end
 end
 

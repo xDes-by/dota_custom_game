@@ -1,14 +1,16 @@
 ﻿item_tank_crimson = item_tank_crimson or class({})
-item_tank_crimson2 = item_tank_crimson or class({})
-item_tank_crimson3 = item_tank_crimson or class({})
-item_tank_crimson4 = item_tank_crimson or class({})
-item_tank_crimson5 = item_tank_crimson or class({})
-item_tank_crimson6 = item_tank_crimson or class({})
-item_tank_crimson7 = item_tank_crimson or class({})
-item_tank_crimson8 = item_tank_crimson or class({})
 
 LinkLuaModifier("modifier_item_tank_crimson", "items/item_tank_crimson", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_tank_crimson_effect", "items/item_tank_crimson", LUA_MODIFIER_MOTION_NONE)
+
+function item_tank_crimson:GetAbilityTextureName()
+	local level = self:GetLevel()
+	if self:GetSecondaryCharges() == 0 then
+		return "mid_items/mage_" .. level
+	else
+		return "gem" .. self:GetSecondaryCharges() .. "/mage_" .. level
+	end
+end
 
 function item_tank_crimson:GetIntrinsicModifierName()
 	return "modifier_item_tank_crimson"

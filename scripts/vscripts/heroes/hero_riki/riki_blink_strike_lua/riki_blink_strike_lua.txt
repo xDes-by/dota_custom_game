@@ -20,7 +20,7 @@
 		"AbilityCharges"				"2"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 700 800 900"
+		"AbilityCastRange"				"620 640 660 680 700 720 740 760 780 800 820 840 860 880 900"
 		"AbilityCastPoint"				"0.3"		
 
 		// Time
@@ -80,13 +80,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"lagg_threshold"		"100"		// If it gets too crowded, it could get laggy.
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"abilitycastrange"					""
-				"LinkedSpecialBonus"		"special_bonus_imba_riki_blink_strike_cast_range"
-			}			
+			}	
 		}
 	}
 

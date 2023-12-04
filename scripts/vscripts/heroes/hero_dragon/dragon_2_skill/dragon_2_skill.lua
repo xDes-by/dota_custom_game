@@ -39,14 +39,15 @@ function modifier_dragon:DeclareFunctions()
 end
 
 function modifier_dragon:GetModifierProcAttack_Feedback( params )
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi_last") ~= nil and self:GetCaster():HasModifier("modifier_dragon_form_lua") then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi11") ~= nil and self:GetCaster():HasModifier("modifier_dragon_form_lua") then
 		local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), params.target:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false )
 		for _, enemy in pairs(enemies) do
-			enemy:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_dragon_2_skill",{ duration = self.duration })
+			if params.target ~= enemy then
+				enemy:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_dragon_2_skill",{ duration = self.duration, res = 0.5 })
+			end
 		end
-	else
-		params.target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_dragon_2_skill",{ duration = self.duration })
 	end
+	params.target:AddNewModifier(self:GetParent(),self:GetAbility(),"modifier_dragon_2_skill",{ duration = self.duration, res = 1 })
 end
 
 
@@ -74,9 +75,9 @@ end
 
 function modifier_dragon_2_skill:OnCreated( kv )
 	local damage = self:GetAbility():GetSpecialValueFor( "damage" )
-	self.mag_resist = self:GetAbility():GetSpecialValueFor( "mag_resist" )
 	if not IsServer() then return end
-	
+	self:SetStackCount(self:GetAbility():GetSpecialValueFor( "mag_resist" ) * kv.res)
+
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int7")	
 	if abil ~= nil then
 	damage = self:GetCaster():GetIntellect()
@@ -95,9 +96,8 @@ end
 
 function modifier_dragon_2_skill:OnRefresh( kv )
 	local damage = self:GetAbility():GetSpecialValueFor( "damage" )
-	self.mag_resist = self:GetAbility():GetSpecialValueFor( "mag_resist" )
 	if not IsServer() then return end
-
+	self:SetStackCount(self:GetAbility():GetSpecialValueFor( "mag_resist" ) * kv.res)
 	local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int7")	
 	if abil ~= nil then
 	damage = self:GetCaster():GetIntellect()
@@ -123,15 +123,15 @@ end
 function modifier_dragon_2_skill:GetModifierMagicalResistanceBonus()
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_int10")	
 	if abil ~= nil then 
-	return self.mag_resist * 2
+	return self:GetStackCount() * 2
 	end
-	return self.mag_resist
+	return self:GetStackCount()
 end
 
 function modifier_dragon_2_skill:GetModifierPhysicalArmorBonus()
 local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_dragon_knight_agi8")	
 	if abil ~= nil then 
-	return self.mag_resist/2
+	return self:GetStackCount()/2
 	end
 	return 0
 end

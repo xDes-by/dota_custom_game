@@ -2,6 +2,7 @@ require('diff_wave')
 require('libraries/timers')
 require('libraries/notifications')
 require("libraries/animations")
+require("libraries/modifiers/modifier_summon_handler")
 require("libraries/custom_indicator/custom_indicator" )
 require("libraries/vector_target/vector_target" )
 require("libraries/table")
@@ -12,20 +13,21 @@ require("spawner")
 require("rules")
 require('towershop')
 require('data/data')
-require("data/talentData")
-require("data/battlePassData")
+require("data/heroesTalents")
+require("data/battlePassStatic")
+require("data/talentsData")
 require('plugins')
 require('tp')
 require("damage")
 require("dummy")
-require("use_pets")
 require("effects")
+require("wearable")
 
-_G.key = "0D5A1B05BC84FEF8AC2DA123198CCA9FECCD277D"--GetDedicatedServerKeyV3("WAR")
+_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
-_G.server_load = not IsInToolsMode() -- true
-_G.spawnCreeps = not IsInToolsMode() -- true
+_G.server_load = false --not IsInToolsMode() -- true
+_G.spawnCreeps =  false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -47,13 +49,13 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(5)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(60)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
 	GameRules:SetStrategyTime(10)
 	GameRules:SetPostGameTime(60)
-	
+	GameRules:SetUseUniversalShopMode(true)
 	GameModeEntity:SetInnateMeleeDamageBlockAmount(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
@@ -66,13 +68,14 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:SetHideBlacklistedHeroes(true)
     GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered( true )
 	GameRules:SetUseBaseGoldBountyOnHeroes(true)
+	GameRules:GetGameModeEntity():SetGoldSoundDisabled( true )
 	GameRules:GetGameModeEntity():SetPauseEnabled( false )
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed( 1500 ) 
 	GameRules:GetGameModeEntity():SetMinimumAttackSpeed( 0 )
-	GameModeEntity:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
-	GameModeEntity:SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
-	GameModeEntity:SetUseCustomHeroLevels( true )
-	
+	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
+	GameRules:GetGameModeEntity():SetUseCustomHeroLevels( true )
+
 	--------------------------------------------------------------------------------------------
 	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)
@@ -84,6 +87,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	
 	-------------------------------------------------------------------------------------------
 	CustomGameEventManager:RegisterListener( "EndMiniGame", function(...) return OnEndMiniGame( ... ) end )
+	CustomGameEventManager:RegisterListener( "item_boss_summon_choice", function(...) return ItemBossSummonChoice( ... ) end )
 	
 
 	ListenToGameEvent("game_rules_state_change", Dynamic_Wrap( CAddonAdvExGameMode, 'OnGameStateChanged' ), self )
@@ -91,7 +95,6 @@ function CAddonAdvExGameMode:InitGameMode()
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(CAddonAdvExGameMode, 'OnNPCSpawned'), self)	
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(CAddonAdvExGameMode, 'OnPlayerReconnected'), self)	
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonAdvExGameMode, "OrderFilter"), self)
-	GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(CAddonAdvExGameMode, "ExperienceFilter"), self)
 	ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CAddonAdvExGameMode, 'On_dota_item_picked_up'), self)
 	CustomGameEventManager:RegisterListener("tp_check_lua", Dynamic_Wrap( tp, 'tp_check_lua' ))	
 	CustomGameEventManager:RegisterListener("EndScreenExit", Dynamic_Wrap( CAddonAdvExGameMode, 'EndScreenExit' ))
@@ -102,37 +105,28 @@ function CAddonAdvExGameMode:InitGameMode()
 	damage:Init()
 	effects:init()
 	_G.Activate_belka = false
-	use_pets:InitGameMode()
 	ListenToGameEvent("player_chat", Dynamic_Wrap( CAddonAdvExGameMode, "OnChat" ), self )
 	GameRules:SetFilterMoreGold(true)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CAddonAdvExGameMode, "GoldFilter"), self)
 end
 
-function CAddonAdvExGameMode:GoldFilter(event)
-	if event.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
-	local hero = PlayerResource:GetSelectedHeroEntity( event.player_id_const )
+function CAddonAdvExGameMode:GoldFilter(data)
+	if data.reason_const == DOTA_ModifyGold_AbandonedRedistribute then return false end
+	local hero = PlayerResource:GetSelectedHeroEntity( data.player_id_const )
 	local mod = hero:FindModifierByName("modifier_gold_bank")
-	if event.gold > 0 and hero:GetGold() + event.gold > 99999 then
-		mod:SetStackCount(hero:GetGold() + event.gold - 99999 + mod:GetStackCount())
+	local gold = hero:GetTotalGold()
+	new_gold = gold + data.gold
+	if new_gold > 99999 then
 		hero:SetGold( 99999, false )
-	elseif event.gold > 0 then
-		hero:SetGold( hero:GetGold() + event.gold, false )
-	elseif event.gold < 0 then
-		hero:ModifyGold(event.gold, true, 0)
-		if hero:GetGold() + mod:GetStackCount() <= 99999 then
-			hero:SetGold( hero:GetGold() + mod:GetStackCount(), false )
-			mod:SetStackCount(0)
-		else
-			local flaw = 99999 - hero:GetGold()
-			mod:SetStackCount(mod:GetStackCount() - flaw)
-			hero:SetGold( 99999, false )
-		end
+		mod:SetStackCount(new_gold - 99999)
+	else
+		hero:SetGold( new_gold, false )
 	end
 	return false
 end
 
 function CAddonAdvExGameMode:InventoryFilter(event)
-	DeepPrintTable(event)
+	-- DeepPrintTable(event)
 end
 
 
@@ -252,7 +246,8 @@ function leave_game()
 							PlayerConection[nPlayerID] = connection
 								if not bot(nPlayerID) and connection == DOTA_CONNECTION_STATE_ABANDONED then 
 									if rat >= 6 and not GameRules:IsCheatMode() and _G.kill_invoker == false then
-										DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										-- DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
+										DataBase:EndGameSession(nPlayerID, -25 * diff_wave.rating_scale)
 									end
 								end
 							end
@@ -323,7 +318,9 @@ function LevelUp (eventInfo)
 	if not hero then
 		return 0.1
 	end	
-	
+	-- for _,mod in pairs(hero:FindAllModifiers()) do
+	-- 	mod:ForceRefresh()
+	-- end
 	local namePlayer = PlayerResource:GetPlayerName( player_id )
 	local level = hero:GetLevel()
 	
@@ -336,58 +333,55 @@ HERO_MAX_LEVEL = 300
 
 XP_PER_LEVEL_TABLE = {}
 XP_PER_LEVEL_TABLE[0] = 0
-XP_PER_LEVEL_TABLE[1] = 250
+XP_PER_LEVEL_TABLE[1] = 180
 for i=2,25 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250  
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 180  
 end
 
 for i=26,50 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 300 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 190 
 end
 
 for i=51,75 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 350 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 200 
 end
 
 for i=76,100 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 400 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 210 
 end
 
 for i=101,150 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 500 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 220
 end
 
 for i=151,200 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 600 
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 230 
 end
 
-for i=201,299 do
-	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 700 
+for i=201,250 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 250 
 end
+
+for i=251,299 do
+	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+i * 270 
+end
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 function CAddonAdvExGameMode:OnGameStateChanged( keys )
     local state = GameRules:State_Get()
-    
 	if state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		loadscript()
-	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		local AllHeroPull = LoadKeyValues("scripts/npc/all_hero_pull.txt")
-		for iPlayerID=0, PlayerResource:GetPlayerCount() do
-			if PlayerResource:IsValidPlayer(iPlayerID) then
-				for k,v in pairs(AllHeroPull) do
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
-				end
-				if ChangeHero:IsMarciAvailable_PickStage(iPlayerID) then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_marci" ) )
-				end
-				if ChangeHero:IsSilencerAvailable_PickStage(iPlayerID) then
-					GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( "npc_dota_hero_silencer" ) )
-				end
+		for iPlayerID=0, PlayerResource:GetPlayerCount()-1 do
+			for k,v in pairs(AllHeroPull) do
+				GameRules:AddHeroToPlayerAvailability(iPlayerID, DOTAGameManager:GetHeroIDByName( k ) )
 			end
 		end
+	elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		
 	elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 
 	for i=0, DOTA_MAX_TEAM_PLAYERS do
@@ -422,7 +416,6 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 	GameRules:GetGameModeEntity():SetPauseEnabled( true )
 	Spawner:Init()
 	creep_spawner:spawn_creeps_forest()	
-	Rules:tower_hp()
 	Rules:spawn_creeps_don()
 	Rules:spawn_sheep()
 	Rules:spawn_lina()
@@ -463,6 +456,10 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		npc:AddAbility("spell_item_pet"):SetLevel(1)
 		npc:AddItemByName("item_tpscroll")
 		
+		if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
+			Wearable:SetDefault(npc)
+			npc:AddNewModifier(npc, nil, "modifier_wearable_pet", {})
+		end
 		
 		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
 		npc:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
@@ -472,6 +469,9 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 		
 		if diff_wave.wavedef == "Insane" then
 			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
+		end	
+		if diff_wave.wavedef == "Impossible" then
+			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(3)
 		end	
 		
 		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
@@ -497,7 +497,7 @@ function CAddonAdvExGameMode:OnNPCSpawned(data)
 			end
 		end
 	end
-	if diff_wave.wavedef == "Insane" then
+	if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
 		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
 			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
 		end
@@ -545,14 +545,36 @@ function CAddonAdvExGameMode:BountyRunePickupFilter(data)
 		[5] = 650,
 		[6] = 1000,
 		[7] = 1500,
-		[8] = 4500,
+		[8] = 3000,
 		[9] = 4500,
+		[10] = 6000,
 	}
-	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / (players or 1)
+	data.gold_bounty = gold[_G.don_spawn_level] * 2 * 5 / players
 	return true
 end
 
 function CAddonAdvExGameMode:OnRunePickup(data)
+	if data.rune == DOTA_RUNE_XP then
+		local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+		local need_exp = (XP_PER_LEVEL_TABLE[hHero:GetLevel()] - XP_PER_LEVEL_TABLE[hHero:GetLevel() - 1])/ 2
+		local t = {}
+		hHero:AddExperience(need_exp, 0, false, false)
+		for i = 0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(i) and PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_CONNECTED then
+				local hero = PlayerResource:GetSelectedHeroEntity(i)
+				if hero then
+					t[hero:GetLevel()] = hero
+				end
+			end
+		end
+		for i = 0, 500 do
+			if t[i] and t[i] ~= hHero then
+				t[i]:AddExperience(need_exp, 0, false, false)
+				break
+			end
+		end
+		return
+	end
 	local runs = {
 		[DOTA_RUNE_DOUBLEDAMAGE] = "modifier_rune_doubledamage",
 		[DOTA_RUNE_HASTE] = "modifier_rune_haste",
@@ -580,12 +602,17 @@ function CAddonAdvExGameMode:OnRunePickup(data)
 		hHero:RemoveModifierByName(runs[data.rune])
 		hHero:AddNewModifier(hHero, nil, modifiers[data.rune], {duration = 45})
 	end
+	Quests:UpdateCounter("daily", data.PlayerID, 45)
+	Quests:UpdateCounter("bonus", data.PlayerID, 1, 1)
 end
 
 function create_runes()
 	local target_bounty = Entities:FindAllByName("target_bounty")
 	Timers:CreateTimer(0,function()
 		for k,v in pairs(target_bounty) do
+			if v.rune then
+				UTIL_Remove(v.rune)
+			end
 			local point = v:GetAbsOrigin()
 			v.rune = CreateRune(point, DOTA_RUNE_BOUNTY)
 		end
@@ -594,6 +621,9 @@ function create_runes()
 	local xp_rune = Entities:FindAllByName("xp_rune")
 	Timers:CreateTimer(0,function()
 		for k,v in pairs(xp_rune) do
+			if v.rune then
+				UTIL_Remove(v.rune)
+			end
 			local point = v:GetAbsOrigin()
 			v.rune = CreateRune(point, DOTA_RUNE_XP)
 		end
@@ -607,14 +637,27 @@ function create_runes()
 				UTIL_Remove(v.rune)
 			end
 			local point = v:GetAbsOrigin()
-			--нужно сделать чтобы все объекты уничтожались при следующем роле
-			if not not _G.kill_invoker then
-				if RandomFloat(0, 100) < 0.1 then
-					--@todo:спавн кристалла
+			if not _G.kill_invoker then
+				if RollPercentage(1) then
+					local souls = {"item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul","item_cemetery_soul","item_magma_soul"}
+					local item_name = souls[RandomInt(1, #souls)]
+					local newItem = CreateItem( item_name, nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
 				elseif RollPercentage(1) then
-					--@todo:спавн сферы
-				elseif RollPercentage(1) then
-					--@todo:спавн рейтпоинтов
+					local newItem = CreateItem( "item_points_big", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
+				elseif RandomFloat(0, 100) < 0.1 then
+					spawnPoint = point	
+					local newItem = CreateItem( "item_crystal", nil, nil )
+					local drop = CreateItemOnPositionForLaunch( point, newItem )
+					newItem:LaunchLootInitialHeight( false, 0, 150, 0.5, point )
+					if loot_duration then
+						newItem:SetContextThink( "KillLoot", function() return KillLoot( newItem, drop ) end, 60*2.5 )
+					end
 				else
 					v.rune = CreateRune(point, r[RandomInt(1, #r)])
 				end
@@ -624,14 +667,6 @@ function create_runes()
 		end
 		return 60 * 2.5
 	end)
-end
-
-function CAddonAdvExGameMode:ExperienceFilter(data)
-	if data.reason_const == DOTA_ModifyXP_Unspecified then
-		local hero = EntIndexToHScript(data.hero_entindex_const)
-		data.experience = XP_PER_LEVEL_TABLE[hero:GetLevel()] / 2
-	end
-	return true
 end
 
 function gg()
@@ -665,10 +700,12 @@ function rating_lose()
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else		
 				if rat < 75 then
-					DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					-- DataBase:PointsChange(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale), true )
+					DataBase:EndGameSession(nPlayerID, ((-25 * diff_wave.rating_scale)+ mega_boss_bonus * diff_wave.rating_scale))
 				end
 				if rat >= 75 then
-					DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+					-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+					DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) - (30 * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 				end
 			end	
 		end			
@@ -681,7 +718,8 @@ function rating_win()
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") else
-				DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)	
+				-- DataBase:PointsChange(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)), true)
+				DataBase:EndGameSession(nPlayerID, ((rating_wave * diff_wave.rating_scale) + (mega_boss_bonus * diff_wave.rating_scale)))
 			end
 		end
 	end
@@ -813,26 +851,17 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		end
 	end
 
-	if _G.don_bosses_count and #_G.don_bosses_count > 0 then
-		for i, hCreep in ipairs( _G.don_bosses_count ) do
-			if killedUnit == hCreep then
-				table.remove( _G.don_bosses_count, i )
-				return
-			end
-		end 
-	end
-
 	if killerEntity and killerEntity:IsRealHero() then
 		killerEntity_playerID = killerEntity:GetPlayerID()
 	end	
-	
+
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then
 		if killedUnit:HasModifier("modifier_don5") then
 			killedUnit:SetTimeUntilRespawn( 1.2 )
 		else
 			killedUnit:SetTimeUntilRespawn( 10 )
 		end
-		if diff_wave.wavedef == "Insane" then
+		if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
 			local mod = killedUnit:FindModifierByName("modifier_insane_lives")
 			if mod ~= nil then
 				mod:DecrementStackCount()
@@ -937,7 +966,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	--
 	if killedUnit:GetUnitName() == "npc_invoker_boss" and (not killedUnit:HasModifier("modifier_health_voker")) then
 		local point = Entities:FindByName( nil, "point_bara"):GetAbsOrigin()
-		CreateUnitByName("npc_bara_boss", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+		local unit = CreateUnitByName("npc_bara_boss_main", point, true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
 		kill_all_creeps()
 		GameRules:SendCustomMessage("#invok_chat",0,0)
 		Add_bsa_hero()
@@ -945,14 +975,44 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:EmitSound(vok[RandomInt(1, #vok)])
 		local hRelay = Entities:FindByName( nil, "belka_logic" )
 		hRelay:Trigger(nil,nil)
+		_G.kill_invoker = true
 		if not DataBase:IsCheatMode() then
-			_G.kill_invoker = true
+			for pid = 0, PlayerResource:GetPlayerCount()-1 do
+				Quests:UpdateCounter("daily", pid, 28)
+			end
 			rating_win()
 		end
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_bara_boss" and not DataBase:IsCheatMode() then
+	if killedUnit:GetUnitName() == "npc_bara_boss_main" and not DataBase:IsCheatMode() then
+		local unit = CreateUnitByName("npc_sand_king_boss", Vector(7987, -11138, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_dota_monkey_king_boss", Vector(7812, -9992, 652), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_titan_boss", Vector(8762, -9342, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_appariion_boss", Vector(9779, -9990, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		Rules:difficality_modifier(unit)
+		local unit = CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
+		local antimage = Entities:FindByName( nil, "npc_mega_boss")
+		Rules:difficality_modifier(antimage)
+		if antimage then
+			local m = antimage:FindModifierByName("modifier_invulnerable")
+			if m then
+				m:Destroy()
+			end
+		end
+		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
+			if PlayerResource:IsValidPlayer(nPlayerID) then
+				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+				if hHero then
+					hHero:ModifyAgility(1000)
+					hHero:ModifyStrength(1000)
+					hHero:ModifyIntellect(1000)
+				end
+			end
+		end
 		--@todo: addbara revard
 		return
 	end
@@ -961,17 +1021,16 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		killedUnit:GetUnitName() == "npc_dota_monkey_king_boss" or
 		killedUnit:GetUnitName() == "npc_titan_boss" or
 		killedUnit:GetUnitName() == "npc_appariion_boss" or
-		killedUnit:GetUnitName() == "npc_crystal_boss") and
-
-		not DataBase:IsCheatMode() then
+		killedUnit:GetUnitName() == "npc_crystal_boss")
+		then
 		--@todo: add 5 boss revard
 		return
 	end
 
 	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
-		Timers:CreateTimer(3,function() 
-			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-		end)
+		-- Timers:CreateTimer(3,function() 
+		-- 	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		-- end)
 		full_win()
 		return
 	end
@@ -1031,6 +1090,11 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 				new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
 				invoker:AddAbility(new_abil_passive):SetLevel(4)
 			end	
+			if diff_wave.wavedef == "Impossible" then
+				invoker:AddNewModifier(invoker, nil, "modifier_impossible", {})
+				new_abil_passive = abiility_passive[RandomInt(1,#abiility_passive)]
+				invoker:AddAbility(new_abil_passive):SetLevel(4)
+			end	
 		else
 			invoker:SetBaseMaxHealth(porog_hp)
 			invoker:SetMaxHealth(porog_hp)
@@ -1052,7 +1116,10 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 			if diff_wave.wavedef == "Insane" then
 				invoker:AddNewModifier(invoker, nil, "modifier_insane", {})
 			end  
-		end	
+			if diff_wave.wavedef == "Impossible" then
+				invoker:AddNewModifier(invoker, nil, "modifier_impossible", {})
+			end  
+		end
 		return
 	end
 	
@@ -1094,7 +1161,7 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_mines_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 1500, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 	
@@ -1102,22 +1169,22 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		sInv:AddSoul("item_dust_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 2000, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_cemetery_boss" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+	if killedUnit:GetUnitName() == "npc_cemetery_boss_fake" then
+		sInv:AddSoul("item_cemetery_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		unit:ModifyGoldFiltered( 2500, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)
 		return
 	end
 
 	if killedUnit:GetUnitName() == "npc_swamp_boss_fake" then
 		sInv:AddSoul("item_swamp_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 2500, true, 0 )
+		unit:ModifyGoldFiltered( 3000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)	
 		return	
 	end
@@ -1125,8 +1192,8 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_snow_boss_fake" then
 		sInv:AddSoul("item_snow_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 3000, true, 0 )
-		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
+		unit:ModifyGoldFiltered( 3500, true, 0 )
+		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)	
 		return
 	end
 	
@@ -1138,18 +1205,18 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end
 
-	if killedUnit:GetUnitName() == "npc_boss_magma" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+	if killedUnit:GetUnitName() == "npc_boss_magma_fake" then
+		sInv:AddSoul("item_magma_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 5000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mega_boss" then
-		sInv:AddSoul("item_divine_soul", killerEntity_playerID)
+		sInv:AddSoul("item_antimage_soul", killerEntity_playerID)
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
-		unit:ModifyGoldFiltered( 4000, true, 0 )
+		unit:ModifyGoldFiltered( 50000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		
 		return
 	end
@@ -1221,13 +1288,12 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	if killedUnit:GetUnitName() == "npc_cemetery_boss"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
-		local snow = killedUnit
+		local cemetery = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
-			local point = ent:GetAbsOrigin()
-			FindClearSpaceForUnit(snow, point, false)
-			snow:Stop()
-			snow:RespawnUnit()
+			local point = Vector(7149, 10737, 773)
+			FindClearSpaceForUnit(cemetery, point, false)
+			cemetery:Stop()
+			cemetery:RespawnUnit()
 		end)
 		return
 	end	
@@ -1278,27 +1344,26 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		return
 	end	
 
-	if killedUnit:GetUnitName() == "npc_mega_boss"  then
-		add_soul(killedUnit:GetUnitName())
-		add_feed(killerEntity_playerID)
-		local snow = killedUnit
-		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
-			local point = ent:GetAbsOrigin()
-			FindClearSpaceForUnit(snow, point, false)
-			snow:Stop()
-			snow:RespawnUnit()
-		end)
-		return
-	end	
+	-- if killedUnit:GetUnitName() == "npc_mega_boss"  then
+	-- 	add_soul(killedUnit:GetUnitName())
+	-- 	add_feed(killerEntity_playerID)
+	-- 	local snow = killedUnit
+	-- 	Timers:CreateTimer(diff_wave.respawn, function()
+	-- 		local ent = Entities:FindByName( nil, "")
+	-- 		local point = ent:GetAbsOrigin()
+	-- 		FindClearSpaceForUnit(snow, point, false)
+	-- 		snow:Stop()
+	-- 		snow:RespawnUnit()
+	-- 	end)
+	-- 	return
+	-- end	
 
 	if killedUnit:GetUnitName() == "npc_boss_magma"  then
 		add_soul(killedUnit:GetUnitName())
 		add_feed(killerEntity_playerID)
 		local snow = killedUnit
 		Timers:CreateTimer(diff_wave.respawn, function()
-			local ent = Entities:FindByName( nil, "")
-			local point = ent:GetAbsOrigin()
+			local point = Vector(11302, -6631, 389)
 			FindClearSpaceForUnit(snow, point, false)
 			snow:Stop()
 			snow:RespawnUnit()
@@ -1346,6 +1411,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
+		if diff_wave.wavedef == "Impossible" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 0, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
 		return
 	end
 	
@@ -1367,9 +1435,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		if diff_wave.wavedef == "Insane" then
 			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
 		end
+		if diff_wave.wavedef == "Impossible" then
+			local Unit = CreateUnitByName("box_3", point + RandomVector( RandomFloat( 150, 150 )), true, nil, nil, DOTA_TEAM_BADGUYS)
+		end
 		return
 	end	
 end
+
 
 function Add_bsa_hero()	
 	if GetMapName() == "normal" and not GameRules:IsCheatMode() then
@@ -1442,10 +1514,7 @@ end
     -- return true
 -- end
 
-Convars:RegisterCommand( "upgrade", function ()
 
-end,
-"upgrade", FCVAR_CHEAT )
 
 function OnEndMiniGame(eventIndex, data)
 	local hHero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
@@ -1455,5 +1524,28 @@ function OnEndMiniGame(eventIndex, data)
 	if mod.modifier1 then
 		mod.modifier1:Destroy()
 		mod.modifier2:Destroy()
+	end
+	Talents:DisableAFKGame(data.PlayerID)
+end
+
+function ItemBossSummonChoice(eventIndex, data)
+	local bossTable = {
+		[1] = "npc_forest_boss_fake",
+		[2] = "npc_village_boss_fake",
+		[3] = "npc_mines_boss_fake",
+		[4] = "npc_dust_boss_fake",
+		[5] = "npc_cemetery_boss_fake",
+		[6] = "npc_swamp_boss_fake",
+		[7] = "npc_snow_boss_fake",
+		[8] = "npc_boss_location8_fake",
+		[9] = "npc_boss_magma_fake"
+	}
+	local boss_spawn = bossTable[tonumber(data.index)+1]
+	if boss_spawn then
+		local point = Entities:FindByName(nil, "point_donate_creeps_"..data.PlayerID):GetAbsOrigin()
+		local unit = CreateUnitByName(boss_spawn, point + RandomVector(RandomInt(0, 150)), true, nil, nil, DOTA_TEAM_BADGUYS)
+		unit:add_items()
+		unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
+		Rules:difficality_modifier(unit)
 	end
 end

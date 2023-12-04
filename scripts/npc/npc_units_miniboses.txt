@@ -31,9 +31,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -120,9 +120,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"500"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/units/heroes/hero_enigma/enigma_base_attack.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"900"		// Speed of projectile.
@@ -208,9 +208,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -296,9 +296,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -372,7 +372,7 @@
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
 
-        "Ability1"					"marci_unleash_miniboss"         
+        "Ability1"					"marci_unleash_miniboss"
         "Ability2"					"slardar_bash_miniboss"         
         "Ability3"					"ability_npc_miniboss_marci_damage_increaser"         
         "Ability4"					""
@@ -392,9 +392,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -480,9 +480,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -571,9 +571,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"575"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/units/heroes/hero_muerta/muerta_base_attack.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"3000"		// Speed of projectile.
@@ -640,10 +640,10 @@
 		"IsAncient"					"1"
         "ConsideredHero"            "0"
 
-        "Ability1"					""         
-        "Ability2"					""         
-        "Ability3"					""         
-        "Ability4"					""
+        // "Ability1"					"elder_titan_earth_splitter_miniboss"         
+        "Ability2"					"ability_npc_titan_boss_stomp"         
+        "Ability3"					"elder_titan_natural_order_miniboss"         
+        "Ability4"					"tidehunter_ravage_miniboss"
         "Ability5"					""
         "Ability6"					""
         "Ability7"					""
@@ -660,9 +660,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -749,9 +749,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -822,7 +822,7 @@
         "Ability1"					"nyx_assassin_burrow_miniboss"         
         "Ability2"					"nyx_assassin_unburrow_miniboss"         
         "Ability3"					"nyx_assassin_impale_miniboss"         
-        "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
+        // "Ability4"					"nyx_assassin_spiked_carapace_miniboss"
         "Ability5"					""
         "Ability6"					""
         "Ability7"					""
@@ -839,9 +839,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.
@@ -927,9 +927,9 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.7"			// Speed of attack.
+		"AttackRate"				"0.15"			// Speed of attack.
 		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"150"		// Range within a target can be acquired.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
 		"ProjectileSpeed"			"1000"		// Speed of projectile.

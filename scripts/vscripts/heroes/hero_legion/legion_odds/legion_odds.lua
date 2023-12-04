@@ -1,6 +1,7 @@
 legion_odds = class({})
 
 LinkLuaModifier( "modifier_legion_odds_talents", "heroes/hero_legion/legion_odds/legion_odds", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50", "heroes/hero_legion/legion_odds/legion_odds", LUA_MODIFIER_MOTION_NONE )
 
 function legion_odds:GetIntrinsicModifierName()
 	return "modifier_legion_odds_talents"
@@ -81,6 +82,9 @@ function legion_odds:OnSpellStart()
 				hero:EmitSound("Hero_LegionCommander.Overwhelming.Creep")
 			end
 		end
+		if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_int50") then
+			self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50", {duration = 5})
+		end
 	end
 end
 
@@ -138,11 +142,39 @@ function modifier_legion_odds_talents:GetModifierOverrideAbilitySpecialValue(dat
 			if self:GetCaster():FindAbilityByName("npc_dota_hero_legion_commander_int10") then
 				damage = damage + self:GetCaster():GetIntellect()
 			end
-			if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_legion_commander_int50") then
-				damage = damage + (self:GetCaster():GetAverageTrueAttackDamage(nil) - self:GetCaster():GetBaseDamageMax())
-			end
 			return damage
 		end
 	end
 	return 0
+end
+
+modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50 = class({})
+
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:IsHidden()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:IsDebuff()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:IsPurgable()
+	return false
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:OnCreated( kv )
+	if not IsServer() then return end
+	self.damage = self:GetCaster():GetBaseDamageMax() * 2
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+	}
+	return funcs
+end
+
+function modifier_special_bonus_unique_npc_dota_hero_legion_commander_int50:GetModifierBaseAttack_BonusDamage()
+	return self.damage
 end

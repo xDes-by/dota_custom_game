@@ -17,3 +17,11 @@ function modifier_skelet_resist:CheckState()
     }
     return state
 end
+
+function modifier_skelet_resist:GetEffectName()
+    return "particles/items_fx/black_king_bar_avatar.vpcf"
+end
+
+function modifier_skelet_resist:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end

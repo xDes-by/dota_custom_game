@@ -5,10 +5,10 @@ LinkLuaModifier("modifier_item_agility_heart_hast", 'items/custom_items/item_agi
 
 function item_agility_heart_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/agility" .. level
 	else
-		return "gem" .. self.GemType .. "/item_agility_heart_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_agility_heart_lua" .. level
 	end
 end
 

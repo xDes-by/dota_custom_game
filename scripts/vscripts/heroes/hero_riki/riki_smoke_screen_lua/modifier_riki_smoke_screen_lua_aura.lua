@@ -1,4 +1,4 @@
-modifier_riki_smoke_screen_lua_aura	= modifier_riki_smoke_screen_lua_aura or class({})
+modifier_riki_smoke_screen_lua_aura	= class({})
 
 function modifier_riki_smoke_screen_lua_aura:OnCreated()
 	self.radius		= self:GetAbility():GetSpecialValueFor("radius")

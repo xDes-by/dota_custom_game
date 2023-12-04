@@ -9,6 +9,16 @@ function sven_bringer:GetIntrinsicModifierName()
 	return "modifier_sven_bringer"
 end
 
+function sven_bringer:GetCooldown(iLevel)
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_agi50") then
+		if IsClient() then 
+			return 0
+		end
+		return 1 / self:GetCaster():GetAttacksPerSecond() * 2
+	end
+	return self.BaseClass.GetCooldown(self, iLevel)
+end
+
 function sven_bringer:GetCastRange(location, target)
 	return self:GetCaster():Script_GetAttackRange()
 end
@@ -135,6 +145,10 @@ function modifier_sven_bringer:OnAttackStart( params )
 					if ability:GetAutoCastState() or parent:HasModifier("modifier_sven_bringer_manual") then
 						self.pass_attack = true
 						self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+						if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_agi50") then
+							local talent = {10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40}
+							self.bonus_damage = self.bonus_damage * talent[self:GetAbility():GetLevel()]
+						end
 						if (self.tide_index == 4) or (self.tide_index == 1) then
 							self.bonus_damage = self.bonus_damage + ability:GetSpecialValueFor("tide_flood_damage")
 						end
@@ -187,13 +201,6 @@ function modifier_sven_bringer:OnAttackLanded( params )
 					local abil = self:GetCaster():FindAbilityByName("npc_dota_hero_sven_agi7")
 					if abil ~= nil then 
 					cleaveDamage = cleaveDamage * 2
-					end
-
-					local abil = self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sven_agi50")
-					if abil ~= nil then 
-					cleaveDamage = cleaveDamage * 3
-					radius_end = radius_end * 3
-					range = range * 3
 					end
 									
 					DoCleaveAttack( params.attacker, params.target, ability, cleaveDamage, radius_start, radius_end, range, "particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf" )

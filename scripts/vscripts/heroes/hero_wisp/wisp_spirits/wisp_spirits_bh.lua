@@ -7,8 +7,16 @@ LinkLuaModifier("modifier_wisp_spirits_bh_talent", "heroes/hero_wisp/wisp_spirit
 --so the the actual spirit particles are the default ones regardless
 --so i just made it a 50% of either the normal particles and immo particles
 
-function wisp_spirits_bh:GetIntrinsicModifierName()
-    return "modifier_wisp_spirits_bh"
+function wisp_spirits_bh:Spawn()
+	if self:GetLevel() > 0 and IsServer() then
+    	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_wisp_spirits_bh", {})
+	end
+end
+
+function wisp_spirits_bh:OnUpgrade()
+	if not self:GetCaster():HasModifier("modifier_wisp_spirits_bh") and self:GetCaster():IsAlive() then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_wisp_spirits_bh", {})
+	end
 end
 
 function wisp_spirits_bh:OnToggle()
@@ -130,6 +138,10 @@ end
 
 function modifier_wisp_spirits_bh:IsPurgable()
     return false
+end
+
+function modifier_wisp_spirits_bh:RemoveOnDeath()
+    return true
 end
 
 function modifier_wisp_spirits_bh:IsPurgeException()

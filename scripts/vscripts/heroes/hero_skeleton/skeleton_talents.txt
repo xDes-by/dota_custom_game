@@ -157,7 +157,8 @@
 	}
 	"special_bonus_unique_npc_dota_hero_skeleton_king_int50"
 	{
-		"BaseClass"             		"special_bonus_base"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_skeleton/special_bonus_unique_npc_dota_hero_skeleton_king_int50"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	}

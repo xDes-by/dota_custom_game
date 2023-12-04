@@ -45,7 +45,10 @@ function modifier_razor_eye_of_the_storm_lua:OnCreated( kv )
 	self.interval = self:GetAbility():GetSpecialValueFor( "strike_interval" )
 	self.armor = self:GetAbility():GetSpecialValueFor( "armor_reduction" )
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_str_last") then
-		self.interval = self.interval - 0.3
+		self.interval = self.interval - 0.15
+	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_razor_str50") then
+		self.interval = self.interval - 0.15
 	end
 	if not IsServer() then return end
 
@@ -170,17 +173,17 @@ function modifier_razor_eye_of_the_storm_lua:OnIntervalThink()
 		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NONE
 	else
 		damage = damage + self.parent:GetAverageTrueAttackDamage(self.parent) * self:GetAbility():GetSpecialValueFor("damage_perc") / 100
-		if caster:FindAbilityByName("npc_dota_hero_razor_agi6") then
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi6") then
 			damage = damage + self.parent:GetAverageTrueAttackDamage(self.parent) * 60 / 100
 		end
 		self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
 		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_agi11") then
-		damage = damage + (self.parent:GetStrength() + self.parent:GetIntellect() + self.parent:GetAgility()) / 3
+		damage = damage + (self.parent:GetStrength() + self.parent:GetIntellect() + self.parent:GetAgility()) / 5
 	end
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_razor_int9") then
-		damage = damage + self:GetCaster():GetIntellect()
+		damage = damage + self:GetCaster():GetIntellect() * 0.75
 	end
 	self.damageTable.damage = damage
 	-- strike targets

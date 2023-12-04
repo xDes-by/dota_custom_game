@@ -18,12 +18,13 @@ function treant_skill_2:GetCooldown(level)
 end
 
 function treant_skill_2:GetBehavior()
-	local abil = self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_str50") 
-	if abil ~= nil then
-		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET
-	else
-		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
-	end
+	-- local abil = self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_str50") 
+	-- if abil ~= nil then
+	-- 	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_POINT
+	-- else
+	-- 	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
+	-- end
+	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
 function treant_skill_2:GetIntrinsicModifierName()
@@ -61,7 +62,7 @@ end
 LinkLuaModifier("modifier_treant_skill_2", "heroes/hero_treant/treant_skill_2/treant_skill_2", LUA_MODIFIER_MOTION_NONE)
 
 modifier_treant_skill_2 = class({
-	IsHidden 				= function(self) return true end,
+	IsHidden 				= function(self) return false end,
 	IsPurgable 				= function(self) return false end,
 	IsBuff                  = function(self) return true end,
 	RemoveOnDeath 			= function(self) return false end,
@@ -70,7 +71,8 @@ modifier_treant_skill_2 = class({
 	MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
 	MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE,
 	MODIFIER_EVENT_ON_ABILITY_EXECUTED,
-	MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE} end,
+	MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE
+} end,
 })
 
 function modifier_treant_skill_2:OnAbilityExecuted(params)
@@ -109,7 +111,7 @@ end
 function modifier_treant_skill_2:GetModifierPreAttack_CriticalStrike()
 	if self:GetCaster():FindAbilityByName("special_bonus_base_npc_dota_hero_treant_agi50") then
 		if RollPercentage(10) then
-			return self:GetStackCount() * 0.5
+			return 100 + self:GetStackCount() * 0.5
 		end
 	end
 end

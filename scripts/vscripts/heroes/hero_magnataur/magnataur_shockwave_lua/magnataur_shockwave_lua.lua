@@ -93,6 +93,9 @@ function magnataur_shockwave_lua:OnProjectileHit( target, location )
 	if int11 ~= nil then
 		damage = damage * 1.5 + caster:GetIntellect() * 0.1
 	end
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_magnataur_int50") then
+		damage = damage + self:GetCaster():GetIntellect() * 0.9
+	end
 	--------------------------
 	-- damage
 	local damageTable = {

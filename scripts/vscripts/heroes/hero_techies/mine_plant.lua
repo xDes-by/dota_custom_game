@@ -23,7 +23,11 @@ function modifier_npc_dota_hero_techies_agi_last:OnAttackLanded( params )
 	local caster = self:GetCaster()
 	local target = params.target
 	if params.attacker~=self:GetParent() then return end
-		if RandomInt(0,100) < 5 then
+	local chance = 5
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_techies_agi50") then
+		chance = 15
+	end
+	if RandomInt(1,100) <= chance then
 		local pos = target:GetAbsOrigin()
 		local mine = CreateUnitByName("land_mine_trap", pos, true, caster, caster, caster:GetTeamNumber())
 		local abil = caster:FindAbilityByName("techies_land_mines_lua")

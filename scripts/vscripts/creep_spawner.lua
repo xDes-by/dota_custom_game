@@ -15,7 +15,7 @@ creeps_zone6 = {"swamp_creep_1","swamp_creep_2","swamp_creep_3","swamp_creep_4"}
 creeps_zone7 = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}
 creeps_zone8 = {"last_creep_1","last_creep_2","last_creep_3","last_creep_4"}
 bosses = {"npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dota_gaven_stone","npc_dust_boss","npc_swamp_boss","medusa_ward","npc_snow_boss","npc_dota_creature_tusk",
-"npc_mega_boss","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel"}
+"npc_mega_boss","raid_boss","raid_boss2","raid_boss3","raid_boss4", "npc_boss_location8", "npc_boss_plague_squirrel", "npc_boss_magma", "npc_cemetery_boss"}
 
 function add_modifier_death(unit, unitname)
 	unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
@@ -52,19 +52,33 @@ function creep_spawner:spawn_2023()
 end
 
 local creep_name_TO_item_level = {
+	["npc_forest_boss_fake"] = 1,
+	["npc_village_boss_fake"] = 1,
+	["npc_mines_boss_fake"] = 2,
+	["npc_dust_boss_fake"] = 3,
+	["npc_cemetery_boss_fake"] = 3,
+	["npc_swamp_boss_fake"] = 4,
+	["npc_snow_boss_fake"] = 5,
+	["npc_boss_location8_fake"] = 6,
+	["npc_boss_magma_fake"] = 7,
+
 	["npc_forest_boss"] = 1,
 	["npc_village_boss"] = 1,
 	["npc_mines_boss"] = 2,
 	["npc_dust_boss"] = 3,
+	["npc_cemetery_boss"] = 3,
 	["npc_swamp_boss"] = 4,
 	["npc_snow_boss"] = 5,
-	["raid_boss"] = 5,
-	["raid_boss2"] = 5,
-	["raid_boss3"] = 5,
-	["raid_boss4"] = 5,
 	["npc_boss_location8"] = 6,
-	["npc_mega_boss"] = 6,
-	["npc_boss_plague_squirrel"] = 6,
+	["npc_boss_magma"] = 7,
+
+	["raid_boss"] = 8,
+	["raid_boss2"] = 8,
+	["raid_boss3"] = 8,
+	["raid_boss4"] = 8,
+	
+	["npc_mega_boss"] = 9,
+	["npc_boss_plague_squirrel"] = 9,
 }
 
 function CDOTA_BaseNPC:add_items(level)
@@ -306,10 +320,13 @@ function donate_level()
 	if _G.don_spawn_level > 3 and (not _G.npc_smithy_mound or _G.npc_smithy_mound:IsNull() or not _G.npc_smithy_mound:IsAlive()) then
 		_G.npc_smithy_mound = CreateUnitByName("npc_smithy_mound", Vector(-10417, 1217, 389), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_kill", {duration = 300})
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_attack_immune", {})
+		_G.npc_smithy_mound:AddNewModifier(_G.npc_smithy_mound, nil, "modifier_pips", {pips_count = 1})
 		for iPlayerID = 0,PlayerResource:GetPlayerCount() do
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
-				hHero:AddItemByName("item_smithy_pickaxe")
+				local item = hHero:AddItemByName("item_smithy_pickaxe")
+				item:SetContextThink("self_destroy", function(item) UTIL_Remove(item) end, 300)
 			end
 		end
 	end
@@ -328,13 +345,13 @@ local creepDict = {
 }
 
 function check_trigger_actiate()
+	local triggerName = thisEntity:GetName()
+	local point = "point_donate_creeps_"..string.sub(triggerName, -1)
+
 	if _G.kill_invoker then 
-		spawn_creeps(triggerName, "farm_zone_dragon", "farm_zone_dragon")
+		spawn_creeps(point, "farm_zone_dragon", "farm_zone_dragon")
 		return
 	end
-
-    local triggerName = thisEntity:GetName()
-    local point = "point_donate_creeps_"..string.sub(triggerName, -1)
 
     if creepDict[_G.don_spawn_level] then
         local levelCreeps = creepDict[_G.don_spawn_level]
@@ -350,10 +367,12 @@ function spawn_creeps(triggerName, mini_creep, big_creep)
 	local point = Entities:FindByName( nil, triggerName ):GetAbsOrigin()
 	for i = 1, 3 do	  
 		local minispawn = CreateUnitByName( mini_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )
+		minispawn.donate = true
 		Rules:difficality_modifier(minispawn)
 		add_modifier_death2(minispawn)	
 	end
-	local minispawn = CreateUnitByName( big_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )	 
+	local minispawn = CreateUnitByName( big_creep, point + RandomVector( RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS )	
+	minispawn.donate = true
 	Rules:difficality_modifier(minispawn)	
 	add_modifier_death2(minispawn)	
 end

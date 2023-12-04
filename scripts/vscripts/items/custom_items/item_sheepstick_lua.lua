@@ -6,10 +6,10 @@ LinkLuaModifier("modifier_sheepstick_lua_flame","items/custom_items/item_sheepst
 
 function item_sheepstick_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/hex_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_sheepstick_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_sheepstick_lua" .. level
 	end
 end
 
@@ -111,7 +111,7 @@ end
 
 function modifier_sheepstick_lua:GetModifierProcAttack_Feedback(data)
 	if data.target:FindModifierByName("modifier_sheepstick_lua_flame") ==  nil then
-		if not self:GetParent():PassivesDisabled() then
+		if not self:GetParent():PassivesDisabled() and not data.target:IsBuilding() or data.target:IsMagicImmune() then
 			data.target:AddNewModifier(self:GetAbility():GetCaster(), self:GetAbility(), "modifier_sheepstick_lua_flame", { duration = 3.1 })
 		end
 	end

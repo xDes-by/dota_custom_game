@@ -227,6 +227,9 @@ end
 modifier_gyrocopter_call_down_lua_slow = modifier_gyrocopter_call_down_lua_slow or class({})
 
 function modifier_gyrocopter_call_down_lua_slow:OnCreated(keys)
+	if not IsServer() then
+		return
+	end
 	if keys and keys.slow then
 		self:SetStackCount(keys.slow * (-1))
 	end

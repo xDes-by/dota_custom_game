@@ -4,10 +4,10 @@ LinkLuaModifier("modifier_item_bfury_lua", 'items/custom_items/item_bfury_lua.lu
 
 function item_bfury_lua:GetAbilityTextureName()
 	local level = self:GetLevel()
-	if not self.GemType then
+	if self:GetSecondaryCharges() == 0 then
 		return "all/fury_" .. level
 	else
-		return "gem" .. self.GemType .. "/item_bfury_lua" .. level
+		return "gem" .. self:GetSecondaryCharges() .. "/item_bfury_lua" .. level
 	end
 end
 
@@ -133,7 +133,15 @@ end
 function item_bfury_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
-	GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	local pos = Vector(6745, -2921, 261)
+	if (target_point - pos):Length2D() < 400 then
+		local trees = GridNav:GetAllTreesAroundPoint(target_point, 400, false)
+		for _, tree in pairs(trees) do
+			tree:CutDownRegrowAfter(99999, DOTA_TEAM_GOODGUYS)
+		end
+	else
+		GridNav:DestroyTreesAroundPoint(target_point, 1, false)
+	end
 end
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
