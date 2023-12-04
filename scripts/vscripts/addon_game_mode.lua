@@ -18,6 +18,7 @@ require("data/battlePassStatic")
 require("data/talentsData")
 require('plugins')
 require('tp')
+require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("effects")
@@ -224,7 +225,7 @@ function item_destroy()
 						end
 					end
 				end
-			end
+			end	
 		return 181
     end)
 end

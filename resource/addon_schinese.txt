@@ -18248,6 +18248,7 @@
         "DOTA_Tooltip_modifier_ursa_lapki_effect_Description" "每次攻击都会造成更多伤害。"
 
 
+<<<<<<< HEAD
         "npc_dota_hero_silencer_npedesc1"	"您可以在我们的 Discord 服务器中开启该英雄"
         "npc_dota_hero_marci_npedesc1"	"您可以在我们的 Discord 服务器中开启该英雄"
 
@@ -18536,6 +18537,8 @@
 
 
 
+=======
+>>>>>>> main
 
     }
 }

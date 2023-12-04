@@ -46,7 +46,6 @@ function modifier_item_mage_heart_passive:OnRefresh()
     self.bonus_int = self:GetAbility():GetSpecialValueFor("bonus_int")
     self.tick = self:GetAbility():GetSpecialValueFor("tick")
 end
-
 function modifier_item_mage_heart_passive:OnIntervalThink()		
 	local parent = self:GetParent()
 	local caster = self:GetCaster()

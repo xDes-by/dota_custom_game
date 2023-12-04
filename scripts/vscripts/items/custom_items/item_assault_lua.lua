@@ -103,12 +103,6 @@ function modifier_assault_lua:GetModifierAura()
 end
 
 function modifier_assault_lua:GetAuraRadius()
-<<<<<<< HEAD
-=======
-	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
-		return 1500
-	end
->>>>>>> 55d918c96b5b11e8b86f9d5e931a20d83e9f2d3a
 	return self.aura_radius
 end
 function modifier_assault_lua:GetAuraDuration()

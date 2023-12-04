@@ -39,6 +39,9 @@ function modifier_item_pet_RDA_250_attribute_bonus:OnCreated( kv )
 			self.pet:AddNewModifier(self:GetParent(),nil,"modifier_take_drop_gem",{})
 			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 			self.pet:SetOwner(self:GetCaster())
+
+			print("------------------------------")
+			print(self:GetParent():GetLevel())
 		end
 end
 end
