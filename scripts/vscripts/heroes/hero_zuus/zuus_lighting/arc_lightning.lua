@@ -20,7 +20,7 @@ function zuus_arc_lightning_lua:GetManaCost(iLevel)
 	if caster:FindAbilityByName("npc_dota_hero_zuus_agi9") then
 		if IsClient() then return 0 end
 		local as = caster:GetDisplayAttackSpeed()
-		local perc = (100-as/15)/100
+		local perc = (100-as/18)/100
 		mana_cost = mana_cost * perc
 	end
 	return mana_cost
@@ -32,7 +32,7 @@ function zuus_arc_lightning_lua:GetCooldown(level)
 	if caster:FindAbilityByName("npc_dota_hero_zuus_agi9") then
 		if IsClient() then return 0 end
 		local as = caster:GetDisplayAttackSpeed()
-		local perc = (100-as/15)/100
+		local perc = (100-as/18)/100
 		cooldown = cooldown * perc
 	end
     return cooldown

@@ -54,7 +54,12 @@ function modifier_ability_npc_boss_plague_squirrel_totem:OnIntervalThink()
     npc:AddNewModifier(self:GetCaster(), self, "modifier_pips", {pips_count = 3})
 	npc:AddNewModifier(npc, nil, "modifier_kill", {duration = 5})
     npc:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_ability_npc_boss_plague_squirrel_hit", {})
-	
+    npc:SetOwner(self:GetCaster())
+	npc:SetContextThink( "SelfDestroy", function(npc)
+        if not npc:GetOwner() or not npc:GetOwner():IsAlive() then
+            UTIL_Remove(npc)
+        end
+    end, 0.1 )	
 	local all_units = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
 	for _,unit in pairs(all_units) do
 		local damageTable = {

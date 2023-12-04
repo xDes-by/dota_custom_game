@@ -28,15 +28,15 @@ if IsServer() then
 		self:GetCaster():GetUnitName() == "npc_raid_storm" or
 		self:GetCaster():GetUnitName() == "npc_raid_fire" then 
 		mag = 7.5
-		phys = 75
+		phys = 175
 	else
 		mag = 5
-		phys = 50
+		phys = 150
 	end
 	
 	local heroes = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		self:GetCaster():SetBaseMagicalResistanceValue(100 - mag * #heroes)
-		self:GetCaster():SetPhysicalArmorBaseValue(450 - phys * #heroes)
+		self:GetCaster():SetPhysicalArmorBaseValue(1300 - phys * #heroes)
 	end
 end
 

@@ -11,12 +11,7 @@ end
 function alchemist_chemical_rage_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor( "duration" )
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_alchemist_agi50") ~= nil then 
-		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", {} )
-		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_cleave", {} )
-	else
-		caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", { duration = duration } )
-	end
+	caster:AddNewModifier( caster, self, "modifier_alchemist_chemical_rage_lua", { duration = duration } )
 
 	local sound_cast = "Hero_Alchemist.ChemicalRage.Cast"
 	EmitSoundOn( sound_cast, self:GetCaster() )

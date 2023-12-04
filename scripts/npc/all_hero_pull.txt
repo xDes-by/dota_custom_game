@@ -62,4 +62,6 @@
 	"npc_dota_hero_magnataur"        			"1"
 	"npc_dota_hero_jakiro"						"1"
 	"npc_dota_hero_doom_bringer"        		"1"
+	"npc_dota_hero_marci"        				"1"
+	"npc_dota_hero_silencer"        			"1"
 }

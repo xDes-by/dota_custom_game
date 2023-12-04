@@ -33,7 +33,7 @@ function modifier_special_bonus_unique_npc_dota_hero_alchemist_agi50:DeclareFunc
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_alchemist_agi50:GetModifierBaseAttack_BonusDamage(params)
-    return self.mod:GetStackCount() * 0.01
+    return self.mod:GetStackCount() * 0.005
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_alchemist_agi50:IsHidden()

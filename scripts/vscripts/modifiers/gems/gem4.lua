@@ -45,15 +45,15 @@ end
 
 function modifier_gem4:OnIntervalThink()
 	local t = {}
-	for ability,gem_bonus in pairs(self.tbl_origin) do
-		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) or ability:GetItemSlot() > 5 then --проверяем предмет в инвентаре
+	for ability, gem_bonus in pairs(self.tbl_origin) do
+		if ability:IsNull() or (ability:GetItemSlot() < 5 and ability:GetItemSlot() == -1) then --проверяем предмет в инвентаре
 			self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
 		else
 			self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь
 		end
 		if self.tbl_current[ability] ~= 0 then
 			local bonus_per_stone = self.bonus[ability:GetLevel()] / (self.bonus[ability:GetLevel()] + self.tbl_current[ability])
-			local item_bonus = bonus_per_stone * self.bonus[ability:GetLevel()]
+			local item_bonus = bonus_per_stone * self.bonus[ability:GetLevel()] * ability:GetLevel()
 			table.insert( t, item_bonus)
 		end
 	end

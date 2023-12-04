@@ -4,8 +4,6 @@ if creep_spawner == nil then
 	creep_spawner = class({})
 end
 
-LinkLuaModifier( "modifier_creep_antilag", "modifiers/modifier_hide_zone_units", LUA_MODIFIER_MOTION_NONE )
-
 creeps_zone1 = {"forest_creep_mini_1","forest_creep_big_1","forest_creep_mini_2","forest_creep_big_2","forest_creep_mini_3","forest_creep_big_3"}
 creeps_zone2 = {"village_creep_1","village_creep_2","village_creep_3"}
 creeps_zone3 = {"mines_creep_1","mines_creep_2","mines_creep_3"}
@@ -164,26 +162,29 @@ function spawn_creeps_mines()
 end	
 
 function spawn_creeps_dust()
-	local count = 0
-	local creepNames = {
-		{ "dust_creep_1", "dust_creep_2" },
-		{ "dust_creep_3", "dust_creep_4" },
-		{ "dust_creep_5", "dust_creep_6" }
-	}
+    local count = 0
+    local creepNames = {
+        { "dust_creep_1", "dust_creep_2" },
+        { "dust_creep_3", "dust_creep_4" },
+        { "dust_creep_5", "dust_creep_6" },
+        { "dust_creep_1", "dust_creep_2" },
+        { "dust_creep_3", "dust_creep_4" },
+        { "dust_creep_5", "dust_creep_6" }
+    }
 
-	while count < 3 do
-		count = count + 1
-		pt = point_dust[count]
-		local point = Vector(pt[1], pt[2], pt[3])
+    while count < 6 do
+        count = count + 1
+        pt = point_dust[count]
+        local point = Vector(pt[1], pt[2], pt[3])
 
-		for i = 1, 4 do
-			if i == 4 then
-				CreateUnitByName_WithoutLags(creepNames[count][2], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			else
-				CreateUnitByName_WithoutLags(creepNames[count][1], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			end
-		end
-	end
+        for i = 1, 4 do
+            if i == 4 then
+                CreateUnitByName_WithoutLags(creepNames[count][2], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+            else
+                CreateUnitByName_WithoutLags(creepNames[count][1], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+            end
+        end
+    end
 end
 
 function spawn_creeps_cemetery()
@@ -326,7 +327,13 @@ function donate_level()
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 				local item = hHero:AddItemByName("item_smithy_pickaxe")
-				item:SetContextThink("self_destroy", function(item) UTIL_Remove(item) end, 300)
+				item:SetContextThink("self_destroy", function(item)
+					local container = item:GetContainer()
+					UTIL_Remove(item)
+					if container then
+						UTIL_Remove(container)
+					end
+				end, 300)
 			end
 		end
 	end

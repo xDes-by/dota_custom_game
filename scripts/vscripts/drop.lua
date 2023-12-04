@@ -110,7 +110,7 @@ quest_drop = {
 	{name = "item_quest_line_sword", items = {"item_quest_line_sword"}, chance = 15,  duration = 30, units = {"creep_1","comandir_creep_1","creep_2","comandir_creep_2","creep_3","comandir_creep_3","creep_4","comandir_creep_4","creep_5","comandir_creep_5","creep_6","comandir_creep_6","creep_7","comandir_creep_7", "creep_8", "comandir_creep_8", "creep_9", "comandir_creep_9","creep_10","comandir_creep_10"}},
 	{name = "item_quest_necronomicon", items = {"item_quest_necronomicon"}, chance = 50,  duration = 30, units = {"boss_1","boss_2","boss_3","boss_4","boss_5","boss_6","boss_7","boss_8","boss_9"}},
 	{name = "item_quest_blue_ice", items = {"item_quest_blue_ice"}, chance = 10,  duration = 30, units = {"snow_creep_1","snow_creep_2","snow_creep_3","snow_creep_4"}},
-	{name = "item_quest_pivo_bara", items = {"item_quest_pivo_bara"}, chance = 50,  duration = 30, units = {"npc_snow_boss","npc_mega_boss","npc_snow_boss_fake","npc_boss_location8"}},
+	{name = "item_quest_pivo_bara", items = {"item_quest_pivo_bara"}, chance = 90,  duration = 30, units = {"npc_snow_boss","npc_boss_magma","npc_boss_location8","npc_snow_boss_fake", "npc_boss_magma_fake","npc_boss_location8_fake"}},
 }
 
 
@@ -317,7 +317,7 @@ function RollQuestDrop( unit, killerEntity )
 		if units then 
 			for _,current_name in pairs(units) do
 				if current_name == unit_name and QuestSystem.dropListArray[name] and QuestSystem.dropListArray[name].active == true then
-					DeepPrintTable(QuestSystem.dropListArray)
+					-- DeepPrintTable(QuestSystem.dropListArray)
 					units = nil
 					break
 				end

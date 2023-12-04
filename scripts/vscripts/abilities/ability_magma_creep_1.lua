@@ -157,8 +157,8 @@ end
 
 function modifier_ability_magma_creep_1_aura_effect:OnIntervalThink()
     ApplyDamage({
-        victim = self:GetCaster(),
-        attacker = self:GetParent(),
+        victim = self:GetParent(),
+        attacker = self:GetCaster(),
         damage = self.damage * self.multip,
         damage_type = DAMAGE_TYPE_MAGICAL,
         damage_flags = 0,

@@ -1037,8 +1037,13 @@ function CDOTA_BaseNPC:ModifyThreat(val, bIgnoreCap)
 	self:SetThreat( threatToGive )
 end
 
+
 function CDOTA_BaseNPC:IsRoundNecessary()
 	return self.unitIsRoundNecessary == true
+end
+
+function CDOTA_BaseNPC:IsBoss()
+	return self.unitIsBoss == true
 end
 
 function CDOTA_BaseNPC:IsMinion()

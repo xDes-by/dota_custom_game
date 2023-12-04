@@ -1,0 +1,206 @@
+"DOTAAbilities"
+{
+//==============================STR
+
+"hp_per_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/hp_per_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_per_level"			"50"
+			}
+		}
+	}
+	
+"hp_regen_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/hp_regen_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen_level"		"3"
+			}
+		}
+	}	
+	
+"status"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/status"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"status"				"25"
+			}
+		}
+	}	
+
+"armor_per_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/armor_per_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_per_level"		"0.5"
+			}
+		}
+	}	
+
+"Increase_str"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/inf_str"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+	
+//==============================AGI	
+
+"movespeed"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/ms"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms"			"25"
+			}
+		}
+	}	
+	
+"dmg_per_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/dmg_per_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_per_level"			"10"
+			}
+		}
+	}
+	
+"all_evasion"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/all_evasion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"all_evasion"			"25"
+			}
+		}
+	}	
+	
+"base_attack_time"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/base_attack_time"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+
+"Increase_agi"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/inf_agi"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}	
+	
+
+	
+//==============================INT	
+
+"mp_per_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/mp_per_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mp_per_level"			"100"
+			}
+		}
+	}	
+	
+"mp_regen_level"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/mp_regen_level"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mp_regen_level"		"3"
+			}
+		}
+	}	
+	
+"m_resist"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/m_resist"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"m_resist"				"25"
+			}
+		}
+	}	
+
+"magic_damage"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/magic_damage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_damage"			"10"
+			}
+		}
+	}
+
+"Increase_int"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/talents/inf_int"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}	
+}

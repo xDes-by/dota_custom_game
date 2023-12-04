@@ -14,12 +14,6 @@ local choice = {
     experience_choice = {"experience_common","experience_golden"},
     boss_summon_ticket = {"scroll_12","scroll_11"},
 }
-voting_heroes_list = {
-    { name = "npc_dota_hero_elder_titan", vote = 7 }, 
-    { name = "npc_dota_hero_chaos_knight", vote = 2 }, 
-    { name = "npc_dota_hero_ursa", vote = 12 }, 
-    { name = "npc_dota_hero_monkey_king", vote = 3 },
-}
 battlePassRewards = {
     free = {
         [1] = { reward_type = "boost_experience", rarity = "common", data = { value = 1.25, display_value = "x1.25", game_count = 10}} ,

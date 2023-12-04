@@ -48,7 +48,7 @@ end
 function modifier_gem3:OnIntervalThink()
 	local t = {}
 	for ability,gem_bonus in pairs(self.tbl_origin) do
-		if ability:IsNull() or not self.parent:FindItemInInventory(ability:GetAbilityName()) or ability:GetItemSlot() > 5 then --проверяем предмет в инвентаре
+		if ability:IsNull() or (ability:GetItemSlot() < 5 and ability:GetItemSlot() == -1) then --проверяем предмет в инвентаре
 			self.tbl_current[ability] = 0 -- убираем бонус, если не нашли предмета
 		else
 			self.tbl_current[ability] = self.tbl_origin[ability] -- возвращаем бонус если предмет вернулся в инвентарьь

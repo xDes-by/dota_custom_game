@@ -12,6 +12,7 @@ Ability checklist (erase if done/checked):
 spirit_breaker_bulldoze_lua = class({})
 LinkLuaModifier( "modifier_spirit_breaker_bulldoze_lua", "heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/modifier_spirit_breaker_bulldoze_lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_spirit_breaker_bulldoze_intrinsic_lua", "heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/modifier_spirit_breaker_bulldoze_intrinsic_lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_bulldoze_lua_flying_vision", "heroes/hero_spirit_breaker/spirit_breaker_bulldoze_lua/modifier_spirit_breaker_bulldoze_lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Init Abilities
@@ -58,5 +59,8 @@ function spirit_breaker_bulldoze_lua:OnSpellStart()
 		for _, enemy in pairs(enemies) do
 			modifier_spirit_breaker_greater_bash_lua:Bash( enemy, 1 )
 		end
+	end
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_int9") then
+		self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_spirit_breaker_bulldoze_lua_flying_vision", {duration=3})
 	end
 end

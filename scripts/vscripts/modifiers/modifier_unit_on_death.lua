@@ -84,17 +84,16 @@ function clear(creep)
 end
 
 function respawn(amountTime, position, unit_name)
-	Timers:CreateTimer(amountTime, function()
-		if _G.kill_invoker == false then
-			CreateUnitByNameAsync(unit_name, position, true, nil, nil, DOTA_TEAM_BADGUYS, function(unit)
-				Rules:difficality_modifier(unit)
-				unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
-					posX = position.x,
-					posY = position.y,
-					posZ = position.z,
-					name = unit_name
-				})
-			end)
-		end
-	end)
+    Timers:CreateTimer(amountTime, function()
+        if _G.kill_invoker == false then
+            local unit = CreateUnitByName(unit_name, position, true, nil, nil, DOTA_TEAM_BADGUYS)
+            Rules:difficality_modifier(unit)
+            unit:AddNewModifier(unit, nil, "modifier_unit_on_death", {
+                posX = position.x,
+                posY = position.y,
+                posZ = position.z,
+                name = unit_name
+            })
+        end
+    end)
 end

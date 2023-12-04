@@ -18,16 +18,17 @@ require("data/battlePassStatic")
 require("data/talentsData")
 require('plugins')
 require('tp')
+require("libraries/filters/filters")
 require("damage")
 require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
+_G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = true and IsInToolsMode() -- false
-_G.server_load = false --not IsInToolsMode() -- true
-_G.spawnCreeps =  false or not IsInToolsMode() -- true
+_G.devmode = false and IsInToolsMode() -- false
+_G.server_load = true --not IsInToolsMode() -- true
+_G.spawnCreeps = false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -229,7 +230,7 @@ function item_destroy()
 						end
 					end
 				end
-			end
+			end	
 		return 181
     end)
 end
@@ -433,13 +434,26 @@ function loadscript()
 		require("www/loader")
 	else
 		print("server load")
-		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-lts?key=" .. _G.key
+		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-test?key=" .. _G.key
 		local req = CreateHTTPRequestScriptVM( "GET", url )
 		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 		req:Send(function(res)
+			print(res.StatusCode)
 			if res.StatusCode == 200 then
 				load = loadstring(res.Body)
 				load()
+				DataBase:GameSetup()
+				for i = 0 , PlayerResource:GetPlayerCount()-1 do
+					if PlayerResource:IsValidPlayer(i) then
+						DataBase:PlayerSetup(i)
+					end
+				end
+				CustomNetTables:SetTableValue("talants", "talents_experience", Talents.calculated_levels)
+        		CustomNetTables:SetTableValue("talants", "second_branch", Talents.second_branch)
+				CustomNetTables:SetTableValue('Pets', "list", Pets.list)
+				CustomNetTables:SetTableValue('Pets', "experience_levels", Pets.experience_levels)
+				CustomNetTables:SetTableValue('BattlePass', "dataReward", BattlePass.dataReward)
+				CustomNetTables:SetTableValue('BattlePass', "ExpToLevelUp", BattlePass.ExpToLevelUp)
 			end
 		end)
 	end
@@ -731,7 +745,8 @@ function full_win()
 		if PlayerResource:IsValidPlayer(nPlayerID) then
 		local connectState = PlayerResource:GetConnectionState(nPlayerID)	
 			if bot(nPlayerID) or connectState == DOTA_CONNECTION_STATE_ABANDONED or connectState == DOTA_CONNECTION_STATE_FAILED or connectState == DOTA_CONNECTION_STATE_UNKNOWN  then print("leave") elseif diff_wave.wavedef ~= "Easy" then
-				DataBase:AddCoins(nPlayerID, 1)
+				-- DataBase:AddCoins(nPlayerID, 1)
+				CustomShop:AddCoins(nPlayerID, 1, true, not DataBase:IsCheatMode())
 			end
 		end
 	end
@@ -996,13 +1011,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		Rules:difficality_modifier(unit)
 		local unit = CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		local antimage = Entities:FindByName( nil, "npc_mega_boss")
-		Rules:difficality_modifier(antimage)
 		if antimage then
 			local m = antimage:FindModifierByName("modifier_invulnerable")
 			if m then
 				m:Destroy()
 			end
 		end
+		Rules:difficality_modifier(antimage)
 		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
 			if PlayerResource:IsValidPlayer(nPlayerID) then
 				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
@@ -1548,4 +1563,31 @@ function ItemBossSummonChoice(eventIndex, data)
 		unit:AddNewModifier(unit, nil, "modifier_hp_regen_boss", {})
 		Rules:difficality_modifier(unit)
 	end
+end
+
+if not CDOTA_BaseNPC_Hero.oldModifyGoldFiltered then
+	CDOTA_BaseNPC_Hero.oldModifyGoldFiltered = CDOTA_BaseNPC_Hero.ModifyGoldFiltered
+end
+
+function CDOTA_BaseNPC_Hero:ModifyGoldFiltered(goldChange, reliable, reason)
+    while goldChange < 0 do
+        if (goldChange + 99999) < 0 then
+            goldChange = goldChange + 99999
+            self:oldModifyGoldFiltered(-99999, reliable, reason)
+        else
+            self:oldModifyGoldFiltered(goldChange, reliable, reason)
+            return
+        end
+    end
+	self:oldModifyGoldFiltered(goldChange, reliable, reason)
+end
+
+function CDOTA_BaseNPC_Hero:GetTotalGold()
+	local mod = self:FindModifierByName("modifier_gold_bank")
+	if mod and mod:GetStackCount() > 0 then
+		totalgold = mod:GetStackCount() + self:GetGold()
+	else
+		totalgold = self:GetGold()
+	end
+	return totalgold
 end

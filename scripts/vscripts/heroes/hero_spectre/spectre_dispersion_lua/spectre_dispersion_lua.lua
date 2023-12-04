@@ -40,7 +40,7 @@ end
 modifier_spectre_dispersion_lua = class({})
 
 function modifier_spectre_dispersion_lua:OnCreated()
-	self:StartIntervalThink(1.0)
+	self:StartIntervalThink(0.2)
 end
 
 function modifier_spectre_dispersion_lua:IsHidden()
