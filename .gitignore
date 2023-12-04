@@ -1,5 +1,18 @@
+*.vmat_c
+*.vanim_c
+*.vmdl_c
+*.vmesh_c
+*.vagrp_c
+*.vxml_c
+*.vjs_c
+*.vcss_c
+*.vtex_c
+*.vpcf_c
+*.vsndevts_c
+*.vmdl
 *.bin
 *.cfg
+<<<<<<< HEAD
 # *.vmat_c
 # *.vanim_c
 # *.vmdl_c
@@ -16,3 +29,18 @@
 .gitignore
 scripts/vscripts/key.lua
 
+=======
+*.vpk
+*.vmap
+*.vmat
+*.vpcf
+*.mp3
+*.wav
+*.tga
+*.vsnd_c
+*.png
+*.jpeg
+*.vmap
+panorama/*
+rda_game.code-workspace
+>>>>>>> 463273a7141695395879f007c1cdadfad314be11
