@@ -553,7 +553,7 @@ function Shop:OpenTreasure(t)
 		itemPrize.onStart = 1
 		send.name = itemPrize.name
 	elseif itemPrize.onStart > 0 then
-		send.rp = CustomShop:AddRP(pid, compensation, false, false)
+		send.rp = CustomShop:AddRP(pid, compensation / MultiplierManager:GetCurrencyRpMultiplier(pid), false, false)
 		data.glory = compensation
 	end
 	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( pid ), "ShowWheel", data )

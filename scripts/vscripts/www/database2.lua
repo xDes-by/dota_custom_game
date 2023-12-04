@@ -74,7 +74,7 @@ function DataBase:init()
 	DataBase.link.TalentsBuy = _G.host .. "/backend/player-actions/talents-buy?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TalentsDrop = _G.host .. "/backend/player-actions/talents-drop?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TalentsExplore = _G.host .. "/backend/player-actions/talents-explore?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
-	DataBase.link.TalentsSave = _G.host .. "/backend/player-actions/talents-save?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
+	DataBase.link.TalentsSave = _G.host .. "/backend/gameplay/talents-save?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.TalentsBuySecondBranch = _G.host .. "/backend/player-actions/talents-buy-second-branch?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.GameSettingsToggle = _G.host .. "/backend/player-actions/game-settings-toggle?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
 	DataBase.link.RefreshVoteCount = _G.host .. "/backend/player-actions/refresh-vote-count?key=" .. DataBase.key ..'&match=' .. DataBase.matchID
@@ -756,6 +756,7 @@ function DataBase:Send(path, method, data, pid, check, callback)
 	req:SetHTTPRequestGetOrPostParameter("hero_name", hero_name)
 	-- req:SetHTTPRequestGetOrPostParameter("rda_test", "1")
 	req:Send(function(res)
+		print(res.StatusCode)
 		if res.StatusCode == 200 and res.Body ~= nil then
 			if callback then
 				callback(res.Body)

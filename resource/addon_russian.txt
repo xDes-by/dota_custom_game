@@ -7193,7 +7193,7 @@
         //////////////////
         //Common talents//
         //////////////////
-
+        "talents_strategy_tab_name_label"               "Таланты"
         //Str//
 
         "modifier_talent_hp_per_level" "Толстая кожа"

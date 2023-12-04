@@ -24,10 +24,10 @@ require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
-_G.devmode = false and IsInToolsMode() -- false
-_G.server_load = true --not IsInToolsMode() -- true
+_G.devmode = true and IsInToolsMode() -- false
+_G.server_load = false --not IsInToolsMode() -- true
 _G.spawnCreeps =  false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -76,7 +76,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( HERO_MAX_LEVEL )
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels( true )
-
+	GameRules:LockCustomGameSetupTeamAssignment(true)
 	--------------------------------------------------------------------------------------------
 	-- GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESIST, 0.0)
 	GameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.001)

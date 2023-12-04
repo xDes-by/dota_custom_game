@@ -195,7 +195,7 @@ function BattlePass:OnVote(t)
     CustomNetTables:SetTableValue('BattlePass', "VotingHeroesList", self.voting_heroes_list)
     DataBase:Send(DataBase.link.HeroVote, "GET", {
         pass_id = self.player[pid].pass_id,
-        hero_name = self.player[pid].vote,
+        hero_vote = self.player[pid].vote,
     }, pid, true, nil)
 end
 function BattlePass:GiveOutReward(pid, reward_index, choice_index)

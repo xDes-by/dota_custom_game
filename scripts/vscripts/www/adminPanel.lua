@@ -51,6 +51,9 @@ function AdminPanel:init()
     CustomGameEventManager:RegisterListener("AdminPanelCreateBot",function(_, keys)
         self:CreateBot(keys)
     end)
+    CustomGameEventManager:RegisterListener("AdminPanelTest",function(_, keys)
+        self:Test(keys)
+    end)
 end
 
 
@@ -248,4 +251,9 @@ function AdminPanel:CreateBot(t)
         return 10
     end)
 end
+function AdminPanel:Test(t)
+    local pid = t.PlayerID
+    Talents:SaveData(pid)
+end
+
 AdminPanel:init()

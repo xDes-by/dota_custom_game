@@ -607,16 +607,14 @@ end
 function Talents:SaveData(pid)
     local send = {
         hero_name = PlayerResource:GetSelectedHeroName(pid),
-        normal = self.player[pid].earnedexp,
-        golden = self.player[pid].earneddonexp,
+        earnedexp = self.player[pid].earnedexp,
+        earneddonexp = self.player[pid].earneddonexp,
     }
     self.player[pid].earnedexp = 0
     self.player[pid].earneddonexp = 0
     self:UpdateTable(pid)
     send.data = Shop.pShop[pid].earned_gems
-    DataBase:Send(DataBase.link.TalentsSave, "GET", {
-        data = self:GetServerDataArray(pid),
-    }, pid, not DataBase:IsCheatMode(), nil)
+    DataBase:Send(DataBase.link.TalentsSave, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 function Talents:ActivateSecondBranch(pid)
     if self:IsSecondBranchActive(pid) then
