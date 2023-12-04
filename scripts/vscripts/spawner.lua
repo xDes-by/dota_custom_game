@@ -51,7 +51,6 @@ t_boss = {"boss_1","boss_2","boss_3","boss_5","boss_7","boss_10","boss_6","boss_
 actual_t_boss = {}
 
 function Spawner:Init()
-<<<<<<< HEAD
 	StartSpawnSchedule()
 	_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin()
 	if not _G.point_line_spawner then
@@ -69,16 +68,6 @@ function Spawner:Init()
 		end
 		return RandomInt(120,300)
 	end)
-=======
-	xpcall(function()
-		Timers:CreateTimer(120,function()
-			_G.point_line_spawner = Entities:FindByName( nil, "line_spawner"):GetAbsOrigin() 
-			if spawnCreeps then
-				Spawn_system()
-			end
-		end)
-	end, function(e) GameRules:SendCustomMessage("error spawn: " .. e,0,0) end)
->>>>>>> main
 end
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------

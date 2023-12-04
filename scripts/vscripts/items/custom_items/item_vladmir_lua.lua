@@ -72,7 +72,6 @@ function modifier_item_vladmir_aura_lua:OnCreated()
 	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
 	self.damage_aura = self:GetAbility():GetSpecialValueFor("damage_aura")
-<<<<<<< HEAD
 end
 
 function modifier_item_vladmir_aura_lua:OnRefresh()
@@ -81,27 +80,6 @@ function modifier_item_vladmir_aura_lua:OnRefresh()
 	self.mana_regen_aura = self:GetAbility():GetSpecialValueFor("mana_regen_aura")
 	self.lifesteal_aura = self:GetAbility():GetSpecialValueFor("lifesteal_aura")
 	self.damage_aura = self:GetAbility():GetSpecialValueFor("damage_aura")
-=======
-	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
-	if not IsServer() then
-		return
-	end
-	self.value = self:GetAbility():GetSpecialValueFor("bonus_gem")
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value})
-	end
-end
-
-function modifier_item_vladmir_aura_lua:OnDestroy()
-	if not IsServer() then
-		return
-	end
-	if self.value then
-		local n = string.sub(self:GetAbility():GetAbilityName(),-1)
-		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_gem" .. n, {ability = self:GetAbility():entindex(), value = self.value * -1})
-	end
->>>>>>> main
 end
 
 function modifier_item_vladmir_aura_lua:DeclareFunctions()
