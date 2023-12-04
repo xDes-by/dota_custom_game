@@ -24,7 +24,7 @@ require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "455872541"
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = false and IsInToolsMode() -- false
 _G.server_load = true --not IsInToolsMode() -- true
@@ -50,7 +50,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(60)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(10)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
@@ -61,6 +61,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameModeEntity:SetInnateMeleeDamageBlockPercent(0)
 	GameModeEntity:SetInnateMeleeDamageBlockPerLevelAmount(0)
 	
+	GameRules:LockCustomGameSetupTeamAssignment(true)
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 5 )
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 	GameRules:GetGameModeEntity():SetUnseenFogOfWarEnabled( not IsInToolsMode() )
@@ -1038,9 +1039,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 
 	if killedUnit:GetUnitName() == "npc_boss_plague_squirrel" and not DataBase:IsCheatMode() then
-		-- Timers:CreateTimer(3,function() 
-		-- 	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-		-- end)
+		Timers:CreateTimer(3,function() 
+			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		end)
 		full_win()
 		return
 	end
@@ -1224,7 +1225,9 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 	end
 	
 	if killedUnit:GetUnitName() == "npc_mega_boss" then
-		sInv:AddSoul("item_antimage_soul", killerEntity_playerID)
+		for iPlayerID=0, PlayerResource:GetPlayerCount() - 1 do
+			sInv:AddSoul("item_antimage_soul", iPlayerID)
+		end
 		local unit = PlayerResource:GetSelectedHeroEntity(killerEntity_playerID)
 		unit:ModifyGoldFiltered( 50000, true, 0 )
 		SendOverheadEventMessage(unit, OVERHEAD_ALERT_GOLD, unit, 500, nil)		

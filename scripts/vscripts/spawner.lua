@@ -347,6 +347,7 @@ function CreatePatroolWave()
 	local r = points[RandomInt(1, #points)]
 	local rand = r[RandomInt(1, #r)]
 	local pos = Vector(rand[1], rand[2], rand[3])
+	GameRules:ExecuteTeamPing( DOTA_TEAM_GOODGUYS, pos.x, pos.y, nil, 0 )
 	if _G.kill_invoker then
 		-- for k,name in pairs(PatroolWave[10]) do
 		-- 	local unit = CreateUnitByName(name, pos, true, nil, nil, DOTA_TEAM_BADGUYS)

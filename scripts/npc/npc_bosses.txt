@@ -385,8 +385,8 @@
 		"Ability10"                 "ability_npc_boss_plague_squirrel_spell9"
 		"Ability11"                 "ability_npc_boss_plague_squirrel_spell10"
 		
-		"ArmorPhysical"				"1300"
-		"MagicalResistance"			"99.9"
+		"ArmorPhysical"				"1100"
+		"MagicalResistance"			"95"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"1"

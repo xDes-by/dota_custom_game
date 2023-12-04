@@ -48,7 +48,9 @@ end
 
 function modifier_wearable_pet:DeclareFunctions()
     return {
-        MODIFIER_EVENT_ON_MODEL_CHANGED
+        MODIFIER_EVENT_ON_MODEL_CHANGED,
+        MODIFIER_EVENT_ON_DEATH,
+        MODIFIER_EVENT_ON_RESPAWN
     }
 end
 
@@ -70,5 +72,21 @@ function modifier_wearable_pet:OnModelChanged(data)
         elseif self.WearableStatus == "alternative" then
             Wearable:SetAlternative(self:GetParent())
         end
+    end
+end
+
+function modifier_wearable_pet:OnRespawn(data)
+    if data.unit == self:GetParent() then
+        if self.WearableStatus == "default" then
+            Wearable:SetDefault(self:GetParent())
+        elseif self.WearableStatus == "alternative" then
+            Wearable:SetAlternative(self:GetParent())
+        end
+    end
+end
+
+function modifier_wearable_pet:OnDeath(data)
+    if data.unit == self:GetParent() then
+        Wearable:ClearWear(self:GetParent())
     end
 end
