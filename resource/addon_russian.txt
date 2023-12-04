@@ -1427,7 +1427,7 @@
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_speed" "СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_phys_dmg" "%БОНУС ФИЗИЧЕСКОГО УРОНА:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_mage_dmg" "%БОНУС МАГИЧЕСКОГО УРОНА:"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "%УВЕЛИЧЕНИЕ ЗОЛОТА КАЖДУЮ СЕКУНДУ:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "%УВЕЛИЧЕНИЕ ЗОЛОТА КАЖДУЮ МИНУТУ:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_note0"  "Автоматически собирает все виды самоцветов в небольшом радиусе вокруг питомца."
         "pet_bp_1" "WoodRider"
 
@@ -2297,7 +2297,7 @@
         "npc_dota_hero_alchemist_agi12" "Сила в деньгах"
         "npc_dota_hero_alchemist_agi12_description" "За каджые 10 золота на счету, герой получает 1 базового урона"
         "npc_dota_hero_alchemist_agi13" "Золотая Сила"
-        "npc_dota_hero_alchemist_agi13_description" "Дает 0.01 базового dmg, за каждое золото в капитале"
+        "npc_dota_hero_alchemist_agi13_description" "Дает 0.005 базового dmg, за каждое золото в капитале"
 
         "npc_dota_hero_alchemist_int6" "Почти как маг"
         "npc_dota_hero_alchemist_int6_description" "Снижение перезарядки 25%"
@@ -6439,7 +6439,7 @@
         "npc_dota_hero_death_prophet_agi7" "Мощь Crypt Swarm"
         "npc_dota_hero_death_prophet_agi7_description" "75% ловкости в урон Crypt Swarm."  //  +
         "npc_dota_hero_death_prophet_agi8" "Ловкие Духи"
-        "npc_dota_hero_death_prophet_agi8_description" "50% ловкости в урон духов."
+        "npc_dota_hero_death_prophet_agi8_description" "40% ловкости в урон духов."
         "npc_dota_hero_death_prophet_agi9" "Востаньте, мои деты"
         "npc_dota_hero_death_prophet_agi9_description" "-50% перезарядка Exorcism."    //  +
         "npc_dota_hero_death_prophet_agi10" "Ощути мой удар!"
@@ -6452,7 +6452,7 @@
         "npc_dota_hero_death_prophet_agi13_description" "Герои получает 3500 урона c руки, за каждого активного духа. На последнем уровне ультимеита" //  +
 
         "npc_dota_hero_death_prophet_int6" "Мощь Ментального Влияния"
-        "npc_dota_hero_death_prophet_int6_description" "+75% ителлекта в урон духов"    //  +
+        "npc_dota_hero_death_prophet_int6_description" "+30% ителлекта в урон духов"    //  +
         "npc_dota_hero_death_prophet_int7" "Мудрый Siphon"
         "npc_dota_hero_death_prophet_int7_description" "50% интеллекта в урон Spirit Siphon."    //  +
         "npc_dota_hero_death_prophet_int8" "Разумный Crypt Swarm"
@@ -6992,7 +6992,7 @@
         "npc_dota_hero_riki_int6" "Больше -кд!!!!"
         "npc_dota_hero_riki_int6_description" "-50% перезарядка Tricks of the Trade." // +
         "npc_dota_hero_riki_int7" "Усиленный Screen"
-        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодическии урон 100% интеллекта." // +
+        "npc_dota_hero_riki_int7_description" "Smoke Screen наносит периодическии урон 50% интеллекта." // +
         "npc_dota_hero_riki_int8" "Крысы нападают!"
         "npc_dota_hero_riki_int8_description" "Tricks of the Trade атакует все цели внутри круга." // +
         "npc_dota_hero_riki_int9" "Искусная магическая крыска"

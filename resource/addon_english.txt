@@ -13479,7 +13479,7 @@
         "npc_dota_hero_alchemist_agi12" "Money is the power"
         "npc_dota_hero_alchemist_agi12_description" "For every 10 gold in the account, the hero receives 1 base damage"
         "npc_dota_hero_alchemist_agi13" "Golden Power"
-        "npc_dota_hero_alchemist_agi13_description" "Gives 0.01 basic dmg, for each gold in capital"
+        "npc_dota_hero_alchemist_agi13_description" "Gives 0.005 basic dmg, for each gold in capital"
 
         "npc_dota_hero_alchemist_int6" "Almost like a magician"
         "npc_dota_hero_alchemist_int6_description" "Cooldown reduction 25%"
@@ -17454,7 +17454,7 @@
         "npc_dota_hero_riki_int6" "More -cd!!!!"
         "npc_dota_hero_riki_int6_description" "-50% Tricks of the Trade cooldown." // +
         "npc_dota_hero_riki_int7" "Enhanced Screen"
-        "npc_dota_hero_riki_int7_description" "Smoke Screen deals 100% int damage over time." // +
+        "npc_dota_hero_riki_int7_description" "Smoke Screen deals +50% int damage over time." // +
         "npc_dota_hero_riki_int8" "Rats are attacking!"
         "npc_dota_hero_riki_int8_description" "Tricks of the Trade attacks all targets inside the circle." // +
         "npc_dota_hero_riki_int9" "Skilled magical rat"
@@ -17947,7 +17947,7 @@
         "npc_dota_hero_death_prophet_agi7" "The Power of Crypt Swarm"
         "npc_dota_hero_death_prophet_agi7_description" "75% agility to Crypt Swarm damage." // +
         "npc_dota_hero_death_prophet_agi8" "Cunning Spirits"
-        "npc_dota_hero_death_prophet_agi8_description" "50% agility to spirit damage."
+        "npc_dota_hero_death_prophet_agi8_description" "40% agility to spirit damage."
         "npc_dota_hero_death_prophet_agi9" "Arise, my children"
         "npc_dota_hero_death_prophet_agi9_description" "-50% Exorcism cooldown." // +
         "npc_dota_hero_death_prophet_agi10" "Feel my blow!"
@@ -17960,7 +17960,7 @@
         "npc_dota_hero_death_prophet_agi13_description" "Heroes receive 3500 hand damage for each active spirit.At the last level of ultimate" // +
 
         "npc_dota_hero_death_prophet_int6" "Power of Mental Influence"
-        "npc_dota_hero_death_prophet_int6_description" "+75% int in spirit damage" // +
+        "npc_dota_hero_death_prophet_int6_description" "+30% int in spirit damage" // +
         "npc_dota_hero_death_prophet_int7" "Wise Siphon"
         "npc_dota_hero_death_prophet_int7_description" "50% int to Spirit Siphon damage." // +
         "npc_dota_hero_death_prophet_int8" "Sentient Crypt Swarm"
@@ -17973,9 +17973,9 @@
         "npc_dota_hero_death_prophet_int11_description" "-50% Crypt Swarm cooldown, no mana required." // +
         "npc_dota_hero_death_prophet_int11_tooltip" "Damage dealt every 0.2 seconds."
         "npc_dota_hero_death_prophet_int12" "Spirits Critical Hit"
-        "npc_dota_hero_death_prophet_int12_description" "with a 15% chance Spirits can inflict a critical attack of 400%" // +
+        "npc_dota_hero_death_prophet_int12_description" "with a 15% chance Spirits can inflict a critical attack of 225%" // +
         "npc_dota_hero_death_prophet_int13" "Deadly Entity"
-        "npc_dota_hero_death_prophet_int13_description" "with a 30% chance Spirits can inflict a critical attack of 400%" // +
+        "npc_dota_hero_death_prophet_int13_description" "with a 30% chance Spirits can inflict a critical attack of 225%" // +
 
          //RAZOR
 
@@ -21219,7 +21219,7 @@
         "pet_bp_1" "WoodRider"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_phys_dmg" "% PHYSICAL DAMAGE BONUS:"
         "dota_tooltip_ability_spell_item_pet_rda_bp_1_mage_dmg" "%MAGIC DAMAGE BONUS:"
-        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "% GOLD INCREASE EVERY SECOND:"
+        "dota_tooltip_ability_spell_item_pet_rda_bp_1_gold" "% GOLD INCREASE EVERY MINUTE:"
         "talent_game_time_label" "Game hours"
         "BattlePass_model_name" "Replacement model"
          "BattlePass_model_description" "You will forever receive a custom model for your hero."

@@ -161,25 +161,27 @@ function death_prophet_exorcism_bh:CreateGhost(parent, radius, duration)
 			end
 			for _, enemy in pairs(enemies) do
 				if enemy == target then
-					if not enemy:IsBuilding() then
-						ability:DealDamage( caster, enemy, damage, {damage_type = self.damageType} )
-						if critical_strike then
-							SendOverheadEventMessage( parent, OVERHEAD_ALERT_DEADLY_BLOW , enemy, damage, nil )
+					if not enemy:HasModifier("modifier_death_prophet_exorcism_cd") then
+						if not enemy:IsBuilding() then
+							ability:DealDamage( caster, enemy, damage, {damage_type = self.damageType} )
+							if critical_strike then
+								SendOverheadEventMessage( parent, OVERHEAD_ALERT_DEADLY_BLOW , enemy, damage, nil )
+							end
+							enemy:AddNewModifier(caster, ability, "modifier_death_prophet_exorcism_cd", {duration = 0.2})
+						end
+						if caster:FindAbilityByName("npc_dota_hero_death_prophet_agi12") then
+							caster:PerformAttack(
+								enemy, -- hTarget
+								true, -- bUseCastAttackOrb
+								true, -- bProcessProcs
+								true, -- bSkipCooldown
+								false, -- bIgnoreInvis
+								false, -- bUseProjectile
+								false, -- bFakeAttack
+								false -- bNeverMiss
+							)
 						end
 					end
-					if caster:FindAbilityByName("npc_dota_hero_death_prophet_agi_last") then
-						caster:PerformAttack(
-							enemy, -- hTarget
-							true, -- bUseCastAttackOrb
-							true, -- bProcessProcs
-							true, -- bSkipCooldown
-							false, -- bIgnoreInvis
-							false, -- bUseProjectile
-							false, -- bFakeAttack
-							false -- bNeverMiss
-						)
-					end
-					
 				else
 					if not enemy:IsBuilding() then
 						ability:DealDamage( caster, enemy, damage * 0.7, {damage_type = self.damageType} )
@@ -407,3 +409,14 @@ function modifier_death_prophet_exorcism_bh_bkb:GetAttributes()
     return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
+LinkLuaModifier( "modifier_death_prophet_exorcism_cd", "heroes/hero_death_prophet/death_prophet_exorcism_bh/death_prophet_exorcism_bh", LUA_MODIFIER_MOTION_NONE)
+
+modifier_death_prophet_exorcism_cd = class({})
+
+function modifier_death_prophet_exorcism_cd:IsHidden()
+	return true
+end
+
+function modifier_death_prophet_exorcism_cd:IsPurgable()
+	return false
+end

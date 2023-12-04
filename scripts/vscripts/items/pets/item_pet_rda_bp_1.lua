@@ -40,7 +40,7 @@ function modifier_item_pet_rda_bp_1:OnCreated( kv )
 			self.pet:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
 			self.pet:SetOwner(self:GetCaster())
 		end
-		self:StartIntervalThink(1)
+		self:StartIntervalThink(60)
 	end
 end
 function modifier_item_pet_rda_bp_1:OnDestroy()
