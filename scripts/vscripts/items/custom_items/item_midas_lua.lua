@@ -131,7 +131,7 @@ function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
         local bounty = killedUnit:GetGoldBounty()
         if bounty then
             gold = bounty * self.shareable_gold
-            killerEntity:ModifyGoldFiltered(killerEntity:GetPlayerOwnerID(), gold, true, DOTA_ModifyGold_SharedGold)
+            killerEntity:ModifyGoldFiltered(gold, true, DOTA_ModifyGold_SharedGold)
         end
     end
 end

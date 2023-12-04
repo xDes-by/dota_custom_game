@@ -324,7 +324,13 @@ function donate_level()
 			if PlayerResource:IsValidPlayer(iPlayerID) then
 				hHero = PlayerResource:GetSelectedHeroEntity(iPlayerID)
 				local item = hHero:AddItemByName("item_smithy_pickaxe")
-				item:SetContextThink("self_destroy", function(item) UTIL_Remove(item) end, 300)
+				item:SetContextThink("self_destroy", function(item)
+					local container = item:GetContainer()
+					UTIL_Remove(item)
+					if container then
+						UTIL_Remove(container)
+					end
+				end, 300)
 			end
 		end
 	end

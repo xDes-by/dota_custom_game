@@ -19,8 +19,6 @@ end
 
 function modifier_don4:OnIntervalThink()
 	if IsServer() then
-        local g1 = self.parent:GetGold()
-        local g2 = self.parent:FindModifierByName("modifier_gold_bank"):GetStackCount()
-		self.parent:ModifyGoldFiltered((g1 + g2) * 0.1, true, 0)
+		self.parent:ModifyGoldFiltered((self.parent:GetTotalGold()) * 0.01, true, 0)
 	end
 end
