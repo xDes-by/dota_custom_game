@@ -40,7 +40,9 @@ end
 
 function modifier_ai_bara_boss:OnCreated()
     if not IsServer() then return end
-    self.return_position = self:GetParent():GetAbsOrigin()
+    Timers:CreateTimer(0.03,function()
+        self:GetParent().return_position = self:GetParent():GetAbsOrigin()
+    end)
     self.abi1 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_charge")
     self.abi2 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_nether_strike")
     self.abi3 = self:GetCaster():FindAbilityByName("ability_npc_bara_boss_firestorm")
@@ -52,15 +54,19 @@ end
 function modifier_ai_bara_boss:OnIntervalThink()
     local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
     local m = self:GetCaster():FindModifierByName("modifier_elder_titan_echo_stomp")
-    if m and #units == 0 then
-        return
-    else
-        self.Phase = "Figting_Spawn_pos"
-        if m then
-            m:Destroy()
+    if m then
+        if #units ~= 0 then
+            self.Phase = "Figting_Spawn_pos"
+            if m then
+                m:Destroy()
+            end
         end
     end
+    local IsOnSpawnPos = (self:GetParent().return_position - self:GetCaster():GetAbsOrigin()):Length2D() < 200
     if self.Phase == "Figting_Spawn_pos" and (self.focus_target and self.focus_target:IsAlive()) then
+        if not IsOnSpawnPos then
+            self.Phase = "AFK"
+        end
         if self.abi3:IsFullyCastable() then
             self:GetCaster():CastAbilityNoTarget(self.abi3, -1)
             return
@@ -72,7 +78,6 @@ function modifier_ai_bara_boss:OnIntervalThink()
         return
     end
     local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
-    local IsOnSpawnPos = (self.return_position - self:GetCaster():GetAbsOrigin()):Length2D() < 200
     if IsOnSpawnPos and #units > 0 and self.Phase ~= "Figting_Spawn_pos" then
         self.Phase = "Figting_Spawn_pos"
         self:GetCaster():CastAbilityNoTarget(self.abi4, -1)
@@ -97,17 +102,9 @@ function modifier_ai_bara_boss:OnIntervalThink()
     end
     if self.Phase == "AFK" then
         if not self.abi2:IsFullyCastable() then
-            local ids = {}
-            for pID = 0, PlayerResource:GetPlayerCount() - 1 do
-                if PlayerResource:IsValidPlayerID(pID) then
-                    local hTarget = PlayerResource:GetSelectedHeroEntity(pID)
-                    if not hTarget:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
-                        table.insert( ids, hTarget )
-                    end
-                end
-            end
-            if #ids > 0 then
-                self:GetCaster():CastAbilityOnTarget(table.ramdom(ids), self.abi1, -1)
+            local players = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+            if #players > 0 then
+                self:GetCaster():CastAbilityOnTarget(table.random(players), self.abi1, -1)
                 self.Phase = "Charge"
                 self:StartIntervalThink(1)
             end
@@ -183,16 +180,17 @@ function modifier_ai_bara_boss_return:DestroyOnExpire()
     return true
 end
 
-function modifier_ai_bara_boss_return:OnCreated()
+function modifier_ai_bara_boss_return:OnCreated(data)
     if not IsServer() then
         return
     end
+    self.returnn = self:GetParent().return_position
     EmitGlobalSound("Dota_Boss.bara_charge_return")
     self:StartIntervalThink(FrameTime())
 end
 
 function modifier_ai_bara_boss_return:OnIntervalThink()
-    self:GetCaster():MoveToPosition(self:GetCaster().return_position)
+    self:GetCaster():MoveToPosition(self.returnn)
 end
 
 function modifier_ai_bara_boss_return:DeclareFunctions()
