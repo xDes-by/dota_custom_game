@@ -1005,13 +1005,13 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 		Rules:difficality_modifier(unit)
 		local unit = CreateUnitByName("npc_crystal_boss", Vector(9533, -11194, 653), true, nil, nil, DOTA_TEAM_BADGUYS)
 		local antimage = Entities:FindByName( nil, "npc_mega_boss")
-		Rules:difficality_modifier(antimage)
 		if antimage then
 			local m = antimage:FindModifierByName("modifier_invulnerable")
 			if m then
 				m:Destroy()
 			end
 		end
+		Rules:difficality_modifier(antimage)
 		for nPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
 			if PlayerResource:IsValidPlayer(nPlayerID) then
 				local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)

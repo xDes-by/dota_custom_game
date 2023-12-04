@@ -4091,7 +4091,7 @@ heroTalentsData = {
             place = {"int 8"}, url = "/npc_dota_hero_spirit_breaker/int/4.png", name = "npc_dota_hero_spirit_breaker_int8", 
         }, 
         npc_dota_hero_spirit_breaker_int9 = {
-            place = {"int 9"}, url = "/npc_dota_hero_spirit_breaker/int/1.png", name = "npc_dota_hero_spirit_breaker_int9", 
+            place = {"int 9"}, url = "/npc_dota_hero_spirit_breaker/int/2.png", name = "npc_dota_hero_spirit_breaker_int9", 
         },
         npc_dota_hero_spirit_breaker_int10 = {
             place = {"int 10"}, url = "/npc_dota_hero_spirit_breaker/int/3.png", name = "npc_dota_hero_spirit_breaker_int10", 
@@ -4100,7 +4100,7 @@ heroTalentsData = {
             place = {"int 11"}, url = "/npc_dota_hero_spirit_breaker/int/1.png", name = "npc_dota_hero_spirit_breaker_int11", 
         }, 
         npc_dota_hero_spirit_breaker_int12 = {
-            place = {"int 12"}, url = "/npc_dota_hero_spirit_breaker/int/3.png", name = "npc_dota_hero_spirit_breaker_int12", 
+            place = {"int 12"}, url = "/npc_dota_hero_spirit_breaker/int/1.png", name = "npc_dota_hero_spirit_breaker_int12", 
         },	
         npc_dota_hero_spirit_breaker_int13 = {
             place = {"int 13"}, url = "/npc_dota_hero_spirit_breaker/int/3.png", name = "npc_dota_hero_spirit_breaker_int13", 

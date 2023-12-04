@@ -98,8 +98,8 @@ function vengeful_tempest_double:OnUpgrade()
     end
 end
 function vengeful_tempest_double:OnOwnerSpawned()
+	local caster = self:GetCaster()
 	if caster:FindAbilityByName("npc_dota_hero_vengefulspirit_agi7") and self.talent_clone then
-        local caster = self:GetCaster()
         CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(caster:GetPlayerID()), "SelectUnit", { entityIndex = caster:entindex(), bAddToGroup = false })
         if self.talent_clone:IsAlive() then
             FindClearSpaceForUnit(caster, self.talent_clone:GetAbsOrigin(), true)

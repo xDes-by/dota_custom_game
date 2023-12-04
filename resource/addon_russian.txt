@@ -2636,7 +2636,7 @@
         "npc_dota_hero_pudge_agi12" "Сочное прозрение мясного бога "
         "npc_dota_hero_pudge_agi12_description" "Dismember примеряется в радиусе 400 вокруг цели"
         "npc_dota_hero_pudge_agi13" "Бронебойный Удар"
-        "npc_dota_hero_pudge_agi13_description" "Уменьшает броню цели на 40% (от базовой)"
+        "npc_dota_hero_pudge_agi13_description" "Dismember - пассивная способность"
 
         "npc_dota_hero_pudge_int6" "Временное смещение"
         "npc_dota_hero_pudge_int6_description" "-50% кд"
@@ -4104,7 +4104,7 @@
         "npc_dota_hero_phantom_assassin_agi12" "Критический шанс критической атаки"
         "npc_dota_hero_phantom_assassin_agi12_description" "+35% к шансу ультимейта"
         "npc_dota_hero_phantom_assassin_agi13" "Fatality"
-        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - убийство босса/крипа с критом дает 50% урона от крита на 2 мин, стакается навсегда"
+        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - добивание босса критом Coup de Grace, повышает критический урон способности на +25%, навсегда."
 
         "npc_dota_hero_phantom_assassin_int6" "Точно в цель"
         "npc_dota_hero_phantom_assassin_int6_description" "Выпускает два дополнительных кинжала от Stifling Dagger"
@@ -4822,6 +4822,8 @@
         "npc_dota_hero_lina_str11_description" "Урон Laguna Blade равен здоровью героя"
         "npc_dota_hero_lina_str12" "Львиное сердце"
         "npc_dota_hero_lina_str12_description" "Плюс 3.5 силы к поджогу, работает только если поджог изучен"
+        "npc_dota_hero_lina_str13" "Горящая жопа"
+        "npc_dota_hero_lina_str13_description" "Поджог становиться аурой 800"
 
         "npc_dota_hero_lina_agi6" "Дух огня"
         "npc_dota_hero_lina_agi6_description" "+5 урона за уровень"
@@ -4837,6 +4839,8 @@
         "npc_dota_hero_lina_agi11_description" "Ловкость дает базовый урон"
         "npc_dota_hero_lina_agi12" "Луч прародителя"
         "npc_dota_hero_lina_agi12_description" "Laguna Blade выпадает с атаки шанс 5%"
+        "npc_dota_hero_lina_agi13" "Ваншот"
+        "npc_dota_hero_lina_agi13_description" "+200% интеллекта урон Laguna Blade"
 
         "npc_dota_hero_lina_int6" "Взрывы огня"
         "npc_dota_hero_lina_int6_description" "+3 взрыва от Light Strike Array"
@@ -4852,6 +4856,8 @@
         "npc_dota_hero_lina_int11_description" "Light Strike Array получает бонус к урону равный интеллекту героя"
         "npc_dota_hero_lina_int12" "Огненный прорыв"
         "npc_dota_hero_lina_int12_description" "срабатывает Dragon Slave 25 % от атак "
+        "npc_dota_hero_lina_int12" "Интеллектуальная магия"
+        "npc_dota_hero_lina_int12_description" "+50% интеллекта к урону всех заклинаний"
 
         //Lion//
 
@@ -6224,7 +6230,7 @@
         "npc_dota_hero_vengefulspirit_agi6_description" "Эффект сниженя брони стакается на враге, длительность эффекта +5сек."
         "npc_dota_hero_vengefulspirit_agi6_tooltip" "1-и стак снижает броню на 100% базового значения, каждыи последующии - на 20%, макс. 6 стаков."
         "npc_dota_hero_vengefulspirit_agi7" "Вкачаи меня"
-        "npc_dota_hero_vengefulspirit_agi7_description" "+17% Увеличение урона Vengeance Aura."
+        "npc_dota_hero_vengefulspirit_agi7_description" "Призыв иллюзии при смерти"
         "npc_dota_hero_vengefulspirit_agi8" "3 пути"
         "npc_dota_hero_vengefulspirit_agi8_description" "Wave of Terror применяется в 3 направления."
         "npc_dota_hero_vengefulspirit_agi9" "КД - мое все!"
@@ -6234,9 +6240,9 @@
         "npc_dota_hero_vengefulspirit_agi11" "На попеи"
         "npc_dota_hero_vengefulspirit_agi11_description" "50% ловкости в урон Wave of Terror."
         "npc_dota_hero_vengefulspirit_agi12" "Аватар - всех четырех стихии"
-        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 80%."
+        "npc_dota_hero_vengefulspirit_agi12_description" "Урон Аватара на всех уровнях 100%."
         "npc_dota_hero_vengefulspirit_agi13" "Живучая мразь"
-		"npc_dota_hero_vengefulspirit_agi13_description"	"x3 урон Vengeance Aura, повышает не только на базовый урон."
+		"npc_dota_hero_vengefulspirit_agi13_description"	"x3 урон Vengeance Aura, повышает урон от предметов."
 
         "npc_dota_hero_vengefulspirit_int6" "Я свободен..."
         "npc_dota_hero_vengefulspirit_int6_description" "Avatars of Vengeance может использовать способности."
@@ -6680,16 +6686,16 @@
         "npc_dota_hero_spirit_breaker_int7_description" "Шанс срабатывания Greater Bash +10%"   // +
         "npc_dota_hero_spirit_breaker_int8" "Интеллектуальный бросок"
         "npc_dota_hero_spirit_breaker_int8_description" "+200% интеллекта в урон Nether strike."    //  +
-        "npc_dota_hero_spirit_breaker_int9" "Удар жизненой силы"
-        "npc_dota_hero_spirit_breaker_int9_description" "Во время Charge of Darkness, радиус поражения +200, урон Greater Bash x2"  // +
+        "npc_dota_hero_spirit_breaker_int9" "Концентрация магии"
+        "npc_dota_hero_spirit_breaker_int9_description" "При активации Bulldozer, герой получает флай вижен на 3сек."     //  +
         "npc_dota_hero_spirit_breaker_int10" "Волны разума"
-        "npc_dota_hero_spirit_breaker_int10_description" "+75% интеллекта в урон Greater Bash"      //  +
+        "npc_dota_hero_spirit_breaker_int10_description" "+50% интеллекта в урон Greater Bash"      //  +
         "npc_dota_hero_spirit_breaker_int11" "Огонь души"
         "npc_dota_hero_spirit_breaker_int11_description" "Применение Charge of Darkness увеличивает входящии, магическии урон, по цели, на 20%. Длительность 5 сек."    //  +
-        "npc_dota_hero_spirit_breaker_int12" "Концентрация магии"
-        "npc_dota_hero_spirit_breaker_int12_description" "25% шанс, что баш нанесет 225% урон."     //  +
+        "npc_dota_hero_spirit_breaker_int12" "Удар жизненой силы"
+        "npc_dota_hero_spirit_breaker_int12_description" "Во время Charge of Darkness, радиус поражения +200, урон Greater Bash x2"  // +
         "npc_dota_hero_spirit_breaker_int13" "Магический удар"
-        "npc_dota_hero_spirit_breaker_int13_description" "Greater Bash наносит 175% маг-крита с шансом 25%"     //  +
+        "npc_dota_hero_spirit_breaker_int13_description" "Увеличен процент урона от скорости +уровень героя."     //  +
 
         // --------------------- leshrac 
 		"DOTA_Tooltip_ability_leshrac_split_earth_lua"																					"Split Earth"
@@ -6753,8 +6759,8 @@
         "npc_dota_hero_leshrac_agi11_description" "50% взрывов Diabolic Edict всегда активны."  //
         "npc_dota_hero_leshrac_agi12" "Мощные взрывы"
         "npc_dota_hero_leshrac_agi12_description" "Кол-во взрывов Diabolic Edict в 3 раза больше, длительность в 2 раза больше."
-        "npc_dota_hero_leshrac_agi13" "Рёбра"
-        "npc_dota_hero_leshrac_agi13_description" "1500 радиус кирасы"
+        "npc_dota_hero_leshrac_agi13" "Истинное Импульсное Кольцо"
+        "npc_dota_hero_leshrac_agi13_description" "Атаки Diabolic Edict наносят урон Pulse Nova."
 		
         "npc_dota_hero_leshrac_int6" "Интеллектуальный Импульс"
         "npc_dota_hero_leshrac_int6_description" "35% интеллекта к урону Pulse Nova."   //  +

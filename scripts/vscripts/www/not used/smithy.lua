@@ -118,9 +118,6 @@ end
 function Smithy:put_item_lua(t)
     -- print('put_item_lua')
     -- Кладем предмет
-    DeepPrintTable({
-        slot = t.slot,
-    })
     local slot = t.slot
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
     if hero then
@@ -161,7 +158,6 @@ function Smithy:put_item_lua(t)
             end
             SmithyArr[t.PlayerID][t.type].item_name = item_name
             SmithyArr[t.PlayerID][t.type].stuck = quantity
-            DeepPrintTable(SmithyArr[t.PlayerID][t.type])
             if t.notbuild == nil then
                 Smithy:building_control({PlayerID = t.PlayerID,selected_gem = SmithyArr[t.PlayerID].stone, toggle = t.toggle})
             end

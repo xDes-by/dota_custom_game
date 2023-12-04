@@ -154,3 +154,17 @@ end
 function modifier_spirit_breaker_bulldoze_lua:GetAuraSearchType() 
 	return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 end
+
+modifier_spirit_breaker_bulldoze_lua_flying_vision = class({})
+
+function modifier_spirit_breaker_bulldoze_lua_flying_vision:IsHidden()
+	return true
+end
+
+function modifier_spirit_breaker_bulldoze_lua_flying_vision:CheckState()
+	local state =
+		{
+			[MODIFIER_STATE_FORCED_FLYING_VISION] = true
+		}
+	return state
+end

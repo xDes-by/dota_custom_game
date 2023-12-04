@@ -104,7 +104,6 @@ function rating:PlayerConnectFull(keys)
 end
 
 function rating:PlayerSetup(pid, settings)
-	DeepPrintTable(settings)
 	rating.RatingTable[pid].mmr = RATING["rating"][pid]['points']
 	rating.RatingTable[pid].map_hints = settings.map_hints == 1
 	CustomNetTables:SetTableValue("GameInfo", tostring(pid), rating.RatingTable[pid])

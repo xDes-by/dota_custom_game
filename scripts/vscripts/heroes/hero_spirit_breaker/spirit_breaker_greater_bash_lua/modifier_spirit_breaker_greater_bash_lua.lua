@@ -174,7 +174,7 @@ function modifier_spirit_breaker_greater_bash_lua:GetAbilityDamage(params)
 	local speed_damage = self:GetAbility():GetLevelSpecialValueNoOverride( "speed_damage", params.level )
 
 	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int10") then
-		damage = damage + self.parent:GetIntellect() * 0.75
+		damage = damage + self.parent:GetIntellect() * 0.50
 	end
 	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_str7") then
 		damage = damage + self.parent:GetStrength() * 0.50
@@ -245,10 +245,6 @@ function modifier_spirit_breaker_greater_bash_lua:Bash( target, dmg_multi )
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self.ability, --Optional.
 	}
-	if self.parent:FindAbilityByName("npc_dota_hero_spirit_breaker_int12") and RollPercentage(25) then
-		damageTable.damage = damageTable.damage * 2.25
-		SendOverheadEventMessage( self.parent, OVERHEAD_ALERT_DEADLY_BLOW , damageTable.target, damageTable.damage, nil )
-	end
 	ApplyDamage(damageTable)
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_agi12") then
 		self:GetCaster():PerformAttack(
