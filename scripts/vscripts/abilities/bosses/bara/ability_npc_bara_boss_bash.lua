@@ -11,31 +11,31 @@ function ability_npc_bara_boss_bash:OnOwnerDied()
 	EmitGlobalSound("Dota_Boss.bara_death")
 end
 
-LinkLuaModifier( "modifier_spirit_breaker_greater_bash_lua", "abilities/bosses/bara/ability_npc_bara_boss_bash", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_spirit_breaker_greater_bash_lua_boss", "abilities/bosses/bara/ability_npc_bara_boss_bash", LUA_MODIFIER_MOTION_NONE )
 
 function ability_npc_bara_boss_bash:GetIntrinsicModifierName()
-	return "modifier_spirit_breaker_greater_bash_lua"
+	return "modifier_spirit_breaker_greater_bash_lua_boss"
 end
 
-modifier_spirit_breaker_greater_bash_lua = class({})
+modifier_spirit_breaker_greater_bash_lua_boss = class({})
 
 --------------------------------------------------------------------------------
 -- Classifications
-function modifier_spirit_breaker_greater_bash_lua:IsHidden()
+function modifier_spirit_breaker_greater_bash_lua_boss:IsHidden()
 	return true
 end
 
-function modifier_spirit_breaker_greater_bash_lua:IsDebuff()
+function modifier_spirit_breaker_greater_bash_lua_boss:IsDebuff()
 	return false
 end
 
-function modifier_spirit_breaker_greater_bash_lua:IsPurgable()
+function modifier_spirit_breaker_greater_bash_lua_boss:IsPurgable()
 	return false
 end
 
 --------------------------------------------------------------------------------
 -- Initializations
-function modifier_spirit_breaker_greater_bash_lua:OnCreated( kv )
+function modifier_spirit_breaker_greater_bash_lua_boss:OnCreated( kv )
 	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
 	self.pseudoseed = RandomInt( 1, 100 )
@@ -56,13 +56,13 @@ function modifier_spirit_breaker_greater_bash_lua:OnCreated( kv )
 	if not IsServer() then return end
 end
 
-function modifier_spirit_breaker_greater_bash_lua:OnRefresh( kv )
+function modifier_spirit_breaker_greater_bash_lua_boss:OnRefresh( kv )
 	self:OnCreated( kv )	
 end
 
 --------------------------------------------------------------------------------
 -- Modifier Effects
-function modifier_spirit_breaker_greater_bash_lua:DeclareFunctions()
+function modifier_spirit_breaker_greater_bash_lua_boss:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 	}
@@ -70,13 +70,13 @@ function modifier_spirit_breaker_greater_bash_lua:DeclareFunctions()
 	return funcs
 end
 
-function modifier_spirit_breaker_greater_bash_lua:CheckState()
+function modifier_spirit_breaker_greater_bash_lua_boss:CheckState()
     return {
         [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     }   
 end
 
-function modifier_spirit_breaker_greater_bash_lua:GetModifierProcAttack_Feedback( params )
+function modifier_spirit_breaker_greater_bash_lua_boss:GetModifierProcAttack_Feedback( params )
 	if not IsServer() then return end
 	if self.parent:PassivesDisabled() then return end
 	if not self.ability:IsFullyCastable() then return end
@@ -103,7 +103,7 @@ end
 
 --------------------------------------------------------------------------------
 -- Helper
-function modifier_spirit_breaker_greater_bash_lua:Bash( target, double, IsNetherStrike )
+function modifier_spirit_breaker_greater_bash_lua_boss:Bash( target, double, IsNetherStrike )
 	local direction = target:GetOrigin()-self.parent:GetOrigin()
 	direction.z = 0
 	direction = direction:Normalized()
@@ -143,7 +143,7 @@ end
 
 --------------------------------------------------------------------------------
 -- Graphics & Animations
-function modifier_spirit_breaker_greater_bash_lua:PlayEffects( target, isCreep, IsNetherStrike )
+function modifier_spirit_breaker_greater_bash_lua_boss:PlayEffects( target, isCreep, IsNetherStrike )
 	local sound_cast = "Hero_Spirit_Breaker.GreaterBash"
 	if isCreep then
 		sound_cast = "Hero_Spirit_Breaker.GreaterBash.Creep"
