@@ -20,7 +20,7 @@ function necrolyte_reapers_scythe_lua:GetBehavior()
 		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
 	end
 end
-function necrolyte_reapers_scythe_lua:OnSpellStart()
+function necrolyte_reapers_scythe_lua:OnSpellStart(auto_attack)
 	if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetCursorTarget()
@@ -37,7 +37,7 @@ function necrolyte_reapers_scythe_lua:OnSpellStart()
 		local damage = self:GetSpecialValueFor("damage")
 		local stun_duration = self:GetSpecialValueFor("stun_duration")
 
-		target:AddNewModifier(caster, self, "modifier_reapers_scythe_lua", {duration = stun_duration})
+		target:AddNewModifier(caster, self, "modifier_reapers_scythe_lua", {duration = stun_duration, auto_attack = auto_attack})
 	end
 end
 
@@ -65,14 +65,14 @@ function modifier_reapers_scythe_lua:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_reapers_scythe_lua:OnCreated()
+function modifier_reapers_scythe_lua:OnCreated(kv)
 	if IsServer() then
 		local caster = self:GetCaster()
 		local target = self:GetParent()
 		self.ability = self:GetAbility()
 		self.damage = self.ability:GetSpecialValueFor("damage")
 		self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
-
+		self.auto_attack = kv.auto_attack
 		local stun_fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_stunned.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 		self:AddParticle(stun_fx, false, false, -1, false, false)
 		local orig_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -100,8 +100,10 @@ function modifier_reapers_scythe_lua:OnRefresh()
 		self.damage = self.ability:GetSpecialValueFor("damage")
 		self.damage_increase = self.ability:GetSpecialValueFor("damage_increase")
 
-		local stun_fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_stunned.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
-		self:AddParticle(stun_fx, false, false, -1, false, false)
+		if not self.auto_attack then
+			local stun_fx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_stunned.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
+			self:AddParticle(stun_fx, false, false, -1, false, false)
+		end
 		local orig_fx = ParticleManager:CreateParticle("particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		self:AddParticle(orig_fx, false, false, -1, false, false)
 
@@ -138,7 +140,7 @@ end
 function modifier_reapers_scythe_lua:CheckState()
 	local state =
 		{
-			[MODIFIER_STATE_STUNNED] = true
+			[MODIFIER_STATE_STUNNED] = not self.auto_attack
 		}
 	return state
 end
@@ -155,7 +157,9 @@ function modifier_reapers_scythe_lua:DeclareFunctions()
 end
 
 function modifier_reapers_scythe_lua:GetOverrideAnimation()
-	return ACT_DOTA_DISABLED
+	if not self.auto_attack then
+		return ACT_DOTA_DISABLED
+	end
 end
 
 function modifier_reapers_scythe_lua:OnRemoved()

@@ -61,12 +61,8 @@ function modifier_zuus_thundergods_wrath_intrinsic:GetModifierOverrideAbilitySpe
 	return 0
 end
 
-function modifier_zuus_thundergods_wrath_intrinsic:OnCreated( kv )
-    self.caster = self:GetCaster()
-end
-
 function modifier_zuus_thundergods_wrath_intrinsic:OnDeath(params)
-    if params.unit == self.caster and self.caster:FindAbilityByName("npc_dota_hero_zuus_str13") then
+    if params.unit == self:GetCaster() and self:GetCaster():FindAbilityByName("npc_dota_hero_zuus_str13") then
         self:GetAbility():GlobalCast(1.0)
     end
 end

@@ -317,7 +317,7 @@ function RollQuestDrop( unit, killerEntity )
 		if units then 
 			for _,current_name in pairs(units) do
 				if current_name == unit_name and QuestSystem.dropListArray[name] and QuestSystem.dropListArray[name].active == true then
-					DeepPrintTable(QuestSystem.dropListArray)
+					-- DeepPrintTable(QuestSystem.dropListArray)
 					units = nil
 					break
 				end

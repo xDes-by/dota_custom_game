@@ -793,7 +793,6 @@ function talants:coutExp(expnow)
 end
 
 function talants:HeroesAmountInfo(t)
-    DeepPrintTable(t)
     t.hero_name = progress[t.portID]["hero_name"]
     local count = DataBase:GetHeroesTalantCount(t)
     
@@ -848,7 +847,6 @@ function talants:CountLearnedNormalTalents(pid)
 end
 function talants:CountLearnedGoldenTalents(pid)
     local count = 0
-    DeepPrintTable(talants.tab[pid])
     for i = 1, 13 do
         count = count + talants.tab[pid]["don"..i]
     end

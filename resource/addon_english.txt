@@ -13817,7 +13817,7 @@
         "npc_dota_hero_pudge_agi12" "The Meat God's Juicy Epiphany"
         "npc_dota_hero_pudge_agi12_description" "Dismember is placed in a 400 radius around the target"
         "npc_dota_hero_pudge_agi13" "Armor Piercing Strike"
-        "npc_dota_hero_pudge_agi13_description" "Reduces target's armor by 40% (of base)"
+        "npc_dota_hero_pudge_agi13_description" "Dismember - passive ability"
 
         "npc_dota_hero_pudge_int6" "Temporal offset"
         "npc_dota_hero_pudge_int6_description" "-50% CD"
@@ -14156,7 +14156,8 @@
         "npc_dota_hero_centaur_int12" "This is the secret of strength"
         "npc_dota_hero_centaur_int12_description" "return indicators x2"
         "npc_dota_hero_centaur_int13" "No, that's the secret of strength"
-        "npc_dota_hero_centaur_int13_description" "Return can be boosted by magic by 5% of the magic boost (same as a sniper)"
+        "npc_dota_hero_centaur_int13_description" "Return can be boosted by magic by 10% of the magic boost (same as a sniper)"
+        "npc_dota_hero_centaur_int13_tooltip" "Does not work with pure damage types."
 
         //Mars//
 
@@ -15242,7 +15243,7 @@
         "npc_dota_hero_phantom_assassin_agi12" "Critical chance of a critical attack"
         "npc_dota_hero_phantom_assassin_agi12_description" "+35% ultimate chance"
         "npc_dota_hero_phantom_assassin_agi13" "Fatality"
-        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - killing a boss/creep with a crit gives 50% crit damage for 2 minutes, stacks forever"
+        "npc_dota_hero_phantom_assassin_agi13_description" "Fatality - finishing off the boss with a Coup de Grace crit, increases the critical damage of the ability by +25%, forever."
 
         "npc_dota_hero_phantom_assassin_int6" "Right on target"
         "npc_dota_hero_phantom_assassin_int6_description" "Produces two additional Stifling Daggers"
@@ -15327,8 +15328,8 @@
         "npc_dota_hero_sniper_agi12" "The long-awaited return"
         "npc_dota_hero_sniper_agi12_description" "The ultimate will begin to be enhanced by magic items"
         "npc_dota_hero_sniper_agi12_tooltip" "Buff has been weakened.The ability is enhanced only by 10% of the value indicated in the character's characteristics."
-        "npc_dota_hero_sniper_agi13" "Double Strike"
-        "npc_dota_hero_sniper_agi13_description" "x2 ultimate indicators"
+        "npc_dota_hero_sniper_agi13" "Assault"
+        "npc_dota_hero_sniper_agi13_description" "1500 cuirass radii"
 
         "npc_dota_hero_sniper_int6" "Exact calculation"
         "npc_dota_hero_sniper_int6_description" "Grenade deals additional damage equal to the sum of attributes / 3"
@@ -15582,7 +15583,7 @@
         "npc_dota_hero_spectre_agi12" "Cutting down an entire universe"
         "npc_dota_hero_spectre_agi12_description" "Desolate damage from base +50%."
         "npc_dota_hero_spectre_agi13" "Strong Strike"
-        "npc_dota_hero_spectre_agi13_description" "Desolate damage from base +111%"
+        "npc_dota_hero_spectre_agi13_description" "Desolate damage from base +50%"
 
         "npc_dota_hero_spectre_int6" "Power of Magic"
         "npc_dota_hero_spectre_int6_description" "Increases Spectral Step radius by 100."
@@ -17349,9 +17350,9 @@
         "npc_dota_hero_doom_bringer_str13_description" "Devour can be cast on an area of ​​800. You can get 3 effects."
         
         "npc_dota_hero_doom_bringer_agi6" "Do you want damage? Here"
-        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 10 * number of souls."
+        "npc_dota_hero_doom_bringer_agi6_description" "Devour's souls give a 15% chance to inflict a critical attack 100% + 5 * number of souls."
         "npc_dota_hero_doom_bringer_agi7" "Fire Crit"
-        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 100% + 10 * hero level critical attack"
+        "npc_dota_hero_doom_bringer_agi7_description" "Infernal Blade deals 1000%"
         "npc_dota_hero_doom_bringer_agi8" "Even the alchemist is jealous of you"
         "npc_dota_hero_doom_bringer_agi8_description" "x3 extra Devour gold."
         "npc_dota_hero_doom_bringer_agi9" "Is Sven on minimum wage?"
@@ -17361,9 +17362,9 @@
         "npc_dota_hero_doom_bringer_agi11" "CD click on me"
         "npc_dota_hero_doom_bringer_agi11_description" "-20sec Devour cooldown."
         "npc_dota_hero_doom_bringer_agi12" "You'll lasso the creeps"
-        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 5x more damage."
+        "npc_dota_hero_doom_bringer_agi12_description" "Devour does 4x more damage."
         "npc_dota_hero_doom_bringer_agi13" "Devour has become stronger"
-        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 13x more damage."
+        "npc_dota_hero_doom_bringer_agi13_description" "Devour does 7x more damage."
 
         "npc_dota_hero_doom_bringer_int6" "Efficiency will increase!"
         "npc_dota_hero_doom_bringer_int6_description" "If the number of Devour souls is a multiple of 3, then their effectiveness is 1.5 times higher."
@@ -17749,6 +17750,7 @@
         "npc_dota_hero_spirit_breaker_agi7_description" "Cast Greater Bash on all enemies around the hero when Bulldozer is activated."
         "npc_dota_hero_spirit_breaker_agi8" "Bash! Bash!! Bash!!!"
         "npc_dota_hero_spirit_breaker_agi8_description" "Greater Bash has no cooldown." // +
+        "npc_dota_hero_spirit_breaker_agi8_tooltip" "Stun duration for attack stuns has been greatly reduced! 0.01 sec stun from auto attacks!" // +
         "npc_dota_hero_spirit_breaker_agi9" "Hell's Fury"
         "npc_dota_hero_spirit_breaker_agi9_description" "+600 attack speed for 3 seconds after casting Nether Strike." // +
         "npc_dota_hero_spirit_breaker_agi10" "No one can escape"
@@ -17767,14 +17769,14 @@
         "npc_dota_hero_spirit_breaker_int7_description" "Greater Bash chance +10%" // +
         "npc_dota_hero_spirit_breaker_int8" "Intellectual Throw"
         "npc_dota_hero_spirit_breaker_int8_description" "+200% int to Nether strike damage." // +
-        "npc_dota_hero_spirit_breaker_int9" "Vitality Breaker"
-        "npc_dota_hero_spirit_breaker_int9_description" "During Charge of Darkness, damage radius +200, Greater Bash damage x2" // +
+        "npc_dota_hero_spirit_breaker_int9" "Magic Concentration"
+        "npc_dota_hero_spirit_breaker_int9_description" "When activating Bulldozer, the hero receives fly vision for 3 seconds." // +
         "npc_dota_hero_spirit_breaker_int10" "Mind Waves"
-        "npc_dota_hero_spirit_breaker_int10_description" "+75% int in Greater Bash damage" // +
+        "npc_dota_hero_spirit_breaker_int10_description" "+50% int in Greater Bash damage" // +
         "npc_dota_hero_spirit_breaker_int11" "Soul Fire"
         "npc_dota_hero_spirit_breaker_int11_description" "Charge of Darkness increases incoming magic damage to the target by 20%. Duration 5 sec." // +
-        "npc_dota_hero_spirit_breaker_int12" "Magic Concentration"
-        "npc_dota_hero_spirit_breaker_int12_description" "25% chance that the bash will deal 225% damage." // +
+        "npc_dota_hero_spirit_breaker_int12" "Vitality Breaker"
+        "npc_dota_hero_spirit_breaker_int12_description" "During Charge of Darkness, damage radius +200, Greater Bash damage x2" // +
         "npc_dota_hero_spirit_breaker_int13" "Magic Strike"
         "npc_dota_hero_spirit_breaker_int13_description" "The percentage of damage from speed has been increased +hero level" // +
 
@@ -18153,7 +18155,7 @@
         "npc_dota_hero_vengefulspirit_str11" "That's it, you won't kill me"
         "npc_dota_hero_vengefulspirit_str11_description" "Heroes and Avatar gain 15% total lifesteal from attacks."
         "npc_dota_hero_vengefulspirit_str12" "Shield - two friends"
-        "npc_dota_hero_vengefulspirit_str12_description" "Heroes and Avatar gain a 500% health shield when summoned." // +- HZ
+        "npc_dota_hero_vengefulspirit_str12_description" "3 charges Avatar" // +- HZ
         "npc_dota_hero_vengefulspirit_str13" "Immortal clone"
         "npc_dota_hero_vengefulspirit_str13_description" "120 sec clone lifespan at all levels."
 
@@ -18161,7 +18163,7 @@
         "npc_dota_hero_vengefulspirit_agi6_description" "The armor reduction effect stacks on the enemy, effect duration +5sec."
         "npc_dota_hero_vengefulspirit_agi6_tooltip" "1 stack reduces armor by 100% of the base value, each subsequent stack by 20%, max. 6 stacks."
         "npc_dota_hero_vengefulspirit_agi7" "Pump me up"
-        "npc_dota_hero_vengefulspirit_agi7_description" "+17% Increased Vengeance Aura damage."
+        "npc_dota_hero_vengefulspirit_agi7_description" "Summon Illusion on Death"
         "npc_dota_hero_vengefulspirit_agi8" "3 paths"
         "npc_dota_hero_vengefulspirit_agi8_description" "Wave of Terror is cast in 3 directions."
         "npc_dota_hero_vengefulspirit_agi9" "CD is my everything!"
@@ -18171,9 +18173,9 @@
         "npc_dota_hero_vengefulspirit_agi11" "To drink"
         "npc_dota_hero_vengefulspirit_agi11_description" "50% agility to Wave of Terror damage."
         "npc_dota_hero_vengefulspirit_agi12" "Avatar - all four elements"
-        "npc_dota_hero_vengefulspirit_agi12_description" "80% Avatar damage at all levels."
+        "npc_dota_hero_vengefulspirit_agi12_description" "100% Avatar damage at all levels."
         "npc_dota_hero_vengefulspirit_agi13" "Tenacious scum"
-        "npc_dota_hero_vengefulspirit_agi13_description" "+120 sec Avatar duration."
+        "npc_dota_hero_vengefulspirit_agi13_description" "x3 damage Vengeance Aura, increases damage from items"
 
         "npc_dota_hero_vengefulspirit_int6" "I'm free..."
         "npc_dota_hero_vengefulspirit_int6_description" "Avatars of Vengeance can use abilities."

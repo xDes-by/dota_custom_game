@@ -21,7 +21,7 @@ function item_assault_lua:GetCastRange(vLocation, hTarget)
 	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
 		return 1500
 	end
-	return self:GetAbility():GetSpecialValueFor("aura_radius")
+	return self:GetSpecialValueFor("aura_radius")
 end
 
 
@@ -47,7 +47,9 @@ function modifier_assault_lua:OnCreated()
 	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
 	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
-
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
+		self.aura_radius = 1500
+	end
 	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
 	self.aura_positive_armor = self:GetAbility():GetSpecialValueFor("aura_positive_armor")
 	self.aura_negative_armor = self:GetAbility():GetSpecialValueFor("aura_negative_armor") * -1
@@ -60,8 +62,9 @@ end
 function modifier_assault_lua:OnRefresh()
 	self.bonus_attack_speed = self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
-	self.aura_radius = self:GetAbility():GetSpecialValueFor("aura_radius")
-
+	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
+		self.aura_radius = 1500
+	end
 	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
 	self.aura_positive_armor = self:GetAbility():GetSpecialValueFor("aura_positive_armor")
 	self.aura_negative_armor = self:GetAbility():GetSpecialValueFor("aura_negative_armor") * -1
@@ -100,9 +103,12 @@ function modifier_assault_lua:GetModifierAura()
 end
 
 function modifier_assault_lua:GetAuraRadius()
+<<<<<<< HEAD
+=======
 	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
 		return 1500
 	end
+>>>>>>> 55d918c96b5b11e8b86f9d5e931a20d83e9f2d3a
 	return self.aura_radius
 end
 function modifier_assault_lua:GetAuraDuration()

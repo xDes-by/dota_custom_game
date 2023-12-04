@@ -76,7 +76,6 @@ function vengeful_spirit_magic_missile:OnProjectileHit_ExtraData(Target, Locatio
         EmitSoundOn("Hero_VengefulSpirit.MagicMissileImpact", Target)
 
         Target:AddNewModifier(self:GetCaster(), self, "modifier_stunned", {duration=magic_missile_stun})
-        DeepPrintTable(ExtraData)
         if ExtraData.usedByPlayer == 1 and self:GetCaster():FindAbilityByName("npc_dota_hero_vengefulspirit_int11") then
             local enemies = FindUnitsInRadius(
                 self:GetCaster():GetTeamNumber(),	-- int, your team number

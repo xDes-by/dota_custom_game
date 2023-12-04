@@ -163,26 +163,29 @@ function spawn_creeps_mines()
 end	
 
 function spawn_creeps_dust()
-	local count = 0
-	local creepNames = {
-		{ "dust_creep_1", "dust_creep_2" },
-		{ "dust_creep_3", "dust_creep_4" },
-		{ "dust_creep_5", "dust_creep_6" }
-	}
+    local count = 0
+    local creepNames = {
+        { "dust_creep_1", "dust_creep_2" },
+        { "dust_creep_3", "dust_creep_4" },
+        { "dust_creep_5", "dust_creep_6" },
+        { "dust_creep_1", "dust_creep_2" },
+        { "dust_creep_3", "dust_creep_4" },
+        { "dust_creep_5", "dust_creep_6" }
+    }
 
-	while count < 3 do
-		count = count + 1
-		pt = point_dust[count]
-		local point = Vector(pt[1], pt[2], pt[3])
+    while count < 6 do
+        count = count + 1
+        pt = point_dust[count]
+        local point = Vector(pt[1], pt[2], pt[3])
 
-		for i = 1, 4 do
-			if i == 4 then
-				CreateUnitByName_WithoutLags(creepNames[count][2], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			else
-				CreateUnitByName_WithoutLags(creepNames[count][1], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
-			end
-		end
-	end
+        for i = 1, 4 do
+            if i == 4 then
+                CreateUnitByName_WithoutLags(creepNames[count][2], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+            else
+                CreateUnitByName_WithoutLags(creepNames[count][1], point + RandomVector(RandomInt(50, 200)), true, nil, nil, DOTA_TEAM_BADGUYS)
+            end
+        end
+    end
 end
 
 function spawn_creeps_cemetery()

@@ -102,10 +102,6 @@ function modifier_dismember_lua:OnCreated( kv )
 		self.statdmg = self:GetCaster():GetAgility()
 	end
 
-	if self:GetCaster():FindAbilityByName("special_bonus_unique_npc_dota_hero_pudge_agi50") ~= nil then
-		self.armor = self:GetParent():GetPhysicalArmorBaseValue() * -0.4
-	end
-
 	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str11") ~= nil then
 		self.statdmg = self.statdmg * 2
 	end
@@ -232,13 +228,21 @@ function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:IsStunDebuff()
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:OnCreated( kv )
-	self.true_damage = self:GetCaster():GetAgility() / 2
+	self.statdmg = self:GetCaster():GetStrength()
+		
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_agi9") ~= nil then
+		self.statdmg = self:GetCaster():GetAgility()
+	end
+
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_pudge_str11") ~= nil then
+		self.statdmg = self.statdmg * 2
+	end
+	self.dismember_damage = self:GetAbility():GetSpecialValueFor( "dismember_damage" )
+	self.true_damage = self.dismember_damage + self.statdmg
 	self.tick_rate = self:GetAbility():GetSpecialValueFor( "tick_rate" )
 
 	if IsServer() then
-		-- self:GetParent():InterruptChannel()
-		self:OnIntervalThink()
-		self:StartIntervalThink( self.tick_rate )
+		self:StartIntervalThink( 0.2 )
 	end
 end
 
@@ -248,19 +252,19 @@ function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:OnIntervalThink
 		local damage = {
 			victim = self:GetParent(),
 			attacker = self:GetCaster(),
-			damage = self.true_damage,
+			damage = self.true_damage * self.tick_rate,
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			ability = self:GetAbility()
 		}
 		ApplyDamage( damage )
 
-		-- EmitSoundOn( "Hero_Pudge.Dismember", self:GetParent() )
+		EmitSoundOn( "Hero_Pudge.Dismember", self:GetParent() )
+		self:StartIntervalThink( self.tick_rate )
 	end
 end
 
 function modifier_special_bonus_unique_npc_dota_hero_pudge_agi50:CheckState()
 	return {
-		-- [MODIFIER_STATE_STUNNED] = true,
 		[MODIFIER_STATE_INVISIBLE] = false,
 	}
 end

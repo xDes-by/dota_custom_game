@@ -81,7 +81,7 @@ function modifier_gyrocopter_flak_cannon_lua:OnAttack(keys)
 			if enemy~=keys.target then
 				self:GetParent():PerformAttack( enemy, true, true, true, false, true, false, false)
 
-				if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int_last") ~= nil then 
+				if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int_last") ~= nil and not enemy:IsMagicImmune() and not enemy:IsBuilding() then 
 					ApplyDamage({
 						victim 			= enemy,
 						damage 			= self:GetCaster():GetIntellect(),
@@ -96,7 +96,7 @@ function modifier_gyrocopter_flak_cannon_lua:OnAttack(keys)
 			end
 		end
 
-		if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int_last") ~= nil then 
+		if self:GetCaster():FindAbilityByName("npc_dota_hero_gyrocopter_int_last") ~= nil and not enemy:IsMagicImmune() and not enemy:IsBuilding() then 
 			ApplyDamage({
 				victim 			= keys.target,
 				damage 			= self:GetCaster():GetIntellect(),

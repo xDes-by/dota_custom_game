@@ -33,7 +33,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated( kv )
 	-- references
 	self.bonus_ms = self:GetAbility():GetSpecialValueFor( "movement_speed" )
 	self.radius = self:GetAbility():GetSpecialValueFor( "bash_radius" )
-	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_int9") then
+	if self:GetCaster():FindAbilityByName("npc_dota_hero_spirit_breaker_int12") then
 		self.radius = self.radius + 200
 		self.dmg_multi = 2
 	end

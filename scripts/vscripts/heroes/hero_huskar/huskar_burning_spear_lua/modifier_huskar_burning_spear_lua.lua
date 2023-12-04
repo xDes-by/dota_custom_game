@@ -55,6 +55,7 @@ function modifier_huskar_burning_spear_lua:OnCreated( kv )
 			-- damage = 500,
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			ability = self:GetAbility(), --Optional.
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
 
 		-- start interval
@@ -150,6 +151,7 @@ function modifier_huskar_burning_spear_lua:CalculateDamage()
 	if caster:FindAbilityByName("npc_dota_hero_huskar_agi_last") then
 		damage = damage + self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) * 0.25
 		self.damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
+		self.damageTable.damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
 	end
 	if caster:FindAbilityByName("npc_dota_hero_huskar_int_last") then
 		damage = damage * 1.4
