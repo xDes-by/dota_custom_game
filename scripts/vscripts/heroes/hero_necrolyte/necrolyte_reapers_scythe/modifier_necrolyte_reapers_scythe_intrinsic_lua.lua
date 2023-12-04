@@ -75,7 +75,7 @@ function modifier_necrolyte_reapers_scythe_intrinsic_lua:OnAttack( data )
 			local mana_cost = self:GetAbility():GetManaCost(self:GetAbility():GetLevel())
 			if mana_cost <= self:GetCaster():GetMana() then 
 				self.caster:SetCursorCastTarget( data.target )
-				self:GetAbility():OnSpellStart()
+				self:GetAbility():OnSpellStart(true)
 				self.caster:SpendMana( mana_cost, self:GetAbility() )
 			end
 		end

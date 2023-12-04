@@ -50,7 +50,6 @@ function modifier_assault_lua:OnCreated()
 	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
 		self.aura_radius = 1500
 	end
-	print(self.aura_radius)
 	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
 	self.aura_positive_armor = self:GetAbility():GetSpecialValueFor("aura_positive_armor")
 	self.aura_negative_armor = self:GetAbility():GetSpecialValueFor("aura_negative_armor") * -1
@@ -66,7 +65,6 @@ function modifier_assault_lua:OnRefresh()
 	if self:GetParent():FindAbilityByName("special_bonus_unique_npc_dota_hero_sniper_agi50") then
 		self.aura_radius = 1500
 	end
-	print(self.aura_radius)
 	self.aura_attack_speed = self:GetAbility():GetSpecialValueFor("aura_attack_speed")
 	self.aura_positive_armor = self:GetAbility():GetSpecialValueFor("aura_positive_armor")
 	self.aura_negative_armor = self:GetAbility():GetSpecialValueFor("aura_negative_armor") * -1

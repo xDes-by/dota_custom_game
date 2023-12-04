@@ -116,7 +116,6 @@ function Forge:UpdateItemData(PlayerID, entindex)
 end
 
 function Forge:ItemUpdate(t)
-    DeepPrintTable(t)
     self:ExploreAllInventory(t.player_id)
 end
 
