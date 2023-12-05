@@ -20,6 +20,9 @@ function item_spirit_vessel_lua:GetAbilityTextureName()
 end
 
 function item_spirit_vessel_lua:GetIntrinsicModifierName()
+    if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
     return "modifier_item_spirit_vessel_lua"
 end
 

@@ -6,6 +6,7 @@
         "language" "russian"
         "addon_game_name" "Squirrel World RPG"
 
+        "Panorama_Tooltip_Continue" "Продолжить"
         "start_chat" "<font color='#00ff00'>Ребята, добро пожаловать в Squirrel World RPG</font> <font color='#ff0000'>Для улучшения качества отклика сервера, напишите в консоль:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Поздравляем! Вы прошли игру! Можете безопасно покинуть ее или же попробовать убить Чумную Белку!</font>"
 
@@ -4287,8 +4288,8 @@
         "npc_dota_hero_juggernaut_int11_description" "Omnislash вызывает срабатывание Blade Requiem"
         "npc_dota_hero_juggernaut_int12" "Души павших самураев рвуться назад"
         "npc_dota_hero_juggernaut_int12_description" "Blade dance 10 % шанс срабатывания Blade Requiem при атаке"
-        "npc_dota_hero_juggernaut_int13" "Ты падёшь от моей руки!"
-        "npc_dota_hero_juggernaut_int13_description" "Blade dance +15 % шанс срабатывания Blade Requiem при атаке"
+        "npc_dota_hero_juggernaut_int_13" "Ты падёшь от моей руки!"
+        "npc_dota_hero_juggernaut_int_13_description" "Blade dance +15 % шанс срабатывания Blade Requiem при атаке"
 
         //Arc Warden//
 
@@ -7339,7 +7340,7 @@
 
 
         "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
-        "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Начинаем копать"
+        "dota_tooltip_ability_item_smithy_pickaxe_description" "Если найти большой камень и ударить по нему, вы получите 2 камня для кузницы."
        
 //======================================================================================================================================
 //==RUNES

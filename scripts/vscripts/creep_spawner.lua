@@ -216,26 +216,12 @@ end
 
 function spawn_creeps_swamp()
     local count = 0
-    local creepNames = {
-        {1, 5, "swamp_creep_2"},
-        {3, 4, "swamp_creep_4"},
-        {2, 6, "swamp_creep_3"},
-    }
-    
-    while count < 6 do
+    while count <= 6 do
         count = count + 1
         local point = Vector(point_swamp[count][1], point_swamp[count][2], point_swamp[count][3])
         local randomVector = RandomVector(RandomInt(50, 200))
-        local creepName = "swamp_creep_1"
-        
-        for _, creepInfo in ipairs(creepNames) do
-            if count == creepInfo[1] or count == creepInfo[2] then
-                creepName = creepInfo[3]
-                break
-            end
-        end
-        
-        for i = 1, 5 do
+        for i = 1, 4 do
+			local creepName = "swamp_creep_" .. i
             CreateUnitByName_WithoutLags(creepName, point + randomVector, true, nil, nil, DOTA_TEAM_BADGUYS)
         end
     end

@@ -17,6 +17,9 @@ function item_sabre_blade:GetAbilityTextureName()
 end
 
 function item_sabre_blade:GetIntrinsicModifierName()
+    if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
     return "modifier_sabre_blade"
 end
 
