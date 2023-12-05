@@ -24,10 +24,10 @@ require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
+_G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
-_G.server_load = false --not IsInToolsMode() -- true
+_G.server_load = true --not IsInToolsMode() -- true
 _G.spawnCreeps =  false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
@@ -50,7 +50,7 @@ function CAddonAdvExGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(true)
 	local GameModeEntity = GameRules:GetGameModeEntity()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(10)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(20)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true )
 	GameRules:SetPreGameTime(1)
 	GameRules:SetShowcaseTime(1)
@@ -430,7 +430,7 @@ function loadscript()
 		require("www/loader")
 	else
 		print("server load")
-		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua-test?key=" .. _G.key
+		local url = "https://cdn.random-defence-adventure.ru/backend/api/lua?key=" .. _G.key
 		local req = CreateHTTPRequestScriptVM( "GET", url )
 		req:SetHTTPRequestAbsoluteTimeoutMS(100000)
 		req:Send(function(res)
