@@ -667,15 +667,15 @@ function DataBase:PlayerSetup( pid )
 		_G.RATING.history[pid] = obj.history
 		_G.SHOP[pid] = obj.shop
 		diff_wave:SetPlayerData(pid, obj.settings)
+		rating:PlayerSetup(pid, obj.settings)
+		MultiplierManager:SetPlayerData(pid, obj.items)
 		Quests:SetPlayerData(pid, obj.daily, obj.bp, obj.settings)
 		Pets:SetPlayerData(pid, obj.items, obj.settings)
 		Shop:PlayerSetup( pid, obj.items)
 		Talents:HeroSelectedListen(pid)
-		rating:PlayerSetup(pid, obj.settings)
 		BattlePass:SetPlayerData(pid, obj.battle_pass, obj.settings)
 		BattlePass:UpdatePlayerCosmeticEffects(pid, obj.items)
 		BattlePass:UpdatePlayerHeroModels(pid, obj.items)
-		MultiplierManager:SetPlayerData(pid, obj.items)
 		sInv:SetPlayerData(pid, obj.items)
 	end)
 end

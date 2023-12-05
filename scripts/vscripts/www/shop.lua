@@ -112,9 +112,9 @@ function Shop:OnPlayerReconnected(keys)
 	end
 end
 
-function Shop:PlayerSetup( pid, items )
+function Shop:PlayerSetup( pid, itemsDB )
 	local temp = {}
-	for _, value in pairs(items) do
+	for _, value in pairs(itemsDB) do
 		if temp[value.name] == nil then
 			temp[value.name] = value
 		else
