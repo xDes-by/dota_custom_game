@@ -68,7 +68,7 @@ imposible_drop = {
 }
 
 item_drop = {
-		{items = {"item_raid_soul"}, chance = 100, units = {"raid_boss", "raid_boss2", "raid_boss3", "raid_boss4"}},
+		-- {items = {"item_raid_soul"}, chance = 100, units = {"raid_boss", "raid_boss2", "raid_boss3", "raid_boss4"}},
 		
 		{items = {"item_cheese_lua"}, chance = 100,  duration = 30, units = {"roshan_npc"}},
 		
