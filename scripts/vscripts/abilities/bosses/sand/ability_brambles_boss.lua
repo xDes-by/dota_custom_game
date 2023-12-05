@@ -148,7 +148,7 @@ function modifier_ability_brambles_boss_thinker:PlayEffects()
 
 	self:AddParticle(effect_cast,false,false, -1,false,false)
 
-	EmitSoundOn( "Hero_DarkWillow.Bramble.Spawn", self:GetParent() )
+	-- EmitSoundOn( "Hero_DarkWillow.Bramble.Spawn", self:GetParent() )
 	EmitSoundOn( "Hero_DarkWillow.BrambleLoop", self:GetParent() )
 end
 

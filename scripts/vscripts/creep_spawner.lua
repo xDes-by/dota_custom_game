@@ -385,7 +385,7 @@ ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), cr
 function creep_spawner:FixCreepLags(data)
 	local unit = EntIndexToHScript(data.entindex)
 	if unit:CanTakeModifier() then
-		unit:AddNewModifier(nil, nil, "modifier_creep_antilag", nil)
+		unit:AddNewModifier(unit, nil, "modifier_creep_antilag", nil)
 	end
 end
 
