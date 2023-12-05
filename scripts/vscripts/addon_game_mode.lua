@@ -122,6 +122,7 @@ function CAddonAdvExGameMode:GoldFilter(data)
 		hero:SetGold( 99999, false )
 		mod:SetStackCount(new_gold - 99999)
 	else
+		mod:SetStackCount(0)
 		hero:SetGold( new_gold, false )
 	end
 	return false
@@ -410,7 +411,66 @@ function CAddonAdvExGameMode:OnGameStateChanged( keys )
 				end
 			return 300
 		end)
-	
+	for iPlayerID = 0, PlayerResource:GetPlayerCount() - 1 do
+		if PlayerResource:IsValidPlayer(iPlayerID) then
+			Timers:CreateTimer(0.03,function()
+				local npc = PlayerResource:GetSelectedHeroEntity(iPlayerID)
+				if not npc then
+					return 0.03
+				end
+				local playerID = iPlayerID
+				npc:AddAbility("spell_item_pet"):SetLevel(1)
+				npc:AddItemByName("item_tpscroll")
+				
+				if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
+					Wearable:SetDefault(npc)
+					npc:AddNewModifier(npc, nil, "modifier_wearable_pet", {})
+				end
+				
+				npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
+				npc:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
+				npc:AddNewModifier(npc, nil, "modifier_refresh_items", nil)
+				
+				CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
+				CheckCheatMode()
+				
+				if diff_wave.wavedef == "Insane" then
+					npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
+				end	
+				if diff_wave.wavedef == "Impossible" then
+					npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(3)
+				end	
+				
+				if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
+					npc:AddNewModifier( npc, nil, "modifier_ban", {} )
+					CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
+				end
+				
+				SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
+				
+				steamID = PlayerResource:GetSteamAccountID(playerID)
+				id_check(steamID) -----------------------------------------------
+				
+				for categoryKey, categoryValue in ipairs(Shop.pShop[playerID]) do
+					for itemKey, itemValue in ipairs(categoryValue) do
+						for _, itemname in pairs({"item_str", "item_agi", "item_int", "item_tree_gold"}) do
+							if itemValue.itemname and itemValue.itemname == itemname and itemValue.now > 0 then
+								npc:AddItemByName(itemname)
+								itemValue.now = 0
+								itemValue.status = "issued"
+								break
+							end
+						end
+					end
+				end
+				if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
+					if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
+						npc:AddNewModifier(npc, nil, "modifier_ban", nil)
+					end
+				end
+			end)
+		end
+	end
 	-- Timers:CreateTimer(3000, function()
 		-- creep_spawner:spawn_2023()
 	-- end)
@@ -464,59 +524,12 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 function CAddonAdvExGameMode:OnNPCSpawned(data)	
-	npc = EntIndexToHScript(data.entindex)	
-	if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
-		npc.bFirstSpawned = true
-		local playerID = npc:GetPlayerID()
-		npc:AddAbility("spell_item_pet"):SetLevel(1)
-		npc:AddItemByName("item_tpscroll")
-		
-		if Wearable:HasAlternativeSkin(npc:GetUnitName()) then
-			Wearable:SetDefault(npc)
-			npc:AddNewModifier(npc, nil, "modifier_wearable_pet", {})
-		end
-		
-		npc:AddNewModifier(npc, nil, "modifier_cheack_afk", nil)
-		npc:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
-		
-		CustomNetTables:SetTableValue("player_pets", tostring(playerID), {pet = "spell_item_pet"})	
-		CheckCheatMode()
-		
-		if diff_wave.wavedef == "Insane" then
-			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(5)
-		end	
-		if diff_wave.wavedef == "Impossible" then
-			npc:AddNewModifier(npc, nil, "modifier_insane_lives", {}):SetStackCount(3)
-		end	
-		
-		if Shop.pShop[playerID].ban and Shop.pShop[playerID].ban == 1 then 
-			npc:AddNewModifier( npc, nil, "modifier_ban", {} )
-			CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer(playerID), "ban", ban )
-		end
-		
-		SendToServerConsole("dota_max_physical_items_purchase_limit " .. 500)
-		
-		steamID = PlayerResource:GetSteamAccountID(playerID)
-		id_check(steamID) -----------------------------------------------
-		
-		for categoryKey, categoryValue in ipairs(Shop.pShop[playerID]) do
-			for itemKey, itemValue in ipairs(categoryValue) do
-				for _, itemname in pairs({"item_str", "item_agi", "item_int", "item_tree_gold"}) do
-					if itemValue.itemname and itemValue.itemname == itemname and itemValue.now > 0 then
-						npc:AddItemByName(itemname)
-						itemValue.now = 0
-						itemValue.status = "issued"
-						break
-					end
-				end
-			end
-		end
-	end
-	if diff_wave.wavedef == "Insane" or diff_wave.wavedef == "Impossible" then
-		if npc and npc:GetTeamNumber() == DOTA_TEAM_GOODGUYS and not npc:IsIllusion() and npc:IsRealHero() and not npc:IsClone() and not npc:IsTempestDouble() and not npc:IsReincarnating() and not npc:WillReincarnate() and npc:UnitCanRespawn() and not npc:HasModifier("modifier_insane_lives") then
-			npc:AddNewModifier(npc, nil, "modifier_ban", nil)
-		end
-	end
+	-- npc = EntIndexToHScript(data.entindex)	
+	-- if npc:IsRealHero() and npc.bFirstSpawned == nil and not npc:IsIllusion() and not npc:IsTempestDouble() and not npc:IsClone() and npc:GetTeamNumber() == 2 then
+	-- 	npc.bFirstSpawned = true
+
+	-- end
+
 	-- if IsInToolsMode() then
 	-- 	if npc:IsRealHero()  then
 	-- 		npc:AddItemByName("item_satanic_custom")
@@ -1590,3 +1603,21 @@ function CDOTA_BaseNPC_Hero:GetTotalGold()
 	end
 	return totalgold
 end
+
+Convars:RegisterCommand( "chek_localize", function( cmd )
+    local main_file = "addon_russian"
+    local compare_to = "addon_english"
+    local main_kv = LoadKeyValues("resource/" .. main_file..".txt")["Tokens"]
+    local compare_kv = LoadKeyValues("resource/" .. compare_to..".txt")["Tokens"]
+    for k,v in pairs(main_kv) do
+        if compare_kv[k] == nil then
+            print(k)
+        end
+    end
+    end, "chek_localize", FCVAR_CHEAT
+)
+Convars:RegisterCommand( "addmod", function( cmd )
+	local hero = PlayerResource:GetSelectedHeroEntity(2)
+	hero:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
+    end, "chek_localize", FCVAR_CHEAT
+)

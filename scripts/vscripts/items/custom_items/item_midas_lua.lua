@@ -20,6 +20,9 @@ function item_midas_lua:GetIntrinsicModifierName()
 end
 
 function item_midas_lua:OnSpellStart()
+    if self.mod then
+        self.mod:Destroy()
+    end
     local target = self:GetCursorTarget()
     self.mod = target:AddNewModifier(self:GetCaster(), self, "modifier_item_midas_lua_shareable_gold", {})
 end
@@ -106,7 +109,7 @@ function modifier_item_midas_lua_shareable_gold:IsStunDebuff()
 end
 
 function modifier_item_midas_lua_shareable_gold:RemoveOnDeath()
-    return false
+    return true
 end
 
 function modifier_item_midas_lua_shareable_gold:DestroyOnExpire()
@@ -124,7 +127,7 @@ function modifier_item_midas_lua_shareable_gold:OnCreated()
 end
 
 function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
-    if not self:GetAbility() then
+    if not self:GetAbility() or (self:GetAbility():GetItemSlot() == -1 or self:GetAbility():GetItemSlot() > 5) then
         self:Destroy()
         return
     end
@@ -134,7 +137,7 @@ function modifier_item_midas_lua_shareable_gold:SharebleGold(data)
         local bounty = killedUnit:GetGoldBounty()
         if bounty then
             gold = bounty * self.shareable_gold
-            killerEntity:ModifyGoldFiltered(gold, true, DOTA_ModifyGold_SharedGold)
+            self:GetCaster():ModifyGoldFiltered(gold, true, DOTA_ModifyGold_SharedGold)
         end
     end
 end

@@ -56,7 +56,7 @@ function modifier_ability_npc_titan_boss_swich_type:OnIntervalThink()
         self:GetParent():AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_ability_npc_titan_boss_swich_type_magic", {duration = self.duration_magical})
         self:GetParent().stomp_type = "magical"
         self:StartIntervalThink(self.duration_magical)
-        EmitSoundOn("DOTA_Item.GhostScepter.Activate", self:GetParent())
+        -- EmitSoundOn("DOTA_Item.GhostScepter.Activate", self:GetParent())
     end
     if self:GetParent().stomp_type == "magical" then
         self:GetParent().stomp_type = "physical"

@@ -63,13 +63,19 @@ function Spawner:Init()
 	end)
 
 	Timers:CreateTimer(RandomInt(120, 300),function()
-		if spawnCreeps and not _G.kill_invoker then
+		if spawnCreeps and not _G.kill_invoker and Spawner:CheckBarracks() then
 			CreatePatroolWave()
 		end
 		return RandomInt(120,300)
 	end)
 end
 
+function Spawner:CheckBarracks()
+	local barack1 = Entities:FindByName( nil, "badguys_creeps")
+	local barack2 = Entities:FindByName( nil, "badguys_comandirs")
+	local barack3 = Entities:FindByName( nil, "badguys_boss")
+	return barack1 ~= nil and barack2 ~= nil and barack3 ~= nil
+end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function Spawn_system()
@@ -386,7 +392,7 @@ function CreatePatroolWave()
 				MoveToNextCornerThink(unit, unit.CornerID)
 			end, 0.1 )
 			unit:SetContextThink( "invo_kill", function()
-				if _G.kill_invoker then
+				if _G.kill_invoker or not Spawner:CheckBarracks() then
 					unit:Kill(nil,nil)
 					return
 				end

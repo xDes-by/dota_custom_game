@@ -215,8 +215,9 @@ function spawn_creeps_cemetery()
 end
 
 function spawn_creeps_swamp()
+	donate_level()
     local count = 0
-    while count <= 6 do
+    while count < 6 do
         count = count + 1
         local point = Vector(point_swamp[count][1], point_swamp[count][2], point_swamp[count][3])
         local randomVector = RandomVector(RandomInt(50, 200))
@@ -297,8 +298,9 @@ end
 ---------------------------------------------------------------------------------------------------
 -------------------------- Donate Creeps
 ---------------------------------------------------------------------------------------------------
-
-_G.don_spawn_level = 0
+if not _G.don_spawn_level then
+	_G.don_spawn_level = 0
+end
 
 function donate_level()
 	print("donate")
@@ -385,7 +387,7 @@ ListenToGameEvent('npc_spawned', Dynamic_Wrap(creep_spawner, "FixCreepLags"), cr
 function creep_spawner:FixCreepLags(data)
 	local unit = EntIndexToHScript(data.entindex)
 	if unit:CanTakeModifier() then
-		unit:AddNewModifier(nil, nil, "modifier_creep_antilag", nil)
+		unit:AddNewModifier(unit, nil, "modifier_creep_antilag", nil)
 	end
 end
 

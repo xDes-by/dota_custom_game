@@ -72,9 +72,9 @@ function modifier_sabre_blade:OnAttack(event)
     if self:GetCaster() ~= event.attacker then 
         return 
     end
-    if attacker:IsRealHero() then
+    if event.attacker:IsRealHero() then
         if not self:GetAbility():IsFullyCastable() then return end
-        event.attacker:AddNewModifier(attacker, self:GetAbility(), "modifier_sabre_blade_doubleattack", {enemyEntIndex = victim:GetEntityIndex(), duration = 0.5,})
+        event.attacker:AddNewModifier(attacker, self:GetAbility(), "modifier_sabre_blade_doubleattack", {enemyEntIndex = event.target:GetEntityIndex(), duration = 0.5,})
         event.target:AddNewModifier(victim, self:GetAbility(), "modifier_sabre_blade_doubleattack_debuff", { duration = self.slow })
         self:GetAbility():UseResources(false, false, false, true)
     end
