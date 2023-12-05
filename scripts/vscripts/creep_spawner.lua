@@ -216,7 +216,7 @@ end
 
 function spawn_creeps_swamp()
     local count = 0
-    while count <= 6 do
+    while count < 6 do
         count = count + 1
         local point = Vector(point_swamp[count][1], point_swamp[count][2], point_swamp[count][3])
         local randomVector = RandomVector(RandomInt(50, 200))
