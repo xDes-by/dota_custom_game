@@ -14,6 +14,9 @@ function item_ethereal_blade_lua:GetAbilityTextureName()
 end
 
 function item_ethereal_blade_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_ethereal_blade_lua"
 end
 

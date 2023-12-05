@@ -12,6 +12,9 @@ function item_ring_of_flux_lua:GetAbilityTextureName()
 end
 
 function item_ring_of_flux_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_ring_of_flux_lua"
 end
 

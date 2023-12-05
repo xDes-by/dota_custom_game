@@ -22,6 +22,9 @@ function item_boots_of_bearing_lua:GetAbilityTextureName()
 end
 
 function item_boots_of_bearing_lua:GetIntrinsicModifierName()
+    if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
     return "modifier_boots_of_bearing_lua"
 end
 

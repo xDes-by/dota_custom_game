@@ -8,6 +8,7 @@
         "dota_hud_error_cannot_cast_on_it" "Cannot cast on it"
         "DOTA_Tooltip_modifier_item_smithy_pickaxe" "Excavation"
         "DOTA_Tooltip_modifier_item_smithy_pickaxe_Description" "Excavation time is limited"
+        "Panorama_Tooltip_Continue" "Continue"
         "start_chat" "<font color='#00ff00'>Welcome guys to Squirrel World RPG</font> <font color='#ff0000'>To improve server response quality, write to console:</font> <font color='#ffff00'>dota_hud_healthbars 1</font>"
         "invok_chat" "<font color='#00ff00'>Congratulations! You completed the game! You can leave it safely or try to kill the Plague Squirrel!</font>"
 
@@ -15425,8 +15426,8 @@
         "npc_dota_hero_juggernaut_int11_description" "Omnislash triggers Blade Requiem"
         "npc_dota_hero_juggernaut_int12" "The souls of the fallen samurai are rushing back"
         "npc_dota_hero_juggernaut_int12_description" "Blade dance 10% chance of triggering Blade Requiem on attack"
-        "npc_dota_hero_juggernaut_int13" "You will fall by my hand!"
-        "npc_dota_hero_juggernaut_int13_description" "Blade dance +15% chance of Blade Requiem triggering when attacking"
+        "npc_dota_hero_juggernaut_int_13" "You will fall by my hand!"
+        "npc_dota_hero_juggernaut_int_13_description" "Blade dance +15% chance of Blade Requiem triggering when attacking"
 
         //Arc Warden//
 
@@ -20853,7 +20854,7 @@
 		"DOTA_Tooltip_ability_item_midas_lua8_gem5_bonus_gem"         "%<font color = '#da00ff'> Health and mana regen bonus per second </font>"
 
         "dota_tooltip_ability_item_smithy_pickaxe" "Pickaxe"
-        "dota_tooltip_ability_item_smithy_pickaxe_description" "<h1>Dig Timer</h1> Start Dig"
+        "dota_tooltip_ability_item_smithy_pickaxe_description" "If you find a big rock and hit it, you get 2 stones for forge"
 
     
         

@@ -13,6 +13,9 @@ function item_meteor_hammer_lua:GetAbilityTextureName()
 end
 
 function item_meteor_hammer_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_meteor_hammer_lua"
 end
 

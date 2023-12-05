@@ -4,6 +4,9 @@ LinkLuaModifier("modifier_item_radiance_lua", 'items/custom_items/item_radiance_
 LinkLuaModifier("modifier_item_radiance_burn_lua", 'items/custom_items/item_radiance_lua.lua', LUA_MODIFIER_MOTION_NONE)
 
 function item_radiance_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_radiance_lua"
 end
 

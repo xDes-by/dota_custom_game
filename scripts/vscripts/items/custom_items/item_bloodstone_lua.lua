@@ -13,6 +13,9 @@ function item_bloodstone_lua:GetAbilityTextureName()
 end
 
 function item_bloodstone_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_bloodstone_lua"
 end
 

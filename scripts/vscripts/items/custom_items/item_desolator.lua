@@ -3,6 +3,9 @@ LinkLuaModifier( "modifier_item_blight_stone_lua", "items/custom_items/item_deso
 LinkLuaModifier( "modifier_curruption_armor_debuff", "items/custom_items/item_desolator.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_blight_stone_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_blight_stone_lua"
 end
 
@@ -54,6 +57,9 @@ function item_desolator_lua:GetAbilityTextureName()
 end
 
 function item_desolator_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_desolator_lua" 
 end
 

@@ -28,7 +28,7 @@ _G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
 _G.server_load = false --not IsInToolsMode() -- true
-_G.spawnCreeps =  false or not IsInToolsMode() -- true
+_G.spawnCreeps =  true or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -850,20 +850,16 @@ function CAddonAdvExGameMode:OnEntityKilled( keys )
 
 	for _, name in pairs(bosses_names) do
 		if name == killedUnit:GetUnitName() then
-			if killerEntity:GetOwner() ~= nil and not killerEntity:IsRealHero() and killerEntity:GetTeam() == DOTA_TEAM_GOODGUYS then
-				--it's a friendly summon killing something, credit to the owner
-				if killerEntity:GetOwner() ~= nil and killerEntity:GetOwner():IsRealHero() then
-					killerEntity:GetOwner():IncrementKills(1)
-				end
-			elseif killerEntity:IsRealHero() then
-				killerEntity:IncrementKills(1)
+			if killerEntity:GetPlayerOwnerID() then
+				local hero = PlayerResource:GetSelectedHeroEntity(killerEntity:GetPlayerOwnerID())
+				hero:IncrementKills(1)
+				break
 			end
-			break
 		end
 	end
 
-	if killerEntity and killerEntity:IsRealHero() then
-		killerEntity_playerID = killerEntity:GetPlayerID()
+	if killerEntity then
+		killerEntity_playerID = killerEntity:GetPlayerOwnerID()
 	end	
 
     if killedUnit:IsHero() and not killedUnit:IsReincarnating() then

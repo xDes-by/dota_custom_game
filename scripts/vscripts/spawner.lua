@@ -57,13 +57,13 @@ function Spawner:Init()
 		_G.point_line_spawner = Vector( -1292, -9245,0)
 	end
 	Timers:CreateTimer(120,function()
-		if spawnCreeps then
+		if spawnCreeps and not _G.kill_invoker then
 			Spawn_system()
 		end
 	end)
 
 	Timers:CreateTimer(RandomInt(120, 300),function()
-		if spawnCreeps then
+		if spawnCreeps and not _G.kill_invoker then
 			CreatePatroolWave()
 		end
 		return RandomInt(120,300)
@@ -383,6 +383,13 @@ function CreatePatroolWave()
 			unit.CornerID = 1
 			unit:SetContextThink( "Think", function()
 				MoveToNextCornerThink(unit, unit.CornerID)
+			end, 0.1 )
+			unit:SetContextThink( "invo_kill", function()
+				if _G.kill_invoker then
+					unit:Kill(nil,nil)
+					return
+				end
+				return 0.1
 			end, 0.1 )
 		end
 	end

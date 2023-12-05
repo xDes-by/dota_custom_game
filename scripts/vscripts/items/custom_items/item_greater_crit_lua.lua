@@ -12,6 +12,9 @@ function item_greater_crit_lua:GetAbilityTextureName()
 end
 
 function item_greater_crit_lua:GetIntrinsicModifierName()
+	if (self:GetItemSlot() > 5 or self:GetItemSlot() == -1) then
+		return
+	end
 	return "modifier_item_greater_crit_lua"
 end
 
