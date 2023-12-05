@@ -24,6 +24,7 @@ function ChatCommands:IsAdmin(sid)
         111684601, --Андрей (deal with it)
         98338509, --- ICE
         120578788, -- Dыnьka ;3
+        1611999656, -- купидон
     }, sid)
 end
 

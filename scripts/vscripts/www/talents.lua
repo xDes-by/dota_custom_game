@@ -178,12 +178,13 @@ function Talents:CalculateLevelFromExperience(experience)
     return self.levelMax
 end
 function Talents:IsSecondBranchActive(pid)
-    if self.player[pid].cout == 2 then
+    if self.player[pid].testing then
         return true
     end
     local hero_name = PlayerResource:GetSelectedHeroName(pid)
     for k, v in pairs(self.second_branch) do
         if v.hero_name == hero_name then
+            DeepPrintTable(Shop.pShop[pid].items[k])
             if Shop.pShop[pid].items[k] and Shop.pShop[pid].items[k].value > 0 then
                 return true
             end
@@ -620,17 +621,23 @@ function Talents:SaveData(pid)
     DataBase:Send(DataBase.link.TalentsSave, "GET", send, pid, not DataBase:IsCheatMode(), nil)
 end
 function Talents:ActivateSecondBranch(pid)
-    if self:IsSecondBranchActive(pid) then
-        self.player[pid].cout = 2
-        self:UpdateTable(pid)
+    for k, v in pairs(self.second_branch) do
+        if v.hero_name == hero_name then
+            Shop.pShop[pid].items[k] = {}
+            Shop.pShop[pid].items[k].value = 1
+            break
+        end
     end
+    self.player[pid].cout = 2
+    self:UpdateTable(pid)
 end
 function Talents:BuySecondBranch(t)
     local pid = t.PlayerID
     local name = t.name
     local currency = t.currency
+    local hero_name = PlayerResource:GetSelectedHeroName(pid)
     if self.second_branch[name] == nil then return end
-    if self.player[pid].cout == 2 then return end
+    if self:IsSecondBranchActive(pid) then return end
     if currency == 'don' and not (self.second_branch[name].price.don ~= nil and Shop.pShop[pid]["coins"] >= self.second_branch[name].price.don) then return end
     if currency == 'rp' and not (self.second_branch[name].price.rp ~= nil and Shop.pShop[pid]["mmrpoints"] >= self.second_branch[name].price.rp) then return end
     local send = {}
@@ -643,7 +650,7 @@ function Talents:BuySecondBranch(t)
         Shop.pShop[pid]["coins"] = Shop.pShop[pid]["coins"] - self.second_branch[name].price.don
         send.don = self.second_branch[name].price.don
     end
-    self.player[pid].cout = 2
+    self:ActivateSecondBranch(pid)
     self:UpdateTable(pid)
     CustomShop:UpdateShopInfoTable(pid)
     DataBase:Send(DataBase.link.TalentsBuySecondBranch, "GET", send, pid, not DataBase:IsCheatMode(), nil)

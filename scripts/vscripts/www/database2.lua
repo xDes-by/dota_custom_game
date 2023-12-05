@@ -708,9 +708,6 @@ function DataBase:EndGameSession(pid, rating_change)
 		rp = 0,
 	}
 	local quest_counters = Quests:GetServerDataArray(pid)
-	local battle_pass_experience = {
-		
-	}
 	if _G.kill_invoker == false then 
 		game.diff = 0
 	end
