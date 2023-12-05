@@ -24,7 +24,7 @@ require("dummy")
 require("effects")
 require("wearable")
 
-_G.key = GetDedicatedServerKeyV3("WAR")
+_G.key = "455872541"--GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
 _G.server_load = true --not IsInToolsMode() -- true
@@ -247,7 +247,7 @@ function leave_game()
 						if connection ~= PlayerConection[nPlayerID] then
 							PlayerConection[nPlayerID] = connection
 								if not bot(nPlayerID) and connection == DOTA_CONNECTION_STATE_ABANDONED then 
-									if rat >= 6 and not GameRules:IsCheatMode() and _G.kill_invoker == false then
+									if rat >= 6 and not DataBase:IsCheatMode() and _G.kill_invoker == false then
 										-- DataBase:PointsChange(nPlayerID, -25 * diff_wave.rating_scale, true)
 										DataBase:EndGameSession(nPlayerID, -25 * diff_wave.rating_scale)
 									end

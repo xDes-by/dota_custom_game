@@ -21142,6 +21142,7 @@
         "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50" "Talent"
         "dota_tooltip_modifier_special_bonus_unique_npc_dota_hero_sand_king_str50_description" "Damage outgoing %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%"
         "dota_tooltip_ability_lifestealer_infest_bh_description" "The hero climbs into the body of the selected allied hero.<br><br><font color='gold'>All gold received by the hero for the kill is redirected to the target.<br><br>The hero receives 30% of the gold received by the target. Received The target's gold does not decrease.</font>"
+        "availability_item_upgrade" "Can be upgraded"
         "treasurie4_spray8" "Graffiti"
         "treasurie4_spray9" "Graffiti"
         "treasurie4_spray10" "Graffiti"

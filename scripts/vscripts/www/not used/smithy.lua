@@ -46,12 +46,12 @@ function Smithy:OnGameStateChanged(t)
         Timers:CreateTimer(3, function()
             for nPlayerID = 0, PlayerResource:GetPlayerCount()-1 do
                 for i = 1, 5 do
-                    SmithyArr[nPlayerID]['gems'][i] = _G.SHOP[nPlayerID]['gem_'..i] or 0
+                    SmithyArr[nPlayerID]['gems'][i] = _G.SHOP[nPlayerID+1]['gem_'..i] or 0
                 end
                 if PlayerResource:GetConnectionState(nPlayerID) == DOTA_CONNECTION_STATE_CONNECTED then
                     local send = {
                         npc = npc,
-                        patron = RATING["rating"][nPlayerID]["patron"]
+                        patron = RATING["rating"][nPlayerID+1]["patron"]
                     }
                     CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( nPlayerID ), "init",  send)
                     CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( nPlayerID ), "update_gems_js",  SmithyArr[nPlayerID]['gems'])
@@ -85,7 +85,7 @@ function Smithy:OnPlayerReconnected(t)
         Timers:CreateTimer(1, function()
             local send = {
                 npc = npc,
-                patron = RATING["rating"][t.PlayerID]["patron"]
+                patron = RATING["rating"][t.PlayerID+1]["patron"]
             }
             CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "init",  send)
             CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( t.PlayerID ), "update_gems_js",  SmithyArr[t.PlayerID]['gems'])
@@ -118,6 +118,9 @@ end
 function Smithy:put_item_lua(t)
     -- print('put_item_lua')
     -- Кладем предмет
+    DeepPrintTable({
+        slot = t.slot,
+    })
     local slot = t.slot
     local hero = PlayerResource:GetSelectedHeroEntity(t.PlayerID)
     if hero then
@@ -158,6 +161,7 @@ function Smithy:put_item_lua(t)
             end
             SmithyArr[t.PlayerID][t.type].item_name = item_name
             SmithyArr[t.PlayerID][t.type].stuck = quantity
+            DeepPrintTable(SmithyArr[t.PlayerID][t.type])
             if t.notbuild == nil then
                 Smithy:building_control({PlayerID = t.PlayerID,selected_gem = SmithyArr[t.PlayerID].stone, toggle = t.toggle})
             end
