@@ -25,7 +25,7 @@ function modifier_cheack_afk:OnCreated( kv )
 	if IsInToolsMode() or GameRules:IsCheatMode() then
 		return
 	end
-	self:StartIntervalThink(0.2)
+	-- self:StartIntervalThink(0.2)
 end
 
 function modifier_cheack_afk:OnIntervalThink()

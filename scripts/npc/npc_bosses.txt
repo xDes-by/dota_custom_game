@@ -1639,7 +1639,7 @@
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 		"Creature"
 		{	
-			
+			"DisableResistance"			"95.0"
 		}
 		"MinimapIcon"        "minimap_death"
 		"MinimapIconSize"    "500"
@@ -1716,7 +1716,7 @@
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 		"Creature"
 		{	
-			
+			"DisableResistance"			"95.0"
 		}
 		"MinimapIcon"        "minimap_death"
 		"MinimapIconSize"    "500"
@@ -2334,6 +2334,7 @@
 
 		"Creature"
 		{	
+		"DisableResistance"			"95.0"
 			"AttachWearables"
 			{
 				"Wearable1" {"ItemDef" "12276"}
@@ -2407,6 +2408,7 @@
 
 		"Creature"
 		{	
+		"DisableResistance"			"95.0"
 			"AttachWearables"
 			{
 				"Wearable1" {"ItemDef" "12276"}

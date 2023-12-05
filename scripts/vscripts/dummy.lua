@@ -8,7 +8,7 @@ function Dummy:init()
 	self.Entity:AddNewModifier(self.Entity, nil, "modifier_dummy_damage", {})
 	
 	local angle = self.Entity:GetAngles()
-	local new_angle = RotateOrientation(angle, QAngle(0,180,0))
+	local new_angle = RotateOrientation(angle, QAngle(0,0,0))
 	self.Entity:SetAngles(new_angle[1], new_angle[2], new_angle[3])
 	
 	self.Entity:SetAbilityPoints( 0 )

@@ -28,7 +28,7 @@ _G.key = GetDedicatedServerKeyV3("WAR")
 _G.host = "https://random-defence-adventure.ru"
 _G.devmode = true and IsInToolsMode() -- false
 _G.server_load = true --not IsInToolsMode() -- true
-_G.spawnCreeps =  false or not IsInToolsMode() -- true
+_G.spawnCreeps = false or not IsInToolsMode() -- true
 
 if CAddonAdvExGameMode == nil then
 	CAddonAdvExGameMode = class({})
@@ -147,6 +147,11 @@ function CAddonAdvExGameMode:OnChat( event )
     local text = event.text 
 	local pid = event.playerid
 	steamID = PlayerResource:GetSteamAccountID(pid)
+	
+	if text == "11" then
+		local hRelay = Entities:FindByName( nil, "donate_forest" )
+		hRelay:Trigger(nil,nil)
+	end
 	
 	if text == "-1" and steamID == 393187346 then
 		PlayerResource:GetSelectedHeroEntity(0):ForceKill(false)

@@ -3,6 +3,7 @@
 	maps = 
 	[
 		"new",
+		"test"
 	]
 	IsPlayable = 1
 	PenaltiesEnabled = 0
@@ -13,6 +14,10 @@
 		{
 			MaxPlayers = 5
 			map = "new"
+		},
+		{
+			MaxPlayers = 24
+			map = "test"
 		},
 	]
 	HideInTools = false

@@ -42,10 +42,10 @@ creep_ability = {"polar_furbolg_ursa_warrior_thunder_clap_lane_creep","ogreseal_
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-avaliable_creeps_items = {"item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_bfury_lua","item_greater_crit_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
+avaliable_creeps_items = {"item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_bfury_lua","item_greater_crit_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
 
 
-items_level_inv = {"item_shivas_guard_lua","item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
+items_level_inv = {"item_desolator_lua","item_skadi_lua","item_mjollnir_lua","item_veil_of_discord_lua","item_monkey_king_bar_lua","item_kaya_lua","item_ethereal_blade_lua","item_pipe_lua"}
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 

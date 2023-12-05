@@ -110,12 +110,12 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function Spawner:settings()
-	wave_new = wave / 1.8
+	wave_new = wave/2
 	creeps_name = t_creeps[RandomInt(1,#t_creeps)]	
-	health = health * 1.16
-	damage_creeps = damage_creeps * 1.16
+	health = health * 1.08
+	damage_creeps = damage_creeps * 1.08
 
-	set_health = math.floor(health + health*(wave_new/2)) * 2
+	set_health = math.floor(health + health*(wave_new/2))
 	
 	set_health_commandir = set_health * 2
 	set_health_boss = set_health * 50
@@ -132,7 +132,7 @@ function Spawner:settings()
 		set_health_boss = 2000000000
 	end		
 	
-	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2)) * 2
+	set_damage = math.floor(damage_creeps + damage_creeps*(wave_new/2))
 	
 	set_damage_commandir = set_damage * 2
 	set_damage_boss = set_damage * 20
@@ -335,6 +335,7 @@ function bosses_line_notification(creeps_name)
 end
 
 function CreatePatroolWave()
+	print("!!!!!!!!!!!!!!!!!!", _G.don_spawn_level )
 	if _G.don_spawn_level == 0 then
 		-- return
 	end
