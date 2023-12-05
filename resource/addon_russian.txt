@@ -2198,6 +2198,9 @@
         "DOTA_Tooltip_ability_item_midas_lua" "Hand of Midas"
         "DOTA_Tooltip_ability_item_midas_lua_description" "<h1>Активное: Gold Transfer</h1>Свяжите ваше золото с союзником и получайте до %shareble_gold%%% его золота."
         "DOTA_Tooltip_ability_item_midas_lua_attack_speed" "+$attack"
+
+        "DOTA_Tooltip_modifier_item_midas_lua_shareable_gold"		"Hand of Midas"
+        "DOTA_Tooltip_modifier_item_midas_lua_shareable_gold_Description"		"Вы делите 30%% золота с союзником."
 // clarity
         "DOTA_Tooltip_ability_item_clarity_custom1" "Clarity"
         "DOTA_Tooltip_ability_item_clarity_custom1_description" "<h1>Использование: Replenish</h1>Увеличивает восстановление маны."
@@ -4090,6 +4093,8 @@
         "npc_dota_hero_phantom_assassin_str12_description" "Blur становится активной, перезарядка 30 секунд, во время активации дает бкб на 3 сек."
         "npc_dota_hero_phantom_assassin_str12" "Сверхсекретная техника"
         "npc_dota_hero_phantom_assassin_str12_description" "Снимает кулдаун Phantom srike, может оглушать цели только раз в 10 сек (из таланта)"
+        "npc_dota_hero_phantom_assassin_str13" "Infinite jump"
+        "npc_dota_hero_phantom_assassin_str13_description" "Blink cooldown = 0"
 
         "npc_dota_hero_phantom_assassin_agi6" "Крученый"
         "npc_dota_hero_phantom_assassin_agi6_description" "Урон Stifling Dagger равен ловкости"
@@ -7261,8 +7266,8 @@
         "modifier_don11_description" "Мультикаст"
         "modifier_don12" "Божественный укус"
         "modifier_don12_description" "+5 к атрибутам за уровень"
-        "modifier_don13" "One for all!"
-        "modifier_don13_description" "The hero receives <font color='LimeGreen'>100</font>, <font color='DarkTurquoise'>200</font>, <font color='Red'>300</font> of all stats with start, at difficulty levels <font color='LimeGreen'>Ultra</font>, <font color='DarkTurquoise'>Insane</font>, <font color='Red'>Impossible</font>. For each level hero +0.6% outgoing damage, -0.05% incoming damage."
+        "modifier_don13" "Один за всех!"
+        "modifier_don13_description" "Герой получает <font color='LimeGreen'>100</font>, <font color='DarkTurquoise'>200</font>, <font color='Red'>300</font> всех характеристик при старте, на уровнях сложности <font color='LimeGreen'>Ультра</font>, <font color='DarkTurquoise'>Безумный</font>, <font color='Red'>Невозможно</font>. За каждый уровень героя +0,6% исходящего урона, -0,05% входящего урона."
         "DOTA_Tooltip_modifier_don13" "One for all!"
         "DOTA_Tooltip_modifier_don13_description" "%fMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%% outgoing damage, -%fMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming damage."
 
@@ -7403,5 +7408,9 @@
 
         "DOTA_Tooltip_modifier_rune_multicast"		"Мультикаст"
         "DOTA_Tooltip_modifier_rune_multicast_Description"		"С шансом 5% способность может не потратить ману и не запустить передарядку"
+
+
+
+        
     }
 }

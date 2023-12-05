@@ -215,6 +215,7 @@ function spawn_creeps_cemetery()
 end
 
 function spawn_creeps_swamp()
+	donate_level()
     local count = 0
     while count < 6 do
         count = count + 1
@@ -297,8 +298,9 @@ end
 ---------------------------------------------------------------------------------------------------
 -------------------------- Donate Creeps
 ---------------------------------------------------------------------------------------------------
-
-_G.don_spawn_level = 0
+if not _G.don_spawn_level then
+	_G.don_spawn_level = 0
+end
 
 function donate_level()
 	print("donate")

@@ -20,9 +20,16 @@ local bossTable = {
 }
 
 function item_boss_summon:OnSpellStart()
-	CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
-		spawn_level = _G.don_spawn_level,
-	} )
+	print(_G.don_spawn_level)
+	if _G.don_spawn_level == 0 then
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
+			spawn_level = 0,
+		} )
+	else
+		CustomGameEventManager:Send_ServerToPlayer( PlayerResource:GetPlayer( self:GetCaster():GetPlayerID() ), "item_boss_summon_panorama", {
+			spawn_level = _G.don_spawn_level - 1,
+		} )
+	end
 	self.caster = self:GetCaster()
 	if IsServer() then
 		local duration = self:GetCooldown(self:GetLevel())* self.caster:GetCooldownReduction()

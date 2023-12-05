@@ -12,6 +12,12 @@ end
 function tower_kill:OnOwnerDied()
     local unit = table.random(_G.Miniboses)
     _G.Miniboses = table.remove_item(_G.Miniboses, unit)
+    local pos
+    if self:GetParent():GetUnitName() == "npc_dota_custom_tower_dire_1" then
+        pos = Vector(-1263, -7691, 512)
+    else
+        pos = self:GetCaster():GetAbsOrigin()
+    end
     local creep = CreateUnitByName(unit, self:GetCaster():GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
     creep:SetBaseDamageMin(10000)
     creep:SetBaseDamageMax(12000)

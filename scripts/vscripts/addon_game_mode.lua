@@ -122,6 +122,7 @@ function CAddonAdvExGameMode:GoldFilter(data)
 		hero:SetGold( 99999, false )
 		mod:SetStackCount(new_gold - 99999)
 	else
+		mod:SetStackCount(0)
 		hero:SetGold( new_gold, false )
 	end
 	return false
@@ -1602,3 +1603,21 @@ function CDOTA_BaseNPC_Hero:GetTotalGold()
 	end
 	return totalgold
 end
+
+Convars:RegisterCommand( "chek_localize", function( cmd )
+    local main_file = "addon_russian"
+    local compare_to = "addon_english"
+    local main_kv = LoadKeyValues("resource/" .. main_file..".txt")["Tokens"]
+    local compare_kv = LoadKeyValues("resource/" .. compare_to..".txt")["Tokens"]
+    for k,v in pairs(main_kv) do
+        if compare_kv[k] == nil then
+            print(k)
+        end
+    end
+    end, "chek_localize", FCVAR_CHEAT
+)
+Convars:RegisterCommand( "addmod", function( cmd )
+	local hero = PlayerResource:GetSelectedHeroEntity(2)
+	hero:AddNewModifier(npc, nil, "modifier_gold_bank", nil)
+    end, "chek_localize", FCVAR_CHEAT
+)

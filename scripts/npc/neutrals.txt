@@ -1866,7 +1866,7 @@
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "5.0"
+        // "AbilityCooldown"               "5.0"
         "AbilityManaCost"               "50"
 
         "Model"                         "models/props_gameplay/neutral_box.vmdl"
